@@ -6,10 +6,13 @@
 - Create a new gmail account(It is reccomended you do this in contrast to using an existing account) 
 - email account name to X and we will create a new QPCC drive for you
 - This drive can be found in the "shared drives" directory in the Google drive associated with the new gmail account
+
 ![Shared Drives](assets/Shared_Drives.png)
 
 - The course can be fully accessed in this drive, which includes a jupyter notebook for each module
+
 ![QPCC Drive](assets/QPCC_Drive.png)
+
 ## Attending the course
 - Open your QPCC drive in the "shared drives" directory in your Google drive
 - To attend a lecture, open the lecture's associated notebook. This will open a "colab" notebook tab in your browser. Colab is Google's jupyter notebook online platform. 
@@ -22,7 +25,7 @@
 
 ![Lecture Mount](assets/Lecture_Video.png)
 
-![Lecture Mount](assets/Lecture_Quizt.png)
+![Lecture Mount](assets/Lecture_Quiz.png)
 
 ## Support and assistance
 

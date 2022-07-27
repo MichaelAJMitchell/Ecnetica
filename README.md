@@ -4,7 +4,7 @@
 
 ## Setting up your access
 - Create a new gmail account(It is reccomended you do this in contrast to using an existing account) 
-- email account name to qpcc@ichec.ie and we will create a new QPCC drive for you
+- email account name to qpcc@ichec.ie with the subject line "Google Drive for QPCC" and we will create a new QPCC drive for you
 - This drive can be found in the "shared drives" directory in the Google drive associated with the new gmail account
 
 ![Shared Drives](assets/Shared_Drives.png)

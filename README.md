@@ -19,6 +19,8 @@
 Feel free to contact any of the following emails with any questions you have or help you may need.
 
 Venkatesh Kannan - venkatesh.kannan@ichec.ie
+
 Conor Dunne - conor.dunne@ichec.ie
+
 Emil Dimitrov - emil.dimitrov@ichec.ie
 

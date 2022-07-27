@@ -9,12 +9,20 @@
 ![Shared Drives](assets/Shared_Drives.png)
 
 - The course can be fully accessed in this drive, which includes a jupyter notebook for each module
+![QPCC Drive](assets/QPCC_Drive.png)
 ## Attending the course
 - Open your QPCC drive in the "shared drives" directory in your Google drive
 - To attend a lecture, open the lecture's associated notebook. This will open a "colab" notebook tab in your browser. Colab is Google's jupyter notebook online platform. 
 - Here you will see a collection of "cells", or blocks of code, which you can run using SHIFT+ENTER. It is important that you run the cells in the order presented.
+
+![Lecture Mount](assets/Lecture_Mount.png)
+
 - Upon running the first cell, you will be asked to give access, to your Google drive. Allow this.
 - You can now run the following cells to view the lecture YouTube video, the tutorial quiz and the exercise questions
+
+![Lecture Mount](assets/Lecture_Video.png)
+
+![Lecture Mount](assets/Lecture_Quizt.png)
 
 ## Support and assistance
 

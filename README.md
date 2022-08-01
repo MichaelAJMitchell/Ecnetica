@@ -15,7 +15,7 @@ QPCC for Managers will introduce practical skills including a landscape of quant
 ## Setting up your access
  1. Create a new Google account dedicated for your attendance of QPCC. This is reccomended for security and privacy, in contrast to using an existing account.
  2. Email your new Google account ID to qpcc@ichec.ie with the subject line `Google Drive for QPCC`. We will create a new QPCC drive with the course content for you and share it using your new Google account.
- 3. This new QPCC drive can be found under "Shared drives" in your Google drive associated with the new Google account.
+ 3. This new QPCC drive can be found under `Shared drives` in your Google drive associated with the new Google account.
 <p align="center">
  <img src="assets/Shared_Drives.png" width="200">
 </p>
@@ -30,10 +30,10 @@ QPCC for Managers will introduce practical skills including a landscape of quant
 
 
 ## Attending the course
- 1. Open your QPCC drive from under the "Shared drives" in your new Google account.
- 2. To attend a Lecture (recorded video), open the Module's associated Jupyter notebook. This will open a Colab notebook tab in your browser. Colab is Google's online platform for working with Jupyter notebooks. 
- 3. In the notebook, you will see a collection of "cells" (blocks of code). You can run each cell by placing the curson within the cell and pressing Shift+Enter. It is important that you run the cells in the order presented (first to last).
- 4. To prepare attending the Lecture, Tutorials and Exercises within the notebook, start by running the first two cells ("Mount your google drive", and "Install the required Python packages"). If you get an error or warning from either of these cells, run them again.
+ 1. Open your QPCC drive from under the `Shared drives` in your new Google account.
+ 2. To attend a Module, open its corresponding Jupyter notebook. This will open a Colab notebook tab in your browser. Colab is Google's online platform for working with Jupyter notebooks. 
+ 3. In the notebook, you will see a collection of `cells` (blocks of code). You can run each cell by placing the curson within the cell and pressing Shift+Enter. It is important that you run the cells in the order presented (first to last).
+ 4. To prepare attending the Lecture, Tutorials and Exercises within the notebook, start by running the first two cells (`Mount your google drive`, and `Install the required Python packages`). If you get an error or warning from either of these cells, run them again.
 <p align="center">
  <img src="assets/QPCC_Mount.png" width="700">
 </p>
@@ -47,7 +47,7 @@ QPCC for Managers will introduce practical skills including a landscape of quant
 </p>
 
 ### Reset notebook
-To clear your notebook and restart, go to the menu "Runtime > Restart and run all".
+To clear your notebook and restart, go to the menu `Runtime > Restart and run all`.
 <p align="center">
  <img src="assets/QPCC_Notebook_Restart.png" width="700">
 </p>

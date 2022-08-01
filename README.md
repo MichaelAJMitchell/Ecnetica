@@ -9,7 +9,7 @@
 
 [Shared Drives](assets/Shared_Drives.png | width=100px)
 
-![[assets/Shared_Drives.png|width=100px]]
+![Shared Drives][[assets/Shared_Drives.png|width=100px]]
 
 - The course can be fully accessed in this drive, which includes a jupyter notebook for each module
 

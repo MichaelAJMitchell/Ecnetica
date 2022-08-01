@@ -11,7 +11,7 @@
 
 - The course can be fully accessed in this drive, which includes a jupyter notebook for each module
 
-<img src="assets/QPCC_Drive.png" width="200">
+<img src="assets/QPCC_Drive.png" width="600">
 
 ## Attending the course
 - Open your QPCC drive in the "shared drives" directory in your Google drive

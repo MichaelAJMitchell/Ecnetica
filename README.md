@@ -55,3 +55,12 @@ To clear your notebook and restart, go to the menu `Runtime > Restart and run al
 
 ## Support and assistance
 Please write to qpcc@ichec.ie with any questions that you have or help you may need in relation to this course.
+
+
+##
+<p align="center">
+ <img src="assets/QPI_logo_black.png" width="100">
+ <img src="assets/ICHEC_logo.png" width="100">
+ <img src="assets/EuroCC_Ireland_logo.png" width="100">
+ <img src="assets/NUIG_logo.png" width="100">
+</p>

@@ -11,7 +11,7 @@
  ![Shared Drives](assets/Shared_Drives.png)
 </div>
 
-![Shared Drives]<imr src="assets/Shared_Drives.png" width="50">
+![Shared Drives]<img src="assets/Shared_Drives.png" width="50">
 
 - The course can be fully accessed in this drive, which includes a jupyter notebook for each module
 

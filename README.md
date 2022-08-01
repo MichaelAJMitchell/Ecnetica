@@ -59,14 +59,14 @@ Please write to qpcc@ichec.ie with any questions that you have or help you may n
 
 ##
 <p align="center">
- <img src="assets/QPI_logo.png" height="200">
- <img src="assets/ICHEC_logo.png" width="210">
- <img src="assets/EuroCC_Ireland_logo.png" width="65">
- <img src="assets/NUIG_logo.png" width="250">
+ <img src="assets/QPI_logo.png" height="75">
+ <img src="assets/ICHEC_logo.png" height="75">
+ <img src="assets/EuroCC_Ireland_logo.png" height="75">
+ <img src="assets/NUIG_logo.png" height="75">
 </p>
 <p align="center">
- <img src="assets/EU_flag_logo.png" width="100">
- <img src="assets/EuroHPC_JU_logo.png" width="180">
- <img src="assets/DFHERIS_logo.png" width="250">
- <img src="assets/TechnologyIrelandICTSkillnet_logo.png" width="80">
+ <img src="assets/EU_flag_logo.png" height="75">
+ <img src="assets/EuroHPC_JU_logo.png" height="75">
+ <img src="assets/DFHERIS_logo.png" height="75">
+ <img src="assets/TechnologyIrelandICTSkillnet_logo.png" height="75">
 </p>

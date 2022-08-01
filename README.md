@@ -68,5 +68,5 @@ Please write to qpcc@ichec.ie with any questions that you have or help you may n
  <img src="assets/EU_flag_logo.png" width="100">
  <img src="assets/EuroHPC_JU_logo.png" width="180">
  <img src="assets/DFHERIS_logo.png" width="250">
- <img src="assets/ICTSkillnet_logo.png" width="100">
+ <img src="assets/TechnologyIrelandICTSkillnet_logo.png" width="100">
 </p>

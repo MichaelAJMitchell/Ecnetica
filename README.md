@@ -8,7 +8,7 @@ Quantum computing is seen as the next disruption in the world of computing and i
 ### Business Leaders
 QPCC for Executives will inform you about the value proposition of quantum computing, value chain, ecosystem, capabilities, and development trends. You will be equipped to assess the impact of quantum computing for your sector and define suitable business strategies. The two sessions of this programme can be delivered back-to-back or spread over several days to suit the executives’ schedules.
 
-### Tecnical Managers
+### Technical Managers
 QPCC for Managers will introduce practical skills including a landscape of quantum computing systems, algorithms, tools, and applications. The managers will be equipped to assess technology evolution, define use-cases, and create a roadmap for the necessary technical and skills development activities required for your organisations.
 
 

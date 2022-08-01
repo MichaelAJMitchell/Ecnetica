@@ -14,7 +14,7 @@ As business leaders or technical managers, if you have heard of quantum computin
 
 ## Setting up your access
  1. Create a new Google account dedicated for your attendance of QPCC. This is reccomended for security and privacy, in contrast to using an existing account.
- 2. Email your new Google account ID to qpcc@ichec.ie with the subject line `Google drive for QPCC`. We will create a new QPCC drive with the course content for you and share it using your new Google account.
+ 2. Email your new Google account ID to qpcc@ichec.ie with the subject line `Google drive for QPCC`. We will create a new QPCC drive with the course content for you and share it with your new Google account.
  3. This new QPCC drive can be found under `Shared drives` in your Google drive associated with the new Google account.
 <p align="center">
  <img src="assets/Shared_Drives.png" width="200">

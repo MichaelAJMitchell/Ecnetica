@@ -1,7 +1,7 @@
 # Quantum Programming Certification Course (QPCC)
 
 ## Outline of course
-As Executives or Technical Managers, if you are aware of quantum computing, but feel uninformed and underprepared to deal with its significance, then this programme is for you!
+As Executives or Technical Managers, if you are aware of quantum computing, but feel uninformed and underprepared to deal with its significance, then this course is for you.
 
 Quantum computing is seen as the next disruption in the world of computing and information processing. It will affect several sectors – public and private – including financial services, engineering and manufacturing, ICT, material sciences, pharmaceuticals, logistics and transport, environmental security, research organisations, public agencies, and Governments.
 

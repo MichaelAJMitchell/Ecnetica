@@ -66,5 +66,6 @@ Please write to qpcc@ichec.ie with any questions that you have or help you may n
 </p>
 <p align="center">
  <img src="assets/EU_flag_logo.png" width="100">
+ <img src="assets/EuroHPC_logo.png" width="100">
  <img src="assets/DFHERIS_logo.png" width="250">
 </p>

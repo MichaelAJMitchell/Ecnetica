@@ -7,13 +7,11 @@
 - email account name to qpcc@ichec.ie with the subject line "Google Drive for QPCC" and we will create a new QPCC drive for you
 - This drive can be found in the "shared drives" directory in the Google drive associated with the new gmail account
 
-![Shared Drives](assets/Shared_Drives.png)
-
 <img src="assets/Shared_Drives.png" width="200">
 
 - The course can be fully accessed in this drive, which includes a jupyter notebook for each module
 
-![QPCC Drive](assets/QPCC_Drive.png)
+<img src="assets/QPCC_Drive.png" width="200">
 
 ## Attending the course
 - Open your QPCC drive in the "shared drives" directory in your Google drive

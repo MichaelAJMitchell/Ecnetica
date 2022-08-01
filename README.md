@@ -18,14 +18,14 @@
 - To attend a lecture, open the lecture's associated notebook. This will open a "colab" notebook tab in your browser. Colab is Google's jupyter notebook online platform. 
 - Here you will see a collection of "cells", or blocks of code, which you can run using SHIFT+ENTER. It is important that you run the cells in the order presented.
 
-![Lecture Mount](assets/Lecture_Mount.png)
+<img src="assets/Lecture_Mount.png" width="800">
 
 - Upon running the first cell, you will be asked to give access, to your Google drive. Allow this.
 - You can now run the following cells to view the lecture YouTube video, the tutorial quiz and the exercise questions
 
-![Lecture Mount](assets/Lecture_Video.png)
+<img src="assets/Lecture_Video.png" width="800">
 
-![Lecture Mount](assets/Lecture_Quiz.png)
+<img src="assets/Lecture_Quiz.png" width="800">
 
 ## Support and assistance
 

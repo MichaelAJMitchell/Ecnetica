@@ -22,12 +22,12 @@ QPCC for Managers will introduce practical skills including a landscape of quant
 
  4. The course content can be fully accessed in this drive, which includes a Jupyter notebook for each module. 
 <p align="center">
- <img src="assets/QPCC_Drive.png" width="600">
+ <img src="assets/QPCC_Drive.png" width="700">
 </p>
 
  5. The Jupyter notebook for each module contains a lecture, tutorial and exercise content.
 <p align="center">
- <img src="assets/QPCC_Notebook.png" width="600">
+ <img src="assets/QPCC_Notebook.png" width="700">
 </p>
 
 ## Attending the course

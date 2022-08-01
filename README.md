@@ -46,6 +46,6 @@ QPCC for Managers will introduce practical skills including a landscape of quant
 <img src="assets/QPCC_Tutorial.png" width="700">
 </p>
 
-## Support and assistance
 
+## Support and assistance
 Please write to qpcc@ichec.ie with any questions that you have or help you may need in relation to this course.

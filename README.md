@@ -64,3 +64,8 @@ Please write to qpcc@ichec.ie with any questions that you have or help you may n
  <img src="assets/EuroCC_Ireland_logo.png" width="75">
  <img src="assets/NUIG_logo.png" width="290">
 </p>
+<p align="center">
+ <img src="assets/EU_flag_logo.png" width="180">
+ <img src="assets/EuroHPC_logo.png" width="180">
+ <img src="assets/DFHERIS_logo.png" width="250">
+</p>

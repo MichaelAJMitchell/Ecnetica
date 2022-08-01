@@ -35,17 +35,15 @@ QPCC for Managers will introduce practical skills including a landscape of quant
  3. In the notebook, you will see a collection of "cells" (blocks of code). You can run each cell by placing the curson within the cell and pressing Shift+Enter. It is important that you run the cells in the order presented (first to last).
  4. To prepare attending the Lecture, Tutorials and Exercises within the notebook, start by running the first two cells ("Mount your google drive", and "Install the required Python packages"). If you get an error or warning from either of these cells, run them again.
 <p align="center">
- <img src="assets/Lecture_Mount.png" width="700">
+ <img src="assets/QPCC_Mount.png" width="700">
 </p>
-
-- You can now run the following cells to view the lecture YouTube video, the tutorial quiz and the exercise questions
-
+ 5. To view the Lecture video, attend the tutorial questions and work through the exercises, run the corresponding cells for each of them.
 <p align="center">
- <img src="assets/Lecture_Video.png" width="800">
+ <img src="assets/QPCC_Lecture.png" width="700">
 </p>
 
 <p align="center">
-<img src="assets/Lecture_Quiz.png" width="800">
+<img src="assets/QPCC_Tutorial.png" width="700">
 </p>
 
 ## Support and assistance

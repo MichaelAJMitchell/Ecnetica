@@ -19,27 +19,25 @@ QPCC for Managers will introduce practical skills including a landscape of quant
 <p align="center">
  <img src="assets/Shared_Drives.png" width="200">
 </p>
-
  4. The course content can be fully accessed in this drive, which includes a Jupyter notebook for each module. 
 <p align="center">
  <img src="assets/QPCC_Drive.png" width="700">
 </p>
-
  5. The Jupyter notebook for each module contains a lecture, tutorial and exercise content.
 <p align="center">
  <img src="assets/QPCC_Notebook.png" width="700">
 </p>
 
-## Attending the course
-- Open your QPCC drive in the "shared drives" directory in your Google drive
-- To attend a lecture, open the lecture's associated notebook. This will open a "colab" notebook tab in your browser. Colab is Google's jupyter notebook online platform. 
-- Here you will see a collection of "cells", or blocks of code, which you can run using SHIFT+ENTER. It is important that you run the cells in the order presented.
 
+## Attending the course
+ 1. Open your QPCC drive from under the "Shared drives" in your new Google account.
+ 2. To attend a Lecture (recorded video), open the Module's associated Jupyter notebook. This will open a Colab notebook tab in your browser. Colab is Google's online platform for working with Jupyter notebooks. 
+ 3. In the notebook, you will see a collection of "cells" (blocks of code). You can run each cell by placing the curson within the cell and pressing Shift+Enter. It is important that you run the cells in the order presented (first to last).
+ 4. To prepare attending the Lecture, Tutorials and Exercises within the notebook, start by running the first two cells ("Mount your google drive", and "Install the required Python packages"). If you get an error or warning from either of these cells, run them again.
 <p align="center">
  <img src="assets/Lecture_Mount.png" width="800">
 </p>
 
-- Upon running the first cell, you will be asked to give access, to your Google drive. Allow this.
 - You can now run the following cells to view the lecture YouTube video, the tutorial quiz and the exercise questions
 
 <p align="center">

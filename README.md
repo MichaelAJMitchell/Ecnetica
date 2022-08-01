@@ -6,10 +6,10 @@ As Executives or Technical Managers, if you are aware of quantum computing, but 
 Quantum computing is seen as the next disruption in the world of computing and information processing. It will affect several sectors – public and private – including financial services, engineering and manufacturing, ICT, material sciences, pharmaceuticals, logistics and transport, environmental security, research organisations, public agencies, and Governments.
 
 ### Business Leaders
-The Quantum Programming Pathways for Executives will inform you about the value proposition of quantum computing, value chain, ecosystem, capabilities, and development trends. You will be equipped to assess the impact of quantum computing for your sector and define suitable business strategies. The two sessions of this programme can be delivered back-to-back or spread over several days to suit the executives’ schedules.
+QPCC for Executives will inform you about the value proposition of quantum computing, value chain, ecosystem, capabilities, and development trends. You will be equipped to assess the impact of quantum computing for your sector and define suitable business strategies. The two sessions of this programme can be delivered back-to-back or spread over several days to suit the executives’ schedules.
 
 ### Tecnical Managers
-The Quantum Programming Certification Pathways for Managers will introduce practical skills including a landscape of quantum computing systems, algorithms, tools, and applications. The managers will be equipped to assess technology evolution, define use-cases, and create a roadmap for the necessary technical and skills development activities required for your organisations.
+QPCC for Managers will introduce practical skills including a landscape of quantum computing systems, algorithms, tools, and applications. The managers will be equipped to assess technology evolution, define use-cases, and create a roadmap for the necessary technical and skills development activities required for your organisations.
 
 
 ## Setting up your access

@@ -23,21 +23,29 @@ QPCC for Managers will introduce practical skills including a landscape of quant
 
 - The course can be fully accessed in this drive, which includes a jupyter notebook for each module
 
-<img src="assets/QPCC_Drive.png" width="600">
+<p align="center">
+ <img src="assets/QPCC_Drive.png" width="600">
+</p>
 
 ## Attending the course
 - Open your QPCC drive in the "shared drives" directory in your Google drive
 - To attend a lecture, open the lecture's associated notebook. This will open a "colab" notebook tab in your browser. Colab is Google's jupyter notebook online platform. 
 - Here you will see a collection of "cells", or blocks of code, which you can run using SHIFT+ENTER. It is important that you run the cells in the order presented.
 
-<img src="assets/Lecture_Mount.png" width="800">
+<p align="center">
+ <img src="assets/Lecture_Mount.png" width="800">
+</p>
 
 - Upon running the first cell, you will be asked to give access, to your Google drive. Allow this.
 - You can now run the following cells to view the lecture YouTube video, the tutorial quiz and the exercise questions
 
-<img src="assets/Lecture_Video.png" width="800">
+<p align="center">
+ <img src="assets/Lecture_Video.png" width="800">
+</p>
 
+<p align="center">
 <img src="assets/Lecture_Quiz.png" width="800">
+</p>
 
 ## Support and assistance
 

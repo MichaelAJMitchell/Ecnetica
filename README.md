@@ -59,8 +59,8 @@ Please write to qpcc@ichec.ie with any questions that you have or help you may n
 
 ##
 <p align="center">
- <img src="assets/QPI_logo.png" width="250">
- <img src="assets/ICHEC_logo.png" width="300">
+ <img src="assets/QPI_logo.png" width="200">
+ <img src="assets/ICHEC_logo.png" width="250">
  <img src="assets/EuroCC_Ireland_logo.png" width="100">
  <img src="assets/NUIG_logo.png" width="300">
 </p>

@@ -46,8 +46,8 @@ QPCC for Managers will introduce practical skills including a landscape of quant
  <img src="assets/QPCC_Tutorial.png" width="700">
 </p>
 
-###
-Note: To clear your notebook and restart, go to the menu "Runtime > Restart and run all".
+### Reset notebook
+To clear your notebook and restart, go to the menu "Runtime > Restart and run all".
 <p align="center">
  <img src="assets/QPCC_Notebook_Restart.png" width="700">
 </p>

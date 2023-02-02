@@ -36,23 +36,23 @@ As business leaders or technical managers, if you have heard of quantum computin
  4. To prepare for attending the Lecture, Tutorials and Exercises within a notebook, start by running the first three cells under the heading `Mount google drive and install dependencies` one by one. In this process for the first cell, follow the instructions on the screen, as illustrated below:
     * Select `Run anyway`.
 <p align="center">
- <img src="assets/QPCC_run_anyway.png" width="800">
+ <img src="assets/QPCC_run_anyway.png" width="1000">
 </p>
     * Select `Connect to Google Drive`.
 <p align="center">
- <img src="assets/QPCC_connect_to_googledrive.png" width="800">
+ <img src="assets/QPCC_connect_to_googledrive.png" width="1000">
 </p>
     * Select `Choose the account` that you have associated with this shared drive.
 <p align="center">
- <img src="assets/QPCC_choose_account.png" width="200">
+ <img src="assets/QPCC_choose_account.png" width="400">
 </p>
     * Select `Allow` to grant access.
 <p align="center">
- <img src="assets/QPCC_allow_access.png" width="200">
+ <img src="assets/QPCC_allow_access.png" width="400">
 </p>
     * Upon running all three cells, you should see something similar to the following:
 <p align="center">
- <img src="assets/QPCC_result_mount_install.png" width="800">
+ <img src="assets/QPCC_result_mount_install.png" width="1000">
 </p>
  5. To view the Lecture video, attend the tutorial questions and work through the exercises, run the corresponding cells for each of them.
 <p align="center">

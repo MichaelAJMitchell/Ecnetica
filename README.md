@@ -44,7 +44,7 @@ As business leaders or technical managers, if you have heard of quantum computin
 </p>
     * Select `Choose the account` that you have associated with this shared drive.
 <p align="center">
- <img src="assets/QPCC_choose_account.png" width="800">
+ <img src="assets/QPCC_choose_account.png" width="200">
 </p>
     * Select `Allow` to grant access.
 <p align="center">
@@ -52,7 +52,7 @@ As business leaders or technical managers, if you have heard of quantum computin
 </p>
     * Upon running all three cells, you should see something similar to the following:
 <p align="center">
- <img src="assets/QPCC_result_mount_install.png" width="200">
+ <img src="assets/QPCC_result_mount_install.png" width="800">
 </p>
  5. To view the Lecture video, attend the tutorial questions and work through the exercises, run the corresponding cells for each of them.
 <p align="center">

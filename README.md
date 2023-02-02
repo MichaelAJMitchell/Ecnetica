@@ -34,6 +34,7 @@ As business leaders or technical managers, if you have heard of quantum computin
  2. To attend a Module, open its corresponding Jupyter notebook. This will open a Colab notebook tab in your browser. Colab is Google's online platform for working with Jupyter notebooks. 
  3. In the notebook, you will see a collection of `cells` (blocks of code). You can run each cell by placing the curson within the cell and pressing `Shift`+`Enter`. It is important that you run the cells in the order presented (first to last).
  4. To prepare for attending the Lecture, Tutorials and Exercises within a notebook, start by running the first three cells under the heading `Mount google drive and install dependencies` one by one. In this process for the first cell, follow the instructions on the screen, as illustrated below:
+
     * Select `Run anyway`.
 <p align="center">
  <img src="assets/QPCC_run_anyway.png" width="1000">

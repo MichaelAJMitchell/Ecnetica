@@ -37,6 +37,21 @@ As business leaders or technical managers, if you have heard of quantum computin
 <p align="center">
  <img src="assets/QPCC_Mount.png" width="700">
 </p>
+<p align="center">
+ <img src="assets/QPCC_run_anyway.png" width="700">
+</p>
+<p align="center">
+ <img src="assets/QPCC_connect_to_googledrive.png" width="700">
+</p>
+<p align="center">
+ <img src="assets/QPCC_choose_account.png" width="700">
+</p>
+<p align="center">
+ <img src="assets/QPCC_allow_access.png" width="700">
+</p>
+<p align="center">
+ <img src="assets/QPCC_result_mount_install.png" width="700">
+</p>
  5. To view the Lecture video, attend the tutorial questions and work through the exercises, run the corresponding cells for each of them.
 <p align="center">
  <img src="assets/QPCC_Lecture.png" width="700">

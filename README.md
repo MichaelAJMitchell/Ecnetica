@@ -33,22 +33,24 @@ As business leaders or technical managers, if you have heard of quantum computin
  1. Open your QPCC drive from under the `Shared drives` in your new Google account.
  2. To attend a Module, open its corresponding Jupyter notebook. This will open a Colab notebook tab in your browser. Colab is Google's online platform for working with Jupyter notebooks. 
  3. In the notebook, you will see a collection of `cells` (blocks of code). You can run each cell by placing the curson within the cell and pressing `Shift`+`Enter`. It is important that you run the cells in the order presented (first to last).
- 4. To prepare for attending the Lecture, Tutorials and Exercises within a notebook, start by running the first two cells (`Mount your google drive` and `Install the required Python packages`). If you get an error or warning from either of these cells, run them again.
-<p align="center">
- <img src="assets/QPCC_Mount.png" width="700">
-</p>
+ 4. To prepare for attending the Lecture, Tutorials and Exercises within a notebook, start by running the first three cells under the heading `Mount google drive and install dependencies` one by one. In this process for the first cell, follow the instructions on the screen, as illustrated below:
+    * Select `Run anyway`.
 <p align="center">
  <img src="assets/QPCC_run_anyway.png" width="700">
 </p>
+    * Select `Connect to Google Drive`.
 <p align="center">
  <img src="assets/QPCC_connect_to_googledrive.png" width="700">
 </p>
+    * Select `Choose the account` that you have associated with this shared drive.
 <p align="center">
  <img src="assets/QPCC_choose_account.png" width="700">
 </p>
+    * Select `Allow` to grant access.
 <p align="center">
  <img src="assets/QPCC_allow_access.png" width="700">
 </p>
+    * Upon running all three cells, you should see something similar to the following:
 <p align="center">
  <img src="assets/QPCC_result_mount_install.png" width="700">
 </p>

@@ -71,7 +71,7 @@ To clear your notebook and restart, go to the menu `Runtime > Restart and run al
 </p>
 
 ## Known Issues
- Python module does not open on Google Colab: Sometimes the ipynb notebook doesn't open on Google Colab, this could be because
+ Python module not opening on Google Colab: Sometimes the ipynb notebook doesn't open on Google Colab, this could be because
  you haven't connected Google Colab to your email ID, the solution below should let you open it on the Google Colab.
  
  <p align="center">

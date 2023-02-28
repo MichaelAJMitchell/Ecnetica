@@ -75,7 +75,7 @@ To clear your notebook and restart, go to the menu `Runtime > Restart and run al
  you haven't connected Google Colab to your email ID, the solution below should let you open it on the Google Colab.
  
  <p align="center">
- <img src="assets/QPCC_Notebook_Restart.png" width="700">
+ <img src="assets/ColabProblem.png" width="700">
 </p>
 
 

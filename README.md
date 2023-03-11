@@ -11,8 +11,15 @@ As business leaders or technical managers, if you have heard of quantum computin
 ### Technical Managers
 `QPCC for Managers` will introduce practical skills including a landscape of quantum computing systems, algorithms, tools, and applications. The managers will be equipped to assess technology evolution, define use-cases, and create a roadmap for the necessary technical and skills development activities required for your organisations.
 
+## Who can attend?
+This course is available for attendees from around the world and will be delivered through a blended learning mechanism - a combination of recorded lecture, live tutorial through video conference, and online supported exercise sessions.
 
-## Setting up your access
+## Support and assistance
+Please write to qpcc@ichec.ie if you are interested in attending, or if you have any questions in relation to this course.
+
+## Information for attendees
+
+### Setting up your access
  1. Create a new Google account dedicated for your attendance of QPCC. This is reccomended for security and privacy, in contrast to using an existing account.
  2. Email your new Google account ID to qpcc@ichec.ie with the subject line `Google drive for QPCC`. We will create a new QPCC drive with the course content for you and share it with your new Google account.
  3. This new QPCC drive can be found under `Shared drives` in your Google drive associated with the new Google account.
@@ -28,8 +35,7 @@ As business leaders or technical managers, if you have heard of quantum computin
  <img src="assets/QPCC_Notebook.png" width="700">
 </p>
 
-
-## Attending the course
+### Attending the course
  1. Open your QPCC drive from under the `Shared drives` in your new Google account.
  2. To attend a Module, open its corresponding Jupyter notebook. This will open a Colab notebook tab in your browser. Colab is Google's online platform for working with Jupyter notebooks. 
  3. In the notebook, you will see a collection of `cells` (blocks of code). You can run each cell by placing the curson within the cell and pressing `Shift`+`Enter`. It is important that you run the cells in the order presented (first to last).
@@ -64,13 +70,13 @@ As business leaders or technical managers, if you have heard of quantum computin
  <img src="assets/QPCC_Tutorial.png" width="700">
 </p>
 
-### Reset notebook
+#### Reset notebook
 To clear your notebook and restart, go to the menu `Runtime > Restart and run all`.
 <p align="center">
  <img src="assets/QPCC_Notebook_Restart.png" width="700">
 </p>
 
-## Known Issues
+### Known Issues
  Python module not opening on Google Colab: Sometimes the ipynb notebook doesn't open on Google Colab, this could be because
  you haven't connected Google Colab to your email ID, the solution below should let you open it on the Google Colab.
  
@@ -79,13 +85,7 @@ To clear your notebook and restart, go to the menu `Runtime > Restart and run al
 </p>
 
 
-
-
-## Support and assistance
-Please write to qpcc@ichec.ie with any questions that you have or help you may need in relation to this course.
-
-
-##
+###
 <p align="center">
  <img src="assets/QPI_logo.png" height="75">
  <img src="assets/ICHEC_logo.png" height="75">

@@ -6,10 +6,10 @@ Quantum computing is seen as the next disruption in the world of computing and i
 As business leaders or technical managers, if you have heard of quantum computing, and want to better prepare yourself and your organisation to deal with its potentials and impact, then this course is for you.
 
 ### Business Leaders
-`QPCC for Executives` will inform you about the value proposition of quantum computing, value chain, ecosystem, capabilities, and development trends. You will be equipped to assess the impact of quantum computing for your sector and define suitable business strategies. The two sessions of this programme can be delivered back-to-back or spread over several days to suit the executives’ schedules.
+`QPCC for Executives` will inform you about the value proposition of quantum computing, value chain, ecosystem, capabilities, and development trends. You will be equipped to assess the impact of quantum computing for your sector and define suitable business strategies. The two sessions of this programme can be delivered back-to-back or spread over several days to suit the executives’ schedules. More details are available [here](https://www.ictskillnet.ie/wp-content/uploads/2022/09/Quantum-Computing-Pathways-For-Business-Leaders-14.pdf).
 
 ### Technical Managers
-`QPCC for Managers` will introduce practical skills including a landscape of quantum computing systems, algorithms, tools, and applications. The managers will be equipped to assess technology evolution, define use-cases, and create a roadmap for the necessary technical and skills development activities required for your organisations.
+`QPCC for Managers` will introduce practical skills including a landscape of quantum computing systems, algorithms, tools, and applications. The managers will be equipped to assess technology evolution, define use-cases, and create a roadmap for the necessary technical and skills development activities required for your organisations. More details about this pathway are available [here](https://www.ictskillnet.ie/wp-content/uploads/2022/09/Technical-Managers-Quantum-Computing-8.pdf).
 
 ## Who can attend?
 This course is available for attendees from around the world and will be delivered through a blended learning mechanism - a combination of recorded lecture, live tutorial through video conference, and online supported exercise sessions.

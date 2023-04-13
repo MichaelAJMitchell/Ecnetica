@@ -62,7 +62,7 @@ The link to install annaconda and installation instruction can be found [here](h
     ```
     This will load conda environment. Anything installed by pip or conda will be installed in this environment.
 ---
-3. Now, we need to install julia, within the environment using conda. It's latest version is available in channel "conda-forge" (only). Run following to install julia in the environment.
+3. Now, we need to install julia, within the environment using conda.Run following to install julia in the environment.
 
     ```bash
     conda install -c microsoft qsharp notebook

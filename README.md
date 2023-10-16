@@ -11,13 +11,13 @@ The Quantum Programming Certification Course (QPCC) is offered from ICHEC aimed 
 
 ---
 ## Lectures
-- [Lecture 1 - Demystifying Quantum Computing](Theme1/module-1.1/demystifying-quantum-computing.md)
-- [Lecture 2 - Integrating Classical and Quantum Computing](Theme1/module-1.2/integrating-classical-and-quantum-computing.md)
-- [Lecture 3 - From Bits to Qubits](Theme3/module-3.1/from-bits-to-qubits.md)
-- [Lecture 4 - Realizing Quantum Computing Systems](Theme2/module-2.1/realizing-quantum-computing-systems.md)
-- [Lecture 5 - Accessing Quantum Computing Systems](Theme2/module-2.2/accessing-quantum-computing-systems.md)
-- [Lecture 6 - Landscape of Quantum SDK's and Tools](Theme5/module-5.1/landscape-of-sdks-tools.md)
-- [Lecture 7 - Landscape of Quantum algorithms](Theme4/module-4.1/landscape-of-quantum-algorithms.md)
+- [Lecture 1 - Demystifying Quantum Computing](lecture-1/demystifying-quantum-computing.md)
+- [Lecture 2 - Integrating Classical and Quantum Computing](lecture-2/integrating-classical-and-quantum-computing.md)
+- [Lecture 3 - From Bits to Qubits](lecture-3/from-bits-to-qubits.md)
+- [Lecture 4 - Realizing Quantum Computing Systems](lecture-4/realizing-quantum-computing-systems.md)
+- [Lecture 5 - Accessing Quantum Computing Systems](lecture-5/accessing-quantum-computing-systems.md)
+- [Lecture 6 - Landscape of Quantum SDK's and Tools](lecture-6/landscape-of-sdks-tools.md)
+- [Lecture 7 - Landscape of Quantum algorithms](lecture-7/landscape-of-quantum-algorithms.md)
 
 
 

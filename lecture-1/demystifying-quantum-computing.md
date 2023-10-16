@@ -15,7 +15,7 @@ This is an introductory module, which sets the stage for the remaining course by
   <li> Demonstrate ability to identify key high-level tipping points to reach practical quantum computing. </li>
 </ul>
 </td>
-<td width="40%"> <img width="900" src="../../quant.png"> </td>
+<td width="40%"> <img width="900" src="/prep/images/quant.png"> </td>
 </tr>
 </table>
 

@@ -164,10 +164,72 @@ Array based Quantum Simulators are built by arranging neutral atoms in an array 
 
 ##### Quantum Annealers
 
-
+<p align="center">
+  <img width="460" height="450" src="./images/annealer.png">
+</p>
 
 
 Quantum Annealers are designed and built to tackle Combinatorial Optimization problems they also usually have an array based structure, let’s say you are given a certain optimization task, Your first step would be to formulate the problem in terms of a set of equations with a given set of variables, next you would attempt to convert the set of equations into a corresponding graph problem, you would then map the Graph problem onto the Quantum Annealer and let the system evolve slowly which is called Adiabtic evolution until it reaches a stable point, this stable point corresponds to the minima of your function, The Quantum Tunneling effect we introduced earlier provides additional speedup in this process.
+
+### Challenges in building Quantum Computers
+
+There are two key challenges for building Quantum Computers
+- Noise : The qubits interact with environment and other qubits in the system which causes error in Quantum operations as well as state preparation.
+- Scalability: There are several technological challenges in implementing a large number of usable Qubits on the same physical device.
+
+To achieve Scalable Quantum Computing we require the following specifications :
+Qubit Error Rates 10^(−10)  per operation 
+Number of qubits ~ 1 million
+Quantum Memory  
+
+Let us now look at some of the mechanisms Scientists and Engineers apply to improve the operation of their systems namely, Improving Temperture Control, Error Correction & Mitigation and QRAM
+
+#### Temperature control
+
+Refrigeration of Quantum Computers is one of the key mechanisms employed to tackle the Quantum noise, the amount of environmental interaction and crosstalk that occurs in a Quantum system is directly proportional to the Temperature of the system, the Qubits, Quantum Gates and Measuring apparatus is typically stored within a refrigeration enclosure shielded from the effects of Enivronmental noise, optimal and low cost refrigeration is very important to the development of  Quantum computers.
+
+Most Quantum systems operate in the temperature range from a few mK to a few Kelvin, although as we discussed earlier, the Operating temperature is dependent on what type of Qubit technology you are dealing with, there are certain technologies which do not require extensive refrigeration and can operate at room temperatures
+
+Engineers employ techniques such Helium 3/Helium4 dilution and Laser Doppler cooling to keep the Quantum systems cold and minimize the effect of noise
+
+
+#### Error Correction & Mitigation
+
+
+<p align="center">
+  <img width="460" height="450" src="./images/error-correction.png">
+</p>
+
+Despite the refrigeration ,Quantum noise manages to creep into the systems Scientists take inspiration from Classical computing to develop a technique known as Quantum Error correction. They are fundamentally broken down into two categories, 1) Hardware Based Error Correction Schemes and Software based error mitigation schemes, However, there are some additional complexities that need to be taken care of when building Quantum Error correcting schemes in comparison  to their classical counterparts, Unlike Classical schemes where you can measure the bits to fix the error in them  we cannot do the same with Qubitss  since it will lead to the superposition collapsing, due to  complexity Quantum Error schemes can be broken down into two parts, the first step is detection in which we identify whether an error has occurred without actually measuring the qubits and then the error elimination step which fixes the identified error. **
+The Error correction schemes allow us to detect and eliminate the errors that have occurred on the system by introducing redundancy in the system, this would imply that we are encoding or storing the information of a single qubit into multiple qubits so that even if there is noise that impacts some of the qubits we are still able to the recover the initial information from the rest of the system, clearly these are changes that need to be made at a hardware level and additional redundancy qubits will be required to be added to the system. 
+
+<p align="center">
+  <img width="460" height="450" src="./images/error-mitigation.png">
+</p>
+
+Error mitigation schemes are software Post-processing techniques that try to mitigate the level of noise by using mathematical modelling and regression to extrapolate from the results what the outcomes of the system would have been under ideal conditions without the existence of noise.
+
+
+#### Quantum RAM
+
+As discussed in the Quantum Workflow it can be useful to have a Quantum Memory to avoid the process of reinitializing the state each time we want to run the circuit, because of the probabilistic nature of Quantum operations very often we may have to run the circuit multiple times and being able to load states from a Quantum Memory would help us speed up  certain Quantum Algorithms. However,as discussed in the previous section, the influence of noise on the circuit makes it very difficult to implement a stable Quantum Memory, breakthroughs in the development of Quantum memory will severely improve the time it takes to perform Quantum Algorithms however physical implementations are still at a very nascent stage.
+
+### Quantum Roadmap
+
+#### Scaling Quantum hardware
+
+
+<p align="center">
+  <img width="460" height="450" src="./images/scaling.png">
+</p>
+
+This roadmap shows some of the key milestones we are working towards while building Quantum Computers, we are currently  at the dot on the top left of the graph in a phase called Noisy Intermediate Scale Quantum Computing or NISQ for short, Solutions in the domains of  Quantum Chemistry, Optimization problems and for Machine learning which use noise resistant algorithms are currently being explored  As we improve the systems with the various technologies we just mentioned we will start moving towards towards the bottom right portion of the graph with more qubits and lower error rates until we reach the second red dot which is called the Fault-Tolerant threshold this paradigm will expand the prospective use cases and application of Quantum Computers.
+
+
+
+
+
+
 
 
 

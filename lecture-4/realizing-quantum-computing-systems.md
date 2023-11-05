@@ -145,7 +145,7 @@ All these metrics together determine the performance of the qubits, Scientists a
 #### Analog Quantum Simulators
 
 <p align="center">
-  <img width="460" height="450" src="/prep/images/worflow.png">
+  <img width="460" height="450" src="/prep/images/analog.png">
 </p>
 
 The second type of Quantum Computing systems are known as Analog Quantum Simulators unlike the Gate Based model, which use discrete operations called gates to implement operations on the qubits,These systems use the continuous time evolution of a Quantum systems to perform the required Quantum Operations. The systems in considerations are usually lattice based systems since they are particularly useful in encoding Combinatorial problems. Let us look at the two types of Analog Quantum Simulators on offer namely :

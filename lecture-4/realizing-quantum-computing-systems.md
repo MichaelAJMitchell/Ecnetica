@@ -106,8 +106,8 @@ Broadly, the Quantum Computing systems that are being developed today can be cla
 - Quantum Analog Computers
     - Quantum Array Simulators
         - QuEra (Neutral Atom Array)
-        -Pasqal (Neutral Atom Array)
-    -Quantum Annealing
+        - Pasqal (Neutral Atom Array)
+    - Quantum Annealing
         - Dwave (Superconducting Qubit Array)
 
 

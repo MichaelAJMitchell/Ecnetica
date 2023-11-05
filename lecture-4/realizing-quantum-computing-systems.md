@@ -89,11 +89,85 @@ A sequence of Quantum Gates and Operations in a particular order is known as a Q
 Let’s take a look at how the workflow of a Quantum Computation is different from the Classical Computation we’re familiar with, In the classical workflow we get the data from the given problem statement which acts as the input to the Classical algorithm which gives us the required output.
 
 <p align="center">
-  <img width="460" height="450" src="./images/Quantum-Gates.png">
+  <img width="460" height="450" src="./images/worflow.png">
 </p>
 
 
 The Quantum version of the workflow follows a similar set of steps with a few additional Quantum specific operations in the middle, The first step of generating data from the Classical Problem statement remains the same, however this classical data cannot directly be input into a Quantum Algorithm it needs to be converted into a set of Quantum states this process of conversion of Classical data into a set of input Quantum States is known as Data Encoding, the type of data encoding often depends on the type of quantum Algorithm we choose, we can store multiple copies of these intial Quantum states in a Quantum memory so that we don’t require to reinitialize the input state each time we want to run the circuit, these input states are provided to the Quantum algorithm,  Quantum Computers can physically be implemented using various different architectures which we will discuss in the coming few slides, based on the type of Computing architecture we’re working on the abstract Quantum Algorithm needs to be compiled into a physical Quantum circuit which is then implemented on the hardware, the ouput from the Quantumm circuit often requires a certain amount of Classical post processing to get the required output.
+
+### Building Quantum Computers
+
+Broadly, the Quantum Computing systems that are being developed today can be classified into two categories Circuit Based or Gate Based devices and  Analog Quantum Simulation, there are further segregation within each of these types which we'll delve into in the upcoming slides,we have also shown some of the industry providers who are working towards building each of these types of hardware.
+
+- Circuit-Based/ Gate-Based 
+    - IBM (Superconducting Qubits)
+    - IONQ ( Ion trapped Qubits)
+    - Xanadu (Photonics)
+- Quantum Analog Computers
+    - Quantum Array Simulators
+        - QuEra (Neutral Atom Array)
+        -Pasqal (Neutral Atom Array)
+    -Quantum Annealing
+        - Dwave (Superconducting Qubit Array)
+
+
+#### Circuit-based Quantum Computing
+
+Circuit Based Quantum Computing refers to the model of hardware in which complex Quantum operations are built by combining and using a primitive set of Quantum gates, most of our discussion upto this point has been oriented towards this model of computing, There are different physical mechanisms to implement qubits as well as the gate operations to build the circuits.
+
+Let us go through some of these architectures and how they implement Qubits and the Quantum operations :
+
+Superconducting loops: Also known as Transmon Qubits use electronic circuits consisting of superconducting elements and Josephson junctions and are controlled using microwave pulses which controls the phase of the qubits
+
+Trapped Ion : Computers use Ions or charged particles which are suspended in free space as the qubits and uses Lasers to drive the computation by performing gates
+
+
+
+Photonics, Diamond Vacancies Silicon Quantum Dots and Topological qubits are some other architectures which are also currently being worked on. Each technology comes with it’s share of advantages in terms of Scalability, Operation temperature and Coherence times and therefore each of them are ideal for different use cases and applications.
+
+##### Performance Metrics for Qubits
+
+Mentioned below are some of the key metrics used to determine the performance of a Qubit based system
+
+- Scalability refers to the maximum number of qubits that can be operated by a given Quantum system, more qubits usually refers to a greater amount of computational power although the fidelity/ coherence time of the qubit also plays an important role in determining which system is stronger.
+
+- Operating temperature is the temperature at which we need to maintain the Quantum system for it to operate effectively, Quantum systems usually need to be maintained at very cool temperature to avoid interaction with the environment leading to noise in the system, we will talk about noise and it's impact on Quantum systems further ahead in the lecture.
+
+- Coherence times refers to how long a qubit can maintain a state it is initialized in before becoming corrupted by the noise in the system, Coherence times allows us to estimate what time scales we need our Quantum Algorithms to be within since if they are much greater than the coherence time then their outputs would be corrupted by environmental noise.
+
+- Fidelity is a measure of how close the actual quantum state within the system is in comparison to the theoretical state we’re aiming for
+
+
+- Gate Operation times tells us how long it takes for single gate operations on a given Qubit in the system, smaller gate times refers to faster application of gates on the circuit and outputs which are less influenced by the effects of decoherence.
+
+All these metrics together determine the performance of the qubits, Scientists are working towards building a more composite metric such as Quantum Volume which provides information about more than just one of these categories. 
+
+#### Analog Quantum Simulators
+
+<p align="center">
+  <img width="460" height="450" src="./images/worflow.png">
+</p>
+
+The second type of Quantum Computing systems are known as Analog Quantum Simulators unlike the Gate Based model, which use discrete operations called gates to implement operations on the qubits,These systems use the continuous time evolution of a Quantum systems to perform the required Quantum Operations. The systems in considerations are usually lattice based systems since they are particularly useful in encoding Combinatorial problems. Let us look at the two types of Analog Quantum Simulators on offer namely :
+
+- Array based Quantum Analog computers 
+- Quantum Annealers 
+
+##### Array based Quantum Simulators
+
+<p align="center">
+  <img width="460" height="450" src="./images/array.png">
+</p>
+
+Array based Quantum Simulators are built by arranging neutral atoms in an array and controlling them with the help of lasers, the lasers are tuned to change the environment within which the atoms are allowed to evolve which allows us to perform various Quantum Operations on the system, Array based simulators are particularly useful for Quantum Simulation tasks since in real world situations the interactions that exist between Quantum systems are not restricted to 1 qubit or 2 qubit gates although it’s always  theoretically possible to simulate a more complex multi qubit interaction by breaking it into several single and 2 qubit gates on a Gate based Computer this can often be a challenging task in practice, array based simulators on the other hand allow you to implement the interactions directly without having to break it down into it’s components.
+
+
+##### Quantum Annealers
+
+
+
+
+Quantum Annealers are designed and built to tackle Combinatorial Optimization problems they also usually have an array based structure, let’s say you are given a certain optimization task, Your first step would be to formulate the problem in terms of a set of equations with a given set of variables, next you would attempt to convert the set of equations into a corresponding graph problem, you would then map the Graph problem onto the Quantum Annealer and let the system evolve slowly which is called Adiabtic evolution until it reaches a stable point, this stable point corresponds to the minima of your function, The Quantum Tunneling effect we introduced earlier provides additional speedup in this process.
 
 
 

@@ -73,6 +73,28 @@ Similar to how Classical Gates are used to build Classical Computing operations 
 All Quantum gates are required to be reversible in nature which means that there always exists an operation which can reverse the action of a previous gate or a set of gates. This, is however not true for the Quantum Measurement operation which was introduced in the provious module, this operation measures a Quantum state and returns a Classical measurement value as it’s outcome while also collapsing the qubit to the corresponding Quantum state, thisoperation is not reversible and the state that existed before the measurement cannot be recovered. There are several properties of Qubit that you could measure. All Quantum gates are required to be reversible in nature which means that there always exists an operation which can reverse the action of a previous gate or a set of gates.
 
 
+<p align="center">
+  <img width="460" height="450" src="./images/Quantum-Gates.png">
+</p>
+
+
+### Quantum Circuits
+
+A sequence of Quantum Gates and Operations in a particular order is known as a Quantum Circuit, Quantum Circuits are different from Classical circuits in a few key ways. Quantum Circuits are made up of  Quantum Gates, Operations and Measurements, There are also extra qubits which are added to the system called Auxillary Qubits which are sometimes required for operations of the algorithms and are also required for Error Correction, we will discuss Error Correction in more detail later in this lecture. Furthermore, unlike Classical Circuits in which a gate can be applied between any two bits, Quantum Hardware often restricts the connections that can be made between qubits, in most systems only neighboring qubits of the system can be operated on using gates. The underlying connectivity of the physical qubits is known as topology, since topology gives us an idea of the allowed interactions within a Quantum Circuit it needs to be taken into consideration while building efficient Quantum Circuits
+
+
+### Quantum Computation Workflow
+
+
+Let’s take a look at how the workflow of a Quantum Computation is different from the Classical Computation we’re familiar with, In the classical workflow we get the data from the given problem statement which acts as the input to the Classical algorithm which gives us the required output.
+
+<p align="center">
+  <img width="460" height="450" src="./images/Quantum-Gates.png">
+</p>
+
+
+The Quantum version of the workflow follows a similar set of steps with a few additional Quantum specific operations in the middle, The first step of generating data from the Classical Problem statement remains the same, however this classical data cannot directly be input into a Quantum Algorithm it needs to be converted into a set of Quantum states this process of conversion of Classical data into a set of input Quantum States is known as Data Encoding, the type of data encoding often depends on the type of quantum Algorithm we choose, we can store multiple copies of these intial Quantum states in a Quantum memory so that we don’t require to reinitialize the input state each time we want to run the circuit, these input states are provided to the Quantum algorithm,  Quantum Computers can physically be implemented using various different architectures which we will discuss in the coming few slides, based on the type of Computing architecture we’re working on the abstract Quantum Algorithm needs to be compiled into a physical Quantum circuit which is then implemented on the hardware, the ouput from the Quantumm circuit often requires a certain amount of Classical post processing to get the required output.
+
 
 
 

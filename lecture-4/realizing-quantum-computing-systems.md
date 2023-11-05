@@ -204,11 +204,7 @@ Despite the refrigeration ,Quantum noise manages to creep into the systems Scien
 The Error correction schemes allow us to detect and eliminate the errors that have occurred on the system by introducing redundancy in the system, this would imply that we are encoding or storing the information of a single qubit into multiple qubits so that even if there is noise that impacts some of the qubits we are still able to the recover the initial information from the rest of the system, clearly these are changes that need to be made at a hardware level and additional redundancy qubits will be required to be added to the system. 
 
 <p align="center">
-<<<<<<< HEAD
   <img width="460" height="450" src="/prep/images/error-mitigation.png">
-=======
-  <img width="460" height="450" src="./prep/images/error-mitigation.png">
->>>>>>> 44e86a3f44787a1dc6a28eb48a363f8abf407373
 </p>
 
 Error mitigation schemes are software Post-processing techniques that try to mitigate the level of noise by using mathematical modelling and regression to extrapolate from the results what the outcomes of the system would have been under ideal conditions without the existence of noise.

@@ -74,7 +74,7 @@ All Quantum gates are required to be reversible in nature which means that there
 
 
 <p align="center">
-  <img width="460" height="450" src="./images/Quantum-Gates.png">
+  <img width="460" height="450" src="/prep/images/Quantum-Gates.png">
 </p>
 
 
@@ -89,7 +89,7 @@ A sequence of Quantum Gates and Operations in a particular order is known as a Q
 Let’s take a look at how the workflow of a Quantum Computation is different from the Classical Computation we’re familiar with, In the classical workflow we get the data from the given problem statement which acts as the input to the Classical algorithm which gives us the required output.
 
 <p align="center">
-  <img width="460" height="450" src="./prep/images/worflow.png">
+  <img width="460" height="450" src="/prep/images/worflow.png">
 </p>
 
 
@@ -145,7 +145,7 @@ All these metrics together determine the performance of the qubits, Scientists a
 #### Analog Quantum Simulators
 
 <p align="center">
-  <img width="460" height="450" src="./prep/images/worflow.png">
+  <img width="460" height="450" src="/prep/images/worflow.png">
 </p>
 
 The second type of Quantum Computing systems are known as Analog Quantum Simulators unlike the Gate Based model, which use discrete operations called gates to implement operations on the qubits,These systems use the continuous time evolution of a Quantum systems to perform the required Quantum Operations. The systems in considerations are usually lattice based systems since they are particularly useful in encoding Combinatorial problems. Let us look at the two types of Analog Quantum Simulators on offer namely :
@@ -156,7 +156,7 @@ The second type of Quantum Computing systems are known as Analog Quantum Simulat
 ##### Array based Quantum Simulators
 
 <p align="center">
-  <img width="460" height="450" src="./prep/images/array.png">
+  <img width="460" height="450" src="/prep/images/array.png">
 </p>
 
 Array based Quantum Simulators are built by arranging neutral atoms in an array and controlling them with the help of lasers, the lasers are tuned to change the environment within which the atoms are allowed to evolve which allows us to perform various Quantum Operations on the system, Array based simulators are particularly useful for Quantum Simulation tasks since in real world situations the interactions that exist between Quantum systems are not restricted to 1 qubit or 2 qubit gates although it’s always  theoretically possible to simulate a more complex multi qubit interaction by breaking it into several single and 2 qubit gates on a Gate based Computer this can often be a challenging task in practice, array based simulators on the other hand allow you to implement the interactions directly without having to break it down into it’s components.
@@ -165,7 +165,7 @@ Array based Quantum Simulators are built by arranging neutral atoms in an array 
 ##### Quantum Annealers
 
 <p align="center">
-  <img width="460" height="450" src="./prep/images/annealer.png">
+  <img width="460" height="450" src="/prep/images/annealer.png">
 </p>
 
 
@@ -197,14 +197,18 @@ Engineers employ techniques such Helium 3/Helium4 dilution and Laser Doppler coo
 
 
 <p align="center">
-  <img width="460" height="450" src="./prep/images/error-correction.png">
+  <img width="460" height="450" src="/prep/images/error-correction.png">
 </p>
 
 Despite the refrigeration ,Quantum noise manages to creep into the systems Scientists take inspiration from Classical computing to develop a technique known as Quantum Error correction. They are fundamentally broken down into two categories, 1) Hardware Based Error Correction Schemes and Software based error mitigation schemes, However, there are some additional complexities that need to be taken care of when building Quantum Error correcting schemes in comparison  to their classical counterparts, Unlike Classical schemes where you can measure the bits to fix the error in them  we cannot do the same with Qubitss  since it will lead to the superposition collapsing, due to  complexity Quantum Error schemes can be broken down into two parts, the first step is detection in which we identify whether an error has occurred without actually measuring the qubits and then the error elimination step which fixes the identified error. **
 The Error correction schemes allow us to detect and eliminate the errors that have occurred on the system by introducing redundancy in the system, this would imply that we are encoding or storing the information of a single qubit into multiple qubits so that even if there is noise that impacts some of the qubits we are still able to the recover the initial information from the rest of the system, clearly these are changes that need to be made at a hardware level and additional redundancy qubits will be required to be added to the system. 
 
 <p align="center">
+<<<<<<< HEAD
+  <img width="460" height="450" src="/prep/images/error-mitigation.png">
+=======
   <img width="460" height="450" src="./prep/images/error-mitigation.png">
+>>>>>>> 44e86a3f44787a1dc6a28eb48a363f8abf407373
 </p>
 
 Error mitigation schemes are software Post-processing techniques that try to mitigate the level of noise by using mathematical modelling and regression to extrapolate from the results what the outcomes of the system would have been under ideal conditions without the existence of noise.
@@ -220,7 +224,7 @@ As discussed in the Quantum Workflow it can be useful to have a Quantum Memory t
 
 
 <p align="center">
-  <img width="460" height="450" src="./prep/images/scaling.png">
+  <img width="460" height="450" src="/prep/images/scaling.png">
 </p>
 
 This roadmap shows some of the key milestones we are working towards while building Quantum Computers, we are currently  at the dot on the top left of the graph in a phase called Noisy Intermediate Scale Quantum Computing or NISQ for short, Solutions in the domains of  Quantum Chemistry, Optimization problems and for Machine learning which use noise resistant algorithms are currently being explored  As we improve the systems with the various technologies we just mentioned we will start moving towards towards the bottom right portion of the graph with more qubits and lower error rates until we reach the second red dot which is called the Fault-Tolerant threshold this paradigm will expand the prospective use cases and application of Quantum Computers.

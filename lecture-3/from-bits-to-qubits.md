@@ -17,7 +17,7 @@ In this module we revise the good old and simpler concepts of bits and their man
   <li> We will also learn how manipulating bits and a qubits forms a building block for basic computations. </li>
 </ul>
 </td>
-<td width="40%"> <img width="900" src="/qpcc/prep/images/quant.png"> </td>
+<td width="40%"> <img width="900" src="../prep/images/quant.png"> </td>
 </tr>
 </table>
  

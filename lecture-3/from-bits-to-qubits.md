@@ -17,7 +17,7 @@ In this module we revise the good old and simpler concepts of bits and their man
   <li> We will also learn how manipulating bits and a qubits forms a building block for basic computations. </li>
 </ul>
 </td>
-<td width="40%"> <img width="900" src="/prep/images/quant.png"> </td>
+<td width="40%"> <img width="900" src="/qpcc/prep/images/quant.png"> </td>
 </tr>
 </table>
  
@@ -263,7 +263,7 @@ Now that we have completed a fundamental review of topics in Classical Computing
 Let's begin by understanding what exactly is a photon, A photon is a single particle of light and we know that light is an electromagnetic wave and just like every wave has a direction of oscillation a Photon has a direction of Oscillation called it's Polarization.
 {: .text-justify}
 
-![image tooltip here](images/0_1_ket.png)
+![image tooltip here](./images/0_1_ket.png)
 
 - The above two polarization states, the Vertical and Horizontal polarization states are labelled 0 and 1 and behave as the 2 independent states within Quantum Computation.
 

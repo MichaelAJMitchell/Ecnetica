@@ -145,7 +145,7 @@ $$
 The figure below show Base 10 to base 2 conversion by repeated division of 2. 
 
 <p align="center">
-  <img width="460" height="450" src="./images/binary.png">
+  <img width="720" " src="./images/binary.png">
 </p>
 
 

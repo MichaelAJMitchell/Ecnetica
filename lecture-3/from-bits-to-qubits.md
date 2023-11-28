@@ -10,7 +10,7 @@ mathjax: true
 <table style="width:100%">
 <tr>
 <td width="60%">
-In this module we revise the good old and simpler concepts of bits and their manipulations to set the stage for the fundamental blocks of quantum computing, i.e., qubits and their manipulation. As we go through the sections below, we will -
+In this lecture we revise the good old and simpler concepts of bits and their manipulations to set the stage for the fundamental blocks of quantum computing, i.e., qubits and their manipulation. As we go through the sections below, we will -
 
 <ul>
   <li> Learn the features of bits and qubits from phenomenological perspective, and through comparison of their similarities and differences. </li>

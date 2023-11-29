@@ -120,9 +120,9 @@ Let's start with a quick recap of why we need quantum computers:
 
 <ul>
 <li>Grover's algorithm was one of the earliest quantum algorihtms. It allows us to find elements in an unstructured database. What is more, Grover's algorithm is capable of doing this with a quadratic speedup over its classical counterpart, as we can see in the image below, with N being the number of elements in the database.
-<div style="text-align: center;">
-<img width="350" height="250" class="center" src="./images/grover.jpg" >
-</div>
+<p align="center">
+<img width="350" height="250" class="center" src="./images/grover.jpg" />
+</p>
 </li>
 <li>The quantum algorithm works as follows:
     <ol>
@@ -132,4 +132,6 @@ Let's start with a quick recap of why we need quantum computers:
     <li> In particular, by repeating this operator $\sqrt{N}$ times, we will have a high probability of finding our targeted element.</li>
     </ol>
 </ul>
+
+### Shor's algorithm 
 

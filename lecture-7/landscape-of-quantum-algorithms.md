@@ -235,7 +235,7 @@ In the diagram below we can see another diagram showing the problems solved by N
 
 <ul>
 <li> Quantum systems like molecules are easy to simulate with other quantum systems (qubits are quantum systems!), as they maintain the same properties and follow the same physical laws.</li>
-<li> As quantum systems are very complex, they are impossible to simulate classically due to memory constraints when the system size exceeds $N=50$</li>
+<li> As quantum systems are very complex, they are impossible to simulate classically due to memory constraints when the system size exceeds $N=50$.</li>
 <li>This however doesn't mean that any problem computation done with more than 50 qubits can't be solved classically using alternative methods.</li>
 </ul>
 
@@ -249,7 +249,7 @@ In the diagram below we can see another diagram showing the problems solved by N
 <li>Above is shown the mapping between quantum simulation algorithms and some of their applications in specific industries.</li>
 <li>Algorithms are shown in red, applications in green, and more abstract problems in blue.</li>
 <li>Algorithms can solve a set of particular problems, shown in blue, which can be used for a particular application on an industry.</li>
-<li>As we see, the generic simulation algorithms are the Variational Quantum Eigensolver (VQE) and the Quantum Approximate Optimsation Algorithm (QAOA). The objective of both algorithms is to measure the energies of some hamiltonian</li>
+<li>As we see, the generic simulation algorithms are the Variational Quantum Eigensolver (VQE) and the Quantum Approximate Optimsation Algorithm (QAOA). The objective of both algorithms is to measure the energies of some hamiltonian.</li>
 </ul>
 
 ### The variational quantum eigensolver
@@ -259,7 +259,7 @@ In the diagram below we can see another diagram showing the problems solved by N
 <li>We can encode the benzene molecule in a Hamiltonian in which we can the apply the VQE to.</li>
 <li>Each of our qubits will represent one component of the system. We can apply evolution operators to these qubits, which will containing variational quantum parameters, that will be optimised until we find the desired minimum energy.</li>
 <p align="center">
-<img width="450" height="300" class="center" src="./images/vqe.jpg" />
+<img width="350" height="200" class="center" src="./images/vqe.jpg" />
 </p>
 </ul>
 
@@ -269,3 +269,66 @@ In the diagram below we can see another diagram showing the problems solved by N
 <li>An important use-case of the VQE is the study of PFAS (per-and polyfluoroalkyl) molecule destruction. These molecules are used as hear, water and oil resistant coatings in many areas.</li>
 <li>These molecules are present in many materials, and have the inconvenient that are toxic to human bodies and they can easily contaminate water. Thus, there is an interest in chemical degradation and destruction of these molecules. In order to break these molecules we need to be able to simulate their energies, something that can be done with the VQE.</li>
 </ul>
+
+### Optimisation
+
+<ul>
+<li>Optimisation is a branch of mathematics and computer science that deals with finding the best solution (maximum or minimum) of some problem, by performing iterations of a given algorithm.</li>
+<li>One may want to minimise quantities like energy use or manufacturing time, or maximise profit for example.</li>
+<li>It turns out that the VQCs we have seen before are promising candidates to solve optimisation problems.</li>
+<li>An optimisation problem can be encoded on a VQC. The quantity we want to maximise/minimise would therefore be a function of the output when measuring the VQC. We can update the variational parameters of the VQC (using a classical optimiser) in successive iterations until the desired solution for our optimisation problem is attained.
+<p align="center">
+<img width="550" height="200" class="center" src="./images/optimisation.jpg" />
+</p>
+</li>
+</ul>
+
+### Optimisation map
+
+<ul>
+<p align="center">
+<img width="450" height="150" class="center" src="./images/optimisation_map.jpg" />
+</p>
+<li>Above is shown the mapping between quantum optimisation algorithms and some of their applications in different industries. </li>
+<li> When comparing this map with the one we presented before for simulation, we seen than the Grover adaptative search algorithm has been added now. This algorithm is a NISQ variation of Grover's algorithm, where Grover search is iteratively applied and classically optimised to find good solutions.</li>
+<li>As we see, the applications and sectors are different when we compare them to the simulation map.</li>
+</ul>
+
+### Max-cut problem
+
+<ul>
+<li>A graph is a structure made up of various nodes that have weighted connections (edges) between them. They can be used to model different problems and scenarios. For example social media users can be modelled using a graph, where its edges represent the influence between different users.</li>
+<li>The Max-cut problem aims to do a binary partition of the nodes of the graph so that the sum of the weights of the connections between the two sets is maximised. In the image below we can see how the graph's nodes were divided in two sets: one conatining nodes 0,3 and the other containing nodes 1,2.
+<p align="center">
+<img width="350" height="250" class="center" src="./images/max_cut.jpg" />
+</p>
+</li>
+<li>The Max-cut problem can be easily mapped to what is called an Ising hamiltonian, which are easily encoded and optimised on quantum computers.</li>
+<li>The Max-cut problem has applications in many areas including clustering, or graph and electrical design. It is often used as benchmnarking for evaluating optimisation techniques.</li>
+</ul>
+
+### Travelling-salesman problem
+
+<ul>
+<li>The travelling-salesman problem is another famous optimisation problem. Given a list of cities represented with nodes on a graph, and its distances represented by the weighted edges, the objective of this problem is to find the shortest possible route, so that each city is visited just once, and the starting and ending point of the route is the same.</li>
+<li>Similarly to Max-cut, this problem can be easily mapped to an Ising hamiltonian and optimised in a quantum computer. In the image below we can see the graph representing the problem (left) and the shortest optimal route (right).
+<p align="center">
+<img width="450" height="150" class="center" src="./images/travelling_salesman.jpg" />
+</p>
+</li>
+<li>This problem has different applications in many areas, being finance and marketing among the most notable ones.</li>
+</ul>
+
+### Optimisation using annealing
+
+<ul>
+<li>Until now we have mainly focused on VQCs, a type of quantum algorithm that is meant to be implemented on a gate-based quantum computer. However, there exist other types of quantum computer architectures that are good when it comes to solve optimisation problems.</li>
+<li>One of these architectures is what is called quantum annealing. This type of quanutum computers are only capable of solving problems that can be encoded as Ising hamiltonians.</li>
+<li>While this is a limitation, it is compnesated by the fact that annealers have more than 5,000 qubits available, meaning that the size of the problems that can be solved is much larger when compared to gate based computers.
+<p align="center">
+<img width="450" height="150" class="center" src="./images/annealing.jpg" />
+</p>
+ </li>
+</ul>
+<li>One of the most promising quantum annealing applications is portfolio optimisation</li>
+34

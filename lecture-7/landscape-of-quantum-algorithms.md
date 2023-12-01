@@ -331,4 +331,113 @@ In the diagram below we can see another diagram showing the problems solved by N
  </li>
 </ul>
 <li>One of the most promising quantum annealing applications is portfolio optimisation</li>
-34
+
+
+### Machine learning
+
+<ul>
+<li>The primary goal of machine learning is to develop models that can generalize well to new, unseen data, allowing them to make accurate predictions or decisions in various situations.</li>
+<li>A simple example of a machine learning task is image classification. In the image below we can see bees and ants. One machine learning model (which is well trained), would be capable of distinguishing between the bees and ants in the image.
+<p align="center">
+<img width="450" height="150" class="center" src="./images/machine_learning.png" />
+</p>
+</li>
+</ul>
+
+### Advantage of NISQ machine learning algorithms
+
+<ul>
+<li>We can find different computational bottlenecks in a classical machine learning workflow. One example of this is matrix-vector multiplication, a task seemingly simple operation which consumes a lot of computation power when the matrices are very large.
+<p align="center">
+<img width="350" height="150" class="center" src="./images/matrix.jpg" />
+</p>
+</li>
+<li>Other examples of computationally expensive tasks appearing in machine learning tasks are Fourier transforms, diagonalising matrices or solving linear systems of equations.</li>
+<li>With quantum algorithms it is thought that we can get an speed-up in some of these tasks.</li>
+</ul>
+
+
+### Machine learning map 
+
+<p align="center">
+<img width="450" height="150" class="center" src="./images/machine_learning_map.jpg" />
+</p>
+
+<ul>
+<li>Above is shown the mapping between quantum machine learning algorithms and some of their applications in different industries.</li>
+<li>When compared to the previous maps we have shown, it can be seen that VQCs are still important here, and also the quantum embedding kernels, which are based on classical kernel methods but implemented on a quantum computer.</li>
+<li>Among the applications we find neural networks (we can use VQCs as one neural network layer) or quantum generative adversarial methods (quantum GANs), that can be used to generate data that resembles the original data used for training. These are especially important in fraud detection in finance industry.</li>
+</ul>
+
+### Classical neural networks 
+
+<ul>
+<p align="center">
+<img width="300" height="150" class="center" src="./images/neural_network.jpg" />
+</p>
+<li>A classical neural network is composed of multiple layers of transformations, governe by certain weights and parameters, which are represented in nodes in the image. </li>
+<li>A vector is input to the networks and is transformed multiple times until we get the output vector.</li>
+<li>The parameters of the network are trained to minimise a cost function that will depend on the quantity we are measuring</li>
+</ul>
+
+### Quantum neural network
+
+<ul>
+<li>A quantum neural network is a neural network where one of more of the layers is a VQC.</li>
+<li>As we seen in the previous section, each layer of the network is governed by a set of parameters. When a layer is a VQC, these parameters will be the variational parameters appearing in the quantum circuit, that will be optimised during the training phase.</li>
+<li>What the benefits are of having a VQC as layer is still an open question in quantum machine learning.</li>
+<p align="center">
+<img width="400" height="150" class="center" src="./images/quantum_neural_network.jpg" />
+</p>
+</ul>
+
+### Quantum tranfer learning 
+
+<ul>
+<li>Quantum transfer learning is a technique that falls within the field of quantum neural networks.</li>
+ <li>This technique involves using a pre-trained classical neural network, and substituting one of the layers of the networks by a VQC, as we can see in the image.</li>
+ <li>The VQC variational parameters are trained using the output of the pre-trained classical neural network to get the desired result.</li>
+ <p align="center">
+<img width="350" height="150" class="center" src="./images/quantum_transfer_learning.jpg" />
+</p>
+</ul>
+
+### Quantum machine learning example 
+
+<ul>
+<li>Let's return to the image processing task on bees and ants that we saw before to see an example of application of quantum machine learning. </li>
+<li>As we see in the diagram, we input an image encoded in 512 pixeles to a pre-trained neural network on image classification. </li>
+<li>After that a layer is applied to reduce dimensionality, and its output is sent to a VQC with 4 parameters. After that another layer is applied to get a 2-dimensional vector with out predictions</li>
+<p align="center">
+<img width="400" height="100" class="center" src="./images/quantum_machine_learning_example.jpg" />
+</p>
+</ul>
+
+### Anomaly detection with qGANs
+
+<ul>
+<li>As we have seen before, GANs have seen great success in anomaly detection.</li>
+<li>A GAN consists of two neural networks, a generator and a discriminator. The generator aims to to create a dataset which is indistinguishable from the training data provided, and the discriminator aims to succesfully distinguish between these two datasets.</li>
+<li>After training these two networks, the discriminator will be capable of detecting anomalies on unseen data.</li>
+<li>The classical GANs have shown limitations in training phase and sampling procedure. That is why in qGANs the classical generator is replace by a VQC to try to overcome this limitations.</li>
+<p align="center">
+<img width="300" height="100" class="center" src="./images/qGANs.jpg" />
+</p>
+</ul>
+
+### Wrap-up
+Learning outcomes achieved:
+<ul>
+<li>Introduction to early quantum algorithms
+<ul>
+    <li>Searching</li>
+    <li>Cryptography</li>
+</ul></li>
+<li>Grasping potential advantage of quantum algorithms</li>
+<li>Introduction to NISQ algorithms and their applications in different areas
+<ul>
+    <li>Simulation</li>
+    <li>Optimisation</li>
+    <li>Machine learning</li>
+</ul></li>
+</ul>

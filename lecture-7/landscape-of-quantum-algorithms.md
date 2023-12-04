@@ -94,7 +94,7 @@ Let's start with a quick recap of why we need quantum computers:
 <img width="450" height="200" src="./images/circuit.png"/>
 </p>
 </li>
-<li> A quantum algorithm provides a probability distribution over the possible different outcomes, which are arrays of 0s and 1s representing the final state of each qubit.
+<li> The result of applying a quantum algorithm is a probability distribution over the possible different outcomes, which are arrays of 0s and 1s representing the final state of each qubit.
 <p align="center">
 <img width="350" height="300" src="./images/outcome.jpg"/>
 </p>
@@ -112,7 +112,7 @@ Let's start with a quick recap of why we need quantum computers:
 </li>
 <li>The image above represents an example of time/memory complexity with respect to some value N, that could be for example the number of variables of a given optimisation problem.</li>
 <li>In the graph we can see how the different lines scale in a different way with the N value. We would say in this case that the algorithm represented by the blue line is the most efficient. 
-<li>The O shown in the graph legend is known as big O notation. It represents the limit behaviour of a function. For example that would mean that in the graph the orange line would be at most a multiple of N.</li>
+<li>The O shown in the graph legend is known as big O notation. It represents the limit behaviour of a function. As an example, this would mean that in the graph the orange line would be at most a multiple of N.</li>
 </ul>
 
 ### Grover's algorithm
@@ -121,7 +121,7 @@ Let's start with a quick recap of why we need quantum computers:
 <ul>
 <li>Grover's algorithm was one of the earliest quantum algorihtms. It allows us to find elements in an unstructured database. What is more, Grover's algorithm is capable of doing this with a quadratic speedup over its classical counterpart, as we can see in the image below, with N being the number of elements in the database.
 <p align="center">
-<img width="350" height="300" class="center" src="./images/grover_1.jpg" />
+<img width="250" height="200" class="center" src="./images/grover_1.jpg" />
 </p>
 </li>
 <li>The quantum algorithm works as follows:
@@ -129,7 +129,7 @@ Let's start with a quick recap of why we need quantum computers:
     <li> First we take a superposition of all the indexes of the elements in the database.</li>
     <li> An <i>oracle</i> that can recognise the targeted element is applied to the superposition of elements.</li>
     <li> Then the so-called <i>Grover operator</i> is applied. This operator amplifies the probability of measuring the desired state. We can apply this operator several times in order to maximise our probability of success.</li>
-    <li> In particular, by repeating this operator $\sqrt{N}$ times, we will have a high probability of finding our targeted element.</li>
+    <li> In particular, by repeating this operator $\sqrt{N}$ times, we will end up with a high probability of finding our targeted element.</li>
     </ol>
 </li>
 </ul>
@@ -181,7 +181,7 @@ Let's start with a quick recap of why we need quantum computers:
 <ul>
 <li>NISQ stands for Noisy Intermediate Scale Quantum. This describes the current state of quantum hardware, with approximately 100 qubits, subject to noise.</li>
 <li>To work with this circuit, shallow quantum algorithms with low number of qubits are needed. In most of the cases, this algorithms are embbeded to a classical algorithm, resulting on <i>hybrid classical-quantum algorithms.</i></li>
-<li>The most common type of NISQ algorithms are the variational quantum circuits (VQC), which are quantum circuits with classical parameters that need to be classically optimised.</li>
+<li>The most common type of NISQ algorithms are the variational quantum circuits (VQCs), which are quantum circuits that contain classical parameters that need to be classically optimised.</li>
     <p align="center">
     <img width="450" height="200" class="center" src="./images/nisq_algorithm.jpg" />
     </p>
@@ -191,7 +191,7 @@ Let's start with a quick recap of why we need quantum computers:
 
 
 <ul>
-<li>One can think as VQC's as trainable quantum circuits. Different problems will require different gate and parameter structure.</li>
+<li>One can think as VQC's as trainable quantum circuits. Different problems will require different gates and parameter structure.</li>
 <li>In order to train the variational parameters, we will measure the output of the circuit, sent it to a cost function (which is problem-dependant) and perform an optimisation step (like stochastic gradient descent) to update the parameters. We can repeat this process until we get a set of parameters that make the circuit output the desired solution.
     <p align="center">
     <img width="450" height="200" class="center" src="./images/vqc.jpg" />
@@ -210,7 +210,7 @@ In the diagram below we can see some of the applications of NISQ algorithms. We 
 
 ### Quantum algorithms and applications
 
-In the diagram below we can see another diagram showing the problems solved by NISQ algorithms and the sectors in which these algorithms are useful. As examples, the maximum-cut problem are frequent in the tech sector, like in the study of networks. On the other hand fluid dynamics is present in aerospace engineer, or the travelling salesman problem in logistics. 
+In the diagram below we can see another diagram showing the problems solved by NISQ algorithms and the sectors in which these algorithms are useful. As examples, the maximum-cut proble is frequent in the tech sector, like in the study of networks. On the other hand fluid dynamics is present in aerospace engineer, or the travelling salesman problem in logistics. 
 
 <p align="center">
 <img width="350" height="300" class="center" src="./images/nisq_applications_2.jpg" />
@@ -220,7 +220,7 @@ In the diagram below we can see another diagram showing the problems solved by N
 ### Simulation 
 
 <ul>
-<li>Simulation of quantum systems aims to predict the behaviour of a complex physical system such as a molecule. It remains extremely difficult for a classical computer to simulate simple systems.</li>
+<li>Simulation of quantum systems aims to predict the behaviour of a complex physical system such as a molecule. It remains extremely difficult for a classical computer to simulate this kind of systems.</li>
 <p align="center">
 <img width="250" height="100" class="center" src="./images/simulation_1.jpg" />
 </p>
@@ -249,15 +249,15 @@ In the diagram below we can see another diagram showing the problems solved by N
 <li>Above is shown the mapping between quantum simulation algorithms and some of their applications in specific industries.</li>
 <li>Algorithms are shown in red, applications in green, and more abstract problems in blue.</li>
 <li>Algorithms can solve a set of particular problems, shown in blue, which can be used for a particular application on an industry.</li>
-<li>As we see, the generic simulation algorithms are the Variational Quantum Eigensolver (VQE) and the Quantum Approximate Optimsation Algorithm (QAOA). The objective of both algorithms is to measure the energies of some hamiltonian.</li>
+<li>As we see, the generic simulation algorithms are the Variational Quantum Eigensolver (VQE) and the Quantum Approximate Optimsation Algorithm (QAOA). The objective of both algorithms is to measure the energies of some Hamiltonian.</li>
 </ul>
 
 ### The variational quantum eigensolver
 
 <ul>
-<li>Looking back at the benzene molecule we saw at the beginning of the lecture, let's see how we can use the VQE to find its minimum energy state in a process called eigensolving.</li>
-<li>We can encode the benzene molecule in a Hamiltonian in which we can the apply the VQE to.</li>
-<li>Each of our qubits will represent one component of the system. We can apply evolution operators to these qubits, which will containing variational quantum parameters, that will be optimised until we find the desired minimum energy.</li>
+<li>Looking back at the Benzene molecule we saw at the beginning of the lecture, let's see how we can use the VQE to find its minimum energy state in a process called eigensolving.</li>
+<li>We can encode the Benzene molecule in a Hamiltonian in which we can the apply the VQE to.</li>
+<li>Each of our qubits will represent one component of the system. We can apply evolution operators to these qubits, which will contain variational quantum parameters, that will be optimised until we find the desired minimum energy.</li>
 <p align="center">
 <img width="350" height="200" class="center" src="./images/vqe.jpg" />
 </p>
@@ -266,7 +266,7 @@ In the diagram below we can see another diagram showing the problems solved by N
 ### PFAS molecule destruction
 
 <ul>
-<li>An important use-case of the VQE is the study of PFAS (per-and polyfluoroalkyl) molecule destruction. These molecules are used as hear, water and oil resistant coatings in many areas.</li>
+<li>An important use-case of the VQE is the study of PFAS (per-and polyfluoroalkyl) molecule destruction. These molecules are used as heat, water and oil resistant coatings in many areas.</li>
 <li>These molecules are present in many materials, and have the inconvenient that are toxic to human bodies and they can easily contaminate water. Thus, there is an interest in chemical degradation and destruction of these molecules. In order to break these molecules we need to be able to simulate their energies, something that can be done with the VQE.</li>
 </ul>
 
@@ -303,7 +303,7 @@ In the diagram below we can see another diagram showing the problems solved by N
 <img width="350" height="250" class="center" src="./images/max_cut.jpg" />
 </p>
 </li>
-<li>The Max-cut problem can be easily mapped to what is called an Ising hamiltonian, which are easily encoded and optimised on quantum computers.</li>
+<li>The Max-cut problem can be easily mapped to what is called an Ising Hamiltonian, which can be easily encoded and optimised on quantum computers.</li>
 <li>The Max-cut problem has applications in many areas including clustering, or graph and electrical design. It is often used as benchmnarking for evaluating optimisation techniques.</li>
 </ul>
 
@@ -323,14 +323,14 @@ In the diagram below we can see another diagram showing the problems solved by N
 
 <ul>
 <li>Until now we have mainly focused on VQCs, a type of quantum algorithm that is meant to be implemented on a gate-based quantum computer. However, there exist other types of quantum computer architectures that are good when it comes to solve optimisation problems.</li>
-<li>One of these architectures is what is called quantum annealing. This type of quanutum computers are only capable of solving problems that can be encoded as Ising hamiltonians.</li>
-<li>While this is a limitation, it is compnesated by the fact that annealers have more than 5,000 qubits available, meaning that the size of the problems that can be solved is much larger when compared to gate based computers.
+<li>One of these architectures is what is called quantum annealing. This type of quantum computers are only capable of solving problems that can be encoded as Ising Hamiltonians.</li>
+<li>While this is a limitation, it is compensated by the fact that annealers have more than 5,000 qubits available, meaning that the size of the problems that can be solved is much larger when compared to gate based computers.
 <p align="center">
 <img width="450" height="150" class="center" src="./images/annealing.jpg" />
 </p>
  </li>
 </ul>
-<li>One of the most promising quantum annealing applications is portfolio optimisation</li>
+<li>One of the most promising quantum annealing applications is portfolio optimisation.</li>
 
 
 ### Machine learning
@@ -347,7 +347,7 @@ In the diagram below we can see another diagram showing the problems solved by N
 ### Advantage of NISQ machine learning algorithms
 
 <ul>
-<li>We can find different computational bottlenecks in a classical machine learning workflow. One example of this is matrix-vector multiplication, a task seemingly simple operation which consumes a lot of computation power when the matrices are very large.
+<li>We can find different computational bottlenecks in a classical machine learning workflow. One example of this is matrix-vector multiplication, a seemingly simple operation which consumes a lot of computation power when the matrices are very large.
 <p align="center">
 <img width="350" height="150" class="center" src="./images/matrix.jpg" />
 </p>
@@ -375,9 +375,9 @@ In the diagram below we can see another diagram showing the problems solved by N
 <p align="center">
 <img width="300" height="150" class="center" src="./images/neural_network.jpg" />
 </p>
-<li>A classical neural network is composed of multiple layers of transformations, governe by certain weights and parameters, which are represented in nodes in the image. </li>
+<li>A classical neural network is composed of multiple layers of transformations, governed by certain weights and parameters, which are represented in nodes in the image. </li>
 <li>A vector is input to the networks and is transformed multiple times until we get the output vector.</li>
-<li>The parameters of the network are trained to minimise a cost function that will depend on the quantity we are measuring</li>
+<li>The parameters of the network are trained to minimise a cost function that will depend on the quantity that we are measuring</li>
 </ul>
 
 ### Quantum neural network
@@ -407,7 +407,7 @@ In the diagram below we can see another diagram showing the problems solved by N
 <ul>
 <li>Let's return to the image processing task on bees and ants that we saw before to see an example of application of quantum machine learning. </li>
 <li>As we see in the diagram, we input an image encoded in 512 pixeles to a pre-trained neural network on image classification. </li>
-<li>After that a layer is applied to reduce dimensionality, and its output is sent to a VQC with 4 parameters. After that another layer is applied to get a 2-dimensional vector with out predictions</li>
+<li>After that a layer is applied to reduce dimensionality, and its output is sent to a VQC with 4 parameters. Then, another layer is applied to get a 2-dimensional vector with out predictions</li>
 <p align="center">
 <img width="400" height="100" class="center" src="./images/quantum_machine_learning_example.jpg" />
 </p>
@@ -419,7 +419,7 @@ In the diagram below we can see another diagram showing the problems solved by N
 <li>As we have seen before, GANs have seen great success in anomaly detection.</li>
 <li>A GAN consists of two neural networks, a generator and a discriminator. The generator aims to to create a dataset which is indistinguishable from the training data provided, and the discriminator aims to succesfully distinguish between these two datasets.</li>
 <li>After training these two networks, the discriminator will be capable of detecting anomalies on unseen data.</li>
-<li>The classical GANs have shown limitations in training phase and sampling procedure. That is why in qGANs the classical generator is replace by a VQC to try to overcome this limitations.</li>
+<li>The classical GANs have shown limitations in training phase and sampling procedure. That is why in qGANs the classical generator is replaced with a VQC to try to overcome this limitations.</li>
 <p align="center">
 <img width="300" height="100" class="center" src="./images/qGANs.jpg" />
 </p>

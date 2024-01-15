@@ -23,6 +23,15 @@ In this lecture, we discuss the Software and Tools for Quantum Programming. We w
 
 
 - Introduction
+- Softwares and Tools for Quantum Programming
+- High-Level Quantum Software
+  - Quantum programming languages
+  - Generic quantum languages & libraries
+  - Specialised quantum languages & libraries
+- Low-Level Quantum Software
+- Quantum Programming Stacks as a Service
+- Quantum Workflows & Orchestrators
+- Custom Quantum Software Stacks
 {:toc}
 
 
@@ -57,4 +66,46 @@ Then we'll introduce the notion of the quantum programming stack, which overlaps
     end
 end
 ```
+
+### High-Level Quantum Software
+
+#### Quantum programming languages
+
+#### Generic quantum languages & libraries
+
+```python
+# Qiskit
+qc = QuantumCircuit(2) # this constructs a quantum circuit object named qc.
+# quantum circuit object has methods, that can add different gates to the circuit.
+
+qc.h(0) # Applies the Hadamard gate to the first qubit.
+
+qc.cx(0, 1) # Applies the CNOT gate between the first two qubits.
+
+qc.draw() # Print the drawing of the circuit.
+```
+
+
+#### Specialised quantum languages & libraries
+
+### Low-Level Quantum Software
+
+```openqasm
+OPENQASM 2.0;
+include "qelib1.inc";
+
+qreg q[2];
+creg c[2];
+
+h q[0];
+cx [0], q[1];
+measure q[0] -> c[0];
+measure q[1] -> c[1];
+```
+
+### Quantum Programming Stacks as a Service
+
+### Quantum Workflows & Orchestrators
+
+### Custom Quantum Software Stacks
 

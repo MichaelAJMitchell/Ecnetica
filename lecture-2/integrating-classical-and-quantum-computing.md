@@ -2,28 +2,18 @@
 title: Integrating Classical and Quantum Computing
 layout: post
 ---
+# Lecture 2: Integrating Classical and Quantum Computing
 
-### Learning outcomes
+## Learning outcomes
 
 1. Understand the reasons and opportunities for integrating classical high-performance computing & quantum computing systems.
 2. Demonstrate a high-level technical understanding of hybrid high-performance computing & quantum computing systems.
 3. Acquire knowledge of ongoing efforts towards integrating classical high-performance & quantum computing systems.
 
 
-### Table of Contents
-- Why integrate classical & quantum computing?
-- How to integrate classical & quantum computing?
-- Who is integrating classical & quantum computing?
-- Road ahead for integrating classical & quantum computing.
+## Why imtegrate classical & Quantum Computing
 
-- Appendix
-- Future updates and Scratchpad
-- References
-
-
-### Why imtegrate classical & Quantum Computing
-
-#### Classical High-Performance Computing
+### Classical High-Performance Computing
 
 In the simplest of cases, applications to process data or perform modelling or analysis, are typically represented as a computer program which is executed on a Central Processing Unit (CPU). For simple cases, the CPU can be imagined to have one worker that executes the program instructions in a serial fashion to produce the desired output.
 As the complexity of applications and their logics increased, opportunities arose to do what is called parallel computing – this involves executing multiple parts of a program simultaneously on multiple workers within Processing Units. For example, the program or parts of the instructions (known as kernels) within the program, may have to be executed to process different input data sets which are independent of each other – so, these could be done in parallel. This is typically referred to as data parallelism.
@@ -36,7 +26,7 @@ Consequently, while the general purpose CPUs are responsible for executing an ap
 Another point to note is that, initially the software tools and libraries required to program such different types of processors also remained different. Over a number of years, programmers, software developers and HPC experts have had to integrate different software tools and libraries for a single program that is composed of multiple heterogeneous kernels. Often, this was done in collaboration with end users from academia and industry that own the applications in order to better understand the use-cases and ensure that these tools fit the requirements and uses within the community.
 Over time, interoperability and unification of these software tools and libraries was achieved – as a result of which now-a-days many programming libraries have the ability to target different processor types under the hood, thereby reducing the difficulty of end-users, application developers and computational scientists.
 
-#### Co-existence of Classical & Quantum Computing
+### Co-existence of Classical & Quantum Computing
 
 Now, given the history and trajectory of how such special-purpose accelerators such as GPUs and FPGAs were developed and have been integrated into the general-purpose CPUs ecosystem (both at hardware and software levels), it is essential for us to take a moment and observe where quantum computing systems and quantum processing units QPUs are currently placed, and how they will and should function alongside these classical processors.
 
@@ -60,7 +50,7 @@ the computing community driven by the HPC experts and organisations, is driving 
 
 And, the importance of doing this as a part of existing HPC software methods and tools through extensions is under discussion and being acknowledged by the scientific and enterprise communities, so that quantum computers can be seamlessly used within and by existing classical high-performance computing systems and its users. We will discuss this in a bit more detail later during this lecture.
 
-#### Quantum Computation Workflow
+### Quantum Computation Workflow
 Before going forward with some specific examples of potential hybrid high-performance quantum computing applications, let us look deeper into the quantum computing part of an application workflow.
 
 Presently, all data is generated and stored in classical format – that is in binary as bits. This is represented by the first letter in this map where C represents generation of classical data.
@@ -81,16 +71,19 @@ Let’s pause here for a moment. In the lecture on “Demystifying quantum compu
 Coming back to this workflow, the measurements are performed to read the observables of the quantum computing system’s state at the end of a quantum program’s execution, these observables describe the properties of final state of the quantum system, and these observables are post-processed to translate the output of quantum workflow into classical data.
 
 In summary, explicit complex steps are required to encode classical input data into an initial quantum state, on which a quantum program through quantum operations can be applied, and the final quantum state of the quantum computing system is measured to read observables that describe the system’s properties, and the observed properties have to be post-processed to reconstruct the results of the quantum computation as classical output data.
-There are two points to note here:
-First, all steps indicated as green rectangles and their results as green circles are in the quantum paradigm or system, while the blue and red steps and their results are in the classical paradigm or system.
-Second, quantum encoding can be a very expensive step depend on what data we want to encode and quantum processing we want to do. For instance, the cost of encoding the properties of a molecule may be less expensive.
+
+There are two points to note here:
+- First, all steps indicated as green rectangles and their results as green circles are in the quantum paradigm or system, while the blue and red steps and their results are in the classical paradigm or system.
+- Second, quantum encoding can be a very expensive step depend on what data we want to encode and quantum processing we want to do. For instance, the cost of encoding the properties of a molecule may be less expensive.
+
 But large datasets like those used to train machine learning or deep learning models will be very expensive to encode, and hence any quantum advantage due to quantum processing may be negated by the cost of quantum encoding. This is a key dictator of what types of data and problems have an advantage for using quantum computing.
 Also, at present due to the low-level of programming abstraction that we discussed earlier, it is quite complex to define a quantum program using quantum operators. A combination of skills spanning quantum mechanics, quantum information processing, advanced algebra, software development and domain expertise are required together. This is where advancement of software tools and libraries as well as skills development is important for programming quantum computers.
+
 Finally, reading out the results from a quantum computer is also an area of active development to improve accuracy of the measurements and one of the places where error correction can be applied.
 
 More details on these will be discussed in other QPCC lectures
 
-#### Quantum computing as an accelerator
+### Quantum computing as an accelerator
 
 Now, having looked a bit more into the detail of what a quantum computing workflow generally involves, let us fit this into the larger picture that we had discussed earlier.
 

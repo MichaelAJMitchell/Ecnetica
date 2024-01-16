@@ -1,15 +1,6 @@
 ---
 title: From Bits to Qubits
 layout: post
-jupytext:
-  formats: md:myst
-  text_representation:
-    extension: .md
-    format_name: myst
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
 ---
 
 # Lecture 3: From Bits to Qubits

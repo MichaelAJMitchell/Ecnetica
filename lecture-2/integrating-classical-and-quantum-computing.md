@@ -4,11 +4,13 @@ layout: post
 ---
 # Lecture 2: Integrating Classical and Quantum Computing
 
-## Learning outcomes
-
+```{admonition} Learning outcomes
+:class: tip
 1. Understand the reasons and opportunities for integrating classical high-performance computing & quantum computing systems.
 2. Demonstrate a high-level technical understanding of hybrid high-performance computing & quantum computing systems.
 3. Acquire knowledge of ongoing efforts towards integrating classical high-performance & quantum computing systems.
+```
+
 
 
 ## Why imtegrate classical & Quantum Computing

@@ -5,7 +5,6 @@ mathjax: true
 mermaid: true
 ---
 
-- Introduction
-{:toc}
+# Lecture 5: Accessing Quantum Computing Systems
 
-### Introduction
+## Introduction

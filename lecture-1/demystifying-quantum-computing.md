@@ -4,13 +4,15 @@ layout: post
 ---
 # Lacture 1: Demystifying Quantum Computing
 
-## Learning outcomes
+```{admonition} Learning outcomes
+:class: tip
 
 This is an introductory module, which sets the stage for the remaining course by discussing some very elementary question into computing, and delves into quantum computing. As we go through the sections below, we will -
 
 - Gain knowledge to evaluate the capabilities, limitations and potential areas for applying quantum computing.
 - Demonstrate an understanding of the value chain and value proposition of quantum computing alongside classical high-performance computing.
 - Demonstrate ability to identify key high-level tipping points to reach practical quantum computing.
+```
 
 ```{image} ../prep/images/quant.png
 :align: center

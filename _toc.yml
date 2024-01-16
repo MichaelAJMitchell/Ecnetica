@@ -1,0 +1,26 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: index
+
+parts:
+  - caption: QPCC course
+    chapters:
+    - file: qpcc/README.md
+    - file: qpcc/lecture-1/demystifying-quantum-computing.md
+    - file: qpcc/lecture-2/integrating-classical-and-quantum-computing.md
+    - file: qpcc/lecture-3/from-bits-to-qubits.md
+    - file: qpcc/lecture-4/realizing-quantum-computing-systems.md
+    - file: qpcc/lecture-5/accessing-quantum-computing-systems.md
+    - file: qpcc/lecture-6/landscape-of-sdks-tools.md
+    - file: qpcc/lecture-7/landscape-of-quantum-algorithms.md
+  - caption: PyQM course
+    chapters:
+    - file: pyqm/README.md
+    - file: pyqm/pyqm-week1/README.md
+    - file: pyqm/pyqm-week2/README.md
+    - file: pyqm/pyqm-week3/README.md
+    - file: pyqm/pyqm-week4/README.md
+    - file: pyqm/pyqm-week5/README.md
+    - file: pyqm/pyqm-week6/README.md

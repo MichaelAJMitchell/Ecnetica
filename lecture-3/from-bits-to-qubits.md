@@ -77,8 +77,7 @@ Most common examples of such 'binary encoding' include the following -
 
 ## Conversion from Decimal to binary
 
-Let us quickly recall how we represent numbers. What we usually refer to as decimal system, consists of using a unique sequence of digits for any number. For examples the number **34593**, *thirty four thousands five hundreds and ninety three*, is five digits. We have ten digits, namely 0, 1, 2, ...8, 9 and every number is expressed as sum of one-digit multiple of tens, hundreds, thousands etc (which are powers of base 10). 34593 is essentially 
-{: .text-justify}
+Let us quickly recall how we represent numbers. What we usually refer to as decimal system, consists of using a unique sequence of digits for any number. For examples the number **34593**, *thirty four thousands five hundreds and ninety three*, is five digits. We have ten digits, namely 0, 1, 2, ...8, 9 and every number is expressed as sum of one-digit multiple of tens, hundreds, thousands etc (which are powers of base 10). 34593 is essentially
 
 $$
 \begin{align*}
@@ -153,7 +152,10 @@ b --> c
 |0    |1     |
 |1    |0     |
 
-![NOT Gate](./images/NOT.png)
+```{figure} ./images/NOT.png
+:align: center
+:width: 200px
+```
 
 - The NOT gate can be observed to be a reversible gate, the input can always be recovered from the output, we can just flip the output to recover the original input, this is an important feature and we will come back to it later
 
@@ -162,7 +164,10 @@ b --> c
 
 - The second gate is a 2 bit gate called AND gate, it gives the output 1 when both the Inputs are 1 and it is 0 for all other cases.
 
-![AND gate](./images/and.png)
+```{figure} ./images/and.png
+:align: center
+:width: 300px
+```
 
 - We can notice that the AND gate unlike the NOT gate is not reversible we can\t recover both the input qubits from the output of the AND gates.
 
@@ -177,7 +182,10 @@ b --> c
 |1 |0 |1      |
 |1 |1 |0      |
 
-![XOR gate](./images/xor.jpeg)
+```{figure} ./images/xor.jpeg
+:align: center
+```
+
 
 - It is not common to introduce an XOR gate as part of the fundamental gates of Classical computing however it provides an important analag to gates within Quantum Computing
 
@@ -187,11 +195,17 @@ b --> c
 
 - We can define a circuit that performs the additon operation we had defined previously using only the gates that we have introduced previously
 
-![Half Adder](./images/half_add.png)
+```{figure} ./images/half_add.png
+:align: center
+:width: 400px
+```
 
 - Classical half-adder circuit shown above has the same input-output characteristics that we expected from the addition operations defined in the previous sections described by the truth table below.
 
-![Truth Table half adder](./images/add_truth.png)
+```{figure} ./images/add_truth.png
+:align: center
+:width: 300px
+```
 
 - It is important to notice another key feture of the above circuit, we were **able to copy the inputs** A and B, i.e the single wire carrying the signal A could be split into two wires both carrying the same bit A, this feature will introduce us to an important difference between classical and quantum information later in the lecture.
 
@@ -228,7 +242,10 @@ Now that we have completed a fundamental review of topics in Classical Computing
 
 Let's begin by understanding what exactly is a photon, A photon is a single particle of light and we know that light is an electromagnetic wave and just like every wave has a direction of oscillation a Photon has a direction of Oscillation called it's Polarization.
 
-![image tooltip here](./images/0_1_ket.png)
+```{figure} ./images/0_1_ket.png
+:align: center
+:width: 100%
+```
 
 - The above two polarization states, the Vertical and Horizontal polarization states are labelled 0 and 1 and behave as the 2 independent states within Quantum Computation.
 
@@ -240,7 +257,12 @@ How do photons behave differently from classical information, showing behaviour 
 
 Although Quantum states can exist in the two directions (Vertical and horizontal as mentioned in the previous section) it can in general be any arbitrary direction as shown below two diagonal Quantum states which are rotated at a 45 degree angle
 
-![Superposition in light](./images/+_-.png)
+```{figure} ./images/+_-.png
+:align: center
+:width: 100%
+--
+**Superposition in light**
+```
 
 It can be shown however that these two states labelled $|+\rangle$ and $|-\rangle$ can be written as a combination of the states  $|0\rangle$ and $|1\rangle$ as introduced in the previous section. This combination of states to describe another new state is known as **Quantum Superposition**
 
@@ -253,7 +275,12 @@ We can only ever make a Quantum measurement device that asks if we are in one of
 If we have a one state going into the measurement device and that goes in. It'll come out of the one state and a one will be measured.
 However, with a plus state. If that is measured. Sometimes this happens. A zero is measured and the zero set comes out. And if we measure at another time, what might happen is we might measure a one and a one state will come out. This is described in the image below
 
-![Measurement example](./images/measure.png)
+```{figure} ./images/measure.png
+:align: center
+:width: 100%
+--
+**Measurement example**
+```
 
 So this is a really important property of measurement. It collapses, superpositions. So we saw that the plus state is an equal superposition of zero and one, and this superposition is collapsed into one of the two states.So measurement changes states and it changes into one of the two states that we are measuring for. Another point is we don't get the same eight come every time and there is a probability associated each outcome
 
@@ -264,7 +291,12 @@ Now let as look at Quantum Gates, the equivalent of Classical gates in the Quant
 ### X gate
 This gate behaves similar to the NOT gate for the states $|0\rangle$ and $|1\rangle$  causing the state to flip, the diagram below shows the action of the X gate on some Quantum states.
 
-![X-Gate](./images/xgate.png)
+```{figure} ./images/xgate.png
+:align: center
+:width: 100%
+--
+**X-Gate**
+```
 
 ### Hadamard Gate
 This gate takes the  $|0\rangle$ and $|1\rangle$  states to the  $|+\rangle$ and $|-\rangle$  states and vice-versa, Classically there is gate which acts as an analogue to such a gate

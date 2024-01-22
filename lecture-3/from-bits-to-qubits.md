@@ -3,6 +3,7 @@ title: From Bits to Qubits
 layout: post
 ---
 
+(lecture-3)=
 # Lecture 3: From Bits to Qubits
 
 ```{admonition} Learning outcomes

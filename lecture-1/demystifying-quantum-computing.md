@@ -2,6 +2,8 @@
 title: Demystifying Quantum Computing
 layout: post
 ---
+
+(lecture-1)=
 # Lacture 1: Demystifying Quantum Computing
 
 ```{admonition} Learning outcomes
@@ -65,7 +67,7 @@ The digital transformation of many sectors, businesses and solutions has moved t
 - human-related data such as transaction, personal data, activities​
 - or data from simulation of different systems and scenarios​
 
-All of these types of input data are analysed to infer intelligent, actionable, decisions, policies and strategies – both for commercial services or by public agencies​
+All of these types of input data are analysed to infer intelligent, actionable, decisions, policies and strategies – both for commercial services or by public agencies​.
 
 The analysis is typically performed by a variety of techniques – numerical or statistical modelling that use rules of the underlying principles (whether in natural or man-made systems), more recently AI-based modelling that are build to capture the ​characteristics of data.​
 
@@ -98,7 +100,7 @@ There are also fundamental reasons that are closer to the hardware-level that ha
 
 - the power wall is a problem that limits the ability of pack more transistors into processors with limited power consumption, heat dissipation, or also about building larger supercomputing systems that are energy efficient and do not require a township’s worth of energy consumption - therefore the power requirements of more and more powerful HPC systems and processors is a limiting factor​
 
-– the memory wall on the other hand is the increasing disparity between processors and memory/data storage devices – the computational modelling and analysis methods are increasingly moving driven by more and more data that are stored and have to be efficiently processed – exploring large data or parameter spaces are typical in areas such as computational physics, chemistry, optimisation and data analysis problems – therefore, how data is represented and computations are performed on the data is becoming another key bottleneck​
+– the memory wall on the other hand is the increasing disparity between processors and memory/data storage devices – the computational modelling and analysis methods are increasingly moving driven by more and more data that are stored and have to be efficiently processed; exploring large data or parameter spaces are typical in areas such as computational physics, chemistry, optimisation and data analysis problems; therefore, how data is represented and computations are performed on the data is becoming another key bottleneck​
 
 - finally, the ability to build more powerful and dense processors has been a long-standing problem in the semiconductor industry – scaling the fabrication of classical processors into smaller and smaller form factors are limited by challenges in engineering as well as fundamental physics​
 
@@ -108,7 +110,7 @@ This is where the underlying principles for making quantum computing feasible, b
 
 One of the key methods my which individual processors have been classically made more powerful has been through reducing their scale and size.​Chipmakers have incrementally gone down in the sizes of transistors that are used to build processors from 10 nanometers to 7 nanometers to now 5 and 3 nanometers.​
 
-​In simplistic terms, a transistor is a device to control the flow of electrons, and using that ability to represent binary states (simplistically, a flow in a certain direction may represent zero, while in the opposite may represent one).​Typically within a transistor, the source and drain are two ends, while a gate is used to control the flow of electrons between the source and drain.​
+​In simplistic terms, a transistor is a device to control the flow of electrons, and using that ability to represent binary states (simplistically, a flow in a certain direction may represent zero, while in the opposite may represent one). ​Typically within a transistor, the source and drain are two ends, while a gate is used to control the flow of electrons between the source and drain.​
 
 ​As transistor sizes are reduced to pack more of them into processors, the physical sizes of the transistors, particularly, the dimensions of source, drain, gate also reduce in size.​
 
@@ -122,7 +124,7 @@ Rather than controlling a flow of electrons, and using that to represent zero or
 
 Therefore, fundamentally, representation and processing of data works at a much smaller scale in quantum computing devices compared to classical computing devices.​
 
-Often, these quantum effects are presented in many articles as quantum tunnelling, entanglement, superposition, etc.. Further details on these quantum effects are discussed in the lecture “bits to qubits”.​
+Often, these quantum effects are presented in many articles as quantum tunnelling, entanglement, superposition, etc.. Further details on these quantum effects are discussed in the {ref}`lecture-3`.​
 
 Now, to implement a quantum processor, different particles are being explored to present the state of data and the methods used to control the particles also vary – this is what we observe from different technology developers pursuing superconducting, trapped ion, neutral atom, silicon dots, diamond-based or topological qubit technologies.​
 

@@ -46,7 +46,7 @@ Let's start with a quick recap of why we need quantum computers:
 
 ## What is an algorithm? 
 
-- An algorithm is a set of instructions that takes in some input and produces some output.</li>
+- An algorithm is a set of instructions that takes in some input and produces some output.
 - A classic algorithm is based on the moving around of 0s and 1s, what we call classical hardware.
 - One example of an algorithm is the google maps route optimisation algorithm, which finds the fastest route from point A to point B
 

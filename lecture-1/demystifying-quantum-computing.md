@@ -4,7 +4,7 @@ layout: post
 ---
 
 (lecture-1)=
-# Lacture 1: Demystifying Quantum Computing
+# Lecture 1: Demystifying Quantum Computing
 
 ```{admonition} Learning outcomes
 :class: tip
@@ -100,9 +100,9 @@ There are also fundamental reasons that are closer to the hardware-level that ha
 
 - the power wall is a problem that limits the ability of pack more transistors into processors with limited power consumption, heat dissipation, or also about building larger supercomputing systems that are energy efficient and do not require a township’s worth of energy consumption - therefore the power requirements of more and more powerful HPC systems and processors is a limiting factor​
 
-– the memory wall on the other hand is the increasing disparity between processors and memory/data storage devices – the computational modelling and analysis methods are increasingly moving driven by more and more data that are stored and have to be efficiently processed; exploring large data or parameter spaces are typical in areas such as computational physics, chemistry, optimisation and data analysis problems; therefore, how data is represented and computations are performed on the data is becoming another key bottleneck​
+- the memory wall on the other hand is the increasing disparity between processors and memory/data storage devices - the computational modelling and analysis methods are increasingly moving driven by more and more data that are stored and have to be efficiently processed; exploring large data or parameter spaces are typical in areas such as computational physics, chemistry, optimisation and data analysis problems; therefore, how data is represented and computations are performed on the data is becoming another key bottleneck​.
 
-- finally, the ability to build more powerful and dense processors has been a long-standing problem in the semiconductor industry – scaling the fabrication of classical processors into smaller and smaller form factors are limited by challenges in engineering as well as fundamental physics​
+- finally, the ability to build more powerful and dense processors has been a long-standing problem in the semiconductor industry – scaling the fabrication of classical processors into smaller and smaller form factors are limited by challenges in engineering as well as fundamental physics​.
 
 This is where the underlying principles for making quantum computing feasible, by leveraging its fundamental computational power, and engineering quantum computing devices emerged.​
 
@@ -153,6 +153,7 @@ These types of specific computations include tasks such as modelling and simulat
 Having said that, while a number of interesting algorithmics approaches are being developed and their applications to practically relevant use-cases identified, there is a lot more to be further explored both in terms of algorithms and the types of use-cases that are suited for quantum computing.​
 
 We will look at a few examples in a moment. Before that however, for any of us that are at the first step with the question, “where do I start to see if quantum computing is going to be relevant or beneficial for me”, typically​
+
 
 - when modelling and simulating systems with complex characteristics, parameter spaces, correlations​
 - when the computations and calculations require approximations to make the solution tractable, for instance exploring a huge parameter space for the best solution, ​

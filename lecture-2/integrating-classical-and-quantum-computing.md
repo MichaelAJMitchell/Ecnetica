@@ -2,6 +2,8 @@
 title: Integrating Classical and Quantum Computing
 layout: post
 ---
+
+(lecture-2)=
 # Lecture 2: Integrating Classical and Quantum Computing
 
 ```{admonition} Learning outcomes

@@ -3,6 +3,7 @@ title: Landscape of quantum algorithms
 layout: post
 ---
 
+(lecture-7)=
 # Lecture 7: Landscape of quantum algorithms
 
 ```{admonition} Learning Outcomes

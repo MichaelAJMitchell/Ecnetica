@@ -3,8 +3,8 @@ title: Realizing Quantum Computing Systems
 layout: post
 ---
 
+(lecture-4)=
 # Lecture 4: Realizing Quantum Computing Systems
-
 
 ```{admonition} Learning Outcomes
 :class: tip

@@ -4,6 +4,8 @@ layout: post
 mathjax: true
 mermaid: true
 ---
+
+(lecture-6)=
 # Lecture 6: Landscape of Quantum SDK's and Tools
 
 

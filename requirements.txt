@@ -1,0 +1,7 @@
+jupyter-book
+jupytercards
+jupyterquiz
+matplotlib
+numpy
+sphinxcontrib.mermaid
+sphinxcontrib.tikz

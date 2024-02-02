@@ -2,15 +2,13 @@
 title: Quantum Programming Certification Course (QPCC)
 layout: home
 ---
+# QPCC Lectures Overview
 
 The Quantum Programming Certification Course (QPCC) is offered from ICHEC aimed at providing exposure into quantum computing with minimal technical prerequisits. It is evolving, and we are added more modules with time to make it more comprehensive and inclusive of the skills and knowledge of the quantum computing ecosystem. Below are the list of modules currently offered.
-{: .text-justify}
-- Lectures
-- Contact
-{:toc}
+
 
 ---
-## Lectures
+## List of Lectures
 - [Lecture 1 - Demystifying Quantum Computing](lecture-1/demystifying-quantum-computing.md)
 - [Lecture 2 - Integrating Classical and Quantum Computing](lecture-2/integrating-classical-and-quantum-computing.md)
 - [Lecture 3 - From Bits to Qubits](lecture-3/from-bits-to-qubits.md)

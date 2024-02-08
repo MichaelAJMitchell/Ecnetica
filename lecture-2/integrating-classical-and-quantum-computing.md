@@ -6,6 +6,10 @@ layout: post
 (lecture-2)=
 # Lecture 2: Integrating Classical and Quantum Computing
 
+
+```{warning} These lecture notes are a work in progress and are not a replacement for watching the lecture video, it's intended to be a supplementary reading after watching the lecture 
+```
+
 ```{admonition} Learning outcomes
 :class: tip
 1. Understand the reasons and opportunities for integrating classical high-performance computing & quantum computing systems.

@@ -6,6 +6,11 @@ layout: post
 (lecture-1)=
 # Lecture 1: Demystifying Quantum Computing
 
+
+
+```{warning} These lecture notes are a work in progress and are not a replacement for watching the lecture video, it's intended to be a supplementary reading after watching the lecture 
+```
+
 ```{admonition} Learning outcomes
 :class: tip
 

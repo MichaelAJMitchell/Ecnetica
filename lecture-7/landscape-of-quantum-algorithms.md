@@ -6,6 +6,9 @@ layout: post
 (lecture-7)=
 # Lecture 7: Landscape of quantum algorithms
 
+```{warning} These lecture notes are a work in progress and are not a replacement for watching the lecture video, it's intended to be a supplementary reading after watching the lecture 
+```
+
 ```{admonition} Learning Outcomes
 :class: tip
 In this lecture we will be taking a look at the landscape of quantum algorithms, and talk about two of the layers of the quantum stack shown in the right, namely the applications and quantum algorithms. The learning outcomes of this lecture will be the following : 

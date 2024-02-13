@@ -6,6 +6,9 @@ layout: post
 (lecture-3)=
 # Lecture 3: From Bits to Qubits
 
+```{warning} These lecture notes are a work in progress and are not a replacement for watching the lecture video, it's intended to be a supplementary reading after watching the lecture 
+```
+
 ```{admonition} Learning outcomes
 :class: tip
 

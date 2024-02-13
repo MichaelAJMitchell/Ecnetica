@@ -8,6 +8,8 @@ mermaid: true
 (lecture-6)=
 # Lecture 6: Landscape of Quantum SDK's and Tools
 
+```{warning} These lecture notes are a work in progress and are not a replacement for watching the lecture video, it's intended to be a supplementary reading after watching the lecture 
+```
 
 ```{admonition} Learning Outcome
 :class: tip

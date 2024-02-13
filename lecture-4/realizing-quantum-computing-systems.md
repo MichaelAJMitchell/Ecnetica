@@ -71,7 +71,7 @@ The Quantum version of the workflow follows a similar set of steps with a few ad
 
 ## Building Quantum Computers
 
-Broadly, the Quantum Computing systems that are being developed today can be classified into two categories Circuit Based or Gate Based devices and  Analog Quantum Simulation, there are further segregation within each of these types which we'll delve into in the upcoming slides,we have also shown some of the industry providers who are working towards building each of these types of hardware.
+Broadly, the Quantum Computing systems that are being developed today can be classified into two categories Circuit Based or Gate Based devices and  Analog Quantum Simulation, there are further segregation within each of these types which we'll delve into in the upcoming slides, we have also shown some of the industry providers who are working towards building each of these types of hardware.
 
 - Circuit-Based/ Gate-Based 
     - IBM (Superconducting Qubits)
@@ -84,6 +84,20 @@ Broadly, the Quantum Computing systems that are being developed today can be cla
     - Quantum Annealing
         - Dwave (Superconducting Qubit Array)
 
+```{mermaid}
+%%{init: {'theme':'base', 'fontSize': '24', 'securityLevel': "loose"}}%%
+root((Types of Quantum Computing))
+    (Circuit/Gate Based )
+        ("IBM (Superconducting Qubits)")
+        ("IONQ ( Ion trapped Qubits)")
+        ("Xanadu (Photonics)")
+    (Quantum Analog Computers)
+        ("Quantum Array Simulators")
+            ("QuEra (Neutral Atom Array)")
+            ("Pasqal (Neutral Atom Array)")
+        ("Quantum Annealing")
+            ()"Dwave (Superconducting Qubit Array)")
+```
 
 ### Circuit-based Quantum Computing
 

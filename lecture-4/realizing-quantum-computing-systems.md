@@ -75,7 +75,7 @@ Broadly, the Quantum Computing systems that are being developed today can be cla
 
 - Circuit-Based/ Gate-Based 
     - IBM (Superconducting Qubits)
-    - IONQ ( Ion trapped Qubits)
+    - IONQ (Ion-trapped Qubits)
     - Xanadu (Photonics)
 - Quantum Analog Computers
     - Quantum Array Simulators
@@ -85,18 +85,19 @@ Broadly, the Quantum Computing systems that are being developed today can be cla
         - Dwave (Superconducting Qubit Array)
 
 ```{mermaid}
-%%{init: {'theme':'base', 'fontSize': '24', 'securityLevel': "loose"}}%%
-root((Types of Quantum Computing))
-    (Circuit/Gate Based )
-        ("IBM (Superconducting Qubits)")
-        ("IONQ ( Ion trapped Qubits)")
-        ("Xanadu (Photonics)")
-    (Quantum Analog Computers)
-        ("Quantum Array Simulators")
-            ("QuEra (Neutral Atom Array)")
-            ("Pasqal (Neutral Atom Array)")
-        ("Quantum Annealing")
-            ()"Dwave (Superconducting Qubit Array)")
+%%{init: {'theme':'base', 'fontSize': '10', 'securityLevel': "loose"}}%%
+mindmap
+    root("**Types of Quantum Computing**")
+        qcg("**Circuit/Gate Based**")
+            ("IBM (Superconducting Qubits)")
+            ("IONQ (Ion-trapped Qubits)")
+            ("Xanadu (Photonics)")
+        qac("**Quantum Analog Computers**")
+            ("Quantum Array Simulators")
+                ("QuEra (Neutral Atom Array)")
+                ("Pasqal (Neutral Atom Array)")
+            ("Quantum Annealing")
+                ("Dwave (Superconducting Qubit Array)")
 ```
 
 ### Circuit-based Quantum Computing

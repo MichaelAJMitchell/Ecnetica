@@ -9,3 +9,9 @@ html {
     --pst-font-family-heading: Cambria, Georgia, Times, var(--pst-font-family-base-system);
     --pst-font-family-monospace: Courier, var(--pst-font-family-monospace-system);
 }
+
+th, td {
+    border: 3px solid;
+    padding: 6px;
+}
+

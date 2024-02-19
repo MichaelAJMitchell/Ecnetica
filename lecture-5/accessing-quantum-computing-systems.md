@@ -36,7 +36,7 @@ In lecture 3, we learnt about some building blocks of quantum operations similar
 
 Here in the similar spirit, we go through a discussion on classical programming, to set the stage for learning quantum programming. Consider the following simple example -
 
-### What are Classical Programs
+## What are Classical Programs
 
 ```{code-cell}
 import numpy as np
@@ -53,7 +53,8 @@ A classical program is a set of instructions for a classical computer to execute
 
 Take for example the following program which is written in the programming language Python and uses the popular scientific library Numpy. Here we generate a set of random integers between zero and fifteen inclusive, a random number generator program. And we can see the result plotted in this histogram. We should note that no quantum computing paradigms or hardware are used in the execution of this program. This program is entirely executed using classical paradigms of computation on classical hardware. And this will be the distinguishing factor between a classical and a quantum program.​
 
-### What are Quantum Programs
+
+## What are Quantum Programs
 
 So what is a quantum program?​
 
@@ -64,17 +65,35 @@ Here we see a similar random number generator to the previous classical version,
 
 We also see that the quantum program can be represented by a quantum circuit as shown on the left. The quantum program shown here is again written in python and uses the popular Qiskit library.
 
-```python
+```{code-cell}
 import qiskit
 size = 4
 qc = qiskit.QuantumCircuit(size, size)
 for i in range(size):
     qc.h(i)
 qc.measure_all()
+qc.draw()
 ```
 
+## Executing quantum programs on quantum hardware
 
-### Executing Quantum Programs on Quantum Hardware
+Below are some comparative comments on the pros and cons of real quantum hardware.
+
+```{mermaid}
+mindmap
+    root(Quantum programming)
+        Advantages
+            Access the full potential of QC
+                Superposition
+                Entanglement
+        Disadvantages
+            Current Hardware constraints
+                Noise
+                Low number of Qubits
+                Low circuit depths
+            Remote access only
+            Availability
+```
 
 - Advantages
     - Access the full potential of QC
@@ -95,3 +114,4 @@ The previous slide begs the question, if we can simulate quantum programs on cla
 :class: tip
 Physical qubits experience noise and decoherence, resulting in computational errors. This problem also amplifies as we attempt to use more qubits and so ​this limits the number of qubits you can use​, and the circuit depth of the program you are implementing​.
 ```
+

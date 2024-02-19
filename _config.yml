@@ -55,3 +55,4 @@ parse:
     - smartquotes
     - substitution
     - tasklist
+  myst_url_schemes: [mailto, http, https]

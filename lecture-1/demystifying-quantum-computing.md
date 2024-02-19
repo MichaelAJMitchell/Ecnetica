@@ -17,7 +17,9 @@ layout: post
 This is an introductory module, which sets the stage for the remaining course by discussing some very elementary question into computing, and delves into quantum computing. As we go through the sections below, we will -
 
 - Gain knowledge to evaluate the capabilities, limitations and potential areas for applying quantum computing.
+
 - Demonstrate an understanding of the value chain and value proposition of quantum computing alongside classical high-performance computing.
+
 - Demonstrate ability to identify key high-level tipping points to reach practical quantum computing.
 ```
 
@@ -34,19 +36,27 @@ The current form of Classical Computation started in the first half of the 20th 
 
 The third generation came about when semiconductor-based devices could be packaged into dense electronic circuits, in which a large number of tiny transistors could be integrated into discrete electronic components for specific functionalities.
 
-With the fourth revolution, very-large-scale integration capabilities and micro and nano-fabrication technologies allowed the revolution where a wide range of powerful, application specific, parallel, field-based or energy-efficient microprocessors have been created. These microprocessors have led to the development of smart devices that are deployed out in the field as sensors, in our mobile devices, work stations or more aggregated compute systems such as HPC clusters or public cloud systems
+With the fourth revolution, very-large-scale integration capabilities and micro and nano-fabrication technologies allowed the revolution where a wide range of powerful, application specific, parallel, field-based or energy-efficient microprocessors have been created. These microprocessors have led to the development of smart devices that are deployed out in the field as sensors, in our mobile devices, work stations or more aggregated compute systems such as HPC clusters or public cloud systems.
 
 There are two common elements in each of these first four generations of computing:
-
-1. The unit of representing and processing data has been in terms of binary states (on/off, or 0/1).
+```{card}
+1. The unit of representing and processing data has been in terms of binary states (on/off, or 0/1 or `true/false`).
+```
+```{card}
 2. The advancements have been in shrinking the form factor through fabrication and packaging within the world of classical mechanics, i.e. controlling a stream of sub-atomic particles to represent the binary states (to oversimplify – a flow of electrons represents zero, or the opposite a one).
+```
+
 
 One among the latest emerging revolutions in computing is quantum computing about which we will learn more in this lecture and the rest of the course.
 
 At a high-level the leap and main difference in quantum computing is:
 
+```{card}
 1. By controlling the properties of atomic or sub-atomic particles at a much finer level of granularity and precision, quantum computing works as a different paradigm of computation.
+```
+```{card}
 2. And in this new paradigm, data is no longer represented in binary states (i.e. either zero or one), but as a probability-based combination of different possible states (for example, as a zero and one at the same time with certain probabilities). This brings in a huge change in the way data is represented as well as processed in quantum computing compared to classical computing – but more on this later in this session and rest of the course – particularly, the one on bits to qubits.
+```
 
 #### Scales of Computing
 
@@ -68,9 +78,11 @@ Now, before going further to quantum computing or its applications, we take a mo
 
 The digital transformation of many sectors, businesses and solutions has moved to a data-centric scenario where the huge variety and volume of heterogeneous datasets from different sources​ -
 
+```{card}
 - be observed data from satellites, devices, vehicles​
 - human-related data such as transaction, personal data, activities​
 - or data from simulation of different systems and scenarios​
+```
 
 All of these types of input data are analysed to infer intelligent, actionable, decisions, policies and strategies – both for commercial services or by public agencies​.
 
@@ -94,20 +106,32 @@ we now move on to addressed where quantum computing fits in this context, and wh
 
 ​The primary reasons why computational technology developers and its end-users are looking at the next generation of methodologies and platforms is that currently there are a number of challenges and limitations that classical high-performance computing is hitting​
 
+```{card}
 - a number of complex computational, simulation and modelling problems remain intractable – and, an feasible time-to-solution is achieved by reducing the complexity through approximations of the problems/systems that are solved (through methods such as heuristics), or reducing the precision of the solution to be completed to an acceptable threshold that produces a good-enough solution. This is a compromise between high-accuracy or high-precision, versus a reasonable time-to-solution or what problem size can be actually represented and solved in a classical high-performance computer.​
-
+```
+```{card}
 - Typically, these are faced in all of the sectors, algorithms and application areas that we walked through earlier.​
+```
+```{card}
 - even on supercomputers, for time-bound applications such as weather forecast, or real-time applications – the available time to compute a solution is limited, or the ability of decompose a problem into smaller parts for parallel processing is also being limited due to the nature of the problem.​
-
+```
+```{card}
 - this is one of the primary reasons where developers are looking at alternate computing techniques to supplement the existing classical high-performance computing as accelerators for specific parts of the problem.​
+```
 
 There are also fundamental reasons that are closer to the hardware-level that has limited the ability to build more and more powerful classical HPC systems​
 
+```{card}
 - the power wall is a problem that limits the ability of pack more transistors into processors with limited power consumption, heat dissipation, or also about building larger supercomputing systems that are energy efficient and do not require a township’s worth of energy consumption - therefore the power requirements of more and more powerful HPC systems and processors is a limiting factor​
+```
 
+```{card}
 - the memory wall on the other hand is the increasing disparity between processors and memory/data storage devices - the computational modelling and analysis methods are increasingly moving driven by more and more data that are stored and have to be efficiently processed; exploring large data or parameter spaces are typical in areas such as computational physics, chemistry, optimisation and data analysis problems; therefore, how data is represented and computations are performed on the data is becoming another key bottleneck​.
+```
 
+```{card}
 - finally, the ability to build more powerful and dense processors has been a long-standing problem in the semiconductor industry – scaling the fabrication of classical processors into smaller and smaller form factors are limited by challenges in engineering as well as fundamental physics​.
+```
 
 This is where the underlying principles for making quantum computing feasible, by leveraging its fundamental computational power, and engineering quantum computing devices emerged.​
 
@@ -137,11 +161,13 @@ Which approach is the most efficient, accurate and promising one? That is yet to
 
 Thus, most of the efforts are currently to pursue these different approaches for realising and manufacturing quantum processors, and explore which ones can become mature and reliable enough like current classical processors.​
 
+```{card}
 - Classical computing works by controlling flow of electrons (bits, binary states)​
 - Quantum computing works by controlling (sub-)atomic particles at an individual level​
 - This is the source of quantum computing’s power that is based on quantum mechanics​
 - Can bring precision, accuracy, scale of problem, time to solution, etc.​
 - That a representation of data (as qubit) can be at more than one value (state) at the same time with certain probabilities​
+```
 
 This is where quantum computing, specifying data and operations/computing for quantum computers and quantum programming is radically different from classical computing​
 
@@ -159,17 +185,52 @@ Having said that, while a number of interesting algorithmics approaches are bein
 
 We will look at a few examples in a moment. Before that however, for any of us that are at the first step with the question, “where do I start to see if quantum computing is going to be relevant or beneficial for me”, typically​
 
-
+```{card}
 - when modelling and simulating systems with complex characteristics, parameter spaces, correlations​
-- when the computations and calculations require approximations to make the solution tractable, for instance exploring a huge parameter space for the best solution, ​
+```
+```{card}
+- when the computations and calculations require approximations to make the solution tractable, for instance exploring a huge parameter space for the best solution,
+```
+```{card} ​
 - when we use lower precision to perform computations and representation of data on classical HPC compared to the problem’s natural precision;​
+```
+```{card}
 - when the time to compute a solution requires optimised by orders of magnitude,​
+```
 
 These are typically candidates where quantum computing could help and deliver a potential improvement compared to classical computing methods.​
 
 Therefore, when looking for candidate computations or use-cases, look for specific parts that need more accuracy in exploring large parameter spaces, probabilistic systems when complex correlations, representing systems or problems with higher precision.​
 
 ### The Quantum Computing Ecosystem
+
+Here is an initial sketch of the ecosystem.
+
+```{mermaid}
+%%{init: {'theme':'base', 'fontSize': '11', 'securityLevel': "loose"}}%%
+mindmap
+    root["Quantum Computing Ecosystem"]
+        prv(("Providers"))
+            [IBM Quantum]
+            [Rigetti Computing]
+            [D-wave Systems]
+            [IonQ]
+            [Microsoft]
+        dev("Developers")
+            [Researchers]
+            [Industries]
+        use(("Users"))
+            [Researchers]
+                [Chemistry]
+                [Bioinformatics]
+                [Material Science]
+            [Industry]
+                [Pharmacy]
+                [Finance]
+        inv("Investors")
+            [Government]
+            [Industry]
+```
 
 ### Appendix
 

@@ -107,7 +107,7 @@ In the meantime, let us have a look at some application examples from a few sele
 
 ### How does the quantum computing ecosystem look
 
-### Whatr does QPCC offer you
+### What does QPCC offer you
 
 ### Appendix
 

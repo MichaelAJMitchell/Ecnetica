@@ -6,3 +6,5 @@ numpy
 sphinxcontrib.mermaid
 sphinxcontrib.tikz
 qiskit
+qiskit-aer
+pylatexenc

@@ -145,25 +145,160 @@ Physical qubits experience noise and decoherence, resulting in computational err
 
 
 ## QC hardware vs software simulators
+Let us now compare the two methods of executing a quantum program., namely executing on quantum hardware as previously discussed and executing on a quantum computing software simulator. We have highlighted here some advantages and disadvantages of using either computational scheme, in the context of five key areas; Comparison to reality, noise, cost, access and control, and scalability. ​
+
+Jumping into the first area, we discussed before that quantum computing hardware manipulates actual qubits and this adheres to us the computational benefits of quantum entanglement and superposition. In contrast, the software simulators consist of software objects that mimic qubits, and this is resource expensive and ultimately can only be scaled to simulating approximately fifty qubits with the most powerful of computers. ​
 
 ​
-	
 
+When it comes to noise, quantum hardware is at a disadvantage as qubits are inherently noisy. However, with a software simulator we can have zero noise, we can also introduce a noise model to better simulate how actual quantum hardware would perform in a certain task. This is highly controllable and helps to better understand and improve actual quantum hardware.​
+
+​
+
+Unfortunately, quantum hardware, being in it’s infancy, is quite expensive and also it requires significant maintenance. In contrast, software simulators are largely free and open source and can be easily set up on a desired computer or platform.​
+
+​
+
+Quantum computers are also limited in access, often times a vendors most advanced technology is not accessible at all and they only provide scaled down quantum computers with small numbers of qubits to the public. Controlling quantum hardware is also difficult, you generally have to send your program to the vendor for execution and they control the runtime. Again, software simulators are advantageous here as they are easily accessible and you are free to control your own workflow.​
+
+​
+
+When it comes to scalability, quantum hardware is limited by the current state of the hardware with expectations for significant upscaling in the future. Thus, quantum computers could eventually significantly out perform software simulators, which are limited to around fifty qubits, in this regard.
+​
+<style>
+r { color: Red }
+o { color: Orange }
+g { color: Green }
+</style>
+
+```{table}
 ||Quantum Computing ​Hardware​| Quantum Computing Software ​Simulators​|
-|:---|:---|:---|
-|Comparison ​to Reality ​| Actual Qubits​|Software objects mimicking qubits​|
-|                      |Quantum entanglement and superposition​| Classical backends, heavy on resources​|
-|                      |                                      |Simulated quantum behavior​|
-|Noise​                 | Inherently exists, need to employ error mitigation/correction​|Controllable​|
-|                      |                                                 |Helps understand & improve Real QC​|
-|Cost​                  | Very expensive​| Mostly free & open source​|
-|                      | Require heavy maintenance​| Easily setup on laptop/desktops/servers​|
-|Access and Control​    | Very limited public access​|Widely accessible, easy to install​ |
-|                      | Little control on runtime​ | Debug, analyze, develop easily​|
-|                      | You can’t really debug on QC| |​
-| Scalability​          | Limited qubits​      | Due to classical backends, actual computation cost grows exponentially ​|
-|                      | Future research will open new possibilities| |​
+|:---|:---|:-----|
+|Comparison ​to Reality ​|<g>Actual Qubits</g>​                              |<r> Software objects mimicking qubits​</g>|
+|                      |<g>Quantum entanglement and superposition​</g>     |<r> Classical backends, heavy on resources</g>​|
+|                      |                                                   |<r> Simulated quantum behavior​</g>|
+|Noise​                 |<r>Inherently exists </r>​                          |<g> Controllable</g>​|
+|                      |<r> needs error mitigation/correction </r>         |<g> Helps understand & improve Real QC​</g>|
+|Cost​                  |<r> Very expensive​ </r>                            |<g> Mostly free & open source​</g>|
+|                      |<r> Require heavy maintenance​</r>                  |<g> Easily setup on laptop/desktops/servers​</g>|
+|Access and Control​    |<r> Very limited public access​ <r/>                |<g>Widely accessible, easy to install​ </g>|
+|                      |<r> Little control on runtime​ </r>                 |<g> Debug, analyze, develop easily​</g>|
+|                      |<r> You can’t really debug on QC</r>               | |​
+| Scalability​          |<r> Limited qubits​      </r>                       |<r> Due to classical backends, actual computation cost grows exponentially ​</r>|
+|                      |<g> Future research will open new possibilities</g>| |​
+```
 
 
+
+## Executing quantum program on QCSS
+
+You can install quantum computing simulation software (QCSS) locally on your laptop/desktop or workstation.​ Remote QCSS is installed on larger scale HPC facilities.​ Most of these machines running the backend simulations are required to have insanely large RAM, and obviously with larger compute power, usually through GPU accelerators, since with increasing number of qubit $N$, the Hilbert space needed to simulate the backend grows as $2^N$. 
+
+```{note}
+Another way of seeing the increase is that adding each qubit to the problem size doubles the memory requirement.
+```
+
+This poses a fundamental limitation of classical methods due to exponentially increasing resource requirements such as memory, storage and CPU time in many algorithms.​
+
+But it's that this limitation, even though quite severe, makes the QCSS completely useless. There is plenty we can do and learn through it. See a comparative chart below
+
+```{mermaid}
+:align: center
+%%{ init: { 'flowchart': { 'curve': 'stepAfter' } } }%%
+flowchart TD
+subgraph Local["`**Local**`"]
+direction LR
+    l1["Complete user control"]
+    l2["No waiting in queue"]
+    l3["Limited circuit depth"]
+    l4["Low qubit count (~25)"]
+end
+
+subgraph Remote["`**Remote**`"]
+direction LR
+    r1["Many users in queue"]
+    r2["Waiting time can be large"]
+    r3["Bigger circuit depth"]
+    r4["Larger qubit count (~50)"]
+end
+a["`Quantum computing
+software simulators`"]--->Local & Remote
+
+```
+
+There are several aspects of learning QC on QCSS. QCSS are essentially just a software layer on top of a powerful machine, and so they are a lot easier to procure and maintain compared to an actual quantum device, which requires complex experimental setup and careful monitoring/maintenance.
+
+On the other hand, for learning the QC, and testing feasibility of a quantum algorithm one does not necessarily need large qubit size. In fact most concepts for learning purpose can be illustrated with 4-6 qubits at most, where one can deploy a QCSS on machines ranging from laptops to HPC machines.
+
+The QCSS, can be used either on your local machine or on a remote computer. The advantages of using them locally are that you have complete control over the execution and there in no need to wait in any queues to execute your program. We are subject to some disadvantages when running your programs locally, we care limited to a small number of qubits, around 25, and also we must use low circuit depths as the alternative is too computationally expensive. This results in high compute and memory requirements.​
+
+​Similarly there are advantages and disadvantages to using a remote computer for the simulation of quantum programs. The main advantage is larger circuit depths and qubit counts relative to a local execution, while the disadvantages are the availability of the computer, waiting times can be significant and disruptive. Keep in mind that remote executions are still limited in scalability, with fifty qubits being an approximate limit.​
+
+Depending on your goals you might want to use actual quantum hardware or a quantum software simulator in a local or remote level. For example, quantum software simulators provide a testbed for your quantum programs and are generally a suitable arena in which to run your quantum programs albeit with limited scale. Ultimately the usefulness of quantum computing will only be attained by using actual quantum hardware as this uses real quantum properties rather than classical simulations of those properties, but this is again limited by the current state of quantum hardware which has problems scaling up the number of qubits and also with noise. It will likely take years to see the real power of a quantum computer come to fruition. You can however test your programs on real quantum hardware today, again this has a limited scale to a few hundred qubits.
+
+
+## Executing quantum programs locally
+​
+```{margin}
+![qc-temp](./qc-temp.png)
+For example, many types of quantum computers require refrigeration to cold temperatures which poses obvious problems for the creation of some sort of personal quantum computer.
+```
+
+As discussed before, we can't use quantum hardware at the local level, we must access it remotely. This is due to constraints of the current state of quantum hardware (See image on right). We can however, use a quantum software simulator at a local level, and this is what we will discuss in this section, where we will investigate the different types of quantum software simulators and their capabilities as well as which quantum software simulators are currently available for use. We must keep in mind that quantum software simulators are limited in scale at a local level, and slightly less so on a remote level. This is due to the compute and memory requirements needed for an ever growing number of qubits and depth of circuit used in quantum algorithms.
+
+For example, observe the following graph, as the number of qubits in our quantum system grows, the number of classical bits required to represent and simulate these qubits grows exponentially and this is the fundamental reason why quantum simulation is difficult especially when we acknowledge that most useful quantum algorithms require qubit numbers that far exceed any amount that a classical computer could simulate in a reasonable time.​
+
+```{code-cell}
+:tags: ['remove-input']
+x = np.arange(0, 17)
+y = np.power(2, x)
+import matplotlib.pyplot as plt
+plt.figure(figsize=(15,8))
+plt.xlim(0, 16)
+#plt.ylim(1, 10**6)
+plt.yscale('log')
+plt.plot(x, y, 'o-', color='green', lw=4)
+plt.fill_between(x, y, np.zeros(x.shape[0]), fc='blue', alpha=0.1)
+plt.xticks(fontsize=15)
+plt.yticks(fontsize=15)
+plt.xlabel("No. of Qubits", fontsize=18)
+plt.ylabel("No. of Bits", fontsize=18)
+plt.show()
+```
+
+- We are very limited by the number of qubits we can simulate as well as the depth of the circuit.  A classical computer with a clock speed of 3Ghz would require 35 hours to perform one operation on 53 qubits.​
+
+- Your laptop, for example, could simulate around 25 qubits, in a reasonable time, at a push.​
+
+- There are a variety of quantum computing software simulators available to us, including state vector, and tensor network simulators.​
+
+[How quantum computing scales](https://vincentlauzon.com/2018/03/21/quantum-computing-how-does-it-scale/)​
+​
+
+
+
+
+```{code-cell}
+:tags: ['remove-input']
+svs = np.array([[1, 0], [np.log2(50), 0], [np.log2(50), 10**6], [1, 10**6], [1, 0]]).T
+tns = np.array([[np.log2(25), 0], [np.log2(65536), 0], [np.log2(65536), 100], [np.log2(25), 100], [np.log2(25), 0]]).T
+import matplotlib.pyplot as plt
+plt.figure(figsize=(15,8))
+plt.xlim(2, 16)
+plt.ylim(1, 10**6)
+plt.yscale('log')
+plt.fill(svs[0], svs[1], fc='green', alpha=0.3)
+plt.fill(tns[0], tns[1], fc='blue', alpha=0.3)
+loc = [i for i in range(1, 17)]
+lab = [2**i for i in range(1, 17)]
+plt.xticks(loc, lab, fontsize=15)
+plt.yticks(fontsize=15)
+plt.text(7, 8, "Tensor-Network Simulators", fontsize=24)
+plt.text(3, 8, "State-Vector Simulators", fontsize=24, rotation=90)
+plt.xlabel("Number of Qubits", fontsize=18)
+plt.ylabel("Circuit depth", fontsize=18)
+plt.show()
+
+```
 
 [^lib]: In Python, library containing organized sets of functions and utilities are called modules.

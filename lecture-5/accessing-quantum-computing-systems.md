@@ -275,6 +275,39 @@ plt.show()
 [How quantum computing scales](https://vincentlauzon.com/2018/03/21/quantum-computing-how-does-it-scale/)​
 ​
 
+## Types of QC software simulators
+
+Lets now discuss some different types of quantum software simulators. They can differ in terms of both their front-end and backend. However, the differentiation in the front end is more within the classical programming era, as it refers to elements such as UI, and the underlying language. The more interesting aspect is at the backend, which usually is the mathematical machinery that actually simulates the quantum system representing the circuit/system.There are many, but here we will discuss two in in particular.
+
+These are **state-vector simulators** and **tensor network simulators**[^tnsim]. The state-vector simulator performs the quantum computation in question exactly as it is while the tensor network simulator simplifies the calculation at the cost of accuracy. This creates some relative advantages and disadvantages between these two types of simulators. The state-vector simulator holds memory of each possible qubit state, and updates them all at each time step in the computation. It has problems with memory capacity and compute time growing exponentially with the number of qubits. It can also model both ideal and noisy qubits. The tensor network simulator simulates only states you predictably need by using tensor network contractions, this reduces memory and compute requirements allowing the simulation of 100s or 1000s of qubits.​
+
+The following table of comparison summarises the two -
+``````{grid}
+```{grid-item}
+:outline:
+### Statevector simulatores
+
+![](./sv-sim.png)
+
+- Maintains full $2^n$ qubit vector state in memory.
+- Updates all states at every timestep, probability sample $n$ of the states for measurement
+Memory Capacity and time grow exponentially with the number of qubits, so
+- Limited to approximately 50 qubits on a supercomputer
+- Can model both ideal and noisy qubits.
+```
+
+```{grid-item}
+:outline:
+### Tensor Network Simulators
+
+![](https://quantum-journal.org/wp-content/uploads/2021/03/logo-2048x1024.jpg)
+- It only simulates the states you need.
+- It Uses tensor network contractions to dramatically reduce the memory for simulating circuits.
+- It Can simulate 100s or 1000s of qubits for many pactical quantum circuits.
+- It Can model both ideal and nosiy qubits.
+- It only offers advantage in weakly entangled systems.
+```
+``````
 
 
 
@@ -302,3 +335,4 @@ plt.show()
 ```
 
 [^lib]: In Python, library containing organized sets of functions and utilities are called modules.
+[^tnsim]: Hyper-optimized tensor network contraction, (Quantum, **5**, 410, 2021)[https://doi.org/10.22331/q-2021-03-15-410)

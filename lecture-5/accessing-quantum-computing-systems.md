@@ -45,6 +45,7 @@ import numpy as np              # import numpy library
 import matplotlib.pyplot as plt # import the plotting library
 
 x = np.random.random(30000)     # generate the random numbers
+plt.figure(figsize=(12, 8))
 plt.hist(x, bins=100)           # plot the histogram
 plt.xlabel("x")                 # set the x-label  |
 plt.ylabel("Histogram of x")    # set the y-label  | The 'plot' thickens :-) 
@@ -309,6 +310,7 @@ Memory Capacity and time grow exponentially with the number of qubits, so
 ```
 ``````
 
+Taking another look at the differences between these simulators, through the figure below. The tensor network simulator can simulate many qubits but at a relatively low circuit-depth, while the state-vector simulator can simulate a relatively low number of qubits at a higher circuit depth. Depending on the algorithm you wish to execute, you can vary which simulator type you use to best solve the problem.
 
 
 ```{code-cell}
@@ -334,5 +336,76 @@ plt.show()
 
 ```
 
+## Accessing QCSS
+
+
+Lets now take a look at the various simulators available. We can roughly split these into two-categories. Those which are used as part of a broader software stack such as Qiskit's `aer` backend and standalone simulators such as the Intel Quantum Simulator. We will see these appear later when investigating how to access different quantum systems.​
+
+
+Project Specific / Full Stack?​
+
+    Qiskit Aer Backend, part of Qiskit, written in ..., type of simulator​
+    Pennylane Lightning, C++, full-state, etc​
+Standalone​
+    IQS Intel Quantum Simulator​
+    Qulacs, C++​
+
+
+``````{grid}
+```{grid-item-card}
+**Stack Specific**
+
+- Qiskit: [Aer Backend](https://qiskit.github.io/qiskit-aer/#)
+- Pennylane: [Lightning](https://docs.pennylane.ai/projects/lightning/en/v0.25.0/devices.html)
+- D-wave [Ocean Simulators](https://docs.ocean.dwavesys.com/en/stable/)
+```
+
+```{grid-item-card}
+**Standalone**
+
+- [Intel Quantum Simulator (IQS)](https://intel-qs.readthedocs.io/en/docs/getting-started.html)
+- [Qulacs](http://docs.qulacs.org/en/latest/)
+- [Qrack](https://qrack.readthedocs.io/en/latest/)
+- [Qx Simulator](http://quantum-studio.net/)
+
+```
+
+``````
+
+## Tightly-Integrated quantum systems
+
+Tightly integrated quantum systems are stacks in which the software layer and the quantum computing layer (including QSS and QH) are developed by the same provider. Examples include -
+- IBM* (small systems only, more qubits need partnership)​
+- D-Wave​
+- Xanadu​
+
+These providers create both the hardware and software layer while also providing environments in which quantum algorithms can be used to create applications. If you wish to access these systems, you need only visit each providers website, create your own personal account and download any relevant material or use their respective cloud services. Generally you can also install and use their software packages and use your personal computer to simulate quantum hardware. ​
+
+```{image} ./qstack.png
+:align: centerxs
+```
+### IBM Quantum
+
+Lets take a deeper look at IBM Quantum and what they offer. Firstly, we have Qiskit the quantum computing software library which serves as a complete quantum computing software library. Using Qiskit, one can develop quantum circuit based algorithms an applications, simulate these programs on Qiskits Aer backend simulator or run the program on IBMs quantum hardware. OpenQASM serves as Qiskits Quantum Assembly language, which is an intermediate between the qiskit and the classical or quantum hardware. IBM also offer a quantum computing cloud environment called IBM quantum lab, in which you can develop and run qiskit based programs on simulators or quantum hardware. IBM also offer a unique Quantum Composer tool, which allows you to build quantum algorithms using a quantum circuit interface interface. You can easily install qiskit and run simulations on your local machine. Or you can sign up for free for an IBM quantum account and gain access to quantum hardware, the quantum lab and the quantum composer.  ​
+
+- Change cloud services layer​
+
+- Current capabilities​
+    - Software Stack:​
+        - Qiskit​
+        - Qiskit runtime​
+        - Qiskit serverless​
+        - OpenQASM​
+        - IBM Quantum Lab​
+        - IBM Quantum Composer​
+    - Hardware Stack: Superconducting Qubits​
+    - Number of Qubits: 127​
+    - Quantum simulators – up to XXX qubits​
+    - IBM Quantum Eagle​
+
+
+
+
+
 [^lib]: In Python, library containing organized sets of functions and utilities are called modules.
-[^tnsim]: Hyper-optimized tensor network contraction, (Quantum, **5**, 410, 2021)[https://doi.org/10.22331/q-2021-03-15-410)
+[^tnsim]: Hyper-optimized tensor network contraction, [Quantum, **5**, 410, 2021](https://doi.org/10.22331/q-2021-03-15-410)

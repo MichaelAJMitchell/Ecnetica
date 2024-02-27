@@ -42,6 +42,7 @@ sphinx:
   - sphinx_design
   config:
     html_show_copyright: false
+    drawio_headless: auto
 
 parse:
   myst_enable_extensions:

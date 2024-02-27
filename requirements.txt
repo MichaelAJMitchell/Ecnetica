@@ -5,6 +5,7 @@ matplotlib
 numpy
 sphinxcontrib.mermaid
 sphinxcontrib.tikz
+sphinxcontrib-drawio
 qiskit
 qiskit-aer
 pylatexenc

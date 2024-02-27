@@ -382,8 +382,12 @@ Tightly integrated quantum systems are stacks in which the software layer and th
 These providers create both the hardware and software layer while also providing environments in which quantum algorithms can be used to create applications. If you wish to access these systems, you need only visit each providers website, create your own personal account and download any relevant material or use their respective cloud services. Generally you can also install and use their software packages and use your personal computer to simulate quantum hardware. ​
 
 ```{image} ./qstack.png
-:align: centerxs
+:align: center
 ```
+```{drawio-image} ./q-stack.drawio
+:export-scale: 150
+```
+
 ### IBM Quantum
 
 Lets take a deeper look at IBM Quantum and what they offer. Firstly, we have Qiskit the quantum computing software library which serves as a complete quantum computing software library. Using Qiskit, one can develop quantum circuit based algorithms an applications, simulate these programs on Qiskits Aer backend simulator or run the program on IBMs quantum hardware. OpenQASM serves as Qiskits Quantum Assembly language, which is an intermediate between the qiskit and the classical or quantum hardware. IBM also offer a quantum computing cloud environment called IBM quantum lab, in which you can develop and run qiskit based programs on simulators or quantum hardware. IBM also offer a unique Quantum Composer tool, which allows you to build quantum algorithms using a quantum circuit interface interface. You can easily install qiskit and run simulations on your local machine. Or you can sign up for free for an IBM quantum account and gain access to quantum hardware, the quantum lab and the quantum composer.  ​

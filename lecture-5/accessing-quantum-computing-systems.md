@@ -384,6 +384,9 @@ These providers create both the hardware and software layer while also providing
 ```{image} ./qstack.png
 :align: center
 ```
+```{drawio-image} ./q-stack.drawio
+:export-scale: 150
+```
 
 ### IBM Quantum
 

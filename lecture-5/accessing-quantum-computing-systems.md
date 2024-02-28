@@ -341,16 +341,6 @@ plt.show()
 
 Lets now take a look at the various simulators available. We can roughly split these into two-categories. Those which are used as part of a broader software stack such as Qiskit's `aer` backend and standalone simulators such as the Intel Quantum Simulator. We will see these appear later when investigating how to access different quantum systems.​
 
-
-Project Specific / Full Stack?​
-
-    Qiskit Aer Backend, part of Qiskit, written in ..., type of simulator​
-    Pennylane Lightning, C++, full-state, etc​
-Standalone​
-    IQS Intel Quantum Simulator​
-    Qulacs, C++​
-
-
 ``````{grid}
 ```{grid-item-card}
 **Stack Specific**
@@ -381,35 +371,88 @@ Tightly integrated quantum systems are stacks in which the software layer and th
 
 These providers create both the hardware and software layer while also providing environments in which quantum algorithms can be used to create applications. If you wish to access these systems, you need only visit each providers website, create your own personal account and download any relevant material or use their respective cloud services. Generally you can also install and use their software packages and use your personal computer to simulate quantum hardware. ​
 
-```{image} ./qstack.png
-:align: center
-```
+%```{image} ./qstack.png
+%:align: center
+%```
+
 ```{drawio-image} ./q-stack.drawio
 :export-scale: 150
 ```
 
 ### IBM Quantum
 
-Lets take a deeper look at IBM Quantum and what they offer. Firstly, we have Qiskit the quantum computing software library which serves as a complete quantum computing software library. Using Qiskit, one can develop quantum circuit based algorithms an applications, simulate these programs on Qiskits Aer backend simulator or run the program on IBMs quantum hardware. OpenQASM serves as Qiskits Quantum Assembly language, which is an intermediate between the qiskit and the classical or quantum hardware. IBM also offer a quantum computing cloud environment called IBM quantum lab, in which you can develop and run qiskit based programs on simulators or quantum hardware. IBM also offer a unique Quantum Composer tool, which allows you to build quantum algorithms using a quantum circuit interface interface. You can easily install qiskit and run simulations on your local machine. Or you can sign up for free for an IBM quantum account and gain access to quantum hardware, the quantum lab and the quantum composer.  ​
+IBM Quantum is one the popular emerging provider for software and hardware stacks for quantum computing. Lets take a closer look at IBM Quantum and what they offer.
 
-- Change cloud services layer​
+Firstly, we have [Qiskit](https://www.ibm.com/quantum/qiskit), the quantum computing software library which serves as a complete quantum computing software library. Using Qiskit, one can develop quantum circuit based algorithms an applications, simulate these programs on Qiskits Aer backend simulator or run the program on IBMs quantum hardware. The maximum qubit IBM had reached till last year was 433, [Osprey](https://www.allaboutcircuits.com/news/exclusive-ibm-shares-details-of-its-400-plus-qubit-quantum-processor/) quantum processor. [OpenQASM](https://openqasm.com/) serves as Qiskit's Quantum Assembly language, which is an intermediate between the qiskit and the classical or quantum hardware. Secondly, IBM also offer a quantum computing cloud environment called IBM quantum lab, in which you can develop and run qiskit based programs on simulators or quantum hardware. 
 
-- Current capabilities​
-    - Software Stack:​
-        - Qiskit​
-        - Qiskit runtime​
-        - Qiskit serverless​
-        - OpenQASM​
-        - IBM Quantum Lab​
-        - IBM Quantum Composer​
-    - Hardware Stack: Superconducting Qubits​
-    - Number of Qubits: 127​
-    - Quantum simulators – up to XXX qubits​
-    - IBM Quantum Eagle​
+```{drawio-image} ./ibm-q.drawio
+:export-scale: 150
+```
+
+IBM also offer a unique Quantum Composer tool, which allows you to build quantum algorithms using a quantum circuit interface interface. You can easily install qiskit and run simulations on your local machine. Or you can sign up for free for an IBM quantum account and gain access to quantum hardware, the quantum lab and the quantum composer.  ​
 
 
+```{mermaid}
+mindmap
+Current capabilities​
+    Software Stack:​
+        Qiskit​
+        Qiskit runtime​
+        Qiskit serverless​
+        OpenQASM​
+        IBM Quantum Lab​
+        IBM Quantum Composer​
+    Hardware Stack: Superconducting Qubits​
+        Number of Qubits: 433
+        Quantum simulators – up to XXX qubits​
+    IBM Quantum Eagle​
+```
+
+Here we see a preview of the Quantum Lab, IBMs cloud computing service. On the right, we see a programming tool in which code can be written and ran. On the left we a directory containing tutorials and whatever files you create. ​
+
+```{card} IBM Quantum Lab
+<iframe src="https://docs.quantum.ibm.com/lab" style="width:100%; height:420px;border=3em">
+</iframe>
+```
+
+Here is the quantum composer. You can see in the centre the quantum circuit builder, where you can place qubits and gates to your liking and then perform measurements on the circuit. The results are diagrammatically shown in the bottom left aswell as on the Q-sphere on the bottom right. Qiskit code that represents the circuit is generated in the right panel.​
+
+```{card} IBM Quantum Composer
+<iframe src="https://quantum.ibm.com/composer/files/new" style="width:100%; height:420px;border=3em">
+</iframe>
+```
+
+### Xanadu
+
+Lets now move on to [Xanadu](https://www.xanadu.ai/). Xanadu provides photonics based quantum computing hardware, and has pretty impressive and actively maintained software stack. Pennylane is Xanadu's programming platform, and software library. Using Pennylane we can develop circuit based algorithms and applications and run these programs on the lightning simulator or Xanadu's quantum photonics hardware like borealis. Xanadu also offers a cloud computing service in which we can similarly develop and run quantum programs.​
+
+```{mermaid}
+mindmap
+Current capabilities​
+    Software Stack:​
+    Strawberry Fields: Photonic Circuit Programming​
+    Pennylane: QML Programming​
+    The Walrus: Hafnians, Hermite polynomials, and Gaussian boson sampling​
+    Hardware Stack:  Photonic Qubits​
+    Number of Qubits: 24​
+    Xanadu​
+    Pennylane​
+    Strawberry Fields​
+    The Walrus​
+```
+
+```{drawio-image} ./xanadu-cl.drawio
+:align: center
+```
 
 
+```{card} Xanadu
+[Link to Xanadu codebook](https://codebook.xanadu.ai/)
+```
+
+```{image} ./xanadu-getstart.png
+:align: center
+```
 
 [^lib]: In Python, library containing organized sets of functions and utilities are called modules.
 [^tnsim]: Hyper-optimized tensor network contraction, [Quantum, **5**, 410, 2021](https://doi.org/10.22331/q-2021-03-15-410)

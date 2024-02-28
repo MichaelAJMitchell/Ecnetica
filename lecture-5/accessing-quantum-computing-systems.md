@@ -380,14 +380,14 @@ These providers create both the hardware and software layer while also providing
 ```
 
 ### IBM Quantum
-
+```{drawio-image} ./ibm-q.drawio
+:align: center
+```
 IBM Quantum is one the popular emerging provider for software and hardware stacks for quantum computing. Lets take a closer look at IBM Quantum and what they offer.
 
 Firstly, we have [Qiskit](https://www.ibm.com/quantum/qiskit), the quantum computing software library which serves as a complete quantum computing software library. Using Qiskit, one can develop quantum circuit based algorithms an applications, simulate these programs on Qiskits Aer backend simulator or run the program on IBMs quantum hardware. The maximum qubit IBM had reached till last year was 433, [Osprey](https://www.allaboutcircuits.com/news/exclusive-ibm-shares-details-of-its-400-plus-qubit-quantum-processor/) quantum processor. [OpenQASM](https://openqasm.com/) serves as Qiskit's Quantum Assembly language, which is an intermediate between the qiskit and the classical or quantum hardware. Secondly, IBM also offer a quantum computing cloud environment called IBM quantum lab, in which you can develop and run qiskit based programs on simulators or quantum hardware. 
 
-```{drawio-image} ./ibm-q.drawio
-:export-scale: 150
-```
+
 
 IBM also offer a unique Quantum Composer tool, which allows you to build quantum algorithms using a quantum circuit interface interface. You can easily install qiskit and run simulations on your local machine. Or you can sign up for free for an IBM quantum account and gain access to quantum hardware, the quantum lab and the quantum composer.  ​
 
@@ -424,6 +424,11 @@ Here is the quantum composer. You can see in the centre the quantum circuit buil
 
 ### Xanadu
 
+
+```{drawio-image} ./xanadu-cl.drawio
+:align: center
+```
+
 Lets now move on to [Xanadu](https://www.xanadu.ai/). Xanadu provides photonics based quantum computing hardware, and has pretty impressive and actively maintained software stack. Pennylane is Xanadu's programming platform, and software library. Using Pennylane we can develop circuit based algorithms and applications and run these programs on the lightning simulator or Xanadu's quantum photonics hardware like borealis. Xanadu also offers a cloud computing service in which we can similarly develop and run quantum programs.​
 
 ```{mermaid}
@@ -432,7 +437,10 @@ Current capabilities​
     Software Stack:​
     Strawberry Fields: Photonic Circuit Programming​
     Pennylane: QML Programming​
-    The Walrus: Hafnians, Hermite polynomials, and Gaussian boson sampling​
+    The Walrus
+        Hafnians
+        Hermite polynomials, and
+        Gaussian boson sampling​
     Hardware Stack:  Photonic Qubits​
     Number of Qubits: 24​
     Xanadu​
@@ -441,18 +449,15 @@ Current capabilities​
     The Walrus​
 ```
 
-```{drawio-image} ./xanadu-cl.drawio
-:align: center
-```
 
-
-```{card} Xanadu
-[Link to Xanadu codebook](https://codebook.xanadu.ai/)
-```
+``````{card} Xanadu
+Here is the link to [Xanadu codebook](https://codebook.xanadu.ai/). Please also checkout the tutorial page for [pennylane](https://pennylane.ai/search/?categories=getting%20started), whose screenshot is shown below -
 
 ```{image} ./xanadu-getstart.png
 :align: center
 ```
+``````
+
 
 [^lib]: In Python, library containing organized sets of functions and utilities are called modules.
 [^tnsim]: Hyper-optimized tensor network contraction, [Quantum, **5**, 410, 2021](https://doi.org/10.22331/q-2021-03-15-410)

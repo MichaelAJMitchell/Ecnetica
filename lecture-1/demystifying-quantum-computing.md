@@ -20,8 +20,11 @@ This is an introductory module, which sets the stage for the remaining course by
 
 - Demonstrate an understanding of the value chain and value proposition of quantum computing alongside classical high-performance computing.
 
+<<<<<<< HEAD
+=======
 - Demonstrate ability to identify key high-level tipping points to reach practical quantum computing.
 ```
+>>>>>>> 80d4ffa90cc56ad1d77cb38d1f4f1446b772a9e7
 
 ```{image} ../prep/images/quant.png
 :align: center

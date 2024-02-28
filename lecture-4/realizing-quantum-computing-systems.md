@@ -133,6 +133,9 @@ Mentioned below are some of the key metrics used to determine the performance of
 - Gate Operation times tells us how long it takes for single gate operations on a given Qubit in the system, smaller gate times refers to faster application of gates on the circuit and outputs which are less influenced by the effects of decoherence.
 
 All these metrics together determine the performance of the qubits, Scientists are working towards building a more composite metric such as Quantum Volume which provides information about more than just one of these categories. 
+<p align="center">
+  <img width="720" src="./images/metrics.png">
+</p>
 
 ### Analog Quantum Simulators
 

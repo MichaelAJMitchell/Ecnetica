@@ -442,7 +442,7 @@ Current capabilities​
         Hermite polynomials, and
         Gaussian boson sampling​
     Hardware Stack:  Photonic Qubits​
-    Number of Qubits: 24​
+    Number of Qubits: 216
     Xanadu​
     Pennylane​
     Strawberry Fields​
@@ -457,6 +457,21 @@ Here is the link to [Xanadu codebook](https://codebook.xanadu.ai/). Please also 
 :align: center
 ```
 ``````
+
+### D-Wave Leap IDE
+
+```{drawio-image} ./dwave-diag.drawio
+:align: center
+```
+
+We see a similar structure to IBM and Xanadu with D-Wave with some differences. Most notably that D-Wave uses quantum annealing based programming, with Ocean, and quantum annealing hardware. D-Wave also offers unique hybrid Classical-Quantum Solvers. Classical simulation can also be performed on D-Waves so-called classical solvers. D-Wave also offers an online cloud-computing service akin to IBM and Xanadu called the Leap IDE.  ​
+
+To checkout the D-wave's cloud setup, click this [link](https://www.dwavesys.com/solutions-and-products/cloud-platform/), and to signup for the cloud services, check [link](https://cloud.dwavesys.com/leap/signup/​). Following video gives an intro to D-wave's quantum computing setup.
+
+```{youtube} eFIk7wpU5vA
+:width: 100%
+```
+
 
 
 [^lib]: In Python, library containing organized sets of functions and utilities are called modules.

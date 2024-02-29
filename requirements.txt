@@ -4,7 +4,7 @@ jupyterquiz
 matplotlib
 numpy
 sphinxcontrib.mermaid
-sphinxcontrib.tikz
+sphinxcontrib.youtube
 sphinxcontrib-drawio
 qiskit
 qiskit-aer

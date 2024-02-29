@@ -38,6 +38,7 @@ html:
 sphinx:
   extra_extensions:
   - sphinxcontrib.mermaid
+  - sphinxcontrib.youtube
   - sphinxcontrib.drawio
   - sphinx_design
   config:

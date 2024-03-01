@@ -464,7 +464,7 @@ Here is the link to [Xanadu codebook](https://codebook.xanadu.ai/). Please also 
 :align: center
 ```
 
-We see a similar structure to IBM and Xanadu with D-Wave with some differences. Most notably that D-Wave uses quantum annealing based programming, with Ocean, and quantum annealing hardware. D-Wave also offers unique hybrid Classical-Quantum Solvers. Classical simulation can also be performed on D-Waves so-called classical solvers. D-Wave also offers an online cloud-computing service akin to IBM and Xanadu called the Leap IDE.  ​
+We see a similar structure to IBM and Xanadu with D-Wave with some differences. Most notably that D-Wave uses **quantum annealing** based programming, with Ocean, and quantum annealing hardware. Ocean is D-wave's software suit. D-Wave also offers unique hybrid Classical-Quantum Solvers. Classical simulation can also be performed on D-Waves so-called classical solvers. D-Wave also offers an online cloud-computing service akin to IBM and Xanadu called the Leap IDE.  ​
 
 To checkout the D-wave's cloud setup, click this [link](https://www.dwavesys.com/solutions-and-products/cloud-platform/), and to signup for the cloud services, check [link](https://cloud.dwavesys.com/leap/signup/​). Following video gives an intro to D-wave's quantum computing setup.
 
@@ -472,7 +472,131 @@ To checkout the D-wave's cloud setup, click this [link](https://www.dwavesys.com
 :width: 100%
 ```
 
+D-Wave maintains the lead in the industry for their use of quantum annealing hardware[^warn].
+
+
+### Heterogenous Quantum Systems
+
+### Heterogenous cloud quantum systems
+
+```{drawio-image} ./hetero-cloud.drawio
+:align: center
+```
+We will now move on to Heterogenous Cloud Quantum Systems and these are quantum programming online environments in which the elements of the quantum stack are developed by multiple different providers. For example, in this diagram the applications are sourced from provider A, the algorithms from C and the harwdware and software from provider B. The stack is then implemented in a cloud system usually provided by another party.​
+
+The notable providers for heterogenous systems are following -
+
+- Amazon Braket​
+- Microsoft Azure Quantum​
+- Google Quantum Computing Service​
+- QCWare Forge - https://forge.qcware.com/​
+- IonQ
+
+### Amazon Braket
+
+One example of a heterogenous quantum cloud system is **Amazon's Braket**. Amazon Braket offers the use of it's own quantum computing langauge and simulators which are confusingly also called Braket, and it also offers hardware access to many different systems including Rigetti, IonQ, D-Wave, Xanadu, and Oxford Quantum Circuits.
+
+```{drawio-image} ./braket.drawio
+:align: center
+```
+
+
+- Other languages​
+- Horizontal flow​
+- Remote access to quantum hardware​
+- Amazon high perf simulators​
+
+### QCWare Forge
+
+QCWare Forge is next on the list of Heterogenous providers, and they offer the use of their own QCWare language and simulators. They also offer classical and quantum hardware access to the providers listed in the figure below.
+
+```{drawio-image} ./qcware.drawio
+:align: center
+```
+More details on their `qcware` software can be found [here](https://qcware.readthedocs.io/en/latest/index.html). This library can be installed via `pip install qcware`, however you need to register with the vendor to get the API_KEY to be able to use the library.
+
+- Current Capabilities
+    - Software Stack: qcware
+    - Hardware Stack:
+        - IonQ
+        - IBM
+        - Riggetti
+        - D-Wave
+    - Simulators: qcware
+
+
+### Microsoft Azure Quantum
+
+Microsoft also offers a heterogenous cloud system in which you can use their `Q#` language and simulators. THey also offer access to Toshiba's GPUs for classical simulation. The quantum hardware access includes Quantinuum, Pasqal, Quantum Circuit Inc, IonQ and Rigetti.
+
+```{drawio-image} ./ms-az-q.drawio
+:align: center
+```
+
+- Current capabilities​
+    - Software Stack: Azure QDK​
+        - Q#​
+    - Hardware Stack:​
+        - Topological Qubit QC in development​
+        - Third-Party Providers​
+            - IONQ: Ion Trap 11 Fully-Connected Qubits​
+            - Quantinuum: Ion Trap with ? qubits​
+    - Number of Qubits: 11​
+    - Simulators: ...​
+    - Future Roadmap: Old [Article​](https://www.zdnet.com/article/microsofts-quantum-cloud-computing-plans-take-another-big-step-forward/)
+    - URL: [Azure Quantum Overview](https://learn.microsoft.com/en-us/azure/quantum/overview-azure-quantum)
+
+
+
+### Google Quantum Computing Service
+
+Google similarly offers a heterogenous cloud quantum system called Google Quantum AI. Google's Cirq quantum programming language can be used as well as their simulators and quantum hardware, the most powerful being Sycamore. While Google is relatively more self contained then the other hetorogenous cloud providers, they also offer Quantum HArdware Access to AQT, IonQ, Microsoft Azure Quantum, Pasqal, and Rigetti. ​
+
+```{drawio-image} ./google-q-ai.drawio
+:align: center
+```
+
+- Current capabilities​
+    - Software Stack:
+        - Programming Framework: Cirq​
+        - Quantum Computing Service allows access to NISQ devices​
+        - Libraries & Extensions:​
+            - Open Fermion: Electronic Structure Package​
+            - Qism: Simulators for Quantum Circuits​
+            - Tensorflow Quantum: Library for Hybrid Quantum-Classical Machine Learning​
+    - Hardware Stack: Sycamore Superconducting Qubit Processor​
+    - Number of Qubits: Sycamore 54 Qubits​
+    - Future Roadmap:
+    - URL: [Google Quantum AI Lab​](https://quantumai.google/)
+
+
+
+### IonQ
+
+IonQ offers a heterogenous cloud quantum system named IonQ Quantum Cloud. IonQ offers a unique language agnostic serviice, which can manipulate their Quantum Simulators and hardware. They alos provide use of various quantum software listed on the right.​
+
+```{drawio-image} ./ionq.drawio
+:align: center
+```
+
+## Publicly Funded Quantum Systems
+
+### National Quantum Computing Systems
+
+The last section we will cover is Publicly-Funded quantum systems. Firstly lets take a look at Irish National systems, most notably provided by the Irish Centre for High-End Computing which offers various bespoke quantum systems including Atos QLM, Intel Quantum Simualtors, Qulacs, Pennylane, Qiskit, and Tket.
+
+```{drawio-image} ./ichec-qlp.drawio
+:align: center
+```
+
+- The Quantum computing in Ireland initiative was also recently launched. ​
+
+```{card} Quantum Computing in Ireland (QCoIr) Project
+<iframe src="https://www.tyndall.ie/news/11m-qcolr-project-launches-ireland-into-the-forefront-of-quantum-computing-research/" style="width:100%; height:420px;border=3em">
+</iframe>
+```
 
 
 [^lib]: In Python, library containing organized sets of functions and utilities are called modules.
 [^tnsim]: Hyper-optimized tensor network contraction, [Quantum, **5**, 410, 2021](https://doi.org/10.22331/q-2021-03-15-410)
+[^warn]: Statements like these are very time-dependent, and should be treated as such.

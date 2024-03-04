@@ -592,9 +592,52 @@ The last section we will cover is Publicly-Funded quantum systems. Firstly lets 
 - The Quantum computing in Ireland initiative was also recently launched. ​
 
 ```{card} Quantum Computing in Ireland (QCoIr) Project
+
+[€11M QColr project launches Ireland into the forefront of quantum computing research](https://www.tyndall.ie/news/11m-qcolr-project-launches-ireland-into-the-forefront-of-quantum-computing-research/)
+
 <iframe src="https://www.tyndall.ie/news/11m-qcolr-project-launches-ireland-into-the-forefront-of-quantum-computing-research/" style="width:100%; height:420px;border=3em">
 </iframe>
+
 ```
+
+
+### European HPC Quantum Systems
+
+Several European HPC centres have quantum initiatives​, with rather diverse activities.
+Most of them provide access to high performance quantum simulators or emulators. Atos QLM seems to be a popular choice.​
+
+```{mermaid}
+mindmap
+root("European HPC Quantum Systems")
+    nl["The Netherlands"]
+        ("Quantum Inspire")
+            ("Atos QLM")
+    ne["Nordic and Estonia"]
+        ("Nordiquest")
+            ("LUMI Supercomputer")
+            ("Helmi Quantum Computer")
+    de["Germany"]
+        ("Fraunhofer SCAI")
+            ("IBM Hardware")
+        ("Julich")
+            ("JUNIQ project")
+                ("Software Emulators")
+                ("D-Wave")
+                ("OpenSuperQ")
+        ("LRZ")
+            ("Quantum Integration Center")
+                ("Atos QLM")
+                ("IQM")
+    it["Italy"]
+        ("CINECA")
+            ("Quantum Computing Lab")
+    fr["France"]
+        CEA
+            Atos QLM
+            Quantum Simulators on HPC
+```
+
+A small number have real quantum hardware or a in the process of procuring or internally developing one​. Many also offer various education programs.
 
 
 [^lib]: In Python, library containing organized sets of functions and utilities are called modules.

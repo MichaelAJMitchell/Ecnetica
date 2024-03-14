@@ -129,9 +129,11 @@ Let's start with a quick recap of why we need quantum computers:
     1. Quantum amplitude estimation (Grover's algorithm).
     2. Quantum walks.
     3. Quantum phase estimation (Shor's algorithm).
-    ```{image} ./images/early_algorithms.jpg
+    
+```{drawio-image} ./images/early_algorithms.drawio
     :align: center
-    ```
+    :width: 100%
+```
 
 ### Drawbacks of early quantum algorithms
 

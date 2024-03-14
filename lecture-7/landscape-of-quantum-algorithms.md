@@ -40,7 +40,7 @@ Let's start with a quick recap of why we need quantum computers:
 
 - Appart from simulation of quantum systems like the Benzene, it turns out that QC has even broader applications in areas like optimisation, machine learning and cryptography.
 
-```{image} ./images/benzene.jpg
+```{image} ./images/benzene.png
 :align: center
 ```
 

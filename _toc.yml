@@ -5,10 +5,16 @@ format: jb-book
 root: index
 
 chapters:
-- file: lecture-1/demystifying-quantum-computing.md
-- file: lecture-2/integrating-classical-and-quantum-computing.md
-- file: lecture-3/from-bits-to-qubits.md
-- file: lecture-4/realizing-quantum-computing-systems.md
-- file: lecture-5/accessing-quantum-computing-systems.md
-- file: lecture-6/landscape-of-sdks-tools.md
-- file: lecture-7/landscape-of-quantum-algorithms.md
+- file: lecture-01/demystifying-quantum-computing.md
+- file: lecture-02/integrating-classical-and-quantum-computing.md
+- file: lecture-03/from-bits-to-qubits.md
+- file: lecture-04/mathematical-framework-for-qc.md
+- file: lecture-05/intro-to-quantum-info.md
+- file: lecture-06/realizing-quantum-computing-systems.md
+- file: lecture-07/quantum-computing-hardwares.md
+- file: lecture-08/accessing-quantum-computing-systems.md
+- file: lecture-08/landscape-of-sdks-tools.md
+- file: lecture-09/heterogeneous-quantum-computing.md
+- file: lecture-10/quantum-algorithms-1.md
+- file: lecture-11/quantum-algorithms-2.md
+- file: lecture-12/quantum-activity-in-ichec.md

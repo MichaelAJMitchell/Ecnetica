@@ -32,7 +32,7 @@ html:
   use_repository_button: true
 
 html:
-  extra_footer: "Copyright@2022"
+  extra_footer: "Copyright@2024"
 
 # remove jupyterbooks copyright info
 sphinx:

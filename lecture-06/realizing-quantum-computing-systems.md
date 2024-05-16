@@ -3,8 +3,8 @@ title: Realizing Quantum Computing Systems
 layout: post
 ---
 
-(lecture-4)=
-# Lecture 4: Realizing Quantum Computing Systems
+(lecture-6)=
+# Lecture 6: Realizing Quantum Computing Systems
 
 ```{warning} These lecture notes are a work in progress and are not a replacement for watching the lecture video, it's intended to be a supplementary reading after watching the lecture 
 ```

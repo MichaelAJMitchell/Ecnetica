@@ -1,10 +1,10 @@
 ---
-title: Landscape of quantum algorithms
+title: Quantum Algorithms - I
 layout: post
 ---
 
-(lecture-7)=
-# Lecture 7: Landscape of quantum algorithms
+(lecture-10)=
+# Lecture 10: Quantum Algorithms - I
 
 ```{warning} These lecture notes are a work in progress and are not a replacement for watching the lecture video, it's intended to be a supplementary reading after watching the lecture 
 ```

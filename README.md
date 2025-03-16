@@ -1,4 +1,4 @@
-# Points to note
+# Points to note for running locally
 
 ## Running the code
 
@@ -11,7 +11,7 @@
 
 ## Adding Chapters
 
-You have to 
+You have to
 
 1. Add the chapter itself
 2. Add it to the index page

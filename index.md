@@ -43,6 +43,11 @@ mindmap
         (Computational complexity)
         (Quantum Algorithms)
         (Examples and interface with machine learning)
+    lec8(**8. TEST**)
+    ::icon(fa fa-book)
+        (Computational complexity)
+        (Quantum Algorithms)
+        (Examples and interface with machine learning)
 ```
 
 ## List of Lectures
@@ -53,6 +58,7 @@ mindmap
 - [Lecture 5 - Accessing Quantum Computing Systems](lecture-5/accessing-quantum-computing-systems.md)
 - [Lecture 6 - Landscape of Quantum SDK's and Tools](lecture-6/landscape-of-sdks-tools.md)
 - [Lecture 7 - Landscape of Quantum algorithms](lecture-7/landscape-of-quantum-algorithms.md)
+- [Lecture 8 - TEST CHAPTER](lecture-8/MoreSchtuff.md)
 
 
 

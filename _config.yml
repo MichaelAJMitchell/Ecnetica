@@ -1,8 +1,8 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: Lecture Notes from ICHEC
-author: ICHEC Team
+title: Lecture Notes from TPSA
+author: The Problem Solving Association
 logo: logo.png
 
 # Force re-execution of notebooks on each build.
@@ -21,7 +21,7 @@ bibtex_bibfiles:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/ICHEC/qpcc  # Online location of your book
+  url: https://github.com/MichaelAJMitchell/Ecnetica  # Online location of your book
   path_to_book: ./ # Optional path to your book, relative to the repository root
   branch: jb  # Which branch of the repository should be used when creating links (optional)
 
@@ -32,7 +32,7 @@ html:
   use_repository_button: true
 
 html:
-  extra_footer: "Copyright@2022"
+  extra_footer: "Copyright-info"
 
 # remove jupyterbooks copyright info
 sphinx:

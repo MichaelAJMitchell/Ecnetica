@@ -30,6 +30,7 @@ jobs:
     - name: Build the book
       run: |
         jupyter-book build .
+        touch _build/html/.nojekyll
 
     # Push the book's HTML to github-pages
     - name: GitHub Pages action

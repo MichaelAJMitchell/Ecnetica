@@ -1,40 +1,46 @@
 name: deploy-book
-
-# Only run this when the master branch changes
+# Run when the main branch changes
 on:
   push:
     branches:
     - main
 
-# This job installs dependencies, build the book, and pushes it to `gh-pages`
+# This job installs dependencies, builds the book, and pushes it to GitHub Pages
 jobs:
   deploy-book:
     runs-on: ubuntu-latest
+    # Add these permissions - they're critical!
+    permissions:
+      pages: write
+      id-token: write
     steps:
     - uses: actions/checkout@v4
-
+    
     # Install dependencies
     - name: Set up Python 3.12
       uses: actions/setup-python@v5
       with:
         python-version: 3.12
-
+        
     - name: Install dependencies
       run: |
         wget https://github.com/jgraph/drawio-desktop/releases/download/v23.1.5/drawio-amd64-23.1.5.deb
         sudo apt -f install ./drawio-amd64-23.1.5.deb
         pip install -r requirements.txt
-
-
+        
     # Build the book
     - name: Build the book
       run: |
         jupyter-book build .
-
-    # Push the book's HTML to github-pages
-    - name: GitHub Pages action
-      uses: actions/deploy-pages@v4
+        touch _build/html/.nojekyll  # Ensure .nojekyll exists
+        
+    # Upload the book's HTML as an artifact
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./_build/html
-        enable_jekyll: false
+        path: "_build/html"
+        
+    # Deploy the book's HTML to GitHub Pages
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4

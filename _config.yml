@@ -30,6 +30,8 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  use_edit_page_button: true
+  baseurl: "/Ecnetica"
 
 html:
   extra_footer: "Copyright-info"

@@ -5,6 +5,13 @@ on:
     branches:
     - main
 
+env:
+  BASE_URL: /${{ github.event.repository.name }}
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 # This job installs dependencies, builds the book, and pushes it to GitHub Pages
 jobs:
   deploy-book:
@@ -20,7 +27,8 @@ jobs:
     - name: Set up Python 3.12
       uses: actions/setup-python@v5
       with:
-        python-version: 3.12
+        python-version: "3.12"
+        cache: pip
         
     - name: Install dependencies
       run: |
@@ -38,7 +46,7 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: "_build/html"
+        path: "./_build/html"
         
     # Deploy the book's HTML to GitHub Pages
     - name: Deploy to GitHub Pages

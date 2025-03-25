@@ -3,7 +3,7 @@
 
 title: Premium Leaving Certificate Higher Level Maths Notes from TPSA
 author: The Problem Solving Association C.L.G.
-logo: logo.jpeg
+logo: logo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -63,11 +63,11 @@ parse:
   myst_url_schemes: [mailto, http, https]
 
 # In _config.yml
-sphinx:
-  extra_extensions:
-    - jupyterlite_sphinx
-  config:
-    html_js_files:
-      - https://piplite.org/piplite.js
-    jupyterlite_config:
-      disabled: false
+# sphinx:
+#   extra_extensions:
+#     - jupyterlite_sphinx
+#   config:
+#     html_js_files:
+#       - https://piplite.org/piplite.js
+#     jupyterlite_config:
+#       disabled: false

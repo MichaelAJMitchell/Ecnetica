@@ -5,6 +5,7 @@ format: jb-book
 root: index
 
 chapters:
+- file: algebra_2/algebra_2.md
 - file: lecture-1/demystifying-quantum-computing.md
 - file: lecture-2/integrating-classical-and-quantum-computing.md
 - file: lecture-3/from-bits-to-qubits.md

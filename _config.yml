@@ -61,13 +61,3 @@ parse:
     - substitution
     - tasklist
   myst_url_schemes: [mailto, http, https]
-
-# In _config.yml
-# sphinx:
-#   extra_extensions:
-#     - jupyterlite_sphinx
-#   config:
-#     html_js_files:
-#       - https://piplite.org/piplite.js
-#     jupyterlite_config:
-#       disabled: false

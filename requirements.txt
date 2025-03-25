@@ -9,3 +9,4 @@ sphinxcontrib-drawio
 qiskit
 qiskit-aer
 pylatexenc
+jupyterlite-sphinx

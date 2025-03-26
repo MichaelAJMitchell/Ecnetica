@@ -61,3 +61,6 @@ parse:
     - substitution
     - tasklist
   myst_url_schemes: [mailto, http, https]
+
+execute:
+  hide_input: true

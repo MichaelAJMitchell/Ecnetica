@@ -21,7 +21,7 @@ mindmap
 ```
 
 ## List of Lectures
-- [Topic 2 - Algebra 2](algebra_2/algebra_2.md)
+- [Topic 2 - Algebra 2](algebra_2/algebra_2.ipynb)
 - [Lecture 1 - Demystifying Quantum Computing](lecture-1/demystifying-quantum-computing.md)
 - [Lecture 2 - Integrating Classical and Quantum Computing](lecture-2/integrating-classical-and-quantum-computing.md)
 - [Lecture 3 - From Bits to Qubits](lecture-3/from-bits-to-qubits.md)
@@ -43,9 +43,5 @@ For Ecnetica or TPSA C.L.G. related queries, contact us at following -
 | TPSA Information           | <contact@tpsa.ie>                 |
 | Michael Mitchell (Director & CEO)        | <emil.dimitrov@ichec.ie>        |
 | Casey Farren-Colloty (Director & COO) | <karthik.krishnakumar@ichec.ie> |
-| Pablo Lauret         | <pablo.lauret@ichec.ie>         |
-| Pablo Suárez Vieites | <pablo.suarez@ichec.ie>         |
-| Rajarshi Tiwari      | <rajarshi.tiwari@ichec.ie>      |
-| Venkatesh Kannan     | <venkatesh.kannan@ichec.ie>     |
 
 

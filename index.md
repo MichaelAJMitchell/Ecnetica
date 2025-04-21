@@ -22,15 +22,9 @@ mindmap
 ## List of Lectures
 
 - [Topic 2 - Algebra 2](algebra_2/algebra_2.ipynb)
-  - [Lecture 2](algebra_2/Discriminant.ipynb)
-- [Lecture 1 - Demystifying Quantum Computing](lecture-1/demystifying-quantum-computing.md)
-- [Lecture 2 - Integrating Classical and Quantum Computing](lecture-2/integrating-classical-and-quantum-computing.md)
-- [Lecture 3 - From Bits to Qubits](lecture-3/from-bits-to-qubits.md)
-- [Lecture 4 - Realizing Quantum Computing Systems](lecture-4/realizing-quantum-computing-systems.md)
-- [Lecture 5 - Accessing Quantum Computing Systems](lecture-5/accessing-quantum-computing-systems.md)
-- [Lecture 6 - Landscape of Quantum SDK&#39;s and Tools](lecture-6/landscape-of-sdks-tools.md)
-- [Lecture 7 - Landscape of Quantum algorithms](lecture-7/landscape-of-quantum-algorithms.md)
-- [Lecture 8 - TEST CHAPTER](lecture-8/MoreSchtuff.md)
+
+  - [Lecture 2
+    ](algebra_2/Discriminant.ipynb)
 
 ---
 

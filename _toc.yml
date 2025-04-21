@@ -9,3 +9,6 @@ parts:
     - file: algebra_2/algebra_2
       sections:
       - file: algebra_2/Discriminant
+  - caption: Geometry
+    chapters:
+    - file: geometry/geogebra-lookalike

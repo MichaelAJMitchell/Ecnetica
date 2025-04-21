@@ -33,17 +33,15 @@ html:
   use_edit_page_button: true
   baseurl: "/Ecnetica"
   extra_footer: "Copyright-info"
+  sidebar:
+    maxdepth: 1  # Try adding this
 
-# remove jupyterbooks copyright info
 sphinx:
-  extra_extensions:
-  - sphinxcontrib.mermaid
-  - sphinxcontrib.youtube
-  - sphinxcontrib.drawio
-  - sphinx_design
   config:
-    html_show_copyright: false
-    drawio_headless: auto
+    #html_theme: sphinx-book-theme
+    html_theme_options:
+      navigation_depth: 4
+      sidebar_hide_name: false
 
 parse:
   myst_enable_extensions:

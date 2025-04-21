@@ -1,7 +1,0 @@
-json
-{
-  "@jupyterlite/pyodide-kernel-extension:kernel": {
-    "packages": ["numpy", "matplotlib", "plotly"],
-    "pyodideUrl": "https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js"
-  }
-}

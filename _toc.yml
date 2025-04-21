@@ -3,14 +3,9 @@
 
 format: jb-book
 root: index
-
-chapters:
-- file: algebra_2/algebra_2.md
-- file: geometry/geogebra-lookalike.md
-- file: lecture-1/demystifying-quantum-computing.md
-- file: lecture-2/integrating-classical-and-quantum-computing.md
-- file: lecture-3/from-bits-to-qubits.md
-- file: lecture-4/realizing-quantum-computing-systems.md
-- file: lecture-6/landscape-of-sdks-tools.md
-- file: lecture-7/landscape-of-quantum-algorithms.md
-- file: lecture-8/MoreSchtuff.md
+parts:
+  - caption: Algebra
+    chapters:
+    - file: algebra_2/algebra_2
+      sections:
+      - file: algebra_2/Discriminant

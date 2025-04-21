@@ -1,6 +1,5 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
-
 title: Premium Leaving Certificate Higher Level Maths Notes from TPSA
 author: The Problem Solving Association C.L.G.
 logo: logo.png
@@ -9,6 +8,7 @@ logo: logo.png
 # See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: force
+  hide_input: true
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -22,7 +22,7 @@ bibtex_bibfiles:
 # Information about where the book exists on the web
 repository:
   url: https://github.com/MichaelAJMitchell/Ecnetica  # Online location of your book
-  path_to_book: ./ # Optional path to your book, relative to the repository root
+  path_to_book: ./  # Optional path to your book, relative to the repository root
   branch: jb  # Which branch of the repository should be used when creating links (optional)
 
 # Add GitHub buttons to your book
@@ -32,8 +32,6 @@ html:
   use_repository_button: true
   use_edit_page_button: true
   baseurl: "/Ecnetica"
-
-html:
   extra_footer: "Copyright-info"
 
 # remove jupyterbooks copyright info
@@ -61,6 +59,3 @@ parse:
     - substitution
     - tasklist
   myst_url_schemes: [mailto, http, https]
-
-execute:
-  hide_input: true

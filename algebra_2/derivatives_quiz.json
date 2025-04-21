@@ -1,0 +1,29 @@
+{
+  "title": "Derivatives Assessment",
+  "questions": [
+    {
+      "text": "What is the derivative of f(x) = x\u00b2?",
+      "options": [
+        "f'(x) = x",
+        "f'(x) = 2x",
+        "f'(x) = 2",
+        "f'(x) = 0"
+      ],
+      "correctIndex": 1,
+      "explanation": "The derivative of x\u00b2 is 2x. Using the power rule, the derivative of x^n is n\u00b7x^(n-1).",
+      "difficulty": "Basic"
+    },
+    {
+      "text": "What is the derivative of f(x) = sin(x)?",
+      "options": [
+        "f'(x) = cos(x)",
+        "f'(x) = -sin(x)",
+        "f'(x) = tan(x)",
+        "f'(x) = -cos(x)"
+      ],
+      "correctIndex": 0,
+      "explanation": "The derivative of sin(x) is cos(x).",
+      "difficulty": "Basic"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: index
+parts:
+  - caption: Algebra
+    chapters:
+    - file: algebra_2/algebra_2
+      sections:
+      - file: algebra_2/Discriminant
+  - caption: Geometry
+    chapters:
+    - file: geometry/geogebra-lookalike

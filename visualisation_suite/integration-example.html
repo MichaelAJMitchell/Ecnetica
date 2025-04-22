@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics Curriculum Explorer</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --tertiary-color: #e74c3c;
+            --accent-color: #9b59b6;
+            --text-color: #333333;
+            --background-color: #f5f5f5;
+            --card-background: #ffffff;
+            --border-color: #dddddd;
+            --hover-color: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+        
+        .theme-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            background: none;
+            border: 2px solid white;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+        }
+        
+        .sidebar {
+            background-color: var(--card-background);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            height: calc(100vh - 200px);
+            overflow-y: auto;
+        }
+        
+        .main-content {
+            background-color: var(--card-background);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 200px);
+        }
+        
+        .visualizer-container {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+        
+        .section-title {
+            font-size: 1.2rem;
+            margin: 0 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .module-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .module-item {
+            padding: 0.5rem 1rem;
+            margin-bottom: 0.25rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .module-item:hover {
+            background-color: var(--hover-color);
+        }
+        
+        .module-item.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .topic-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem 0;
+        }
+        
+        .topic-item {
+            padding: 0.5rem 1rem;
+            margin-bottom: 0.25rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .topic-item:hover {
+            background-color: var(--hover-color);
+        }
+        
+        .topic-item.active {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .function-input {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+        
+        .function-input input {
+            flex: 1;
+            padding: 0.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px 0 0 4px;
+            font-size: 1rem;
+        }
+        
+        .function-input button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+        
+        .control-panel {
+            margin-top: 1rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1rem;
+        }
+        
+        .controls-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+        
+        .control-group {
+            margin-bottom: 1rem;
+        }
+        
+        .control-group label {
+            display: block;
+            margin-bottom: 0.25rem;
+            font-weight: bold;
+        }
+        
+        .control-group input[type="range"] {
+            width: 100%;
+        }
+        
+        .control-group select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+        
+        .checkbox-control {
+            display: flex;
+            align-items: center;
+        }
+        
+        .checkbox-control input {
+            margin-right: 0.5rem;
+        }
+        
+        /* Dark theme styles */
+        body.dark-theme {
+            --text-color: #f5f5f5;
+            --background-color: #121212;
+            --card-background: #1e1e1e;
+            --border-color: #333333;
+            --hover-color: #2a2a2a;
+        }
+        
+        body.dark-theme header {
+            background-color: #1a1a1a;
+        }
+        
+        body.dark-theme .theme-toggle {
+            border-color: var(--text-color);
+        }
+        
+        /* Loading overlay */
+        .loading-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        body.dark-theme .loading-overlay {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        body.dark-theme .spinner {
+            border-color: rgba(255, 255, 255, 0.1);
+            border-left-color: var(--primary-color);
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mathematics Curriculum Explorer</h1>
+        <button class="theme-toggle" id="theme-toggle">Dark Mode</button>
+    </header>
+    
+    <div class="container">
+        <div class="grid">
+            <div class="sidebar">
+                <h2 class="section-title">Modules</h2>
+                <ul class="module-list" id="module-list">
+                    <li class="module-item" data-module="function">Function Visualizer</li>
+                    <li class="module-item" data-module="geometry">Geometry Construction</li>
+                    <li class="module-item" data-module="data">Data Visualization</li>
+                    <li class="module-item" data-module="numberline">Number Line &amp; Inequalities</li>
+                    <li class="module-item" data-module="calculus">Calculus Tools</li>
+                </ul>
+                
+                <h2 class="section-title">Topics</h2>
+                <div id="topics-container">
+                    <!-- Function Topics -->
+                    <ul class="topic-list" id="function-topics" style="display: none;">
+                        <li class="topic-item" data-topic="linear">Linear Functions</li>
+                        <li class="topic-item" data-topic="quadratic">Quadratic Functions</li>
+                        <li class="topic-item" data-topic="polynomial">Polynomial Functions</li>
+                        <li class="topic-item" data-topic="exponential">Exponential &amp; Logarithmic</li>
+                        <li class="topic-item" data-topic="trigonometric">Trigonometric Functions</li>
+                    </ul>
+                    
+                    <!-- Geometry Topics -->
+                    <ul class="topic-list" id="geometry-topics" style="display: none;">
+                        <li class="topic-item" data-topic="points-lines">Points &amp; Lines</li>
+                        <li class="topic-item" data-topic="triangles">Triangles</li>
+                        <li class="topic-item" data-topic="circles">Circles</li>
+                        <li class="topic-item" data-topic="polygons">Polygons</li>
+                        <li class="topic-item" data-topic="constructions">Geometric Constructions</li>
+                    </ul>
+                    
+                    <!-- Data Topics -->
+                    <ul class="topic-list" id="data-topics" style="display: none;">
+                        <li class="topic-item" data-topic="bar-charts">Bar Charts</li>
+                        <li class="topic-item" data-topic="histograms">Histograms</li>
+                        <li class="topic-item" data-topic="scatter-plots">Scatter Plots</li>
+                        <li class="topic-item" data-topic="box-plots">Box Plots</li>
+                        <li class="topic-item" data-topic="probability">Probability Distributions</li>
+                    </ul>
+                    
+                    <!-- Number Line Topics -->
+                    <ul class="topic-list" id="numberline-topics" style="display: none;">
+                        <li class="topic-item" data-topic="integers">Integers &amp; Rational Numbers</li>
+                        <li class="topic-item" data-topic="inequalities">Inequalities</li>
+                        <li class="topic-item" data-topic="intervals">Intervals</li>
+                        <li class="topic-item" data-topic="compound">Compound Inequalities</li>
+                        <li class="topic-item" data-topic="absolute">Absolute Value</li>
+                    </ul>
+                    
+                    <!-- Calculus Topics -->
+                    <ul class="topic-list" id="calculus-topics" style="display: none;">
+                        <li class="topic-item" data-topic="limits">Limits</li>
+                        <li class="topic-item" data-topic="derivatives">Derivatives</li>
+                        <li class="topic-item" data-topic="integrals">Integrals</li>
+                        <li class="topic-item" data-topic="riemann">Riemann Sums</li>
+                        <li class="topic-item" data-topic="taylor">Taylor Series</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="main-content">
+                <div class="function-input">
+                    <input type="text" id="function-input" placeholder="Enter function (e.g., Math.sin(x))" value="Math.sin(x)">
+                    <button id="function-apply">Apply</button>
+                </div>
+                
+                <div class="visualizer-container" id="visualizer-container">
+                    <div class="loading-overlay" id="loading-overlay">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+                
+                <div class="control-panel">
+                    <div class="controls-grid" id="controls-grid">
+                        <!-- Controls will be inserted here dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Import modules as ES modules -->
+    <script type="module">
+        import MathExplorer from './base-visualization-framework.js';
+        import FunctionPlotter from './function-plotter-module.js';
+        import GeometryConstruction from './geometry-construction-module.js';
+        import DataVisualizer from './data-visualization-module.js';
+        import NumberLineVisualizer from './number-line-module.js';
+        import CalculusTools from './calculus-tools-module.js';
+        
+        // Current state
+        let currentModule = null;
+        let currentVisualizer = null;
+        let activeModuleName = '';
+        
+        // DOM Elements
+        const visualizerContainer = document.getElementById('visualizer-container');
+        const functionInput = document.getElementById('function-input');
+        const functionApply = document.getElementById('function-apply');
+        const moduleList = document.getElementById('module-list');
+        const controlsGrid = document.getElementById('controls-grid');
+        const loadingOverlay = document.getElementById('loading-overlay');
+        const themeToggle = document.getElementById('theme-toggle');
+        
+        // Theme toggling
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            themeToggle.textContent = document.body.classList.contains('dark-theme') 
+                ? 'Light Mode' 
+                : 'Dark Mode';
+                
+            // Update visualizer theme if it exists
+            if (currentVisualizer) {
+                currentVisualizer.setTheme(
+                    document.body.classList.contains('dark-theme') ? 'dark' : 'light'
+                );
+            }
+        });
+        
+        // Apply function on button click or enter
+        functionApply.addEventListener('click', applyFunction);
+        functionInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                applyFunction();
+            }
+        });
+        
+        function applyFunction() {
+            if (!currentVisualizer) return;
+            
+            const functionExpression = functionInput.value;
+            
+            try {
+                if (activeModuleName === 'function') {
+                    // Update existing function
+                    if (currentVisualizer.functions.length > 0) {
+                        currentVisualizer.updateFunction('quadratic', {
+                            expression: functionExpression
+                        });
+                    } else {
+                        currentVisualizer.addFunction({
+                            id: 'quadratic',
+                            expression: functionExpression
+                        });
+                    }
+                } else if (activeModuleName === 'calculus') {
+                    // For calculus module
+                    if (currentVisualizer.activeFunction) {
+                        currentVisualizer.activeFunction.expression = functionExpression;
+                        try {
+                            currentVisualizer.activeFunction.evaluator = 
+                                currentVisualizer.createFunctionEvaluator(functionExpression);
+                        } catch (error) {
+                            alert(`Invalid function: ${error.message}`);
+                            return;
+                        }
+                    } else {
+                        currentVisualizer.addFunction({ expression: functionExpression });
+                    }
+                }
+                
+                currentVisualizer.render();
+            } catch (error) {
+                console.error('Error applying function:', error);
+                alert('Invalid function expression');
+            }
+        }
+        
+        // Module selection
+        moduleList.addEventListener('click', (e) => {
+            const item = e.target.closest('.module-item');
+            if (!item) return;
+            
+            // Clear active state from all modules
+            document.querySelectorAll('.module-item').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Set active state on clicked module
+            item.classList.add('active');
+            
+            // Hide all topic lists
+            document.querySelectorAll('.topic-list').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // Show the corresponding topic list
+            const moduleType = item.dataset.module;
+            const topicList = document.getElementById(`${moduleType}-topics`);
+            if (topicList) {
+                topicList.style.display = 'block';
+            }
+            
+            // Load the selected module
+            loadModule(moduleType);
+        });
+        
+        // Topic selection
+        document.querySelectorAll('.topic-list').forEach(list => {
+            list.addEventListener('click', (e) => {
+                const item = e.target.closest('.topic-item');
+                if (!item) return;
+                
+                // Get all topic items within the same list
+                const allTopicsInSameList = item.closest('.topic-list').querySelectorAll('.topic-item');
+                
+                // Clear active state from all topics in the same list
+                allTopicsInSameList.forEach(el => {
+                    el.classList.remove('active');
+                });
+                
+                // Set active state on clicked topic
+                item.classList.add('active');
+                
+                // Load the selected topic
+                const topic = item.dataset.topic;
+                loadTopic(activeModuleName, topic);
+            });
+        });
+        
+        // Load a module
+        function loadModule(moduleName) {
+            showLoading();
+            
+            // Clear the visualizer container
+            visualizerContainer.innerHTML = '';
+            controlsGrid.innerHTML = '';
+            
+            // Save the current module name
+            activeModuleName = moduleName;
+            
+            // Update function input visibility
+            functionInput.style.display = (moduleName === 'function' || moduleName === 'calculus') 
+                ? 'block' 
+                : 'none';
+            functionApply.style.display = (moduleName === 'function' || moduleName === 'calculus') 
+                ? 'block' 
+                : 'none';
+            
+            // Create the container for the visualizer
+            const moduleContainer = document.createElement('div');
+            moduleContainer.id = `${moduleName}-container`;
+            moduleContainer.style.width = '100%';
+            moduleContainer.style.height = '100%';
+            visualizerContainer.appendChild(moduleContainer);
+            
+            // Initialize the appropriate visualizer
+            switch (moduleName) {
+                case 'function':
+                    currentVisualizer = new FunctionPlotter({
+                        containerId: `${moduleName}-container`,
+                        theme: document.body.classList.contains('dark-theme') ? 'dark' : 'light',
+                        controls: { position: 'none' } // We'll handle controls separately
+                    });
+                    
+                    // Add example function
+                    currentVisualizer.addFunction({
+                        id: 'quadratic',
+                        expression: 'x * x',
+                        color: '#3498db'
+                    });
+                    
+                    // Add parameter controls
+                    addControl('slider', {
+                        id: 'x-range',
+                        label: 'X Range',
+                        min: 1,
+                        max: 20,
+                        value: 10,
+                        onChange: (value) => {
+                            currentVisualizer.setRange({
+                                xMin: -value,
+                                xMax: value
+                            });
+                        }
+                    });
+                    
+                    addControl('slider', {
+                        id: 'y-range',
+                        label: 'Y Range',
+                        min: 1,
+                        max: 20,
+                        value: 10,
+                        onChange: (value) => {
+                            currentVisualizer.setRange({
+                                yMin: -value,
+                                yMax: value
+                            });
+                        }
+                    });
+                    
+                    addControl('checkbox', {
+                        id: 'show-grid',
+                        label: 'Show Grid',
+                        checked: true,
+                        onChange: (checked) => {
+                            currentVisualizer.config.showGrid = checked;
+                            currentVisualizer.render();
+                        }
+                    });
+                    break;
+                    
+                case 'geometry':
+                    currentVisualizer = new GeometryConstruction({
+                        containerId: `${moduleName}-container`,
+                        theme: document.body.classList.contains('dark-theme') ? 'dark' : 'light',
+                        controls: { position: 'none' } // We'll handle controls separately
+                    });
+                    
+                    // Add standard geometry tools
+                    addControl('button', {
+                        id: 'add-point',
+                        label: 'Add Point',
+                        onClick: () => currentVisualizer.setTool('point')
+                    });
+                    
+                    addControl('button', {
+                        id: 'add-line',
+                        label: 'Add Line',
+                        onClick: () => currentVisualizer.setTool('line')
+                    });
+                    
+                    addControl('button', {
+                        id: 'add-circle',
+                        label: 'Add Circle',
+                        onClick: () => currentVisualizer.setTool('circle')
+                    });
+                    
+                    addControl('button', {
+                        id: 'add-angle',
+                        label: 'Add Angle',
+                        onClick: () => currentVisualizer.setTool('angle')
+                    });
+                    
+                    addControl('button', {
+                        id: 'clear-all',
+                        label: 'Clear All',
+                        onClick: () => {
+                            if (confirm('Are you sure you want to clear all elements?')) {
+                                currentVisualizer.clear();
+                            }
+                        }
+                    });
+                    break;
+                    
+                case 'data':
+                    currentVisualizer = new DataVisualizer({
+                        containerId: `${moduleName}-container`,
+                        theme: document.body.classList.contains('dark-theme') ? 'dark' : 'light',
+                        controls: { position: 'none' } // We'll handle controls separately
+                    });
+                    
+                    // Create some example data
+                    const sampleData = [
+                        { category: 'A', value: 5 },
+                        { category: 'B', value: 10 },
+                        { category: 'C', value: 15 },
+                        { category: 'D', value: 8 },
+                        { category: 'E', value: 12 }
+                    ];
+                    
+                    // Add the data and create a bar chart
+                    currentVisualizer.addDataset({ data: sampleData });
+                    currentVisualizer.createBarChart(sampleData);
+                    
+                    // Add visualization type control
+                    addControl('select', {
+                        id: 'viz-type',
+                        label: 'Visualization Type',
+                        options: [
+                            { value: 'bar', text: 'Bar Chart' },
+                            { value: 'histogram', text: 'Histogram' },
+                            { value: 'scatter', text: 'Scatter Plot' },
+                            { value: 'box', text: 'Box Plot' }
+                        ],
+                        value: 'bar',
+                        onChange: (value) => {
+                            switch (value) {
+                                case 'bar':
+                                    currentVisualizer.createBarChart(sampleData);
+                                    break;
+                                case 'histogram':
+                                    const histogramData = [2, 3, 3, 4, 5, 5, 5, 6, 6, 7, 8, 8, 9, 10, 10];
+                                    currentVisualizer.createHistogram(histogramData);
+                                    break;
+                                case 'scatter':
+                                    const scatterData = [
+                                        { x: 1, y: 2 },
+                                        { x: 2, y: 3 },
+                                        { x: 3, y: 5 },
+                                        { x: 4, y: 4 },
+                                        { x: 5, y: 6 },
+                                        { x: 6, y: 8 },
+                                        { x: 7, y: 7 },
+                                        { x: 8, y: 9 }
+                                    ];
+                                    currentVisualizer.createScatterPlot(scatterData);
+                                    break;
+                                case 'box':
+                                    const boxPlotData = [2, 3, 5, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 20, 22];
+                                    currentVisualizer.createBoxPlot(boxPlotData);
+                                    break;
+                            }
+                        }
+                    });
+                    break;
+                    
+                case 'numberline':
+                    currentVisualizer = new NumberLineVisualizer({
+                        containerId: `${moduleName}-container`,
+                        theme: document.body.classList.contains('dark-theme') ? 'dark' : 'light',
+                        controls: { position: 'none' } // We'll handle controls separately
+                    });
+                    
+                    // Add some points and intervals
+                    currentVisualizer.createPoint(2, { label: 'A' });
+                    currentVisualizer.createPoint(-3, { label: 'B' });
+                    currentVisualizer.createInterval(-5, 1, { 
+                        includeStart: true, 
+                        includeEnd: false 
+                    });
+                    
+                    // Add tools
+                    addControl('button', {
+                        id: 'add-point',
+                        label: 'Add Point',
+                        onClick: () => currentVisualizer.setTool('point')
+                    });
+                    
+                    addControl('button', {
+                        id: 'add-interval',
+                        label: 'Add Interval',
+                        onClick: () => {
+                            let start = prompt('Enter start value:', '0');
+                            if (start === null) return;
+                            
+                            let end = prompt('Enter end value:', '5');
+                            if (end === null) return;
+                            
+                            const startValue = parseFloat(start);
+                            const endValue = parseFloat(end);
+                            
+                            if (!isNaN(startValue) && !isNaN(endValue)) {
+                                const includeStart = confirm('Include start value? (OK for Yes, Cancel for No)');
+                                const includeEnd = confirm('Include end value? (OK for Yes, Cancel for No)');
+                                
+                                currentVisualizer.createInterval(startValue, endValue, {
+                                    includeStart: includeStart,
+                                    includeEnd: includeEnd
+                                });
+                            }
+                        }
+                    });
+                    
+                    addControl('button', {
+                        id: 'add-inequality',
+                        label: 'Add Inequality',
+                        onClick: () => {
+                            let value = prompt('Enter boundary value:', '0');
+                            if (value === null) return;
+                            
+                            const boundaryValue = parseFloat(value);
+                            
+                            if (!isNaN(boundaryValue)) {
+                                let type = prompt('Enter inequality type (< or >):', '<');
+                                const direction = type === '>' ? 'greater' : 'less';
+                                
+                                const inclusive = confirm('Include boundary value? (OK for Yes, Cancel for No)');
+                                
+                                currentVisualizer.createInequality(boundaryValue, direction, {
+                                    inclusive: inclusive
+                                });
+                            }
+                        }
+                    });
+                    
+                    addControl('button', {
+                        id: 'clear-all',
+                        label: 'Clear All',
+                        onClick: () => {
+                            if (confirm('Are you sure you want to clear all elements?')) {
+                                currentVisualizer.points = [];
+                                currentVisualizer.intervals = [];
+                                currentVisualizer.inequalities = [];
+                                currentVisualizer.render();
+                            }
+                        }
+                    });
+                    
+                    addControl('slider', {
+                        id: 'zoom',
+                        label: 'Zoom',
+                        min: 5,
+                        max: 40,
+                        step: 5,
+                        value: 20,
+                        onChange: (value) => {
+                            const range = parseInt(value);
+                            currentVisualizer.setRange({ 
+                                xMin: -range / 2, 
+                                xMax: range / 2 
+                            });
+                        }
+                    });
+                    break;
+                    
+                case 'calculus':
+                    currentVisualizer = new CalculusTools({
+                        containerId: `${moduleName}-container`,
+                        theme: document.body.classList.contains('dark-theme') ? 'dark' : 'light',
+                        controls: { position: 'none' } // We'll handle controls separately
+                    });
+                    
+                    // Update function input with the default function
+                    functionInput.value = currentVisualizer.config.calculusOptions.defaultFunction;
+                    
+                    // Add calculus tool controls
+                    addControl('checkbox', {
+                        id: 'show-derivative',
+                        label: 'Show Derivative',
+                        checked: false,
+                        onChange: (checked) => {
+                            currentVisualizer.config.calculusOptions.showDerivative = checked;
+                            currentVisualizer.render();
+                        }
+                    });
+                    
+                    addControl('checkbox', {
+                        id: 'show-tangent',
+                        label: 'Show Tangent Line',
+                        checked: false,
+                        onChange: (checked) => {
+                            currentVisualizer.config.calculusOptions.showTangent = checked;
+                            if (checked && currentVisualizer.tangentPoint === null) {
+                                currentVisualizer.tangentPoint = 0;
+                            }
+                            currentVisualizer.render();
+                        }
+                    });
+                    
+                    addControl('checkbox', {
+                        id: 'show-integral',
+                        label: 'Show Integral',
+                        checked: false,
+                        onChange: (checked) => {
+                            currentVisualizer.config.calculusOptions.showIntegral = checked;
+                            currentVisualizer.render();
+                        }
+                    });
+                    
+                    addControl('slider', {
+                        id: 'lower-limit',
+                        label: 'Lower Limit',
+                        min: -5,
+                        max: 5,
+                        step: 0.5,
+                        value: -2,
+                        onChange: (value) => {
+                            currentVisualizer.config.calculusOptions.lowerLimit = parseFloat(value);
+                            currentVisualizer.render();
+                        }
+                    });
+                    
+                    addControl('slider', {
+                        id: 'upper-limit',
+                        label: 'Upper Limit',
+                        min: -5,
+                        max: 5,
+                        step: 0.5,
+                        value: 2,
+                        onChange: (value) => {
+                            currentVisualizer.config.calculusOptions.upperLimit = parseFloat(value);
+                            currentVisualizer.render();
+                        }
+                    });
+                    
+                    addControl('checkbox', {
+                        id: 'show-riemann',
+                        label: 'Show Riemann Sum',
+                        checked: false,
+                        onChange: (checked) => {
+                            currentVisualizer.config.calculusOptions.showRiemannSum = checked;
+                            currentVisualizer.render();
+                        }
+                    });
+                    
+                    addControl('select', {
+                        id: 'riemann-type',
+                        label: 'Riemann Sum Type',
+                        options: [
+                            { value: 'left', text: 'Left Sum' },
+                            { value: 'right', text: 'Right Sum' },
+                            { value: 'midpoint', text: 'Midpoint Sum' },
+                            { value: 'trapezoidal', text: 'Trapezoidal Sum' }
+                        ],
+                        value: 'left',
+                        onChange: (value) => {
+                            currentVisualizer.config.calculusOptions.riemannSumType = value;
+                            currentVisualizer.render();
+                        }
+                    });
+                    
+                    addControl('slider', {
+                        id: 'num-rectangles',
+                        label: 'Rectangles',
+                        min: 1,
+                        max: 50,
+                        step: 1,
+                        value: 10,
+                        onChange: (value) => {
+                            currentVisualizer.config.calculusOptions.numRectangles = parseInt(value);
+                            currentVisualizer.render();
+                        }
+                    });
+                    break;
+            }
+            
+            hideLoading();
+        }
+        
+        // Load a specific topic for the current module
+        function loadTopic(moduleName, topic) {
+            if (!currentVisualizer) return;
+            
+            showLoading();
+            
+            switch(moduleName) {
+                case 'function':
+                    switch(topic) {
+                        case 'linear':
+                            functionInput.value = '2 * x + 1';
+                            break;
+                        case 'quadratic':
+                            functionInput.value = 'x * x - 4';
+                            break;
+                        case 'polynomial':
+                            functionInput.value = 'x * x * x - 2 * x * x + 3';
+                            break;
+                        case 'exponential':
+                            functionInput.value = 'Math.exp(x)';
+                            break;
+                        case 'trigonometric':
+                            functionInput.value = 'Math.sin(x)';
+                            break;
+                    }
+                    applyFunction();
+                    break;
+                    
+                case 'calculus':
+                    switch(topic) {
+                        case 'limits':
+                            functionInput.value = 'x !== 0 ? Math.sin(x) / x : 1';
+                            currentVisualizer.config.calculusOptions.showLimit = true;
+                            currentVisualizer.config.calculusOptions.showDerivative = false;
+                            currentVisualizer.config.calculusOptions.showIntegral = false;
+                            currentVisualizer.config.calculusOptions.showRiemannSum = false;
+                            currentVisualizer.config.calculusOptions.showTaylorSeries = false;
+                            currentVisualizer.limitPoint = 0;
+                            document.getElementById('show-derivative').checked = false;
+                            document.getElementById('show-integral').checked = false;
+                            document.getElementById('show-riemann').checked = false;
+                            break;
+                            
+                        case 'derivatives':
+                            functionInput.value = 'Math.sin(x)';
+                            currentVisualizer.config.calculusOptions.showLimit = false;
+                            currentVisualizer.config.calculusOptions.showDerivative = true;
+                            currentVisualizer.config.calculusOptions.showTangent = true;
+                            currentVisualizer.config.calculusOptions.showIntegral = false;
+                            currentVisualizer.config.calculusOptions.showRiemannSum = false;
+                            currentVisualizer.config.calculusOptions.showTaylorSeries = false;
+                            document.getElementById('show-derivative').checked = true;
+                            document.getElementById('show-tangent').checked = true;
+                            document.getElementById('show-integral').checked = false;
+                            document.getElementById('show-riemann').checked = false;
+                            break;
+                            
+                        case 'integrals':
+                            functionInput.value = 'Math.sin(x)';
+                            currentVisualizer.config.calculusOptions.showLimit = false;
+                            currentVisualizer.config.calculusOptions.showDerivative = false;
+                            currentVisualizer.config.calculusOptions.showTangent = false;
+                            currentVisualizer.config.calculusOptions.showIntegral = true;
+                            currentVisualizer.config.calculusOptions.showRiemannSum = false;
+                            currentVisualizer.config.calculusOptions.showTaylorSeries = false;
+                            document.getElementById('show-derivative').checked = false;
+                            document.getElementById('show-tangent').checked = false;
+                            document.getElementById('show-integral').checked = true;
+                            document.getElementById('show-riemann').checked = false;
+                            break;
+                            
+                        case 'riemann':
+                            functionInput.value = 'x * x';
+                            currentVisualizer.config.calculusOptions.showLimit = false;
+                            currentVisualizer.config.calculusOptions.showDerivative = false;
+                            currentVisualizer.config.calculusOptions.showTangent = false;
+                            currentVisualizer.config.calculusOptions.showIntegral = false;
+                            currentVisualizer.config.calculusOptions.showRiemannSum = true;
+                            currentVisualizer.config.calculusOptions.showTaylorSeries = false;
+                            document.getElementById('show-derivative').checked = false;
+                            document.getElementById('show-tangent').checked = false;
+                            document.getElementById('show-integral').checked = false;
+                            document.getElementById('show-riemann').checked = true;
+                            break;
+                            
+                        case 'taylor':
+                            functionInput.value = 'Math.sin(x)';
+                            currentVisualizer.config.calculusOptions.showLimit = false;
+                            currentVisualizer.config.calculusOptions.showDerivative = false;
+                            currentVisualizer.config.calculusOptions.showTangent = false;
+                            currentVisualizer.config.calculusOptions.showIntegral = false;
+                            currentVisualizer.config.calculusOptions.showRiemannSum = false;
+                            currentVisualizer.config.calculusOptions.showTaylorSeries = true;
+                            document.getElementById('show-derivative').checked = false;
+                            document.getElementById('show-tangent').checked = false;
+                            document.getElementById('show-integral').checked = false;
+                            document.getElementById('show-riemann').checked = false;
+                            break;
+                    }
+                    applyFunction();
+                    break;
+                    
+                // Add similar cases for other modules
+            }
+            
+            hideLoading();
+        }
+        
+        // Helper function to add controls
+        function addControl(type, options) {
+            const controlGroup = document.createElement('div');
+            controlGroup.className = 'control-group';
+            
+            switch (type) {
+                case 'slider':
+                    const sliderLabel = document.createElement('label');
+                    sliderLabel.textContent = options.label;
+                    
+                    const valueDisplay = document.createElement('span');
+                    valueDisplay.id = `${options.id}-value-display`;
+                    valueDisplay.textContent = options.value;
+                    valueDisplay.style.float = 'right';
+                    sliderLabel.appendChild(valueDisplay);
+                    
+                    const slider = document.createElement('input');
+                    slider.type = 'range';
+                    slider.id = options.id;
+                    slider.min = options.min !== undefined ? options.min : 0;
+                    slider.max = options.max !== undefined ? options.max : 100;
+                    slider.step = options.step !== undefined ? options.step : 1;
+                    slider.value = options.value !== undefined ? options.value : slider.min;
+                    
+                    slider.addEventListener('input', () => {
+                        const value = parseFloat(slider.value);
+                        valueDisplay.textContent = value;
+                        if (options.onChange) {
+                            options.onChange(value);
+                        }
+                    });
+                    
+                    controlGroup.appendChild(sliderLabel);
+                    controlGroup.appendChild(slider);
+                    break;
+                    
+                case 'checkbox':
+                    const checkboxContainer = document.createElement('div');
+                    checkboxContainer.className = 'checkbox-control';
+                    
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.id = options.id;
+                    checkbox.checked = options.checked !== undefined ? options.checked : false;
+                    
+                    const checkboxLabel = document.createElement('label');
+                    checkboxLabel.htmlFor = options.id;
+                    checkboxLabel.textContent = options.label;
+                    
+                    checkbox.addEventListener('change', () => {
+                        if (options.onChange) {
+                            options.onChange(checkbox.checked);
+                        }
+                    });
+                    
+                    checkboxContainer.appendChild(checkbox);
+                    checkboxContainer.appendChild(checkboxLabel);
+                    controlGroup.appendChild(checkboxContainer);
+                    break;
+                    
+                case 'button':
+                    const button = document.createElement('button');
+                    button.id = options.id;
+                    button.textContent = options.label;
+                    button.style.width = '100%';
+                    button.style.padding = '8px';
+                    button.style.backgroundColor = 'var(--primary-color)';
+                    button.style.color = 'white';
+                    button.style.border = 'none';
+                    button.style.borderRadius = '4px';
+                    button.style.cursor = 'pointer';
+                    
+                    button.addEventListener('click', () => {
+                        if (options.onClick) {
+                            options.onClick();
+                        }
+                    });
+                    
+                    controlGroup.appendChild(button);
+                    break;
+                    
+                case 'select':
+                    const selectLabel = document.createElement('label');
+                    selectLabel.textContent = options.label;
+                    
+                    const select = document.createElement('select');
+                    select.id = options.id;
+                    
+                    options.options.forEach(opt => {
+                        const option = document.createElement('option');
+                        option.value = opt.value;
+                        option.textContent = opt.text;
+                        if (opt.value === options.value) {
+                            option.selected = true;
+                        }
+                        select.appendChild(option);
+                    });
+                    
+                    select.addEventListener('change', () => {
+                        if (options.onChange) {
+                            options.onChange(select.value);
+                        }
+                    });
+                    
+                    controlGroup.appendChild(selectLabel);
+                    controlGroup.appendChild(select);
+                    break;
+            }
+            
+            controlsGrid.appendChild(controlGroup);
+            return controlGroup;
+        }
+        
+        // Helper functions for loading overlay
+        function showLoading() {
+            loadingOverlay.style.display = 'flex';
+        }
+        
+        function hideLoading() {
+            loadingOverlay.style.display = 'none';
+        }
+        
+        // Load default module on startup
+        loadModule('function');
+        document.querySelector('[data-module="function"]').classList.add('active');
+        document.getElementById('function-topics').style.display = 'block';
+    </script>
+</body>
+</html>

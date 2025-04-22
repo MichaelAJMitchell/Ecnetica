@@ -183,9 +183,10 @@ class MathExplorer {
         this._lastHeight = displayHeight;
         
         // Force a full redraw - Delay slightly to ensure all DOM updates are processed
-        setTimeout(() => {
-          this.render();
-        }, 50);
+        //setTimeout(() => {
+        //  this.render();
+        //}, 10);
+        this.render()
       }
     }
       

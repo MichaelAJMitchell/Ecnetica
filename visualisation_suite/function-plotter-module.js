@@ -2,7 +2,7 @@
  * MathExplorer - Function Plotter Module
  * 
  * An extension of the base MathExplorer framework that specializes in plotting
- * mathematical functions with interactive parameters.
+ * mathematical functions with interactive parameters and hover information.
  */
 
 import MathExplorer from './base-visualization-framework.js';
@@ -25,7 +25,9 @@ class FunctionPlotter extends MathExplorer {
         resolution: 200, // Number of points to plot
         showSpecialPoints: true, // Show intercepts, extrema, etc.
         highlightSpecialPoints: true,
-        lineWidth: 3
+        lineWidth: 3,
+        showHoverInfo: true, // Show hover information
+        hoverThreshold: 10 // Pixel distance threshold for hover detection
       },
       ...config
     };
@@ -36,7 +38,215 @@ class FunctionPlotter extends MathExplorer {
     // Initialize function collections
     this.functions = [];
     this.parameters = {};
-    this.specialPoints = []; // Initialize specialPoints array here
+    this.specialPoints = []; // Initialize specialPoints array
+    this.hoverPoint = null; // Current hover point
+    
+    // Create hover info element
+    this.createHoverInfoElement();
+    
+    // Always enable hover info by default
+    this.config.plotOptions.showHoverInfo = true;
+  }
+  
+  /**
+   * Create the hover info element
+   */
+  createHoverInfoElement() {
+    this.hoverInfo = document.createElement('div');
+    this.hoverInfo.className = 'math-explorer-hover-info';
+    this.hoverInfo.style.position = 'absolute';
+    this.hoverInfo.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+    this.hoverInfo.style.border = '1px solid #ccc';
+    this.hoverInfo.style.borderRadius = '4px';
+    this.hoverInfo.style.padding = '8px';
+    this.hoverInfo.style.pointerEvents = 'none';
+    this.hoverInfo.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
+    this.hoverInfo.style.fontSize = '14px';
+    this.hoverInfo.style.zIndex = '1000';
+    this.hoverInfo.style.display = 'none';
+    this.canvasArea.appendChild(this.hoverInfo);
+  }
+
+  /**
+   * Set up event handlers
+   * Overrides parent method to add hover functionality
+   */
+  setupEventHandlers() {
+    // Call parent method to set up basic events
+    super.setupEventHandlers();
+    
+    // Add direct mouse detection for graph interaction
+    this.canvas.addEventListener('mousemove', (e) => {
+      const rect = this.canvas.getBoundingClientRect();
+      
+      // Get exact pixel position relative to canvas
+      const x = (e.clientX - rect.left) * (this.canvas.width / rect.width);
+      const y = (e.clientY - rect.top) * (this.canvas.height / rect.height);
+      
+      this.mousePosition = { x, y };
+      
+      // Convert to math coordinates
+      const mathX = this.toMathX(x);
+      const mathY = this.toMathY(y);
+      
+      this.mathMousePosition = { x: mathX, y: mathY };
+      
+      // Do a 2D scan of the graph
+      this.scanGraphForHover();
+      
+      // Optional: show coordinates in info panel
+      if (this.infoPanel && this.config.showCoordinates) {
+        this.updateInfoPanel();
+      }
+    });
+    
+    // Hide hover info when mouse leaves canvas
+    this.canvas.addEventListener('mouseleave', () => {
+      this.hoverInfo.style.display = 'none';
+      this.hoverPoint = null;
+      this.render();
+    });
+  }
+
+  /**
+   * Scan the graph in 2D to find the nearest point on any function
+   */
+  scanGraphForHover() {
+    if (!this.config.plotOptions.showHoverInfo || !this.mathMousePosition) return;
+    
+    const mouseX = this.mathMousePosition.x;
+    const mouseY = this.mathMousePosition.y;
+    
+    // We'll scan the x values near the mouse position
+    // to find the closest point on any function
+    const scanRange = (this.config.range.xMax - this.config.range.xMin) / 100; // 1% of x range
+    const numSamples = 21; // Use an odd number to include the exact mouse x
+    const stepSize = scanRange / (numSamples - 1);
+    
+    let bestDistance = Infinity;
+    let closestPoint = null;
+    
+    // For each function, scan points around mouse x to find closest
+    this.functions.forEach(func => {
+      if (!func.visible) return;
+      
+      for (let i = 0; i < numSamples; i++) {
+        // Calculate x value for this sample
+        const x = mouseX - scanRange/2 + (i * stepSize);
+        
+        try {
+          // Evaluate the function at this x
+          const y = func.evaluator(x);
+          
+          if (isFinite(y)) {
+            // Calculate distance to mouse in math coordinates
+            const dx = x - mouseX;
+            const dy = y - mouseY;
+            const distance = Math.sqrt(dx*dx + dy*dy);
+            
+            // If this is closer than our current best, update
+            if (distance < bestDistance) {
+              bestDistance = distance;
+              
+              closestPoint = {
+                function: func,
+                x: x,
+                y: y,
+                distance: distance,
+                canvasX: this.toCanvasX(x),
+                canvasY: this.toCanvasY(y)
+              };
+            }
+          }
+        } catch (e) {
+          // Skip error cases
+          continue;
+        }
+      }
+    });
+    
+    // If we found a close point, update hover
+    if (closestPoint && bestDistance < (this.config.range.yMax - this.config.range.yMin) / 15) {
+      // Format the hover information
+      let infoHTML = `
+        <div style="font-weight: bold; margin-bottom: 4px;">x = ${closestPoint.x.toFixed(4)}</div>
+      `;
+      
+      infoHTML += `
+        <div style="display: flex; align-items: center; margin: 2px 0;">
+          <span style="display: inline-block; width: 12px; height: 12px; background-color: ${closestPoint.function.color}; margin-right: 5px;"></span>
+          <span>y = ${closestPoint.y.toFixed(4)}</span>
+        </div>
+      `;
+      
+      // Add any special points that are nearby
+      const specialPointsNearby = this.findNearbySpecialPoints(closestPoint.x, closestPoint.y);
+      if (specialPointsNearby.length > 0) {
+        infoHTML += `<div style="margin-top: 5px; border-top: 1px solid #ddd; padding-top: 5px;">`;
+        specialPointsNearby.forEach(point => {
+          infoHTML += `<div>${point.type}: (${point.x.toFixed(4)}, ${point.y.toFixed(4)})</div>`;
+        });
+        infoHTML += `</div>`;
+      }
+      
+      // Update and position the hover info
+      this.hoverInfo.innerHTML = infoHTML;
+      this.hoverInfo.style.display = 'block';
+      
+      // Position the hover info - avoid edge overflow
+      const infoRect = this.hoverInfo.getBoundingClientRect();
+      const containerRect = this.canvasArea.getBoundingClientRect();
+      
+      // Position relative to the point on the curve, not the mouse cursor
+      let leftPos = closestPoint.canvasX + 15; 
+      let topPos = closestPoint.canvasY - infoRect.height / 2;
+      
+      // Check right edge
+      if (leftPos + infoRect.width > containerRect.width) {
+        leftPos = closestPoint.canvasX - infoRect.width - 10;
+      }
+      
+      // Check top/bottom edges
+      if (topPos < 0) {
+        topPos = 0;
+      } else if (topPos + infoRect.height > containerRect.height) {
+        topPos = containerRect.height - infoRect.height;
+      }
+      
+      this.hoverInfo.style.left = `${leftPos}px`;
+      this.hoverInfo.style.top = `${topPos}px`;
+      
+      // Save hover point for rendering
+      this.hoverPoint = closestPoint;
+      
+      // Force redraw
+      this.render();
+    } else {
+      // No close points found
+      this.hoverInfo.style.display = 'none';
+      this.hoverPoint = null;
+      this.render();
+    }
+  }
+
+  /**
+   * Find special points near the mouse position
+   * @param {number} mouseX - Math X coordinate of mouse
+   * @param {number} mouseY - Math Y coordinate of mouse
+   * @returns {Array} Array of nearby special points
+   */
+  findNearbySpecialPoints(mouseX, mouseY) {
+    if (!this.specialPoints) return [];
+    
+    // Use a more generous euclidean distance threshold 
+    const thresholdInMathUnits = (this.config.range.xMax - this.config.range.xMin) / 20;
+    
+    return this.specialPoints.filter(point => {
+      const dx = Math.abs(point.x - mouseX);
+      const dy = Math.abs(point.y - mouseY);
+      // Use euclidean distance instead of separate thresholds
+      return Math.sqrt(dx*dx + dy*dy) < thresholdInMathUnits;
+    });
   }
 
   /**
@@ -349,66 +559,147 @@ class FunctionPlotter extends MathExplorer {
       return;
     }
     
+    // Get the actual canvas dimensions in math coordinates
+    const canvasLeft = this.toMathX(0);
+    const canvasRight = this.toMathX(this.config.canvasWidth);
+    const canvasTop = this.toMathY(0);
+    const canvasBottom = this.toMathY(this.config.canvasHeight);
+    
+    // These are the true visual boundaries of the canvas
+    const visualBounds = {
+      xMin: Math.min(canvasLeft, canvasRight),
+      xMax: Math.max(canvasLeft, canvasRight),
+      yMin: Math.min(canvasTop, canvasBottom),
+      yMax: Math.max(canvasTop, canvasBottom)
+    };
+    
     this.functions.forEach(func => {
       if (!func.visible) return;
       
-      const { xMin, xMax } = this.config.range;
-      const resolution = this.config.plotOptions.resolution;
-      const step = (xMax - xMin) / resolution;
+      // Get both the configured range and the visual bounds
+      const { xMin: configXMin, xMax: configXMax, yMin: configYMin, yMax: configYMax } = this.config.range;
+      const { xMin: visualXMin, xMax: visualXMax, yMin: visualYMin, yMax: visualYMax } = visualBounds;
       
+      // Use very high resolution across the entire visible canvas
+      const resolution = this.config.plotOptions.resolution * 3; // Tripled for smoother curves
+      const step = (visualXMax - visualXMin) / resolution;
+      
+      // Save current context state
+      this.ctx.save();
+      
+      // Set function-specific styles
       this.ctx.strokeStyle = func.color;
       this.ctx.lineWidth = func.lineWidth;
       this.ctx.beginPath();
       
+      let isDrawing = false;
       let lastX = null;
       let lastY = null;
-      let isDrawing = false;
       
+      // For determining function range
+      let minY = Infinity;
+      let maxY = -Infinity;
+      
+      // Calculate points for every pixel across the canvas width
       for (let i = 0; i <= resolution; i++) {
-        const x = xMin + i * step;
+        const x = visualXMin + i * step;
+        
         try {
           const y = func.evaluator(x);
           
-          // Skip if y is not a valid number or outside of range
-          if (!isFinite(y) || y < this.config.range.yMin || y > this.config.range.yMax) {
-            isDrawing = false;
-            continue;
+          // Update function range tracking
+          if (isFinite(y)) {
+            minY = Math.min(minY, y);
+            maxY = Math.max(maxY, y);
           }
           
-          const canvasX = this.toCanvasX(x);
-          const canvasY = this.toCanvasY(y);
+          // Check if point is inside the visual area
+          // Note: we plot points even slightly outside the configured range
+          // to ensure we capture boundary crossings
+          const isInRange = isFinite(y);
           
-          if (!isDrawing) {
-            this.ctx.moveTo(canvasX, canvasY);
-            isDrawing = true;
-          } else {
-            // Check for discontinuities
-            const dx = x - lastX;
-            const dy = y - lastY;
-            const distance = Math.sqrt(dx * dx + dy * dy);
+          if (isInRange) {
+            const canvasX = this.toCanvasX(x);
+            const canvasY = this.toCanvasY(y);
             
-            if (distance > step * 10) {
-              // Likely a discontinuity
-              this.ctx.stroke();
-              this.ctx.beginPath();
+            // Start a new path if needed
+            if (!isDrawing) {
               this.ctx.moveTo(canvasX, canvasY);
+              isDrawing = true;
             } else {
-              this.ctx.lineTo(canvasX, canvasY);
+              // Check for potential discontinuities or very steep changes
+              if (lastY !== null) {
+                const dy = Math.abs(y - lastY);
+                const maxAllowedChange = (configYMax - configYMin) / 2; // Half the range is a reasonable threshold
+                
+                if (dy > maxAllowedChange) {
+                  // Potential discontinuity - start a new segment
+                  this.ctx.stroke();
+                  this.ctx.beginPath();
+                  this.ctx.moveTo(canvasX, canvasY);
+                } else {
+                  // Regular point - continue the line
+                  this.ctx.lineTo(canvasX, canvasY);
+                }
+              } else {
+                this.ctx.lineTo(canvasX, canvasY);
+              }
+            }
+          } else {
+            // Point not in range - end current path if we were drawing
+            if (isDrawing) {
+              this.ctx.stroke();
+              isDrawing = false;
             }
           }
           
           lastX = x;
           lastY = y;
         } catch (e) {
-          isDrawing = false;
           console.error("Error evaluating function", e);
+          if (isDrawing) {
+            this.ctx.stroke();
+            isDrawing = false;
+          }
         }
       }
       
-      this.ctx.stroke();
+      // Finish drawing the path
+      if (isDrawing) {
+        this.ctx.stroke();
+      }
+      
+      // Restore context state
+      this.ctx.restore();
+      
+      // Update function properties with calculated range
+      if (isFinite(minY) && isFinite(maxY)) {
+        func.calculatedRange = { min: minY, max: maxY };
+      }
     });
   }
 
+  /**
+   * Set the coordinate range with extended boundaries
+   * @param {Object} range - New coordinate range
+   */
+  setRange(range) {
+    this.config.range = { ...this.config.range, ...range };
+    
+    // Calculate grid boundaries that extend beyond the tick marks
+    const gridPadding = 0.1; // 10% padding
+    
+    // Store extended ranges for plotting functions (but keep display ranges as is)
+    this.config.extendedRange = {
+      xMin: this.config.range.xMin - (this.config.range.xMax - this.config.range.xMin) * gridPadding,
+      xMax: this.config.range.xMax + (this.config.range.xMax - this.config.range.xMin) * gridPadding,
+      yMin: this.config.range.yMin - (this.config.range.yMax - this.config.range.yMin) * gridPadding,
+      yMax: this.config.range.yMax + (this.config.range.yMax - this.config.range.yMin) * gridPadding
+    };
+    
+    this.render();
+  }
+  
   /**
    * Plot special points (intercepts, extrema, etc.)
    */
@@ -420,6 +711,9 @@ class FunctionPlotter extends MathExplorer {
     }
     
     if (!this.config.plotOptions.showSpecialPoints) return;
+    
+    // Save current context state
+    this.ctx.save();
     
     // Define colors for different types of special points
     const colors = {
@@ -438,6 +732,75 @@ class FunctionPlotter extends MathExplorer {
       this.ctx.arc(x, y, 5, 0, 2 * Math.PI);
       this.ctx.fill();
     });
+    
+    // Restore context state
+    this.ctx.restore();
+  }
+
+  /**
+   * Draw hover highlight
+   */
+  drawHoverHighlight() {
+    if (!this.hoverPoint || !this.config.plotOptions.showHoverInfo) return;
+    
+    this.ctx.save();
+    
+    // Draw vertical line at x position (full canvas height)
+    this.ctx.setLineDash([5, 3]);
+    this.ctx.strokeStyle = 'rgba(0, 0, 0, 0.5)';
+    this.ctx.lineWidth = 1;
+    this.ctx.beginPath();
+    this.ctx.moveTo(this.hoverPoint.canvasX, 0);
+    this.ctx.lineTo(this.hoverPoint.canvasX, this.canvas.height);
+    this.ctx.stroke();
+    
+    // Draw horizontal line (full canvas width)
+    this.ctx.beginPath();
+    this.ctx.moveTo(0, this.hoverPoint.canvasY);
+    this.ctx.lineTo(this.canvas.width, this.hoverPoint.canvasY);
+    this.ctx.stroke();
+    
+    // Draw point highlight
+    this.ctx.setLineDash([]);
+    this.ctx.fillStyle = this.hoverPoint.function.color;
+    this.ctx.strokeStyle = '#fff';
+    this.ctx.lineWidth = 2;
+    this.ctx.beginPath();
+    this.ctx.arc(
+      this.hoverPoint.canvasX, 
+      this.hoverPoint.canvasY, 
+      6, 0, 2 * Math.PI
+    );
+    this.ctx.fill();
+    this.ctx.stroke();
+    
+    this.ctx.restore();
+  }
+
+  /**
+   * Set the theme
+   * @param {string|Object} theme - Theme name or theme object
+   */
+  setTheme(theme) {
+    // Call parent setTheme method
+    super.setTheme(theme);
+    
+    // Update hover info styles
+    if (this.hoverInfo) {
+      // Set hover info styles based on theme
+      const isDarkTheme = theme === 'dark' || 
+                         (this.config.theme && this.config.theme.backgroundColor === MathExplorer.themes.dark.backgroundColor);
+      
+      if (isDarkTheme) {
+        this.hoverInfo.style.backgroundColor = 'rgba(44, 62, 80, 0.9)';
+        this.hoverInfo.style.borderColor = '#1a2530';
+        this.hoverInfo.style.color = '#ecf0f1';
+      } else {
+        this.hoverInfo.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+        this.hoverInfo.style.borderColor = '#cccccc';
+        this.hoverInfo.style.color = '#333333';
+      }
+    }
   }
 
   /**
@@ -463,8 +826,58 @@ class FunctionPlotter extends MathExplorer {
     // Plot special points
     this.plotSpecialPoints();
     
+    // Draw hover highlight
+    this.drawHoverHighlight();
+    
     // Update info panel
     this.updateFunctionInfo();
+    
+    // In case of padding or other layout issues, debug by marking the edges
+    if (this.config.debug) {
+      this.debugDrawCanvasBounds();
+    }
+  }
+  
+  /**
+   * Draw debug information about canvas boundaries
+   * Only activated when config.debug is true
+   */
+  debugDrawCanvasBounds() {
+    this.ctx.save();
+    
+    // Draw markers at corners and center
+    this.ctx.fillStyle = 'red';
+    
+    // Corners
+    this.ctx.beginPath();
+    this.ctx.arc(0, 0, 5, 0, 2 * Math.PI); // Top-left
+    this.ctx.fill();
+    
+    this.ctx.beginPath();
+    this.ctx.arc(this.canvas.width, 0, 5, 0, 2 * Math.PI); // Top-right
+    this.ctx.fill();
+    
+    this.ctx.beginPath();
+    this.ctx.arc(0, this.canvas.height, 5, 0, 2 * Math.PI); // Bottom-left
+    this.ctx.fill();
+    
+    this.ctx.beginPath();
+    this.ctx.arc(this.canvas.width, this.canvas.height, 5, 0, 2 * Math.PI); // Bottom-right
+    this.ctx.fill();
+    
+    // Center
+    this.ctx.fillStyle = 'blue';
+    this.ctx.beginPath();
+    this.ctx.arc(this.canvas.width/2, this.canvas.height/2, 5, 0, 2 * Math.PI);
+    this.ctx.fill();
+    
+    // Origin
+    this.ctx.fillStyle = 'green';
+    this.ctx.beginPath();
+    this.ctx.arc(this.toCanvasX(0), this.toCanvasY(0), 5, 0, 2 * Math.PI);
+    this.ctx.fill();
+    
+    this.ctx.restore();
   }
 
   /**

@@ -48,12 +48,14 @@ class MathExplorer {
       // Set up canvas
       this.setupCanvas();
   
+      this.boundResizeCanvas = this.resizeCanvas.bind(this);
+
       // Set up event handlers
       this.setupEventHandlers();
   
       // Initialize storage for visualization elements
       this.elements = [];
-  
+
       // Initial render
       this.render();
     }
@@ -94,7 +96,8 @@ class MathExplorer {
       this.canvasArea.classList.add('math-explorer-canvas-area');
       this.canvasArea.style.flex = '1';
       this.canvasArea.style.minWidth = '300px';
-      this.canvasArea.style.height = `${this.config.dimensions.height}px`;
+      //this.canvasArea.style.height = `${this.config.dimensions.height}px`;
+      this.canvasArea.style.height = '100%'; // Make it responsive
       this.canvasArea.style.position = 'relative';
       this.container.appendChild(this.canvasArea);
   
@@ -132,18 +135,67 @@ class MathExplorer {
      * Resize canvas to match display size
      */
     resizeCanvas() {
-      const rect = this.canvas.getBoundingClientRect();
-      this.canvas.width = rect.width;
-      this.canvas.height = rect.height;
-      this.render(); // Re-render after resize
+      // Make sure we have the correct context
+      const self = this;
+      
+      // Get the actual display dimensions
+      const rect = this.canvasArea.getBoundingClientRect();
+      
+      // Handle case where canvas is not visible yet
+      if (rect.width === 0 || rect.height === 0) {
+        // Try again soon with a longer delay
+        setTimeout(() => this.boundResizeCanvas(), 200);
+        return;
+      }
+      
+      const dpr = window.devicePixelRatio || 1;
+      
+      // Store previous dimensions for comparison
+      const prevWidth = this.canvas.width;
+      const prevHeight = this.canvas.height;
+      
+      // Update the canvas size to match its container
+      const displayWidth = Math.floor(rect.width);
+      const displayHeight = Math.floor(rect.height);
+      
+      // Only update if dimensions actually changed
+      if (this.canvas.width !== displayWidth * dpr || this.canvas.height !== displayHeight * dpr) {
+        console.log(`Resizing canvas: ${displayWidth}x${displayHeight}`);
+        
+        // Update internal config first
+        this.config.canvasWidth = displayWidth;
+        this.config.canvasHeight = displayHeight;
+        
+        // Set the canvas dimensions with device pixel ratio for sharpness
+        this.canvas.width = displayWidth * dpr;
+        this.canvas.height = displayHeight * dpr;
+        
+        // Set CSS size
+        this.canvas.style.width = `${displayWidth}px`;
+        this.canvas.style.height = `${displayHeight}px`;
+        
+        // Reset transform and scale context for high DPI
+        this.ctx.setTransform(1, 0, 0, 1, 0, 0);
+        this.ctx.scale(dpr, dpr);
+        
+        // Store dimensions for future comparison
+        this._lastWidth = displayWidth;
+        this._lastHeight = displayHeight;
+        
+        // Force a full redraw - Delay slightly to ensure all DOM updates are processed
+        setTimeout(() => {
+          this.render();
+        }, 50);
+      }
     }
+      
   
     /**
      * Set up event handlers
      */
     setupEventHandlers() {
       // Handle window resize
-      window.addEventListener('resize', () => this.resizeCanvas());
+      window.addEventListener('resize', this.boundResizeCanvas);
   
       // Track mouse position
       this.mousePosition = { x: 0, y: 0 };
@@ -177,6 +229,32 @@ class MathExplorer {
         // Trigger click event for interactive elements
         this.handleInteraction('click', { x, y });
       });
+
+      // Add a MutationObserver to watch for changes in the container size
+      if (window.MutationObserver) {
+        this.containerObserver = new MutationObserver(() => {
+        // If the container's size might have changed, trigger a resize
+        this.boundResizeCanvas();
+        });
+        
+        this.containerObserver.observe(this.container, {
+        attributes: true,
+        attributeFilter: ['style', 'class']
+        });
+      }
+      
+      // For container-parent size changes that might not trigger window resize
+      // or direct style mutations
+      this.resizeInterval = setInterval(() => {
+        const currentWidth = this.canvas.clientWidth;
+        const currentHeight = this.canvas.clientHeight;
+        
+        if (currentWidth !== this._lastWidth || currentHeight !== this._lastHeight) {
+        this._lastWidth = currentWidth;
+        this._lastHeight = currentHeight;
+        this.boundResizeCanvas();
+        }
+      }, 250); // Check every 250ms
     }
   
     /**
@@ -522,9 +600,9 @@ class MathExplorer {
      * @returns {number} X coordinate in canvas space
      */
     toCanvasX(mathX) {
-      const { xMin, xMax } = this.config.range;
-      const { padding } = this.config;
-      return ((mathX - xMin) / (xMax - xMin)) * (this.canvas.width - 2 * padding) + padding;
+        const { xMin, xMax } = this.config.range;
+        const { padding, canvasWidth } = this.config;
+        return ((mathX - xMin) / (xMax - xMin)) * (canvasWidth - 2 * padding) + padding;
     }
   
     /**
@@ -533,9 +611,9 @@ class MathExplorer {
      * @returns {number} Y coordinate in canvas space
      */
     toCanvasY(mathY) {
-      const { yMin, yMax } = this.config.range;
-      const { padding } = this.config;
-      return this.canvas.height - (((mathY - yMin) / (yMax - yMin)) * (this.canvas.height - 2 * padding) + padding);
+        const { yMin, yMax } = this.config.range;
+        const { padding, canvasHeight } = this.config;
+        return canvasHeight - (((mathY - yMin) / (yMax - yMin)) * (canvasHeight - 2 * padding) + padding);
     }
   
     /**
@@ -695,75 +773,117 @@ class MathExplorer {
      * Draw labels on axes
      */
     drawAxisLabels() {
-      const { xMin, xMax, yMin, yMax } = this.config.range;
-      
-      // Calculate appropriate tick spacing
-      const xSpacing = this.calculateTickSpacing(xMin, xMax);
-      const ySpacing = this.calculateTickSpacing(yMin, yMax);
-      
-      this.ctx.fillStyle = this.config.theme.textColor;
-      this.ctx.font = `12px ${this.config.theme.fontFamily}`;
-      
-      // X-axis labels
-      this.ctx.textAlign = 'center';
-      this.ctx.textBaseline = 'top';
-      
-      for (let x = Math.ceil(xMin / xSpacing) * xSpacing; x <= xMax; x += xSpacing) {
-        // Skip very small values near zero (to avoid showing both 0 and -0)
-        if (Math.abs(x) < 0.001 * xSpacing) continue;
+        const { xMin, xMax, yMin, yMax } = this.config.range;
         
-        // Format the label based on the spacing
-        let label;
-        if (xSpacing >= 1) {
-          label = Math.round(x); // Use integers for larger spacings
-        } else {
-          // Use appropriate decimal places for smaller spacings
-          const decimalPlaces = Math.max(0, -Math.floor(Math.log10(xSpacing)));
-          label = x.toFixed(decimalPlaces);
+        // Calculate appropriate tick spacing
+        const xSpacing = this.calculateTickSpacing(xMin, xMax);
+        const ySpacing = this.calculateTickSpacing(yMin, yMax);
+        
+        // Increase font size and use a better font
+        this.ctx.fillStyle = this.config.theme.textColor;
+        this.ctx.font = `bold 15px ${this.config.theme.fontFamily}`; // Increased from 12px to 14px and added bold
+        
+        // X-axis labels
+        this.ctx.textAlign = 'center';
+        this.ctx.textBaseline = 'top';
+        
+        // Apply anti-aliasing for better text resolution
+        //this.ctx.imageSmoothingEnabled = true;
+        //this.ctx.imageSmoothingQuality = 'high';
+        
+        for (let x = Math.ceil(xMin / xSpacing) * xSpacing; x <= xMax; x += xSpacing) {
+          // Skip very small values near zero (to avoid showing both 0 and -0)
+          if (Math.abs(x) < 0.001 * xSpacing) continue;
+          
+          // Format the label based on the spacing
+          let label;
+          if (xSpacing >= 1) {
+            label = Math.round(x); // Use integers for larger spacings
+          } else {
+            // Use appropriate decimal places for smaller spacings
+            const decimalPlaces = Math.max(0, -Math.floor(Math.log10(xSpacing)));
+            label = x.toFixed(decimalPlaces);
+          }
+          
+          // Apply a subtle background to make text more readable
+          const textWidth = this.ctx.measureText(label).width;
+          const textX = this.toCanvasX(x);
+          const textY = this.toCanvasY(0) + 5;
+          
+          // Add a subtle background for better visibility
+          this.ctx.fillStyle = 'rgba(255,255,255,1)';
+          this.ctx.fillRect(textX - textWidth / 2 - 2, textY - 2, textWidth + 4, 18);
+          
+          // Draw text with increased clarity
+          this.ctx.fillStyle = '#000';
+          this.ctx.fillText(
+            label,
+            textX,
+            textY
+          );
         }
         
-        this.ctx.fillText(
-          label,
-          this.toCanvasX(x),
-          this.toCanvasY(0) + 5
-        );
-      }
-      
-      // Always show origin (0)
-      if (xMin <= 0 && xMax >= 0) {
-        this.ctx.fillText('0', this.toCanvasX(0), this.toCanvasY(0) + 5);
-      }
-      
-      // Y-axis labels
-      this.ctx.textAlign = 'right';
-      this.ctx.textBaseline = 'middle';
-      
-      for (let y = Math.ceil(yMin / ySpacing) * ySpacing; y <= yMax; y += ySpacing) {
-        // Skip very small values near zero
-        if (Math.abs(y) < 0.001 * ySpacing) continue;
-        
-        // Format the label based on the spacing
-        let label;
-        if (ySpacing >= 1) {
-          label = Math.round(y); // Use integers for larger spacings
-        } else {
-          // Use appropriate decimal places for smaller spacings
-          const decimalPlaces = Math.max(0, -Math.floor(Math.log10(ySpacing)));
-          label = y.toFixed(decimalPlaces);
+        // Always show origin (0)
+        if (xMin <= 0 && xMax >= 0) {
+          const textWidth = this.ctx.measureText('0').width;
+          const textX = this.toCanvasX(0);
+          const textY = this.toCanvasY(0) + 5;
+          
+          this.ctx.fillStyle = 'rgba(255,255,255, 1)';
+          this.ctx.fillRect(textX - textWidth / 2 - 2, textY - 2, textWidth + 4, 18);
+          
+          this.ctx.fillStyle = '#000';
+          this.ctx.fillText('0', textX, textY);
         }
         
-        this.ctx.fillText(
-          label,
-          this.toCanvasX(0) - 5,
-          this.toCanvasY(y)
-        );
+        // Y-axis labels
+        this.ctx.textAlign = 'right';
+        this.ctx.textBaseline = 'middle';
+        
+        for (let y = Math.ceil(yMin / ySpacing) * ySpacing; y <= yMax; y += ySpacing) {
+          // Skip very small values near zero
+          if (Math.abs(y) < 0.001 * ySpacing) continue;
+          
+          // Format the label based on the spacing
+          let label;
+          if (ySpacing >= 1) {
+            label = Math.round(y); // Use integers for larger spacings
+          } else {
+            // Use appropriate decimal places for smaller spacings
+            const decimalPlaces = Math.max(0, -Math.floor(Math.log10(ySpacing)));
+            label = y.toFixed(decimalPlaces);
+          }
+          
+          const textWidth = this.ctx.measureText(label).width;
+          const textX = this.toCanvasX(0) - 5;
+          const textY = this.toCanvasY(y);
+          
+          // Add a subtle background for better visibility
+          this.ctx.fillStyle = 'rgba(255,255,255, 1)';
+          this.ctx.fillRect(textX - textWidth - 2, textY - 9, textWidth + 4, 18);
+          
+          // Draw text with increased clarity
+          this.ctx.fillStyle = '#000';
+          this.ctx.fillText(
+            label,
+            textX,
+            textY
+          );
+        }
+        
+        // Always show origin (0) unless already shown
+        if (yMin <= 0 && yMax >= 0 && !(xMin <= 0 && xMax >= 0)) {
+          const textWidth = this.ctx.measureText('0').width;
+          const textX = this.toCanvasX(0) - 5;
+          const textY = this.toCanvasY(0);
+          
+          this.ctx.fillStyle = 'rgba(255,255,255,0.7)';
+          this.ctx.fillRect(textX - textWidth - 2, textY - 9, textWidth + 4, 18);
+          
+          this.ctx.fillStyle = '#000';
+          this.ctx.fillText('0', textX, textY);
+        }
       }
-      
-      // Always show origin (0) unless already shown
-      if (yMin <= 0 && yMax >= 0 && !(xMin <= 0 && xMax >= 0)) {
-        this.ctx.fillText('0', this.toCanvasX(0) - 5, this.toCanvasY(0));
-      }
-    }
   
     /**
      * Clear the canvas

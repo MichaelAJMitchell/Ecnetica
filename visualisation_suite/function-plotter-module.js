@@ -70,6 +70,18 @@ class FunctionPlotter extends MathExplorer {
   }
 
   /**
+   * Recalculate and store the exact canvas positions of the axes
+   */
+  recalculateAxisPositions() {
+    // Store the exact position of the x and y axes in canvas coordinates
+    // This ensures consistent and accurate hover detection
+    this.axisPositions = {
+      xAxis: this.toCanvasY(0),
+      yAxis: this.toCanvasX(0)
+    };
+  }
+
+  /**
    * Set up event handlers
    * Overrides parent method to add hover functionality
    */
@@ -85,6 +97,14 @@ class FunctionPlotter extends MathExplorer {
       startY: 0,
       startRange: null
     };
+    
+    // Determine the exact pixel position of axes for accurate hover detection
+    this.recalculateAxisPositions();
+    
+    // Handle window resize to update axis positions
+    window.addEventListener('resize', () => {
+      this.recalculateAxisPositions();
+    });
     
     // Add direct mouse detection for graph interaction
     this.canvas.addEventListener('mousemove', (e) => {
@@ -185,37 +205,53 @@ class FunctionPlotter extends MathExplorer {
       return;
     }
     
-    // Calculate position of the x and y axes
-    const originX = this.toCanvasX(0);
-    const originY = this.toCanvasY(0);
+    // Calculate position of the x and y axes in canvas coordinates
+    const originX = this.axisPositions.yAxis;
+    const originY = this.axisPositions.xAxis;
+    
+    // Apply the 10% offset for axis detection as requested
+    const offsetX = this.canvas.width * 0.1;  // 10% of canvas width right offset
+    const offsetY = this.canvas.height * 0.1; // 10% of canvas height down offset
     
     // Define hover thresholds (in pixels)
     const threshold = 15;
     
-    // Check proximity to x-axis
-    const isNearXAxis = Math.abs(y - originY) < threshold;
+    // Check proximity to x-axis with offset
+    const isNearXAxis = Math.abs(y - (originY + offsetY)) < threshold;
     
-    // Check proximity to y-axis
-    const isNearYAxis = Math.abs(x - originX) < threshold;
+    // Check proximity to y-axis with offset
+    const isNearYAxis = Math.abs(x - (originX + offsetX)) < threshold;
     
     // Determine which axis has priority if near both
     if (isNearXAxis && isNearYAxis) {
       // If near the origin, determine by which is closer
-      const distToXAxis = Math.abs(y - originY);
-      const distToYAxis = Math.abs(x - originX);
+      const distToXAxis = Math.abs(y - (originY + offsetY));
+      const distToYAxis = Math.abs(x - (originX + offsetX));
       
       if (distToXAxis < distToYAxis) {
-        this.axisHoverState = { axis: 'x', position: originY };  // Use exact axis position
+        this.axisHoverState = { 
+          axis: 'x', 
+          position: originY // Use original y position of x-axis
+        };
         this.canvas.style.cursor = 'ew-resize';
       } else {
-        this.axisHoverState = { axis: 'y', position: originX };  // Use exact axis position
+        this.axisHoverState = { 
+          axis: 'y', 
+          position: originX // Use original x position of y-axis
+        };
         this.canvas.style.cursor = 'ns-resize';
       }
     } else if (isNearXAxis) {
-      this.axisHoverState = { axis: 'x', position: originY };  // Use exact axis position
+      this.axisHoverState = { 
+        axis: 'x', 
+        position: originY // Use original y position of x-axis
+      };
       this.canvas.style.cursor = 'ew-resize';
     } else if (isNearYAxis) {
-      this.axisHoverState = { axis: 'y', position: originX };  // Use exact axis position
+      this.axisHoverState = { 
+        axis: 'y', 
+        position: originX // Use original x position of y-axis
+      };
       this.canvas.style.cursor = 'ns-resize';
     } else {
       // Not near any axis
@@ -283,37 +319,8 @@ class FunctionPlotter extends MathExplorer {
     // If not hovering over an axis and not dragging, don't draw anything
     if (!this.axisHoverState && !(this.dragState && this.dragState.active)) return;
     
-    this.ctx.save();
-    
-    // Set styles for hover indicator
-    this.ctx.strokeStyle = this.config.theme.highlightColor;
-    this.ctx.lineWidth = 2;
-    this.ctx.setLineDash([5, 3]);
-    
-    // Get the axis to highlight (either from hover state or drag state)
-    const axis = (this.dragState && this.dragState.active) ? 
-                 this.dragState.axis : 
-                 (this.axisHoverState ? this.axisHoverState.axis : null);
-    
-    // Get the exact position of the origin (0,0) in canvas coordinates
-    const originX = this.toCanvasX(0);
-    const originY = this.toCanvasY(0);
-    
-    if (axis === 'x') {
-      // Highlight the x-axis at exactly y=0
-      this.ctx.beginPath();
-      this.ctx.moveTo(0, originY);
-      this.ctx.lineTo(this.canvas.width, originY);
-      this.ctx.stroke();
-    } else if (axis === 'y') {
-      // Highlight the y-axis at exactly x=0
-      this.ctx.beginPath();
-      this.ctx.moveTo(originX, 0);
-      this.ctx.lineTo(originX, this.canvas.height);
-      this.ctx.stroke();
-    }
-    
-    this.ctx.restore();
+    // We will not draw any visual indicators for the hover state
+    // per user's request - just maintain the cursor change in checkAxisHover
   }
 
   /**
@@ -769,9 +776,9 @@ class FunctionPlotter extends MathExplorer {
     
     // Get the actual canvas dimensions in math coordinates
     const canvasLeft = this.toMathX(0);
-    const canvasRight = this.toMathX(this.config.canvasWidth);
+    const canvasRight = this.toMathX(this.canvas.width);
     const canvasTop = this.toMathY(0);
-    const canvasBottom = this.toMathY(this.config.canvasHeight);
+    const canvasBottom = this.toMathY(this.canvas.height);
     
     // These are the true visual boundaries of the canvas
     const visualBounds = {
@@ -781,16 +788,19 @@ class FunctionPlotter extends MathExplorer {
       yMax: Math.max(canvasTop, canvasBottom)
     };
     
+    // Use the full canvas width for plotting
+    const plotXMin = this.toMathX(0);
+    const plotXMax = this.toMathX(this.canvas.width);
+    const plotYMin = this.toMathY(this.canvas.height);
+    const plotYMax = this.toMathY(0);
+    
     this.functions.forEach(func => {
       if (!func.visible) return;
       
-      // Get both the configured range and the visual bounds
-      const { xMin: configXMin, xMax: configXMax, yMin: configYMin, yMax: configYMax } = this.config.range;
-      const { xMin: visualXMin, xMax: visualXMax, yMin: visualYMin, yMax: visualYMax } = visualBounds;
-      
-      // Use very high resolution across the entire visible canvas
+      // Use the full canvas dimensions for plotting
+      // (with a bit of padding to ensure we capture any edge behavior)
       const resolution = this.config.plotOptions.resolution * 3; // Tripled for smoother curves
-      const step = (visualXMax - visualXMin) / resolution;
+      const step = (plotXMax - plotXMin) / resolution;
       
       // Save current context state
       this.ctx.save();
@@ -810,7 +820,7 @@ class FunctionPlotter extends MathExplorer {
       
       // Calculate points for every pixel across the canvas width
       for (let i = 0; i <= resolution; i++) {
-        const x = visualXMin + i * step;
+        const x = plotXMin + i * step;
         
         try {
           const y = func.evaluator(x);
@@ -821,9 +831,8 @@ class FunctionPlotter extends MathExplorer {
             maxY = Math.max(maxY, y);
           }
           
-          // Check if point is inside the visual area
-          // Note: we plot points even slightly outside the configured range
-          // to ensure we capture boundary crossings
+          // Check if point is inside the visual area with some extra margin
+          // Note: we plot slightly outside the visible area to ensure smooth edge behavior
           const isInRange = isFinite(y);
           
           if (isInRange) {
@@ -838,7 +847,7 @@ class FunctionPlotter extends MathExplorer {
               // Check for potential discontinuities or very steep changes
               if (lastY !== null) {
                 const dy = Math.abs(y - lastY);
-                const maxAllowedChange = (configYMax - configYMin) / 2; // Half the range is a reasonable threshold
+                const maxAllowedChange = (plotYMax - plotYMin) / 2; // Half the range is a reasonable threshold
                 
                 if (dy > maxAllowedChange) {
                   // Potential discontinuity - start a new segment
@@ -904,6 +913,9 @@ class FunctionPlotter extends MathExplorer {
       yMin: this.config.range.yMin - (this.config.range.yMax - this.config.range.yMin) * gridPadding,
       yMax: this.config.range.yMax + (this.config.range.yMax - this.config.range.yMin) * gridPadding
     };
+    
+    // Recalculate axis positions after range change
+    this.recalculateAxisPositions();
     
     this.render();
   }

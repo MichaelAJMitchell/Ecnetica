@@ -27,7 +27,8 @@ class FunctionPlotter extends MathExplorer {
         highlightSpecialPoints: true,
         lineWidth: 3,
         showHoverInfo: true, // Show hover information
-        hoverThreshold: 10 // Pixel distance threshold for hover detection
+        hoverThreshold: 10, // Pixel distance threshold for hover detection
+        enableAxisDrag: true // Enable dragging axes to pan
       },
       ...config
     };
@@ -40,6 +41,7 @@ class FunctionPlotter extends MathExplorer {
     this.parameters = {};
     this.specialPoints = []; // Initialize specialPoints array
     this.hoverPoint = null; // Current hover point
+    this.axisHoverState = null; // Track if hovering over an axis
     
     // Create hover info element
     this.createHoverInfoElement();
@@ -75,6 +77,15 @@ class FunctionPlotter extends MathExplorer {
     // Call parent method to set up basic events
     super.setupEventHandlers();
     
+    // Initialize drag state
+    this.dragState = {
+      active: false,
+      axis: null, // 'x' or 'y'
+      startX: 0,
+      startY: 0,
+      startRange: null
+    };
+    
     // Add direct mouse detection for graph interaction
     this.canvas.addEventListener('mousemove', (e) => {
       const rect = this.canvas.getBoundingClientRect();
@@ -85,13 +96,22 @@ class FunctionPlotter extends MathExplorer {
       
       this.mousePosition = { x, y };
       
+      // If dragging, update the range
+      if (this.dragState.active) {
+        this.handleAxisDrag(x, y);
+        return;
+      }
+      
       // Convert to math coordinates
       const mathX = this.toMathX(x);
       const mathY = this.toMathY(y);
       
       this.mathMousePosition = { x: mathX, y: mathY };
       
-      // Do a 2D scan of the graph
+      // Check if mouse is near an axis
+      this.checkAxisHover(x, y);
+      
+      // Do a 2D scan of the graph for function hover
       this.scanGraphForHover();
       
       // Optional: show coordinates in info panel
@@ -100,12 +120,200 @@ class FunctionPlotter extends MathExplorer {
       }
     });
     
-    // Hide hover info when mouse leaves canvas
+    // Handle mouse down for drag operations
+    this.canvas.addEventListener('mousedown', (e) => {
+      if (this.axisHoverState) {
+        // Initialize drag operation
+        const rect = this.canvas.getBoundingClientRect();
+        const x = (e.clientX - rect.left) * (this.canvas.width / rect.width);
+        const y = (e.clientY - rect.top) * (this.canvas.height / rect.height);
+        
+        this.dragState = {
+          active: true,
+          axis: this.axisHoverState.axis,
+          startX: x,
+          startY: y,
+          startRange: { 
+            xMin: this.config.range.xMin, 
+            xMax: this.config.range.xMax,
+            yMin: this.config.range.yMin,
+            yMax: this.config.range.yMax
+          }
+        };
+        
+        // Change cursor
+        this.canvas.style.cursor = this.axisHoverState.axis === 'x' ? 'ew-resize' : 'ns-resize';
+        
+        // Prevent text selection during drag
+        e.preventDefault();
+      }
+    });
+    
+    // Handle mouse up to end drag operations
+    this.canvas.addEventListener('mouseup', () => {
+      if (this.dragState.active) {
+        this.dragState.active = false;
+        // Reset cursor if not hovering over an axis
+        if (!this.axisHoverState) {
+          this.canvas.style.cursor = 'default';
+        }
+      }
+    });
+    
+    // Also end drag if mouse leaves the canvas
     this.canvas.addEventListener('mouseleave', () => {
+      if (this.dragState.active) {
+        this.dragState.active = false;
+        this.canvas.style.cursor = 'default';
+      }
+      
       this.hoverInfo.style.display = 'none';
       this.hoverPoint = null;
+      this.axisHoverState = null;
       this.render();
     });
+  }
+
+  /**
+   * Check if mouse is hovering near an axis
+   * @param {number} x - Canvas x coordinate
+   * @param {number} y - Canvas y coordinate
+   */
+  checkAxisHover(x, y) {
+    // Check if axis dragging is enabled
+    if (!this.config.plotOptions.enableAxisDrag) {
+      return;
+    }
+    
+    // Calculate position of the x and y axes
+    const originX = this.toCanvasX(0);
+    const originY = this.toCanvasY(0);
+    
+    // Define hover thresholds (in pixels)
+    const threshold = 15;
+    
+    // Check proximity to x-axis
+    const isNearXAxis = Math.abs(y - originY) < threshold;
+    
+    // Check proximity to y-axis
+    const isNearYAxis = Math.abs(x - originX) < threshold;
+    
+    // Determine which axis has priority if near both
+    if (isNearXAxis && isNearYAxis) {
+      // If near the origin, determine by which is closer
+      const distToXAxis = Math.abs(y - originY);
+      const distToYAxis = Math.abs(x - originX);
+      
+      if (distToXAxis < distToYAxis) {
+        this.axisHoverState = { axis: 'x', position: originY };  // Use exact axis position
+        this.canvas.style.cursor = 'ew-resize';
+      } else {
+        this.axisHoverState = { axis: 'y', position: originX };  // Use exact axis position
+        this.canvas.style.cursor = 'ns-resize';
+      }
+    } else if (isNearXAxis) {
+      this.axisHoverState = { axis: 'x', position: originY };  // Use exact axis position
+      this.canvas.style.cursor = 'ew-resize';
+    } else if (isNearYAxis) {
+      this.axisHoverState = { axis: 'y', position: originX };  // Use exact axis position
+      this.canvas.style.cursor = 'ns-resize';
+    } else {
+      // Not near any axis
+      if (this.axisHoverState && (!this.dragState || !this.dragState.active)) {
+        this.canvas.style.cursor = 'default';
+        this.axisHoverState = null;
+      }
+    }
+  }
+  
+  /**
+   * Handle dragging of an axis
+   * @param {number} x - Current mouse x position (canvas coordinates)
+   * @param {number} y - Current mouse y position (canvas coordinates)
+   */
+  handleAxisDrag(x, y) {
+    if (!this.dragState || !this.dragState.active) return;
+    
+    if (this.dragState.axis === 'x') {
+      // Calculate zoom factor based on horizontal movement
+      // Dragging right = zoom in, dragging left = zoom out
+      const dragDistance = x - this.dragState.startX;
+      const zoomFactor = 1 - (dragDistance / this.canvas.width) * 2;
+      
+      // Get the original range
+      const origRange = this.dragState.startRange;
+      const origWidth = origRange.xMax - origRange.xMin;
+      const midPoint = (origRange.xMax + origRange.xMin) / 2;
+      
+      // Calculate new range while keeping the midpoint fixed
+      const newWidth = origWidth * zoomFactor;
+      
+      // Update the x range
+      this.setRange({
+        xMin: midPoint - newWidth / 2,
+        xMax: midPoint + newWidth / 2
+      });
+      
+    } else if (this.dragState.axis === 'y') {
+      // Calculate zoom factor based on vertical movement
+      // Dragging down = zoom out, dragging up = zoom in
+      const dragDistance = y - this.dragState.startY;
+      const zoomFactor = 1 + (dragDistance / this.canvas.height) * 2;
+      
+      // Get the original range
+      const origRange = this.dragState.startRange;
+      const origHeight = origRange.yMax - origRange.yMin;
+      const midPoint = (origRange.yMax + origRange.yMin) / 2;
+      
+      // Calculate new range while keeping the midpoint fixed
+      const newHeight = origHeight * zoomFactor;
+      
+      // Update the y range
+      this.setRange({
+        yMin: midPoint - newHeight / 2,
+        yMax: midPoint + newHeight / 2
+      });
+    }
+  }
+  
+  /**
+   * Draw the axis hover state
+   */
+  drawAxisHoverState() {
+    // If not hovering over an axis and not dragging, don't draw anything
+    if (!this.axisHoverState && !(this.dragState && this.dragState.active)) return;
+    
+    this.ctx.save();
+    
+    // Set styles for hover indicator
+    this.ctx.strokeStyle = this.config.theme.highlightColor;
+    this.ctx.lineWidth = 2;
+    this.ctx.setLineDash([5, 3]);
+    
+    // Get the axis to highlight (either from hover state or drag state)
+    const axis = (this.dragState && this.dragState.active) ? 
+                 this.dragState.axis : 
+                 (this.axisHoverState ? this.axisHoverState.axis : null);
+    
+    // Get the exact position of the origin (0,0) in canvas coordinates
+    const originX = this.toCanvasX(0);
+    const originY = this.toCanvasY(0);
+    
+    if (axis === 'x') {
+      // Highlight the x-axis at exactly y=0
+      this.ctx.beginPath();
+      this.ctx.moveTo(0, originY);
+      this.ctx.lineTo(this.canvas.width, originY);
+      this.ctx.stroke();
+    } else if (axis === 'y') {
+      // Highlight the y-axis at exactly x=0
+      this.ctx.beginPath();
+      this.ctx.moveTo(originX, 0);
+      this.ctx.lineTo(originX, this.canvas.height);
+      this.ctx.stroke();
+    }
+    
+    this.ctx.restore();
   }
 
   /**
@@ -826,6 +1034,9 @@ class FunctionPlotter extends MathExplorer {
     // Plot special points
     this.plotSpecialPoints();
     
+    // Draw axis hover/drag state
+    this.drawAxisHoverState();
+    
     // Draw hover highlight
     this.drawHoverHighlight();
     
@@ -837,7 +1048,7 @@ class FunctionPlotter extends MathExplorer {
       this.debugDrawCanvasBounds();
     }
   }
-  
+
   /**
    * Draw debug information about canvas boundaries
    * Only activated when config.debug is true

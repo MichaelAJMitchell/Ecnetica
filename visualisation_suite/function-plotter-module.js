@@ -28,7 +28,8 @@ class FunctionPlotter extends MathExplorer {
         lineWidth: 3,
         showHoverInfo: true, // Show hover information
         hoverThreshold: 10, // Pixel distance threshold for hover detection
-        enableAxisDrag: true // Enable dragging axes to pan
+        enableAxisDrag: true, // Enable dragging axes to pan
+        enablePanDrag: true   // Enable dragging anywhere to pan
       },
       ...config
     };
@@ -92,10 +93,13 @@ class FunctionPlotter extends MathExplorer {
     // Initialize drag state
     this.dragState = {
       active: false,
-      axis: null, // 'x' or 'y'
+      mode: null,  // 'axis' or 'pan'
+      axis: null,  // 'x' or 'y' when mode is 'axis'
       startX: 0,
       startY: 0,
-      startRange: null
+      startRange: null,
+      startMathX: 0,
+      startMathY: 0
     };
     
     // Determine the exact pixel position of axes for accurate hover detection
@@ -116,9 +120,13 @@ class FunctionPlotter extends MathExplorer {
       
       this.mousePosition = { x, y };
       
-      // If dragging, update the range
+      // If dragging, handle the appropriate drag mode
       if (this.dragState.active) {
-        this.handleAxisDrag(x, y);
+        if (this.dragState.mode === 'axis') {
+          this.handleAxisDrag(x, y);
+        } else if (this.dragState.mode === 'pan') {
+          this.handlePanDrag(x, y);
+        }
         return;
       }
       
@@ -142,14 +150,20 @@ class FunctionPlotter extends MathExplorer {
     
     // Handle mouse down for drag operations
     this.canvas.addEventListener('mousedown', (e) => {
+      const rect = this.canvas.getBoundingClientRect();
+      const x = (e.clientX - rect.left) * (this.canvas.width / rect.width);
+      const y = (e.clientY - rect.top) * (this.canvas.height / rect.height);
+      
+      // Convert to math coordinates for pan drag
+      const mathX = this.toMathX(x);
+      const mathY = this.toMathY(y);
+      
+      // Check if near an axis - prioritize axis drag over pan
       if (this.axisHoverState) {
-        // Initialize drag operation
-        const rect = this.canvas.getBoundingClientRect();
-        const x = (e.clientX - rect.left) * (this.canvas.width / rect.width);
-        const y = (e.clientY - rect.top) * (this.canvas.height / rect.height);
-        
+        // Initialize axis drag operation
         this.dragState = {
           active: true,
+          mode: 'axis',
           axis: this.axisHoverState.axis,
           startX: x,
           startY: y,
@@ -163,28 +177,42 @@ class FunctionPlotter extends MathExplorer {
         
         // Change cursor
         this.canvas.style.cursor = this.axisHoverState.axis === 'x' ? 'ew-resize' : 'ns-resize';
+      } 
+      // If not near an axis and pan drag is enabled, start pan operation
+      else if (this.config.plotOptions.enablePanDrag) {
+        this.dragState = {
+          active: true,
+          mode: 'pan',
+          startX: x,
+          startY: y,
+          startMathX: mathX,
+          startMathY: mathY,
+          startRange: { 
+            xMin: this.config.range.xMin, 
+            xMax: this.config.range.xMax,
+            yMin: this.config.range.yMin,
+            yMax: this.config.range.yMax
+          }
+        };
         
-        // Prevent text selection during drag
-        e.preventDefault();
+        // Change cursor to grabbing/moving
+        this.canvas.style.cursor = 'grabbing';
       }
+      
+      // Prevent text selection during drag
+      e.preventDefault();
     });
     
-    // Handle mouse up to end drag operations
-    this.canvas.addEventListener('mouseup', () => {
-      if (this.dragState.active) {
-        this.dragState.active = false;
-        // Reset cursor if not hovering over an axis
-        if (!this.axisHoverState) {
-          this.canvas.style.cursor = 'default';
-        }
-      }
-    });
+    // Handle mouse up to end drag operations using our custom handler
+    this.canvas.addEventListener('mouseup', (e) => this.handleMouseUp(e));
     
     // Also end drag if mouse leaves the canvas
     this.canvas.addEventListener('mouseleave', () => {
       if (this.dragState.active) {
         this.dragState.active = false;
         this.canvas.style.cursor = 'default';
+        // Make sure to recalculate axis positions
+        this.recalculateAxisPositions();
       }
       
       this.hoverInfo.style.display = 'none';
@@ -192,6 +220,11 @@ class FunctionPlotter extends MathExplorer {
       this.axisHoverState = null;
       this.render();
     });
+    
+    // Set default cursor for pan-enabled graphs
+    if (this.config.plotOptions.enablePanDrag) {
+      this.canvas.style.cursor = 'grab';
+    }
   }
 
   /**
@@ -256,19 +289,61 @@ class FunctionPlotter extends MathExplorer {
     } else {
       // Not near any axis
       if (this.axisHoverState && (!this.dragState || !this.dragState.active)) {
-        this.canvas.style.cursor = 'default';
+        // If pan is enabled, set cursor to grab, otherwise default
+        if (this.config.plotOptions.enablePanDrag) {
+          this.canvas.style.cursor = 'grab';
+        } else {
+          this.canvas.style.cursor = 'default';
+        }
         this.axisHoverState = null;
       }
     }
   }
   
   /**
-   * Handle dragging of an axis
+   * Handle mouseup event at the end of a drag operation
+   * @param {Event} e - Mouse event
+   */
+  handleMouseUp(e) {
+    if (this.dragState.active) {
+      // Store if we were in pan mode
+      const wasPanning = this.dragState.mode === 'pan';
+      
+      // Reset drag state
+      this.dragState.active = false;
+      
+      // Recalculate the axis positions explicitly
+      this.recalculateAxisPositions();
+      
+      // Reset cursor based on context
+      if (this.axisHoverState) {
+        this.canvas.style.cursor = this.axisHoverState.axis === 'x' ? 'ew-resize' : 'ns-resize';
+      } else if (this.config.plotOptions.enablePanDrag) {
+        this.canvas.style.cursor = 'grab';
+      } else {
+        this.canvas.style.cursor = 'default';
+      }
+      
+      // If we were panning, do a fresh axis hover check with new positions
+      if (wasPanning) {
+        // Get current mouse position
+        const rect = this.canvas.getBoundingClientRect();
+        const x = (e.clientX - rect.left) * (this.canvas.width / rect.width);
+        const y = (e.clientY - rect.top) * (this.canvas.height / rect.height);
+        
+        // Force a new axis hover check with updated positions
+        this.checkAxisHover(x, y);
+      }
+    }
+  }
+  
+  /**
+   * Handle dragging of an axis for zooming
    * @param {number} x - Current mouse x position (canvas coordinates)
    * @param {number} y - Current mouse y position (canvas coordinates)
    */
   handleAxisDrag(x, y) {
-    if (!this.dragState || !this.dragState.active) return;
+    if (!this.dragState || !this.dragState.active || this.dragState.mode !== 'axis') return;
     
     if (this.dragState.axis === 'x') {
       // Calculate zoom factor based on horizontal movement
@@ -310,6 +385,42 @@ class FunctionPlotter extends MathExplorer {
         yMax: midPoint + newHeight / 2
       });
     }
+  }
+  
+  /**
+   * Handle panning by dragging the graph
+   * @param {number} x - Current mouse x position (canvas coordinates)
+   * @param {number} y - Current mouse y position (canvas coordinates)
+   */
+  handlePanDrag(x, y) {
+    if (!this.dragState || !this.dragState.active || this.dragState.mode !== 'pan') return;
+    
+    // Calculate the deltas in canvas pixels
+    const deltaX = x - this.dragState.startX;
+    const deltaY = y - this.dragState.startY;
+    
+    // Convert pixel movements to math coordinate scale
+    // This calculation ensures consistent movement regardless of zoom level
+    const rangeWidth = this.config.range.xMax - this.config.range.xMin;
+    const rangeHeight = this.config.range.yMax - this.config.range.yMin;
+    
+    const canvasWidth = this.canvas.width;
+    const canvasHeight = this.canvas.height;
+    
+    // Scale the movements by the current range/canvas ratio
+    const deltaXMath = -deltaX * (rangeWidth / canvasWidth);
+    const deltaYMath = deltaY * (rangeHeight / canvasHeight);
+    
+    // Get the original range
+    const origRange = this.dragState.startRange;
+    
+    // Update the ranges by shifting by the delta
+    this.setRange({
+      xMin: origRange.xMin + deltaXMath,
+      xMax: origRange.xMax + deltaXMath,
+      yMin: origRange.yMin + deltaYMath,
+      yMax: origRange.yMax + deltaYMath
+    });
   }
   
   /**
@@ -901,6 +1012,10 @@ class FunctionPlotter extends MathExplorer {
    * @param {Object} range - New coordinate range
    */
   setRange(range) {
+    // Store previous range for transition effects if needed
+    const prevRange = {...this.config.range};
+    
+    // Update the range
     this.config.range = { ...this.config.range, ...range };
     
     // Calculate grid boundaries that extend beyond the tick marks
@@ -916,6 +1031,15 @@ class FunctionPlotter extends MathExplorer {
     
     // Recalculate axis positions after range change
     this.recalculateAxisPositions();
+    
+    // Reset any hover or drag state when range changes significantly
+    // This prevents unexpected behavior when axes move dramatically
+    if (Math.abs(prevRange.xMin - this.config.range.xMin) > 0.5 ||
+        Math.abs(prevRange.xMax - this.config.range.xMax) > 0.5 ||
+        Math.abs(prevRange.yMin - this.config.range.yMin) > 0.5 ||
+        Math.abs(prevRange.yMax - this.config.range.yMax) > 0.5) {
+      this.axisHoverState = null;
+    }
     
     this.render();
   }

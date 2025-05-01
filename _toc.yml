@@ -3,7 +3,7 @@ root: content/index
 parts:
   - caption: Introduction
     chapters:
-    - file: content/introduction/course_overview
+    - file: algebra_2/algebra_2
     - file: content/introduction/mathematical_thinking
       sections:
       - file: content/introduction/problem_solving

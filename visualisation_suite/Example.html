@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Resource Module</title>
+    <style>
+        /* Import Computer Modern font for math expressions */
+        @import url('https://cdn.jsdelivr.net/npm/computer-modern@0.1.2/fonts/Sans/cmun-sans.css');
+        
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        
+        /* Scope all styles to our component while allowing font inheritance */
+        .math-question-module {
+            color: #2c3e50;
+            margin-bottom: 40px;
+        }
+        
+        /* Apply Computer Modern font to math expressions */
+        .math-question-module .math-expression {
+            font-family: "Computer Modern Sans", sans-serif;
+        }
+        
+        .math-question-module h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        
+        .math-question-module .question-container {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .math-question-module .topic-intro {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .math-question-module .question-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .math-question-module .category-box {
+            flex: 1;
+            min-width: 180px;
+            padding: 15px;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            font-weight: bold;
+        }
+        
+        .category-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .math-question-module .scientific {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .math-question-module .engineering {
+            background-color: #e67e22;
+            color: white;
+        }
+        
+        .math-question-module .financial {
+            background-color: #2ecc71;
+            color: white;
+        }
+        
+        .math-question-module .creative {
+            background-color: #9b59b6;
+            color: white;
+        }
+        
+        .math-question-module .question-content {
+            display: none;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-top: 10px;
+            animation: questionFadeIn 0.5s ease;
+        }
+        
+        @keyframes questionFadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .math-question-module .question-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .math-question-module .active {
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+        }
+        
+        /* Button and answer styles */
+        .math-question-module .answer-button {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 8px 16px;
+            margin-top: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            display: inline-block;
+            transition: all 0.2s ease;
+        }
+        
+        .math-question-module .answer-button:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .math-question-module .answer-content {
+            display: none;
+            background-color: #f5f5f5;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin-top: 10px;
+            animation: answerFadeIn 0.5s ease;
+        }
+        
+        @keyframes answerFadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* For different question types, color the answer border differently */
+        .math-question-module .scientific-answer {
+            border-left-color: #3498db;
+        }
+        
+        .math-question-module .engineering-answer {
+            border-left-color: #e67e22;
+        }
+        
+        .math-question-module .financial-answer {
+            border-left-color: #2ecc71;
+        }
+        
+        .math-question-module .creative-answer {
+            border-left-color: #9b59b6;
+        }
+        
+        /* For code blocks */
+        .math-question-module pre {
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        
+        /* JSON editor */
+        #content-editor {
+            width: 100%;
+            height: 300px;
+            font-family: monospace;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .editor-container {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        
+        .btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Controls at the top */
+        .controls {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        /* File input styling */
+        .file-input {
+            display: none;
+        }
+        
+        .file-label {
+            background-color: #2ecc71;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .file-label:hover {
+            background-color: #27ae60;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .math-question-module .question-categories {
+                flex-direction: column;
+            }
+            
+            .math-question-module .category-box {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Math Resource Module</h1>
+    
+    <div class="controls">
+        <button id="load-example" class="btn">Load Example</button>
+        <label for="file-input" class="file-label">Load from JSON File</label>
+        <input type="file" id="file-input" class="file-input" accept=".json">
+        <button id="save-json" class="btn">Save Current JSON</button>
+    </div>
+    
+    <!-- The container where the math resource module will be rendered -->
+    <div id="math-resource-container"></div>
+    
+    <!-- JSON editor section -->
+    <div class="editor-container">
+        <h3>JSON Content Editor</h3>
+        <p>Edit the JSON below and click "Update Module" to see changes:</p>
+        <textarea id="content-editor"></textarea>
+        <button id="update-module" class="btn">Update Module</button>
+    </div>
+    
+    <script>
+        // Default categories
+        const DEFAULT_CATEGORIES = [
+            {"id": "scientific", "name": "Scientific/Mathematic", "color_class": "scientific"},
+            {"id": "engineering", "name": "Engineering/Mechanical", "color_class": "engineering"},
+            {"id": "financial", "name": "Financial/Economic", "color_class": "financial"},
+            {"id": "creative", "name": "Creative", "color_class": "creative"}
+        ];
+        
+        // Sample discriminant content data
+        const discriminantExample = {
+            "title": "Quadratic Equations: The Discriminant",
+            "intro_content": `
+                <p>The discriminant is a key part of the quadratic formula that helps us understand the nature of the solutions to a quadratic equation. For a quadratic equation in the form <span class="math-expression">ax² + bx + c = 0</span>, the discriminant is given by:</p>
+                <p style="text-align: center;" class="math-expression"><strong>Discriminant = b² - 4ac</strong></p>
+                <p>The value of the discriminant tells us:</p>
+                <ul>
+                    <li>If discriminant > 0: The equation has two different real roots</li>
+                    <li>If discriminant = 0: The equation has one real root (a repeated root)</li>
+                    <li>If discriminant < 0: The equation has two complex roots (no real roots)</li>
+                </ul>
+            `,
+            "categories": DEFAULT_CATEGORIES,
+            "questions": [
+                {
+                    "category": "scientific",
+                    "title": "Scientific Application:",
+                    "content": `
+                        <p>In a physics experiment, the height h (in meters) of a projectile at time t (in seconds) is modeled by the equation:</p>
+                        <p style="text-align: center;" class="math-expression">h = -4.9t² + 30t + 2</p>
+                        <p>Determine the discriminant of this equation and explain what it tells you about when the projectile will be at height h = 0 (ground level).</p>
+                        <p>How would changing the initial velocity affect the discriminant and what would this mean physically?</p>
+                    `,
+                    "answer": `
+                        <p>To find when the projectile will be at ground level, we set h = 0:</p>
+                        <p class="math-expression">-4.9t² + 30t + 2 = 0</p>
+                        <p>For this quadratic equation:</p>
+                        <ul>
+                            <li>a = -4.9</li>
+                            <li>b = 30</li>
+                            <li>c = 2</li>
+                        </ul>
+                        <p>The discriminant is:</p>
+                        <p class="math-expression">Δ = b² - 4ac = 30² - 4(-4.9)(2) = 900 + 39.2 = 939.2</p>
+                        <p>Since the discriminant is positive (939.2 > 0), the projectile will hit the ground at two different times. This means the projectile rises, reaches maximum height, and then falls back to hit the ground.</p>
+                        <p><strong>Effect of changing initial velocity:</strong> The initial velocity is represented by the coefficient b = 30. If we increase this value, the discriminant would increase, making the time difference between launch and landing greater. If we decrease it enough, the projectile might not reach high enough to have two ground intersections.</p>
+                    `
+                },
+                {
+                    "category": "engineering",
+                    "title": "Engineering Application:",
+                    "content": `
+                        <p>When designing a suspension bridge, the tensile force F in a cable can be modeled using a quadratic equation:</p>
+                        <p style="text-align: center;" class="math-expression">F = 2x² - 8x + 10</p>
+                        <p>where x is the horizontal distance from the support tower (in hundreds of meters).</p>
+                        <p>Calculate the discriminant and determine if there are any points along the bridge where the tensile force would be exactly 6 kilonewtons. If so, where are these points located?</p>
+                    `,
+                    "answer": `
+                        <p>We need to find where F = 6, so we solve:</p>
+                        <p class="math-expression">2x² - 8x + 10 = 6</p>
+                        <p class="math-expression">2x² - 8x + 4 = 0</p>
+                        <p>Dividing by 2:</p>
+                        <p class="math-expression">x² - 4x + 2 = 0</p>
+                        <p>For this equation:</p>
+                        <ul>
+                            <li>a = 1</li>
+                            <li>b = -4</li>
+                            <li>c = 2</li>
+                        </ul>
+                        <p>The discriminant is:</p>
+                        <p class="math-expression">Δ = b² - 4ac = (-4)² - 4(1)(2) = 16 - 8 = 8</p>
+                        <p>Since the discriminant is positive, there are two points along the bridge where the tensile force would be exactly 6 kilonewtons.</p>
+                        <p>Using the quadratic formula:</p>
+                        <p class="math-expression">x = \frac{4 ± \sqrt{8}}{2} = 2 ± \sqrt{2}</p>
+                        <p>So the points are at approximately:</p>
+                        <p class="math-expression">x₁ ≈ 0.59 hundred meters (59 meters)</p>
+                        <p class="math-expression">x₂ ≈ 3.41 hundred meters (341 meters)</p>
+                        <p>These are the distances from the support tower where the tensile force is exactly 6 kilonewtons.</p>
+                    `
+                },
+                {
+                    "category": "financial",
+                    "title": "Financial Application:",
+                    "content": `
+                        <p>A company's profit function P (in thousands of dollars) is modeled by the quadratic equation:</p>
+                        <p style="text-align: center;" class="math-expression">P = -2x² + 240x - 3000</p>
+                        <p>where x is the price of their product in dollars.</p>
+                        <p>Using the discriminant, determine if there are any price points where the company would break even (P = 0). What pricing strategy would you recommend based on this analysis?</p>
+                    `,
+                    "answer": `
+                        <p>We need to find where P = 0, so we solve:</p>
+                        <p class="math-expression">-2x² + 240x - 3000 = 0</p>
+                        <p>For this equation:</p>
+                        <ul>
+                            <li>a = -2</li>
+                            <li>b = 240</li>
+                            <li>c = -3000</li>
+                        </ul>
+                        <p>The discriminant is:</p>
+                        <p class="math-expression">Δ = b² - 4ac = 240² - 4(-2)(-3000) = 57600 - 24000 = 33600</p>
+                        <p>Since the discriminant is positive, there are two price points where the company would break even.</p>
+                        <p>Using the quadratic formula:</p>
+                        <p class="math-expression">x = \frac{-240 ± \sqrt{33600}}{-4} = \frac{-240 ± 183.3}{-4}</p>
+                        <p class="math-expression">x₁ ≈ 14.2 dollars</p>
+                        <p class="math-expression">x₂ ≈ 105.8 dollars</p>
+                        <p><strong>Pricing strategy recommendation:</strong> Since this is a parabola opening downward (-2x²), the profit function has a maximum between these two break-even points. The company should price their product between $14.20 and $105.80, ideally at the vertex of the parabola (which would be at x = 60) to maximize profits. Pricing below $14.20 or above $105.80 would result in losses.</p>
+                    `
+                },
+                {
+                    "category": "creative",
+                    "title": "Creative Application:",
+                    "content": `
+                        <p>A designer is creating an art installation where water jets form a parabolic arch described by:</p>
+                        <p style="text-align: center;" class="math-expression">y = -0.1x² + 1.5x + 0.75</p>
+                        <p>where both x and y are in meters. The designer wants to know if the water feature will intersect with the ground (y = 0) within the installation area, which extends from x = 0 to x = 10 meters.</p>
+                        <p>Use the discriminant to determine if the water arch touches the ground within the installation area. If it does, at what location(s)?</p>
+                    `,
+                    "answer": `
+                        <p>We need to find where y = 0, so we solve:</p>
+                        <p class="math-expression">-0.1x² + 1.5x + 0.75 = 0</p>
+                        <p>For this equation:</p>
+                        <ul>
+                            <li>a = -0.1</li>
+                            <li>b = 1.5</li>
+                            <li>c = 0.75</li>
+                        </ul>
+                        <p>The discriminant is:</p>
+                        <p class="math-expression">Δ = b² - 4ac = 1.5² - 4(-0.1)(0.75) = 2.25 + 0.3 = 2.55</p>
+                        <p>Since the discriminant is positive, the parabola intersects the x-axis at two points.</p>
+                        <p>Using the quadratic formula:</p>
+                        <p class="math-expression">x = \frac{-1.5 ± \sqrt{2.55}}{-0.2} = \frac{-1.5 ± 1.597}{-0.2}</p>
+                        <p class="math-expression">x₁ ≈ -0.49 meters</p>
+                        <p class="math-expression">x₂ ≈ 15.49 meters</p>
+                        <p><strong>Design analysis:</strong> The water arch touches the ground at x ≈ -0.49 meters and x ≈ 15.49 meters. Since the installation area extends from x = 0 to x = 10 meters, the water arch does not touch the ground within the installation area. The designer can safely implement this design without the water stream hitting the ground within the specified range.</p>
+                    `
+                }
+            ]
+        };
+        
+        // Function to render a math resource from content data
+        function renderMathResource(contentData, targetElementId = 'math-resource-container') {
+            const targetElement = document.getElementById(targetElementId);
+            if (!targetElement) {
+                console.error('Target element not found');
+                return;
+            }
+            
+            // Clear previous content
+            targetElement.innerHTML = '';
+            
+            // Create the main container
+            const container = document.createElement('div');
+            container.className = 'math-question-module';
+            
+            // Create the question container
+            const questionContainer = document.createElement('div');
+            questionContainer.className = 'question-container';
+            
+            // Add title
+            const title = document.createElement('h2');
+            title.textContent = contentData.title || 'Math Resource';
+            questionContainer.appendChild(title);
+            
+            // Add introduction
+            const topicIntro = document.createElement('div');
+            topicIntro.className = 'topic-intro';
+            topicIntro.innerHTML = contentData.intro_content || '';
+            questionContainer.appendChild(topicIntro);
+            
+            // Use provided categories or fallback to defaults
+            const categories = contentData.categories || DEFAULT_CATEGORIES;
+            
+            // Create category boxes
+            const categoryBoxesContainer = document.createElement('div');
+            categoryBoxesContainer.className = 'question-categories';
+            
+            categories.forEach(category => {
+                const categoryBox = document.createElement('div');
+                categoryBox.className = `category-box ${category.color_class}`;
+                categoryBox.textContent = category.name;
+                categoryBox.onclick = () => showQuestion(category.id);
+                categoryBoxesContainer.appendChild(categoryBox);
+            });
+            
+            questionContainer.appendChild(categoryBoxesContainer);
+            
+            // Create question content sections
+            const questions = contentData.questions || [];
+            questions.forEach(question => {
+                const questionContent = document.createElement('div');
+                questionContent.id = `${question.category}-content`;
+                questionContent.className = 'question-content';
+                
+                const questionTitle = document.createElement('div');
+                questionTitle.className = 'question-title';
+                questionTitle.textContent = question.title;
+                questionContent.appendChild(questionTitle);
+                
+                // Add question content
+                const contentDiv = document.createElement('div');
+                contentDiv.innerHTML = question.content;
+                questionContent.appendChild(contentDiv);
+                
+                // Create answer button
+                const answerButton = document.createElement('div');
+                answerButton.className = 'answer-button';
+                answerButton.textContent = 'Show Answer';
+                answerButton.onclick = () => toggleAnswer(question.category);
+                questionContent.appendChild(answerButton);
+                
+                // Create answer content
+                const answerContent = document.createElement('div');
+                answerContent.id = `${question.category}-answer`;
+                answerContent.className = `answer-content ${question.category}-answer`;
+                answerContent.innerHTML = question.answer;
+                questionContent.appendChild(answerContent);
+                
+                questionContainer.appendChild(questionContent);
+            });
+            
+            container.appendChild(questionContainer);
+            targetElement.appendChild(container);
+        }
+        
+        // Function to show a question
+        function showQuestion(category) {
+            // Hide all question contents first
+            const contents = document.querySelectorAll('.math-question-module .question-content');
+            contents.forEach(content => {
+                content.style.display = 'none';
+            });
+            
+            // Also hide all answers when switching questions
+            const answers = document.querySelectorAll('.math-question-module .answer-content');
+            answers.forEach(answer => {
+                answer.style.display = 'none';
+            });
+            
+            // Reset all buttons text
+            const buttons = document.querySelectorAll('.math-question-module .answer-button');
+            buttons.forEach(button => {
+                button.innerText = 'Show Answer';
+            });
+            
+            // Remove active class from all category boxes
+            const boxes = document.querySelectorAll('.math-question-module .category-box');
+            boxes.forEach(box => {
+                box.classList.remove('active');
+            });
+            
+            // Show the selected question content
+            const selectedContent = document.getElementById(category + '-content');
+            if (selectedContent) {
+                if (selectedContent.style.display === 'block') {
+                    selectedContent.style.display = 'none';
+                } else {
+                    selectedContent.style.display = 'block';
+                    // Add active class to the clicked box
+                    const activeBox = document.querySelector('.math-question-module .' + category);
+                    if (activeBox) activeBox.classList.add('active');
+                }
+            }
+        }
+        
+        // Function to toggle an answer
+        function toggleAnswer(category) {
+            const answerContent = document.getElementById(category + '-answer');
+            if (!answerContent) return;
+            
+            const button = answerContent.previousElementSibling;
+            
+            if (answerContent.style.display === 'block') {
+                answerContent.style.display = 'none';
+                button.innerText = 'Show Answer';
+            } else {
+                answerContent.style.display = 'block';
+                button.innerText = 'Hide Answer';
+            }
+        }
+        
+        // Initialize with the example content
+        document.addEventListener('DOMContentLoaded', () => {
+            const contentEditor = document.getElementById('content-editor');
+            
+            // Set initial content in the editor
+            contentEditor.value = JSON.stringify(discriminantExample, null, 2);
+            
+            // Add event listeners
+            document.getElementById('load-example').addEventListener('click', () => {
+                contentEditor.value = JSON.stringify(discriminantExample, null, 2);
+                renderMathResource(discriminantExample);
+            });
+            
+            document.getElementById('update-module').addEventListener('click', () => {
+                try {
+                    const contentData = JSON.parse(contentEditor.value);
+                    renderMathResource(contentData);
+                } catch (error) {
+                    alert('Invalid JSON: ' + error.message);
+                }
+            });
+            
+            document.getElementById('file-input').addEventListener('change', (event) => {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        try {
+                            const contentData = JSON.parse(e.target.result);
+                            contentEditor.value = JSON.stringify(contentData, null, 2);
+                            renderMathResource(contentData);
+                        } catch (error) {
+                            alert('Error loading JSON file: ' + error.message);
+                        }
+                    };
+                    reader.readAsText(file);
+                }
+            });
+            
+            document.getElementById('save-json').addEventListener('click', () => {
+                try {
+                    const contentData = JSON.parse(contentEditor.value);
+                    const jsonStr = JSON.stringify(contentData, null, 2);
+                    const blob = new Blob([jsonStr], { type: 'application/json' });
+                    const url = URL.createObjectURL(blob);
+                    
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'math_resource.json';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                } catch (error) {
+                    alert('Invalid JSON: ' + error.message);
+                }
+            });
+            
+            // Initial render
+            renderMathResource(discriminantExample);
+        });
+    </script>
+</body>
+</html>

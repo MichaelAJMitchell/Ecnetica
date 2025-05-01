@@ -1,5 +1,3 @@
-# Quadratic Functions
-
 <iframe 
     src="https://drive.google.com/file/d/1KQdEOxFP1FnUw8zJnDHHblAgbaGw_UCd/preview" 
     width="100%" 
@@ -27,9 +25,9 @@ We first isolate the $x$ term by subtracting $b$ from both sides, then divide by
 
 Linear equations get their name because they create straight lines when graphed. They're also called "first-order equations" or "equations of degree 1" because the highest power of $x$ is 1 (since $x$ could also be written as $x^1$).
 
-:::tip
+```{tip}
 When solving linear equations, always keep track of your operations and apply them to both sides of the equation consistently. This habit will serve you well for more complex equations later.
-:::
+```
 
 #### Interactive Visualization: Linear Equations
 
@@ -92,11 +90,11 @@ $$3x = -6 \quad \text{(Simplifying)}$$
 
 $$x = -\frac{6}{3} = -2 \quad \text{(Dividing by 3)}$$
 
-:::note
+```{note}
 You might notice we took the long way in Method 1 - we didn't really have to bring it to standard form first - and you'd be right! For a simple linear equation, we could just directly solve as in Method 2 if all we care about is finding the value of $x$.
 
 However, for more advanced problems like quadratic equations, converting to standard form is almost always the first step to solving them. This habit will come in handy later.
-:::
+```
 
 #### Multiple Choice Questions
 
@@ -287,21 +285,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ### Key Takeaways
 
-:::important
+```{important}
 1. A linear equation can be written in the standard form $ax + b = 0$ where $a \neq 0$
 2. To solve, isolate the variable: $x = -\frac{b}{a}$
 3. When graphed, a linear equation forms a straight line
 4. The slope of the line equals $-\frac{a}{b}$ in standard form, or $m$ in slope-intercept form $y = mx + c$
 5. Linear equations model situations with constant rates of change
-:::
+```
 
-:::see-also
+```{seealso}
 For more advanced linear equation concepts, look into:
 - Systems of linear equations
 - Linear inequalities
 - Linear functions and their transformations
 - Applications in linear programming
-:::
+```
 
 ## Quadratic Equations and their Form
 
@@ -319,9 +317,9 @@ Getting quadratic equations into this standard form serves two main purposes:
 
 If you can transform another type of equation into quadratic form without violating any mathematical rules, you can use quadratic techniques to solve problems that might otherwise seem challenging.
 
-:::warning
+```{warning}
 A common mistake is to confuse equations that contain $x^2$ with quadratic equations. Remember, a true quadratic equation must be able to be written in the form $ax^2 + bx + c = 0$. Equations like $x^2 + \frac{1}{x} = 3$ are not quadratic despite having an $x^2$ term!
-:::
+```
 
 #### Interactive Visualization: Quadratic Function Explorer
 
@@ -393,9 +391,9 @@ $$t^2 + t + 1 = 0$$
 
 We've transformed it into a quadratic equation in terms of $t$, where $a=1$, $b=1$, and $c=1$. After solving for $t$, we can find $x$ using $t = x^2$. This substitution trick appears frequently in exams and is worth mastering.
 
-:::tip
+```{tip}
 When faced with a polynomial equation where the powers of the variable increase by multiples of 2 (like $x^4$, $x^2$, $x^0$), try substituting $t = x^2$ to convert it to a quadratic equation.
-:::
+```
 
 ##### Example 3: Trigonometric substitution
 
@@ -532,7 +530,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p>Rearranging to standard form:</p>
                     <p>\\(4.9t^2 - 15t - 2 = 0\\)</p>
                     <p>This is a quadratic equation in standard form \\(at^2 + bt + c = 0\\) with \\(a = 4.9\\), \\(b = -15\\), and \\(c = -2\\).</p>
-                    <p>We would solve this equation to find the time(s) when the ball is at ground level.</p>
                 `
             },
             {
@@ -654,13 +651,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ### Key Takeaways
 
-:::important
+```{important}
 1. A quadratic equation has the form $ax^2 + bx + c = 0$ where $a \neq 0$
 2. Equations can often be rewritten or transformed into quadratic form
 3. Using substitution, we can convert some higher-degree equations into quadratics
 4. Not all equations containing $x^2$ are quadratics, especially if they contain other non-polynomial functions of $x$
 5. A trigonometric expression that doesn't contain $x$ as a variable acts as a constant in the equation
-:::
+```
 
 ## Factorizing Quadratic Equations by Inspection
 
@@ -670,22 +667,22 @@ Factorizing by inspection is the most intuitive approach to solving quadratic eq
 
 When we have a quadratic equation in standard form:
 
-$$ax^2 + bx + c = 0$$
+$ax^2 + bx + c = 0$
 
 Factorizing means rewriting it as:
 
-$$(px + q)(rx + s) = 0$$
+$(px + q)(rx + s) = 0$
 
 Where $p$, $q$, $r$, and $s$ are constants we need to find. The beauty of this approach is that once factorized, the solutions become immediately apparent thanks to the **zero product property**: if a product equals zero, at least one of the factors must be zero.
 
-:::tip
+```{tip}
 Factorizing by inspection works best when:
 - The coefficients are "nice" integers (no messy fractions or surds)
 - You have strong pattern recognition skills
 - You need a quick solution without using formulas
 
 If you see fractions, decimals, or square roots in your coefficients, you're probably better off using the quadratic formula directly.
-:::
+```
 
 ### The Factorizing Process
 
@@ -763,7 +760,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 Let's work through:
 
-$$x^2 + 2x - 8 = 0$$
+$x^2 + 2x - 8 = 0$
 
 **Step 1:** We need to find two numbers that multiply to give $-8$ (which is $a \times c = 1 \times -8$) and add up to give $+2$ (our $b$ value).
 
@@ -783,7 +780,7 @@ $x^2 - 2x + 4x - 8 = x(x - 2) + 4(x - 2)$
 $x(x - 2) + 4(x - 2) = (x + 4)(x - 2)$
 
 So our factorized equation is:
-$$(x + 4)(x - 2) = 0$$
+$(x + 4)(x - 2) = 0$
 
 #### Finding the Solutions
 
@@ -799,13 +796,13 @@ We can verify these solutions:
 
 $x = 2$ and $x = -4$ are the **roots** of the quadratic equation.
 
-:::warning
+```{warning}
 When the leading coefficient isn't 1 (i.e., $a \neq 1$), factorizing by inspection becomes more challenging because we have more combinations to consider.
 
 Two approaches for these cases:
 1. First multiply everything by $a$ to make the coefficient of $x^2$ equal to $a^2$, then find factors where the outer terms multiply to give $a^2 \times c$
 2. Use the quadratic formula directly (which we'll cover in a later section)
-:::
+```
 
 #### Multiple Choice Questions
 
@@ -954,10 +951,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 "answer": `
                     <p>a) We can set up a system of equations using the given conditions:</p>
                     <p>Condition 1: At \\(x = -100\\), \\(y = 40\\)</p>
+                    <p>Condition a: At \\(x = -100\\), \\(y = 40\\)</p>
                     <p>\\(40 = a(-100)^2 + b(-100) + c\\)</p>
                     <p>\\(40 = 10000a - 100b + c\\)</p>
                     
-                    <p>Condition 2: At \\(x = 100\\), \\(y = 40\\)</p>
+                    <p>Condition b: At \\(x = 100\\), \\(y = 40\\)</p>
                     <p>\\(40 = a(100)^2 + b(100) + c\\)</p>
                     <p>\\(40 = 10000a + 100b + c\\)</p>
                     
@@ -1112,13 +1110,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ### Key Takeaways
 
-:::important
+```{important}
 1. Factorizing a quadratic means writing it in the form $(px + q)(rx + s) = 0$
 2. The zero product property lets us set each factor equal to zero to find solutions
 3. To factorize $ax^2 + bx + c$, find two numbers that multiply to give $ac$ and add to give $b$
 4. Factorization works best with "nice" integer coefficients
 5. The solutions of a quadratic equation are also called the "roots" or "zeros" of the corresponding function
-:::
+```
 
 ## Graphical Solutions to Quadratic Equations
 
@@ -1129,13 +1127,13 @@ When we solve quadratic equations in the form $ax^2 + bx + c = 0$, we're searchi
 
 If we plot these inputs and outputs on a coordinate plane, with $x$ on the horizontal axis and the result on the vertical axis, we get a distinctive U-shaped curve called a **parabola**. This graphical representation lets us visualize quadratic equations in a powerful way:
 
-$$y = ax^2 + bx + c$$
+$y = ax^2 + bx + c$
 
 Where $y$ represents the output value for any given input $x$.
 
-:::tip
+```{tip}
 You can think of the solutions to $ax^2 + bx + c = 0$ as the points where the parabola $y = ax^2 + bx + c$ crosses the x-axis (where $y = 0$). This visual interpretation makes many quadratic equation properties immediately apparent!
-:::
+```
 
 #### Key Insights from Graphing Quadratics
 
@@ -1154,7 +1152,7 @@ The graph of a quadratic equation reveals several important features:
 
 Another useful way to express quadratic expressions is in "completed square form":
 
-$$a(x + p)^2 + q$$
+$a(x + p)^2 + q$
 
 Where $a$, $p$, and $q$ are constants. This form provides immediate insight into the graph's shape and position:
 - $a$ determines whether the parabola opens upward ($a > 0$) or downward ($a < 0$)
@@ -1163,12 +1161,12 @@ Where $a$, $p$, and $q$ are constants. This form provides immediate insight into
 
 Converting from standard form to completed square form is a technique called "completing the square," which is also the foundation for deriving the quadratic formula.
 
-:::warning
+```{warning}
 When completing the square, always remember to:
 1. Factor out the leading coefficient $a$ first (if it's not 1)
 2. Only complete the square for the terms inside the parentheses
 3. Balance any operations by applying them to both sides of the equation
-:::
+```
 
 #### The Process of Completing the Square
 
@@ -1233,11 +1231,11 @@ Let's convert $x^2 + 3x - 4$ to completed square form:
 - Square it: $\left(\frac{3}{2}\right)^2 = \frac{9}{4}$
 - Add and subtract this value to maintain equality:
 
-$$x^2 + 3x - 4 = x^2 + 3x + \frac{9}{4} - \frac{9}{4} - 4$$
+$x^2 + 3x - 4 = x^2 + 3x + \frac{9}{4} - \frac{9}{4} - 4$
 
 **Step 3**: Recognize the perfect square and simplify:
 
-$$x^2 + 3x - 4 = \left(x + \frac{3}{2}\right)^2 - \frac{9}{4} - 4 = \left(x + \frac{3}{2}\right)^2 - \frac{25}{4}$$
+$x^2 + 3x - 4 = \left(x + \frac{3}{2}\right)^2 - \frac{9}{4} - 4 = \left(x + \frac{3}{2}\right)^2 - \frac{25}{4}$
 
 So the completed square form is: $\left(x + \frac{3}{2}\right)^2 - \frac{25}{4}$
 
@@ -1251,21 +1249,21 @@ Let's convert $5x^2 + 2x + 10$ to completed square form:
 
 **Step 1**: Factor out the coefficient of $x^2$:
 
-$$5x^2 + 2x + 10 = 5\left(x^2 + \frac{2}{5}x\right) + 10$$
+$5x^2 + 2x + 10 = 5\left(x^2 + \frac{2}{5}x\right) + 10$
 
 **Step 2**: Complete the square inside the parentheses:
 - Take half the coefficient of $x$: $\frac{1}{5}$
 - Square it: $\left(\frac{1}{5}\right)^2 = \frac{1}{25}$
 - Add and subtract the necessary value inside the parentheses:
 
-$$5\left(x^2 + \frac{2}{5}x + \frac{1}{25} - \frac{1}{25}\right) + 10$$
+$5\left(x^2 + \frac{2}{5}x + \frac{1}{25} - \frac{1}{25}\right) + 10$
 
 **Step 3**: Rearrange and simplify:
 
-$$5\left(x^2 + \frac{2}{5}x + \frac{1}{25}\right) - 5 \cdot \frac{1}{25} + 10$$
-$$5\left(x + \frac{1}{5}\right)^2 - \frac{5}{25} + 10$$
-$$5\left(x + \frac{1}{5}\right)^2 - \frac{1}{5} + 10$$
-$$5\left(x + \frac{1}{5}\right)^2 + \frac{49}{5}$$
+$5\left(x^2 + \frac{2}{5}x + \frac{1}{25}\right) - 5 \cdot \frac{1}{25} + 10$
+$5\left(x + \frac{1}{5}\right)^2 - \frac{5}{25} + 10$
+$5\left(x + \frac{1}{5}\right)^2 - \frac{1}{5} + 10$
+$5\left(x + \frac{1}{5}\right)^2 + \frac{49}{5}$
 
 So the completed square form is: $5\left(x + \frac{1}{5}\right)^2 + \frac{49}{5}$
 
@@ -1273,13 +1271,13 @@ From this form, we can identify:
 - The vertex is at $\left(-\frac{1}{5}, \frac{49}{5}\right)$ or $(-0.2, 9.8)$
 - Since the vertex's y-coordinate is positive and $a > 0$, the parabola never crosses the x-axis, meaning the equation $5x^2 + 2x + 10 = 0$ has no real solutions
 
-:::see-also
+```{seealso}
 The completed square form isn't just useful for finding the vertex of a parabola. It also:
 - Makes it easier to sketch the graph of a quadratic function
 - Provides a pathway to the quadratic formula
 - Helps solve problems involving optimization
 - Simplifies integrating certain expressions in calculus
-:::
+```
 
 #### Multiple Choice Questions
 
@@ -1593,7 +1591,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p>\\(8 = -25a\\)</p>
                     <p>\\(a = -\\frac{8}{25} = -0.32\\)</p>
                     
-                    <p>Therefore, the function describing the arch is:</p>
+                    <p>Therefore, the equation of the arch is:</p>
                     <p>\\(y = -0.32x^2 + 8\\)</p>
                     
                     <p>b) The equation \\(y = -0.32x^2 + 8\\) is already in a form similar to completed square form since there is no \\(x\\) term. We can rewrite it as:</p>
@@ -1633,13 +1631,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ### Key Takeaways
 
-:::important
+```{important}
 1. The graph of a quadratic equation is a parabola
 2. The zeros or roots of the quadratic equation are the x-intercepts of the parabola
 3. The vertex of the parabola represents the minimum (if $a > 0$) or maximum (if $a < 0$) value
 4. The completed square form $a(x + p)^2 + q$ directly reveals the vertex at $(-p, q)$ 
 5. A parabola can have two distinct real roots, one repeated real root, or no real roots, depending on whether it crosses, touches, or misses the x-axis
-:::
+```
 
 ## Deriving the Quadratic Formula
 
@@ -1649,45 +1647,45 @@ The quadratic formula gives us a direct way to solve any quadratic equation. Whi
 
 We're aiming to derive the formula:
 
-$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
+$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
 
 Starting from the standard form:
 
-$ax^2 + bx + c = 0$
+$$ax^2 + bx + c = 0$$
 
 The first step is to divide by $a$ to neaten things up:
 
-$x^2 + \frac{b}{a}x + \frac{c}{a} = 0$
+$$x^2 + \frac{b}{a}x + \frac{c}{a} = 0$$
 
 Next, we put it into completed square form by adding and subtracting the same term:
 
-$x^2 + \frac{b}{a}x + \frac{b^2}{4a^2} - \frac{b^2}{4a^2} + \frac{c}{a} = 0$
+$$x^2 + \frac{b}{a}x + \frac{b^2}{4a^2} - \frac{b^2}{4a^2} + \frac{c}{a} = 0$$
 
 This gives us:
 
-$\left(x + \frac{b}{2a}\right)^2 = \frac{b^2}{4a^2} - \frac{c}{a}$
+$$\left(x + \frac{b}{2a}\right)^2 = \frac{b^2}{4a^2} - \frac{c}{a}$$
 
 Simplifying the right side:
 
-$\left(x + \frac{b}{2a}\right)^2 = \frac{b^2 - 4ac}{4a^2}$
+$$\left(x + \frac{b}{2a}\right)^2 = \frac{b^2 - 4ac}{4a^2}$$
 
 Taking the square root of both sides:
 
-$x + \frac{b}{2a} = \pm\frac{\sqrt{b^2 - 4ac}}{2a}$
+$$x + \frac{b}{2a} = \pm\frac{\sqrt{b^2 - 4ac}}{2a}$$
 
 Solving for $x$:
 
-$x = -\frac{b}{2a} \pm\frac{\sqrt{b^2 - 4ac}}{2a} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
+$$x = -\frac{b}{2a} \pm\frac{\sqrt{b^2 - 4ac}}{2a} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
 
 And there we have the quadratic formula!
 
-:::tip
+```{tip}
 When using the quadratic formula:
 1. Always check that your equation is in standard form $ax^2 + bx + c = 0$
 2. Identify the values of $a$, $b$, and $c$ correctly
 3. Be careful with negative signs, especially in $b$
 4. Always verify your solutions by substituting back into the original equation
-:::
+```
 
 #### Interactive Visualization: Quadratic Formula
 
@@ -1738,15 +1736,15 @@ Solve $2x^2 + 5x - 3 = 0$
 
 We identify $a = 2$, $b = 5$, and $c = -3$. Using the quadratic formula:
 
-$x = \frac{-5 \pm \sqrt{5^2 - 4(2)(-3)}}{2(2)}$
+$$x = \frac{-5 \pm \sqrt{5^2 - 4(2)(-3)}}{2(2)}$$
 
-$x = \frac{-5 \pm \sqrt{25 + 24}}{4}$
+$$x = \frac{-5 \pm \sqrt{25 + 24}}{4}$$
 
-$x = \frac{-5 \pm \sqrt{49}}{4}$
+$$x = \frac{-5 \pm \sqrt{49}}{4}$$
 
-$x = \frac{-5 \pm 7}{4}$
+$$x = \frac{-5 \pm 7}{4}$$
 
-$x = \frac{-5 + 7}{4} = \frac{2}{4} = \frac{1}{2} \quad \text{or} \quad x = \frac{-5 - 7}{4} = \frac{-12}{4} = -3$
+$$x = \frac{-5 + 7}{4} = \frac{2}{4} = \frac{1}{2} \quad \text{or} \quad x = \frac{-5 - 7}{4} = \frac{-12}{4} = -3$$
 
 So the solutions are $x = \frac{1}{2}$ and $x = -3$.
 
@@ -1760,11 +1758,11 @@ Solve $4x^2 - 12x + 9 = 0$
 
 We identify $a = 4$, $b = -12$, and $c = 9$. Using the quadratic formula:
 
-$x = \frac{12 \pm \sqrt{(-12)^2 - 4(4)(9)}}{2(4)}$
+$$x = \frac{12 \pm \sqrt{(-12)^2 - 4(4)(9)}}{2(4)}$$
 
-$x = \frac{12 \pm \sqrt{144 - 144}}{8}$
+$$x = \frac{12 \pm \sqrt{144 - 144}}{8}$$
 
-$x = \frac{12 \pm 0}{8} = \frac{12}{8} = \frac{3}{2}$
+$$x = \frac{12 \pm 0}{8} = \frac{12}{8} = \frac{3}{2}$$
 
 There is only one solution: $x = \frac{3}{2}$, which is a repeated root.
 
@@ -1776,21 +1774,21 @@ Solve $x^2 + x + 1 = 0$
 
 We identify $a = 1$, $b = 1$, and $c = 1$. Using the quadratic formula:
 
-$x = \frac{-1 \pm \sqrt{1^2 - 4(1)(1)}}{2(1)}$
+$$x = \frac{-1 \pm \sqrt{1^2 - 4(1)(1)}}{2(1)}$$
 
-$x = \frac{-1 \pm \sqrt{1 - 4}}{2}$
+$$x = \frac{-1 \pm \sqrt{1 - 4}}{2}$$
 
-$x = \frac{-1 \pm \sqrt{-3}}{2}$
+$$x = \frac{-1 \pm \sqrt{-3}}{2}$$
 
 Since $\sqrt{-3}$ is not a real number, this equation has no real solutions. The solutions are:
 
-$x = \frac{-1 + i\sqrt{3}}{2} \quad \text{or} \quad x = \frac{-1 - i\sqrt{3}}{2}$
+$$x = \frac{-1 + i\sqrt{3}}{2} \quad \text{or} \quad x = \frac{-1 - i\sqrt{3}}{2}$$
 
 These are complex numbers, and the graph of $y = x^2 + x + 1$ never crosses the x-axis.
 
-:::warning
+```{warning}
 When the discriminant $b^2 - 4ac$ is negative, the quadratic equation has no real solutions. In such cases, the solutions are complex numbers and the graph of the corresponding quadratic function does not intersect the x-axis.
-:::
+```
 
 #### Multiple Choice Questions
 
@@ -2072,7 +2070,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     <p>The new setting provides a greater depth of field, extending the far limit from 10 meters to 12 meters while maintaining the same near limit of 2 meters. For the scene that extends from 2 to 8 meters, both settings would capture the entire scene in focus.</p>
                     
-                    <p>However, the new setting might be slightly better as it provides more "buffer" on the far end, which could be useful if any elements of the scene are positioned slightly beyond a8 meters. Additionally, if the photographer wants to include more of the background in focus for compositional reasons, the extended far limit would be beneficial.</p>
+                    <p>However, the new setting might be slightly better as it provides more "buffer" on the far end, which could be useful if any elements of the scene are positioned slightly beyond 8 meters. Additionally, if the photographer wants to include more of the background in focus for compositional reasons, the extended far limit would be beneficial.</p>
                     
                     <p>In photography terms, the new setting likely represents a smaller aperture (higher f-number), which increases depth of field but may require longer exposure times or higher ISO settings to maintain proper exposure.</p>
                 `
@@ -2086,13 +2084,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ### Key Takeaways
 
-:::important
+```{important}
 1. The quadratic formula $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$ gives us a direct way to find solutions for any quadratic equation
 2. It works for all quadratic equations, even those that cannot be easily factorized
 3. The formula is derived by completing the square on the general form $ax^2 + bx + c = 0$
 4. The expression under the square root ($b^2 - 4ac$) is called the discriminant and determines the nature of the solutions
 5. When using the formula, always pay attention to signs and ensure your equation is in standard form
-:::
+```
 
 ## The Discriminant: Understanding the Nature of Quadratic Solutions
 
@@ -2101,15 +2099,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 For any quadratic equation in standard form $ax^2 + bx + c = 0$, the discriminant (denoted by $\Delta$) is defined as:
 
-$\Delta = b^2 - 4ac$
+$$\Delta = b^2 - 4ac$$
 
 This expression appears under the square root in the quadratic formula:
 
-$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-b \pm \sqrt{\Delta}}{2a}$
+$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-b \pm \sqrt{\Delta}}{2a}$$
 
-:::tip
+```{tip}
 The discriminant acts as a "solution predictor" - you can determine the number and type of solutions by evaluating this single expression, without actually solving the equation!
-:::
+```
 
 #### The Three Scenarios
 
@@ -2147,9 +2145,9 @@ The discriminant also tells us about factorization possibilities:
 - When $\Delta = 0$: The quadratic can be factored as a perfect square: $(x - r)^2$
 - When $\Delta < 0$: The quadratic cannot be factored with real coefficients
 
-:::warning
+```{warning}
 Be careful with your signs when computing the discriminant. A common mistake is to forget the negative sign when $a$ or $c$ is negative.
-:::
+```
 
 #### Interactive Visualization: The Discriminant
 
@@ -2201,11 +2199,11 @@ For the equation $2x^2 - 5x + 3 = 0$, calculate the discriminant and determine t
 
 We identify $a = 2$, $b = -5$, and $c = 3$.
 
-$\Delta = b^2 - 4ac = (-5)^2 - 4(2)(3) = 25 - 24 = 1$
+$$\Delta = b^2 - 4ac = (-5)^2 - 4(2)(3) = 25 - 24 = 1$$
 
 Since $\Delta > 0$, the equation has two distinct real solutions. We could find these using the quadratic formula:
 
-$x = \frac{5 \pm \sqrt{1}}{2(2)} = \frac{5 \pm 1}{4}$
+$$x = \frac{5 \pm \sqrt{1}}{2(2)} = \frac{5 \pm 1}{4}$$
 
 So $x = \frac{6}{4} = \frac{3}{2}$ or $x = \frac{4}{4} = 1$.
 
@@ -2215,10 +2213,10 @@ For what value of $k$ will the equation $x^2 + kx + 4 = 0$ have exactly one real
 
 For the equation to have exactly one real solution, its discriminant must equal zero.
 
-$\Delta = k^2 - 4(1)(4) = 0$
-$k^2 - 16 = 0$
-$k^2 = 16$
-$k = \pm 4$
+$$\Delta = k^2 - 4(1)(4) = 0$$
+$$k^2 - 16 = 0$$
+$$k^2 = 16$$
+$$k = \pm 4$$
 
 So $k = 4$ or $k = -4$ will give the equation exactly one real solution.
 
@@ -2228,11 +2226,11 @@ Is it possible for the equation $2x^2 + kx + 3 = 0$ to have no real solutions? I
 
 For the equation to have no real solutions, its discriminant must be negative.
 
-$\Delta = k^2 - 4(2)(3) < 0$
-$k^2 - 24 < 0$
-$k^2 < 24$
-$-\sqrt{24} < k < \sqrt{24}$
-$-4.9 < k < 4.9$
+$$\Delta = k^2 - 4(2)(3) < 0$$
+$$k^2 - 24 < 0$$
+$$k^2 < 24$$
+$$-\sqrt{24} < k < \sqrt{24}$$
+$$-4.9 < k < 4.9$$
 
 So the equation will have no real solutions when $k$ is between approximately $-4.9$ and $4.9$.
 
@@ -2495,11 +2493,65 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     <p>In music theory, when the discriminant is zero, it often represents a special or "perfect" interval, such as an octave or perfect fifth, which have simple frequency ratios (2:1 and 3:2 respectively).</p>
                     
-                    <p>b) With a discriminant of zero, we have one repeated solution:</p>`
+                    <p>b) With a discriminant of zero, we have one repeated solution:</p>
+                    <p>\\(x = \\frac{2640 \\pm 0}{2 \\times 3} = \\frac{2640}{6} = 440\\) Hz</p>
+                    
+                    <p>Interestingly, the frequency that satisfies the equation is 440 Hz, which is the same as our reference note A4. This suggests that the equation is modeling the relationship of a note with itself, which is called a unison (1:1 ratio).</p>
+                    
+                    <p>We can verify this by checking:</p>
+                    <p>\\(3(440)^2 - 2640(440) + 580800\\)</p>
+                    <p>\\(= 3 \\times 193600 - 2640 \\times 440 + 580800\\)</p>
+                    <p>\\(= 580800 - 1161600 + 580800\\)</p>
+                    <p>\\(= 0\\)</p>
+                    
+                    <p>This confirms that 440 Hz is indeed the solution. The equation represents the unison interval, where a note is in harmony with itself.</p>
+                    
+                    <p>c) For the modified equation \\(3x^2 - 2640x + 580800 + k = 0\\) to have no real solutions, its discriminant must be negative:</p>
+                    <p>\\(\\Delta = (-2640)^2 - 4 \\times 3 \\times (580800 + k) < 0\\)</p>
+                    <p>\\(\\Delta = 6969600 - 6969600 - 12k < 0\\)</p>
+                    <p>\\(\\Delta = -12k < 0\\)</p>
+                    <p>\\(k > 0\\)</p>
+                    
+                    <p>Therefore, any positive value of \\(k\\) would result in no real solutions.</p>
+                    
+                    <p>Musically, this means that if we modify the harmonic relationship slightly (by adding a small positive value to the equation), there would be no frequency that forms this exact harmonic relationship with the reference note. This reflects the concept of "tempering" in music, where perfect mathematical ratios are slightly adjusted to accommodate practical considerations in instrument tuning.</p>
+                    
+                    <p>In modern music, especially with equal temperament tuning (used in pianos and most Western instruments), pure mathematical harmonies are often slightly modified to allow playing in different keys. The lack of real solutions when \\(k > 0\\) mathematically represents the compromise between theoretical perfection and practical musical flexibility.</p>
+                `
             }
         ]
     };
     
-    MathQuestionModule.render(DiscriminantFormulaContent, 'discriminant-formula-identity-container');
+    MathQuestionModule.render(discriminantContent, 'discriminant-identity-container');
 });
 </script>
+
+### Key Takeaways
+
+```{important}
+1. The discriminant $\Delta = b^2 - 4ac$ determines the nature of solutions to a quadratic equation
+2. When $\Delta > 0$, the equation has two distinct real solutions
+3. When $\Delta = 0$, the equation has one repeated real solution
+4. When $\Delta < 0$, the equation has two complex solutions but no real solutions
+5. The discriminant can be used to analyze problems without solving the full equation
+```
+
+## Summary
+
+In this module, we explored quadratic equations and their various solution methods:
+
+```{important}
+1. **Standard Form**: $ax^2 + bx + c = 0$ where $a \neq 0$
+2. **Factorization**: $(px + q)(rx + s) = 0$, best for quadratics with "nice" integer coefficients
+3. **Graphical Methods**: Understanding parabolas and using the completed square form $a(x + p)^2 + q$
+4. **Quadratic Formula**: $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$ works for any quadratic equation
+5. **Discriminant**: $\Delta = b^2 - 4ac$ determines the number and type of solutions
+```
+
+Each method has its strengths:
+- Factorization is quick when the roots are rational numbers
+- Completing the square reveals the vertex and graph properties
+- The quadratic formula works universally, even for complex solutions
+- The discriminant lets you analyze the nature of solutions without solving
+
+Mastering these techniques gives you powerful tools to solve a wide range of mathematical and real-world problems across various disciplines.

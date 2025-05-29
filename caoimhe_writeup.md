@@ -1,0 +1,360 @@
+# mcqs structure
+
+the mcqs need to store this information:
+
+- main topic
+
+- other topics it includes
+
+- question id
+
+- difficulty
+
+- question
+
+- answer options
+
+- correct answer
+
+- explanation
+
+- links
+
+current layout: (dictionary)
+
+(quizData1, {  
+    text: "What is the discriminant of a quadratic equation \\(ax^2 + bx + c = 0\\)?",  
+    options: [  
+        "\\(a^2 - 4bc\\)",
+        "\\(b^2 - 4ac\\)",  
+        "\\(2a + b\\)",
+        "\\(b^2 + 4ac\\)"
+    ],  
+    correctIndex: 1,  
+    explanation: "The discriminant is \\(b^2 - 4ac\\), determining the nature of the roots.",  
+    difficulty: "Basic",  
+    topic: "Quadratic Equations",  
+    relatedTopics: ["Algebra", "Polynomial Equations", "Roots of Equations"],  
+    link: "https://en.wikipedia.org/wiki/Discriminant"  
+}, topicUuidGenerator);  
+
+-The related topics will be a vector with entries in the columns
+corresponding to the topics, with the columns matching that of the
+adjacency matrix. The entries will be weighted depending on how much of
+each topic is in the question. The entries will add up to one for each
+vector so that it is easy to compare them across questions. The entry
+with the highest weight should be the main topic node.
+
+-Specifically how to determine the difficultly also needs to be figured
+out. Current ideas:
+
+- will relate to/ determine in some way P(T) for BKT (perhaps P(T) some
+  combination of difficulty of question and students ability)
+
+- having it on a scale from 0-1 is probably the easiest for comparison,
+  or 0-1000 or similar
+
+- basic questions that are asked when the topic is introduced should
+  have the lowest score, straightforward testing of knowledge of
+  concept, not problem solving required
+
+- exam-level questions should be 0.8/0.9, to allow for harder questions
+  to test the knowledge of well-preforming students
+
+- one way to determine difficulty would be to divide the score into
+  subtopics. Eg amount of knowledge/memorising required, algebraic/
+  technical difficulty, level of problem solving/ critical thinking
+  required, level of notation used, how interconnected to other topics.
+  Later how students tend to preform on the question could be a factor.
+  While determining these is still not straightforward, they are less
+  subjective than a simple difficulty score. Adding up these
+  contributions would give an overall difficulty score which could be
+  used for comparison. Questions would have to be created in such a way
+  that difficulty cannot go above 1, ie this would indicate the question
+  is 'too difficult'.
+
+  -this method also allows for the creation of different forms of the
+  same question. There would be a base question that asks for
+  information in a relatively straightforward way. The question can then
+  be made more difficult by altering more of more of the subcomponents
+  of difficulty, ie requiring the student to remember more to test
+  memory, rewording the question such that more problem solving is
+  required/ the method to use is not as obvious, or using notation
+  instead of words. Each of these adjustments would make the question
+  have a higher overall difficulty, which could be tailored to match the
+  students level.
+
+  -level of interconnectedness to other topics could be determined by
+  comparing the weight of the main topic to subtopics. If this weight is
+  one, topic interconnectedness is 0.
+
+-question ids this is unique identifiers to keep track of questions and
+to prevent repeats of questions in the same session. Two possible
+methods:
+
+- take first three letters of highest level clustering of nodes, I'll
+  call it chapters for now, and combine this with a randomly generated
+  uuid, ie a string of numbers and letters which is basically guaranteed
+  to be unique. This allows for a level of interpretability, but to use
+  topic names at any lower of a level would become to complicated due to
+  long and/or similar names.
+
+   const IdGenerator = {
+    /**
+     * Creates topic-prefixed UUID IDs by combining the first three letters of the topic
+     * with a UUID v4 for guaranteed uniqueness.
+     * @returns {Function} A function that generates an ID when provided a topic string  
+     */  
+    topicUuid: function() {
+        // Return a function that creates a unique ID for a given topic  
+        return function(topic) {
+            // Input validation  
+            if (!topic) {  
+                throw new Error("Topic is required for topicUuid ID generation");  
+            }  
+            
+            // Extract the first 3 letters of the topic, lowercased  
+            const prefix = topic.substring(0, 3).  toLowerCase();  
+            
+            // Generate UUID v4 using standard algorithm
+            const uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.  replace(/[xy]/g, function(c) {  
+                const r = Math.random() * 16 | 0;  
+                const v = c === 'x' ? r : (r & 0x3 | 0x8);  
+                return v.toString(16);  
+            });  
+            
+            // Combine prefix with UUID to create format "prefix-uuid"  
+            return `${prefix}-${uuid}`;  
+        };  
+    }  
+};  
+
+- questions could also be classes by the number of the node, followed by
+  a shorter unique identifier. Sequential numbering could also be used,
+  but that could raise issues if questions are not all generated in the
+  same place at once
+
+-The link may or may not need to be included in each mcq. It will link
+to the main topic and other included topics decided in some way that is
+yet to be figured out. Should it be prerequisites or the subtopics?
+Topics with a weighting below a certain threshold can definitely be left
+out anyway. How many links should be included? Probably 1-3 depending on
+the question- simpler questions will not have other topics but more
+complicated ones will.
+
+-also a way to break questions down into sub questions of they get it
+wrong
+
+# basis stuff
+
+example of projecting mcq vector onto knowledge graph basis: given
+graph(just having non weighted dependencies for now):
+
+
+![figure 1](IMG_7643.JPG)
+with adjacency matrix$$\begin{matrix}
+    A\\D\\G\\T\\I
+\end{matrix}\begin{bmatrix}
+    0&1&1&1&0\\
+    0&0&0&1&1\\
+    0&0&0&1&0\\
+    0&1&0&0&0\\
+    0&0&0&0&0\\
+\end{bmatrix}$$ take a question based on geometry with some integration
+and trig:$$\begin{matrix}
+    A\\D\\G\\T\\I
+\end{matrix}\begin{bmatrix}
+    0\\0\\.5\\.3\\.2
+\end{bmatrix}$$
+
+multiplying the vector by the adjacency matrix gives: $$\begin{bmatrix}
+    0.8\\0.5\\0.3\\0\\0
+\end{bmatrix}$$ This gives how important each of the prerequisites are.
+Algebra has the highest weighting as geometry and trig both depend on
+it. Note:
+
+-the topics themselves are not included, eg integration now has a weight
+of 0
+
+-This only takes into account direct prerequisites, ie it doesn't take
+into account that integration depends on algebra.
+
+# choosing mcqs
+
+## Factors to concider:  
+depends on topics to review and difficulty, how are you factoring in
+breakdown of difficulty, making sure no repeats. Assuming spaced
+repetition algorithm gives list of topics due for review, ordered based
+on 'urgency' if possible. Want question that tests the top node. If
+multiple at same 'urgency' (there is probably a better word but I'll use
+this for now), probably randomly select one to work with. Need to go
+through the bank of questions, choose one that covers the topic that
+does not contain any prerequisites the student hasn't covered. Also need
+to choose one that matches the students current level of difficulty.
+Need a system for taking into account how long overdue the topic is- do
+you ask easier questions? Also need to make sure the same question isn't
+asked twice in the same session/day. How many questions do you want to
+choose at a time? To what extent can topics further down be used to
+cover prerequisites?- weightings. Are you choosing each question after
+the one before is done, selecting them in bunches or selecting them all
+in one go. One at a time would mean you could update all their knowledge
+and stuff between each question, doing it with multiple at a time means
+you could try and find the most efficient combination. Can you have
+something that is a prereq to a prereq also be a direct prereq? eg if in
+fig [1](#fig:kg){reference-type="ref" reference="fig:kg"} integration
+also had a direct dependence on algebra (more important when you have
+very specific subtopics)
+
+Would it be possible to have like covered questions and not covered
+questions? like either the questions are contained within two lists,
+covered or not, or they have a covered property. When a topic is covered
+by going through the content or ticking it etc, question moves from not
+covered to covered. This gives a bank of covered questions that the mcqs
+can be chosen from.
+
+Take given topic to revise, gather all relevant questions. Have a list
+of the ids that a student has covered every day and compare this list to
+the questions. If any of the questions are on the already studied list,
+exclude them. Look at student level of knowledge of that topic. Exclude
+all the questions that have a difficulty outside of a certain range,
+which is a little broad but not massive. Eg if knowledge on scale 0-100,
+student has knowledge of 60, keep questions in range 40-80. (this is
+very rough better numbers would definitely be needed). From these, see
+how many have multiple topics. If student has very low knowledge, they
+wont cause that would be above the difficulty level. You want to try and
+choose a question that will revise a few topics at once to optimise
+study time. Also dot the mcq topics vector with the adjacency matrix to
+get prereqs.
+
+## actual ideas
+Factors that are now being considered:
+
+- the subtopics the question contains
+
+- the direct prerequisites
+
+- the overall difficulty
+
+- the difficulty breakdown
+
+the idea question would have:
+
+- to directly cover the topic being tested, of course
+
+- an overall difficulty slightly above the students current- to allow
+  them to improve without being too challenging or discouraging
+
+- the difficulty to also be slightly above on each of the breakdowns
+
+- to cover as many other topics due for review as possible: limited by
+  difficulty so it doesn't become too much
+
+- to cover as many other prereqs due for review as possible
+
+Give each component a score and choose the highest score?- easy option
+that doesn't necessarily give the least questions needed to cover the
+due topics
+
+doting the mcq topic vector by the subtopics/ prereqs vector gives how
+much of due topics are covered in the question, which higher weighting
+giving a higher number.
+
+$a(\text{subtopics}\cdot\text{due topics})+b(\text{prereqs}\cdot \text{due topics})-c(\text{student knowledge of topic+ some number eg 2 - question difficulty})-d(\text{student problem solving level + 2 - q problem solving difficulty}) -f(\text{technical difficulty})-etc$.
+
+The constants for each would need to be determined in some way, but im
+not sure how. There should probably be a higher weighting towards topics
+and overall difficulty than difficulty breakdown.
+
+orrr constrained set covering optimization problem
+
+### set cover problems
+
+Basically trying to find the smallest collection of subsets that equals
+the set.
+
+We want to optimise it, so get the questions such that they have the
+minimum 'cost' and cover the set. This does happen to be an NP-hard
+problem ie we are not getting an exact solution. There is an approximate
+greedy algorithm that will work well enough. The basic idea of it is at
+each step you see how many of the due topics each question covers and
+has as prereqs. then take the difficulty stuff and divide it by the
+number of topics reviewed. This gives the cost. Choose the question with
+the lowest cost and add it to questions to do. Then repeat the process,
+seeing how many of the remaining topics a question covers.
+[@setcovergfg]
+
+dealing with fractional reviews is an issue, how do you say a question
+is 'covered' and no longer needs to be considered in the algorithm??
+maybe select three topics with the lowest mastery levels and run it for
+them or something?
+
+This does have the problem of they have to do a set number of reviews
+for it to be the most effective. What way do you choose them if they
+feel like doing more??
+
+# concept clustered reviews (not finished)
+
+How do you identify topics interleaving more efficient science of
+learning-wise: try to encourage it how actually are the nodes going to
+be clustered?
+
+Assuming you have the nodes clustered into levels corresponding roughly
+to chapter and concepts. Chapters are roughly textbook chapters.
+Concepts would be subchapters and they are then broken down into nodes.
+Eg chapter: trigonometry, concepts: trig graphs, solving trig equations,
+the unit circle, etc. Nodes: the graph of sin x, the graph of cos x,
+reference angles in the second quadrant, etc.
+
+Probably just to cluster reviews at the chapter level. Concept level is
+pretty specific- students probably don't care if you tell them they are
+reviewing how to solve trig equations-it just gives them a hint into
+what they have to do for the questions. These reviews could probably
+just be covered under the normal daily reviews.
+
+There is two steps to this: identifying chapters which can have a
+cluster review applied, and given a chapter choosing questions. The
+second part could also be used to choose questions if a student wants to
+study a chapter that we haven't said is due, like if they have a test in
+class they want to study for.
+
+
+
+
+# naming of nodes
+
+There is a bunch of different ways to name the nodes, numbers, letters,
+strings corresponding to names. With large graphs, the easiest thing is
+to just work with the indexes of the matrix and then have a mapping from
+each index to the actual name of the node that can be used when needed.
+All of the mcq vectors would also follow this indexing. New nodes should
+be added at the end, even if they are conceptually somewhere else, as
+the code doesn't care about that and rearranging the matrix is a lot
+more work. A mapping is done by creating a vector where each of the
+entries contains the name of the node corresponding to that index. A
+function then related each index to its readable name.
+
+# outstanding questions
+
+- how to generate the related topics vectors- how weights are done, at
+  what level is a subtopic to negligible to include
+
+- second etc topics for link
+
+- how exactly is difficulty done
+
+- taking into account students covering stuff at school/ doing their own
+  study- website data isn't accurate picture of their level even after
+  diagnostics. confidence depending on how much they actually use the
+  website??
+
+- how are you updating the difficulty breakdown???
+
+
+
+
+# references
+@online{setcovergfg,    
+    author = "geeks for geeks",  
+    title = "Greedy Approximate Algorithm for Set Cover Problem",  
+    url  = "https://www.geeksforgeeks.org/greedy-approximate-algorithm-for-set-cover-problem/",  
+    addendum = "(accessed: 28.5.2025)"}  

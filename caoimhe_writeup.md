@@ -20,7 +20,7 @@ the mcqs need to store this information:
 
 - links
 
-current layout: (dictionary)
+current example layout: (dictionary)
 
 (quizData1, {  
     text: "What is the discriminant of a quadratic equation \\(ax^2 + bx + c = 0\\)?",  
@@ -97,7 +97,7 @@ methods:
   uuid, ie a string of numbers and letters which is basically guaranteed
   to be unique. This allows for a level of interpretability, but to use
   topic names at any lower of a level would become to complicated due to
-  long and/or similar names.
+  long and/or similar names. Example code:
 
    const IdGenerator = {
     /**
@@ -134,7 +134,7 @@ methods:
   but that could raise issues if questions are not all generated in the
   same place at once
 
--The link may or may not need to be included in each mcq. It will link
+-The link may or may not need to be included in each mcq. It might be possible to generate it from the information alredy stored in the topics and subtopics. It will link
 to the main topic and other included topics decided in some way that is
 yet to be figured out. Should it be prerequisites or the subtopics?
 Topics with a weighting below a certain threshold can definitely be left
@@ -148,11 +148,11 @@ wrong
 # basis stuff
 
 example of projecting mcq vector onto knowledge graph basis: given
-graph(just having non weighted dependencies for now):
+graph (just having non weighted dependencies for now):
 
 
-![figure 1](IMG_7643.JPG)
-with adjacency matrix$$\begin{matrix}
+topics algebra, differenciation, geomerty, trigonometry and integration 
+with connections as in adjacency matrix$$\begin{matrix}
     A\\D\\G\\T\\I
 \end{matrix}\begin{bmatrix}
     0&1&1&1&0\\
@@ -203,7 +203,9 @@ you could try and find the most efficient combination. Can you have
 something that is a prereq to a prereq also be a direct prereq? eg if in
 fig [1](#fig:kg){reference-type="ref" reference="fig:kg"} integration
 also had a direct dependence on algebra (more important when you have
-very specific subtopics)
+very specific subtopics). You want to try and
+choose a question that will revise a few topics at once to optimise
+study time. 
 
 Would it be possible to have like covered questions and not covered
 questions? like either the questions are contained within two lists,
@@ -211,22 +213,21 @@ covered or not, or they have a covered property. When a topic is covered
 by going through the content or ticking it etc, question moves from not
 covered to covered. This gives a bank of covered questions that the mcqs
 can be chosen from.
-
+## actual ideas
 Take given topic to revise, gather all relevant questions. Have a list
 of the ids that a student has covered every day and compare this list to
 the questions. If any of the questions are on the already studied list,
-exclude them. Look at student level of knowledge of that topic. Exclude
+exclude them.   
+Look at student level of knowledge of that topic. Exclude
 all the questions that have a difficulty outside of a certain range,
 which is a little broad but not massive. Eg if knowledge on scale 0-100,
 student has knowledge of 60, keep questions in range 40-80. (this is
 very rough better numbers would definitely be needed). From these, see
 how many have multiple topics. If student has very low knowledge, they
-wont cause that would be above the difficulty level. You want to try and
-choose a question that will revise a few topics at once to optimise
-study time. Also dot the mcq topics vector with the adjacency matrix to
+wont cause that would be above the difficulty level. Also dot the mcq topics vector with the adjacency matrix to
 get prereqs.
 
-## actual ideas
+
 Factors that are now being considered:
 
 - the subtopics the question contains
@@ -237,7 +238,7 @@ Factors that are now being considered:
 
 - the difficulty breakdown
 
-the idea question would have:
+the ideal question would have:
 
 - to directly cover the topic being tested, of course
 
@@ -256,7 +257,7 @@ that doesn't necessarily give the least questions needed to cover the
 due topics
 
 doting the mcq topic vector by the subtopics/ prereqs vector gives how
-much of due topics are covered in the question, which higher weighting
+much of due topics are covered in the question, with higher weighting
 giving a higher number.
 
 $a(\text{subtopics}\cdot\text{due topics})+b(\text{prereqs}\cdot \text{due topics})-c(\text{student knowledge of topic+ some number eg 2 - question difficulty})-d(\text{student problem solving level + 2 - q problem solving difficulty}) -f(\text{technical difficulty})-etc$.
@@ -283,14 +284,25 @@ the lowest cost and add it to questions to do. Then repeat the process,
 seeing how many of the remaining topics a question covers.
 [@setcovergfg]
 
+there is also other things that can be concidered to optimise learning:  
+-how important of a topic is it? you might want to cover key topics more.
+this can be determined in a couple of different ways:   
+1. nodes that have high out-degree ie a lot of toics depend on them. This is probably the easiest way. 
+2. relevance of the topic to learning in the future. can be defined as the number of nodes x such that there exists a path between the current topic and x. This would make sure students are stong at topics which are involved in a lot of topics later on.  
+
+
+How this would look in practise:   
+cost function:$$\frac{\text{difficulty + difficulty breakdown - importance }}{\text{subtopics}\cdot\text{due topics}+\text{prereqs}\cdot \text{due topics}} $$
+with weighting and difference between question difficulty and student mastery as in the first method 
+
 dealing with fractional reviews is an issue, how do you say a question
 is 'covered' and no longer needs to be considered in the algorithm??
-maybe select three topics with the lowest mastery levels and run it for
-them or something?
+
 
 This does have the problem of they have to do a set number of reviews
 for it to be the most effective. What way do you choose them if they
-feel like doing more??
+feel like doing more?? maybe select three topics with the lowest mastery levels and run it for
+them or something?
 
 # concept clustered reviews (not finished)
 
@@ -322,8 +334,7 @@ class they want to study for.
 
 # naming of nodes
 
-There is a bunch of different ways to name the nodes, numbers, letters,
-strings corresponding to names. With large graphs, the easiest thing is
+There is a bunch of different ways to name the nodes, numbers, letters, strings corresponding to names. With large graphs, the easiest thing is
 to just work with the indexes of the matrix and then have a mapping from
 each index to the actual name of the node that can be used when needed.
 All of the mcq vectors would also follow this indexing. New nodes should
@@ -338,16 +349,24 @@ function then related each index to its readable name.
 - how to generate the related topics vectors- how weights are done, at
   what level is a subtopic to negligible to include
 
-- second etc topics for link
+- second, third etc topics for link??
 
-- how exactly is difficulty done
+- how exactly is difficulty done: how are you updating the difficulty breakdown???
+
+-question breakdown into subquestions for if they get a question wrong
+
+-will there be an option for students to do more reviews than they are due to?
 
 - taking into account students covering stuff at school/ doing their own
   study- website data isn't accurate picture of their level even after
   diagnostics. confidence depending on how much they actually use the
   website??
 
-- how are you updating the difficulty breakdown???
+  -lots of weights to be determined
+
+  -if a topic is due for review/ has low mastery, do you let students move on to new topics that depend on that one? need to take into account that they may have since done it in school/ revised it themselves
+
+
 
 
 

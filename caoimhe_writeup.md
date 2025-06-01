@@ -1,10 +1,10 @@
 # mcqs structure
 
-the mcqs need to store this information:
+the mcqs definelty need to store this information:
 
-- main topic
+- main topic 
 
-- other topics it includes
+- other topics it includes (vector)
 
 - question id
 
@@ -16,10 +16,14 @@ the mcqs need to store this information:
 
 - correct answer
 
-- explanation
+- explanation  
 
-- links
-
+other possibilties:
+- links 
+- difficulty breakdown
+- chapter of main topic (for sorting mostly)
+- if all topics in chapter have been covered ie can it be asked or not
+- way of breaking down the question into subparts if student gets it wrong
 current example layout: (dictionary)
 
 (quizData1, {  
@@ -64,7 +68,7 @@ out. Current ideas:
 - one way to determine difficulty would be to divide the score into
   subtopics. Eg amount of knowledge/memorising required, algebraic/
   technical difficulty, level of problem solving/ critical thinking
-  required, level of notation used, how interconnected to other topics.
+  required, level of notation used, how interconnected/multitopic the question is.
   Later how students tend to preform on the question could be a factor.
   While determining these is still not straightforward, they are less
   subjective than a simple difficulty score. Adding up these
@@ -84,9 +88,9 @@ out. Current ideas:
   have a higher overall difficulty, which could be tailored to match the
   students level.
 
-  -level of interconnectedness to other topics could be determined by
+  -level of interconnectedness to other topics/multisubjetness of topic could be determined by
   comparing the weight of the main topic to subtopics. If this weight is
-  one, topic interconnectedness is 0.
+  one, topic interconnectedness is 0. Contributions to this could be limited to subtopics outside of the main topics either chapter or topic, to aviod contributions from closely related concepts.
 
 -question ids this is unique identifiers to keep track of questions and
 to prevent repeats of questions in the same session. Two possible
@@ -142,9 +146,6 @@ out anyway. How many links should be included? Probably 1-3 depending on
 the question- simpler questions will not have other topics but more
 complicated ones will.
 
--also a way to break questions down into sub questions of they get it
-wrong
-
 # basis stuff
 
 example of projecting mcq vector onto knowledge graph basis: given
@@ -167,7 +168,9 @@ and trig:$$\begin{matrix}
     0\\0\\.5\\.3\\.2
 \end{bmatrix}$$
 
-multiplying the vector by the adjacency matrix gives: $$\begin{bmatrix}
+multiplying the vector by the adjacency matrix gives: $$\begin{matrix}
+    A\\D\\G\\T\\I
+\end{matrix}\begin{bmatrix}
     0.8\\0.5\\0.3\\0\\0
 \end{bmatrix}$$ This gives how important each of the prerequisites are.
 Algebra has the highest weighting as geometry and trig both depend on
@@ -183,16 +186,11 @@ into account that integration depends on algebra.
 
 ## Factors to concider:  
 depends on topics to review and difficulty, how are you factoring in
-breakdown of difficulty, making sure no repeats. Assuming spaced
-repetition algorithm gives list of topics due for review, ordered based
-on 'urgency' if possible. Want question that tests the top node. If
-multiple at same 'urgency' (there is probably a better word but I'll use
-this for now), probably randomly select one to work with. Need to go
+breakdown of difficulty, making sure no repeats. Need to go
 through the bank of questions, choose one that covers the topic that
 does not contain any prerequisites the student hasn't covered. Also need
 to choose one that matches the students current level of difficulty.
-Need a system for taking into account how long overdue the topic is- do
-you ask easier questions? Also need to make sure the same question isn't
+Also need to make sure the same question isn't
 asked twice in the same session/day. How many questions do you want to
 choose at a time? To what extent can topics further down be used to
 cover prerequisites?- weightings. Are you choosing each question after
@@ -201,7 +199,7 @@ in one go. One at a time would mean you could update all their knowledge
 and stuff between each question, doing it with multiple at a time means
 you could try and find the most efficient combination. Can you have
 something that is a prereq to a prereq also be a direct prereq? eg if in
-fig [1](#fig:kg){reference-type="ref" reference="fig:kg"} integration
+the earlier kg integration
 also had a direct dependence on algebra (more important when you have
 very specific subtopics). You want to try and
 choose a question that will revise a few topics at once to optimise
@@ -214,7 +212,11 @@ by going through the content or ticking it etc, question moves from not
 covered to covered. This gives a bank of covered questions that the mcqs
 can be chosen from.
 ## actual ideas
-Take given topic to revise, gather all relevant questions. Have a list
+Assuming spaced
+repetition algorithm gives list of topics due for review, ordered based
+on 'urgency' (there is probably a better word but I'll use
+this for now) if possible.
+Take given topics to revise, gather all relevant questions. Have a list
 of the ids that a student has covered every day and compare this list to
 the questions. If any of the questions are on the already studied list,
 exclude them.   
@@ -252,6 +254,8 @@ the ideal question would have:
 
 - to cover as many other prereqs due for review as possible
 
+two possibilites:
+
 Give each component a score and choose the highest score?- easy option
 that doesn't necessarily give the least questions needed to cover the
 due topics
@@ -266,7 +270,7 @@ The constants for each would need to be determined in some way, but im
 not sure how. There should probably be a higher weighting towards topics
 and overall difficulty than difficulty breakdown.
 
-orrr constrained set covering optimization problem
+or another opion is constrained set covering optimization problem
 
 ### set cover problems
 
@@ -282,7 +286,7 @@ has as prereqs. then take the difficulty stuff and divide it by the
 number of topics reviewed. This gives the cost. Choose the question with
 the lowest cost and add it to questions to do. Then repeat the process,
 seeing how many of the remaining topics a question covers.
-[@setcovergfg]
+[reference: @setcovergfg]
 
 there is also other things that can be concidered to optimise learning:  
 -how important of a topic is it? you might want to cover key topics more.
@@ -304,11 +308,11 @@ for it to be the most effective. What way do you choose them if they
 feel like doing more?? maybe select three topics with the lowest mastery levels and run it for
 them or something?
 
-# concept clustered reviews (not finished)
+# concept clustered reviews 
 
-How do you identify topics interleaving more efficient science of
-learning-wise: try to encourage it how actually are the nodes going to
-be clustered?
+ 
+ interleaving more efficient science of learning-wise: try to encourage it.  
+
 
 Assuming you have the nodes clustered into levels corresponding roughly
 to chapter and concepts. Chapters are roughly textbook chapters.
@@ -327,10 +331,36 @@ There is two steps to this: identifying chapters which can have a
 cluster review applied, and given a chapter choosing questions. The
 second part could also be used to choose questions if a student wants to
 study a chapter that we haven't said is due, like if they have a test in
-class they want to study for.
+class they want to study for.  
+### identifying chapters
+The easiest way to identify chapters would be to just take the average mastery of all the nodes in that chapter. If the average mastery is beloew the same threshold you use to trigger reviews for individual nodes, then the chapter is due. Issues: outliers eg very good or very bad topics could impact this. Also doesn't take importance of topic into account. 
 
+Also want to take into account:
+- how important the topic is  
+- if it is the cause of weakness down the line
+- variation in the mastery within the topic. If their his a high variation, then there is a few very weak topics bringing the score down. These should be already be a priority in the normal mcqs. If there is low varience and also low mastery, then most of the ndoes in the chapter are weak and the chapter as a whole would benefit from a review. 
 
+Can compute the mastery of all nodes that depend on one node: Gather all nodes that can be reached from a node (depth first search is a method). compute the average mastery of these nodes to give the average mastery of dependant nodes.  
 
+varience is (mastery of node - averge mastery of chapter)$^2$. This gives the average mastery of a chapter as $$\frac{1}{\text{number of nodes}}\cdot \sum (\text{mastery of each topic - average mastery})^2 $$
+
+This gives a formula for calculating the proiority of chapters for review. 
+$$ a\text{(number of outgoing nodes)(1 - average mastery of nodes in chapter})+b(\text{average of the average mastery of nodes dependant on each node })-c(\text{varience}) $$ 
+
+(there might be a better way than getting a bunch of averages)
+
+The chapter with the highest score should be prioritised for review and depending on the weightings a thereshold could be set over which a chapter is due. 
+
+### choosing questions given chapter  
+Do we want to review all ndoes in a chapter? This could end up being a lot, but also given that there is quite a lot of dependancies and interconnectedness on topics that could reduce the number of questions needed significantly. 
+
+Could use an adapated version of the scheduler for normal mcqs. Take a vector of due topics as all the topics in the chapter. Instead of ranking by 'dueness', rank from low mastery to high. This takes into account that we want to review nodes even if they are not due. The mastery limit for nodes to be counted as 'completed' should be higher than in normal reviews to ensure that the nodes tht are not due are still covered. 
+
+The multisubject nature of a question in the difficulty breakdown should have a lower wieght or be disregraded in this review, as that is not what we are testing. 
+
+The questions should be ordered by graph depth. The loww levels of mastery of all the chapter might suggest a fundamental misunderstang, so work from the basics up to build up knowledge. 
+
+Other than those, I think the normal algorithm should probably work. 
 
 # naming of nodes
 
@@ -353,9 +383,9 @@ function then related each index to its readable name.
 
 - how exactly is difficulty done: how are you updating the difficulty breakdown???
 
--question breakdown into subquestions for if they get a question wrong
+- question breakdown into subquestions for if they get a question wrong
 
--will there be an option for students to do more reviews than they are due to?
+- will there be an option for students to do more reviews than they are due to?
 
 - taking into account students covering stuff at school/ doing their own
   study- website data isn't accurate picture of their level even after
@@ -366,6 +396,7 @@ function then related each index to its readable name.
 
   -if a topic is due for review/ has low mastery, do you let students move on to new topics that depend on that one? need to take into account that they may have since done it in school/ revised it themselves
 
+ -  how actually are the nodes going to be clustered?
 
 
 

@@ -39,6 +39,7 @@ parts:
       - file: content/algebra/factoring_techniques
       - file: content/algebra/sum_difference_cubes
       - file: content/algebra/long_division_polynomials
+      - file: content/algebra/polynomial_division
     - file: content/algebra/algebraic_fractions
       sections:
       - file: content/algebra/addition_subtraction_fractions

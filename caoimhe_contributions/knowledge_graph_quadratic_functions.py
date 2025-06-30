@@ -10,7 +10,8 @@ if there is very little difference between them then the weight is high, if they
 (ie one is a lot more advanced than the other) then they would have a low weight. this would make sense for 
 backpropagating mastery after a question- the more related they are the more studying one also counts as studying the other.   
 
-the chapter part is obviously not very useful for such a small graph, but it is more a proxy for clustering the nodes into chapters, topics and nodes. 
+the chapter part is obviously not very useful for such a small graph, but it is more a proxy for clustering the nodes into chapters, 
+topics and nodes when there is a full knowledge graph. 
 ''' 
 nodes = {
     'solving linear equations': {

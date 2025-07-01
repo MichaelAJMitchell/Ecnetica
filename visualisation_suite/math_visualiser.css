@@ -149,7 +149,7 @@
 .visualization-container .dark-theme {
     background-color: rgba(30, 39, 46, 0.85);
     border-color: #2c3e50;
-    color: #ecf0f1;
+    color: black;
 }
 
 /* Top-level styles for the page */

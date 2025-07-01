@@ -1,0 +1,387 @@
+format: jb-book
+root: content/index
+parts:
+  - caption: Introduction
+    chapters:
+    - file: content/introduction/course_overview
+    - file: content/introduction/mathematical_thinking
+      sections:
+      - file: content/introduction/problem_solving
+      - file: content/introduction/proof_techniques
+
+  - caption: Number Systems
+    chapters:
+    - file: content/number_systems/overview
+      sections:
+      - file: content/number_systems/natural_integers
+      - file: content/number_systems/rational_numbers
+      - file: content/number_systems/irrational_numbers
+      - file: content/number_systems/proof_irrationality_root2
+      - file: content/number_systems/operations_properties
+    - file: content/number_systems/practical_considerations
+      sections:
+      - file: content/number_systems/scientific_notation
+      - file: content/number_systems/estimation_approximation
+      - file: content/number_systems/percentage_error_tolerance
+      - file: content/number_systems/accumulated_error
+
+  - caption: Algebra
+    chapters:
+    - file: content/algebra/expressions_manipulation
+      sections:
+      - file: content/algebra/algebraic_notation
+      - file: content/algebra/substitution_simplification
+      - file: content/algebra/important_products
+      - file: content/algebra/binomial_expansion
+      - file: content/algebra/pascals_triangle
+    - file: content/algebra/factorization
+      sections:
+      - file: content/algebra/factoring_techniques
+      - file: content/algebra/sum_difference_cubes
+      - file: content/algebra/long_division_polynomials
+    - file: content/algebra/algebraic_fractions
+      sections:
+      - file: content/algebra/addition_subtraction_fractions
+      - file: content/algebra/multiplication_division_fractions
+      - file: content/algebra/complex_fractions
+    - file: content/algebra/equations
+      sections:
+      - file: content/algebra/linear_equations
+      - file: content/algebra/simultaneous_linear_2var
+      - file: content/algebra/simultaneous_linear_3var
+      - file: content/algebra/quadratic_equations
+      - file: content/algebra/quadratic_formula
+      - file: content/algebra/simultaneous_mixed
+      - file: content/algebra/rearranging_formulae
+    - file: content/algebra/inequalities
+      sections:
+      - file: content/algebra/linear_inequalities
+      - file: content/algebra/quadratic_inequalities
+      - file: content/algebra/rational_inequalities
+      - file: content/algebra/absolute_value
+      - file: content/algebra/inequality_proofs
+    - file: content/algebra/advanced_topics
+      sections:
+      - file: content/algebra/factor_theorem
+      - file: content/algebra/polynomial_roots
+      - file: content/algebra/surd_equations
+      - file: content/algebra/discriminants
+
+  - caption: Functions
+    chapters:
+    - file: content/functions/fundamentals
+      sections:
+      - file: content/functions/definition_mappings
+      - file: content/functions/domain_codomain_range
+      - file: content/functions/representation_methods
+    - file: content/functions/properties
+      sections:
+      - file: content/functions/injective_surjective_bijective
+      - file: content/functions/composite_functions
+      - file: content/functions/inverse_functions
+      - file: content/functions/graphs_inverses
+    - file: content/functions/types_and_graphs
+      sections:
+      - file: content/functions/linear_functions
+      - file: algebra_2/algebra_2
+      - file: content/functions/completed_square_form
+      - file: content/functions/cubic_polynomial
+      - file: content/functions/exponential_functions
+      - file: content/functions/logarithmic_functions
+    - file: content/functions/transformations
+      sections:
+      - file: content/functions/translations
+      - file: content/functions/reflections
+      - file: content/functions/scaling
+
+  - caption: Sequences and Series
+    chapters:
+    - file: content/sequences/introduction
+      sections:
+      - file: content/sequences/patterns_recognition
+      - file: content/sequences/term_formulas
+    - file: content/sequences/arithmetic
+      sections:
+      - file: content/sequences/arithmetic_sequences
+      - file: content/sequences/arithmetic_series
+      - file: content/sequences/applications_arithmetic
+    - file: content/sequences/geometric
+      sections:
+      - file: content/sequences/geometric_sequences
+      - file: content/sequences/geometric_series
+      - file: content/sequences/infinite_geometric_series
+      - file: content/sequences/applications_geometric
+    - file: content/sequences/advanced
+      sections:
+      - file: content/sequences/quadratic_sequences
+      - file: content/sequences/limits_sequences
+      - file: content/sequences/convergence_divergence
+
+  - caption: Indices and Logarithms
+    chapters:
+    - file: content/indices_logarithms/indices
+      sections:
+      - file: content/indices_logarithms/laws_indices
+      - file: content/indices_logarithms/rational_indices
+      - file: content/indices_logarithms/equations_indices
+      - file: content/indices_logarithms/surds_rationalization
+    - file: content/indices_logarithms/logarithms
+      sections:
+      - file: content/indices_logarithms/logarithmic_definition
+      - file: content/indices_logarithms/laws_logarithms
+      - file: content/indices_logarithms/logarithmic_equations
+      - file: content/indices_logarithms/applications_logarithms
+
+  - caption: Complex Numbers
+    chapters:
+    - file: content/complex/introduction
+      sections:
+      - file: content/complex/imagination_definition
+      - file: content/complex/argand_diagram
+      - file: content/complex/modulus_complex_number
+      - file: content/complex/conjugate_complex_number
+    - file: content/complex/operations
+      sections:
+      - file: content/complex/addition_subtraction
+      - file: content/complex/multiplication
+      - file: content/complex/division
+      - file: content/complex/conjugate_rules
+    - file: content/complex/advanced
+      sections:
+      - file: content/complex/polar_form
+      - file: content/complex/de_moivre_theorem
+      - file: content/complex/roots_unity_applications
+      - file: content/complex/polynomial_complex_roots
+      - file: content/complex/conjugate_root_theorem
+
+  - caption: Differential Calculus
+    chapters:
+    - file: content/differential_calculus/foundations
+      sections:
+      - file: content/differential_calculus/limits
+      - file: content/differential_calculus/continuity
+      - file: content/differential_calculus/differentiation_principles
+      - file: content/differential_calculus/differentiation_first_principles
+    - file: content/differential_calculus/techniques
+      sections:
+      - file: content/differential_calculus/polynomial_functions
+      - file: content/differential_calculus/chain_rule
+      - file: content/differential_calculus/product_quotient_rules
+      - file: content/differential_calculus/trigonometric_functions
+      - file: content/differential_calculus/exponential_logarithmic
+      - file: content/differential_calculus/inverse_trigonometric
+      - file: content/differential_calculus/implicit_differentiation
+    - file: content/differential_calculus/applications
+      sections:
+      - file: content/differential_calculus/tangents_normals
+      - file: content/differential_calculus/increasing_decreasing
+      - file: content/differential_calculus/turning_points
+      - file: content/differential_calculus/points_inflection
+      - file: content/differential_calculus/optimization
+      - file: content/differential_calculus/rates_change
+      - file: content/differential_calculus/differential_equations
+
+  - caption: Integral Calculus
+    chapters:
+    - file: content/integral_calculus/foundations
+      sections:
+      - file: content/integral_calculus/antiderivatives
+      - file: content/integral_calculus/indefinite_integrals
+    - file: content/integral_calculus/techniques
+      sections:
+      - file: content/integral_calculus/basic_integration
+      - file: content/integral_calculus/exponential_trigonometric
+      - file: content/integral_calculus/integration_substitution
+    - file: content/integral_calculus/applications
+      sections:
+      - file: content/integral_calculus/definite_integrals
+      - file: content/integral_calculus/area_under_curve
+      - file: content/integral_calculus/area_between_curves
+      - file: content/integral_calculus/trapezoidal_rule
+      - file: content/integral_calculus/average_value
+
+  - caption: Length, Area, and Volume
+    chapters:
+    - file: content/measurement/2D_shapes
+      sections:
+      - file: content/measurement/perimeter_area_triangle
+      - file: content/measurement/perimeter_area_quadrilaterals
+      - file: content/measurement/perimeter_area_circles
+      - file: content/measurement/arc_length_sector_area
+    - file: content/measurement/3D_shapes
+      sections:
+      - file: content/measurement/rectangular_solids
+      - file: content/measurement/cylinders
+      - file: content/measurement/cones
+      - file: content/measurement/spheres_hemispheres
+      - file: content/measurement/nets_surface_area
+
+  - caption: Coordinate Geometry
+    chapters:
+    - file: content/coordinate/line
+      sections:
+      - file: content/coordinate/equations_line
+      - file: content/coordinate/slope
+      - file: content/coordinate/parallel_perpendicular
+      - file: content/coordinate/distance_point_line
+      - file: content/coordinate/angle_between_lines
+      - file: content/coordinate/area_triangle
+      - file: content/coordinate/division_line_segment
+    - file: content/coordinate/circle
+      sections:
+      - file: content/coordinate/standard_form
+      - file: content/coordinate/general_form
+      - file: content/coordinate/tangents_circles
+      - file: content/coordinate/intersection_line_circle
+      - file: content/coordinate/gf_problems
+
+  - caption: Synthetic Geometry
+    chapters:
+    - file: content/geometry/fundamentals
+      sections:
+      - file: content/geometry/basic_concepts
+      - file: content/geometry/axioms
+      - file: content/geometry/angles_lines
+    - file: content/geometry/triangles_quadrilaterals
+      sections:
+      - file: content/geometry/triangle_properties
+      - file: content/geometry/congruent_triangles
+      - file: content/geometry/similar_triangles
+      - file: content/geometry/pythagoras_theorem
+      - file: content/geometry/quadrilateral_properties
+    - file: content/geometry/circles
+      sections:
+      - file: content/geometry/circle_properties
+      - file: content/geometry/angles_circle
+      - file: content/geometry/cyclic_quadrilaterals
+      - file: content/geometry/tangents
+    - file: content/geometry/proofs_constructions
+      sections:
+      - file: content/geometry/proof_techniques
+      - file: content/geometry/formal_proofs
+      - file: content/geometry/constructions_16_to_22
+
+  - caption: Trigonometry
+    chapters:
+    - file: content/trigonometry/right_triangles
+      sections:
+      - file: content/trigonometry/trigonometric_ratios
+      - file: content/trigonometry/practical_applications
+    - file: content/trigonometry/angle_measure
+      sections:
+      - file: content/trigonometry/degrees_radians
+      - file: content/trigonometry/unit_circle
+    - file: content/trigonometry/trigonometric_functions
+      sections:
+      - file: content/trigonometry/sine_cosine_tangent
+      - file: content/trigonometry/graphs_functions
+      - file: content/trigonometry/transformations
+      - file: content/trigonometry/special_angles
+    - file: content/trigonometry/advanced
+      sections:
+      - file: content/trigonometry/trigonometric_equations
+      - file: content/trigonometry/sine_cosine_rules
+      - file: content/trigonometry/area_formulas
+      - file: content/trigonometry/trigonometric_identities
+      - file: content/trigonometry/derive_trig_formulae
+      - file: content/trigonometry/3D_problems
+
+  - caption: Financial Mathematics
+    chapters:
+    - file: content/financial/fundamentals
+      sections:
+      - file: content/financial/percentages
+      - file: content/financial/profit_loss
+      - file: content/financial/mark_up_margin
+      - file: content/financial/compound_interest
+      - file: content/financial/present_value
+    - file: content/financial/applications
+      sections:
+      - file: content/financial/depreciation
+      - file: content/financial/costing_materials_labour
+      - file: content/financial/loans_mortgages
+      - file: content/financial/income_tax_deductions
+      - file: content/financial/value_added_tax
+      - file: content/financial/geometric_series_applications
+
+  - caption: Proof by Induction
+    chapters:
+    - file: content/induction/principles
+      sections:
+      - file: content/induction/mathematical_induction
+      - file: content/induction/summation_formulas
+    - file: content/induction/applications
+      sections:
+      - file: content/induction/divisibility_proofs
+      - file: content/induction/inequalities_proofs
+      - file: content/induction/geometric_series_proofs
+
+  - caption: Statistics
+    chapters:
+    - file: content/statistics/data_fundamentals
+      sections:
+      - file: content/statistics/types_data
+      - file: content/statistics/data_collection
+      - file: content/statistics/population_samples
+      - file: content/statistics/sampling_methods
+      - file: content/statistics/experimental_design
+    - file: content/statistics/data_representation
+      sections:
+      - file: content/statistics/tables_graphs
+      - file: content/statistics/frequency_distributions
+      - file: content/statistics/scatter_plots
+      - file: content/statistics/distribution_patterns
+    - file: content/statistics/descriptive
+      sections:
+      - file: content/statistics/measures_center
+      - file: content/statistics/measures_spread
+      - file: content/statistics/quartiles_percentiles
+      - file: content/statistics/correlation_coefficient
+      - file: content/statistics/linear_regression
+    - file: content/statistics/inferential
+      sections:
+      - file: content/statistics/sampling_distributions
+      - file: content/statistics/sampling_variability
+      - file: content/statistics/central_limit_theorem
+      - file: content/statistics/confidence_intervals
+      - file: content/statistics/hypothesis_testing
+      - file: content/statistics/p_values
+
+  - caption: Probability
+    chapters:
+    - file: content/probability/fundamentals
+      sections:
+      - file: content/probability/concepts
+      - file: content/probability/experimental_theoretical
+      - file: content/probability/set_theory
+      - file: content/probability/equally_likely_outcomes
+    - file: content/probability/counting
+      sections:
+      - file: content/probability/counting_principle
+      - file: content/probability/permutations
+      - file: content/probability/combinations
+      - file: content/probability/factorial_notation
+    - file: content/probability/rules
+      sections:
+      - file: content/probability/addition_rule
+      - file: content/probability/multiplication_rule
+      - file: content/probability/conditional_probability
+      - file: content/probability/independence
+      - file: content/probability/sampling_with_without_replacement
+    - file: content/probability/distributions
+      sections:
+      - file: content/probability/expected_value
+      - file: content/probability/fair_games
+      - file: content/probability/bernoulli_trials
+      - file: content/probability/binomial_distribution
+      - file: content/probability/normal_distribution
+      - file: content/probability/reading_normal_tables
+
+  - caption: Exam Preparation
+    chapters:
+    - file: content/exam_prep/study_strategies
+    - file: content/exam_prep/problem_solving
+      sections:
+      - file: content/exam_prep/exam_techniques
+      - file: content/exam_prep/common_question_types
+    - file: content/exam_prep/practice_papers

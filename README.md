@@ -8,6 +8,10 @@
    ```
    python -m http.server
    ```
+### Or
+Run this script in the home directory, ctrl +c to escape
+
+```bash quick-build.sh```
 
 ## Adding Chapters
 

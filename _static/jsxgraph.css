@@ -235,3 +235,30 @@
     border-color: #f0e442;
     padding: 1px 7px 1px 7px;
 }
+
+/* AXIS NUMBERS FIX - Specific targeting for dark mode */
+.jxgbox[style*="rgb(0, 0, 0)"] text,
+.jxgbox[style*="#000000"] text,
+.jxgbox[style*="rgb(30, 39, 46)"] text,
+.jxgbox[style*="#1e272e"] text {
+    fill: white !important;
+    color: white !important;
+}
+
+div[style*="background-color: rgb(0, 0, 0)"] svg text,
+div[style*="background-color: #000000"] svg text,
+div[style*="background-color: rgb(30, 39, 46)"] svg text,
+div[style*="background-color: #1e272e"] svg text {
+    fill: white !important;
+    stroke: none !important;
+}
+
+/* Keep light mode text dark */
+.jxgbox[style*="background-color: rgb(255, 255, 255)"] text,
+.jxgbox[style*="background-color: #ffffff"] text {
+    fill: #333333 !important;
+    color: #333333 !important;
+}
+
+.jxgbox[style*="background-color: rgb(255, 255, 255)"] svg text {
+    fill: #333333 !important;}

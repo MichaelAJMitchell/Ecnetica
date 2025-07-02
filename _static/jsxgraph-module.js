@@ -252,6 +252,7 @@ const JSXGraphModule = (function() {
             background: colors.background,
             
             // Axis styling
+            // Find this section in createBoardConfig:
             defaultAxes: {
                 x: {
                     strokeColor: colors.axis,
@@ -271,25 +272,8 @@ const JSXGraphModule = (function() {
                         minorHeight: 5
                     }
                 },
-                y: {
-                    strokeColor: colors.axis,
-                    strokeWidth: 1.5,
-                    name: 'y',
-                    withLabel: true,
-                    label: {
-                        fontSize: 16,
-                        fontWeight: 'normal',
-                        color: colors.axisLabel,
-                        offset: [4, 0]
-                    },
-                    ticks: {
-                        strokeColor: colors.axis,
-                        strokeWidth: 1,
-                        majorHeight: 10,
-                        minorHeight: 5
-                    }
-                },
-            },
+                // ... y axis config
+            }
             
             // Grid styling
             grid: {

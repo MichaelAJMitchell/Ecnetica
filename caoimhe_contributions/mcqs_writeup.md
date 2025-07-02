@@ -1,5 +1,79 @@
+# json
+### form they can be generated in`
+```
+    {
+      "text": "What is the discriminant of the quadratic equation $2x^2 - 5x + 3 = 0$?",
+      "options": [
+        "$1$",
+        "$7$", 
+        "$13$",
+        "$-1$"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! $\\Delta = b^2 - 4ac = (-5)^2 - 4(2)(3) = 25 - 24 = 1$",
+        "Incorrect. Remember the formula is $b^2 - 4ac$, not $b + 2ac$.",
+        "Incorrect. You may have calculated $b^2 + 4ac$ instead of $b^2 - 4ac$.",
+        "Incorrect. Check your arithmetic: $25 - 24 = 1$, not $-1$."
+      ],
+      "main_topic_index": 17,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "17": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.3,
+        "procedural_fluency": 0.7,
+        "problem_solving": 0.2,
+        "mathematical_communication": 0.1,
+        "memory": 0.4,
+        "spatial_reasoning": 0.0
+      }
+    }
+```
+### form they will be converted to 
+```
+{
+      "id": "d8f6f656-c7d6-45a6-ab5d-c180e0e646f1",
+      "text": "Using the quadratic formula, solve $x^2 + 6x + 9 = 0$.",
+      "options": [
+        "$x = -3$ (repeated root)",
+        "$x = 3$ or $x = -3$",
+        "$x = 0$ or $x = -6$",
+        "No real solutions"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! $x = \\frac{-6 \\pm \\sqrt{36-36}}{2} = \\frac{-6}{2} = -3$ (discriminant = 0)",
+        "Incorrect. The discriminant is 0, so there's only one repeated root.",
+        "Incorrect. Substitute into the quadratic formula: $x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}$",
+        "Incorrect. The discriminant is 0, which means there is exactly one real solution."
+      ],
+      "main_topic_index": 15,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "15": 0.8,
+        "17": 0.2
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.4,
+        "procedural_fluency": 0.8,
+        "problem_solving": 0.5,
+        "mathematical_communication": 0.2,
+        "memory": 0.6,
+        "spatial_reasoning": 0.0
+      },
+      "overall_difficulty": 0.4166666666666667,
+      "prerequisites": {
+        "16": 0.6400000000000001,
+        "17": 0.5599999999999999
+      }
+    }
+```
+if you take the mcq document and run them through the process mcqs python file, it automatically calulates the id, prerequsites and difficilty and them saves them in another json file, which is the one actually used for the mcq algorithm. it also calucaltes the chapter from the topic for the main node. 
+
 # python
-## mcqs structure
+## mcqs structure (old but explnations still the same)
 
 
 ```
@@ -105,8 +179,6 @@ the prerequisites for each mcq are stored, to save calculating them every time f
 ### difficulty
 the overall difficulty score for a question is the average of the skills in the difficulty breakdown. it is calculated automatically based on the difficulty breakdown values.
 
-
-# json
 
 
 # things we'll probably add at a later point

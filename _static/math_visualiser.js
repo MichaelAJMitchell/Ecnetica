@@ -24,7 +24,7 @@ const MathVisualizer = (function() {
         
         dark: {
             background: '#000000',
-            grid: '#34495e',
+            grid: '#ffffff',
             gridMajor: '#2c3e50',
             axis: '#ecf0f1',
             axisLabel: '#bdc3c7',

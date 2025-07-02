@@ -1164,3 +1164,44 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("Math Visualizer module loaded");
     MathVisualizer.initMathVisualizer();
 });
+
+
+// Nuclear option: Force fix axis numbers function
+function forceFixAxisNumbers() {
+    // Find all JSXGraph containers
+    const jxgBoxes = document.querySelectorAll('.jxgbox');
+    
+    jxgBoxes.forEach(box => {
+        const bgColor = window.getComputedStyle(box).backgroundColor;
+        
+        // Determine if background is dark
+        const isDark = bgColor.includes('rgb(0, 0, 0)') || 
+                      bgColor.includes('0, 0, 0') ||
+                      bgColor.includes('30, 39, 46') ||
+                      box.style.backgroundColor === '#000000' ||
+                      box.style.backgroundColor === '#1e272e';
+        
+        // Find all text elements and force their color
+        const textElements = box.querySelectorAll('text');
+        textElements.forEach(text => {
+            if (isDark) {
+                text.setAttribute('fill', '#ffffff');
+                text.style.fill = '#ffffff';
+                text.style.color = '#ffffff';
+            } else {
+                text.setAttribute('fill', '#333333');
+                text.style.fill = '#333333';
+                text.style.color = '#333333';
+            }
+        });
+    });
+}
+
+// Run the fix every time someone clicks anywhere (aggressive approach)
+document.addEventListener('click', () => {
+    setTimeout(forceFixAxisNumbers, 200);
+});
+
+// Also run it on page load and periodically
+document.addEventListener('DOMContentLoaded', forceFixAxisNumbers);
+setInterval(forceFixAxisNumbers, 2000); // Every 2 seconds

@@ -23,7 +23,7 @@ const MathVisualizer = (function() {
         },
         
         dark: {
-            background: '#000000',
+            background: '#ffffff',
             grid: '#ffffff',
             gridMajor: '#2c3e50',
             axis: '#ecf0f1',

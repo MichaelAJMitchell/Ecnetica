@@ -8,63 +8,7 @@
 const JSXGraphModule = (function() {
     //===========================================================================
     // CONFIGURATION SYSTEM
-    //===========================================================================
-    
-    // Color themes for different visual styles
-    const colorThemes = {
-        modern: {
-            background: '#ffffff',
-            grid: '#dfe3e8',
-            gridMajor: '#c4ccd9',
-            axis: '#586a88',
-            axisLabel: '#3a4758',
-            point: '#3498db',
-            pointHighlight: '#2980b9',
-            pointStroke: '#ffffff',
-            line: '#6c5ce7',
-            lineHighlight: '#5649c0',
-            functionGraph: '#00b894',
-            functionGraphHighlight: '#00a382',
-            circle: '#e17055',
-            circleHighlight: '#d0636b',
-            polygon: '#fdcb6e',
-            polygonHighlight: '#ffc44d',
-            slider: '#9b59b6',
-            sliderHighlight: '#8e44ad',
-            text: '#2d3436',
-            uiBackground: 'rgba(255, 255, 255, 0.9)',
-            uiBackgroundDark: 'rgba(255, 255, 255, 0.85)',
-            uiBorder: '#e2e8f0',
-            uiText: '#2d3436'
-        },
-        
-        dark: {
-            background: '#1e272e',
-            grid: '#34495e',
-            gridMajor: '#2c3e50',
-            axis: '#ecf0f1',
-            axisLabel: '#bdc3c7',
-            point: '#3498db',
-            pointHighlight: '#2ecc71',
-            pointStroke: '#1e272e',
-            line: '#9b59b6',
-            lineHighlight: '#8e44ad',
-            functionGraph: '#2ecc71',
-            functionGraphHighlight: '#27ae60',
-            circle: '#e74c3c',
-            circleHighlight: '#c0392b',
-            polygon: '#f1c40f',
-            polygonHighlight: '#f39c12',
-            slider: '#9b59b6',
-            sliderHighlight: '#8e44ad',
-            text: '#ecf0f1',
-            uiBackground: 'rgba(30, 39, 46, 0.85)',
-            uiBackgroundDark: 'rgba(30, 39, 46, 0.85)',
-            uiBorder: '#2c3e50',
-            uiText: '#ecf0f1'
-        }
-    };
-    
+    //=========================================================================== 
     // Sequential color palette for automatic assignment
     const sequentialColors = [
         '#3498db',  // Blue
@@ -235,7 +179,7 @@ const JSXGraphModule = (function() {
     function createBoardConfig(options = {}) {
         // Set defaults
         const {
-            colors = colorThemes.modern,
+            colors = colorThemes.light,
             boundingBox = [-5, 5, 5, -5],
             showNavigation = false,
             showGrid = true,
@@ -294,7 +238,7 @@ const JSXGraphModule = (function() {
         const baseStyle = elementStyles[type] || {};
         
         // Get colors for this element type
-        const themeColors = board.options.colors || colorThemes.modern;
+        const themeColors = board.options.colors || colorThemes.light;
         
         // Apply color styling based on element type
         let colorProperties = {};
@@ -403,13 +347,13 @@ const JSXGraphModule = (function() {
     }
     
     /**
-     * Toggle the theme of a board between modern and dark
+     * Toggle the theme of a board between light and dark
      * @param {Object} board - JSXGraph board
      * @returns {Object} - Updated board
      */
     function toggleBoardTheme(board) {
-        const currentTheme = board.options.currentTheme || 'modern';
-        const newTheme = currentTheme === 'modern' ? 'dark' : 'modern';
+        const currentTheme = board.options.currentTheme || 'light';
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
         const colors = colorThemes[newTheme];
         
         // Update background
@@ -516,7 +460,7 @@ const JSXGraphModule = (function() {
             position = 'top-left',
             title = '',
             initialContent = [],
-            theme = 'modern'
+            theme = 'light'
         } = options;
         
         // Handle container as string ID or DOM element
@@ -614,7 +558,7 @@ const JSXGraphModule = (function() {
             className = 'slider-container',
             position = 'bottom-left',
             sliders = [],
-            theme = 'modern',
+            theme = 'light',
             onChange = () => {}
         } = options;
         
@@ -776,7 +720,7 @@ const JSXGraphModule = (function() {
             className = 'control-panel',
             position = 'top-right',
             buttons = [],
-            theme = 'modern'
+            theme = 'light'
         } = options;
         
         // Handle container as string ID or DOM element
@@ -937,7 +881,7 @@ const JSXGraphModule = (function() {
     function createGraphFromDescription(containerId, description) {
         const {
             boundingBox = [-5, 5, 5, -5],
-            theme = 'modern',
+            theme = 'light',
             useSequentialColors = false,
             showNavigation = false,
             showGrid = true,
@@ -1150,7 +1094,7 @@ const JSXGraphModule = (function() {
     function createQuadraticVisualizer(containerId, options = {}) {
         const {
             boundingBox = [-6, 10, 6, -6],
-            theme = 'modern',
+            theme = 'light',
             initialValues = { a: 1, b: 0, c: 0 },
             title = 'Parabola: y = ax² + bx + c'
         } = options;
@@ -1356,7 +1300,7 @@ const JSXGraphModule = (function() {
     function createTrigVisualizer(containerId, options = {}) {
         const {
             boundingBox = [-6, 6, 6, -6],
-            theme = 'modern',
+            theme = 'light',
             initialValues = { a: 1, b: 1, c: 0, d: 0 },
             function: trigFunction = 'sin',
             title = `${trigFunction.charAt(0).toUpperCase() + trigFunction.slice(1)} Function: y = a*${trigFunction}(b*x + c) + d`
@@ -1496,7 +1440,7 @@ const JSXGraphModule = (function() {
     function createCircleVisualizer(containerId, options = {}) {
         const {
             boundingBox = [-6, 6, 6, -6],
-            theme = 'modern',
+            theme = 'light',
             initialValues = { h: 0, k: 0, r: 2 },
             title = 'Circle: (x-h)² + (y-k)² = r²'
         } = options;
@@ -1612,7 +1556,7 @@ const JSXGraphModule = (function() {
     function createLinearVisualizer(containerId, options = {}) {
         const {
             boundingBox = [-6, 6, 6, -6],
-            theme = 'modern',
+            theme = 'light',
             initialValues = { m: 1, b: 0 },
             title = 'Linear Function: y = mx + b'
         } = options;

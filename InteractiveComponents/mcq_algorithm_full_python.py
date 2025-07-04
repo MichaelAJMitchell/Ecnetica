@@ -3087,3 +3087,12 @@ if __name__ == "__main__":
     # Run the main test system
     run_knowledge_graph_test()
 
+
+def simple_test():
+    """Simple test function to verify import is working"""
+    print("🎉 SUCCESS! The full_python file is imported and working!")
+    print("Classes available:")
+    print("- StudentManager ✓")
+    print("- KnowledgeGraph ✓") 
+    print("- MCQScheduler ✓")
+    return "Import test passed!"

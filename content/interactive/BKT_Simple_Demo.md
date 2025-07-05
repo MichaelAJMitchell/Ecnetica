@@ -3,196 +3,213 @@
 
   ```{raw} html
 
- <!doctype html>
-<html>
-  <head>
-    <title>BKT Algorithm Visual Demo</title>
-    <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #f5f5f5;
-      }
-      .container {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        margin-bottom: 20px;
-      }
-      .controls {
-        display: flex;
-        gap: 10px;
-        margin: 20px 0;
-        flex-wrap: wrap;
-      }
-      button {
-        padding: 12px 20px;
-        font-size: 16px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-      }
-      .primary-btn {
-        background-color: #2196F3;
-        color: white;
-      }
-      .primary-btn:hover {
-        background-color: #1976D2;
-      }
-      .success-btn {
-        background-color: #4CAF50;
-        color: white;
-      }
-      .success-btn:hover {
-        background-color: #45a049;
-      }
-      .danger-btn {
-        background-color: #f44336;
-        color: white;
-      }
-      .danger-btn:hover {
-        background-color: #da190b;
-      }
-      #output {
-        background-color: #f8f9fa;
-        border: 1px solid #dee2e6;
-        border-radius: 5px;
-        padding: 15px;
-        margin: 15px 0;
-        min-height: 100px;
-        font-family: monospace;
-        white-space: pre-wrap;
-        overflow-x: auto;
-      }
-      .status {
-        padding: 10px;
-        border-radius: 5px;
-        margin: 10px 0;
-      }
-      .status.success {
-        background-color: #d4edda;
-        color: #155724;
-        border: 1px solid #c3e6cb;
-      }
-      .status.error {
-        background-color: #f8d7da;
-        color: #721c24;
-        border: 1px solid #f5c6cb;
-      }
-      .status.info {
-        background-color: #d1ecf1;
-        color: #0c5460;
-        border: 1px solid #bee5eb;
-      }
-      .mcq-container {
-        background-color: #fff;
-        border: 2px solid #007bff;
-        border-radius: 8px;
-        padding: 20px;
-        margin: 15px 0;
-      }
-      .mcq-question {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 15px;
-        color: #333;
-      }
-      .mcq-options {
-        margin: 15px 0;
-      }
-      .mcq-option {
-        display: block;
-        margin: 8px 0;
-        padding: 10px;
-        background-color: #f8f9fa;
-        border: 2px solid #e9ecef;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: all 0.3s;
-      }
-      .mcq-option:hover {
-        background-color: #e9ecef;
-        border-color: #007bff;
-      }
-      .mcq-option.selected {
-        background-color: #007bff;
-        color: white;
-        border-color: #0056b3;
-      }
-      .progress-bar {
-        width: 100%;
-        height: 20px;
-        background-color: #e9ecef;
-        border-radius: 10px;
-        overflow: hidden;
-        margin: 10px 0;
-      }
-      .progress-fill {
-        height: 100%;
-        background-color: #28a745;
-        transition: width 0.3s ease;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1>🧠 BKT Algorithm Visual Demo</h1>
-      <p>This demo shows how Bayesian Knowledge Tracing works with a simple knowledge graph. Students start with low mastery levels and improve through practice.</p>
-      
-      <div class="controls">
-        <button onclick="initializeDemo()" class="primary-btn">🚀 Initialize BKT System</button>
-        <button onclick="createStudent()" class="success-btn" id="createStudentBtn" disabled>👤 Create Student</button>
-        <button onclick="generateMCQ()" class="primary-btn" id="generateMCQBtn" disabled>❓ Generate MCQ</button>
-        <button onclick="showKnowledgeGraph()" class="primary-btn" id="showGraphBtn" disabled>📊 Show Knowledge Graph</button>
-        <button onclick="resetDemo()" class="danger-btn">🔄 Reset Demo</button>
+  <!doctype html>
+  <html>
+    <head>
+      <title>BKT Algorithm Visual Demo</title>
+      <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
+      <style>
+        body {
+          font-family: Arial, sans-serif;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 20px;
+          background-color: #f5f5f5;
+        }
+        .container {
+          background: white;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+          margin-bottom: 20px;
+        }
+        .controls {
+          display: flex;
+          gap: 10px;
+          margin: 20px 0;
+          flex-wrap: wrap;
+        }
+        button {
+          padding: 12px 20px;
+          font-size: 16px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+        }
+        .primary-btn {
+          background-color: #2196F3;
+          color: white;
+        }
+        .primary-btn:hover {
+          background-color: #1976D2;
+        }
+        .success-btn {
+          background-color: #4CAF50;
+          color: white;
+        }
+        .success-btn:hover {
+          background-color: #45a049;
+        }
+        .danger-btn {
+          background-color: #f44336;
+          color: white;
+        }
+        .danger-btn:hover {
+          background-color: #da190b;
+        }
+        #output {
+          background-color: #f8f9fa;
+          border: 1px solid #dee2e6;
+          border-radius: 5px;
+          padding: 15px;
+          margin: 15px 0;
+          min-height: 100px;
+          font-family: monospace;
+          white-space: pre-wrap;
+          overflow-x: auto;
+        }
+        .status {
+          padding: 10px;
+          border-radius: 5px;
+          margin: 10px 0;
+        }
+        .status.success {
+          background-color: #d4edda;
+          color: #155724;
+          border: 1px solid #c3e6cb;
+        }
+        .status.error {
+          background-color: #f8d7da;
+          color: #721c24;
+          border: 1px solid #f5c6cb;
+        }
+        .status.info {
+          background-color: #d1ecf1;
+          color: #0c5460;
+          border: 1px solid #bee5eb;
+        }
+        .mcq-container {
+          background-color: #fff;
+          border: 2px solid #007bff;
+          border-radius: 8px;
+          padding: 20px;
+          margin: 15px 0;
+        }
+        .mcq-question {
+          font-size: 18px;
+          font-weight: bold;
+          margin-bottom: 15px;
+          color: #333;
+        }
+        .mcq-options {
+          margin: 15px 0;
+        }
+        .mcq-option {
+          display: block;
+          margin: 8px 0;
+          padding: 10px;
+          background-color: #f8f9fa;
+          border: 2px solid #e9ecef;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: all 0.3s;
+        }
+        .mcq-option:hover {
+          background-color: #e9ecef;
+          border-color: #007bff;
+        }
+        .mcq-option.selected {
+          background-color: #007bff;
+          color: white;
+          border-color: #0056b3;
+        }
+        .progress-bar {
+          width: 100%;
+          height: 20px;
+          background-color: #e9ecef;
+          border-radius: 10px;
+          overflow: hidden;
+          margin: 10px 0;
+        }
+        .progress-fill {
+          height: 100%;
+          background-color: #28a745;
+          transition: width 0.3s ease;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <h1>🧠 BKT Algorithm Visual Demo</h1>
+        <p>This demo shows how Bayesian Knowledge Tracing works with a simple knowledge graph. Students start with low mastery levels and improve through practice.</p>
+        
+        <div class="controls">
+          <button onclick="initializeDemo()" class="primary-btn">🚀 Initialize BKT System</button>
+          <button onclick="createStudent()" class="success-btn" id="createStudentBtn" disabled>👤 Create Student</button>
+          <button onclick="generateMCQ()" class="primary-btn" id="generateMCQBtn" disabled>❓ Generate MCQ</button>
+          <button onclick="showKnowledgeGraph()" class="primary-btn" id="showGraphBtn" disabled>📊 Show Knowledge Graph</button>
+          <button onclick="resetDemo()" class="danger-btn">🔄 Reset Demo</button>
+        </div>
+        
+        <div id="status" class="status info">Click "Initialize BKT System" to start the demo...</div>
+        
+        <div id="mcq-section" style="display: none;"></div>
+        
+        <div id="output"></div>
       </div>
       
-      <div id="status" class="status info">Click "Initialize BKT System" to start the demo...</div>
-      
-      <div id="mcq-section" style="display: none;"></div>
-      
-      <div id="output"></div>
-    </div>
-    
-    <script type="text/javascript">
-      let pyodideInstance = null;
-      let currentStudent = null;
-      let currentMCQ = null;
-      let selectedOption = null;
-      
-      function updateStatus(message, type = 'info') {
-        const statusDiv = document.getElementById('status');
-        statusDiv.className = `status ${type}`;
-        statusDiv.textContent = message;
-      }
-      
-      function updateOutput(message) {
-        const output = document.getElementById('output');
-        output.textContent += message + '\n';
-        output.scrollTop = output.scrollHeight;
-      }
-      
-      async function initializeDemo() {
-        try {
-          updateStatus('🔄 Loading Pyodide and packages...', 'info');
-          updateOutput('Initializing BKT demo...');
-          
-          if (!pyodideInstance) {
-            pyodideInstance = await loadPyodide();
-            updateOutput('✓ Pyodide loaded successfully');
+      <script type="text/javascript">
+        let pyodideInstance = null;
+        let currentStudent = null;
+        let currentMCQ = null;
+        let selectedOption = null;
+        
+        function updateStatus(message, type = 'info') {
+          const statusDiv = document.getElementById('status');
+          statusDiv.className = `status ${type}`;
+          statusDiv.textContent = message;
+        }
+        
+        function updateOutput(message) {
+          const output = document.getElementById('output');
+          output.textContent += message + '\n';
+          output.scrollTop = output.scrollHeight;
+        }
+        
+        async function initializeDemo() {
+          try {
+            updateStatus('🔄 Loading Pyodide and packages...', 'info');
+            updateOutput('Initializing BKT demo...');
             
-            // Load required packages
-            updateOutput('Loading packages: numpy, networkx, matplotlib...');
-            await pyodideInstance.loadPackage(["numpy", "networkx", "matplotlib"]);
-            updateOutput('✓ All packages loaded');
-          }
-          
-          // Fetch and load the BKT code
+            if (!pyodideInstance) {
+              pyodideInstance = await loadPyodide({
+                indexURL: "../../_static/",  // Local core
+                packageCacheKey: "bkt-demo-v1",
+                loadPackages: false
+              });
+              
+              updateOutput('✓ Pyodide loaded successfully');
+              updateOutput('Checking package cache...');
+              
+              // Override where packages come from AFTER initialization
+              const originalIndexURL = pyodideInstance._api.config.indexURL;
+              pyodideInstance._api.config.indexURL = "https://cdn.jsdelivr.net/pyodide/v0.27.7/full/";
+              
+              const packages = ["numpy", "networkx", "matplotlib"];
+              await pyodideInstance.loadPackage(packages, {
+                messageCallback: (msg) => console.log(`Package loading: ${msg}`),
+                errorCallback: (err) => console.error(`Package error: ${err}`)
+              });
+              
+              // Restore original indexURL for any future core operations
+              pyodideInstance._api.config.indexURL = originalIndexURL;
+              
+              updateOutput('✓ All packages loaded');
+            }
+
+            
+            // Fetch and load the BKT code
           updateOutput('Fetching BKT algorithm code...');
           const response = await fetch("../../_static/mcq_algorithm_full_python.py");
           if (!response.ok) {

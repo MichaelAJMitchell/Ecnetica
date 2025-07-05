@@ -1,9 +1,9 @@
 
-# BKT Simple Demo
+  # BKT Simple Demo
 
-```{raw} html
+  ```{raw} html
 
-<!doctype html>
+ <!doctype html>
 <html>
   <head>
     <title>BKT Algorithm Visual Demo</title>
@@ -521,38 +521,11 @@
                 print(f"EMERGENCY! Result: {result_dict}")
                 globals()['mcq_result'] = result_dict
           `);
-
-          // Debugging
-          console.log("=== DEBUGGING DATA TRANSFER ===");
           
-          // Get the result from Python globals
+          // Use JSON serialization to fix Pyodide Proxy bug
           const mcqDataString = pyodideInstance.runPython("js_export(mcq_result)");
-          const mcqData = JSON.parse(mcqDataString);    
-          console.log("Fixed MCQ data:", mcqData);
+          const mcqData = JSON.parse(mcqDataString);
           updateOutput('Python execution completed');
-
-          console.log("Raw mcqData from Python:", mcqData);
-          console.log("mcqData type:", typeof mcqData);
-          console.log("mcqData keys:", mcqData ? Object.keys(mcqData) : "null/undefined");
-
-          console.log("=== PYTHON GLOBALS DEBUG ===");
-          const debugInfo = pyodideInstance.runPython(`
-          import json
-          print("Checking globals...")
-          print(f"'mcq_result' in globals(): {'mcq_result' in globals()}")
-          if 'mcq_result' in globals():
-              print(f"Type of mcq_result: {type(mcq_result)}")
-              print(f"mcq_result contents: {mcq_result}")
-              print(f"mcq_result keys: {list(mcq_result.keys()) if hasattr(mcq_result, 'keys') else 'No keys method'}")
-          else:
-              print("mcq_result not found in globals!")
-
-          # List all globals
-          print(f"All globals keys: {list(globals().keys())}")
-          "Debug complete"
-          `);
-          console.log("Python debug result:", debugInfo);
-          
           
           if (mcqData && typeof mcqData === 'object' && mcqData.text) {
             currentMCQ = mcqData;
@@ -707,9 +680,9 @@
             "Success"
           `);
           
-          // Get the result
-        const answerResultString = pyodideInstance.runPython("js_export(answer_result)");
-        const answerResult = JSON.parse(answerResultString);
+          // Use JSON serialization to fix Pyodide Proxy bug
+          const answerResultString = pyodideInstance.runPython("js_export(answer_result)");
+          const answerResult = JSON.parse(answerResultString);
           
           // Display results
           displayAnswerFeedback(answerResult);
@@ -768,16 +741,10 @@
           updateStatus('📊 Generating knowledge graph visualization...', 'info');
           
           const graphInfo = pyodideInstance.runPython(`
-            import matplotlib.pyplot as plt
-            import numpy as np
-            
-            # Get current student
+            # Simple approach: build string and return it directly
             student = student_manager.get_student(current_student_id)
-            
-            # Create a simple text-based representation
-            print("Current Knowledge Graph State:")
-            print("=" * 50)
-            
+            result = "Current Knowledge Graph State:\\n" + "=" * 50 + "\\n\\n"
+
             for topic_idx in sorted(kg.nodes.keys()):
                 node = kg.nodes[topic_idx]
                 mastery = student.mastery_levels[topic_idx]
@@ -797,18 +764,18 @@
                 else:
                     status = "⭐ Mastered"
                 
-                print(f"{node.topic:20} [{bar}] {mastery:5.1%} {status}")
+                result += f"{node.topic:20} [{bar}] {mastery:5.1%} {status}\\n"
                 
                 # Show dependencies
                 if node.dependencies:
                     dep_names = [kg.nodes[dep_idx].topic for dep_idx, _ in node.dependencies]
-                    print(f"{'':20} ↳ Depends on: {', '.join(dep_names)}")
-                print()
-            
-            "Graph visualization complete"
+                    result += f"{'':20} ↳ Depends on: {', '.join(dep_names)}\\n"
+                result += "\\n"
+
+            result
           `);
           
-          updateStatus('📊 Knowledge graph displayed in output', 'success');
+          updateStatus('📊 Knowledge graph displayed!', 'success');
           updateOutput(graphInfo);
           
         } catch (error) {

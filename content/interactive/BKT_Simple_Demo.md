@@ -208,6 +208,12 @@
             import sys
             sys.path.append('.')
             import bkt_system
+            import json
+            
+            # Create a helper function for JavaScript data transfer
+            def js_export(obj):
+                """Convert Python object to JSON string for JavaScript"""
+                return json.dumps(obj)
             
             # Create a simple knowledge graph for demo
             print("Creating demo knowledge graph...")
@@ -515,12 +521,38 @@
                 print(f"EMERGENCY! Result: {result_dict}")
                 globals()['mcq_result'] = result_dict
           `);
+
+          // Debugging
+          console.log("=== DEBUGGING DATA TRANSFER ===");
           
           // Get the result from Python globals
-          const mcqData = pyodideInstance.globals.get('mcq_result');
+          const mcqDataString = pyodideInstance.runPython("js_export(mcq_result)");
+          const mcqData = JSON.parse(mcqDataString);    
+          console.log("Fixed MCQ data:", mcqData);
           updateOutput('Python execution completed');
+
+          console.log("Raw mcqData from Python:", mcqData);
+          console.log("mcqData type:", typeof mcqData);
+          console.log("mcqData keys:", mcqData ? Object.keys(mcqData) : "null/undefined");
+
+          console.log("=== PYTHON GLOBALS DEBUG ===");
+          const debugInfo = pyodideInstance.runPython(`
+          import json
+          print("Checking globals...")
+          print(f"'mcq_result' in globals(): {'mcq_result' in globals()}")
+          if 'mcq_result' in globals():
+              print(f"Type of mcq_result: {type(mcq_result)}")
+              print(f"mcq_result contents: {mcq_result}")
+              print(f"mcq_result keys: {list(mcq_result.keys()) if hasattr(mcq_result, 'keys') else 'No keys method'}")
+          else:
+              print("mcq_result not found in globals!")
+
+          # List all globals
+          print(f"All globals keys: {list(globals().keys())}")
+          "Debug complete"
+          `);
+          console.log("Python debug result:", debugInfo);
           
-          updateOutput('Python execution completed');
           
           if (mcqData && typeof mcqData === 'object' && mcqData.text) {
             currentMCQ = mcqData;
@@ -676,7 +708,8 @@
           `);
           
           // Get the result
-          const answerResult = pyodideInstance.globals.get('answer_result');
+        const answerResultString = pyodideInstance.runPython("js_export(answer_result)");
+        const answerResult = JSON.parse(answerResultString);
           
           // Display results
           displayAnswerFeedback(answerResult);

@@ -57,7 +57,3 @@ parse:
     - substitution
     - tasklist
   myst_url_schemes: [mailto, http, https]
-
-sphinx:
-  config:
-    html_extra_path: ['InteractiveComponents']  # This will copy the entire folder

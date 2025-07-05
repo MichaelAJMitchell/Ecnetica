@@ -9,6 +9,27 @@
 <head>
     <title>BKT Algorithm Visual Demo</title>
     <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
+
+    <!-- Add MathJax configuration -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true,
+          processEnvironments: true
+        },
+        options: {
+          ignoreHtmlClass: 'tex2jax_ignore',
+          processHtmlClass: 'tex2jax_process'
+        }
+      };
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -278,7 +299,7 @@
           
           updateStatus('✅ BKT System Ready! Create a student to begin.', 'success');
           document.getElementById('createStudentBtn').disabled = false;
-          updateOutput('✓ BKT system initialized with Caoimhe\'s algorithms!');
+          updateOutput('✓ BKT system initialised.');
           
         } catch (error) {
           updateStatus('❌ Failed to initialize BKT system', 'error');
@@ -328,92 +349,144 @@
           console.error('Student creation error:', error);
         }
       }
-      
+
       async function generateMCQ() {
         try {
           updateStatus('❓ Generating MCQ based on student mastery...', 'info');
           
           const result = await pyodideInstance.runPythonAsync(`
-import json
+      import json
 
-print("=== DEBUG: Starting MCQ generation ===")
+      print("=== COMPREHENSIVE ELIGIBILITY DEBUG ===")
 
-try:
-    # Check if we have MCQs loaded
-    print(f"Total MCQs in kg.mcqs: {len(kg.mcqs)}")
-    
-    if len(kg.mcqs) == 0:
-        print("ERROR: No MCQs found in knowledge graph")
-        result_json = json.dumps({"success": False, "error": "No MCQs loaded in knowledge graph"})
-    else:
-        print("MCQ IDs available:", list(kg.mcqs.keys())[:5])  # Show first 5
-        
-        # Check student
-        student = student_manager.get_student(current_student_id)
-        if not student:
-            print("ERROR: Student not found")
-            result_json = json.dumps({"success": False, "error": "Student not found"})
-        else:
-            print(f"Student found with {len(student.mastery_levels)} mastery levels")
-            
-            # Get available MCQs for the student
-            print("Getting eligible MCQs...")
-            eligible_mcqs = mcq_scheduler.get_eligible_mcqs_for_student(current_student_id)
-            print(f"Eligible MCQs: {len(eligible_mcqs)}")
-            
-            if not eligible_mcqs:
-                print("No eligible MCQs - checking why...")
-                # Debug why no MCQs are eligible
-                all_mcq_ids = list(kg.mcqs.keys())
-                print(f"All MCQ IDs: {all_mcq_ids[:3]}")  # Show first 3
-                
-                if all_mcq_ids:
-                    test_mcq = kg.mcqs[all_mcq_ids[0]]
-                    print(f"Test MCQ main topic: {test_mcq.main_topic_index}")
-                    print(f"Student studied topics: {list(student.studied_topics.keys())[:5]}")
-                
-                result_json = json.dumps({
-                    "success": False, 
-                    "error": "No eligible MCQs found", 
-                    "debug": f"Total MCQs: {len(kg.mcqs)}, Student topics: {len(student.studied_topics)}"
-                })
-            else:
-                print(f"Found {len(eligible_mcqs)} eligible MCQs")
-                
-                # Try simple selection first - just pick the first eligible MCQ
-                mcq_id = eligible_mcqs[0]
-                mcq = kg.mcqs[mcq_id]
-                print(f"Selected MCQ: {mcq_id}")
-                
-                # Get student context
-                topic_name = kg.get_topic_of_index(mcq.main_topic_index)
-                current_mastery = student.get_mastery(mcq.main_topic_index)
-                
-                mcq_data = {
-                    "success": True,
-                    "mcq_id": mcq_id,
-                    "text": mcq.text,
-                    "options": mcq.options,
-                    "correct_index": mcq.correctindex,
-                    "explanations": mcq.option_explanations,
-                    "topic_name": topic_name,
-                    "current_mastery": current_mastery,
-                    "difficulty": getattr(mcq, 'difficulty', 0.5)  # Safe access
-                }
-                
-                print("MCQ data prepared successfully")
-                result_json = json.dumps(mcq_data)
-
-except Exception as e:
-    print(f"ERROR in MCQ generation: {e}")
-    import traceback
-    traceback.print_exc()
-    result_json = json.dumps({"success": False, "error": f"Python error: {str(e)}"})
-
-# This is the return value
-result_json
-          `);
+      try:
+          # 1. Basic checks
+          print(f"Total MCQs loaded: {len(kg.mcqs)}")
+          print(f"MCQ IDs sample: {list(kg.mcqs.keys())[:3]}")
           
+          student = student_manager.get_student(current_student_id)
+          print(f"Student found: {student is not None}")
+          print(f"Student mastery levels: {len(student.mastery_levels)}")
+          print(f"Student studied topics: {len(student.studied_topics)}")
+          
+          # 2. Check mastery threshold and due topics
+          mastery_threshold = mcq_scheduler.get_config_value('algorithm_config.mastery_threshold', 0.7)
+          print(f"Mastery threshold: {mastery_threshold}")
+          
+          due_topics = [idx for idx, mastery in student.mastery_levels.items() 
+                        if mastery < mastery_threshold]
+          print(f"Due topics (mastery < {mastery_threshold}): {len(due_topics)} out of {len(student.mastery_levels)}")
+          
+          # 3. Sample MCQ analysis
+          sample_mcq_id = list(kg.mcqs.keys())[0]
+          sample_mcq = kg.mcqs[sample_mcq_id]
+          print(f"\\nSample MCQ analysis:")
+          print(f"  MCQ ID: {sample_mcq_id}")
+          print(f"  Main topic index: {sample_mcq.main_topic_index}")
+          print(f"  Subtopic weights: {sample_mcq.subtopic_weights}")
+          
+          # Check if sample MCQ topics exist in student data
+          mcq_topics = list(sample_mcq.subtopic_weights.keys())
+          print(f"  MCQ covers topic indices: {mcq_topics}")
+          
+          student_topic_indices = list(student.studied_topics.keys())
+          print(f"  Student topic indices: {student_topic_indices[:10]}...")
+          
+          # Check overlap
+          mcq_topics_in_student = [t for t in mcq_topics if t in student_topic_indices]
+          print(f"  Overlapping indices: {mcq_topics_in_student}")
+          
+          # 4. Check if MCQ vectors are computed
+          print(f"\\nMCQ vectors computed: {len(mcq_scheduler.mcq_vectors)}")
+          if sample_mcq_id in mcq_scheduler.mcq_vectors:
+              vector = mcq_scheduler.mcq_vectors[sample_mcq_id]
+              print(f"  Sample vector subtopic weights: {vector.subtopic_weights}")
+          else:
+              print("  Sample MCQ vector not found - computing vectors...")
+              mcq_scheduler._ensure_vectors_computed()
+              print(f"  MCQ vectors after computation: {len(mcq_scheduler.mcq_vectors)}")
+          
+          # 5. Test eligibility step by step for sample MCQ
+          print(f"\\nStep-by-step eligibility check for sample MCQ:")
+          
+          # Check if all subtopics are studied
+          all_studied = True
+          for topic_idx in mcq_topics:
+              is_studied = student.is_topic_studied(topic_idx)
+              print(f"  Topic {topic_idx}: studied = {is_studied}")
+              if not is_studied:
+                  all_studied = False
+          
+          print(f"  All subtopics studied: {all_studied}")
+          
+          # Check if main topic is due
+          main_mastery = student.get_mastery(sample_mcq.main_topic_index)
+          is_due = main_mastery < mastery_threshold
+          print(f"  Main topic {sample_mcq.main_topic_index} mastery: {main_mastery:.3f}")
+          print(f"  Main topic is due: {is_due}")
+          
+          # Check if completed today
+          in_daily = sample_mcq_id in student.daily_completed
+          print(f"  Completed today: {in_daily}")
+          
+          # 6. Run actual eligibility methods
+          print(f"\\nRunning eligibility methods:")
+          all_eligible = mcq_scheduler.get_eligible_mcqs_for_student(current_student_id)
+          greedy_eligible = mcq_scheduler.get_eligible_mcqs_for_greedy_selection(current_student_id)
+          
+          print(f"  All eligible MCQs: {len(all_eligible)}")
+          print(f"  Greedy eligible MCQs: {len(greedy_eligible)}")
+          
+          if len(all_eligible) > 0:
+              print(f"  Sample eligible MCQ: {all_eligible[0]}")
+          
+          if len(greedy_eligible) > 0:
+              print(f"  Sample greedy eligible MCQ: {greedy_eligible[0]}")
+              
+              # SUCCESS - select an MCQ
+              mcq_id = greedy_eligible[0]
+              mcq = kg.mcqs[mcq_id]
+              topic_name = kg.get_topic_of_index(mcq.main_topic_index)
+              current_mastery = student.get_mastery(mcq.main_topic_index)
+              
+              mcq_data = {
+                  "success": True,
+                  "mcq_id": mcq_id,
+                  "text": mcq.text,
+                  "options": mcq.options,
+                  "correct_index": mcq.correctindex,
+                  "explanations": mcq.option_explanations,
+                  "topic_name": topic_name,
+                  "current_mastery": current_mastery,
+                  "difficulty": getattr(mcq, 'difficulty', 0.5)
+              }
+              
+              result_json = json.dumps(mcq_data)
+          else:
+              # FAILURE - no eligible MCQs
+              result_json = json.dumps({
+                  "success": False,
+                  "error": "No eligible MCQs found after detailed analysis",
+                  "debug_info": {
+                      "total_mcqs": len(kg.mcqs),
+                      "student_topics": len(student.studied_topics),
+                      "due_topics": len(due_topics),
+                      "mastery_threshold": mastery_threshold,
+                      "all_eligible": len(all_eligible),
+                      "greedy_eligible": len(greedy_eligible)
+                  }
+              })
+
+      except Exception as e:
+          print(f"ERROR in MCQ generation: {e}")
+          import traceback
+          traceback.print_exc()
+          result_json = json.dumps({"success": False, "error": f"Python error: {str(e)}"})
+
+      # Return the result
+      result_json
+      `);
+
           // Debug: Show what we actually got back
           console.log("Raw Python result:", result);
           console.log("Type of result:", typeof result);
@@ -445,25 +518,31 @@ result_json
       }
       
       function displayMCQ(mcqData) {
-        const mcqSection = document.getElementById('mcq-section');
-        mcqSection.style.display = 'block';
-        
-        mcqSection.innerHTML = `
-          <div class="mcq-container">
-            <div class="mcq-question">${mcqData.text}</div>
-            <p><strong>Topic:</strong> ${mcqData.topic_name}</p>
-            <p><strong>Current Mastery:</strong> ${(mcqData.current_mastery * 100).toFixed(1)}% | <strong>Difficulty:</strong> ${(mcqData.difficulty * 100).toFixed(1)}%</p>
-            
-            <div class="mcq-options">
-              ${mcqData.options.map((option, index) => 
-                `<button class="mcq-option" onclick="selectOption(${index})">${option}</button>`
-              ).join('')}
-            </div>
-            
-            <button onclick="submitAnswer()" style="margin-top: 15px; padding: 10px 20px; background: #28a745; color: white; border: none; border-radius: 5px;" disabled id="submitBtn">Submit Answer</button>
+      const mcqSection = document.getElementById('mcq-section');
+      mcqSection.style.display = 'block';
+      
+      mcqSection.innerHTML = `
+        <div class="mcq-container">
+          <div class="mcq-question">${mcqData.text}</div>
+          <p><strong>Topic:</strong> ${mcqData.topic_name}</p>
+          <p><strong>Current Mastery:</strong> ${(mcqData.current_mastery * 100).toFixed(1)}% | <strong>Difficulty:</strong> ${(mcqData.difficulty * 100).toFixed(1)}%</p>
+          
+          <div class="mcq-options">
+            ${mcqData.options.map((option, index) => 
+              `<button class="mcq-option" onclick="selectOption(${index})">${option}</button>`
+            ).join('')}
           </div>
-        `;
+          
+          <button onclick="submitAnswer()" style="margin-top: 15px; padding: 10px 20px; background: #28a745; color: white; border: none; border-radius: 5px;" disabled id="submitBtn">Submit Answer</button>
+        </div>
+      `;
+      
+      // Re-render MathJax for the new content
+      if (window.MathJax) {
+        MathJax.typesetPromise([mcqSection]).catch((err) => console.log('MathJax render error:', err));
       }
+    }
+
       
       function selectOption(index) {
         // Remove previous selection
@@ -540,41 +619,46 @@ result_json
       }
       
       function displayResult(result) {
-        const mcqSection = document.getElementById('mcq-section');
-        const isCorrect = result.is_correct;
-        const borderColor = isCorrect ? '#28a745' : '#dc3545';
-        const bgColor = isCorrect ? '#d4edda' : '#f8d7da';
-        const textColor = isCorrect ? '#155724' : '#721c24';
-        const icon = isCorrect ? '✅' : '❌';
-        const changeIcon = result.mastery_change > 0 ? '📈' : result.mastery_change < 0 ? '📉' : '➖';
-        
-        mcqSection.innerHTML = `
-          <div class="mcq-container" style="border-color: ${borderColor}; background-color: ${bgColor}; color: ${textColor};">
-            <h3>${icon} ${isCorrect ? 'Correct!' : 'Incorrect'}</h3>
-            <p><strong>Your Answer:</strong> ${result.selected_text}</p>
-            <p><strong>Correct Answer:</strong> ${result.correct_option}</p>
-            <p><strong>Explanation:</strong> ${result.explanation}</p>
+      const mcqSection = document.getElementById('mcq-section');
+      const isCorrect = result.is_correct;
+      const borderColor = isCorrect ? '#28a745' : '#dc3545';
+      const bgColor = isCorrect ? '#d4edda' : '#f8d7da';
+      const textColor = isCorrect ? '#155724' : '#721c24';
+      const icon = isCorrect ? '✅' : '❌';
+      const changeIcon = result.mastery_change > 0 ? '📈' : result.mastery_change < 0 ? '📉' : '➖';
+      
+      mcqSection.innerHTML = `
+        <div class="mcq-container" style="border-color: ${borderColor}; background-color: ${bgColor}; color: ${textColor};">
+          <h3>${icon} ${isCorrect ? 'Correct!' : 'Incorrect'}</h3>
+          <p><strong>Your Answer:</strong> ${result.selected_text}</p>
+          <p><strong>Correct Answer:</strong> ${result.correct_option}</p>
+          <p><strong>Explanation:</strong> ${result.explanation}</p>
+          
+          <div style="background: white; padding: 15px; margin: 10px 0; border-radius: 5px; color: black;">
+            <h4>🧠 BKT Mastery Update</h4>
+            <p><strong>Topic:</strong> ${result.main_topic}</p>
+            <p><strong>Before:</strong> ${(result.before_mastery * 100).toFixed(1)}%</p>
+            <p><strong>After:</strong> ${(result.after_mastery * 100).toFixed(1)}%</p>
+            <p><strong>Change:</strong> ${changeIcon} ${result.mastery_change > 0 ? '+' : ''}${(result.mastery_change * 100).toFixed(2)}%</p>
+            <p><strong>Total Topics Updated:</strong> ${result.total_changes}</p>
             
-            <div style="background: white; padding: 15px; margin: 10px 0; border-radius: 5px; color: black;">
-              <h4>🧠 BKT Mastery Update</h4>
-              <p><strong>Topic:</strong> ${result.main_topic}</p>
-              <p><strong>Before:</strong> ${(result.before_mastery * 100).toFixed(1)}%</p>
-              <p><strong>After:</strong> ${(result.after_mastery * 100).toFixed(1)}%</p>
-              <p><strong>Change:</strong> ${changeIcon} ${result.mastery_change > 0 ? '+' : ''}${(result.mastery_change * 100).toFixed(2)}%</p>
-              <p><strong>Total Topics Updated:</strong> ${result.total_changes}</p>
-              
-              <div class="progress-bar" style="margin: 10px 0;">
-                <div class="progress-fill" style="width: ${result.after_mastery * 100}%; background-color: ${result.after_mastery > result.before_mastery ? '#28a745' : '#ffc107'};"></div>
-              </div>
+            <div class="progress-bar" style="margin: 10px 0;">
+              <div class="progress-fill" style="width: ${result.after_mastery * 100}%; background-color: ${result.after_mastery > result.before_mastery ? '#28a745' : '#ffc107'};"></div>
             </div>
-            
-            <button onclick="generateMCQ()" style="margin-top: 15px; padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px;">Next Question</button>
           </div>
-        `;
-        
-        updateStatus(isCorrect ? '✅ Correct! Knowledge updated.' : '❌ Incorrect, but you still learned!', isCorrect ? 'success' : 'error');
+          
+          <button onclick="generateMCQ()" style="margin-top: 15px; padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px;">Next Question</button>
+        </div>
+      `;
+      
+      // Re-render MathJax for the new content
+      if (window.MathJax) {
+        MathJax.typesetPromise([mcqSection]).catch((err) => console.log('MathJax render error:', err));
       }
       
+      updateStatus(isCorrect ? '✅ Correct! Knowledge updated.' : '❌ Incorrect, but you still learned!', isCorrect ? 'success' : 'error');
+    }
+          
       async function showKnowledgeGraph() {
         try {
           updateStatus('📊 Generating knowledge graph...', 'info');

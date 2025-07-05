@@ -194,7 +194,7 @@
           
           // Fetch and load the BKT code
           updateOutput('Fetching BKT algorithm code...');
-          const response = await fetch("http://0.0.0.0:8000/mcq_algorithm_full_python.py");
+          const response = await fetch("../../_static/mcq_algorithm_full_python.py");
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
           }

@@ -1,224 +1,247 @@
 
-  # BKT Simple Demo
+# BKT Simple Demo
 
-  ```{raw} html
 
-  <!doctype html>
-  <html>
-    <head>
-      <title>BKT Algorithm Visual Demo</title>
-      <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
-      <style>
-        body {
-          font-family: Arial, sans-serif;
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 20px;
-          background-color: #f5f5f5;
-        }
-        .container {
-          background: white;
-          padding: 20px;
-          border-radius: 10px;
-          box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-          margin-bottom: 20px;
-        }
-        .controls {
-          display: flex;
-          gap: 10px;
-          margin: 20px 0;
-          flex-wrap: wrap;
-        }
-        button {
-          padding: 12px 20px;
-          font-size: 16px;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-          transition: background-color 0.3s;
-        }
-        .primary-btn {
-          background-color: #2196F3;
-          color: white;
-        }
-        .primary-btn:hover {
-          background-color: #1976D2;
-        }
-        .success-btn {
-          background-color: #4CAF50;
-          color: white;
-        }
-        .success-btn:hover {
-          background-color: #45a049;
-        }
-        .danger-btn {
-          background-color: #f44336;
-          color: white;
-        }
-        .danger-btn:hover {
-          background-color: #da190b;
-        }
-        #output {
-          background-color: #f8f9fa;
-          border: 1px solid #dee2e6;
-          border-radius: 5px;
-          padding: 15px;
-          margin: 15px 0;
-          min-height: 100px;
-          font-family: monospace;
-          white-space: pre-wrap;
-          overflow-x: auto;
-        }
-        .status {
-          padding: 10px;
-          border-radius: 5px;
-          margin: 10px 0;
-        }
-        .status.success {
-          background-color: #d4edda;
-          color: #155724;
-          border: 1px solid #c3e6cb;
-        }
-        .status.error {
-          background-color: #f8d7da;
-          color: #721c24;
-          border: 1px solid #f5c6cb;
-        }
-        .status.info {
-          background-color: #d1ecf1;
-          color: #0c5460;
-          border: 1px solid #bee5eb;
-        }
-        .mcq-container {
-          background-color: #fff;
-          border: 2px solid #007bff;
-          border-radius: 8px;
-          padding: 20px;
-          margin: 15px 0;
-        }
-        .mcq-question {
-          font-size: 18px;
-          font-weight: bold;
-          margin-bottom: 15px;
-          color: #333;
-        }
-        .mcq-options {
-          margin: 15px 0;
-        }
-        .mcq-option {
-          display: block;
-          margin: 8px 0;
-          padding: 10px;
-          background-color: #f8f9fa;
-          border: 2px solid #e9ecef;
-          border-radius: 5px;
-          cursor: pointer;
-          transition: all 0.3s;
-        }
-        .mcq-option:hover {
-          background-color: #e9ecef;
-          border-color: #007bff;
-        }
-        .mcq-option.selected {
-          background-color: #007bff;
-          color: white;
-          border-color: #0056b3;
-        }
-        .progress-bar {
-          width: 100%;
-          height: 20px;
-          background-color: #e9ecef;
-          border-radius: 10px;
-          overflow: hidden;
-          margin: 10px 0;
-        }
-        .progress-fill {
-          height: 100%;
-          background-color: #28a745;
-          transition: width 0.3s ease;
-        }
-      </style>
-    </head>
-    <body>
-      <div class="container">
-        <h1>🧠 BKT Algorithm Visual Demo</h1>
-        <p>This demo shows how Bayesian Knowledge Tracing works with a simple knowledge graph. Students start with low mastery levels and improve through practice.</p>
-        
-        <div class="controls">
-          <button onclick="initializeDemo()" class="primary-btn">🚀 Initialize BKT System</button>
-          <button onclick="createStudent()" class="success-btn" id="createStudentBtn" disabled>👤 Create Student</button>
-          <button onclick="generateMCQ()" class="primary-btn" id="generateMCQBtn" disabled>❓ Generate MCQ</button>
-          <button onclick="showKnowledgeGraph()" class="primary-btn" id="showGraphBtn" disabled>📊 Show Knowledge Graph</button>
-          <button onclick="resetDemo()" class="danger-btn">🔄 Reset Demo</button>
-        </div>
-        
-        <div id="status" class="status info">Click "Initialize BKT System" to start the demo...</div>
-        
-        <div id="mcq-section" style="display: none;"></div>
-        
-        <div id="output"></div>
+```{raw} html
+
+<!doctype html>
+<html>
+<head>
+    <title>BKT Algorithm Visual Demo</title>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+      .container {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+      }
+      .controls {
+        display: flex;
+        gap: 10px;
+        margin: 20px 0;
+        flex-wrap: wrap;
+      }
+      button {
+        padding: 12px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .primary-btn {
+        background-color: #2196F3;
+        color: white;
+      }
+      .primary-btn:hover {
+        background-color: #1976D2;
+      }
+      .success-btn {
+        background-color: #4CAF50;
+        color: white;
+      }
+      .success-btn:hover {
+        background-color: #45a049;
+      }
+      .danger-btn {
+        background-color: #f44336;
+        color: white;
+      }
+      .danger-btn:hover {
+        background-color: #da190b;
+      }
+      #output {
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 5px;
+        padding: 15px;
+        margin: 15px 0;
+        min-height: 100px;
+        font-family: monospace;
+        white-space: pre-wrap;
+        overflow-x: auto;
+      }
+      .status {
+        padding: 10px;
+        border-radius: 5px;
+        margin: 10px 0;
+      }
+      .status.success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+      }
+      .status.error {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+      }
+      .status.info {
+        background-color: #d1ecf1;
+        color: #0c5460;
+        border: 1px solid #bee5eb;
+      }
+      .mcq-container {
+        background-color: #fff;
+        border: 2px solid #007bff;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 15px 0;
+      }
+      .mcq-question {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: #333;
+      }
+      .mcq-options {
+        margin: 15px 0;
+      }
+      .mcq-option {
+        display: block;
+        margin: 8px 0;
+        padding: 10px;
+        background-color: #f8f9fa;
+        border: 2px solid #e9ecef;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      .mcq-option:hover {
+        background-color: #e9ecef;
+        border-color: #007bff;
+      }
+      .mcq-option.selected {
+        background-color: #007bff;
+        color: white;
+        border-color: #0056b3;
+      }
+      .progress-bar {
+        width: 100%;
+        height: 20px;
+        background-color: #e9ecef;
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 10px 0;
+      }
+      .progress-fill {
+        height: 100%;
+        background-color: #28a745;
+        transition: width 0.3s ease;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <h1>🧠 BKT Algorithm Visual Demo</h1>
+      <p>This demo shows how Bayesian Knowledge Tracing works with a simple knowledge graph.
+         Students start with low mastery levels and improve through practice.</p>
+      
+      <div class="controls">
+        <button onclick="initializeDemo()" class="primary-btn">🚀 Initialize BKT System</button>
+        <button onclick="createStudent()" class="success-btn" id="createStudentBtn" disabled>👤 Create Student</button>
+        <button onclick="generateMCQ()" class="primary-btn" id="generateMCQBtn" disabled>❓ Generate MCQ</button>
+        <button onclick="showKnowledgeGraph()" class="primary-btn" id="showGraphBtn" disabled>📊 Show Knowledge Graph</button>
+        <button onclick="resetDemo()" class="danger-btn">🔄 Reset Demo</button>
       </div>
       
-      <script type="text/javascript">
-        let pyodideInstance = null;
-        let currentStudent = null;
-        let currentMCQ = null;
-        let selectedOption = null;
-        
-        function updateStatus(message, type = 'info') {
-          const statusDiv = document.getElementById('status');
-          statusDiv.className = `status ${type}`;
-          statusDiv.textContent = message;
-        }
-        
-        function updateOutput(message) {
-          const output = document.getElementById('output');
-          output.textContent += message + '\n';
-          output.scrollTop = output.scrollHeight;
-        }
-        
-        async function initializeDemo() {
-          try {
-            updateStatus('🔄 Loading Pyodide and packages...', 'info');
-            updateOutput('Initializing BKT demo...');
+      <div id="status" class="status info">Click "Initialize BKT System" to start the demo...</div>
+      
+      <div id="mcq-section" style="display: none;"></div>
+      
+      <div id="output"></div>
+    </div>
+    
+    <script type="text/javascript">
+      let pyodideInstance = null;
+      let currentStudent = null;
+      let currentMCQ = null;
+      let selectedOption = null;
+      
+      function updateStatus(message, type = 'info') {
+        const statusDiv = document.getElementById('status');
+        statusDiv.className = `status ${type}`;
+        statusDiv.textContent = message;
+      }
+      
+      function updateOutput(message) {
+        const output = document.getElementById('output');
+        output.textContent += message + '\n';
+        output.scrollTop = output.scrollHeight;
+      }
+      
+      async function initializeDemo() {
+        try {
+          updateStatus('🔄 Loading Pyodide and packages...', 'info');
+          updateOutput('Initializing BKT demo...');
+          
+          if (!pyodideInstance) {
+            pyodideInstance = await loadPyodide();
+            updateOutput('✓ Pyodide loaded successfully');
             
-            if (!pyodideInstance) {
-              pyodideInstance = await loadPyodide({
-                indexURL: "../../_static/",  // Local core
-                packageCacheKey: "bkt-demo-v1",
-                loadPackages: false
-              });
-              
-              updateOutput('✓ Pyodide loaded successfully');
-              updateOutput('Checking package cache...');
-              
-              // Override where packages come from AFTER initialization
-              const originalIndexURL = pyodideInstance._api.config.indexURL;
-              pyodideInstance._api.config.indexURL = "https://cdn.jsdelivr.net/pyodide/v0.27.7/full/";
-              
-              const packages = ["numpy", "networkx", "matplotlib"];
-              await pyodideInstance.loadPackage(packages, {
-                messageCallback: (msg) => console.log(`Package loading: ${msg}`),
-                errorCallback: (err) => console.error(`Package error: ${err}`)
-              });
-              
-              // Restore original indexURL for any future core operations
-              pyodideInstance._api.config.indexURL = originalIndexURL;
-              
-              updateOutput('✓ All packages loaded');
-            }
-
-            
-            // Fetch and load the BKT code
-          updateOutput('Fetching BKT algorithm code...');
-          const response = await fetch("../../_static/mcq_algorithm_full_python.py");
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            // Load required packages
+            updateOutput('Loading packages: numpy, networkx, matplotlib...');
+            await pyodideInstance.loadPackage(["numpy", "networkx", "matplotlib"]);
+            updateOutput('✓ All packages loaded');
           }
           
-          const code = await response.text();
+          // Fetch and load the BKT code
+          updateOutput('Fetching BKT algorithm code...');
+          const pyResponse = await fetch("../../_static/mcq_algorithm_full_python.py");
+          if (!pyResponse.ok) {
+            throw new Error(`Failed to fetch Python code: ${pyResponse.status}`);
+          }
+          const code = await pyResponse.text();
           pyodideInstance.FS.writeFile("bkt_system.py", code);
           updateOutput('✓ BKT code loaded');
+          
+          // Fetch and load JSON files
+          updateOutput('Fetching configuration files...');
+          
+          // Fetch config.json
+          const configResponse = await fetch("../../_static/config.json");
+          if (!configResponse.ok) {
+            throw new Error(`Failed to fetch config.json: ${configResponse.status}`);
+          }
+          const configData = await configResponse.text();
+          pyodideInstance.FS.writeFile("config.json", configData);
+          updateOutput('✓ config.json loaded');
+          
+          // Fetch kg.json
+          const kgResponse = await fetch("../../_static/kg.json");
+          if (!kgResponse.ok) {
+            throw new Error(`Failed to fetch kg.json: ${kgResponse.status}`);
+          }
+          const kgData = await kgResponse.text();
+          pyodideInstance.FS.writeFile("kg.json", kgData);
+          updateOutput('✓ kg.json loaded');
+          
+          // Fetch mcqs.json
+          const mcqsResponse = await fetch("../../_static/mcqs.json");
+          if (!mcqsResponse.ok) {
+            throw new Error(`Failed to fetch mcqs.json: ${mcqsResponse.status}`);
+          }
+          const mcqsData = await mcqsResponse.text();
+          pyodideInstance.FS.writeFile("mcqs.json", mcqsData);
+          updateOutput('✓ mcqs.json loaded');
+          
+          // Fetch computed_mcqs.json
+          const computedMcqsResponse = await fetch("../../_static/computed_mcqs.json");
+          if (!computedMcqsResponse.ok) {
+            throw new Error(`Failed to fetch computed_mcqs.json: ${computedMcqsResponse.status}`);
+          }
+          const computedMcqsData = await computedMcqsResponse.text();
+          pyodideInstance.FS.writeFile("computed_mcqs.json", computedMcqsData);
+          updateOutput('✓ computed_mcqs.json loaded');
           
           // Import and initialize the system
           await pyodideInstance.runPythonAsync(`
@@ -232,147 +255,20 @@
                 """Convert Python object to JSON string for JavaScript"""
                 return json.dumps(obj)
             
-            # Create a simple knowledge graph for demo
-            print("Creating demo knowledge graph...")
+            print("Initializing BKT system with configuration files...")
             
-            # Create a clean knowledge graph without loading from files
+            # Initialize the system using Caoimhe's design
             kg = bkt_system.KnowledgeGraph()
-            
-            # Clear any existing data to start fresh
-            kg.nodes = {}
-            kg.topic_to_index = {}
-            kg._next_index = 0
-            kg.mcqs = {}
-            
-            print("Starting with clean knowledge graph")
-            
-            # Add ONLY our demo topics
-            topic_0 = kg.add_node("Basic Arithmetic", "Foundation", [])
-            topic_1 = kg.add_node("Linear Equations", "Algebra", [(topic_0, 1.0)])
-            topic_2 = kg.add_node("Quadratic Equations", "Algebra", [(topic_1, 0.8)])
-            topic_3 = kg.add_node("Functions", "Algebra", [(topic_1, 0.6)])
-            topic_4 = kg.add_node("Trigonometry", "Advanced", [(topic_2, 0.7), (topic_3, 0.5)])
-            
-            print(f"Knowledge graph created with {len(kg.nodes)} topics")
-            print(f"Topic indices: {list(kg.nodes.keys())}")
-            for idx, node in kg.nodes.items():
-                print(f"  {idx}: {node.topic}")
-            
-            # Create some sample MCQs
-            mcqs = []
-            
-            # MCQ for Basic Arithmetic (topic 0)
-            mcqs.append(kg.create_mcqs(
-                text='What is 15 + 7?',
-                options=['20', '22', '23', '21'],
-                correctindex=1,
-                option_explanations=[
-                    'This would be 15 + 5. Remember to add all digits carefully.',
-                    'Correct! 15 + 7 = 22. Well done on this basic arithmetic.',
-                    'This would be 15 + 8. Double-check your addition.',
-                    'This would be 15 + 6. Make sure to add the correct numbers.'
-                ],
-                main_topic_index=0,
-                subtopic_weights={0: 1.0},
-                conceptual=0.2, procedural=0.8, problem_solving=0.1, communication=0.1, memory=0.3, spatial=0.0
-            ))
-            
-            # MCQ for Linear Equations (topic 1)
-            mcqs.append(kg.create_mcqs(
-                text='Solve for x: 2x + 5 = 13',
-                options=['x = 3', 'x = 4', 'x = 6', 'x = 9'],
-                correctindex=1,
-                option_explanations=[
-                    'Check your algebra: 2(3) + 5 = 11, not 13.',
-                    'Correct! 2x = 13 - 5 = 8, so x = 4.',
-                    'This gives 2(6) + 5 = 17, which is too large.',
-                    'This gives 2(9) + 5 = 23, which is much too large.'
-                ],
-                main_topic_index=1,
-                subtopic_weights={1: 0.9, 0: 0.1},
-                conceptual=0.3, procedural=0.7, problem_solving=0.4, communication=0.2, memory=0.2, spatial=0.0
-            ))
-            
-            # MCQ for Quadratic Equations (topic 2)
-            mcqs.append(kg.create_mcqs(
-                text='What is the discriminant of x² - 5x + 6 = 0?',
-                options=['1', '4', '25', '11'],
-                correctindex=0,
-                option_explanations=[
-                    'Correct! Using b² - 4ac: (-5)² - 4(1)(6) = 25 - 24 = 1.',
-                    'This would be 2². Remember the discriminant formula is b² - 4ac.',
-                    'This is b² only. Don\\'t forget to subtract 4ac.',
-                    'Check your calculation of 4ac. It should be 4(1)(6) = 24.'
-                ],
-                main_topic_index=2,
-                subtopic_weights={2: 0.8, 1: 0.2},
-                conceptual=0.5, procedural=0.6, problem_solving=0.3, communication=0.2, memory=0.4, spatial=0.0
-            ))
-            
-            # MCQ for Functions (topic 3)
-            mcqs.append(kg.create_mcqs(
-                text='If f(x) = 2x + 3, what is f(5)?',
-                options=['10', '13', '8', '15'],
-                correctindex=1,
-                option_explanations=[
-                    'This would be 2×5 = 10, but you forgot to add 3.',
-                    'Correct! f(5) = 2(5) + 3 = 10 + 3 = 13.',
-                    'This seems to be 5 + 3, but you forgot to multiply by 2 first.',
-                    'This might be 3×5, but the function is 2x + 3, not 3x.'
-                ],
-                main_topic_index=3,
-                subtopic_weights={3: 1.0},
-                conceptual=0.4, procedural=0.6, problem_solving=0.2, communication=0.3, memory=0.3, spatial=0.0
-            ))
-            
-            # MCQ for Trigonometry (topic 4)  
-            mcqs.append(kg.create_mcqs(
-                text='What is sin(90°)?',
-                options=['0', '1', '0.5', 'undefined'],
-                correctindex=1,
-                option_explanations=[
-                    'This is sin(0°). Remember that sin(90°) represents the y-coordinate at the top of the unit circle.',
-                    'Correct! sin(90°) = 1. At 90°, we are at the top of the unit circle where y = 1.',
-                    'This is sin(30°). The sine of 90° is at the maximum value of the sine function.',
-                    'Sine is defined for all angles. You might be thinking of tan(90°).'
-                ],
-                main_topic_index=4,
-                subtopic_weights={4: 0.8, 2: 0.2},
-                conceptual=0.3, procedural=0.4, problem_solving=0.1, communication=0.4, memory=0.5, spatial=0.2
-            ))
-            
-            print(f"Created {len(mcqs)} sample MCQs")
-            
-            # CRITICAL DEBUG: Check if MCQs are actually stored in kg.mcqs
-            print(f"MCQs stored in kg.mcqs: {len(kg.mcqs)}")
-            print(f"kg.mcqs keys: {list(kg.mcqs.keys())}")
-            
-            # Debug each created MCQ
-            for i, mcq in enumerate(mcqs):
-                print(f"MCQ {i}: ID={mcq.id}, topic={mcq.main_topic_index}, text='{mcq.text[:30]}...'")
-                print(f"  Stored in kg.mcqs? {mcq.id in kg.mcqs}")
-            
-            # Check if kg.mcqs is empty - if so, the MCQs weren't stored properly
-            if len(kg.mcqs) == 0:
-                print("ERROR: kg.mcqs is empty! MCQs were not stored in knowledge graph.")
-                print("Manually adding MCQs to kg.mcqs...")
-                for mcq in mcqs:
-                    kg.mcqs[mcq.id] = mcq
-                print(f"After manual addition: kg.mcqs has {len(kg.mcqs)} MCQs")
-            
-            # Initialize student manager
             student_manager = bkt_system.StudentManager()
-            
-            # Initialize BKT with required parameters
+            mcq_scheduler = bkt_system.MCQScheduler(kg, student_manager)
             bkt = bkt_system.BayesianKnowledgeTracing(kg, student_manager)
             
-            # Initialize MCQ scheduler (should have done this from the start!)
-            mcq_scheduler = bkt_system.MCQScheduler(kg, student_manager)
+            # Connect systems
             mcq_scheduler.set_bkt_system(bkt)
+            student_manager.set_bkt_system(bkt)
             
             # Store everything globally for access
             globals()['kg'] = kg
-            globals()['mcqs'] = mcqs
             globals()['student_manager'] = student_manager
             globals()['bkt'] = bkt
             globals()['mcq_scheduler'] = mcq_scheduler
@@ -382,7 +278,7 @@
           
           updateStatus('✅ BKT System Ready! Create a student to begin.', 'success');
           document.getElementById('createStudentBtn').disabled = false;
-          updateOutput('✓ BKT system initialized successfully!');
+          updateOutput('✓ BKT system initialized with Caoimhe\'s algorithms!');
           
         } catch (error) {
           updateStatus('❌ Failed to initialize BKT system', 'error');
@@ -393,44 +289,38 @@
       
       async function createStudent() {
         try {
-          updateStatus('👤 Creating student with low initial masteries...', 'info');
+          updateStatus('👤 Creating student profile...', 'info');
           
-          const result = pyodideInstance.runPython(`
+          const result = await pyodideInstance.runPythonAsync(`
+            # Create a student with realistic mastery levels
+            current_student_id = "demo_student"
+            student = student_manager.create_student(current_student_id)
+            
+            # Set initial mastery levels for demo topics
             import random
-            random.seed(42)  # For reproducible results
+            random.seed(42)  # For consistent demo
             
-            # Create student with low initial masteries (0.1 to 0.3)
-            student_id = "demo_student_001"
+            for topic_idx in kg.get_all_indexes():
+                mastery = random.uniform(0.1, 0.6)  # Start with low mastery
+                student.mastery_levels[topic_idx] = mastery
+                student.confidence_levels[topic_idx] = mastery * 0.8
+                student.studied_topics[topic_idx] = True  # Mark as studied
             
-            # Create the student first
-            student = student_manager.create_student(student_id)
+            # Show student status
+            status = f"Student created with {len(student.mastery_levels)} topics\\n"
+            status += f"Average mastery: {sum(student.mastery_levels.values()) / len(student.mastery_levels):.3f}\\n"
+            status += f"Topics studied: {len([t for t, studied in student.studied_topics.items() if studied])}"
             
-            # Then set initial masteries manually for ONLY our 5 topics
-            for topic_index in kg.nodes.keys():
-                # Low initial mastery between 0.1 and 0.3
-                mastery = random.uniform(0.1, 0.3)
-                student.mastery_levels[topic_index] = mastery
-                # Also set as studied and initialize confidence
-                student.studied_topics[topic_index] = True
-                student.confidence_levels[topic_index] = 0.5
-            
-            print(f"Created student: {student_id}")
-            print("Initial mastery levels:")
-            for topic_index, mastery in student.mastery_levels.items():
-                topic_name = kg.nodes[topic_index].topic
-                print(f"  {topic_name}: {mastery:.3f}")
-            
-            # Store current student
-            globals()['current_student_id'] = student_id
-            
-            f"Student {student_id} created successfully"
+            js_export({"success": True, "status": status, "student_id": current_student_id})
           `);
           
-          currentStudent = pyodideInstance.globals.get('current_student_id');
+          const data = JSON.parse(result);
+          currentStudent = data.student_id;
+          
           updateStatus('✅ Student created! Generate an MCQ to start learning.', 'success');
           document.getElementById('generateMCQBtn').disabled = false;
           document.getElementById('showGraphBtn').disabled = false;
-          updateOutput(result);
+          updateOutput(data.status);
           
         } catch (error) {
           updateStatus('❌ Failed to create student', 'error');
@@ -443,119 +333,113 @@
         try {
           updateStatus('❓ Generating MCQ based on student mastery...', 'info');
           
-          // Execute Python code to generate MCQ
-          pyodideInstance.runPython(`
-            print("=== DEBUGGING MCQ GENERATION ===")
+          const result = await pyodideInstance.runPythonAsync(`
+import json
+
+print("=== DEBUG: Starting MCQ generation ===")
+
+try:
+    # Check if we have MCQs loaded
+    print(f"Total MCQs in kg.mcqs: {len(kg.mcqs)}")
+    
+    if len(kg.mcqs) == 0:
+        print("ERROR: No MCQs found in knowledge graph")
+        result_json = json.dumps({"success": False, "error": "No MCQs loaded in knowledge graph"})
+    else:
+        print("MCQ IDs available:", list(kg.mcqs.keys())[:5])  # Show first 5
+        
+        # Check student
+        student = student_manager.get_student(current_student_id)
+        if not student:
+            print("ERROR: Student not found")
+            result_json = json.dumps({"success": False, "error": "Student not found"})
+        else:
+            print(f"Student found with {len(student.mastery_levels)} mastery levels")
             
-            # Get student and check data
-            student = student_manager.get_student(current_student_id)
-            print(f"Student found: {student is not None}")
-            print(f"Student masteries: {student.mastery_levels}")
-            print(f"MCQs in kg.mcqs: {len(kg.mcqs)}")
+            # Get available MCQs for the student
+            print("Getting eligible MCQs...")
+            eligible_mcqs = mcq_scheduler.get_eligible_mcqs_for_student(current_student_id)
+            print(f"Eligible MCQs: {len(eligible_mcqs)}")
             
-            # List all available MCQs with their topics
-            print("\\n=== ALL AVAILABLE MCQs ===")
-            for i, (mcq_id, mcq) in enumerate(kg.mcqs.items()):
-                print(f"MCQ {i}: ID={mcq_id[:8]}, topic={mcq.main_topic_index}, text='{mcq.text[:30]}...'")
-            
-            # Find lowest mastery topic
-            print("\\n=== FINDING LOWEST MASTERY ===")
-            if student.mastery_levels:
-                lowest_mastery = min(student.mastery_levels.values())
-                print(f"Lowest mastery value: {lowest_mastery}")
+            if not eligible_mcqs:
+                print("No eligible MCQs - checking why...")
+                # Debug why no MCQs are eligible
+                all_mcq_ids = list(kg.mcqs.keys())
+                print(f"All MCQ IDs: {all_mcq_ids[:3]}")  # Show first 3
                 
-                lowest_topic = None
-                for topic_idx, mastery in student.mastery_levels.items():
-                    print(f"  Topic {topic_idx}: mastery {mastery}")
-                    if mastery == lowest_mastery:
-                        lowest_topic = topic_idx
-                        print(f"  -> This is the lowest! Setting target to {topic_idx}")
-                        break
+                if all_mcq_ids:
+                    test_mcq = kg.mcqs[all_mcq_ids[0]]
+                    print(f"Test MCQ main topic: {test_mcq.main_topic_index}")
+                    print(f"Student studied topics: {list(student.studied_topics.keys())[:5]}")
                 
-                print(f"Target topic: {lowest_topic}")
-                
-                # Try to find MCQ for this topic
-                print("\\n=== SEARCHING FOR MCQ ===")
-                target_mcq = None
-                for mcq_id, mcq in kg.mcqs.items():
-                    print(f"Checking MCQ {mcq_id[:8]} - has topic {mcq.main_topic_index}, want topic {lowest_topic}")
-                    if mcq.main_topic_index == lowest_topic:
-                        target_mcq = mcq
-                        print(f"  *** MATCH FOUND! ***")
-                        break
-                    else:
-                        print(f"  No match: {mcq.main_topic_index} != {lowest_topic}")
-                
-                if target_mcq:
-                    print(f"\\n=== CREATING RESULT ===")
-                    topic_name = kg.nodes[target_mcq.main_topic_index].topic
-                    print(f"Topic name: {topic_name}")
-                    
-                    # Store current MCQ
-                    globals()['current_mcq'] = target_mcq
-                    
-                    result_dict = {
-                        'text': str(target_mcq.text),
-                        'options': list(target_mcq.options),
-                        'topic': str(topic_name),
-                        'mastery': float(lowest_mastery),
-                        'correct_index': int(target_mcq.correctindex)
-                    }
-                    print(f"SUCCESS! Result: {result_dict}")
-                    
-                    # STORE IN GLOBALS FOR JAVASCRIPT TO ACCESS
-                    globals()['mcq_result'] = result_dict
-                    
-                else:
-                    print("\\n=== NO MCQ FOUND - USING FALLBACK ===")
-                    # Just use the first MCQ as fallback
-                    first_mcq = list(kg.mcqs.values())[0]
-                    topic_name = kg.nodes[first_mcq.main_topic_index].topic
-                    mastery = student.mastery_levels.get(first_mcq.main_topic_index, 0.2)
-                    
-                    globals()['current_mcq'] = first_mcq
-                    
-                    result_dict = {
-                        'text': str(first_mcq.text),
-                        'options': list(first_mcq.options),
-                        'topic': str(topic_name),
-                        'mastery': float(mastery),
-                        'correct_index': int(first_mcq.correctindex)
-                    }
-                    print(f"FALLBACK! Result: {result_dict}")
-                    globals()['mcq_result'] = result_dict
+                result_json = json.dumps({
+                    "success": False, 
+                    "error": "No eligible MCQs found", 
+                    "debug": f"Total MCQs: {len(kg.mcqs)}, Student topics: {len(student.studied_topics)}"
+                })
             else:
-                print("ERROR: Student has no masteries!")
-                # Emergency fallback
-                first_mcq = list(kg.mcqs.values())[0]
-                result_dict = {
-                    'text': str(first_mcq.text),
-                    'options': list(first_mcq.options),
-                    'topic': 'Emergency Test',
-                    'mastery': 0.1,
-                    'correct_index': int(first_mcq.correctindex)
+                print(f"Found {len(eligible_mcqs)} eligible MCQs")
+                
+                # Try simple selection first - just pick the first eligible MCQ
+                mcq_id = eligible_mcqs[0]
+                mcq = kg.mcqs[mcq_id]
+                print(f"Selected MCQ: {mcq_id}")
+                
+                # Get student context
+                topic_name = kg.get_topic_of_index(mcq.main_topic_index)
+                current_mastery = student.get_mastery(mcq.main_topic_index)
+                
+                mcq_data = {
+                    "success": True,
+                    "mcq_id": mcq_id,
+                    "text": mcq.text,
+                    "options": mcq.options,
+                    "correct_index": mcq.correctindex,
+                    "explanations": mcq.option_explanations,
+                    "topic_name": topic_name,
+                    "current_mastery": current_mastery,
+                    "difficulty": getattr(mcq, 'difficulty', 0.5)  # Safe access
                 }
-                print(f"EMERGENCY! Result: {result_dict}")
-                globals()['mcq_result'] = result_dict
+                
+                print("MCQ data prepared successfully")
+                result_json = json.dumps(mcq_data)
+
+except Exception as e:
+    print(f"ERROR in MCQ generation: {e}")
+    import traceback
+    traceback.print_exc()
+    result_json = json.dumps({"success": False, "error": f"Python error: {str(e)}"})
+
+# This is the return value
+result_json
           `);
           
-          // Use JSON serialization to fix Pyodide Proxy bug
-          const mcqDataString = pyodideInstance.runPython("js_export(mcq_result)");
-          const mcqData = JSON.parse(mcqDataString);
-          updateOutput('Python execution completed');
+          // Debug: Show what we actually got back
+          console.log("Raw Python result:", result);
+          console.log("Type of result:", typeof result);
+          updateOutput(`Python returned: ${result ? result.substring(0, 200) : 'undefined result'}...`);
           
-          if (mcqData && typeof mcqData === 'object' && mcqData.text) {
-            currentMCQ = mcqData;
-            displayMCQ(mcqData);
-            updateStatus('📚 MCQ ready! Select your answer.', 'info');
+          if (!result) {
+            throw new Error("Python code returned undefined");
+          }
+          
+          const data = JSON.parse(result);
+          
+          if (data.success) {
+            currentMCQ = data;
+            displayMCQ(data);
+            updateStatus('❓ Question ready! Select your answer.', 'info');
           } else {
-            updateStatus('❌ No suitable MCQ found', 'error');
-            updateOutput(`MCQ data received: ${JSON.stringify(mcqData)}`);
+            updateStatus(`❌ ${data.error}`, 'error');
+            if (data.debug) {
+              updateOutput(`Debug info: ${data.debug}`);
+            }
           }
           
         } catch (error) {
           updateStatus('❌ Failed to generate MCQ', 'error');
           updateOutput(`Error: ${error.message}`);
+          updateOutput(`Raw result: ${typeof result !== 'undefined' ? result.substring(0, 500) : 'undefined'}`);
           console.error('MCQ generation error:', error);
         }
       }
@@ -566,144 +450,83 @@
         
         mcqSection.innerHTML = `
           <div class="mcq-container">
-            <div class="mcq-question">
-              📖 Topic: ${mcqData.topic} (Current Mastery: ${(mcqData.mastery * 100).toFixed(1)}%)
-              <div class="progress-bar">
-                <div class="progress-fill" style="width: ${mcqData.mastery * 100}%"></div>
-              </div>
-              <br><strong>Question:</strong> ${mcqData.text}
-            </div>
+            <div class="mcq-question">${mcqData.text}</div>
+            <p><strong>Topic:</strong> ${mcqData.topic_name}</p>
+            <p><strong>Current Mastery:</strong> ${(mcqData.current_mastery * 100).toFixed(1)}% | <strong>Difficulty:</strong> ${(mcqData.difficulty * 100).toFixed(1)}%</p>
+            
             <div class="mcq-options">
               ${mcqData.options.map((option, index) => 
-                `<label class="mcq-option" onclick="selectOption(${index})">
-                  <input type="radio" name="mcq-answer" value="${index}" style="margin-right: 10px;">
-                  ${String.fromCharCode(65 + index)}. ${option}
-                </label>`
+                `<button class="mcq-option" onclick="selectOption(${index})">${option}</button>`
               ).join('')}
             </div>
-            <div class="controls">
-              <button onclick="submitAnswer()" class="success-btn" id="submitBtn" disabled>✅ Submit Answer</button>
-              <button onclick="skipQuestion()" class="danger-btn">⏭️ Skip Question</button>
-            </div>
+            
+            <button onclick="submitAnswer()" style="margin-top: 15px; padding: 10px 20px; background: #28a745; color: white; border: none; border-radius: 5px;" disabled id="submitBtn">Submit Answer</button>
           </div>
         `;
       }
       
       function selectOption(index) {
+        // Remove previous selection
+        document.querySelectorAll('.mcq-option').forEach(btn => btn.classList.remove('selected'));
+        
+        // Add selection to clicked option
+        document.querySelectorAll('.mcq-option')[index].classList.add('selected');
+        
         selectedOption = index;
-        
-        // Update visual selection
-        const options = document.querySelectorAll('.mcq-option');
-        options.forEach((option, i) => {
-          option.classList.toggle('selected', i === index);
-          const radio = option.querySelector('input[type="radio"]');
-          radio.checked = (i === index);
-        });
-        
         document.getElementById('submitBtn').disabled = false;
       }
       
       async function submitAnswer() {
-        if (selectedOption === null) return;
+        if (selectedOption === null || !currentMCQ) return;
         
         try {
-          updateStatus('🔄 Processing answer and updating mastery with BKT...', 'info');
+          updateStatus('🔄 Processing answer and updating knowledge...', 'info');
           
-          const result = pyodideInstance.runPython(`
-            print("=== PROCESSING ANSWER ===")
+          const result = await pyodideInstance.runPythonAsync(`
+            # Process the student's answer using Caoimhe's BKT system
+            mcq_id = "${currentMCQ.mcq_id}"
+            selected_option = ${selectedOption}
+            correct_index = ${currentMCQ.correct_index}
+            is_correct = selected_option == correct_index
             
-            # Get the MCQ and student response
-            mcq = current_mcq
-            student_choice = ${selectedOption}
-            is_correct = (student_choice == mcq.correctindex)
+            # Record the attempt and get BKT updates
+            bkt_updates = student_manager.record_attempt(
+                current_student_id, mcq_id, is_correct, 30.0, kg
+            )
             
-            print(f"Student selected option {student_choice}: {'CORRECT' if is_correct else 'INCORRECT'}")
-            print(f"Correct answer was option {mcq.correctindex}")
-            
-            # Get mastery BEFORE BKT update
+            # Get the MCQ and student for response
+            mcq = kg.mcqs[mcq_id]
             student = student_manager.get_student(current_student_id)
-            before_masteries = dict(student.mastery_levels)
-            main_topic = mcq.main_topic_index
-            topic_name = kg.nodes[main_topic].topic
+            topic_name = kg.get_topic_of_index(mcq.main_topic_index)
             
-            print(f"\\nBEFORE BKT UPDATE:")
-            print(f"  {topic_name} (topic {main_topic}): {before_masteries[main_topic]:.4f}")
+            # Calculate mastery change
+            mastery_before = None
+            mastery_after = student.get_mastery(mcq.main_topic_index)
+            mastery_change = 0
             
-            # Use the proper BKT workflow via student_manager.record_attempt
-            print(f"\\nApplying BKT update...")
-            try:
-                bkt_updates = student_manager.record_attempt(
-                    current_student_id, 
-                    mcq.id, 
-                    is_correct, 
-                    5.0,  # simulated time
-                    kg
-                )
-                print(f"BKT update successful: {len(bkt_updates) if bkt_updates else 0} updates")
-            except Exception as e:
-                print(f"record_attempt failed: {e}")
-                # Fallback to direct BKT
-                attempt = bkt_system.StudentAttempt(
-                    student_id=current_student_id,
-                    mcq_id=mcq.id,
-                    selected_option=student_choice,
-                    is_correct=is_correct,
-                    time_taken=5.0
-                )
-                bkt_updates = bkt.update_mastery_bkt(kg, student, mcq, attempt)
-                print(f"Direct BKT fallback: {len(bkt_updates) if bkt_updates else 0} updates")
+            if bkt_updates:
+                primary_update = next((u for u in bkt_updates if u.get('is_primary_topic', False)), None)
+                if primary_update:
+                    mastery_before = primary_update['mastery_before']
+                    mastery_change = primary_update['mastery_change']
             
-            # Get mastery AFTER BKT update
-            after_masteries = dict(student.mastery_levels)
-            
-            print(f"\\nAFTER BKT UPDATE:")
-            print(f"  {topic_name} (topic {main_topic}): {after_masteries[main_topic]:.4f}")
-            
-            # Calculate the change
-            main_change = after_masteries[main_topic] - before_masteries[main_topic]
-            print(f"\\nMASTERY CHANGE:")
-            print(f"  {topic_name}: {main_change:+.4f}")
-            
-            # Show all mastery changes
-            print(f"\\nALL MASTERY CHANGES:")
-            total_changes = 0
-            for topic_idx in kg.nodes.keys():
-                topic_name_all = kg.nodes[topic_idx].topic
-                before = before_masteries[topic_idx]
-                after = after_masteries[topic_idx]
-                change = after - before
-                if abs(change) > 0.0001:  # Only show significant changes
-                    direction = "↗️" if change > 0 else "↘️"
-                    print(f"  {direction} {topic_name_all}: {before:.4f} → {after:.4f} ({change:+.4f})")
-                    total_changes += 1
-            
-            if total_changes == 0:
-                print("  No significant changes detected")
-            
-            # Store results for JavaScript
-            globals()['answer_result'] = {
-                'correct': is_correct,
-                'explanation': mcq.option_explanations[student_choice],
-                'correct_option': mcq.options[mcq.correctindex],
-                'selected_text': mcq.options[student_choice],
-                'main_topic': topic_name,
-                'before_mastery': float(before_masteries[main_topic]),
-                'after_mastery': float(after_masteries[main_topic]),
-                'mastery_change': float(main_change),
-                'total_changes': total_changes
+            response_data = {
+                "is_correct": is_correct,
+                "selected_text": mcq.options[selected_option],
+                "correct_option": mcq.options[correct_index],
+                "explanation": mcq.option_explanations[selected_option],
+                "main_topic": topic_name,
+                "before_mastery": mastery_before or mastery_after,
+                "after_mastery": mastery_after,
+                "mastery_change": mastery_change,
+                "total_changes": len(bkt_updates)
             }
             
-            print("\\nAnswer processing complete!")
-            "Success"
+            js_export(response_data)
           `);
           
-          // Use JSON serialization to fix Pyodide Proxy bug
-          const answerResultString = pyodideInstance.runPython("js_export(answer_result)");
-          const answerResult = JSON.parse(answerResultString);
-          
-          // Display results
-          displayAnswerFeedback(answerResult);
-          updateStatus('✅ Answer processed! BKT mastery updated.', 'success');
+          const data = JSON.parse(result);
+          displayResult(data);
           
           // Reset for next question
           selectedOption = null;
@@ -716,9 +539,9 @@
         }
       }
       
-      function displayAnswerFeedback(result) {
+      function displayResult(result) {
         const mcqSection = document.getElementById('mcq-section');
-        const isCorrect = result.correct;
+        const isCorrect = result.is_correct;
         const borderColor = isCorrect ? '#28a745' : '#dc3545';
         const bgColor = isCorrect ? '#d4edda' : '#f8d7da';
         const textColor = isCorrect ? '#155724' : '#721c24';
@@ -741,59 +564,42 @@
               <p><strong>Total Topics Updated:</strong> ${result.total_changes}</p>
               
               <div class="progress-bar" style="margin: 10px 0;">
-                <div class="progress-fill" style="width: ${result.after_mastery * 100}%; background-color: ${result.after_mastery > result.before_mastery ? '#28a745' : '#dc3545'}"></div>
+                <div class="progress-fill" style="width: ${result.after_mastery * 100}%; background-color: ${result.after_mastery > result.before_mastery ? '#28a745' : '#ffc107'};"></div>
               </div>
             </div>
             
-            <div class="controls">
-              <button onclick="generateMCQ()" class="primary-btn">📚 Next Question</button>
-              <button onclick="showKnowledgeGraph()" class="primary-btn">📊 View All Masteries</button>
-            </div>
+            <button onclick="generateMCQ()" style="margin-top: 15px; padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px;">Next Question</button>
           </div>
         `;
+        
+        updateStatus(isCorrect ? '✅ Correct! Knowledge updated.' : '❌ Incorrect, but you still learned!', isCorrect ? 'success' : 'error');
       }
       
       async function showKnowledgeGraph() {
         try {
-          updateStatus('📊 Generating knowledge graph visualization...', 'info');
+          updateStatus('📊 Generating knowledge graph...', 'info');
           
-          const graphInfo = pyodideInstance.runPython(`
-            # Simple approach: build string and return it directly
+          const result = await pyodideInstance.runPythonAsync(`
+            # Get current student mastery levels
             student = student_manager.get_student(current_student_id)
-            result = "Current Knowledge Graph State:\\n" + "=" * 50 + "\\n\\n"
-
-            for topic_idx in sorted(kg.nodes.keys()):
-                node = kg.nodes[topic_idx]
-                mastery = student.mastery_levels[topic_idx]
-                
-                # Create progress bar
-                bar_length = 20
-                filled_length = int(bar_length * mastery)
-                bar = "█" * filled_length + "░" * (bar_length - filled_length)
-                
-                # Color coding
-                if mastery < 0.3:
-                    status = "🔴 Needs Work"
-                elif mastery < 0.6:
-                    status = "🟡 Developing"
-                elif mastery < 0.8:
-                    status = "🟢 Good"
-                else:
-                    status = "⭐ Mastered"
-                
-                result += f"{node.topic:20} [{bar}] {mastery:5.1%} {status}\\n"
-                
-                # Show dependencies
-                if node.dependencies:
-                    dep_names = [kg.nodes[dep_idx].topic for dep_idx, _ in node.dependencies]
-                    result += f"{'':20} ↳ Depends on: {', '.join(dep_names)}\\n"
-                result += "\\n"
-
-            result
+            
+            graph_info = "Knowledge Graph Summary:\\n"
+            graph_info += f"Total topics: {len(kg.nodes)}\\n"
+            graph_info += f"Total connections: {len(kg.graph.edges())}\\n\\n"
+            graph_info += "Topic Mastery Levels:\\n"
+            
+            for topic_idx in sorted(student.mastery_levels.keys()):
+                topic_name = kg.get_topic_of_index(topic_idx)
+                mastery = student.get_mastery(topic_idx)
+                level = "🟢" if mastery > 0.6 else "🟡" if mastery > 0.3 else "🔴"
+                graph_info += f"{level} {topic_name}: {mastery:.2f}\\n"
+            
+            js_export({"success": True, "info": graph_info})
           `);
           
-          updateStatus('📊 Knowledge graph displayed!', 'success');
-          updateOutput(graphInfo);
+          const data = JSON.parse(result);
+          updateStatus('✅ Knowledge graph information displayed below.', 'success');
+          updateOutput(data.info);
           
         } catch (error) {
           updateStatus('❌ Failed to show knowledge graph', 'error');
@@ -825,5 +631,5 @@
         selectedOption = null;
       }
     </script>
-  </body>
+</body>
 </html>

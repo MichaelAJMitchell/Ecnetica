@@ -185,12 +185,28 @@
           updateOutput('Initializing BKT demo...');
           
           if (!pyodideInstance) {
-            pyodideInstance = await loadPyodide();
-            updateOutput('✓ Pyodide loaded successfully');
+            pyodideInstance = await loadPyodide({
+              indexURL: "../../_static/",  // Local core files
+              packageCacheKey: "bkt-demo-v1",
+              loadPackages: false
+            });
             
-            // Load required packages
-            updateOutput('Loading packages: numpy, networkx, matplotlib...');
-            await pyodideInstance.loadPackage(["numpy", "networkx", "matplotlib"]);
+            updateOutput('✓ Pyodide loaded successfully');
+            updateOutput('Checking package cache...');
+            
+            // Override where packages come from AFTER initialization
+            const originalIndexURL = pyodideInstance._api.config.indexURL;
+            pyodideInstance._api.config.indexURL = "https://cdn.jsdelivr.net/pyodide/v0.27.7/full/";
+            
+            const packages = ["numpy", "networkx", "matplotlib"];
+            await pyodideInstance.loadPackage(packages, {
+              messageCallback: (msg) => console.log(`Package loading: ${msg}`),
+              errorCallback: (err) => console.error(`Package error: ${err}`)
+            });
+            
+            // Restore original indexURL for any future core operations
+            pyodideInstance._api.config.indexURL = originalIndexURL;
+            
             updateOutput('✓ All packages loaded');
           }
           

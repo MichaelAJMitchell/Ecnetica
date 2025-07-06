@@ -10,3 +10,4 @@ qiskit
 qiskit-aer
 pylatexenc
 jupyterlite-sphinx
+networkx

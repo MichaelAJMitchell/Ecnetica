@@ -40,6 +40,30 @@ This interactive visualization shows the relationships between mathematical conc
 let network;
 let currentData = {nodes: [], edges: []};
 
+// Group color mapping
+function getGroupColor(group) {
+    const colors = {
+        'Algebra': '#ff7675',
+        'Geometry': '#74b9ff',
+        'Trigonometry': '#55a3ff',
+        'Calculus': '#fd79a8',
+        'Number': '#00b894',
+        'Statistics': '#fdcb6e',
+        'Probability': '#e17055',
+        'Coordinate Geometry': '#a29bfe',
+        'Functions': '#fd79a8',
+        'Sequences and Series': '#00cec9',
+        'Complex Numbers': '#6c5ce7',
+        'Measurement': '#fdcb6e',
+        'Synthetic geometry': '#74b9ff',
+        'Transformation geometry': '#55a3ff',
+        'Differential Calculus': '#fd79a8',
+        'Integral Calculus': '#e84393',
+        'Counting and Probability': '#e17055'
+    };
+    return colors[group] || '#636e72';
+}
+
 // Load and process the knowledge graph data
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize the network
@@ -49,9 +73,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const options = {
         nodes: {
             shape: 'dot',
-            size: 48,
+            size: 25,
             font: {
-                size: 30,
+                size: 12,
                 face: 'Arial'
             },
             borderWidth: 2,
@@ -72,9 +96,9 @@ document.addEventListener('DOMContentLoaded', function() {
         physics: {
             stabilization: false,
             barnesHut: {
-                gravitationalConstant: -80000,
-                springConstant: 0.001,
-                springLength: 200
+                gravitationalConstant: -50000,
+                springConstant: 0.002,
+                springLength: 150
             }
         },
         interaction: {
@@ -165,6 +189,43 @@ function loadGraphData(filename) {
     fetch(filename)
         .then(response => response.json())
         .then(data => {
+            // Add initial positioning based on groups
+            const groupPositions = {
+                'Algebra': {x: -400, y: -200},
+                'Geometry': {x: 400, y: -200},
+                'Trigonometry': {x: 0, y: -400},
+                'Calculus': {x: 0, y: 400},
+                'Number': {x: -400, y: 200},
+                'Statistics': {x: 400, y: 200},
+                'Probability': {x: 400, y: 0},
+                'Coordinate Geometry': {x: 200, y: -300},
+                'Functions': {x: -200, y: 300},
+                'Sequences and Series': {x: -200, y: -300},
+                'Complex Numbers': {x: -300, y: 0},
+                'Measurement': {x: 300, y: -100},
+                'Synthetic geometry': {x: 300, y: -300},
+                'Transformation geometry': {x: 200, y: 300},
+                'Differential Calculus': {x: -100, y: 300},
+                'Integral Calculus': {x: 100, y: 300},
+                'Counting and Probability': {x: 300, y: 100}
+            };
+            
+            // Apply group-based positioning and colors
+            data.nodes.forEach(node => {
+                // Add color based on group
+                node.color = getGroupColor(node.group);
+                
+                // Add initial positioning with some randomness
+                if (groupPositions[node.group]) {
+                    node.x = groupPositions[node.group].x + (Math.random() - 0.5) * 150;
+                    node.y = groupPositions[node.group].y + (Math.random() - 0.5) * 150;
+                } else {
+                    // Random positioning for unknown groups
+                    node.x = (Math.random() - 0.5) * 800;
+                    node.y = (Math.random() - 0.5) * 800;
+                }
+            });
+            
             currentData = data;
             network.setData(data);
             updateStats(data.nodes.length, data.edges.length);

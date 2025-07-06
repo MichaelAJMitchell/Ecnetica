@@ -76,7 +76,7 @@ def process_ontology_data():
     }
     
     # Save to JSON file
-    output_file = 'content/graph-data.json'
+    output_file = '_static/graph-data.json'
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(graph_data, f, indent=2, ensure_ascii=False)
     
@@ -148,7 +148,7 @@ def create_simplified_data():
     }
     
     # Save to JSON file
-    output_file = 'content/graph-data-simplified.json'
+    output_file = '_static/graph-data-simplified.json'
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(graph_data, f, indent=2, ensure_ascii=False)
     

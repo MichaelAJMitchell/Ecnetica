@@ -9,20 +9,33 @@ import pandas as pd
 import json
 import os
 
+def find_file_by_pattern(directory, pattern):
+    """Find a file in directory that contains the pattern in its name."""
+    if not os.path.exists(directory):
+        return None
+    
+    for filename in os.listdir(directory):
+        if pattern.lower() in filename.lower() and filename.endswith('.csv'):
+            return os.path.join(directory, filename)
+    return None
+
 def process_ontology_data():
     """Process the ontology CSV files and create JSON data for visualization."""
     
-    # Read the CSV files
-    concepts_file = 'Ontology/concepts_6_7_complete.csv'
-    relationships_file = 'Ontology/relationships_6_7_complete.csv'
+    # Find CSV files by pattern
+    concepts_file = find_file_by_pattern('Ontology', 'concepts')
+    relationships_file = find_file_by_pattern('Ontology', 'relationships')
     
-    if not os.path.exists(concepts_file):
-        print(f"Error: {concepts_file} not found")
+    if not concepts_file:
+        print("Error: No concepts CSV file found in Ontology directory")
         return
     
-    if not os.path.exists(relationships_file):
-        print(f"Error: {relationships_file} not found")
+    if not relationships_file:
+        print("Error: No relationships CSV file found in Ontology directory")
         return
+    
+    print(f"Found concepts file: {concepts_file}")
+    print(f"Found relationships file: {relationships_file}")
     
     # Load the data
     concepts_df = pd.read_csv(concepts_file)

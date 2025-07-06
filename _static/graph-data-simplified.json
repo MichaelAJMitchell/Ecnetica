@@ -1,0 +1,676 @@
+{
+  "nodes": [
+    {
+      "id": "271a5989-0d56-4e04-b553-289a97fcb6a6",
+      "label": "Pythagorean identity for sine ...",
+      "group": "Trigonometry",
+      "title": "The fundamental trigonometric identity stating that the square of cosine of an angle plus the square of sine of the same angle equals one."
+    },
+    {
+      "id": "21e6ee18-9479-4df2-91ba-fa80ee8c795c",
+      "label": "Sine rule for triangle side ra...",
+      "group": "Trigonometry",
+      "title": "A formula relating the ratios of the lengths of sides of a triangle to the sines of their opposite angles."
+    },
+    {
+      "id": "0f682084-fe61-4a49-8cdb-35aa1ddf6cd7",
+      "label": "Cosine rule for triangle side ...",
+      "group": "Trigonometry",
+      "title": "A formula expressing the square of one side of a triangle in terms of the squares of the other two sides and the cosine of the included angle."
+    },
+    {
+      "id": "0ad51fbe-6c5b-4503-9dfc-cb98a939849b",
+      "label": "Cosine of difference of two an...",
+      "group": "Trigonometry",
+      "title": "An identity expressing cosine of the difference between two angles as a combination of the cosines and sines of the individual angles."
+    },
+    {
+      "id": "5885e65d-040c-40e5-bbc9-9885598648eb",
+      "label": "Cosine of sum of two angles",
+      "group": "Trigonometry",
+      "title": "An identity expressing cosine of the sum of two angles as a combination of the cosines and sines of the individual angles."
+    },
+    {
+      "id": "e0c64590-a39a-4b4b-a1be-e631c0eb7d29",
+      "label": "Double angle formula for cosin...",
+      "group": "Trigonometry",
+      "title": "Formulas expressing cosine of twice an angle in terms of squares of sine and cosine of the original angle."
+    },
+    {
+      "id": "3d7890b1-86c9-4bda-848a-776a24af4b52",
+      "label": "Sine of sum of two angles",
+      "group": "Trigonometry",
+      "title": "An identity expressing sine of the sum of two angles as a combination of sines and cosines of the individual angles."
+    },
+    {
+      "id": "2646457b-3e47-437b-9eda-97ebd6109de2",
+      "label": "Sine of difference of two angl...",
+      "group": "Trigonometry",
+      "title": "An identity expressing sine of the difference between two angles as a combination of sines and cosines of the individual angles."
+    },
+    {
+      "id": "84b12d74-7a06-452f-bce6-1369c2a5de4b",
+      "label": "Tangent of sum of two angles",
+      "group": "Trigonometry",
+      "title": "An identity expressing tangent of the sum of two angles as a ratio involving tangents of the individual angles."
+    },
+    {
+      "id": "8b567d57-fbea-4921-959f-4918d796695b",
+      "label": "Tangent of difference of two a...",
+      "group": "Trigonometry",
+      "title": "An identity expressing tangent of the difference between two angles as a ratio involving tangents of the individual angles."
+    },
+    {
+      "id": "09f93f1d-36d5-4a12-bd03-b64b45c807ff",
+      "label": "Double angle formula for sine ...",
+      "group": "Trigonometry",
+      "title": "A formula expressing sine of twice an angle as twice the product of sine and cosine of the original angle."
+    },
+    {
+      "id": "f7c16412-e6f6-4a34-aed3-d0c52af346b5",
+      "label": "Half-angle formula for cosine ...",
+      "group": "Trigonometry",
+      "title": "An identity expressing the square of cosine of an angle as half the sum of one and cosine of twice the angle."
+    },
+    {
+      "id": "0fc15ec4-ebaa-4d5a-985e-3a82b4e11677",
+      "label": "Half-angle formula for sine sq...",
+      "group": "Trigonometry",
+      "title": "An identity expressing the square of sine of an angle as half the difference of one and cosine of twice the angle."
+    },
+    {
+      "id": "2fb185c3-1604-46a9-b47c-e75d56f4a66c",
+      "label": "Product-to-sum formula for 2 c...",
+      "group": "Trigonometry",
+      "title": "An identity expressing twice the product of cosines of two angles as the sum of cosines of their sum and difference."
+    },
+    {
+      "id": "12847625-b947-4c3e-bb0d-f1f973231011",
+      "label": "Product-to-sum formula for 2 s...",
+      "group": "Trigonometry",
+      "title": "An identity expressing twice the product of sine of one angle and cosine of another as the sum of sines of their sum and difference."
+    },
+    {
+      "id": "525ad725-b245-498e-88c7-7fbc9f9676c8",
+      "label": "Product-to-sum formula for 2 s...",
+      "group": "Trigonometry",
+      "title": "An identity expressing twice the product of sines of two angles as the difference of cosines of their difference and sum."
+    },
+    {
+      "id": "b6fa28fa-0d61-4aab-b49c-788519b6489a",
+      "label": "Product-to-sum formula for 2 c...",
+      "group": "Trigonometry",
+      "title": "An identity expressing twice the product of cosine of one angle and sine of another as the difference of sines of their sum and difference."
+    },
+    {
+      "id": "f90d8966-f534-49bc-bdf4-73968f6f00b3",
+      "label": "Sum-to-product formula for cos...",
+      "group": "Trigonometry",
+      "title": "An identity expressing the sum of cosines of two angles as twice the product of cosines of half their sum and half their difference."
+    },
+    {
+      "id": "27741146-2f4c-4cd4-9161-b3bcac356332",
+      "label": "Sum-to-product formula for cos...",
+      "group": "Trigonometry",
+      "title": "An identity expressing the difference of cosines of two angles as negative twice the product of sines of half their sum and half their difference."
+    },
+    {
+      "id": "e95b98db-d483-4b19-896f-b2881a33121b",
+      "label": "Sum-to-product formula for sin...",
+      "group": "Trigonometry",
+      "title": "An identity expressing the sum of sines of two angles as twice the product of sine of half their sum and cosine of half their difference."
+    },
+    {
+      "id": "76fbcd64-a41d-40f6-9f53-e1bee50c7669",
+      "label": "Sum-to-product formula for sin...",
+      "group": "Trigonometry",
+      "title": "An identity expressing the difference of sines of two angles as twice the product of cosine of half their sum and sine of half their difference."
+    },
+    {
+      "id": "d5a1d13f-2ea5-46d4-9fc8-2590a3fa54f8",
+      "label": "Geometric constructions with s...",
+      "group": "Geometry",
+      "title": "The process of creating geometric figures using only a straight edge and a compass, following specific rules and procedures."
+    },
+    {
+      "id": "9d113e59-46dc-4bf8-8dc4-387fc77890a8",
+      "label": "Dynamic geometry software appl...",
+      "group": "Geometry",
+      "title": "Using software tools that allow for the manipulation and exploration of geometric constructions and concepts in a dynamic way."
+    },
+    {
+      "id": "fee57bb2-488c-4b27-ab55-f7094479c34c",
+      "label": "Drawing a circle of given radi...",
+      "group": "Geometry",
+      "title": "The ability to construct a circle with a specified radius using a compass."
+    },
+    {
+      "id": "c7570cb5-5c27-46e1-80d6-9908c6cfbd81",
+      "label": "Use of straight edge in geomet...",
+      "group": "Geometry",
+      "title": "Applying a straight edge to accurately draw straight lines in geometric figures."
+    },
+    {
+      "id": "3822d21f-3822-4169-b663-4fa7e1bffaa2",
+      "label": "Use of protractor in geometric...",
+      "group": "Geometry",
+      "title": "Utilizing a protractor to measure and draw angles in geometric constructions."
+    },
+    {
+      "id": "34df0c88-ab90-48e6-a3e3-0698e4f82367",
+      "label": "Understanding linear relations...",
+      "group": "Coordinate Geometry",
+      "title": "Recognizing how two variables relate linearly and can be represented in various forms, including tables and graphs."
+    },
+    {
+      "id": "8c6b2865-eedd-49be-90db-59adbfb29077",
+      "label": "Slope of a linear graph",
+      "group": "Coordinate Geometry",
+      "title": "The measure of the steepness or incline of a line on a graph, representing the rate of change of the relationship between two variables."
+    },
+    {
+      "id": "c9e59271-b8ab-4f20-8d13-bb2ccf5596dc",
+      "label": "Point of intersection of two l...",
+      "group": "Coordinate Geometry",
+      "title": "The point where two lines on a graph meet, indicating the solution to a system of linear equations."
+    },
+    {
+      "id": "9d7f6009-b26f-44b2-84c9-ae4e13edff6f",
+      "label": "Application of the Pythagorean...",
+      "group": "Trigonometry",
+      "title": "Using the theorem to find the lengths of sides in right-angled triangles based on the relationship between the sides."
+    },
+    {
+      "id": "5de0432d-1d24-48ad-8aab-4d89db5802e2",
+      "label": "Trigonometric ratios in right-...",
+      "group": "Trigonometry",
+      "title": "The ratios of the lengths of the sides of a right-angled triangle, specifically sine, cosine, and tangent."
+    },
+    {
+      "id": "e799d4f9-8c06-46f0-838a-4a974e2731fe",
+      "label": "Translations in transformation...",
+      "group": "Geometry",
+      "title": "The process of moving a shape from one location to another without changing its size, shape, or orientation."
+    },
+    {
+      "id": "d82130c8-7933-45a3-a879-838f9b6d8d32",
+      "label": "Central symmetry in transforma...",
+      "group": "Geometry",
+      "title": "A type of symmetry where a shape is invariant under rotation about a central point."
+    },
+    {
+      "id": "d0291077-335c-4b26-b80c-5b92331e56de",
+      "label": "Axial symmetry in transformati...",
+      "group": "Geometry",
+      "title": "A type of symmetry where a shape is invariant when reflected across a line (axis)."
+    },
+    {
+      "id": "8393ad17-30c5-4ba0-b1e9-d28c99dc8541",
+      "label": "Rotations in transformation ge...",
+      "group": "Geometry",
+      "title": "The process of turning a shape around a fixed point at a certain angle."
+    },
+    {
+      "id": "d22eb48f-1340-4131-8688-001159601faf",
+      "label": "Scale factor in enlargements",
+      "group": "Geometry",
+      "title": "The ratio that describes how much a shape is enlarged or reduced in size during a transformation."
+    },
+    {
+      "id": "e565830b-f8cf-4804-b11f-daca6e296604",
+      "label": "Area effect of enlargements",
+      "group": "Geometry",
+      "title": "Understanding how the area of a shape changes when it is enlarged or reduced by a scale factor."
+    },
+    {
+      "id": "c7f75e69-1d00-477e-968b-a6464289cecf",
+      "label": "Proof by contradiction",
+      "group": "Geometry",
+      "title": "A method of proving a statement by assuming the opposite is true and showing that this leads to a contradiction."
+    },
+    {
+      "id": "b4320da0-3e81-4c55-a81f-adde8b4f4d6b",
+      "label": "Definition of sine and cosine",
+      "group": "Trigonometry",
+      "title": "The definitions of the sine and cosine functions in relation to the angles of a right triangle."
+    },
+    {
+      "id": "7dbdfed4-8806-477b-b8c4-bc871287a441",
+      "label": "Trigonometric equations",
+      "group": "Trigonometry",
+      "title": "Equations that involve trigonometric functions and require solving for angle measures."
+    },
+    {
+      "id": "7ff0b504-548e-42d4-a773-cb39566392e6",
+      "label": "Graphing trigonometric functio...",
+      "group": "Trigonometry",
+      "title": "The process of plotting the sine, cosine, and tangent functions on a coordinate plane."
+    },
+    {
+      "id": "f5b0a6c7-c728-4217-8c73-c9daf4075194",
+      "label": "Radian measure of angles",
+      "group": "Trigonometry",
+      "title": "A method of measuring angles based on the radius of a circle, where one radian is the angle subtended at the center of a circle by an arc equal to the radius."
+    },
+    {
+      "id": "3027fa47-8042-4d98-ae14-8d384de57216",
+      "label": "Use of trigonometry to calcula...",
+      "group": "Unknown",
+      "title": "Concept referenced in relationship: Use of trigonometry to calculate the area of a triangle"
+    },
+    {
+      "id": "b28199b2-4967-466a-88c1-6931f42f1e9e",
+      "label": "Irrational numbers",
+      "group": "Number",
+      "title": "Numbers that cannot be expressed as a fraction of two integers, having non-repeating, non-terminating decimal expansions."
+    },
+    {
+      "id": "899acdd2-1fed-461c-9f75-1f2ddd1b12f7",
+      "label": "Complex numbers",
+      "group": "Number",
+      "title": "Numbers composed of a real part and an imaginary part, typically expressed in the form a + bi."
+    },
+    {
+      "id": "2714fb2d-0046-49b8-96b7-66b21ce0bea8",
+      "label": "Division of complex numbers",
+      "group": "Number",
+      "title": "The process of dividing one complex number by another, often involving conjugation and multiplication to rationalize the denominator."
+    },
+    {
+      "id": "165c6f24-da17-4eaf-96fc-1499728447d0",
+      "label": "Equality of complex numbers",
+      "group": "Number",
+      "title": "Two complex numbers are equal if their real parts are equal and their imaginary parts are equal."
+    },
+    {
+      "id": "6234e42e-7e5c-4c27-b14b-c249d451a8d5",
+      "label": "Argand diagram",
+      "group": "Geometry",
+      "title": "A graphical representation of complex numbers on a plane, using the horizontal axis for the real part and the vertical axis for the imaginary part."
+    },
+    {
+      "id": "5c4db88a-bbe3-4a9c-803d-5ee8192e15cc",
+      "label": "Modulus of a complex number",
+      "group": "Number",
+      "title": "The distance of a complex number from the origin in an Argand diagram, calculated as the square root of the sum of the squares of its real and imaginary parts."
+    },
+    {
+      "id": "9b20525c-bf86-4e4f-ab7a-e0b80d932db1",
+      "label": "Transformations of complex num...",
+      "group": "Geometry",
+      "title": "Operations that alter the position or form of a complex number in the complex plane, such as rotation or dilation."
+    }
+  ],
+  "edges": [
+    {
+      "from": "271a5989-0d56-4e04-b553-289a97fcb6a6",
+      "to": "e0c64590-a39a-4b4b-a1be-e631c0eb7d29",
+      "title": "The double angle formula for cosine (cos 2A) is expressed in terms of squares of sine and cosine of the original angle, which relies on the Pythagorean identity cos²A + sin²A = 1 to relate these squares."
+    },
+    {
+      "from": "271a5989-0d56-4e04-b553-289a97fcb6a6",
+      "to": "f7c16412-e6f6-4a34-aed3-d0c52af346b5",
+      "title": "The half-angle formula for cosine squared expresses cos²A in terms of cos 2A, which is derived using the double angle formula that depends on the Pythagorean identity."
+    },
+    {
+      "from": "271a5989-0d56-4e04-b553-289a97fcb6a6",
+      "to": "0fc15ec4-ebaa-4d5a-985e-3a82b4e11677",
+      "title": "The half-angle formula for sine squared expresses sin²A in terms of cos 2A, which is derived using the double angle formula that depends on the Pythagorean identity."
+    },
+    {
+      "from": "5885e65d-040c-40e5-bbc9-9885598648eb",
+      "to": "2fb185c3-1604-46a9-b47c-e75d56f4a66c",
+      "title": "The product-to-sum formula for 2 cos A cos B is derived using the cosine of sum and difference of two angles identities."
+    },
+    {
+      "from": "0ad51fbe-6c5b-4503-9dfc-cb98a939849b",
+      "to": "2fb185c3-1604-46a9-b47c-e75d56f4a66c",
+      "title": "The product-to-sum formula for 2 cos A cos B uses both cosine of sum and cosine of difference identities."
+    },
+    {
+      "from": "3d7890b1-86c9-4bda-848a-776a24af4b52",
+      "to": "12847625-b947-4c3e-bb0d-f1f973231011",
+      "title": "The product-to-sum formula for 2 sin A cos B is derived from the sine of sum and sine of difference identities."
+    },
+    {
+      "from": "2646457b-3e47-437b-9eda-97ebd6109de2",
+      "to": "12847625-b947-4c3e-bb0d-f1f973231011",
+      "title": "The product-to-sum formula for 2 sin A cos B uses both sine of sum and sine of difference identities."
+    },
+    {
+      "from": "0ad51fbe-6c5b-4503-9dfc-cb98a939849b",
+      "to": "525ad725-b245-498e-88c7-7fbc9f9676c8",
+      "title": "The product-to-sum formula for 2 sin A sin B is derived using cosine of sum and difference identities."
+    },
+    {
+      "from": "5885e65d-040c-40e5-bbc9-9885598648eb",
+      "to": "525ad725-b245-498e-88c7-7fbc9f9676c8",
+      "title": "The product-to-sum formula for 2 sin A sin B uses both cosine of sum and cosine of difference identities."
+    },
+    {
+      "from": "3d7890b1-86c9-4bda-848a-776a24af4b52",
+      "to": "b6fa28fa-0d61-4aab-b49c-788519b6489a",
+      "title": "The product-to-sum formula for 2 cos A sin B is derived from sine of sum and sine of difference identities."
+    },
+    {
+      "from": "2646457b-3e47-437b-9eda-97ebd6109de2",
+      "to": "b6fa28fa-0d61-4aab-b49c-788519b6489a",
+      "title": "The product-to-sum formula for 2 cos A sin B uses both sine of sum and sine of difference identities."
+    },
+    {
+      "from": "5885e65d-040c-40e5-bbc9-9885598648eb",
+      "to": "f90d8966-f534-49bc-bdf4-73968f6f00b3",
+      "title": "The sum-to-product formula for cos A + cos B is derived using cosine of sum and difference identities."
+    },
+    {
+      "from": "0ad51fbe-6c5b-4503-9dfc-cb98a939849b",
+      "to": "f90d8966-f534-49bc-bdf4-73968f6f00b3",
+      "title": "The sum-to-product formula for cos A + cos B uses cosine of sum and difference identities."
+    },
+    {
+      "from": "5885e65d-040c-40e5-bbc9-9885598648eb",
+      "to": "27741146-2f4c-4cd4-9161-b3bcac356332",
+      "title": "The sum-to-product formula for cos A – cos B is derived using cosine of sum and difference identities."
+    },
+    {
+      "from": "0ad51fbe-6c5b-4503-9dfc-cb98a939849b",
+      "to": "27741146-2f4c-4cd4-9161-b3bcac356332",
+      "title": "The sum-to-product formula for cos A – cos B uses cosine of sum and difference identities."
+    },
+    {
+      "from": "3d7890b1-86c9-4bda-848a-776a24af4b52",
+      "to": "e95b98db-d483-4b19-896f-b2881a33121b",
+      "title": "The sum-to-product formula for sin A + sin B is derived using sine of sum and difference identities."
+    },
+    {
+      "from": "2646457b-3e47-437b-9eda-97ebd6109de2",
+      "to": "e95b98db-d483-4b19-896f-b2881a33121b",
+      "title": "The sum-to-product formula for sin A + sin B uses sine of sum and difference identities."
+    },
+    {
+      "from": "3d7890b1-86c9-4bda-848a-776a24af4b52",
+      "to": "76fbcd64-a41d-40f6-9f53-e1bee50c7669",
+      "title": "The sum-to-product formula for sin A – sin B is derived using sine of sum and difference identities."
+    },
+    {
+      "from": "2646457b-3e47-437b-9eda-97ebd6109de2",
+      "to": "76fbcd64-a41d-40f6-9f53-e1bee50c7669",
+      "title": "The sum-to-product formula for sin A – sin B uses sine of sum and difference identities."
+    },
+    {
+      "from": "21e6ee18-9479-4df2-91ba-fa80ee8c795c",
+      "to": "0f682084-fe61-4a49-8cdb-35aa1ddf6cd7",
+      "title": "The cosine rule is generally introduced after the sine rule as it extends understanding of triangle side relationships including angles, building on the sine rule's ratio concepts."
+    },
+    {
+      "from": "b4320da0-3e81-4c55-a81f-adde8b4f4d6b",
+      "to": "5de0432d-1d24-48ad-8aab-4d89db5802e2",
+      "title": "Understanding the definitions of sine and cosine is essential to applying trigonometric ratios in right-angled triangles, as these ratios are derived from the definitions."
+    },
+    {
+      "from": "9d7f6009-b26f-44b2-84c9-ae4e13edff6f",
+      "to": "5de0432d-1d24-48ad-8aab-4d89db5802e2",
+      "title": "The application of the Pythagorean theorem is necessary for solving problems involving right-angled triangles, which is foundational for understanding trigonometric ratios."
+    },
+    {
+      "from": "5de0432d-1d24-48ad-8aab-4d89db5802e2",
+      "to": "3027fa47-8042-4d98-ae14-8d384de57216",
+      "title": "Knowledge of trigonometric ratios is required to apply trigonometry effectively in calculating the area of triangles, especially when angles are involved."
+    },
+    {
+      "from": "b4320da0-3e81-4c55-a81f-adde8b4f4d6b",
+      "to": "7ff0b504-548e-42d4-a773-cb39566392e6",
+      "title": "Understanding the definitions of sine and cosine is crucial for graphing their functions, as the graphs are based on these definitions."
+    },
+    {
+      "from": "f5b0a6c7-c728-4217-8c73-c9daf4075194",
+      "to": "7ff0b504-548e-42d4-a773-cb39566392e6",
+      "title": "Knowledge of radian measure is necessary for accurately graphing trigonometric functions, as the angles used in these graphs are typically expressed in radians."
+    },
+    {
+      "from": "34df0c88-ab90-48e6-a3e3-0698e4f82367",
+      "to": "8c6b2865-eedd-49be-90db-59adbfb29077",
+      "title": "Recognizing how two variables relate linearly is fundamental to understanding the concept of slope, which quantifies the rate of change in linear relationships."
+    },
+    {
+      "from": "8c6b2865-eedd-49be-90db-59adbfb29077",
+      "to": "c9e59271-b8ab-4f20-8d13-bb2ccf5596dc",
+      "title": "Understanding the slope of a linear graph is essential for determining the point of intersection of two lines, as it helps to analyze their relationship and solve systems of equations."
+    },
+    {
+      "from": "b28199b2-4967-466a-88c1-6931f42f1e9e",
+      "to": "899acdd2-1fed-461c-9f75-1f2ddd1b12f7",
+      "title": "Understanding irrational numbers is fundamental before learning complex numbers, as complex numbers build upon the concept of real numbers which include irrational numbers."
+    },
+    {
+      "from": "899acdd2-1fed-461c-9f75-1f2ddd1b12f7",
+      "to": "2714fb2d-0046-49b8-96b7-66b21ce0bea8",
+      "title": "Division of complex numbers requires prior understanding of complex numbers themselves to perform operations such as conjugation and rationalization."
+    },
+    {
+      "from": "899acdd2-1fed-461c-9f75-1f2ddd1b12f7",
+      "to": "165c6f24-da17-4eaf-96fc-1499728447d0",
+      "title": "Equality of complex numbers depends on understanding the structure of complex numbers, including their real and imaginary parts."
+    },
+    {
+      "from": "899acdd2-1fed-461c-9f75-1f2ddd1b12f7",
+      "to": "6234e42e-7e5c-4c27-b14b-c249d451a8d5",
+      "title": "The Argand diagram represents complex numbers graphically, so knowledge of complex numbers is necessary before learning their graphical representation."
+    },
+    {
+      "from": "6234e42e-7e5c-4c27-b14b-c249d451a8d5",
+      "to": "5c4db88a-bbe3-4a9c-803d-5ee8192e15cc",
+      "title": "The modulus is defined as the distance from the origin in the Argand diagram, so understanding the Argand diagram is required first."
+    },
+    {
+      "from": "899acdd2-1fed-461c-9f75-1f2ddd1b12f7",
+      "to": "9b20525c-bf86-4e4f-ab7a-e0b80d932db1",
+      "title": "Transformations of complex numbers involve operations on complex numbers in the complex plane, requiring prior knowledge of complex numbers."
+    },
+    {
+      "from": "d22eb48f-1340-4131-8688-001159601faf",
+      "to": "e565830b-f8cf-4804-b11f-daca6e296604",
+      "title": "Understanding how the scale factor affects size is necessary before analyzing its effect on area during enlargements."
+    },
+    {
+      "from": "34df0c88-ab90-48e6-a3e3-0698e4f82367",
+      "to": "c9e59271-b8ab-4f20-8d13-bb2ccf5596dc",
+      "title": "To find the point of intersection, students must first understand linear relationships to identify where two lines meet on a graph."
+    },
+    {
+      "from": "34df0c88-ab90-48e6-a3e3-0698e4f82367",
+      "to": "3027fa47-8042-4d98-ae14-8d384de57216",
+      "title": "A foundational understanding of linear relationships is necessary for applying trigonometric concepts to calculate areas, as it involves understanding the relationships between angles and sides."
+    },
+    {
+      "from": "5de0432d-1d24-48ad-8aab-4d89db5802e2",
+      "to": "271a5989-0d56-4e04-b553-289a97fcb6a6",
+      "title": "Understanding trigonometric ratios is necessary to grasp the Pythagorean identity, which relates these ratios to the geometry of right triangles."
+    },
+    {
+      "from": "5de0432d-1d24-48ad-8aab-4d89db5802e2",
+      "to": "9d7f6009-b26f-44b2-84c9-ae4e13edff6f",
+      "title": "The application of the Pythagorean theorem relies on the understanding of trigonometric ratios, as these ratios are derived from the relationships between the sides of right-angled triangles."
+    },
+    {
+      "from": "5c4db88a-bbe3-4a9c-803d-5ee8192e15cc",
+      "to": "9b20525c-bf86-4e4f-ab7a-e0b80d932db1",
+      "title": "The modulus of a complex number is essential for understanding how transformations, such as stretching or rotating, affect the position of the complex number in the complex plane."
+    },
+    {
+      "from": "271a5989-0d56-4e04-b553-289a97fcb6a6",
+      "to": "0ad51fbe-6c5b-4503-9dfc-cb98a939849b",
+      "title": "The cosine of difference formula uses expressions involving sine and cosine functions, which rely on the fundamental Pythagorean identity to relate these functions."
+    },
+    {
+      "from": "271a5989-0d56-4e04-b553-289a97fcb6a6",
+      "to": "5885e65d-040c-40e5-bbc9-9885598648eb",
+      "title": "The cosine of sum formula is expressed in terms of sine and cosine functions, which depend on the Pythagorean identity for their fundamental relationship."
+    },
+    {
+      "from": "5885e65d-040c-40e5-bbc9-9885598648eb",
+      "to": "e0c64590-a39a-4b4b-a1be-e631c0eb7d29",
+      "title": "The double angle formula for cosine is derived by substituting equal angles into the cosine of sum formula, thus requiring understanding of the cosine sum identity first."
+    },
+    {
+      "from": "271a5989-0d56-4e04-b553-289a97fcb6a6",
+      "to": "09f93f1d-36d5-4a12-bd03-b64b45c807ff",
+      "title": "The double angle formula for sine is expressed as 2 sin A cos A, which depends on understanding sine and cosine functions related by the Pythagorean identity."
+    },
+    {
+      "from": "271a5989-0d56-4e04-b553-289a97fcb6a6",
+      "to": "84b12d74-7a06-452f-bce6-1369c2a5de4b",
+      "title": "The tangent of sum formula is expressed in terms of sine and cosine functions, which rely on the Pythagorean identity for their fundamental properties."
+    },
+    {
+      "from": "271a5989-0d56-4e04-b553-289a97fcb6a6",
+      "to": "8b567d57-fbea-4921-959f-4918d796695b",
+      "title": "The tangent of difference formula depends on sine and cosine functions, which are related by the Pythagorean identity."
+    },
+    {
+      "from": "e0c64590-a39a-4b4b-a1be-e631c0eb7d29",
+      "to": "f7c16412-e6f6-4a34-aed3-d0c52af346b5",
+      "title": "The half-angle formula for cosine squared is derived using the double angle formula for cosine."
+    },
+    {
+      "from": "e0c64590-a39a-4b4b-a1be-e631c0eb7d29",
+      "to": "0fc15ec4-ebaa-4d5a-985e-3a82b4e11677",
+      "title": "The half-angle formula for sine squared is derived using the double angle formula for cosine."
+    },
+    {
+      "from": "fee57bb2-488c-4b27-ab55-f7094479c34c",
+      "to": "d5a1d13f-2ea5-46d4-9fc8-2590a3fa54f8",
+      "title": "Drawing a circle of given radius is a fundamental skill required to perform geometric constructions using straight edge and compass, as indicated by the learning outcome to draw circles and use these instruments appropriately."
+    },
+    {
+      "from": "c7570cb5-5c27-46e1-80d6-9908c6cfbd81",
+      "to": "d5a1d13f-2ea5-46d4-9fc8-2590a3fa54f8",
+      "title": "Using a straight edge to draw lines is a basic skill necessary for performing geometric constructions with straight edge and compass."
+    },
+    {
+      "from": "3822d21f-3822-4169-b663-4fa7e1bffaa2",
+      "to": "d5a1d13f-2ea5-46d4-9fc8-2590a3fa54f8",
+      "title": "Using a protractor to measure and draw angles is a necessary skill for precise geometric constructions."
+    },
+    {
+      "from": "3027fa47-8042-4d98-ae14-8d384de57216",
+      "to": "21e6ee18-9479-4df2-91ba-fa80ee8c795c",
+      "title": "Using trigonometry to calculate areas supports understanding and applying the sine rule for triangle side ratios."
+    },
+    {
+      "from": "e799d4f9-8c06-46f0-838a-4a974e2731fe",
+      "to": "d82130c8-7933-45a3-a879-838f9b6d8d32",
+      "title": "Basic transformations such as translations are foundational before studying more complex transformations like central symmetry."
+    },
+    {
+      "from": "d82130c8-7933-45a3-a879-838f9b6d8d32",
+      "to": "d0291077-335c-4b26-b80c-5b92331e56de",
+      "title": "Understanding central symmetry supports comprehension of axial symmetry as types of symmetry transformations."
+    },
+    {
+      "from": "d0291077-335c-4b26-b80c-5b92331e56de",
+      "to": "8393ad17-30c5-4ba0-b1e9-d28c99dc8541",
+      "title": "Axial symmetry knowledge precedes understanding rotations as types of geometric transformations."
+    },
+    {
+      "from": "b4320da0-3e81-4c55-a81f-adde8b4f4d6b",
+      "to": "271a5989-0d56-4e04-b553-289a97fcb6a6",
+      "title": "The Pythagorean identity is derived from the definitions of sine and cosine functions."
+    },
+    {
+      "from": "271a5989-0d56-4e04-b553-289a97fcb6a6",
+      "to": "3d7890b1-86c9-4bda-848a-776a24af4b52",
+      "title": "The sine of sum formula relies on the Pythagorean identity to relate sine and cosine components."
+    },
+    {
+      "from": "3d7890b1-86c9-4bda-848a-776a24af4b52",
+      "to": "2646457b-3e47-437b-9eda-97ebd6109de2",
+      "title": "The sine of difference formula can be derived from the sine of sum formula by substituting negative angles."
+    },
+    {
+      "from": "5885e65d-040c-40e5-bbc9-9885598648eb",
+      "to": "0ad51fbe-6c5b-4503-9dfc-cb98a939849b",
+      "title": "The cosine of difference formula can be derived from the cosine of sum formula by substituting negative angles."
+    },
+    {
+      "from": "3d7890b1-86c9-4bda-848a-776a24af4b52",
+      "to": "84b12d74-7a06-452f-bce6-1369c2a5de4b",
+      "title": "The tangent of sum formula is expressed in terms of sine and cosine of sum of angles, requiring knowledge of sine and cosine sum formulas."
+    },
+    {
+      "from": "2646457b-3e47-437b-9eda-97ebd6109de2",
+      "to": "8b567d57-fbea-4921-959f-4918d796695b",
+      "title": "The tangent of difference formula depends on sine and cosine difference formulas."
+    },
+    {
+      "from": "09f93f1d-36d5-4a12-bd03-b64b45c807ff",
+      "to": "0fc15ec4-ebaa-4d5a-985e-3a82b4e11677",
+      "title": "The half-angle formula for sine squared is derived using the double angle formula for sine."
+    },
+    {
+      "from": "899acdd2-1fed-461c-9f75-1f2ddd1b12f7",
+      "to": "6234e42e-7e5c-4c27-b14b-c249d451a8d5",
+      "title": "The Argand diagram and modulus concepts represent complex numbers graphically and require knowledge of complex numbers."
+    },
+    {
+      "from": "6234e42e-7e5c-4c27-b14b-c249d451a8d5",
+      "to": "9b20525c-bf86-4e4f-ab7a-e0b80d932db1",
+      "title": "Transformations of complex numbers in the complex plane depend on understanding their representation via Argand diagrams and moduli."
+    },
+    {
+      "from": "b4320da0-3e81-4c55-a81f-adde8b4f4d6b",
+      "to": "3d7890b1-86c9-4bda-848a-776a24af4b52",
+      "title": "The sine of sum identity is derived from the definitions of sine and cosine functions."
+    },
+    {
+      "from": "b4320da0-3e81-4c55-a81f-adde8b4f4d6b",
+      "to": "5885e65d-040c-40e5-bbc9-9885598648eb",
+      "title": "The cosine of sum identity is derived from the definitions of sine and cosine functions."
+    },
+    {
+      "from": "899acdd2-1fed-461c-9f75-1f2ddd1b12f7",
+      "to": "5c4db88a-bbe3-4a9c-803d-5ee8192e15cc",
+      "title": "The modulus of a complex number is a property that requires an understanding of what complex numbers are."
+    },
+    {
+      "from": "b4320da0-3e81-4c55-a81f-adde8b4f4d6b",
+      "to": "5de0432d-1d24-48ad-8aab-4d89db5802e2",
+      "title": "Understanding sine and cosine is essential to grasp the concept of trigonometric ratios in right-angled triangles."
+    },
+    {
+      "from": "9d7f6009-b26f-44b2-84c9-ae4e13edff6f",
+      "to": "5de0432d-1d24-48ad-8aab-4d89db5802e2",
+      "title": "Understanding the Pythagorean theorem is essential for defining the trigonometric ratios (sine, cosine, and tangent) in the context of right-angled triangles, as these ratios are derived from the relationships between the sides of the triangle."
+    },
+    {
+      "from": "d5a1d13f-2ea5-46d4-9fc8-2590a3fa54f8",
+      "to": "fee57bb2-488c-4b27-ab55-f7094479c34c",
+      "title": "Drawing a circle with a given radius requires the ability to use a compass, which is part of geometric constructions with straight edge and compass."
+    },
+    {
+      "from": "7ff0b504-548e-42d4-a773-cb39566392e6",
+      "to": "3d7890b1-86c9-4bda-848a-776a24af4b52",
+      "title": "Graphing trigonometric functions provides a visual understanding necessary to comprehend the sine of the sum of two angles, as it involves the addition of angles."
+    },
+    {
+      "from": "2646457b-3e47-437b-9eda-97ebd6109de2",
+      "to": "84b12d74-7a06-452f-bce6-1369c2a5de4b",
+      "title": "Knowledge of the sine of difference is necessary to understand the tangent of the sum of two angles, as it involves the relationships between sine and tangent."
+    },
+    {
+      "from": "b4320da0-3e81-4c55-a81f-adde8b4f4d6b",
+      "to": "2646457b-3e47-437b-9eda-97ebd6109de2",
+      "title": "The sine of the difference of two angles formula is derived from the definitions of sine and cosine, making it necessary to understand these definitions before applying the formula."
+    },
+    {
+      "from": "3d7890b1-86c9-4bda-848a-776a24af4b52",
+      "to": "09f93f1d-36d5-4a12-bd03-b64b45c807ff",
+      "title": "The double angle formula for sine is derived from the sine of the sum of two angles by substituting the same angle for both angles, thus requiring prior knowledge of the sine of sum formula."
+    },
+    {
+      "from": "899acdd2-1fed-461c-9f75-1f2ddd1b12f7",
+      "to": "899acdd2-1fed-461c-9f75-1f2ddd1b12f7",
+      "title": "Working with complex numbers in rectangular and polar form, applying the Conjugate Root Theorem and De Moivre’s Theorem requires foundational knowledge of complex numbers."
+    }
+  ]
+}

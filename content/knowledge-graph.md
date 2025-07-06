@@ -49,9 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const options = {
         nodes: {
             shape: 'dot',
-            size: 16,
+            size: 48,
             font: {
-                size: 10,
+                size: 30,
                 face: 'Arial'
             },
             borderWidth: 2,
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const node = currentData.nodes.find(n => n.id === nodeId);
             if (node) {
                 document.getElementById('node-title').textContent = node.label;
-                document.getElementById('node-description').textContent = node.title || 'No description available';
+                document.getElementById('node-description').textContent = node.label || 'No description available';
                 document.getElementById('node-strand').textContent = node.group || 'Unknown';
                 document.getElementById('node-info').style.display = 'block';
             }

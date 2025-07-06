@@ -94,15 +94,15 @@ def create_simplified_data():
     """Create a simplified version for testing with fewer nodes."""
     
     # Read the CSV files
-    concepts_file = 'Ontology/concepts_6_7_complete.csv'
-    relationships_file = 'Ontology/relationships_6_7_complete.csv'
+    concepts_file = find_file_by_pattern('Ontology', 'concepts')
+    relationships_file = find_file_by_pattern('Ontology', 'relationships')
     
-    if not os.path.exists(concepts_file):
-        print(f"Error: {concepts_file} not found")
+    if not concepts_file:
+        print("Error: No concepts CSV file found in Ontology directory")
         return
     
-    if not os.path.exists(relationships_file):
-        print(f"Error: {relationships_file} not found")
+    if not relationships_file:
+        print("Error: No relationships CSV file found in Ontology directory")
         return
     
     # Load the data

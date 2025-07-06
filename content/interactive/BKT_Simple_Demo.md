@@ -9,9 +9,8 @@
 <head>
     <title>BKT Algorithm Visual Demo</title>
     <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
-    <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
-
-    <!-- Add MathJax configuration -->
+    
+    <!-- MathJax configuration -->
     <script>
       window.MathJax = {
         tex: {
@@ -28,159 +27,216 @@
     </script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-
+    
     <style>
-      body {
-        font-family: Arial, sans-serif;
+      /* Override Jupyter Book styles for BKT demo */
+      .bd-content .bkt-demo-container {
         max-width: 1200px;
         margin: 0 auto;
         padding: 20px;
         background-color: #f5f5f5;
+        font-family: Arial, sans-serif;
       }
-      .container {
+      
+      .bkt-demo-container .container {
         background: white;
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         margin-bottom: 20px;
       }
-      .controls {
+      
+      .bkt-demo-container .controls {
         display: flex;
         gap: 10px;
         margin: 20px 0;
         flex-wrap: wrap;
       }
-      button {
-        padding: 12px 20px;
-        font-size: 16px;
-        border: none;
-        border-radius: 5px;
+      
+      /* Original button styling - restore exact appearance */
+      .bkt-demo-container button {
+        padding: 12px 20px !important;
+        font-size: 16px !important;
+        border: none !important;
+        border-radius: 5px !important;
         cursor: pointer;
         transition: background-color 0.3s;
+        font-family: Arial, sans-serif !important;
+        font-weight: normal !important;
+        text-decoration: none !important;
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 1.4;
       }
-      .primary-btn {
-        background-color: #2196F3;
-        color: white;
+      
+      .bkt-demo-container .primary-btn {
+        background-color: #2196F3 !important;
+        color: white !important;
       }
-      .primary-btn:hover {
-        background-color: #1976D2;
+      
+      .bkt-demo-container .primary-btn:hover {
+        background-color: #1976D2 !important;
+        color: white !important;
       }
-      .success-btn {
-        background-color: #4CAF50;
-        color: white;
+      
+      .bkt-demo-container .success-btn {
+        background-color: #4CAF50 !important;
+        color: white !important;
       }
-      .success-btn:hover {
-        background-color: #45a049;
+      
+      .bkt-demo-container .success-btn:hover {
+        background-color: #45a049 !important;
+        color: white !important;
       }
-      .danger-btn {
-        background-color: #f44336;
-        color: white;
+      
+      .bkt-demo-container .danger-btn {
+        background-color: #f44336 !important;
+        color: white !important;
       }
-      .danger-btn:hover {
-        background-color: #da190b;
+      
+      .bkt-demo-container .danger-btn:hover {
+        background-color: #da190b !important;
+        color: white !important;
       }
-      #output {
-        background-color: #f8f9fa;
-        border: 1px solid #dee2e6;
-        border-radius: 5px;
-        padding: 15px;
-        margin: 15px 0;
-        min-height: 100px;
-        font-family: monospace;
-        white-space: pre-wrap;
-        overflow-x: auto;
+      
+      /* Original terminal/output styling */
+      .bkt-demo-container #output {
+        background-color: #f8f9fa !important;
+        border: 1px solid #dee2e6 !important;
+        border-radius: 5px !important;
+        padding: 15px !important;
+        margin: 15px 0 !important;
+        min-height: 100px !important;
+        font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
+        white-space: pre-wrap !important;
+        overflow-x: auto !important;
+        font-size: 14px !important;
+        line-height: 1.4 !important;
+        color: #333 !important;
       }
-      .status {
-        padding: 10px;
-        border-radius: 5px;
-        margin: 10px 0;
+      
+      /* Original status styling */
+      .bkt-demo-container .status {
+        padding: 10px !important;
+        border-radius: 5px !important;
+        margin: 10px 0 !important;
+        font-family: Arial, sans-serif !important;
+        font-size: 14px !important;
       }
-      .status.success {
-        background-color: #d4edda;
-        color: #155724;
-        border: 1px solid #c3e6cb;
+      
+      .bkt-demo-container .status.success {
+        background-color: #d4edda !important;
+        color: #155724 !important;
+        border: 1px solid #c3e6cb !important;
       }
-      .status.error {
-        background-color: #f8d7da;
-        color: #721c24;
-        border: 1px solid #f5c6cb;
+      
+      .bkt-demo-container .status.error {
+        background-color: #f8d7da !important;
+        color: #721c24 !important;
+        border: 1px solid #f5c6cb !important;
       }
-      .status.info {
-        background-color: #d1ecf1;
-        color: #0c5460;
-        border: 1px solid #bee5eb;
+      
+      .bkt-demo-container .status.info {
+        background-color: #d1ecf1 !important;
+        color: #0c5460 !important;
+        border: 1px solid #bee5eb !important;
       }
-      .mcq-container {
-        background-color: #fff;
-        border: 2px solid #007bff;
-        border-radius: 8px;
-        padding: 20px;
-        margin: 15px 0;
+      
+      /* Original MCQ container styling */
+      .bkt-demo-container .mcq-container {
+        background-color: #fff !important;
+        border: 2px solid #007bff !important;
+        border-radius: 8px !important;
+        padding: 20px !important;
+        margin: 15px 0 !important;
       }
-      .mcq-question {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 15px;
-        color: #333;
+      
+      .bkt-demo-container .mcq-question {
+        font-size: 18px !important;
+        font-weight: bold !important;
+        margin-bottom: 15px !important;
+        color: #333 !important;
       }
-      .mcq-options {
-        margin: 15px 0;
+      
+      .bkt-demo-container .mcq-options {
+        margin: 15px 0 !important;
       }
-      .mcq-option {
-        display: block;
-        margin: 8px 0;
-        padding: 10px;
-        background-color: #f8f9fa;
-        border: 2px solid #e9ecef;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: all 0.3s;
+      
+      .bkt-demo-container .mcq-option {
+        display: block !important;
+        margin: 8px 0 !important;
+        padding: 10px !important;
+        background-color: #f8f9fa !important;
+        border: 2px solid #e9ecef !important;
+        border-radius: 5px !important;
+        cursor: pointer !important;
+        transition: all 0.3s !important;
+        font-family: Arial, sans-serif !important;
+        font-size: 14px !important;
       }
-      .mcq-option:hover {
-        background-color: #e9ecef;
-        border-color: #007bff;
+      
+      .bkt-demo-container .mcq-option:hover {
+        background-color: #e9ecef !important;
+        border-color: #007bff !important;
       }
-      .mcq-option.selected {
-        background-color: #007bff;
-        color: white;
-        border-color: #0056b3;
+      
+      .bkt-demo-container .mcq-option.selected {
+        background-color: #007bff !important;
+        color: white !important;
+        border-color: #0056b3 !important;
       }
-      .progress-bar {
-        width: 100%;
-        height: 20px;
-        background-color: #e9ecef;
-        border-radius: 10px;
-        overflow: hidden;
-        margin: 10px 0;
+      
+      /* Original progress bar styling */
+      .bkt-demo-container .progress-bar {
+        width: 100% !important;
+        height: 20px !important;
+        background-color: #e9ecef !important;
+        border-radius: 10px !important;
+        overflow: hidden !important;
+        margin: 10px 0 !important;
       }
-      .progress-fill {
-        height: 100%;
-        background-color: #28a745;
-        transition: width 0.3s ease;
+      
+      .bkt-demo-container .progress-fill {
+        height: 100% !important;
+        background-color: #28a745 !important;
+        transition: width 0.3s ease !important;
+      }
+      
+      /* Ensure text doesn't inherit Jupyter Book styling */
+      .bkt-demo-container h1, .bkt-demo-container h2, .bkt-demo-container h3, .bkt-demo-container h4 {
+        font-family: Arial, sans-serif !important;
+      }
+      
+      .bkt-demo-container p {
+        font-family: Arial, sans-serif !important;
+        line-height: 1.5 !important;
       }
     </style>
 </head>
 <body>
-    <div class="container">
-      <h1>🧠 BKT Algorithm Visual Demo</h1>
-      <p>This demo shows how Bayesian Knowledge Tracing works with a simple knowledge graph.
-         Students start with low mastery levels and improve through practice.</p>
-      
-      <div class="controls">
-        <button onclick="initializeDemo()" class="primary-btn">🚀 Initialize BKT System</button>
-        <button onclick="createStudent()" class="success-btn" id="createStudentBtn" disabled>👤 Create Student</button>
-        <button onclick="generateMCQ()" class="primary-btn" id="generateMCQBtn" disabled>❓ Generate MCQ</button>
-        <button onclick="showKnowledgeGraph()" class="primary-btn" id="showGraphBtn" disabled>📊 Show Knowledge Graph</button>
-        <button onclick="resetDemo()" class="danger-btn">🔄 Reset Demo</button>
+    <div class="bkt-demo-container">
+      <div class="container">
+        <h1>🧠 BKT Algorithm Visual Demo</h1>
+        <p>This demo shows how Bayesian Knowledge Tracing works with a simple knowledge graph.
+           Students start with low mastery levels and improve through practice.</p>
+        
+        <div class="controls">
+          <button onclick="initializeDemo()" class="primary-btn">🚀 Initialize BKT System</button>
+          <button onclick="createStudent()" class="success-btn" id="createStudentBtn" disabled>👤 Create Student</button>
+          <button onclick="generateMCQ()" class="primary-btn" id="generateMCQBtn" disabled>❓ Generate MCQ</button>
+          <button onclick="showKnowledgeGraph()" class="primary-btn" id="showGraphBtn" disabled>📊 Show Knowledge Graph</button>
+          <button onclick="resetDemo()" class="danger-btn">🔄 Reset Demo</button>
+        </div>
+        
+        <div id="status" class="status info">Click "Initialize BKT System" to start the demo...</div>
+        
+        <div id="mcq-section" style="display: none;"></div>
+        
+        <div id="output"></div>
       </div>
-      
-      <div id="status" class="status info">Click "Initialize BKT System" to start the demo...</div>
-      
-      <div id="mcq-section" style="display: none;"></div>
-      
-      <div id="output"></div>
     </div>
+
     
     <script type="text/javascript">
       let pyodideInstance = null;
@@ -731,5 +787,6 @@
         selectedOption = null;
       }
     </script>
+
 </body>
 </html>

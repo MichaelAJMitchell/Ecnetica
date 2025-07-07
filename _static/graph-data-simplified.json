@@ -546,6 +546,596 @@
       "from": "a3389202-e7ed-451b-977a-338f2b91f812",
       "to": "30d16cfa-ada4-41c2-9f9e-7d0c2e3f3170",
       "title": "Plotting linear relationships graphically enables students to find the point where two lines intersect, representing the solution to a system of equations."
+    },
+    {
+      "from": "8010ddf4-5c83-49d4-ac3f-f12185620850",
+      "to": "a5355524-2fa8-4dfc-804b-8ebde71f80fd",
+      "title": "Understanding the cosine rule helps in grasping the sine rule, as both rules are used to solve triangles, and knowledge of one can facilitate understanding of the other."
+    },
+    {
+      "from": "d12c261f-08ea-44d0-a5b2-696eb6719515",
+      "to": "8010ddf4-5c83-49d4-ac3f-f12185620850",
+      "title": "The cosine rule generalizes the Pythagorean theorem to non-right triangles, so understanding the Pythagorean theorem is foundational for grasping the cosine rule."
+    },
+    {
+      "from": "3688833b-c7de-4c0b-9888-6f2394081c36",
+      "to": "8010ddf4-5c83-49d4-ac3f-f12185620850",
+      "title": "The cosine rule can be derived using the cosine of angle sum formula, making the latter a prerequisite for understanding the former."
+    },
+    {
+      "from": "f6429b2f-66ea-432e-ab47-e492b52af3c2",
+      "to": "8010ddf4-5c83-49d4-ac3f-f12185620850",
+      "title": "The double angle formula can be used in conjunction with the cosine rule to simplify calculations involving angles in triangles, indicating a prerequisite relationship."
+    },
+    {
+      "from": "3a27c8ea-e142-4d15-a239-8e827b5dd4f8",
+      "to": "097cb42c-4c49-4165-8239-15b48eb58f05",
+      "title": "The sine of angle sum formula is closely related to the cosine of angle difference formula, as both involve the sine and cosine of the same angles, suggesting that knowledge of the sine sum formula aids in understanding the cosine difference formula."
+    },
+    {
+      "from": "3688833b-c7de-4c0b-9888-6f2394081c36",
+      "to": "3a27c8ea-e142-4d15-a239-8e827b5dd4f8",
+      "title": "The sine of angle sum formula is closely related to the cosine of angle sum formula, and understanding the cosine version aids in comprehending the sine version due to their similar structures and derivations."
+    },
+    {
+      "from": "3688833b-c7de-4c0b-9888-6f2394081c36",
+      "to": "6d5c7afd-c666-4948-9ac2-229908fd6868",
+      "title": "The sine of angle difference formula is derived using the sine of angle sum formula, which in turn relies on the cosine of angle sum formula, indicating a prerequisite relationship."
+    },
+    {
+      "from": "3688833b-c7de-4c0b-9888-6f2394081c36",
+      "to": "4a2d1702-374a-48c5-992d-3079f913d2f4",
+      "title": "The tangent of angle sum formula can be expressed in terms of sine and cosine of the angles involved, thus requiring an understanding of the cosine of angle sum formula to fully grasp the tangent version."
+    },
+    {
+      "from": "122779e8-e7c1-4f88-b7d3-11fb24494a16",
+      "to": "f6429b2f-66ea-432e-ab47-e492b52af3c2",
+      "title": "The double angle formulas for sine and cosine are closely related, and understanding one can aid in understanding the other due to their similar structures and derivations."
+    },
+    {
+      "from": "07cb91c8-0144-4370-a071-0f92ab41f348",
+      "to": "f6429b2f-66ea-432e-ab47-e492b52af3c2",
+      "title": "This relationship shows how expressing cos²A in terms of cos 2A directly utilizes the double angle formula, indicating that knowledge of the double angle formula is necessary for this transformation."
+    },
+    {
+      "from": "7cf2213d-d9d5-4c24-b37a-590b6d48bbcf",
+      "to": "f6429b2f-66ea-432e-ab47-e492b52af3c2",
+      "title": "Similar to the previous relationship, expressing sin²A in terms of cos 2A also relies on the double angle formula, establishing a prerequisite connection."
+    },
+    {
+      "from": "3a27c8ea-e142-4d15-a239-8e827b5dd4f8",
+      "to": "3688833b-c7de-4c0b-9888-6f2394081c36",
+      "title": "The cosine of angle sum formula is derived using the sine of angle sum formula, as both formulas are interconnected through the relationships of sine and cosine in trigonometric identities."
+    },
+    {
+      "from": "3a27c8ea-e142-4d15-a239-8e827b5dd4f8",
+      "to": "4a2d1702-374a-48c5-992d-3079f913d2f4",
+      "title": "The tangent of angle sum formula can be expressed in terms of the sine and cosine of the angles involved, which are defined by the sine of angle sum formula, indicating that understanding the sine formula is necessary for grasping the tangent formula."
+    },
+    {
+      "from": "a5355524-2fa8-4dfc-804b-8ebde71f80fd",
+      "to": "6d5c7afd-c666-4948-9ac2-229908fd6868",
+      "title": "The sine of angle difference formula can be applied in the context of the sine rule, where understanding how to manipulate sine values is crucial for solving triangle problems, thus establishing a prerequisite relationship."
+    },
+    {
+      "from": "097cb42c-4c49-4165-8239-15b48eb58f05",
+      "to": "6d5c7afd-c666-4948-9ac2-229908fd6868",
+      "title": "The cosine of angle difference formula is closely related to the sine of angle difference formula, and understanding one helps in deriving or comprehending the other, indicating a prerequisite relationship."
+    },
+    {
+      "from": "4a2d1702-374a-48c5-992d-3079f913d2f4",
+      "to": "3a27c8ea-e142-4d15-a239-8e827b5dd4f8",
+      "title": "The tangent of angle sum formula (tan(A + B) = (tan A + tan B) / (1 - tan A tan B) ) relies on the sine and cosine of the angle sum formulas, as tangent is defined as the ratio of sine to cosine. Understanding the sine of angle sum formula is essential for deriving the tangent of angle sum formula."
+    },
+    {
+      "from": "4a2d1702-374a-48c5-992d-3079f913d2f4",
+      "to": "3688833b-c7de-4c0b-9888-6f2394081c36",
+      "title": "Similar to the sine relationship, the tangent of angle sum formula also depends on the cosine of angle sum formula, as it uses cosine in its definition. Thus, understanding the cosine of angle sum formula is necessary to grasp the tangent of angle sum formula."
+    },
+    {
+      "from": "e9bd786c-541c-4604-a2b6-e2db079c585e",
+      "to": "6d5c7afd-c666-4948-9ac2-229908fd6868",
+      "title": "The tangent of angle difference formula (tan(A - B) = (tan A - tan B) / (1 + tan A tan B)) directly relies on the sine and cosine definitions of tangent, which are foundational to understanding the sine of angle difference."
+    },
+    {
+      "from": "e9bd786c-541c-4604-a2b6-e2db079c585e",
+      "to": "097cb42c-4c49-4165-8239-15b48eb58f05",
+      "title": "The tangent of angle difference formula uses the cosine of angle difference formula in its derivation, as it involves the relationship between sine and cosine."
+    },
+    {
+      "from": "6d5c7afd-c666-4948-9ac2-229908fd6868",
+      "to": "e9bd786c-541c-4604-a2b6-e2db079c585e",
+      "title": "Understanding the sine of angle difference formula is essential for deriving the tangent of angle difference formula, as it connects the sine and cosine functions that define tangent."
+    },
+    {
+      "from": "097cb42c-4c49-4165-8239-15b48eb58f05",
+      "to": "e9bd786c-541c-4604-a2b6-e2db079c585e",
+      "title": "The cosine of angle difference formula is used in the derivation of the tangent of angle difference formula, making it a prerequisite for understanding tangent relationships."
+    },
+    {
+      "from": "122779e8-e7c1-4f88-b7d3-11fb24494a16",
+      "to": "3a27c8ea-e142-4d15-a239-8e827b5dd4f8",
+      "title": "The double angle formula for sine can be derived from the sine of angle sum formula, as sin 2A = sin(A + A)."
+    },
+    {
+      "from": "122779e8-e7c1-4f88-b7d3-11fb24494a16",
+      "to": "6d5c7afd-c666-4948-9ac2-229908fd6868",
+      "title": "Similarly, the sine of angle difference formula can be used to derive the double angle formula for sine, reinforcing the relationship between these concepts."
+    },
+    {
+      "from": "6b0d52e2-0910-4543-b67a-df64660016f6",
+      "to": "4a2d1702-374a-48c5-992d-3079f913d2f4",
+      "title": "The double angle formula for tangent can be derived from the tangent of angle sum formula, as it expresses tan 2A in terms of tan A, thus requiring understanding of the angle sum formula as a foundational concept."
+    },
+    {
+      "from": "6b0d52e2-0910-4543-b67a-df64660016f6",
+      "to": "122779e8-e7c1-4f88-b7d3-11fb24494a16",
+      "title": "The double angle formula for tangent relies on the double angle formula for sine, as it uses sin 2A in its derivation, thus requiring knowledge of the sine double angle formula."
+    },
+    {
+      "from": "122779e8-e7c1-4f88-b7d3-11fb24494a16",
+      "to": "6b0d52e2-0910-4543-b67a-df64660016f6",
+      "title": "Understanding the double angle formula for sine is crucial for grasping the double angle formula for tangent, as it directly incorporates sin 2A in its expression."
+    },
+    {
+      "from": "6b0d52e2-0910-4543-b67a-df64660016f6",
+      "to": "f6429b2f-66ea-432e-ab47-e492b52af3c2",
+      "title": "The double angle formula for tangent also involves the double angle formula for cosine, as it uses cos 2A in its derivation, indicating that knowledge of the cosine double angle formula is necessary."
+    },
+    {
+      "from": "f6429b2f-66ea-432e-ab47-e492b52af3c2",
+      "to": "6b0d52e2-0910-4543-b67a-df64660016f6",
+      "title": "The double angle formula for cosine is foundational for understanding the double angle formula for tangent, as it provides the necessary cosine component in the tangent expression."
+    },
+    {
+      "from": "07cb91c8-0144-4370-a071-0f92ab41f348",
+      "to": "7cf2213d-d9d5-4c24-b37a-590b6d48bbcf",
+      "title": "The expression for sine squared in terms of cosine double angle relies on the expression for cosine squared, as it uses the Pythagorean identity to relate the two."
+    },
+    {
+      "from": "7cf2213d-d9d5-4c24-b37a-590b6d48bbcf",
+      "to": "07cb91c8-0144-4370-a071-0f92ab41f348",
+      "title": "Understanding sine squared in terms of cosine double angle requires knowledge of how cosine squared is expressed in relation to cosine double angle, as both concepts are interconnected through the Pythagorean identity."
+    },
+    {
+      "from": "f6429b2f-66ea-432e-ab47-e492b52af3c2",
+      "to": "39b22619-da33-4853-91b5-41a85db74da8",
+      "title": "The double angle formula can be derived using the Pythagorean identity, as it involves the squares of sine and cosine, establishing a foundational relationship between these concepts."
+    },
+    {
+      "from": "3688833b-c7de-4c0b-9888-6f2394081c36",
+      "to": "07cb91c8-0144-4370-a071-0f92ab41f348",
+      "title": "The cosine of angle sum formula provides a basis for understanding how to manipulate cosine expressions, which is relevant for deriving cosine squared in terms of cosine double angle."
+    },
+    {
+      "from": "097cb42c-4c49-4165-8239-15b48eb58f05",
+      "to": "07cb91c8-0144-4370-a071-0f92ab41f348",
+      "title": "Similar to the angle sum formula, the cosine of angle difference formula aids in understanding the relationships between cosine expressions, which is necessary for deriving cosine squared in terms of cosine double angle."
+    },
+    {
+      "from": "3a27c8ea-e142-4d15-a239-8e827b5dd4f8",
+      "to": "07cb91c8-0144-4370-a071-0f92ab41f348",
+      "title": "The sine of angle sum formula is related to the cosine expressions and can help in understanding the derivation of cosine squared in terms of cosine double angle through trigonometric identities."
+    },
+    {
+      "from": "6d5c7afd-c666-4948-9ac2-229908fd6868",
+      "to": "07cb91c8-0144-4370-a071-0f92ab41f348",
+      "title": "The sine of angle difference formula, like the sine of angle sum formula, provides insight into the relationships between sine and cosine, which is relevant for deriving cosine squared in terms of cosine double angle."
+    },
+    {
+      "from": "122779e8-e7c1-4f88-b7d3-11fb24494a16",
+      "to": "07cb91c8-0144-4370-a071-0f92ab41f348",
+      "title": "Understanding the double angle formula for sine can provide insights into the relationships between sine and cosine, which is relevant for deriving cosine squared in terms of cosine double angle."
+    },
+    {
+      "from": "6b0d52e2-0910-4543-b67a-df64660016f6",
+      "to": "07cb91c8-0144-4370-a071-0f92ab41f348",
+      "title": "The double angle formula for tangent can also provide insights into the relationships between sine and cosine, which is relevant for deriving cosine squared in terms of cosine double angle."
+    },
+    {
+      "from": "56aa7868-7d61-454b-971e-158aa1f79743",
+      "to": "07cb91c8-0144-4370-a071-0f92ab41f348",
+      "title": "The product-to-sum formulas can help in understanding how to manipulate cosine expressions, which is relevant for deriving cosine squared in terms of cosine double angle."
+    },
+    {
+      "from": "35a1bf20-e670-4b6f-869b-8d7b8d0837f2",
+      "to": "07cb91c8-0144-4370-a071-0f92ab41f348",
+      "title": "Similar to the previous relationship, this product-to-sum formula aids in understanding the relationships between sine and cosine, which is necessary for deriving cosine squared in terms of cosine double angle."
+    },
+    {
+      "from": "777085df-4b4d-4a4d-9f89-2013fb396e6f",
+      "to": "07cb91c8-0144-4370-a071-0f92ab41f348",
+      "title": "The sum-to-product formulas can help in understanding how to manipulate cosine expressions, which is relevant for deriving cosine squared in terms of cosine double angle."
+    },
+    {
+      "from": "deec1eb8-1f35-4e82-8568-35a898dea18d",
+      "to": "07cb91c8-0144-4370-a071-0f92ab41f348",
+      "title": "This sum-to-product formula aids in understanding the relationships between cosine expressions, which is necessary for deriving cosine squared in terms of cosine double angle."
+    },
+    {
+      "from": "ed3ef232-91ef-4671-a494-78d94c06c0b5",
+      "to": "07cb91c8-0144-4370-a071-0f92ab41f348",
+      "title": "The sum-to-product formulas can help in understanding how to manipulate sine expressions, which is relevant for deriving cosine squared in terms of cosine double angle."
+    },
+    {
+      "from": "550d1a19-f886-4de0-b3de-bacbc17bdd43",
+      "to": "07cb91c8-0144-4370-a071-0f92ab41f348",
+      "title": "Similar to the previous relationship, this sum-to-product formula aids in understanding the relationships between sine and cosine, which is necessary for deriving cosine squared in terms of cosine double angle."
+    },
+    {
+      "from": "56aa7868-7d61-454b-971e-158aa1f79743",
+      "to": "3688833b-c7de-4c0b-9888-6f2394081c36",
+      "title": "The product-to-sum formula for cosines can be derived from the cosine of angle sum formula, indicating that understanding the sum formula is essential for grasping the product-to-sum identity."
+    },
+    {
+      "from": "56aa7868-7d61-454b-971e-158aa1f79743",
+      "to": "097cb42c-4c49-4165-8239-15b48eb58f05",
+      "title": "Similarly, the product-to-sum formula for cosines also relates to the cosine of angle difference formula, showing that knowledge of the difference formula is necessary to understand the product-to-sum identity."
+    },
+    {
+      "from": "35a1bf20-e670-4b6f-869b-8d7b8d0837f2",
+      "to": "3a27c8ea-e142-4d15-a239-8e827b5dd4f8",
+      "title": "The product-to-sum formula for 2 sin A cos B can be derived from the sine of angle sum formula, as it expresses the product of sine and cosine in terms of sine functions of sums and differences of angles."
+    },
+    {
+      "from": "35a1bf20-e670-4b6f-869b-8d7b8d0837f2",
+      "to": "3688833b-c7de-4c0b-9888-6f2394081c36",
+      "title": "Similarly, the product-to-sum formula for 2 sin A cos B can also be related to the cosine of angle sum formula, as it involves the transformation of products into sums which is foundational for understanding these identities."
+    },
+    {
+      "from": "3688833b-c7de-4c0b-9888-6f2394081c36",
+      "to": "35a1bf20-e670-4b6f-869b-8d7b8d0837f2",
+      "title": "The cosine of angle sum formula is also foundational for deriving the product-to-sum formula, as it allows for the conversion of cosine products into sums, which is a key aspect of the product-to-sum identities."
+    },
+    {
+      "from": "5e09c106-d7e7-4742-ad2b-3ae5b31fd06a",
+      "to": "3a27c8ea-e142-4d15-a239-8e827b5dd4f8",
+      "title": "The product-to-sum formula for 2 sin A sin B can be derived using the sine of angle sum formula, indicating that understanding the sine of angle sum is essential for grasping the product-to-sum formula."
+    },
+    {
+      "from": "5e09c106-d7e7-4742-ad2b-3ae5b31fd06a",
+      "to": "6d5c7afd-c666-4948-9ac2-229908fd6868",
+      "title": "Similarly, the product-to-sum formula for 2 sin A sin B also relates to the sine of angle difference formula, as it can be derived from it, establishing a prerequisite relationship."
+    },
+    {
+      "from": "3a27c8ea-e142-4d15-a239-8e827b5dd4f8",
+      "to": "5e09c106-d7e7-4742-ad2b-3ae5b31fd06a",
+      "title": "Understanding the sine of angle sum formula is crucial for deriving the product-to-sum formula, making it a prerequisite for comprehending the latter."
+    },
+    {
+      "from": "6d5c7afd-c666-4948-9ac2-229908fd6868",
+      "to": "5e09c106-d7e7-4742-ad2b-3ae5b31fd06a",
+      "title": "The sine of angle difference formula is also foundational for deriving the product-to-sum formula, indicating a prerequisite relationship in the opposite direction as well."
+    },
+    {
+      "from": "1b7cbfc0-30a1-4067-a9b0-daa1457c87a5",
+      "to": "3688833b-c7de-4c0b-9888-6f2394081c36",
+      "title": "The product-to-sum formula for 2 cos A sin B can be derived using the cosine of angle sum formula, as it involves expressing the product of cosine and sine in terms of sums and differences of angles."
+    },
+    {
+      "from": "1b7cbfc0-30a1-4067-a9b0-daa1457c87a5",
+      "to": "3a27c8ea-e142-4d15-a239-8e827b5dd4f8",
+      "title": "Similarly, the product-to-sum formula for 2 cos A sin B can also be derived using the sine of angle sum formula, indicating that understanding this formula is essential for grasping the product-to-sum identity."
+    },
+    {
+      "from": "3688833b-c7de-4c0b-9888-6f2394081c36",
+      "to": "1b7cbfc0-30a1-4067-a9b0-daa1457c87a5",
+      "title": "The cosine of angle sum formula provides the foundational understanding needed to derive the product-to-sum formula for 2 cos A sin B, making it a prerequisite for this concept."
+    },
+    {
+      "from": "777085df-4b4d-4a4d-9f89-2013fb396e6f",
+      "to": "3688833b-c7de-4c0b-9888-6f2394081c36",
+      "title": "The sum-to-product formula for cos A + cos B can be derived from the cosine of angle sum formula, indicating that understanding the angle sum formula is essential for grasping the sum-to-product formula."
+    },
+    {
+      "from": "3688833b-c7de-4c0b-9888-6f2394081c36",
+      "to": "777085df-4b4d-4a4d-9f89-2013fb396e6f",
+      "title": "The cosine of angle sum formula provides the foundational identities and relationships that are utilized in deriving the sum-to-product formula for cos A + cos B, making it a prerequisite for understanding this concept."
+    },
+    {
+      "from": "777085df-4b4d-4a4d-9f89-2013fb396e6f",
+      "to": "56aa7868-7d61-454b-971e-158aa1f79743",
+      "title": "The sum-to-product formula for cos A + cos B is closely related to the product-to-sum formula for 2 cos A cos B, as both involve transformations between sums and products of trigonometric functions, indicating a prerequisite relationship."
+    },
+    {
+      "from": "deec1eb8-1f35-4e82-8568-35a898dea18d",
+      "to": "097cb42c-4c49-4165-8239-15b48eb58f05",
+      "title": "The sum-to-product formula for cos A – cos B can be derived from the cosine of angle difference formula, indicating that understanding the cosine of angle difference is foundational for grasping the sum-to-product formula."
+    },
+    {
+      "from": "097cb42c-4c49-4165-8239-15b48eb58f05",
+      "to": "deec1eb8-1f35-4e82-8568-35a898dea18d",
+      "title": "The cosine of angle difference formula provides the necessary framework for deriving the sum-to-product formula for cos A – cos B, showing that the latter builds upon the former."
+    },
+    {
+      "from": "deec1eb8-1f35-4e82-8568-35a898dea18d",
+      "to": "777085df-4b4d-4a4d-9f89-2013fb396e6f",
+      "title": "The sum-to-product formula for cos A – cos B is conceptually related to the sum-to-product formula for cos A + cos B, as both involve transforming trigonometric sums into products, indicating that understanding one enhances comprehension of the other."
+    },
+    {
+      "from": "777085df-4b4d-4a4d-9f89-2013fb396e6f",
+      "to": "deec1eb8-1f35-4e82-8568-35a898dea18d",
+      "title": "Similarly, the sum-to-product formula for cos A + cos B can be derived using the principles established in the sum-to-product formula for cos A – cos B, indicating a reciprocal relationship in understanding these formulas."
+    },
+    {
+      "from": "deec1eb8-1f35-4e82-8568-35a898dea18d",
+      "to": "f6429b2f-66ea-432e-ab47-e492b52af3c2",
+      "title": "The sum-to-product formula for cos A – cos B can be used to derive the double angle formula for cosine, establishing a prerequisite relationship where understanding the sum-to-product formula aids in grasping the double angle formula."
+    },
+    {
+      "from": "f6429b2f-66ea-432e-ab47-e492b52af3c2",
+      "to": "deec1eb8-1f35-4e82-8568-35a898dea18d",
+      "title": "The double angle formula for cosine can also be expressed in terms of the sum-to-product formulas, indicating that knowledge of the double angle formula supports understanding the sum-to-product formula."
+    },
+    {
+      "from": "ed3ef232-91ef-4671-a494-78d94c06c0b5",
+      "to": "3a27c8ea-e142-4d15-a239-8e827b5dd4f8",
+      "title": "The sum-to-product formula for sin A + sin B can be derived from the sine of angle sum formula, indicating that understanding the sine of angle sum is foundational for grasping the sum-to-product formula."
+    },
+    {
+      "from": "3a27c8ea-e142-4d15-a239-8e827b5dd4f8",
+      "to": "ed3ef232-91ef-4671-a494-78d94c06c0b5",
+      "title": "The sine of angle sum formula provides the necessary identities and relationships that are used to derive the sum-to-product formula for sin A + sin B, making it a prerequisite for understanding this concept."
+    },
+    {
+      "from": "ed3ef232-91ef-4671-a494-78d94c06c0b5",
+      "to": "6d5c7afd-c666-4948-9ac2-229908fd6868",
+      "title": "The sum-to-product formula for sin A + sin B can also be related to the sine of angle difference formula, as both formulas involve transformations between sums and products of sine functions, indicating a prerequisite relationship."
+    },
+    {
+      "from": "6d5c7afd-c666-4948-9ac2-229908fd6868",
+      "to": "ed3ef232-91ef-4671-a494-78d94c06c0b5",
+      "title": "Understanding the sine of angle difference formula is essential for deriving the sum-to-product formula for sin A + sin B, establishing it as a prerequisite."
+    },
+    {
+      "from": "ed3ef232-91ef-4671-a494-78d94c06c0b5",
+      "to": "5e09c106-d7e7-4742-ad2b-3ae5b31fd06a",
+      "title": "The sum-to-product formula for sin A + sin B is closely related to the product-to-sum formulas, as they represent transformations in opposite directions, indicating that knowledge of one aids in understanding the other."
+    },
+    {
+      "from": "5e09c106-d7e7-4742-ad2b-3ae5b31fd06a",
+      "to": "ed3ef232-91ef-4671-a494-78d94c06c0b5",
+      "title": "The product-to-sum formula for 2 sin A sin B can be derived from the sum-to-product formula for sin A + sin B, establishing a prerequisite relationship in the opposite direction."
+    },
+    {
+      "from": "550d1a19-f886-4de0-b3de-bacbc17bdd43",
+      "to": "3a27c8ea-e142-4d15-a239-8e827b5dd4f8",
+      "title": "The sum-to-product formula for sin A – sin B can be derived using the sine of angle sum formula, indicating that understanding the sine of angle sum is essential for grasping the sum-to-product formula."
+    },
+    {
+      "from": "550d1a19-f886-4de0-b3de-bacbc17bdd43",
+      "to": "6d5c7afd-c666-4948-9ac2-229908fd6868",
+      "title": "Similarly, the sum-to-product formula for sin A – sin B can also be derived using the sine of angle difference formula, showing that knowledge of this formula is necessary to understand the sum-to-product formula."
+    },
+    {
+      "from": "3a27c8ea-e142-4d15-a239-8e827b5dd4f8",
+      "to": "550d1a19-f886-4de0-b3de-bacbc17bdd43",
+      "title": "Understanding the sine of angle sum formula provides the foundational knowledge needed to derive the sum-to-product formula for sin A – sin B, establishing a prerequisite relationship in this direction as well."
+    },
+    {
+      "from": "6d5c7afd-c666-4948-9ac2-229908fd6868",
+      "to": "550d1a19-f886-4de0-b3de-bacbc17bdd43",
+      "title": "The sine of angle difference formula is similarly foundational for deriving the sum-to-product formula for sin A – sin B, indicating that it is a prerequisite for understanding this concept."
+    },
+    {
+      "from": "c318537e-f049-4e87-8554-30c63e7c2234",
+      "to": "1f7078b1-9434-4894-b9e2-867eae877dc8",
+      "title": "Understanding how to use a compass is essential for accurately drawing a circle with a specified radius, making it a foundational skill for this target concept."
+    },
+    {
+      "from": "69fcec90-ae91-4055-8d9d-1796e095594a",
+      "to": "c318537e-f049-4e87-8554-30c63e7c2234",
+      "title": "Mastery of using a straight edge is often necessary for constructing geometric figures that also require the use of a compass, as both tools are commonly used together in geometric constructions."
+    },
+    {
+      "from": "09616f1a-5d07-43fb-afaf-d62dda5c2b29",
+      "to": "c318537e-f049-4e87-8554-30c63e7c2234",
+      "title": "Similar to the straight edge, a ruler is often used alongside a compass in geometric constructions, making familiarity with both tools important for effective construction techniques."
+    },
+    {
+      "from": "6fd3577d-62e0-4ec2-b641-4c813bdf986b",
+      "to": "c318537e-f049-4e87-8554-30c63e7c2234",
+      "title": "The specific geometric constructions listed (16-21) likely involve the use of a compass, making it a prerequisite for successfully executing those constructions."
+    },
+    {
+      "from": "09616f1a-5d07-43fb-afaf-d62dda5c2b29",
+      "to": "69fcec90-ae91-4055-8d9d-1796e095594a",
+      "title": "The use of a ruler is foundational for understanding how to accurately draw straight lines, which is essential for using a straight edge effectively in geometric constructions."
+    },
+    {
+      "from": "09616f1a-5d07-43fb-afaf-d62dda5c2b29",
+      "to": "1f7078b1-9434-4894-b9e2-867eae877dc8",
+      "title": "Accurately drawing a circle with a compass often requires the initial measurement of a radius using a ruler, establishing a prerequisite relationship."
+    },
+    {
+      "from": "17289349-2b9d-45a3-952c-0c525c86d19c",
+      "to": "69fcec90-ae91-4055-8d9d-1796e095594a",
+      "title": "Understanding how to use a set square to create perpendicular and parallel lines builds upon the foundational skill of using a straight edge to draw straight lines accurately."
+    },
+    {
+      "from": "17289349-2b9d-45a3-952c-0c525c86d19c",
+      "to": "c318537e-f049-4e87-8554-30c63e7c2234",
+      "title": "The ability to construct geometric figures accurately with a set square often requires prior knowledge of using a compass for drawing arcs and circles, as both tools are commonly used together in geometric constructions."
+    },
+    {
+      "from": "e8a71f47-2bfd-4641-9e09-408194b1f107",
+      "to": "a3389202-e7ed-451b-977a-338f2b91f812",
+      "title": "Understanding how to coordinate the plane is essential for plotting points and visualizing linear relationships as straight lines on a graph."
+    },
+    {
+      "from": "e8a71f47-2bfd-4641-9e09-408194b1f107",
+      "to": "45f7af2f-c610-4a03-96c4-c0a624551c77",
+      "title": "The concept of coordinating the plane is foundational for understanding how slope represents the rate of change in linear relationships."
+    },
+    {
+      "from": "e8a71f47-2bfd-4641-9e09-408194b1f107",
+      "to": "30d16cfa-ada4-41c2-9f9e-7d0c2e3f3170",
+      "title": "Knowing how to coordinate the plane is necessary to find and interpret the intersection points of two linear graphs."
+    },
+    {
+      "from": "e8a71f47-2bfd-4641-9e09-408194b1f107",
+      "to": "c78af0e2-3139-47b3-a012-c9a8d3262b3a",
+      "title": "Coordinating the plane is crucial for graphically solving systems of equations by finding where the lines intersect."
+    },
+    {
+      "from": "c2cb8846-05cd-4690-8571-11a5fe277c59",
+      "to": "45f7af2f-c610-4a03-96c4-c0a624551c77",
+      "title": "Recognizing how to represent linear relationships in tables helps in understanding the concept of slope as a rate of change, as the tabular data can illustrate how changes in one variable correspond to changes in another."
+    },
+    {
+      "from": "c0613010-2043-4e7b-b40a-6435f8bf29cc",
+      "to": "c2cb8846-05cd-4690-8571-11a5fe277c59",
+      "title": "Understanding the start value (y-intercept) is essential for accurately representing linear relationships in tables, as it provides the initial value from which other values are derived."
+    },
+    {
+      "from": "c0613010-2043-4e7b-b40a-6435f8bf29cc",
+      "to": "a3389202-e7ed-451b-977a-338f2b91f812",
+      "title": "Recognizing the start value is crucial for plotting linear relationships on a graph, as it determines where the line intersects the y-axis."
+    },
+    {
+      "from": "c0613010-2043-4e7b-b40a-6435f8bf29cc",
+      "to": "45f7af2f-c610-4a03-96c4-c0a624551c77",
+      "title": "Understanding the start value helps in interpreting the slope in the context of a linear relationship, as it provides a reference point for understanding how changes in the independent variable affect the dependent variable."
+    },
+    {
+      "from": "a3389202-e7ed-451b-977a-338f2b91f812",
+      "to": "c0613010-2043-4e7b-b40a-6435f8bf29cc",
+      "title": "Accurately graphing a linear relationship requires understanding the start value, as it is a key feature of the graph that indicates the initial condition of the relationship."
+    },
+    {
+      "from": "c2cb8846-05cd-4690-8571-11a5fe277c59",
+      "to": "c0613010-2043-4e7b-b40a-6435f8bf29cc",
+      "title": "Creating a table of values for a linear relationship necessitates understanding the start value, as it serves as the foundation for generating subsequent values based on the slope."
+    },
+    {
+      "from": "c78af0e2-3139-47b3-a012-c9a8d3262b3a",
+      "to": "30d16cfa-ada4-41c2-9f9e-7d0c2e3f3170",
+      "title": "Learning how to solve systems of equations directly involves finding the point of intersection, making this concept foundational for understanding the solution of such systems."
+    },
+    {
+      "from": "30d16cfa-ada4-41c2-9f9e-7d0c2e3f3170",
+      "to": "a3389202-e7ed-451b-977a-338f2b91f812",
+      "title": "Knowing how to find the point of intersection relies on the ability to graph linear relationships accurately."
+    },
+    {
+      "from": "30d16cfa-ada4-41c2-9f9e-7d0c2e3f3170",
+      "to": "45f7af2f-c610-4a03-96c4-c0a624551c77",
+      "title": "Understanding the concept of slope is crucial for determining the point of intersection, as it helps in analyzing the behavior of the linear relationships."
+    },
+    {
+      "from": "45f7af2f-c610-4a03-96c4-c0a624551c77",
+      "to": "30d16cfa-ada4-41c2-9f9e-7d0c2e3f3170",
+      "title": "The concept of slope is foundational for understanding how two lines interact, including where they intersect."
+    },
+    {
+      "from": "30d16cfa-ada4-41c2-9f9e-7d0c2e3f3170",
+      "to": "57d1f659-5564-4a1d-97b1-6048d10c1d96",
+      "title": "Recognizing the standard form of linear equations is important for identifying and finding their points of intersection."
+    },
+    {
+      "from": "57d1f659-5564-4a1d-97b1-6048d10c1d96",
+      "to": "30d16cfa-ada4-41c2-9f9e-7d0c2e3f3170",
+      "title": "Understanding the standard form of linear equations is necessary to apply methods for finding their intersection points."
+    },
+    {
+      "from": "30d16cfa-ada4-41c2-9f9e-7d0c2e3f3170",
+      "to": "bc4a0ff8-ec6e-49b8-a7e9-ca88aeb81eac",
+      "title": "Knowing how to determine if two lines are parallel (and thus do not intersect) is directly related to understanding their point of intersection."
+    },
+    {
+      "from": "bc4a0ff8-ec6e-49b8-a7e9-ca88aeb81eac",
+      "to": "30d16cfa-ada4-41c2-9f9e-7d0c2e3f3170",
+      "title": "The concept of parallel lines is foundational for understanding intersections, as it helps clarify when two lines will not intersect."
+    },
+    {
+      "from": "30d16cfa-ada4-41c2-9f9e-7d0c2e3f3170",
+      "to": "ec178aa4-851c-4c32-a012-872df6e839aa",
+      "title": "Understanding perpendicularity is relevant when analyzing intersections, particularly in determining the nature of the intersection."
+    },
+    {
+      "from": "ec178aa4-851c-4c32-a012-872df6e839aa",
+      "to": "30d16cfa-ada4-41c2-9f9e-7d0c2e3f3170",
+      "title": "The concept of perpendicular lines is foundational for understanding intersections, as it clarifies the relationship between slopes and intersection points."
+    },
+    {
+      "from": "a3389202-e7ed-451b-977a-338f2b91f812",
+      "to": "c78af0e2-3139-47b3-a012-c9a8d3262b3a",
+      "title": "Being able to graph linear relationships is foundational for visually identifying solutions to systems of equations."
+    },
+    {
+      "from": "c78af0e2-3139-47b3-a012-c9a8d3262b3a",
+      "to": "a3389202-e7ed-451b-977a-338f2b91f812",
+      "title": "The ability to solve systems often involves interpreting or creating graphs of linear relationships, making this skill essential for effective problem-solving."
+    },
+    {
+      "from": "45f7af2f-c610-4a03-96c4-c0a624551c77",
+      "to": "c78af0e2-3139-47b3-a012-c9a8d3262b3a",
+      "title": "Understanding the concept of slope is crucial for analyzing and solving linear equations, as it directly relates to the rate of change in the equations involved."
+    },
+    {
+      "from": "c78af0e2-3139-47b3-a012-c9a8d3262b3a",
+      "to": "57d1f659-5564-4a1d-97b1-6048d10c1d96",
+      "title": "Recognizing the standard form of linear equations is necessary for applying strategies to solve systems effectively."
+    },
+    {
+      "from": "57d1f659-5564-4a1d-97b1-6048d10c1d96",
+      "to": "c78af0e2-3139-47b3-a012-c9a8d3262b3a",
+      "title": "Identifying the standard form of linear equations is a prerequisite for applying various strategies to solve systems involving those equations."
+    },
+    {
+      "from": "88d476f7-04c2-41ae-8390-49b8c8ee96d3",
+      "to": "d12c261f-08ea-44d0-a5b2-696eb6719515",
+      "title": "Understanding the Pythagorean theorem is essential for applying trigonometric ratios, as it provides the foundational relationship between the sides of a right triangle that trigonometric ratios depend on."
+    },
+    {
+      "from": "dbec3474-bf12-4e23-a9da-7a757cdd42e2",
+      "to": "f87bd697-7e09-4ec0-9226-72ce699bd18a",
+      "title": "Understanding how to identify axes of symmetry directly supports the ability to recognize images that are reflected across those axes, as both concepts involve the idea of symmetry in shapes."
+    },
+    {
+      "from": "f87bd697-7e09-4ec0-9226-72ce699bd18a",
+      "to": "dbec3474-bf12-4e23-a9da-7a757cdd42e2",
+      "title": "Recognizing images under axial symmetry helps in understanding and identifying the axes of symmetry, as it involves visualizing how shapes can be divided into mirror-image halves."
+    },
+    {
+      "from": "3e8ad8e3-951d-4392-8663-48454c248266",
+      "to": "a5355524-2fa8-4dfc-804b-8ebde71f80fd",
+      "title": "Understanding the investigation and proof of theorems related to ratios is essential for grasping the sine rule, as the sine rule itself is based on the ratios of the sides of triangles to the sines of their opposite angles."
+    },
+    {
+      "from": "3e8ad8e3-951d-4392-8663-48454c248266",
+      "to": "8010ddf4-5c83-49d4-ac3f-f12185620850",
+      "title": "The cosine rule involves ratios of triangle sides and angles, making the investigation and proof of theorems related to ratios foundational for understanding and applying the cosine rule."
+    },
+    {
+      "from": "a5355524-2fa8-4dfc-804b-8ebde71f80fd",
+      "to": "3e8ad8e3-951d-4392-8663-48454c248266",
+      "title": "Learning the sine rule provides a practical application of ratios in triangles, which can enhance understanding of the broader concept of investigating and proving theorems related to ratios."
+    },
+    {
+      "from": "8010ddf4-5c83-49d4-ac3f-f12185620850",
+      "to": "3e8ad8e3-951d-4392-8663-48454c248266",
+      "title": "The cosine rule serves as a specific example of how ratios apply in triangle geometry, thus reinforcing the principles involved in the investigation and proof of theorems related to ratios."
+    },
+    {
+      "from": "ec178aa4-851c-4c32-a012-872df6e839aa",
+      "to": "bc4a0ff8-ec6e-49b8-a7e9-ca88aeb81eac",
+      "title": "Understanding how to determine perpendicularity using slopes (negative reciprocals) builds on the foundational concept of determining parallelism (equal slopes), as both concepts rely on the properties of slopes in coordinate geometry."
+    },
+    {
+      "from": "d12c261f-08ea-44d0-a5b2-696eb6719515",
+      "to": "76ed66c9-9b24-483b-b4ab-0dca16ce3f26",
+      "title": "The Pythagorean theorem is often used to find side lengths in right-angled triangles, which can be essential for calculating the area when coordinates are involved."
+    },
+    {
+      "from": "39b22619-da33-4853-91b5-41a85db74da8",
+      "to": "122779e8-e7c1-4f88-b7d3-11fb24494a16",
+      "title": "Similar to cosine, the double angle formula for sine also relies on the Pythagorean identity to express sine and cosine in terms of each other."
+    },
+    {
+      "from": "f6429b2f-66ea-432e-ab47-e492b52af3c2",
+      "to": "122779e8-e7c1-4f88-b7d3-11fb24494a16",
+      "title": "Understanding the cosine double angle formula aids in comprehending the sine double angle formula, as both are derived from similar principles and identities."
     }
   ]
 }

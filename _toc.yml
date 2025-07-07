@@ -8,6 +8,13 @@ parts:
       sections:
       - file: content/introduction/problem_solving
       - file: content/introduction/proof_techniques
+    - file: content/knowledge-graph
+      
+  - caption: Interactive Tools
+    chapters:
+    - file: content/interactive/python_playground
+    - file: content/interactive/BKT_Simple_Demo
+
 
   - caption: Number Systems
     chapters:

@@ -1543,376 +1543,2848 @@
         "title": "Being careful with fraction operations and always checking if simplification is possible."
       }
     ],
-    "edges": [
-      {
-        "from": "a7f3d8e2-5b91-4c73-9a42-1e6f8d3c7b5a",
-        "to": "b2e9f7a1-8c64-4d15-b73e-9f2a5c8e1d47",
-        "title": "Students must understand that variables represent unknown values before they can recognize coefficients as the numbers that multiply those variables."
-      },
-      {
-        "from": "b2e9f7a1-8c64-4d15-b73e-9f2a5c8e1d47",
-        "to": "d6c2e5f8-9a73-4b16-c84d-7a3f6e9b4c28",
-        "title": "Understanding coefficients is essential before students can break down expressions into separate terms for analysis."
-      },
-      {
-        "from": "d6c2e5f8-9a73-4b16-c84d-7a3f6e9b4c28",
-        "to": "e8f4a7b2-6d59-4e32-b95f-3c8a7e2b6d91",
-        "title": "Students must be able to identify individual terms before they can recognize which terms have the same variable parts."
-      },
-      {
-        "from": "e8f4a7b2-6d59-4e32-b95f-3c8a7e2b6d91",
-        "to": "f9b6c3e7-4a85-4f61-a72b-5d9e8f3a7c64",
-        "title": "Recognizing like terms is prerequisite to combining them by adding or subtracting their coefficients."
-      },
-      {
-        "from": "a3c7f2d8-5e94-4b27-c85e-8f6a9b3d7e52",
-        "to": "b5d9e6a4-7c28-4f53-a69d-2e8f5a9c3b74",
-        "title": "Understanding the distributive property concept is necessary before applying it to expand single brackets."
-      },
-      {
-        "from": "b5d9e6a4-7c28-4f53-a69d-2e8f5a9c3b74",
-        "to": "c7f1a8e5-9b42-4d76-b83a-6f9c2e7d4a85",
-        "title": "Students must master basic bracket expansion before handling the complexity of negative signs in expansion."
-      },
-      {
-        "from": "c7f1a8e5-9b42-4d76-b83a-6f9c2e7d4a85",
-        "to": "d9e3b6c8-4a57-4f84-c92b-8e5a7f3d6c91",
-        "title": "Understanding negative sign distribution prepares students for the systematic FOIL method with binomials."
-      },
-      {
-        "from": "d9e3b6c8-4a57-4f84-c92b-8e5a7f3d6c91",
-        "to": "e2f8c5a9-6d73-4b18-a64f-3c9e8a2f7b58",
-        "title": "FOIL method provides the systematic foundation needed for expanding any double bracket expressions."
-      },
-      {
-        "from": "e2f8c5a9-6d73-4b18-a64f-3c9e8a2f7b58",
-        "to": "f4a7d3b6-8e59-4c25-b71c-5f8d9e4a3c72",
-        "title": "Students must know how to expand brackets before they can simplify the resulting expressions by collecting like terms."
-      },
-      {
-        "from": "a6b9e2f5-3c84-4d61-c98f-7e2a6b9f4d83",
-        "to": "b8c4f7a3-5e96-4b47-a82e-9f6c3b8e7a54",
-        "title": "Recognizing common factors is essential before students can apply the technique of factoring out numerical common factors."
-      },
-      {
-        "from": "b8c4f7a3-5e96-4b47-a82e-9f6c3b8e7a54",
-        "to": "c9d6a5e8-7f23-4c58-b94a-6e8f2c9a5d76",
-        "title": "Understanding numerical factoring provides the foundation for recognizing and factoring out variable common factors."
-      },
-      {
-        "from": "c9d6a5e8-7f23-4c58-b94a-6e8f2c9a5d76",
-        "to": "d2e7b4f9-4a68-4d83-c56b-8f3e7d2b9c85",
-        "title": "Students need experience with both numerical and variable factoring before combining them in mixed common factors."
-      },
-      {
-        "from": "d2e7b4f9-4a68-4d83-c56b-8f3e7d2b9c85",
-        "to": "e4f9c6a2-6b85-4f72-a37d-5c8f6e4a9b72",
-        "title": "Mastery of basic factoring techniques is required before attempting the more complex factoring by grouping method."
-      },
-      {
-        "from": "f7a3d8e5-8c47-4b96-c84f-9e6a3f7d8c53",
-        "to": "a9b6f2c7-5d84-4e63-b75c-8f2a9b6c7e54",
-        "title": "Students must recognize the difference of squares pattern before they can apply the factoring formula (a-b)(a+b)."
-      },
-      {
-        "from": "b3c8e5a4-7f29-4d46-a68d-6e9c3b8e5f72",
-        "to": "c5d2f9b6-9a47-4c73-b82e-7f4c5d2f9a68",
-        "title": "Pattern recognition for perfect square trinomials must come before applying the factoring technique (a±b)²."
-      },
-      {
-        "from": "d7e4a1c8-3b65-4f84-c93f-8e7d4a1c8b59",
-        "to": "e9f6b3d5-5c82-4a57-a64b-2f9e6b3d5c84",
-        "title": "Students must master factoring simple quadratics (a=1) before tackling complex quadratics where a≠1."
-      },
-      {
-        "from": "e9f6b3d5-5c82-4a57-a64b-2f9e6b3d5c84",
-        "to": "f2a8c5e6-7d48-4b73-c85d-6a2f8c5e7d49",
-        "title": "Understanding general quadratic factoring provides the foundation for systematic trial and error approaches."
-      },
-      {
-        "from": "e9f6b3d5-5c82-4a57-a64b-2f9e6b3d5c84",
-        "to": "a4b7f3d9-8e56-4c29-b76e-5b4a7f3d9e58",
-        "title": "Students need to understand the goal of quadratic factoring before learning the systematic AC method approach."
-      },
-      {
-        "from": "d9e6c2a5-3b87-4f58-b68b-9e6d9c2a5b88",
-        "to": "e2a7f4d8-5c63-4b29-a59c-2a7e2f4d8c64",
-        "title": "Understanding what an equation is must precede recognizing what constitutes a solution to that equation."
-      },
-      {
-        "from": "e2a7f4d8-5c63-4b29-a59c-2a7e2f4d8c64",
-        "to": "f4b9e6c3-7d48-4f73-c86d-4b9f4e6c3d49",
-        "title": "Understanding solutions requires knowing inverse operations to systematically undo equation operations."
-      },
-      {
-        "from": "f4b9e6c3-7d48-4f73-c86d-4b9f4e6c3d49",
-        "to": "a6c2f5d9-8e54-4b67-b79e-6c2a6f5d9e55",
-        "title": "Knowledge of inverse operations is essential for understanding the balance method of maintaining equation equality."
-      },
-      {
-        "from": "a6c2f5d9-8e54-4b67-b79e-6c2a6f5d9e55",
-        "to": "b8d5a3f7-4c76-4d84-a92c-8d5b8a3f7c77",
-        "title": "Understanding equation balance is prerequisite to solving even the simplest one-step linear equations."
-      },
-      {
-        "from": "b8d5a3f7-4c76-4d84-a92c-8d5b8a3f7c77",
-        "to": "c3e7b6a4-6f59-4c45-c85f-3e7c3b6a4f58",
-        "title": "One-step equation solving skills are essential building blocks for tackling two-step linear equations."
-      },
-      {
-        "from": "c3e7b6a4-6f59-4c45-c85f-3e7c3b6a4f58",
-        "to": "d5f9c2e8-9a42-4b68-b73a-5f9d5c2e8a43",
-        "title": "Two-step solving techniques provide the foundation for handling more complex multi-step linear equations."
-      },
-      {
-        "from": "d5f9c2e8-9a42-4b68-b73a-5f9d5c2e8a43",
-        "to": "e7a4f6d2-3b85-4f54-a64b-7a4e7f6d2b86",
-        "title": "Multi-step equation skills are required before students can handle variables appearing on both sides."
-      },
-      {
-        "from": "b5d9e6a4-7c28-4f53-a69d-2e8f5a9c3b74",
-        "to": "f9b7c5e3-5d67-4c39-c76d-9b7f9c5e3d68",
-        "title": "Students must understand bracket expansion before they can solve equations containing brackets."
-      },
-      {
-        "from": "c9e5b8d7-6f84-4d56-c74f-9e5c9b8d7f85",
-        "to": "d2f7c4a9-8b63-4f72-b86b-2f7d2c4a9b64",
-        "title": "Understanding standard form structure is essential for recognizing different types of quadratic equations."
-      },
-      {
-        "from": "d2f7c4a9-8b63-4f72-b86b-2f7d2c4a9b64",
-        "to": "e4a8f6d3-5c49-4b95-a75c-4a8e4f6d3c48",
-        "title": "Students must identify quadratic equations before they can rearrange them into standard form."
-      },
-      {
-        "from": "e4a8f6d3-5c49-4b95-a75c-4a8e4f6d3c48",
-        "to": "f6b2e9c7-9d57-4f68-c89d-6b2f6e9c7d58",
-        "title": "Having equations in standard form is necessary before applying the zero product property."
-      },
-      {
-        "from": "f6b2e9c7-9d57-4f68-c89d-6b2f6e9c7d58",
-        "to": "a8c4f7e5-3a76-4b43-b78a-8c4a8f7e5a77",
-        "title": "Understanding zero product property is essential before using factoring methods to solve quadratics."
-      },
-      {
-        "from": "a8c4f7e5-3a76-4b43-b78a-8c4a8f7e5a77",
-        "to": "b3d6a9f2-7e59-4c86-a97e-3d6b3a9f2e58",
-        "title": "Students need factoring skills before they can apply zero product property to each factor."
-      },
-      {
-        "from": "c5e8b4d7-4f42-4d73-c84f-5e8c5b4d7f43",
-        "to": "d7f3c6a9-6b65-4f58-b76b-7f3d7c6a9b66",
-        "title": "Understanding why we complete the square is essential before learning the specific technique."
-      },
-      {
-        "from": "d7f3c6a9-6b65-4f58-b76b-7f3d7c6a9b66",
-        "to": "e9a5f8d2-8c47-4b84-a68c-9a5e9f8d2c48",
-        "title": "Students must understand the basic completing square pattern before following the complete step-by-step method."
-      },
-      {
-        "from": "e9a5f8d2-8c47-4b84-a68c-9a5e9f8d2c48",
-        "to": "a4c8f5b6-9e53-4d42-b79e-4c8a4f5b6e54",
-        "title": "Completing the square method must be mastered before students can take square roots to find solutions."
-      },
-      {
-        "from": "b6d2a7f9-3f76-4c58-a63f-6d2b6a7f9f77",
-        "to": "c8e4b9d5-7a64-4f87-c74a-8e4c8b9d5a65",
-        "title": "Students must understand formula components (a,b,c) before they can apply the quadratic formula."
-      },
-      {
-        "from": "c8e4b9d5-7a64-4f87-c74a-8e4c8b9d5a65",
-        "to": "d3f6c2e8-4b59-4d73-b84b-3f6d3c2e8b58",
-        "title": "Understanding the quadratic formula structure is required before carefully substituting specific values."
-      },
-      {
-        "from": "d3f6c2e8-4b59-4d73-b84b-3f6d3c2e8b58",
-        "to": "e5a8f4d7-6c46-4f62-a76c-5a8e5f4d7c47",
-        "title": "Students must be able to substitute into the formula before they can simplify the resulting expressions."
-      },
-      {
-        "from": "f7b3e6c9-8d72-4b95-c98d-7b3f7e6c9d73",
-        "to": "a9c5f8e4-5a65-4d48-b75a-9c5a9f8e4a66",
-        "title": "Understanding discriminant concept is prerequisite to calculating b²-4ac for specific equations."
-      },
-      {
-        "from": "a9c5f8e4-5a65-4d48-b75a-9c5a9f8e4a66",
-        "to": "b2d7a4f6-9e83-4c57-a69e-2d7b2a4f6e84",
-        "title": "Students must know how to calculate the discriminant before interpreting positive discriminant results."
-      },
-      {
-        "from": "a9c5f8e4-5a65-4d48-b75a-9c5a9f8e4a66",
-        "to": "c4e9b6d8-3f74-4f46-c83f-4e9c4b6d8f75",
-        "title": "Discriminant calculation ability is required before recognizing the zero discriminant case."
-      },
-      {
-        "from": "a9c5f8e4-5a65-4d48-b75a-9c5a9f8e4a66",
-        "to": "d6f2c8a5-7b67-4d59-b67b-6f2d6c8a5b68",
-        "title": "Students need discriminant calculation skills before understanding negative discriminant implications."
-      },
-      {
-        "from": "d2f8c5a7-3b52-4f87-b83b-2f8d2c5a7b53",
-        "to": "e4a7f9d6-7c73-4b46-a67c-4a7e4f9d6c74",
-        "title": "Point plotting experience is necessary before students can identify linear versus non-linear patterns."
-      },
-      {
-        "from": "e4a7f9d6-7c73-4b46-a67c-4a7e4f9d6c74",
-        "to": "f6b3e5c8-4d68-4f59-c74d-6b3f6e5c8d69",
-        "title": "Recognizing linear relationships provides the foundation for understanding slope as rate of change."
-      },
-      {
-        "from": "f6b3e5c8-4d68-4f59-c74d-6b3f6e5c8d69",
-        "to": "a8c7f4e2-6f85-4b72-b86f-8c7a8f4e2f86",
-        "title": "Understanding slope concept is prerequisite to calculating slope using rise over run."
-      },
-      {
-        "from": "a8c7f4e2-6f85-4b72-b86f-8c7a8f4e2f86",
-        "to": "b3d9a6f5-9e54-4c67-a69e-3d9b3a6f5e55",
-        "title": "Rise over run concept is essential before students can find slope from two specific points."
-      },
-      {
-        "from": "b3d9a6f5-9e54-4c67-a69e-3d9b3a6f5e55",
-        "to": "c5e2b8d4-2a76-4f83-c82a-5e2c5b8d4a77",
-        "title": "Students must be able to calculate slope before they can interpret positive slope direction."
-      },
-      {
-        "from": "b3d9a6f5-9e54-4c67-a69e-3d9b3a6f5e55",
-        "to": "d7f4c6a9-5b69-4d58-b75b-7f4d7c6a9b68",
-        "title": "Slope calculation skills are required before students can recognize negative slope patterns."
-      },
-      {
-        "from": "a4c7f9e6-6f52-4d45-b76f-4c7a4f9e6f53",
-        "to": "c8e5b2d7-3a64-4f57-c73a-8e5c8b2d7a65",
-        "title": "Understanding y-intercept concept is essential before learning slope-intercept form where it appears as 'c'."
-      },
-      {
-        "from": "b3d9a6f5-9e54-4c67-a69e-3d9b3a6f5e55",
-        "to": "c8e5b2d7-3a64-4f57-c73a-8e5c8b2d7a65",
-        "title": "Students must understand slope before learning slope-intercept form where slope appears as 'm'."
-      },
-      {
-        "from": "c8e5b2d7-3a64-4f57-c73a-8e5c8b2d7a65",
-        "to": "d3f7c9a6-7b83-4d46-b87b-3f7d3c9a6b84",
-        "title": "Understanding slope-intercept form provides the foundation for graphing lines using this method."
-      },
-      {
-        "from": "c8e5b2d7-3a64-4f57-c73a-8e5c8b2d7a65",
-        "to": "e5a4f6d8-4c59-4f72-a74c-5a4e5f6d8c58",
-        "title": "Students need slope-intercept form knowledge before understanding the alternative point-slope form."
-      },
-      {
-        "from": "e5a4f6d8-4c59-4f72-a74c-5a4e5f6d8c58",
-        "to": "f7b6e9c2-6d48-4b85-c96d-7b6f7e9c2d49",
-        "title": "Understanding point-slope form is essential for finding equations when given a point and slope."
-      },
-      {
-        "from": "f7b6e9c2-6d48-4b85-c96d-7b6f7e9c2d49",
-        "to": "a9c2f5d7-8e67-4f54-b78e-9c2a9f5d7e68",
-        "title": "Finding equations from point and slope provides foundation for the more complex two-point method."
-      },
-      {
-        "from": "d8f3c6a2-2b84-4f65-b82b-8f3d8c6a2b85",
-        "to": "f5b7e4c6-8d69-4f58-c98d-5b7f5e4c6d68",
-        "title": "Understanding parallel line relationships is prerequisite for finding equations of parallel lines."
-      },
-      {
-        "from": "e3a5f8d9-6c47-4b72-a76c-3a5e3f8d9c48",
-        "to": "f5b7e4c6-8d69-4f58-c98d-5b7f5e4c6d68",
-        "title": "Understanding perpendicular slope relationships is essential before finding perpendicular line equations."
-      },
-      {
-        "from": "a7c9f2e8-4f53-4d84-b74f-7c9a7f2e8f54",
-        "to": "b2d6a5f3-9e76-4c67-a89e-2d6b2a5f3e77",
-        "title": "Students must recognize parabola shape before they can determine which direction it opens."
-      },
-      {
-        "from": "b2d6a5f3-9e76-4c67-a89e-2d6b2a5f3e77",
-        "to": "d6f3c9a7-7b58-4d72-b87b-6f3d6c9a7b59",
-        "title": "Understanding opening direction helps students recognize the vertex as the turning point."
-      },
-      {
-        "from": "d6f3c9a7-7b58-4d72-b87b-6f3d6c9a7b59",
-        "to": "e8a2f5d4-4c83-4f65-a74c-8a2e8f5d4c84",
-        "title": "Understanding vertex concept is prerequisite to learning the specific coordinate calculation method."
-      },
-      {
-        "from": "e8a2f5d4-4c83-4f65-a74c-8a2e8f5d4c84",
-        "to": "f3b4e7c9-6d46-4b78-c96d-3b4f3e7c9d47",
-        "title": "Students need vertex coordinate skills before understanding vertex form where (h,k) represents the vertex."
-      },
-      {
-        "from": "e8a2f5d4-4c83-4f65-a74c-8a2e8f5d4c84",
-        "to": "d2f6c5a9-3b74-4f68-b83b-2f6d2c5a9b75",
-        "title": "Finding vertex coordinates provides the foundation for understanding the axis of symmetry."
-      },
-      {
-        "from": "b2d6a5f3-9e76-4c67-a89e-2d6b2a5f3e77",
-        "to": "b7d2a6f8-5f72-4c47-a65f-7d2b7a6f8f73",
-        "title": "Understanding parabola opening direction is essential for identifying when the vertex represents a minimum."
-      },
-      {
-        "from": "b2d6a5f3-9e76-4c67-a89e-2d6b2a5f3e77",
-        "to": "c9e4b8d3-9a85-4d56-c89a-9e4c9b8d3a86",
-        "title": "Understanding opening direction is required for recognizing when the vertex represents a maximum."
-      },
-      {
-        "from": "c4a8b9d3-7e52-4f89-a61c-8b7e3f9a2c65",
-        "to": "e4a8f3d7-7c59-4b43-a67c-4a8e4f3d7c58",
-        "title": "Understanding constant terms is essential before students can find the y-intercept by setting x=0."
-      },
-      {
-        "from": "f2b8e4c7-4d73-4b89-c94d-2b8f2e4c7d74",
-        "to": "a4c6f9e2-6f85-4d45-b76f-4c6a4f9e2f86",
-        "title": "Students must understand inequality symbols before they can distinguish inequalities from equations."
-      },
-      {
-        "from": "a4c6f9e2-6f85-4d45-b76f-4c6a4f9e2f86",
-        "to": "b6d8a3f7-9e52-4c68-a89e-6d8b6a3f7e53",
-        "title": "Understanding inequality vs equation differences is prerequisite to grasping solution set concepts."
-      },
-      {
-        "from": "b6d8a3f7-9e52-4c68-a89e-6d8b6a3f7e53",
-        "to": "c8e5b7d4-3a67-4f57-c73a-8e5c8b7d4a68",
-        "title": "Understanding solution sets is essential before students can represent them on number lines."
-      },
-      {
-        "from": "c8e5b7d4-3a67-4f57-c73a-8e5c8b7d4a68",
-        "to": "d3f7c2a6-7b84-4d49-b87b-3f7d3c2a6b85",
-        "title": "Number line representation skills provide foundation for understanding interval notation."
-      },
-      {
-        "from": "e5a9f6d8-4c73-4f62-a74c-5a9e5f6d8c74",
-        "to": "b2d8a5f9-5f71-4c57-a65f-2d8b2a5f9f72",
-        "title": "Understanding basic addition/subtraction rules is essential before learning complete inequality manipulation rules."
-      },
-      {
-        "from": "f7b4e8c5-6d59-4b75-c96d-7b4f7e8c5d58",
-        "to": "b2d8a5f9-5f71-4c57-a65f-2d8b2a5f9f72",
-        "title": "Understanding positive multiplication/division rules is required before mastering all inequality rules."
-      },
-      {
-        "from": "a9c6f3d2-8e46-4f84-b78e-9c6a9f3d2e47",
-        "to": "b2d8a5f9-5f71-4c57-a65f-2d8b2a5f9f72",
-        "title": "Understanding negative multiplication/division rules is crucial for complete inequality manipulation mastery."
-      },
-      {
-        "from": "b2d8a5f9-5f71-4c57-a65f-2d8b2a5f9f72",
-        "to": "c4e3b9d7-9a68-4d43-c89a-4e3c4b9d7a69",
-        "title": "Complete inequality rules are prerequisite to solving even simple one-step inequalities."
-      },
-      {
-        "from": "c4e3b9d7-9a68-4d43-c89a-4e3c4b9d7a69",
-        "to": "d6f5c7a4-2b85-4f56-b82b-6f5d6c7a4b86",
-        "title": "One-step inequality solving provides the foundation for tackling two-step inequalities."
-      },
-      {
-        "from": "d6f5c7a4-2b85-4f56-b82b-6f5d6c7a4b86",
-        "to": "e8a7f2d6-6c74-4b89-a76c-8a7e8f2d6c75",
-        "title": "Two-step inequality skills are essential before handling complex multi-step linear inequalities."
-      },
-      {
-        "from": "e8a7f2d6-6c74-4b89-a76c-8a7e8f2d6c75",
-        "to": "f3b9e6c8-4d63-4f52-c94d-3b9f3e6c8d64",
-        "title": "Multi-step linear inequality skills provide foundation for compound inequalities."
-      }
-    ]
+        "edges": [
+          {
+            "from": "a7f3d8e2-5b91-4c73-9a42-1e6f8d3c7b5a",
+            "to": "b2e9f7a1-8c64-4d15-b73e-9f2a5c8e1d47",
+            "title": "Students must understand that variables represent unknown values before they can recognize coefficients as the numbers that multiply those variables.",
+            "edge_id": 1
+          },
+          {
+            "from": "b2e9f7a1-8c64-4d15-b73e-9f2a5c8e1d47",
+            "to": "d6c2e5f8-9a73-4b16-c84d-7a3f6e9b4c28",
+            "title": "Understanding coefficients is essential before students can break down expressions into separate terms for analysis.",
+            "edge_id": 2
+          },
+          {
+            "from": "d6c2e5f8-9a73-4b16-c84d-7a3f6e9b4c28",
+            "to": "e8f4a7b2-6d59-4e32-b95f-3c8a7e2b6d91",
+            "title": "Students must be able to identify individual terms before they can recognize which terms have the same variable parts.",
+            "edge_id": 3
+          },
+          {
+            "from": "e8f4a7b2-6d59-4e32-b95f-3c8a7e2b6d91",
+            "to": "f9b6c3e7-4a85-4f61-a72b-5d9e8f3a7c64",
+            "title": "Recognizing like terms is prerequisite to combining them by adding or subtracting their coefficients.",
+            "edge_id": 4
+          },
+          {
+            "from": "a3c7f2d8-5e94-4b27-c85e-8f6a9b3d7e52",
+            "to": "b5d9e6a4-7c28-4f53-a69d-2e8f5a9c3b74",
+            "title": "Understanding the distributive property concept is necessary before applying it to expand single brackets.",
+            "edge_id": 5
+          },
+          {
+            "from": "b5d9e6a4-7c28-4f53-a69d-2e8f5a9c3b74",
+            "to": "c7f1a8e5-9b42-4d76-b83a-6f9c2e7d4a85",
+            "title": "Students must master basic bracket expansion before handling the complexity of negative signs in expansion.",
+            "edge_id": 6
+          },
+          {
+            "from": "c7f1a8e5-9b42-4d76-b83a-6f9c2e7d4a85",
+            "to": "d9e3b6c8-4a57-4f84-c92b-8e5a7f3d6c91",
+            "title": "Understanding negative sign distribution prepares students for the systematic FOIL method with binomials.",
+            "edge_id": 7
+          },
+          {
+            "from": "d9e3b6c8-4a57-4f84-c92b-8e5a7f3d6c91",
+            "to": "e2f8c5a9-6d73-4b18-a64f-3c9e8a2f7b58",
+            "title": "FOIL method provides the systematic foundation needed for expanding any double bracket expressions.",
+            "edge_id": 8
+          },
+          {
+            "from": "e2f8c5a9-6d73-4b18-a64f-3c9e8a2f7b58",
+            "to": "f4a7d3b6-8e59-4c25-b71c-5f8d9e4a3c72",
+            "title": "Students must know how to expand brackets before they can simplify the resulting expressions by collecting like terms.",
+            "edge_id": 9
+          },
+          {
+            "from": "a6b9e2f5-3c84-4d61-c98f-7e2a6b9f4d83",
+            "to": "b8c4f7a3-5e96-4b47-a82e-9f6c3b8e7a54",
+            "title": "Recognizing common factors is essential before students can apply the technique of factoring out numerical common factors.",
+            "edge_id": 10
+          },
+          {
+            "from": "b8c4f7a3-5e96-4b47-a82e-9f6c3b8e7a54",
+            "to": "c9d6a5e8-7f23-4c58-b94a-6e8f2c9a5d76",
+            "title": "Understanding numerical factoring provides the foundation for recognizing and factoring out variable common factors.",
+            "edge_id": 11
+          },
+          {
+            "from": "c9d6a5e8-7f23-4c58-b94a-6e8f2c9a5d76",
+            "to": "d2e7b4f9-4a68-4d83-c56b-8f3e7d2b9c85",
+            "title": "Students need experience with both numerical and variable factoring before combining them in mixed common factors.",
+            "edge_id": 12
+          },
+          {
+            "from": "d2e7b4f9-4a68-4d83-c56b-8f3e7d2b9c85",
+            "to": "e4f9c6a2-6b85-4f72-a37d-5c8f6e4a9b72",
+            "title": "Mastery of basic factoring techniques is required before attempting the more complex factoring by grouping method.",
+            "edge_id": 13
+          },
+          {
+            "from": "f7a3d8e5-8c47-4b96-c84f-9e6a3f7d8c53",
+            "to": "a9b6f2c7-5d84-4e63-b75c-8f2a9b6c7e54",
+            "title": "Students must recognize the difference of squares pattern before they can apply the factoring formula (a-b)(a+b).",
+            "edge_id": 14
+          },
+          {
+            "from": "b3c8e5a4-7f29-4d46-a68d-6e9c3b8e5f72",
+            "to": "c5d2f9b6-9a47-4c73-b82e-7f4c5d2f9a68",
+            "title": "Pattern recognition for perfect square trinomials must come before applying the factoring technique (a±b)².",
+            "edge_id": 15
+          },
+          {
+            "from": "d7e4a1c8-3b65-4f84-c93f-8e7d4a1c8b59",
+            "to": "e9f6b3d5-5c82-4a57-a64b-2f9e6b3d5c84",
+            "title": "Students must master factoring simple quadratics (a=1) before tackling complex quadratics where a≠1.",
+            "edge_id": 16
+          },
+          {
+            "from": "e9f6b3d5-5c82-4a57-a64b-2f9e6b3d5c84",
+            "to": "f2a8c5e6-7d48-4b73-c85d-6a2f8c5e7d49",
+            "title": "Understanding general quadratic factoring provides the foundation for systematic trial and error approaches.",
+            "edge_id": 17
+          },
+          {
+            "from": "e9f6b3d5-5c82-4a57-a64b-2f9e6b3d5c84",
+            "to": "a4b7f3d9-8e56-4c29-b76e-5b4a7f3d9e58",
+            "title": "Students need to understand the goal of quadratic factoring before learning the systematic AC method approach.",
+            "edge_id": 18
+          },
+          {
+            "from": "d9e6c2a5-3b87-4f58-b68b-9e6d9c2a5b88",
+            "to": "e2a7f4d8-5c63-4b29-a59c-2a7e2f4d8c64",
+            "title": "Understanding what an equation is must precede recognizing what constitutes a solution to that equation.",
+            "edge_id": 19
+          },
+          {
+            "from": "e2a7f4d8-5c63-4b29-a59c-2a7e2f4d8c64",
+            "to": "f4b9e6c3-7d48-4f73-c86d-4b9f4e6c3d49",
+            "title": "Understanding solutions requires knowing inverse operations to systematically undo equation operations.",
+            "edge_id": 20
+          },
+          {
+            "from": "f4b9e6c3-7d48-4f73-c86d-4b9f4e6c3d49",
+            "to": "a6c2f5d9-8e54-4b67-b79e-6c2a6f5d9e55",
+            "title": "Knowledge of inverse operations is essential for understanding the balance method of maintaining equation equality.",
+            "edge_id": 21
+          },
+          {
+            "from": "a6c2f5d9-8e54-4b67-b79e-6c2a6f5d9e55",
+            "to": "b8d5a3f7-4c76-4d84-a92c-8d5b8a3f7c77",
+            "title": "Understanding equation balance is prerequisite to solving even the simplest one-step linear equations.",
+            "edge_id": 22
+          },
+          {
+            "from": "b8d5a3f7-4c76-4d84-a92c-8d5b8a3f7c77",
+            "to": "c3e7b6a4-6f59-4c45-c85f-3e7c3b6a4f58",
+            "title": "One-step equation solving skills are essential building blocks for tackling two-step linear equations.",
+            "edge_id": 23
+          },
+          {
+            "from": "c3e7b6a4-6f59-4c45-c85f-3e7c3b6a4f58",
+            "to": "d5f9c2e8-9a42-4b68-b73a-5f9d5c2e8a43",
+            "title": "Two-step solving techniques provide the foundation for handling more complex multi-step linear equations.",
+            "edge_id": 24
+          },
+          {
+            "from": "d5f9c2e8-9a42-4b68-b73a-5f9d5c2e8a43",
+            "to": "e7a4f6d2-3b85-4f54-a64b-7a4e7f6d2b86",
+            "title": "Multi-step equation skills are required before students can handle variables appearing on both sides.",
+            "edge_id": 25
+          },
+          {
+            "from": "b5d9e6a4-7c28-4f53-a69d-2e8f5a9c3b74",
+            "to": "f9b7c5e3-5d67-4c39-c76d-9b7f9c5e3d68",
+            "title": "Students must understand bracket expansion before they can solve equations containing brackets.",
+            "edge_id": 26
+          },
+          {
+            "from": "c9e5b8d7-6f84-4d56-c74f-9e5c9b8d7f85",
+            "to": "d2f7c4a9-8b63-4f72-b86b-2f7d2c4a9b64",
+            "title": "Understanding standard form structure is essential for recognizing different types of quadratic equations.",
+            "edge_id": 27
+          },
+          {
+            "from": "d2f7c4a9-8b63-4f72-b86b-2f7d2c4a9b64",
+            "to": "e4a8f6d3-5c49-4b95-a75c-4a8e4f6d3c48",
+            "title": "Students must identify quadratic equations before they can rearrange them into standard form.",
+            "edge_id": 28
+          },
+          {
+            "from": "e4a8f6d3-5c49-4b95-a75c-4a8e4f6d3c48",
+            "to": "f6b2e9c7-9d57-4f68-c89d-6b2f6e9c7d58",
+            "title": "Having equations in standard form is necessary before applying the zero product property.",
+            "edge_id": 29
+          },
+          {
+            "from": "f6b2e9c7-9d57-4f68-c89d-6b2f6e9c7d58",
+            "to": "a8c4f7e5-3a76-4b43-b78a-8c4a8f7e5a77",
+            "title": "Understanding zero product property is essential before using factoring methods to solve quadratics.",
+            "edge_id": 30
+          },
+          {
+            "from": "a8c4f7e5-3a76-4b43-b78a-8c4a8f7e5a77",
+            "to": "b3d6a9f2-7e59-4c86-a97e-3d6b3a9f2e58",
+            "title": "Students need factoring skills before they can apply zero product property to each factor.",
+            "edge_id": 31
+          },
+          {
+            "from": "c5e8b4d7-4f42-4d73-c84f-5e8c5b4d7f43",
+            "to": "d7f3c6a9-6b65-4f58-b76b-7f3d7c6a9b66",
+            "title": "Understanding why we complete the square is essential before learning the specific technique.",
+            "edge_id": 32
+          },
+          {
+            "from": "d7f3c6a9-6b65-4f58-b76b-7f3d7c6a9b66",
+            "to": "e9a5f8d2-8c47-4b84-a68c-9a5e9f8d2c48",
+            "title": "Students must understand the basic completing square pattern before following the complete step-by-step method.",
+            "edge_id": 33
+          },
+          {
+            "from": "e9a5f8d2-8c47-4b84-a68c-9a5e9f8d2c48",
+            "to": "a4c8f5b6-9e53-4d42-b79e-4c8a4f5b6e54",
+            "title": "Completing the square method must be mastered before students can take square roots to find solutions.",
+            "edge_id": 34
+          },
+          {
+            "from": "b6d2a7f9-3f76-4c58-a63f-6d2b6a7f9f77",
+            "to": "c8e4b9d5-7a64-4f87-c74a-8e4c8b9d5a65",
+            "title": "Students must understand formula components (a,b,c) before they can apply the quadratic formula.",
+            "edge_id": 35
+          },
+          {
+            "from": "c8e4b9d5-7a64-4f87-c74a-8e4c8b9d5a65",
+            "to": "d3f6c2e8-4b59-4d73-b84b-3f6d3c2e8b58",
+            "title": "Understanding the quadratic formula structure is required before carefully substituting specific values.",
+            "edge_id": 36
+          },
+          {
+            "from": "d3f6c2e8-4b59-4d73-b84b-3f6d3c2e8b58",
+            "to": "e5a8f4d7-6c46-4f62-a76c-5a8e5f4d7c47",
+            "title": "Students must be able to substitute into the formula before they can simplify the resulting expressions.",
+            "edge_id": 37
+          },
+          {
+            "from": "f7b3e6c9-8d72-4b95-c98d-7b3f7e6c9d73",
+            "to": "a9c5f8e4-5a65-4d48-b75a-9c5a9f8e4a66",
+            "title": "Understanding discriminant concept is prerequisite to calculating b²-4ac for specific equations.",
+            "edge_id": 38
+          },
+          {
+            "from": "a9c5f8e4-5a65-4d48-b75a-9c5a9f8e4a66",
+            "to": "b2d7a4f6-9e83-4c57-a69e-2d7b2a4f6e84",
+            "title": "Students must know how to calculate the discriminant before interpreting positive discriminant results.",
+            "edge_id": 39
+          },
+          {
+            "from": "a9c5f8e4-5a65-4d48-b75a-9c5a9f8e4a66",
+            "to": "c4e9b6d8-3f74-4f46-c83f-4e9c4b6d8f75",
+            "title": "Discriminant calculation ability is required before recognizing the zero discriminant case.",
+            "edge_id": 40
+          },
+          {
+            "from": "a9c5f8e4-5a65-4d48-b75a-9c5a9f8e4a66",
+            "to": "d6f2c8a5-7b67-4d59-b67b-6f2d6c8a5b68",
+            "title": "Students need discriminant calculation skills before understanding negative discriminant implications.",
+            "edge_id": 41
+          },
+          {
+            "from": "d2f8c5a7-3b52-4f87-b83b-2f8d2c5a7b53",
+            "to": "e4a7f9d6-7c73-4b46-a67c-4a7e4f9d6c74",
+            "title": "Point plotting experience is necessary before students can identify linear versus non-linear patterns.",
+            "edge_id": 42
+          },
+          {
+            "from": "e4a7f9d6-7c73-4b46-a67c-4a7e4f9d6c74",
+            "to": "f6b3e5c8-4d68-4f59-c74d-6b3f6e5c8d69",
+            "title": "Recognizing linear relationships provides the foundation for understanding slope as rate of change.",
+            "edge_id": 43
+          },
+          {
+            "from": "f6b3e5c8-4d68-4f59-c74d-6b3f6e5c8d69",
+            "to": "a8c7f4e2-6f85-4b72-b86f-8c7a8f4e2f86",
+            "title": "Understanding slope concept is prerequisite to calculating slope using rise over run.",
+            "edge_id": 44
+          },
+          {
+            "from": "a8c7f4e2-6f85-4b72-b86f-8c7a8f4e2f86",
+            "to": "b3d9a6f5-9e54-4c67-a69e-3d9b3a6f5e55",
+            "title": "Rise over run concept is essential before students can find slope from two specific points.",
+            "edge_id": 45
+          },
+          {
+            "from": "b3d9a6f5-9e54-4c67-a69e-3d9b3a6f5e55",
+            "to": "c5e2b8d4-2a76-4f83-c82a-5e2c5b8d4a77",
+            "title": "Students must be able to calculate slope before they can interpret positive slope direction.",
+            "edge_id": 46
+          },
+          {
+            "from": "b3d9a6f5-9e54-4c67-a69e-3d9b3a6f5e55",
+            "to": "d7f4c6a9-5b69-4d58-b75b-7f4d7c6a9b68",
+            "title": "Slope calculation skills are required before students can recognize negative slope patterns.",
+            "edge_id": 47
+          },
+          {
+            "from": "a4c7f9e6-6f52-4d45-b76f-4c7a4f9e6f53",
+            "to": "c8e5b2d7-3a64-4f57-c73a-8e5c8b2d7a65",
+            "title": "Understanding y-intercept concept is essential before learning slope-intercept form where it appears as 'c'.",
+            "edge_id": 48
+          },
+          {
+            "from": "b3d9a6f5-9e54-4c67-a69e-3d9b3a6f5e55",
+            "to": "c8e5b2d7-3a64-4f57-c73a-8e5c8b2d7a65",
+            "title": "Students must understand slope before learning slope-intercept form where slope appears as 'm'.",
+            "edge_id": 49
+          },
+          {
+            "from": "c8e5b2d7-3a64-4f57-c73a-8e5c8b2d7a65",
+            "to": "d3f7c9a6-7b83-4d46-b87b-3f7d3c9a6b84",
+            "title": "Understanding slope-intercept form provides the foundation for graphing lines using this method.",
+            "edge_id": 50
+          },
+          {
+            "from": "c8e5b2d7-3a64-4f57-c73a-8e5c8b2d7a65",
+            "to": "e5a4f6d8-4c59-4f72-a74c-5a4e5f6d8c58",
+            "title": "Students need slope-intercept form knowledge before understanding the alternative point-slope form.",
+            "edge_id": 51
+          },
+          {
+            "from": "e5a4f6d8-4c59-4f72-a74c-5a4e5f6d8c58",
+            "to": "f7b6e9c2-6d48-4b85-c96d-7b6f7e9c2d49",
+            "title": "Understanding point-slope form is essential for finding equations when given a point and slope.",
+            "edge_id": 52
+          },
+          {
+            "from": "f7b6e9c2-6d48-4b85-c96d-7b6f7e9c2d49",
+            "to": "a9c2f5d7-8e67-4f54-b78e-9c2a9f5d7e68",
+            "title": "Finding equations from point and slope provides foundation for the more complex two-point method.",
+            "edge_id": 53
+          },
+          {
+            "from": "d8f3c6a2-2b84-4f65-b82b-8f3d8c6a2b85",
+            "to": "f5b7e4c6-8d69-4f58-c98d-5b7f5e4c6d68",
+            "title": "Parallel slope relationship enables equation finding.",
+            "type": "Strong prerequisite",
+            "edge_id": 210
+          },
+          {
+            "from": "e3a5f8d9-6c47-4b72-a76c-3a5e3f8d9c48",
+            "to": "f5b7e4c6-8d69-4f58-c98d-5b7f5e4c6d68",
+            "title": "Perpendicular slope relationship enables equation finding.",
+            "type": "Strong prerequisite",
+            "edge_id": 211
+          },
+          {
+            "from": "a7c9f2e8-4f53-4d84-b74f-7c9a7f2e8f54",
+            "to": "b2d6a5f3-9e76-4c67-a89e-2d6b2a5f3e77",
+            "title": "Shape recognition includes understanding opening direction.",
+            "type": "Strong prerequisite",
+            "edge_id": 212
+          },
+          {
+            "from": "b2d6a5f3-9e76-4c67-a89e-2d6b2a5f3e77",
+            "to": "c4e8b7d5-3a64-4f49-c73a-4e8c4b7d5a65",
+            "title": "Parabola understanding clarifies function vs equation distinction.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 213
+          },
+          {
+            "from": "b2d6a5f3-9e76-4c67-a89e-2d6b2a5f3e77",
+            "to": "d6f3c9a7-7b58-4d72-b87b-6f3d6c9a7b59",
+            "title": "Opening direction determines vertex as maximum or minimum.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 214
+          },
+          {
+            "from": "d6f3c9a7-7b58-4d72-b87b-6f3d6c9a7b59",
+            "to": "e8a2f5d4-4c83-4f65-a74c-8a2e8f5d4c84",
+            "title": "Vertex concept requires coordinate calculation technique.",
+            "type": "Strong prerequisite",
+            "edge_id": 215
+          },
+          {
+            "from": "e8a2f5d4-4c83-4f65-a74c-8a2e8f5d4c84",
+            "to": "f3b4e7c9-6d46-4b78-c96d-3b4f3e7c9d47",
+            "title": "Coordinate calculation supports vertex form understanding.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 216
+          },
+          {
+            "from": "f3b4e7c9-6d46-4b78-c96d-3b4f3e7c9d47",
+            "to": "a5c7f9d6-8e69-4f54-b78e-5c7a5f9d6e68",
+            "title": "Vertex form understanding enables conversion technique.",
+            "type": "Strong prerequisite",
+            "edge_id": 217
+          },
+          {
+            "from": "e8a2f5d4-4c83-4f65-a74c-8a2e8f5d4c84",
+            "to": "d2f6c5a9-3b74-4f68-b83b-2f6d2c5a9b75",
+            "title": "Vertex coordinates determine axis of symmetry location.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 218
+          },
+          {
+            "from": "b2d6a5f3-9e76-4c67-a89e-2d6b2a5f3e77",
+            "to": "b7d2a6f8-5f72-4c47-a65f-7d2b7a6f8f73",
+            "title": "Opening direction determines when vertex is minimum.",
+            "type": "Strong prerequisite",
+            "edge_id": 219
+          },
+          {
+            "from": "b2d6a5f3-9e76-4c67-a89e-2d6b2a5f3e77",
+            "to": "c9e4b8d3-9a85-4d56-c89a-9e4c9b8d3a86",
+            "title": "Opening direction determines when vertex is maximum.",
+            "type": "Strong prerequisite",
+            "edge_id": 220
+          },
+          {
+            "from": "d2f6c5a9-3b74-4f68-b83b-2f6d2c5a9b75",
+            "to": "e9a6f8d5-8c54-4f46-a68c-9a6e9f8d5c55",
+            "title": "Symmetry understanding enables efficient graphing technique.",
+            "type": "Strong prerequisite",
+            "edge_id": 221
+          },
+          {
+            "from": "b3d5a9f4-9e47-4c83-a69e-3d5b3a9f4e48",
+            "to": "d7f4c6a3-5b68-4d72-b75b-7f4d7c6a3b69",
+            "title": "Key point sketching supported by systematic table creation.",
+            "type": "Technique reinforcement",
+            "edge_id": 222
+          },
+          {
+            "from": "e9a6f8d5-8c54-4f46-a68c-9a6e9f8d5c55",
+            "to": "d7f4c6a3-5b68-4d72-b75b-7f4d7c6a3b69",
+            "title": "Symmetry understanding optimizes table value selection.",
+            "type": "Technique reinforcement",
+            "edge_id": 223
+          },
+      
+          {
+            "from": "d2f8c5a7-3b52-4f87-b83b-2f8d2c5a7b53",
+            "to": "c8e5b7d4-3a67-4f57-c73a-8e5c8b7d4a68",
+            "title": "Point plotting skills transfer to inequality representation.",
+            "type": "Strong skill transfer",
+            "edge_id": 224
+          },
+          {
+            "from": "e4a7f9d6-7c73-4b46-a67c-4a7e4f9d6c74",
+            "to": "a8c7f2e6-6f74-4d42-b86f-8c7a8f2e6f75",
+            "title": "Linear relationship recognition supports graphical inequality interpretation.",
+            "type": "Strong skill transfer",
+            "edge_id": 225
+          },
+          {
+            "from": "f6b9e5c2-4d82-4f57-c94d-6b9f6e5c2d83",
+            "to": "d2f8c5a7-3b62-4d89-b83b-2f8d2c5a7b63",
+            "title": "X-intercept finding directly provides inequality critical points.",
+            "type": "Strong skill transfer",
+            "edge_id": 226
+          },
+          {
+            "from": "c8e5b2d7-3a64-4f57-c73a-8e5c8b2d7a65",
+            "to": "b3d9a5f8-9e74-4c85-a69e-3d9b3a5f8e75",
+            "title": "Linear function understanding provides contrast for exponential functions.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 227
+          },
+          {
+            "from": "c5e7b2d8-2a76-4f59-c82a-5e7c5b2d8a77",
+            "to": "c5e2b7d4-2a79-4f68-c82a-5e2c5b7d4a78",
+            "title": "Function domain/range concepts transfer to sequence understanding.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 228
+          },
+      
+          {
+            "from": "f2b8e4c7-4d73-4b89-c94d-2b8f2e4c7d74",
+            "to": "a4c6f9e2-6f85-4d45-b76f-4c6a4f9e2f86",
+            "title": "Symbol understanding prerequisite to distinguishing inequalities from equations.",
+            "type": "Strong prerequisite",
+            "edge_id": 229
+          },
+          {
+            "from": "a4c6f9e2-6f85-4d45-b76f-4c6a4f9e2f86",
+            "to": "b6d8a3f7-9e52-4c68-a89e-6d8b6a3f7e53",
+            "title": "Inequality vs equation distinction leads to solution set concept.",
+            "type": "Strong prerequisite",
+            "edge_id": 230
+          },
+          {
+            "from": "b6d8a3f7-9e52-4c68-a89e-6d8b6a3f7e53",
+            "to": "c8e5b7d4-3a67-4f57-c73a-8e5c8b7d4a68",
+            "title": "Solution set concept requires visual representation skill.",
+            "type": "Strong prerequisite",
+            "edge_id": 231
+          },
+          {
+            "from": "c8e5b7d4-3a67-4f57-c73a-8e5c8b7d4a68",
+            "to": "d3f7c2a6-7b84-4d49-b87b-3f7d3c2a6b85",
+            "title": "Visual representation supports algebraic interval notation.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 232
+          },
+          {
+            "from": "e5a9f6d8-4c73-4f62-a74c-5a9e5f6d8c74",
+            "to": "b2d8a5f9-5f71-4c57-a65f-2d8b2a5f9f72",
+            "title": "Basic rules contribute to complete rule understanding.",
+            "type": "Strong prerequisite",
+            "edge_id": 233
+          },
+          {
+            "from": "f7b4e8c5-6d59-4b75-c96d-7b4f7e8c5d58",
+            "to": "b2d8a5f9-5f71-4c57-a65f-2d8b2a5f9f72",
+            "title": "Positive multiplication rule is part of complete rule set.",
+            "type": "Strong prerequisite",
+            "edge_id": 234
+          },
+          {
+            "from": "a9c6f3d2-8e46-4f84-b78e-9c6a9f3d2e47",
+            "to": "b2d8a5f9-5f71-4c57-a65f-2d8b2a5f9f72",
+            "title": "Negative multiplication rule (most critical) completes rule set.",
+            "type": "Strong prerequisite",
+            "edge_id": 235
+          },
+          {
+            "from": "b2d8a5f9-5f71-4c57-a65f-2d8b2a5f9f72",
+            "to": "c4e3b9d7-9a68-4d43-c89a-4e3c4b9d7a69",
+            "title": "Complete rules prerequisite to any inequality solving.",
+            "type": "Strong prerequisite",
+            "edge_id": 236
+          },
+          {
+            "from": "c4e3b9d7-9a68-4d43-c89a-4e3c4b9d7a69",
+            "to": "d6f5c7a4-2b85-4f56-b82b-6f5d6c7a4b86",
+            "title": "One-step mastery prerequisite to two-step problems.",
+            "type": "Strong prerequisite",
+            "edge_id": 237
+          },
+          {
+            "from": "d6f5c7a4-2b85-4f56-b82b-6f5d6c7a4b86",
+            "to": "e8a7f2d6-6c74-4b89-a76c-8a7e8f2d6c75",
+            "title": "Two-step skills prerequisite to complex multi-step problems.",
+            "type": "Strong prerequisite",
+            "edge_id": 238
+          },
+          {
+            "from": "e8a7f2d6-6c74-4b89-a76c-8a7e8f2d6c75",
+            "to": "f3b9e6c8-4d63-4f52-c94d-3b9f3e6c8d64",
+            "title": "Multi-step skills prerequisite to compound inequality solving.",
+            "type": "Strong prerequisite",
+            "edge_id": 239
+          },
+          {
+            "from": "f3b9e6c8-4d63-4f52-c94d-3b9f3e6c8d64",
+            "to": "a5c2f8d5-8e49-4d78-b78e-5c2a5f8d5e48",
+            "title": "'And' compound understanding supports 'or' compound learning.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 240
+          },
+          {
+            "from": "a5c2f8d5-8e49-4d78-b78e-5c2a5f8d5e48",
+            "to": "b7d4a6f3-5f86-4c67-a65f-7d4b7a6f3f87",
+            "title": "Compound inequality understanding enables graphical representation.",
+            "type": "Strong prerequisite",
+            "edge_id": 241
+          },
+          {
+            "from": "c9e6b8d2-9a75-4f54-c89a-9e6c9b8d2a76",
+            "to": "d2f8c5a7-3b62-4d89-b83b-2f8d2c5a7b63",
+            "title": "Quadratic inequality concept requires critical point identification.",
+            "type": "Strong prerequisite",
+            "edge_id": 242
+          },
+          {
+            "from": "d2f8c5a7-3b62-4d89-b83b-2f8d2c5a7b63",
+            "to": "e4a3f7d9-7c48-4f73-a67c-4a3e4f7d9c49",
+            "title": "Critical points enable systematic sign analysis.",
+            "type": "Strong prerequisite",
+            "edge_id": 243
+          },
+          {
+            "from": "e4a3f7d9-7c48-4f73-a67c-4a3e4f7d9c49",
+            "to": "f6b5e9c4-4d87-4b56-c94d-6b5f6e9c4d88",
+            "title": "Sign chart technique enables complete solution process.",
+            "type": "Strong prerequisite",
+            "edge_id": 244
+          },
+          {
+            "from": "a8c7f2e6-6f74-4d42-b86f-8c7a8f2e6f75",
+            "to": "b3d9a5f8-9e53-4c85-a69e-3d9b3a5f8e54",
+            "title": "Graphical interpretation enables graph-based solving.",
+            "type": "Strong prerequisite",
+            "edge_id": 245
+          },
+          {
+            "from": "d2f8c5a7-3b62-4d89-b83b-2f8d2c5a7b63",
+            "to": "99fa22b9-5ebb-4451-b9df-24cf66a78439",
+            "title": "Critical point finding skills transfer to absolute value boundary analysis.",
+            "type": "Strong skill transfer",
+            "edge_id": 246
+          },
+          {
+            "from": "c8e5b7d4-3a67-4f57-c73a-8e5c8b7d4a68",
+            "to": "241ce722-344e-4fee-bf34-d67744d44154",
+            "title": "Number line skills essential for absolute value inequality representation.",
+            "type": "Strong skill transfer",
+            "edge_id": 247
+          },
+          {
+            "from": "f6b5e9c4-4d87-4b56-c94d-6b5f6e9c4d88",
+            "to": "7598241a-7742-4ced-8db0-13bed8b51375",
+            "title": "Complex inequality solving requires systematic verification techniques.",
+            "type": "Technique reinforcement",
+            "edge_id": 248
+          },
+          {
+            "from": "c5e2b7d4-2a79-4f68-c82a-5e2c5b7d4a78",
+            "to": "d7f4c9a6-5b66-4d57-b75b-7f4d7c9a6b67",
+            "title": "Sequence concept requires term position understanding.",
+            "type": "Strong prerequisite",
+            "edge_id": 249
+          },
+          {
+            "from": "d7f4c9a6-5b66-4d57-b75b-7f4d7c9a6b67",
+            "to": "b6d8a3f7-9e84-4c68-a89e-6d8b6a3f7e85",
+            "title": "Position understanding enables specific notation comprehension.",
+            "type": "Strong prerequisite",
+            "edge_id": 250
+          },
+          {
+            "from": "e9a6f3d8-8c45-4f84-a68c-9a6e9f3d8c46",
+            "to": "f2b8e5c7-4d72-4b89-c94d-2b8f2e5c7d73",
+            "title": "Recognition prerequisite to difference calculation.",
+            "type": "Strong prerequisite",
+            "edge_id": 251
+          },
+          {
+            "from": "f2b8e5c7-4d72-4b89-c94d-2b8f2e5c7d73",
+            "to": "a4c6f9e2-6f58-4d45-b76f-4c6a4f9e2f59",
+            "title": "Difference calculation deepens sequence understanding.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 252
+          },
+          {
+            "from": "a4c6f9e2-6f58-4d45-b76f-4c6a4f9e2f59",
+            "to": "c8e5b7d4-3a61-4f57-c73a-8e5c8b7d4a62",
+            "title": "Sequence understanding prerequisite to formula application.",
+            "type": "Strong prerequisite",
+            "edge_id": 253
+          },
+          {
+            "from": "c8e5b7d4-3a61-4f57-c73a-8e5c8b7d4a62",
+            "to": "d3f7c2a9-7b77-4d49-b87b-3f7d3c2a9b78",
+            "title": "Formula understanding enables specific term calculation.",
+            "type": "Strong prerequisite",
+            "edge_id": 254
+          },
+          {
+            "from": "c8e5b7d4-3a61-4f57-c73a-8e5c8b7d4a62",
+            "to": "e5a9f6d5-4c93-4f62-a74c-5a9e5f6d5c94",
+            "title": "Formula understanding enables reverse calculation.",
+            "type": "Strong prerequisite",
+            "edge_id": 255
+          },
+          {
+            "from": "f7b4e8c2-6d56-4b75-c96d-7b4f7e8c2d57",
+            "to": "a9c6f3d8-8e82-4f84-b78e-9c6a9f3d8e83",
+            "title": "Sequence/series distinction prerequisite to series work.",
+            "type": "Strong prerequisite",
+            "edge_id": 256
+          },
+          {
+            "from": "a9c6f3d8-8e82-4f84-b78e-9c6a9f3d8e83",
+            "to": "b2d8a5f4-5f65-4c57-a65f-2d8b2a5f4f66",
+            "title": "Series concept requires sum notation understanding.",
+            "type": "Strong prerequisite",
+            "edge_id": 257
+          },
+          {
+            "from": "b2d8a5f4-5f65-4c57-a65f-2d8b2a5f4f66",
+            "to": "c4e3b9d7-9a48-4d43-c89a-4e3c4b9d7a49",
+            "title": "Notation understanding prerequisite to formula application.",
+            "type": "Strong prerequisite",
+            "edge_id": 258
+          },
+          {
+            "from": "c4e3b9d7-9a48-4d43-c89a-4e3c4b9d7a49",
+            "to": "d6f5c7a3-2b71-4f56-b82b-6f5d6c7a3b72",
+            "title": "Formula knowledge requires strategic application choice.",
+            "type": "Technique reinforcement",
+            "edge_id": 259
+          },
+          {
+            "from": "e8a7f2d6-6c94-4b89-a76c-8a7e8f2d6c95",
+            "to": "f3b9e6c8-4d57-4f52-c94d-3b9f3e6c8d58",
+            "title": "Recognition prerequisite to ratio calculation.",
+            "type": "Strong prerequisite",
+            "edge_id": 260
+          },
+          {
+            "from": "f3b9e6c8-4d57-4f52-c94d-3b9f3e6c8d58",
+            "to": "a5c2f8d5-8e73-4d78-b78e-5c2a5f8d5e74",
+            "title": "Ratio calculation deepens geometric understanding.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 261
+          },
+          {
+            "from": "a5c2f8d5-8e73-4d78-b78e-5c2a5f8d5e74",
+            "to": "b7d4a6f3-5f46-4c67-a65f-7d4b7a6f3f47",
+            "title": "Understanding prerequisite to formula application.",
+            "type": "Strong prerequisite",
+            "edge_id": 262
+          },
+          {
+            "from": "b7d4a6f3-5f46-4c67-a65f-7d4b7a6f3f47",
+            "to": "c9e6b8d2-9a89-4f54-c89a-9e6c9b8d2a88",
+            "title": "Formula application reveals growth/decay patterns.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 263
+          },
+          {
+            "from": "d2f8c5a7-3b52-4d89-b83b-2f8d2c5a7b53",
+            "to": "e4a3f7d9-7c75-4f73-a67c-4a3e4f7d9c76",
+            "title": "Series concept prerequisite to finite sum calculation.",
+            "type": "Strong prerequisite",
+            "edge_id": 264
+          },
+          {
+            "from": "e4a3f7d9-7c75-4f73-a67c-4a3e4f7d9c76",
+            "to": "f6b5e9c4-4d68-4b56-c94d-6b5f6e9c4d69",
+            "title": "Finite series understanding supports convergence concept.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 265
+          },
+          {
+            "from": "f6b5e9c4-4d68-4b56-c94d-6b5f6e9c4d69",
+            "to": "a8c7f2e6-6f51-4d42-b86f-8c7a8f2e6f52",
+            "title": "Convergence understanding prerequisite to infinite sum.",
+            "type": "Strong prerequisite",
+            "edge_id": 266
+          },
+          {
+            "from": "b3d9a5f8-9e74-4c85-a69e-3d9b3a5f8e75",
+            "to": "c5e2b7d4-2a67-4f68-c82a-5e2c5b7d4a68",
+            "title": "Exponential understanding requires distinguishing from polynomials.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 267
+          },
+          {
+            "from": "c5e2b7d4-2a67-4f68-c82a-5e2c5b7d4a68",
+            "to": "d7f4c9a6-5b93-4d57-b75b-7f4d7c9a6b94",
+            "title": "Function understanding prerequisite to equation solving.",
+            "type": "Strong prerequisite",
+            "edge_id": 268
+          },
+          {
+            "from": "d7f4c9a6-5b93-4d57-b75b-7f4d7c9a6b94",
+            "to": "e9a6f3d8-8c56-4f84-a68c-9a6e9f3d8c57",
+            "title": "Basic same-base understanding requires systematic steps.",
+            "type": "Technique reinforcement",
+            "edge_id": 269
+          },
+          {
+            "from": "e9a6f3d8-8c56-4f84-a68c-9a6e9f3d8c57",
+            "to": "f2b8e5c7-4d79-4b89-c94d-2b8f2e5c7d78",
+            "title": "Basic steps prerequisite to complex equation solving.",
+            "type": "Strong prerequisite",
+            "edge_id": 270
+          },
+          {
+            "from": "a4c6f9e2-6f42-4d45-b76f-4c6a4f9e2f43",
+            "to": "b6d8a3f7-9e65-4c68-a89e-6d8b6a3f7e66",
+            "title": "Inverse concept prerequisite to formal definition.",
+            "type": "Strong prerequisite",
+            "edge_id": 271
+          },
+          {
+            "from": "b6d8a3f7-9e65-4c68-a89e-6d8b6a3f7e66",
+            "to": "c8e5b7d4-3a88-4f57-c73a-8e5c8b7d4a89",
+            "title": "Definition understanding prerequisite to notation comprehension.",
+            "type": "Strong prerequisite",
+            "edge_id": 272
+          },
+          {
+            "from": "c8e5b7d4-3a88-4f57-c73a-8e5c8b7d4a89",
+            "to": "d3f7c2a9-7b53-4d49-b87b-3f7d3c2a9b54",
+            "title": "Notation understanding enables form conversion.",
+            "type": "Strong prerequisite",
+            "edge_id": 273
+          },
+          {
+            "from": "e5a9f6d5-4c76-4f62-a74c-5a9e5f6d5c77",
+            "to": "b2d8a5f4-5f85-4c57-a65f-2d8b2a5f4f86",
+            "title": "Individual laws contribute to complete law understanding.",
+            "type": "Strong prerequisite",
+            "edge_id": 274
+          },
+          {
+            "from": "f7b4e8c2-6d99-4b75-c96d-7b4f7e8c2d98",
+            "to": "b2d8a5f4-5f85-4c57-a65f-2d8b2a5f4f86",
+            "title": "Quotient rule part of complete law set.",
+            "type": "Strong prerequisite",
+            "edge_id": 275
+          },
+          {
+            "from": "a9c6f3d8-8e62-4f84-b78e-9c6a9f3d8e63",
+            "to": "b2d8a5f4-5f85-4c57-a65f-2d8b2a5f4f86",
+            "title": "Power rule completes fundamental law understanding.",
+            "type": "Strong prerequisite",
+            "edge_id": 276
+          },
+          {
+            "from": "b2d8a5f4-5f85-4c57-a65f-2d8b2a5f4f86",
+            "to": "3a1937e2-df56-4574-a05d-4ccef87176a0",
+            "title": "Law mastery enables systematic expression expansion.",
+            "type": "Strong prerequisite",
+            "edge_id": 277
+          },
+          {
+            "from": "b2d8a5f4-5f85-4c57-a65f-2d8b2a5f4f86",
+            "to": "d535db44-4e8c-412e-acee-681b3cbf778c",
+            "title": "Law mastery enables systematic expression condensing.",
+            "type": "Strong prerequisite",
+            "edge_id": 278
+          },
+          {
+            "from": "6361e577-655b-418e-9783-55668b6cdd15",
+            "to": "08acff52-9f2b-4cb7-aabb-e80e0bc0bb32",
+            "title": "Conceptual understanding prerequisite to formal definition.",
+            "type": "Strong prerequisite",
+            "edge_id": 279
+          },
+          {
+            "from": "08acff52-9f2b-4cb7-aabb-e80e0bc0bb32",
+            "to": "308d08d0-5db6-4143-aa1a-1d14dc9e6e18",
+            "title": "Definition understanding supports property comprehension.",
+            "type": "Strong prerequisite",
+            "edge_id": 280
+          },
+          {
+            "from": "308d08d0-5db6-4143-aa1a-1d14dc9e6e18",
+            "to": "99fa22b9-5ebb-4451-b9df-24cf66a78439",
+            "title": "Property understanding prerequisite to equation solving.",
+            "type": "Strong prerequisite",
+            "edge_id": 281
+          },
+          {
+            "from": "99fa22b9-5ebb-4451-b9df-24cf66a78439",
+            "to": "731e2cc8-d7b7-4b6c-ae98-769915254fc0",
+            "title": "Simple equation skills extend to basic modulus work.",
+            "type": "Strong prerequisite",
+            "edge_id": 282
+          },
+          {
+            "from": "731e2cc8-d7b7-4b6c-ae98-769915254fc0",
+            "to": "7b9f37dc-ea6e-471c-8df2-4a8a13496d38",
+            "title": "Basic skills prerequisite to complex equation solving.",
+            "type": "Strong prerequisite",
+            "edge_id": 283
+          },
+          {
+            "from": "99fa22b9-5ebb-4451-b9df-24cf66a78439",
+            "to": "241ce722-344e-4fee-bf34-d67744d44154",
+            "title": "Equation solving skills extend to inequality work.",
+            "type": "Strong skill transfer",
+            "edge_id": 284
+          },
+          {
+            "from": "7b9f37dc-ea6e-471c-8df2-4a8a13496d38",
+            "to": "338c56d9-3517-4631-bc06-6d2413e928ef",
+            "title": "Complex solving requires systematic solution verification.",
+            "type": "Technique reinforcement",
+            "edge_id": 285
+          },
+          {
+            "from": "3a1937e2-df56-4574-a05d-4ccef87176a0",
+            "to": "7598241a-7742-4ced-8db0-13bed8b51375",
+            "title": "Complex logarithmic work requires systematic verification.",
+            "type": "Technique reinforcement",
+            "edge_id": 286
+          },
+          {
+            "from": "338c56d9-3517-4631-bc06-6d2413e928ef",
+            "to": "4432a84d-e9d9-4766-9383-c051fe579dd9",
+            "title": "Absolute value checking reveals common algebraic errors.",
+            "type": "Error prevention",
+            "edge_id": 287
+          },
+          {
+            "from": "7598241a-7742-4ced-8db0-13bed8b51375",
+            "to": "4432a84d-e9d9-4766-9383-c051fe579dd9",
+            "title": "Systematic checking enhanced by mistake awareness.",
+            "type": "Error prevention reinforcement",
+            "edge_id": 288
+          },
+          {
+            "from": "4432a84d-e9d9-4766-9383-c051fe579dd9",
+            "to": "d2b175f3-d92a-4068-bdec-ec0c6464f8db",
+            "title": "General awareness includes specific sign error prevention.",
+            "type": "Error prevention",
+            "edge_id": 289
+          },
+          {
+            "from": "4432a84d-e9d9-4766-9383-c051fe579dd9",
+            "to": "4ffaccd7-f8fa-4355-94c9-d3a846e92beb",
+            "title": "General awareness includes specific fraction error prevention.",
+            "type": "Error prevention",
+            "edge_id": 290
+          },
+          {
+            "from": "d2b175f3-d92a-4068-bdec-ec0c6464f8db",
+            "to": "4ffaccd7-f8fa-4355-94c9-d3a846e92beb",
+            "title": "Both represent fundamental algebraic error prevention.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 291
+          },
+          {
+            "from": "326d4e6d-6227-4641-99c8-93b03fa4899f",
+            "to": "5dc60c74-b286-4a7a-a656-62bdda71a8f3",
+            "title": "Systematic listing supports organized trial approaches.",
+            "type": "Technique reinforcement",
+            "edge_id": 292
+          },
+          {
+            "from": "4ce028ed-4dab-4d57-b273-f714c051d023",
+            "to": "0867e03e-e972-41d2-a1d8-707b015a90d7",
+            "title": "Sign analysis skills support AC method verification.",
+            "type": "Technique reinforcement",
+            "edge_id": 293
+          },
+          {
+            "from": "a7f3d8e2-5b91-4c73-9a42-1e6f8d3c7b5a",
+            "to": "f2b8e4c7-4d73-4b89-c94d-2b8f2e4c7d74",
+            "title": "Variable understanding prerequisite to inequality variable work.",
+            "type": "Strong prerequisite",
+            "edge_id": 294
+          },
+          {
+            "from": "f9b6c3e7-4a85-4f61-a72b-5d9e8f3a7c64",
+            "to": "972185e4-5b10-4d6a-bf58-656419ef3d26",
+            "title": "Like term combination requires careful sign handling.",
+            "type": "Strong skill transfer",
+            "edge_id": 295
+          },
+          {
+            "from": "a6b9e2f5-3c84-4d61-c98f-7e2a6b9f4d83",
+            "to": "326d4e6d-6227-4641-99c8-93b03fa4899f",
+            "title": "Factor recognition enhanced by systematic listing technique.",
+            "type": "Technique reinforcement",
+            "edge_id": 296
+          },
+          {
+            "from": "e2a7f4d8-5c63-4b29-a59c-2a7e2f4d8c64",
+            "to": "7598241a-7742-4ced-8db0-13bed8b51375",
+            "title": "Solution understanding requires verification techniques.",
+            "type": "Technique reinforcement",
+            "edge_id": 297
+          },
+          {
+            "from": "630153d7-cf11-40d9-b24c-ba42cbbd4308",
+            "to": "4455e69e-a9e9-4434-b357-5a0513c2e0c2",
+            "title": "Systematic counting skills transfer to systematic expansion techniques.",
+            "type": "Technique transfer",
+            "edge_id": 298
+          },
+          {
+            "from": "eddcb13f-bfe1-4349-9d71-7d3db69e53af",
+            "to": "206494a0-3876-43a6-adb0-eb38f5f1a0c4",
+            "title": "Missing term awareness helps in organizing expansion results.",
+            "type": "Technique transfer",
+            "edge_id": 299
+          },
+          {
+            "from": "089ef9a7-b555-45e6-b1f9-26f55885339a",
+            "to": "36fa7f95-7bd4-442f-8283-b6153962ae26",
+            "title": "Multi-variable term recognition supports pattern identification.",
+            "type": "Skill transfer",
+            "edge_id": 300
+          },
+          {
+            "from": "0866c8a4-cf2c-4503-af34-eaa7464d6de4",
+            "to": "b358042b-6619-4698-b4b1-0c7766028a57",
+            "title": "Standard form knowledge helps recognize perfect square patterns.",
+            "type": "Pattern recognition",
+            "edge_id": 301
+          },
+          {
+            "from": "630153d7-cf11-40d9-b24c-ba42cbbd4308",
+            "to": "05f2c1a5-30be-46a6-aa4e-88616617e970",
+            "title": "Systematic analysis skills transfer to complex fraction structure identification.",
+            "type": "Technique transfer",
+            "edge_id": 302
+          },
+          {
+            "from": "eddcb13f-bfe1-4349-9d71-7d3db69e53af",
+            "to": "2e0d15e7-be97-4ab2-8598-e2a90933f98f",
+            "title": "Missing term awareness helps identify where denominators could be zero.",
+            "type": "Analytical thinking transfer",
+            "edge_id": 303
+          },
+          {
+            "from": "0866c8a4-cf2c-4503-af34-eaa7464d6de4",
+            "to": "41ab1f6a-d609-4a36-abed-d5f7a766a6fa",
+            "title": "Systematic arrangement skills apply to fraction organization.",
+            "type": "Technique transfer",
+            "edge_id": 304
+          },
+          {
+            "from": "630153d7-cf11-40d9-b24c-ba42cbbd4308",
+            "to": "88968044-f47d-4fbe-870c-a8ad4b7cdcce",
+            "title": "Systematic analysis helps identify contradictory term patterns.",
+            "type": "Analytical reasoning",
+            "edge_id": 305
+          },
+          {
+            "from": "089ef9a7-b555-45e6-b1f9-26f55885339a",
+            "to": "cfa7c33c-b5fd-4bcd-9d86-5b4730879f57",
+            "title": "Multi-variable term handling essential for simultaneous equation verification.",
+            "type": "Strong skill transfer",
+            "edge_id": 306
+          },
+          {
+            "from": "07357d70-7a13-4a10-b8f7-73116a2125d4",
+            "to": "b6d2a7f9-3f76-4c58-a63f-6d2b6a7f9f77",
+            "title": "Leading term identification helps recognize a, b, c in quadratic equations.",
+            "type": "Pattern recognition",
+            "edge_id": 307
+          },
+          {
+            "from": "a5146351-4572-4bb7-ad60-73b13a70cc09",
+            "to": "a7c9f2e8-4f53-4d84-b74f-7c9a7f2e8f54",
+            "title": "Degree understanding (degree 2) connects to quadratic function shape.",
+            "type": "Conceptual connection",
+            "edge_id": 308
+          },
+          {
+            "from": "07357d70-7a13-4a10-b8f7-73116a2125d4",
+            "to": "b2d6a5f3-9e76-4c67-a89e-2d6b2a5f3e77",
+            "title": "Leading term coefficient determines parabola opening direction.",
+            "type": "Strong conceptual connection",
+            "edge_id": 309
+          },
+          {
+            "from": "089ef9a7-b555-45e6-b1f9-26f55885339a",
+            "to": "c9e6b8d3-9a64-4d75-c89a-9e6c9b8d3a65",
+            "title": "Multi-variable understanding essential for coordinate system work.",
+            "type": "Strong prerequisite",
+            "edge_id": 310
+          },
+          {
+            "from": "630153d7-cf11-40d9-b24c-ba42cbbd4308",
+            "to": "e4a3f7d9-7c48-4f73-a67c-4a3e4f7d9c49",
+            "title": "Systematic analysis skills essential for sign chart organization.",
+            "type": "Technique transfer",
+            "edge_id": 311
+          },
+          {
+            "from": "0866c8a4-cf2c-4503-af34-eaa7464d6de4",
+            "to": "c9e6b8d2-9a75-4f54-c89a-9e6c9b8d2a76",
+            "title": "Standard form recognition essential for quadratic inequality setup.",
+            "type": "Strong prerequisite",
+            "edge_id": 312
+          },
+          {
+            "from": "d7f4c9a6-5b66-4d57-b75b-7f4d7c9a6b67",
+            "to": "c5e2b7d4-2a79-4f68-c82a-5e2c5b7d4a78",
+            "title": "Term position concept directly applies to sequence understanding.",
+            "type": "Strong conceptual transfer",
+            "edge_id": 313
+          },
+          {
+            "from": "a5146351-4572-4bb7-ad60-73b13a70cc09",
+            "to": "b3d9a5f8-9e74-4c85-a69e-3d9b3a5f8e75",
+            "title": "Degree concept (polynomial) contrasts with exponential growth patterns.",
+            "type": "Conceptual contrast",
+            "edge_id": 314
+          },
+          {
+            "from": "c7262aa8-66e1-45c1-8d4d-c673154cc4be",
+            "to": "d7f4c9a6-5b93-4d57-b75b-7f4d7c9a6b94",
+            "title": "Exponent understanding essential for exponential equation solving.",
+            "type": "Strong prerequisite",
+            "edge_id": 315
+          },
+          {
+            "from": "630153d7-cf11-40d9-b24c-ba42cbbd4308",
+            "to": "7598241a-7742-4ced-8db0-13bed8b51375",
+            "title": "Systematic counting exemplifies systematic thinking across algebra.",
+            "type": "Meta-technique transfer",
+            "edge_id": 316
+          },
+          {
+            "from": "972185e4-5b10-4d6a-bf58-656419ef3d26",
+            "to": "d2b175f3-d92a-4068-bdec-ec0c6464f8db",
+            "title": "Sign handling skills directly prevent common algebraic errors.",
+            "type": "Strong error prevention",
+            "edge_id": 317
+          },
+          {
+            "from": "e0766c4f-3368-4d54-b1dd-0e4659a97621",
+            "to": "3e90c9a5-9c81-428a-9f62-a9e3b656bb53",
+            "title": "Systematic organization skills transfer to LCD finding.",
+            "type": "Technique transfer",
+            "edge_id": 318
+          },
+          {
+            "from": "477cb4d1-9fb4-49ad-bf8b-297bcc9850ec",
+            "to": "d5e8a3f6-2b67-4c54-b86f-4e5d8a3f6b68",
+            "title": "Special product recognition helps identify simplification opportunities.",
+            "type": "Pattern recognition transfer",
+            "edge_id": 319
+          },
+          {
+            "from": "326d4e6d-6227-4641-99c8-93b03fa4899f",
+            "to": "3e90c9a5-9c81-428a-9f62-a9e3b656bb53",
+            "title": "Systematic factor analysis essential for LCD determination.",
+            "type": "Strong technique transfer",
+            "edge_id": 320
+          },
+          {
+            "from": "e0766c4f-3368-4d54-b1dd-0e4659a97621",
+            "to": "42004a84-e098-4c2e-a345-35e070b71618",
+            "title": "Systematic organization skills help choose appropriate solving methods.",
+            "type": "Strategic thinking transfer",
+            "edge_id": 321
+          },
+          {
+            "from": "25232aad-5d8d-4510-b2ec-7bf4a4b6fb15",
+            "to": "88968044-f47d-4fbe-870c-a8ad4b7cdcce",
+            "title": "Expansion error awareness helps identify when equations become contradictory.",
+            "type": "Error prevention",
+            "edge_id": 322
+          },
+          {
+            "from": "4c6a5449-fced-4b5c-862b-853f1dd0c440",
+            "to": "f7b3e6c9-8d72-4b95-c98d-7b3f7e6c9d73",
+            "title": "Middle term analysis skills transfer to discriminant calculation.",
+            "type": "Strong technique transfer",
+            "edge_id": 323
+          },
+          {
+            "from": "0fa26d68-37fc-4859-91bb-eeac20901ae9",
+            "to": "d7f4c6a3-5b68-4d72-b75b-7f4d7c6a3b69",
+            "title": "Systematic physical techniques transfer to systematic table organization.",
+            "type": "Technique transfer",
+            "edge_id": 324
+          },
+          {
+            "from": "4c6a5449-fced-4b5c-862b-853f1dd0c440",
+            "to": "e8a2f5d4-4c83-4f65-a74c-8a2e8f5d4c84",
+            "title": "Middle term analysis skills apply to vertex coordinate calculation.",
+            "type": "Technique transfer",
+            "edge_id": 325
+          },
+          {
+            "from": "b358042b-6619-4698-b4b1-0c7766028a57",
+            "to": "f3b4e7c9-6d46-4b78-c96d-3b4f3e7c9d47",
+            "title": "Perfect square understanding essential for vertex form comprehension.",
+            "type": "Strong conceptual connection",
+            "edge_id": 326
+          },
+          {
+            "from": "9be90f0d-7d5e-4ecb-8746-3237c3d1f703",
+            "to": "d2f8c5a7-3b62-4d89-b83b-2f8d2c5a7b63",
+            "title": "Systematic inspection skills transfer to critical point identification.",
+            "type": "Technique transfer",
+            "edge_id": 327
+          },
+          {
+            "from": "36fa7f95-7bd4-442f-8283-b6153962ae26",
+            "to": "e4a3f7d9-7c48-4f73-a67c-4a3e4f7d9c49",
+            "title": "Visual pattern skills support sign chart organization and analysis.",
+            "type": "Technique transfer",
+            "edge_id": 328
+          },
+          {
+            "from": "8ec70e0f-ad52-4e6a-ab59-4fcf753c273a",
+            "to": "f6b5e9c4-4d87-4b56-c94d-6b5f6e9c4d88",
+            "title": "Verification techniques transfer to inequality solution checking.",
+            "type": "Error prevention",
+            "edge_id": 329
+          },
+          {
+            "from": "326d4e6d-6227-4641-99c8-93b03fa4899f",
+            "to": "f3b9e6c8-4d57-4f52-c94d-3b9f3e6c8d58",
+            "title": "Systematic listing skills transfer to ratio identification in sequences.",
+            "type": "Technique transfer",
+            "edge_id": 330
+          },
+          {
+            "from": "c5d2f9b6-9a47-4c73-b82e-7f4c5d2f9a68",
+            "to": "e5a9f6d5-4c76-4f62-a74c-5a9e5f6d5c77",
+            "title": "Perfect square factoring pattern recognition supports logarithm rule understanding.",
+            "type": "Pattern recognition transfer",
+            "edge_id": 331
+          },
+          {
+            "from": "477cb4d1-9fb4-49ad-bf8b-297bcc9850ec",
+            "to": "d3f7c2a9-7b53-4d49-b87b-3f7d3c2a9b54",
+            "title": "Pattern recognition before action transfers to form recognition skills.",
+            "type": "Strategic thinking transfer",
+            "edge_id": 332
+          },
+          {
+            "from": "8ec70e0f-ad52-4e6a-ab59-4fcf753c273a",
+            "to": "7598241a-7742-4ced-8db0-13bed8b51375",
+            "title": "Factoring verification exemplifies systematic checking across all algebra.",
+            "type": "Meta-technique exemplar",
+            "edge_id": 333
+          },
+          {
+            "from": "25232aad-5d8d-4510-b2ec-7bf4a4b6fb15",
+            "to": "4432a84d-e9d9-4766-9383-c051fe579dd9",
+            "title": "Expansion error awareness contributes to general mistake awareness.",
+            "type": "Error prevention transfer",
+            "edge_id": 334
+          },
+          {
+            "from": "7e8a7d63-012a-4b41-8272-fff57092b8ae",
+            "to": "1f8e2d57-9092-4740-9586-7f059078713f",
+            "title": "Understanding what can be manipulated (factors vs terms) transfers to equation manipulation.",
+            "type": "Conceptual understanding transfer",
+            "edge_id": 335
+          },
+          {
+            "from": "05f2c1a5-30be-46a6-aa4e-88616617e970",
+            "to": "6281fb5d-7509-4ae3-83b6-68f0dde62da4",
+            "title": "Structure identification skills transfer to substitution implementation.",
+            "type": "Analytical thinking transfer",
+            "edge_id": 336
+          },
+          {
+            "from": "c7f3b6e9-9a74-4d47-c75a-7f3c7b6e9a75",
+            "to": "a9c2f5d7-8e67-4f54-b78e-9c2a9f5d7e68",
+            "title": "Common denominator techniques transfer to coordinate-based equation finding.",
+            "type": "Technique transfer",
+            "edge_id": 337
+          },
+          {
+            "from": "7ea124da-33d6-4b9e-ba4d-ef0f96caecf8",
+            "to": "b3d9a6f5-9e54-4c67-a69e-3d9b3a6f5e55",
+            "title": "Cross multiplication technique transfers to slope calculation methods.",
+            "type": "Strong technique transfer",
+            "edge_id": 338
+          },
+          {
+            "from": "7e8a7d63-012a-4b41-8272-fff57092b8ae",
+            "to": "a9c6f3d2-8e46-4f84-b78e-9c6a9f3d2e47",
+            "title": "Understanding what operations are valid transfers to inequality manipulation rules.",
+            "type": "Conceptual understanding transfer",
+            "edge_id": 339
+          },
+          {
+            "from": "41ab1f6a-d609-4a36-abed-d5f7a766a6fa",
+            "to": "b7d4a6f3-5f86-4c67-a65f-7d4b7a6f3f87",
+            "title": "Systematic conversion techniques transfer to inequality representation methods.",
+            "type": "Technique transfer",
+            "edge_id": 340
+          },
+          {
+            "from": "3e90c9a5-9c81-428a-9f62-a9e3b656bb53",
+            "to": "d6f5c7a3-2b71-4f56-b82b-6f5d6c7a3b72",
+            "title": "Systematic analysis for LCD transfers to formula selection strategy.",
+            "type": "Strategic thinking transfer",
+            "edge_id": 341
+          },
+          {
+            "from": "2566ee01-be64-4a90-8ef3-6cf6f85621f3",
+            "to": "b2d8a5f4-5f85-4c57-a65f-2d8b2a5f4f86",
+            "title": "Systematic preparation principle transfers to logarithm law application.",
+            "type": "Meta-principle transfer",
+            "edge_id": 342
+          },
+          {
+            "from": "7e8a7d63-012a-4b41-8272-fff57092b8ae",
+            "to": "4432a84d-e9d9-4766-9383-c051fe579dd9",
+            "title": "Fraction canceling awareness directly contributes to general error prevention.",
+            "type": "Strong error prevention",
+            "edge_id": 343
+          },
+          {
+            "from": "2566ee01-be64-4a90-8ef3-6cf6f85621f3",
+            "to": "7598241a-7742-4ced-8db0-13bed8b51375",
+            "title": "Systematic preparation exemplifies checking techniques across algebra.",
+            "type": "Meta-technique exemplar",
+            "edge_id": 344
+          },
+          {
+            "from": "6abebf9d-7ed3-4039-8123-6eb04e3c1bd0",
+            "to": "d3f7c9a6-7b83-4d46-b87b-3f7d3c9a6b84",
+            "title": "Systematic operation order transfers to systematic graphing procedures.",
+            "type": "Technique transfer",
+            "edge_id": 345
+          },
+          {
+            "from": "b286892e-afa5-4e18-8b71-b762f87e93f3",
+            "to": "e9a6f8d5-8c54-4f46-a68c-9a6e9f8d5c55",
+            "title": "Substitution verification skills transfer to coordinate verification using symmetry.",
+            "type": "Technique transfer",
+            "edge_id": 346
+          },
+          {
+            "from": "cfa7c33c-b5fd-4bcd-9d86-5b4730879f57",
+            "to": "b3d5a9f4-9e47-4c83-a69e-3d5b3a9f4e48",
+            "title": "Solution verification transfers to coordinate accuracy checking in graphing.",
+            "type": "Verification technique transfer",
+            "edge_id": 347
+          },
+          {
+            "from": "0eece207-2848-4c3a-a2ba-9a8e8354bd3a",
+            "to": "b2d8a5f9-5f71-4c57-a65f-2d8b2a5f9f72",
+            "title": "Balance principle extends to inequality manipulation with rule modifications.",
+            "type": "Strong conceptual transfer",
+            "edge_id": 348
+          },
+          {
+            "from": "9ad632db-ece1-423e-a720-bdeb7552d29b",
+            "to": "f3b9e6c8-4d63-4f52-c94d-3b9f3e6c8d64",
+            "title": "Coefficient manipulation skills transfer to inequality boundary coordination.",
+            "type": "Technique transfer",
+            "edge_id": 349
+          },
+          {
+            "from": "b286892e-afa5-4e18-8b71-b762f87e93f3",
+            "to": "f6b5e9c4-4d87-4b56-c94d-6b5f6e9c4d88",
+            "title": "Substitution verification transfers to inequality solution checking.",
+            "type": "Verification transfer",
+            "edge_id": 350
+          },
+          {
+            "from": "6dd4ede0-8945-4e0c-ba56-700a36c14dfa",
+            "to": "e8a7f2d6-6c94-4b89-a76c-8a7e8f2d6c95",
+            "title": "Operation choice analysis transfers to pattern recognition in sequences.",
+            "type": "Analytical thinking transfer",
+            "edge_id": 351
+          },
+          {
+            "from": "68957425-025f-40dc-83d6-93560f49ea11",
+            "to": "f3b9e6c8-4d57-4f52-c94d-3b9f3e6c8d58",
+            "title": "Coefficient recognition skills transfer to ratio identification.",
+            "type": "Pattern recognition transfer",
+            "edge_id": 352
+          },
+          {
+            "from": "5542b263-681c-45ac-8c6d-5f65edf274a9",
+            "to": "99fa22b9-5ebb-4451-b9df-24cf66a78439",
+            "title": "Solution checking techniques transfer directly to absolute value verification.",
+            "type": "Strong technique transfer",
+            "edge_id": 353
+          },
+          {
+            "from": "88968044-f47d-4fbe-870c-a8ad4b7cdcce",
+            "to": "4432a84d-e9d9-4766-9383-c051fe579dd9",
+            "title": "No solution recognition contributes to general error pattern awareness.",
+            "type": "Error pattern recognition",
+            "edge_id": 354
+          },
+          {
+            "from": "cfa7c33c-b5fd-4bcd-9d86-5b4730879f57",
+            "to": "7598241a-7742-4ced-8db0-13bed8b51375",
+            "title": "Solution verification exemplifies systematic checking across all algebra.",
+            "type": "Meta-technique exemplar",
+            "edge_id": 355
+          },
+          {
+            "from": "d3f7c9a6-7b83-4d46-b87b-3f7d3c9a6b84",
+            "to": "b7d4a6f3-5f86-4c67-a65f-7d4b7a6f3f87",
+            "title": "Linear graphing skills transfer to inequality boundary representation.",
+            "type": "Strong technique transfer",
+            "edge_id": 356
+          },
+          {
+            "from": "e9a6f8d5-8c54-4f46-a68c-9a6e9f8d5c55",
+            "to": "e4a3f7d9-7c48-4f73-a67c-4a3e4f7d9c49",
+            "title": "Parabola symmetry understanding supports sign chart region analysis.",
+            "type": "Conceptual transfer",
+            "edge_id": 357
+          },
+          {
+            "from": "d7f4c6a3-5b68-4d72-b75b-7f4d7c6a3b69",
+            "to": "f6b5e9c4-4d87-4b56-c94d-6b5f6e9c4d88",
+            "title": "Systematic value analysis transfers to systematic inequality solution checking.",
+            "type": "Technique transfer",
+            "edge_id": 358
+          },
+          {
+            "from": "f6b3e5c8-4d68-4f59-c74d-6b3f6e5c8d69",
+            "to": "c9e6b8d2-9a89-4f54-c89a-9e6c9b8d2a88",
+            "title": "Rate of change concept directly applies to exponential growth/decay analysis.",
+            "type": "Strong conceptual connection",
+            "edge_id": 359
+          },
+          {
+            "from": "a8c7f4e2-6f85-4b72-b86f-8c7a8f4e2f86",
+            "to": "f2b8e5c7-4d72-4b89-c94d-2b8f2e5c7d73",
+            "title": "Rise/run calculation technique transfers to arithmetic sequence difference calculation.",
+            "type": "Strong technique transfer",
+            "edge_id": 360
+          },
+          {
+            "from": "c5e7b2d8-2a76-4f59-c82a-5e7c5b2d8a77",
+            "to": "f6b5e9c4-4d68-4b56-c94d-6b5f6e9c4d69",
+            "title": "Domain/range analysis skills transfer to convergence boundary analysis.",
+            "type": "Analytical thinking transfer",
+            "edge_id": 361
+          },
+          {
+            "from": "8e8873df-3ec7-4a29-8e02-3d710514f399",
+            "to": "7598241a-7742-4ced-8db0-13bed8b51375",
+            "title": "Coordinate reading accuracy exemplifies systematic precision across algebra.",
+            "type": "Meta-precision transfer",
+            "edge_id": 362
+          },
+          {
+            "from": "d7f4c6a3-5b68-4d72-b75b-7f4d7c6a3b69",
+            "to": "326d4e6d-6227-4641-99c8-93b03fa4899f",
+            "title": "Systematic table organization exemplifies systematic listing across algebra.",
+            "type": "Meta-organization transfer",
+            "edge_id": 363
+          },
+          {
+            "from": "e4a3f7d9-7c48-4f73-a67c-4a3e4f7d9c49",
+            "to": "c9e6b8d2-9a89-4f54-c89a-9e6c9b8d2a88",
+            "title": "Sign analysis skills transfer to growth/decay pattern analysis.",
+            "type": "Analytical thinking transfer",
+            "edge_id": 364
+          },
+          {
+            "from": "b2d8a5f9-5f71-4c57-a65f-2d8b2a5f9f72",
+            "to": "b2d8a5f4-5f85-4c57-a65f-2d8b2a5f4f86",
+            "title": "Systematic rule application transfers between inequality and logarithm domains.",
+            "type": "Meta-rule application",
+            "edge_id": 365
+          },
+          {
+            "from": "f3b9e6c8-4d63-4f52-c94d-3b9f3e6c8d64",
+            "to": "a8c7f2e6-6f51-4d42-b86f-8c7a8f2e6f52",
+            "title": "Compound boundary understanding supports convergence boundary analysis.",
+            "type": "Boundary analysis transfer",
+            "edge_id": 366
+          },
+          {
+            "from": "e4a3f7d9-7c48-4f73-a67c-4a3e4f7d9c49",
+            "to": "326d4e6d-6227-4641-99c8-93b03fa4899f",
+            "title": "Sign chart organization exemplifies systematic analysis techniques.",
+            "type": "Meta-organization transfer",
+            "edge_id": 367
+          },
+          {
+            "from": "a9c6f3d2-8e46-4f84-b78e-9c6a9f3d2e47",
+            "to": "d2b175f3-d92a-4068-bdec-ec0c6464f8db",
+            "title": "Negative number rule awareness directly prevents sign errors across algebra.",
+            "type": "Strong error prevention",
+            "edge_id": 368
+          },
+          {
+            "from": "326d4e6d-6227-4641-99c8-93b03fa4899f",
+            "to": "7598241a-7742-4ced-8db0-13bed8b51375",
+            "title": "Systematic factor listing exemplifies systematic approaches across all algebra.",
+            "type": "Meta-technique exemplar",
+            "edge_id": 369
+          },
+          {
+            "from": "4ce028ed-4dab-4d57-b273-f714c051d023",
+            "to": "d2b175f3-d92a-4068-bdec-ec0c6464f8db",
+            "title": "Advanced sign analysis directly contributes to general sign error prevention.",
+            "type": "Strong error prevention",
+            "edge_id": 370
+          },
+          {
+            "from": "d3f7c2a9-7b53-4d49-b87b-3f7d3c2a9b54",
+            "to": "4432a84d-e9d9-4766-9383-c051fe579dd9",
+            "title": "Form conversion awareness contributes to general algebraic mistake recognition.",
+            "type": "Error pattern awareness",
+            "edge_id": 371
+          },
+          {
+            "from": "051438f2-0459-49a7-8af2-26ae14b08c33",
+            "to": "05f2c1a5-30be-46a6-aa4e-88616617e970",
+            "title": "Structural recognition skills transfer between expression types and complex fractions.",
+            "type": "Analytical skill transfer",
+            "edge_id": 372
+          },
+          {
+            "from": "051438f2-0459-49a7-8af2-26ae14b08c33",
+            "to": "07357d70-7a13-4a10-b8f7-73116a2125d4",
+            "title": "Must recognize algebraic nature before identifying specific term characteristics.",
+            "type": "Strong prerequisite",
+            "edge_id": 373
+          },
+          {
+            "from": "051438f2-0459-49a7-8af2-26ae14b08c33",
+            "to": "089ef9a7-b555-45e6-b1f9-26f55885339a",
+            "title": "Algebraic expression awareness essential before multi-variable term analysis.",
+            "type": "Strong prerequisite",
+            "edge_id": 374
+          },
+          {
+            "from": "051438f2-0459-49a7-8af2-26ae14b08c33",
+            "to": "1e12c67e-3ee4-4d7e-a5eb-0d8140298dff",
+            "title": "Structural analysis skills transfer to equation outcome recognition.",
+            "type": "Analytical thinking transfer",
+            "edge_id": 375
+          },
+          {
+            "from": "051438f2-0459-49a7-8af2-26ae14b08c33",
+            "to": "1f8e2d57-9092-4740-9586-7f059078713f",
+            "title": "Must distinguish algebraic expressions before manipulating variables within them.",
+            "type": "Strong prerequisite",
+            "edge_id": 376
+          },
+          {
+            "from": "05f2c1a5-30be-46a6-aa4e-88616617e970",
+            "to": "241ce722-344e-4fee-bf34-d67744d44154",
+            "title": "Structure identification skills apply to both complex fractions and absolute value expressions.",
+            "type": "Analytical skill transfer",
+            "edge_id": 377
+          },
+          {
+            "from": "05f2c1a5-30be-46a6-aa4e-88616617e970",
+            "to": "35649796-3f6a-478a-8d6b-2e0ca615d218",
+            "title": "Complex structure analysis transfers to logarithmic equation structure recognition.",
+            "type": "Pattern recognition transfer",
+            "edge_id": 378
+          },
+          {
+            "from": "630153d7-cf11-40d9-b24c-ba42cbbd4308",
+            "to": "99fa22b9-5ebb-4451-b9df-24cf66a78439",
+            "title": "Systematic counting/analysis skills transfer to absolute value structure analysis.",
+            "type": "Technique transfer",
+            "edge_id": 379
+          },
+          {
+            "from": "42004a84-e098-4c2e-a345-35e070b71618",
+            "to": "d6f5c7a3-2b71-4f56-b82b-6f5d6c7a3b72",
+            "title": "Strategic method selection skills transfer between different mathematical contexts.",
+            "type": "Strategic thinking transfer",
+            "edge_id": 380
+          },
+          {
+            "from": "477cb4d1-9fb4-49ad-bf8b-297bcc9850ec",
+            "to": "2cb3d0e1-0cd8-4df8-8024-7fc935761615",
+            "title": "Pattern recognition before action transfers to formula selection strategy.",
+            "type": "Strategic pattern recognition",
+            "edge_id": 381
+          },
+          {
+            "from": "8e8873df-3ec7-4a29-8e02-3d710514f399",
+            "to": "338c56d9-3517-4631-bc06-6d2413e928ef",
+            "title": "Coordinate reading accuracy transfers to solution verification precision.",
+            "type": "Verification technique transfer",
+            "edge_id": 382
+          },
+          {
+            "from": "5542b263-681c-45ac-8c6d-5f65edf274a9",
+            "to": "731e2cc8-d7b7-4b6c-ae98-769915254fc0",
+            "title": "Solution checking techniques apply across different equation types.",
+            "type": "Strong technique transfer",
+            "edge_id": 383
+          },
+          {
+            "from": "d2b175f3-d92a-4068-bdec-ec0c6464f8db",
+            "to": "f2b8e4c7-4d73-4b89-c94d-2b8f2e4c7d74",
+            "title": "Sign error awareness directly supports symbol interpretation accuracy.",
+            "type": "Strong error prevention",
+            "edge_id": 384
+          },
+          {
+            "from": "972185e4-5b10-4d6a-bf58-656419ef3d26",
+            "to": "a9c6f3d2-8e46-4f84-b78e-9c6a9f3d2e47",
+            "title": "Sign handling skills transfer directly between arithmetic and inequality contexts.",
+            "type": "Strong skill transfer",
+            "edge_id": 385
+          },
+          {
+            "from": "b14457ab-5634-42eb-920a-b572a06df707",
+            "to": "605bae8b-80ed-45a1-9888-dc1ef2123363",
+            "title": "First AC step directly enables second step.",
+            "type": "Strong sequential prerequisite",
+            "edge_id": 386
+          },
+          {
+            "from": "605bae8b-80ed-45a1-9888-dc1ef2123363",
+            "to": "0867e03e-e972-41d2-a1d8-707b015a90d7",
+            "title": "Factor pair listing enables sum checking.",
+            "type": "Strong sequential prerequisite",
+            "edge_id": 387
+          },
+          {
+            "from": "0867e03e-e972-41d2-a1d8-707b015a90d7",
+            "to": "f6f6b0b6-3ac6-4948-a1bb-e1e1052dbc22",
+            "title": "Sum verification enables middle term splitting.",
+            "type": "Strong sequential prerequisite",
+            "edge_id": 388
+          },
+          {
+            "from": "f6f6b0b6-3ac6-4948-a1bb-e1e1052dbc22",
+            "to": "7921844c-e22e-4fe2-bd43-7671bb437d30",
+            "title": "Term splitting enables final grouping step.",
+            "type": "Strong sequential prerequisite",
+            "edge_id": 389
+          },
+          {
+            "from": "7921844c-e22e-4fe2-bd43-7671bb437d30",
+            "to": "70216645-13f0-49d6-b096-860a1258af60",
+            "title": "AC method grouping reinforces general grouping strategies.",
+            "type": "Technique reinforcement",
+            "edge_id": 390
+          },
+          {
+            "from": "e0766c4f-3368-4d54-b1dd-0e4659a97621",
+            "to": "630153d7-cf11-40d9-b24c-ba42cbbd4308",
+            "title": "Systematic organization skills transfer between different algebraic contexts.",
+            "type": "Meta-technique transfer",
+            "edge_id": 391
+          },
+          {
+            "from": "d7f4c6a3-5b68-4d72-b75b-7f4d7c6a3b69",
+            "to": "326d4e6d-6227-4641-99c8-93b03fa4899f",
+            "title": "Systematic table/list creation skills are transferable organizational techniques.",
+            "type": "Meta-technique transfer",
+            "edge_id": 392
+          },
+          {
+            "from": "4455e69e-a9e9-4434-b357-5a0513c2e0c2",
+            "to": "36fa7f95-7bd4-442f-8283-b6153962ae26",
+            "title": "Visual learning techniques reinforce each other across algebraic topics.",
+            "type": "Meta-technique transfer",
+            "edge_id": 393
+          },
+          {
+            "from": "0fa26d68-37fc-4859-91bb-eeac20901ae9",
+            "to": "e0766c4f-3368-4d54-b1dd-0e4659a97621",
+            "title": "Physical and organizational techniques both support FOIL mastery.",
+            "type": "Technique reinforcement",
+            "edge_id": 394
+          },
+          {
+            "from": "25232aad-5d8d-4510-b2ec-7bf4a4b6fb15",
+            "to": "d67deb51-a7cd-4ee6-b0e0-67d4cbba497d",
+            "title": "Bracket expansion error awareness includes double negative understanding.",
+            "type": "Error prevention",
+            "edge_id": 395
+          },
+          {
+            "from": "4ffaccd7-f8fa-4355-94c9-d3a846e92beb",
+            "to": "7e8a7d63-012a-4b41-8272-fff57092b8ae",
+            "title": "Fraction error prevention includes proper cancellation understanding.",
+            "type": "Error prevention",
+            "edge_id": 396
+          },
+          {
+            "from": "d2b175f3-d92a-4068-bdec-ec0c6464f8db",
+            "to": "a9c6f3d2-8e46-4f84-b78e-9c6a9f3d2e47",
+            "title": "Sign error prevention directly relates to negative number rule mastery.",
+            "type": "Strong error prevention",
+            "edge_id": 397
+          },
+          {
+            "from": "4432a84d-e9d9-4766-9383-c051fe579dd9",
+            "to": "88968044-f47d-4fbe-870c-a8ad4b7cdcce",
+            "title": "General mistake awareness includes recognizing contradictory situations.",
+            "type": "Error pattern recognition",
+            "edge_id": 398
+          },
+          {
+            "from": "c6e7b9d4-9a56-4d78-c89a-6e7c6b9d4a57",
+            "to": "d3f7c2a9-7b53-4d49-b87b-3f7d3c2a9b54",
+            "title": "Form conversion skills transfer between different mathematical contexts.",
+            "type": "Strong technique transfer",
+            "edge_id": 399
+          },
+          {
+            "from": "d3f7c2a9-7b53-4d49-b87b-3f7d3c2a9b54",
+            "to": "a5c7f9d6-8e69-4f54-b78e-5c7a5f9d6e68",
+            "title": "Mathematical form conversion requires similar analytical thinking.",
+            "type": "Technique transfer",
+            "edge_id": 400
+          },
+          {
+            "from": "41ab1f6a-d609-4a36-abed-d5f7a766a6fa",
+            "to": "c6e7b9d4-9a56-4d78-c89a-6e7c6b9d4a57",
+            "title": "Conversion techniques share common systematic approaches.",
+            "type": "Meta-technique transfer",
+            "edge_id": 401
+          },
+          {
+            "from": "d2f8c5a7-3b62-4d89-b83b-2f8d2c5a7b63",
+            "to": "e8a2f5d4-4c83-4f65-a74c-8a2e8f5d4c84",
+            "title": "Critical point finding skills transfer to vertex identification.",
+            "type": "Strong technique transfer",
+            "edge_id": 402
+          },
+          {
+            "from": "2e0d15e7-be97-4ab2-8598-e2a90933f98f",
+            "to": "d2f8c5a7-3b62-4d89-b83b-2f8d2c5a7b63",
+            "title": "Domain restriction analysis and critical point finding both identify boundary conditions.",
+            "type": "Boundary analysis transfer",
+            "edge_id": 403
+          },
+          {
+            "from": "f6b2e9c7-9d57-4f68-c89d-6b2f6e9c7d58",
+            "to": "d2f8c5a7-3b62-4d89-b83b-2f8d2c5a7b63",
+            "title": "Zero product property directly provides critical points for inequalities.",
+            "type": "Strong technique transfer",
+            "edge_id": 404
+          },
+          {
+            "from": "477cb4d1-9fb4-49ad-bf8b-297bcc9850ec",
+            "to": "e9a6f3d8-8c45-4f84-a68c-9a6e9f3d8c46",
+            "title": "Pattern recognition skills transfer between algebraic and sequence contexts.",
+            "type": "Pattern recognition transfer",
+            "edge_id": 405
+          },
+          {
+            "from": "36fa7f95-7bd4-442f-8283-b6153962ae26",
+            "to": "d45f83c3-ec97-49c7-993d-419537a2c37d",
+            "title": "Visual pattern skills transfer between different algebraic special cases.",
+            "type": "Pattern recognition transfer",
+            "edge_id": 406
+          },
+          {
+            "from": "e9a6f3d8-8c45-4f84-a68c-9a6e9f3d8c46",
+            "to": "e8a7f2d6-6c94-4b89-a76c-8a7e8f2d6c95",
+            "title": "Sequence pattern recognition skills reinforce each other.",
+            "type": "Pattern recognition transfer",
+            "edge_id": 407
+          },
+          {
+            "from": "42004a84-e098-4c2e-a345-35e070b71618",
+            "to": "d6f5c7a3-2b71-4f56-b82b-6f5d6c7a3b72",
+            "title": "Strategic method selection skills transfer across mathematical contexts.",
+            "type": "Strategic thinking transfer",
+            "edge_id": 408
+          },
+          {
+            "from": "6dd4ede0-8945-4e0c-ba56-700a36c14dfa",
+            "to": "9ad632db-ece1-423e-a720-bdeb7552d29b",
+            "title": "Strategic elimination choices require coefficient analysis.",
+            "type": "Strategic thinking reinforcement",
+            "edge_id": 409
+          },
+          {
+            "from": "2cb3d0e1-0cd8-4df8-8024-7fc935761615",
+            "to": "d6f5c7a3-2b71-4f56-b82b-6f5d6c7a3b72",
+            "title": "Both require strategic formula selection based on given information.",
+            "type": "Strategic thinking transfer",
+            "edge_id": 410
+          },
+          {
+            "from": "a9c5f8e4-5a65-4d48-b75a-9c5a9f8e4a66",
+            "to": "f3b6e9c2-6d43-4b85-c96d-3b6f3e9c2d44",
+            "title": "Discriminant analysis and root relationships both analyze quadratic characteristics.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 411
+          },
+          {
+            "from": "e8a4f7d9-4c58-4f72-a74c-8a4e8f7d9c59",
+            "to": "a5c9f2d7-8e56-4f68-b78e-5c9a5f2d7e57",
+            "title": "Understanding root nature enables reverse quadratic construction.",
+            "type": "Strong conceptual connection",
+            "edge_id": 412
+          },
+          {
+            "from": "b7d4a6f8-5f79-4c42-a65f-7d4b7a6f8f78",
+            "to": "f3b6e9c2-6d43-4b85-c96d-3b6f3e9c2d44",
+            "title": "Factored form expansion reveals sum and product relationships.",
+            "type": "Strong conceptual connection",
+            "edge_id": 413
+          },
+          {
+            "from": "f6b3e5c8-4d68-4f59-c74d-6b3f6e5c8d69",
+            "to": "f2b8e5c7-4d72-4b89-c94d-2b8f2e5c7d73",
+            "title": "Rate of change concept directly applies to arithmetic sequence analysis.",
+            "type": "Strong conceptual transfer",
+            "edge_id": 414
+          },
+          {
+            "from": "a8c7f4e2-6f85-4b72-b86f-8c7a8f4e2f86",
+            "to": "c9e6b8d2-9a89-4f54-c89a-9e6c9b8d2a88",
+            "title": "Rise/run analysis skills transfer to growth rate analysis.",
+            "type": "Conceptual transfer",
+            "edge_id": 415
+          },
+          {
+            "from": "b3d9a6f5-9e54-4c67-a69e-3d9b3a6f5e55",
+            "to": "f3b9e6c8-4d57-4f52-c94d-3b9f3e6c8d58",
+            "title": "Point-to-point analysis skills transfer between linear and geometric contexts.",
+            "type": "Strong technique transfer",
+            "edge_id": 416
+          },
+          {
+            "from": "c5e7b2d8-2a76-4f59-c82a-5e7c5b2d8a77",
+            "to": "2e0d15e7-be97-4ab2-8598-e2a90933f98f",
+            "title": "Function domain analysis and fraction restriction analysis both identify valid input ranges.",
+            "type": "Strong conceptual transfer",
+            "edge_id": 417
+          },
+          {
+            "from": "2e0d15e7-be97-4ab2-8598-e2a90933f98f",
+            "to": "f6b5e9c4-4d68-4b56-c94d-6b5f6e9c4d69",
+            "title": "Domain boundary analysis transfers to convergence boundary understanding.",
+            "type": "Boundary analysis transfer",
+            "edge_id": 418
+          },
+          {
+            "from": "cfa7c33c-b5fd-4bcd-9d86-5b4730879f57",
+            "to": "c6e2f5b9-4a73-4d67-c84a-6e2c6f5b9a74",
+            "title": "Solution verification techniques transfer between equation types.",
+            "type": "Strong technique transfer",
+            "edge_id": 419
+          },
+          {
+            "from": "338c56d9-3517-4631-bc06-6d2413e928ef",
+            "to": "5542b263-681c-45ac-8c6d-5f65edf274a9",
+            "title": "Absolute value checking uses general substitution verification techniques.",
+            "type": "Strong technique transfer",
+            "edge_id":54
+          },
+          {
+            "from": "e3a5f8d9-6c47-4b72-a76c-3a5e3f8d9c48",
+            "to": "f5b7e4c6-8d69-4f58-c98d-5b7f5e4c6d68",
+            "title": "Understanding perpendicular slope relationships is essential before finding perpendicular line equations.",
+            "edge_id": 55
+          },
+          {
+            "from": "a7c9f2e8-4f53-4d84-b74f-7c9a7f2e8f54",
+            "to": "b2d6a5f3-9e76-4c67-a89e-2d6b2a5f3e77",
+            "title": "Students must recognize parabola shape before they can determine which direction it opens.",
+            "edge_id": 56
+          },
+          {
+            "from": "b2d6a5f3-9e76-4c67-a89e-2d6b2a5f3e77",
+            "to": "d6f3c9a7-7b58-4d72-b87b-6f3d6c9a7b59",
+            "title": "Understanding opening direction helps students recognize the vertex as the turning point.",
+            "edge_id": 57
+          },
+          {
+            "from": "d6f3c9a7-7b58-4d72-b87b-6f3d6c9a7b59",
+            "to": "e8a2f5d4-4c83-4f65-a74c-8a2e8f5d4c84",
+            "title": "Understanding vertex concept is prerequisite to learning the specific coordinate calculation method.",
+            "edge_id": 58
+          },
+          {
+            "from": "e8a2f5d4-4c83-4f65-a74c-8a2e8f5d4c84",
+            "to": "f3b4e7c9-6d46-4b78-c96d-3b4f3e7c9d47",
+            "title": "Students need vertex coordinate skills before understanding vertex form where (h,k) represents the vertex.",
+            "edge_id": 59
+          },
+          {
+            "from": "e8a2f5d4-4c83-4f65-a74c-8a2e8f5d4c84",
+            "to": "d2f6c5a9-3b74-4f68-b83b-2f6d2c5a9b75",
+            "title": "Finding vertex coordinates provides the foundation for understanding the axis of symmetry.",
+            "edge_id": 60
+          },
+          {
+            "from": "b2d6a5f3-9e76-4c67-a89e-2d6b2a5f3e77",
+            "to": "b7d2a6f8-5f72-4c47-a65f-7d2b7a6f8f73",
+            "title": "Understanding parabola opening direction is essential for identifying when the vertex represents a minimum.",
+            "edge_id": 61
+          },
+          {
+            "from": "b2d6a5f3-9e76-4c67-a89e-2d6b2a5f3e77",
+            "to": "c9e4b8d3-9a85-4d56-c89a-9e4c9b8d3a86",
+            "title": "Understanding opening direction is required for recognizing when the vertex represents a maximum.",
+            "edge_id": 62
+          },
+          {
+            "from": "c4a8b9d3-7e52-4f89-a61c-8b7e3f9a2c65",
+            "to": "e4a8f3d7-7c59-4b43-a67c-4a8e4f3d7c58",
+            "title": "Understanding constant terms is essential before students can find the y-intercept by setting x=0.",
+            "edge_id": 63
+          },
+          {
+            "from": "f2b8e4c7-4d73-4b89-c94d-2b8f2e4c7d74",
+            "to": "a4c6f9e2-6f85-4d45-b76f-4c6a4f9e2f86",
+            "title": "Students must understand inequality symbols before they can distinguish inequalities from equations.",
+            "edge_id": 64
+          },
+          {
+            "from": "a4c6f9e2-6f85-4d45-b76f-4c6a4f9e2f86",
+            "to": "b6d8a3f7-9e52-4c68-a89e-6d8b6a3f7e53",
+            "title": "Understanding inequality vs equation differences is prerequisite to grasping solution set concepts.",
+            "edge_id": 65
+          },
+          {
+            "from": "b6d8a3f7-9e52-4c68-a89e-6d8b6a3f7e53",
+            "to": "c8e5b7d4-3a67-4f57-c73a-8e5c8b7d4a68",
+            "title": "Understanding solution sets is essential before students can represent them on number lines.",
+            "edge_id": 66
+          },
+          {
+            "from": "c8e5b7d4-3a67-4f57-c73a-8e5c8b7d4a68",
+            "to": "d3f7c2a6-7b84-4d49-b87b-3f7d3c2a6b85",
+            "title": "Number line representation skills provide foundation for understanding interval notation.",
+            "edge_id": 67
+          },
+          {
+            "from": "e5a9f6d8-4c73-4f62-a74c-5a9e5f6d8c74",
+            "to": "b2d8a5f9-5f71-4c57-a65f-2d8b2a5f9f72",
+            "title": "Understanding basic addition/subtraction rules is essential before learning complete inequality manipulation rules.",
+            "edge_id": 68
+          },
+          {
+            "from": "f7b4e8c5-6d59-4b75-c96d-7b4f7e8c5d58",
+            "to": "b2d8a5f9-5f71-4c57-a65f-2d8b2a5f9f72",
+            "title": "Understanding positive multiplication/division rules is required before mastering all inequality rules.",
+            "edge_id": 69
+          },
+          {
+            "from": "a9c6f3d2-8e46-4f84-b78e-9c6a9f3d2e47",
+            "to": "b2d8a5f9-5f71-4c57-a65f-2d8b2a5f9f72",
+            "title": "Understanding negative multiplication/division rules is crucial for complete inequality manipulation mastery.",
+            "edge_id": 70
+          },
+          {
+            "from": "b2d8a5f9-5f71-4c57-a65f-2d8b2a5f9f72",
+            "to": "c4e3b9d7-9a68-4d43-c89a-4e3c4b9d7a69",
+            "title": "Complete inequality rules are prerequisite to solving even simple one-step inequalities.",
+            "edge_id": 71
+          },
+          {
+            "from": "c4e3b9d7-9a68-4d43-c89a-4e3c4b9d7a69",
+            "to": "d6f5c7a4-2b85-4f56-b82b-6f5d6c7a4b86",
+            "title": "One-step inequality solving provides the foundation for tackling two-step inequalities.",
+            "edge_id": 72
+          },
+          {
+            "from": "d6f5c7a4-2b85-4f56-b82b-6f5d6c7a4b86",
+            "to": "e8a7f2d6-6c74-4b89-a76c-8a7e8f2d6c75",
+            "title": "Two-step inequality skills are essential before handling complex multi-step linear inequalities.",
+            "edge_id": 73
+          },
+          {
+            "from": "e8a7f2d6-6c74-4b89-a76c-8a7e8f2d6c75",
+            "to": "f3b9e6c8-4d63-4f52-c94d-3b9f3e6c8d64",
+            "title": "Multi-step linear inequality skills provide foundation for compound inequalities.",
+            "edge_id": 74
+          },
+          {
+            "from": "a7f3d8e2-5b91-4c73-9a42-1e6f8d3c7b5a",
+            "to": "376c331f-530e-4d2f-b9b0-c2713647d386",
+            "title": "Students need to understand variables before recognizing that x means 1x.",
+            "type": "Strong prerequisite",
+            "edge_id": 78
+          },
+          {
+            "from": "a7f3d8e2-5b91-4c73-9a42-1e6f8d3c7b5a",
+            "to": "c7262aa8-66e1-45c1-8d4d-c673154cc4be",
+            "title": "Variable understanding is essential before grasping that x means x¹.",
+            "type": "Strong prerequisite",
+            "edge_id": 79
+          },
+          {
+            "from": "376c331f-530e-4d2f-b9b0-c2713647d386",
+            "to": "b2e9f7a1-8c64-4d15-b73e-9f2a5c8e1d47",
+            "title": "Recognizing hidden coefficients strengthens explicit coefficient understanding.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 80
+          },
+          {
+            "from": "d6c2e5f8-9a73-4b16-c84d-7a3f6e9b4c28",
+            "to": "630153d7-cf11-40d9-b24c-ba42cbbd4308",
+            "title": "Basic term identification must precede systematic counting methods.",
+            "type": "Strong prerequisite",
+            "edge_id": 81
+          },
+          {
+            "from": "630153d7-cf11-40d9-b24c-ba42cbbd4308",
+            "to": "051438f2-0459-49a7-8af2-26ae14b08c33",
+            "title": "Systematic counting helps distinguish algebraic from arithmetic expressions.",
+            "type": "Skill transfer",
+            "edge_id": 82
+          },
+          {
+            "from": "e8f4a7b2-6d59-4e32-b95f-3c8a7e2b6d91",
+            "to": "089ef9a7-b555-45e6-b1f9-26f55885339a",
+            "title": "Basic like term recognition must precede complex multi-variable cases.",
+            "type": "Strong prerequisite",
+            "edge_id": 83
+          },
+          {
+            "from": "089ef9a7-b555-45e6-b1f9-26f55885339a",
+            "to": "972185e4-5b10-4d6a-bf58-656419ef3d26",
+            "title": "Multi-variable like terms add complexity that requires careful sign handling.",
+            "type": "Skill transfer",
+            "edge_id": 84
+          },
+          {
+            "from": "a5146351-4572-4bb7-ad60-73b13a70cc09",
+            "to": "07357d70-7a13-4a10-b8f7-73116a2125d4",
+            "title": "Must understand individual term degrees before identifying highest degree term.",
+            "type": "Strong prerequisite",
+            "edge_id": 85
+          },
+          {
+            "from": "07357d70-7a13-4a10-b8f7-73116a2125d4",
+            "to": "0866c8a4-cf2c-4503-af34-eaa7464d6de4",
+            "title": "Identifying leading term is essential for arranging in standard form.",
+            "type": "Strong prerequisite",
+            "edge_id": 86
+          },
+          {
+            "from": "0866c8a4-cf2c-4503-af34-eaa7464d6de4",
+            "to": "eddcb13f-bfe1-4349-9d71-7d3db69e53af",
+            "title": "Standard form knowledge helps identify gaps in polynomial sequences.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 87
+          },
+          {
+            "from": "c7262aa8-66e1-45c1-8d4d-c673154cc4be",
+            "to": "a5146351-4572-4bb7-ad60-73b13a70cc09",
+            "title": "Understanding implied exponents is crucial for calculating term degrees.",
+            "type": "Strong prerequisite",
+            "edge_id": 88
+          },
+          {
+            "from": "051438f2-0459-49a7-8af2-26ae14b08c33",
+            "to": "d6c2e5f8-9a73-4b16-c84d-7a3f6e9b4c28",
+            "title": "Must recognize algebraic nature before breaking into component terms.",
+            "type": "Strong prerequisite",
+            "edge_id": 89
+          },
+          {
+            "from": "f9b6c3e7-4a85-4f61-a72b-5d9e8f3a7c64",
+            "to": "a3c7f2d8-5e94-4b27-c85e-8f6a9b3d7e52",
+            "title": "Like term combination reinforces distributive property understanding.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 90
+          },
+          {
+            "from": "972185e4-5b10-4d6a-bf58-656419ef3d26",
+            "to": "c7f1a8e5-9b42-4d76-b83a-6f9c2e7d4a85",
+            "title": "Sign handling skills transfer directly to bracket expansion.",
+            "type": "Strong skill transfer",
+            "edge_id": 91
+          },
+          {
+            "from": "b2e9f7a1-8c64-4d15-b73e-9f2a5c8e1d47",
+            "to": "6fdecc90-ad12-4b2a-83d7-5d0b3e0b15f4",
+            "title": "Coefficient understanding is essential for variable distribution.",
+            "type": "Strong prerequisite",
+            "edge_id": 92
+          },
+          {
+            "from": "a7f3d8e2-5b91-4c73-9a42-1e6f8d3c7b5a",
+            "to": "d9e6c2a5-3b87-4f58-b68b-9e6d9c2a5b88",
+            "title": "Variable concept is fundamental to equation concept.",
+            "type": "Strong prerequisite",
+            "edge_id": 93
+          },
+          {
+            "from": "e8f4a7b2-6d59-4e32-b95f-3c8a7e2b6d91",
+            "to": "d3fd1d06-5f5b-415b-816d-48bf07b7c586",
+            "title": "Like term recognition directly enables equation simplification.",
+            "type": "Strong skill transfer",
+            "edge_id": 94
+          },
+          {
+            "from": "c4a8b9d3-7e52-4f89-a61c-8b7e3f9a2c65",
+            "to": "fd6b652a-ffd3-48ba-9abf-529b4ea3e43d",
+            "title": "Constant term understanding is essential for equation manipulation.",
+            "type": "Strong prerequisite",
+            "edge_id": 95
+          },
+          {
+            "from": "a7f3d8e2-5b91-4c73-9a42-1e6f8d3c7b5a",
+            "to": "c9e6b8d3-9a64-4d75-c89a-9e6c9b8d3a65",
+            "title": "Variable understanding is prerequisite to coordinate variables (x,y).",
+            "type": "Strong prerequisite",
+            "edge_id": 96
+          },
+          {
+            "from": "c4a8b9d3-7e52-4f89-a61c-8b7e3f9a2c65",
+            "to": "a4c7f9e6-6f52-4d45-b76f-4c7a4f9e6f53",
+            "title": "Constant terms become y-intercepts in linear functions.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 97
+          },
+          {
+            "from": "b2e9f7a1-8c64-4d15-b73e-9f2a5c8e1d47",
+            "to": "f6b3e5c8-4d68-4f59-c74d-6b3f6e5c8d69",
+            "title": "Coefficient of x becomes slope in linear functions.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 98
+          },
+          {
+            "from": "a7f3d8e2-5b91-4c73-9a42-1e6f8d3c7b5a",
+            "to": "b6c9e2a5-4f73-4d86-a59c-7e6c9e2a5f74",
+            "title": "Variable understanding is prerequisite to fractions containing variables.",
+            "type": "Strong prerequisite",
+            "edge_id": 99
+          },
+          {
+            "from": "b2e9f7a1-8c64-4d15-b73e-9f2a5c8e1d47",
+            "to": "c8d4f7b2-6a95-4e42-c73b-9f8d4f7b2a96",
+            "title": "Coefficient understanding helps identify cancelable factors.",
+            "type": "Skill transfer",
+            "edge_id": 100
+          },
+          {
+            "from": "a7f3d8e2-5b91-4c73-9a42-1e6f8d3c7b5a",
+            "to": "a4c6f9e2-6f85-4d45-b76f-4c6a4f9e2f86",
+            "title": "Variable understanding is essential before comparing equation vs inequality solving.",
+            "type": "Strong prerequisite",
+            "edge_id": 101
+          },
+          {
+            "from": "e8f4a7b2-6d59-4e32-b95f-3c8a7e2b6d91",
+            "to": "e8a7f2d6-6c74-4b89-a76c-8a7e8f2d6c75",
+            "title": "Like term skills transfer directly to inequality simplification.",
+            "type": "Strong skill transfer",
+            "edge_id": 102
+          },
+          {
+            "from": "a3c7f2d8-5e94-4b27-c85e-8f6a9b3d7e52",
+            "to": "4455e69e-a9e9-4434-b357-5a0513c2e0c2",
+            "title": "Conceptual understanding enhanced by visual learning technique.",
+            "type": "Technique reinforcement",
+            "edge_id": 103
+          },
+          {
+            "from": "4455e69e-a9e9-4434-b357-5a0513c2e0c2",
+            "to": "25232aad-5d8d-4510-b2ec-7bf4a4b6fb15",
+            "title": "Visual techniques help prevent common expansion errors.",
+            "type": "Error prevention",
+            "edge_id": 104
+          },
+          {
+            "from": "b5d9e6a4-7c28-4f53-a69d-2e8f5a9c3b74",
+            "to": "6fdecc90-ad12-4b2a-83d7-5d0b3e0b15f4",
+            "title": "Basic single bracket expansion must precede variable outside cases.",
+            "type": "Strong prerequisite",
+            "edge_id": 105
+          },
+          {
+            "from": "c7f1a8e5-9b42-4d76-b83a-6f9c2e7d4a85",
+            "to": "d67deb51-a7cd-4ee6-b0e0-67d4cbba497d",
+            "title": "Negative sign expansion requires understanding double negative rules.",
+            "type": "Strong skill transfer",
+            "edge_id": 106
+          },
+          {
+            "from": "d9e3b6c8-4a57-4f84-c92b-8e5a7f3d6c91",
+            "to": "0fa26d68-37fc-4859-91bb-eeac20901ae9",
+            "title": "FOIL concept enhanced by physical technique.",
+            "type": "Technique reinforcement",
+            "edge_id": 107
+          },
+          {
+            "from": "d9e3b6c8-4a57-4f84-c92b-8e5a7f3d6c91",
+            "to": "e0766c4f-3368-4d54-b1dd-0e4659a97621",
+            "title": "FOIL method requires systematic organization to avoid errors.",
+            "type": "Technique reinforcement",
+            "edge_id": 108
+          },
+          {
+            "from": "0fa26d68-37fc-4859-91bb-eeac20901ae9",
+            "to": "e0766c4f-3368-4d54-b1dd-0e4659a97621",
+            "title": "Physical technique supports systematic organization.",
+            "type": "Technique reinforcement",
+            "edge_id": 109
+          },
+          {
+            "from": "e2f8c5a9-6d73-4b18-a64f-3c9e8a2f7b58",
+            "to": "477cb4d1-9fb4-49ad-bf8b-297bcc9850ec",
+            "title": "General expansion skills help recognize when special shortcuts apply.",
+            "type": "Technique optimization",
+            "edge_id": 110
+          },
+          {
+            "from": "a6b9e2f5-3c84-4d61-c98f-7e2a6b9f4d83",
+            "to": "9be90f0d-7d5e-4ecb-8746-3237c3d1f703",
+            "title": "Factor recognition concept needs systematic inspection technique.",
+            "type": "Technique reinforcement",
+            "edge_id": 111
+          },
+          {
+            "from": "9be90f0d-7d5e-4ecb-8746-3237c3d1f703",
+            "to": "8ec70e0f-ad52-4e6a-ab59-4fcf753c273a",
+            "title": "Systematic inspection should be verified by reverse checking.",
+            "type": "Error prevention",
+            "edge_id": 112
+          },
+          {
+            "from": "b8c4f7a3-5e96-4b47-a82e-9f6c3b8e7a54",
+            "to": "c9d6a5e8-7f23-4c58-b94a-6e8f2c9a5d76",
+            "title": "Numerical factoring provides foundation for variable factoring.",
+            "type": "Strong prerequisite",
+            "edge_id": 113
+          },
+          {
+            "from": "c9d6a5e8-7f23-4c58-b94a-6e8f2c9a5d76",
+            "to": "d2e7b4f9-4a68-4d83-c56b-8f3e7d2b9c85",
+            "title": "Must master variable factoring before combining with numerical.",
+            "type": "Strong prerequisite",
+            "edge_id": 114
+          },
+          {
+            "from": "d2e7b4f9-4a68-4d83-c56b-8f3e7d2b9c85",
+            "to": "e4f9c6a2-6b85-4f72-a37d-5c8f6e4a9b72",
+            "title": "Mixed factor skills are essential for grouping method.",
+            "type": "Strong prerequisite",
+            "edge_id": 115
+          },
+          {
+            "from": "e4f9c6a2-6b85-4f72-a37d-5c8f6e4a9b72",
+            "to": "70216645-13f0-49d6-b096-860a1258af60",
+            "title": "Basic grouping concept requires strategic implementation.",
+            "type": "Technique reinforcement",
+            "edge_id": 116
+          },
+          {
+            "from": "70216645-13f0-49d6-b096-860a1258af60",
+            "to": "3c144f67-0103-45c4-9fe1-38aacb059ddc",
+            "title": "Strategic grouping requires GCF identification within each group.",
+            "type": "Strong skill transfer",
+            "edge_id": 117
+          },
+          {
+            "from": "3c144f67-0103-45c4-9fe1-38aacb059ddc",
+            "to": "0decc56d-f5ee-4a0f-a43d-cb1bf7d94afc",
+            "title": "Group factoring leads to identifying common binomial patterns.",
+            "type": "Strong prerequisite",
+            "edge_id": 118
+          },
+          {
+            "from": "f7a3d8e5-8c47-4b96-c84f-9e6a3f7d8c53",
+            "to": "36fa7f95-7bd4-442f-8283-b6153962ae26",
+            "title": "Pattern recognition enhanced by visual identification techniques.",
+            "type": "Technique reinforcement",
+            "edge_id": 119
+          },
+          {
+            "from": "b3c8e5a4-7f29-4d46-a68d-6e9c3b8e5f72",
+            "to": "d45f83c3-ec97-49c7-993d-419537a2c37d",
+            "title": "Recognition concept supported by systematic pattern identification.",
+            "type": "Technique reinforcement",
+            "edge_id": 120
+          },
+          {
+            "from": "d45f83c3-ec97-49c7-993d-419537a2c37d",
+            "to": "4c6a5449-fced-4b5c-862b-853f1dd0c440",
+            "title": "Pattern recognition requires specific middle term verification.",
+            "type": "Technique reinforcement",
+            "edge_id": 121
+          },
+          {
+            "from": "d7e4a1c8-3b65-4f84-c93f-8e7d4a1c8b59",
+            "to": "326d4e6d-6227-4641-99c8-93b03fa4899f",
+            "title": "Basic quadratic factoring requires systematic factor pair analysis.",
+            "type": "Technique reinforcement",
+            "edge_id": 122
+          },
+          {
+            "from": "326d4e6d-6227-4641-99c8-93b03fa4899f",
+            "to": "4ce028ed-4dab-4d57-b273-f714c051d023",
+            "title": "Factor pair listing enhanced by sign pattern understanding.",
+            "type": "Technique reinforcement",
+            "edge_id": 123
+          },
+          {
+            "from": "e9f6b3d5-5c82-4a57-a64b-2f9e6b3d5c84",
+            "to": "a4b7f3d9-8e56-4c29-b76e-5b4a7f3d9e58",
+            "title": "Complex quadratic factoring can use systematic AC method.",
+            "type": "Alternative technique",
+            "edge_id": 124
+          },
+          {
+            "from": "a4b7f3d9-8e56-4c29-b76e-5b4a7f3d9e58",
+            "to": "b14457ab-5634-42eb-920a-b572a06df707",
+            "title": "AC method requires specific step-by-step implementation.",
+            "type": "Strong prerequisite",
+            "edge_id": 125
+          },
+          {
+            "from": "f4a7d3b6-8e59-4c25-b71c-5f8d9e4a3c72",
+            "to": "a6b9e2f5-3c84-4d61-c98f-7e2a6b9f4d83",
+            "title": "Expansion completion often reveals factorization opportunities.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 126
+          },
+          {
+            "from": "477cb4d1-9fb4-49ad-bf8b-297bcc9850ec",
+            "to": "f7a3d8e5-8c47-4b96-c84f-9e6a3f7d8c53",
+            "title": "General special product awareness includes difference of squares.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 127
+          },
+          {
+            "from": "477cb4d1-9fb4-49ad-bf8b-297bcc9850ec",
+            "to": "b3c8e5a4-7f29-4d46-a68d-6e9c3b8e5f72",
+            "title": "Special product recognition includes perfect square patterns.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 128
+          },
+          {
+            "from": "a6b9e2f5-3c84-4d61-c98f-7e2a6b9f4d83",
+            "to": "a8c4f7e5-3a76-4b43-b78a-8c4a8f7e5a77",
+            "title": "Factor recognition is essential for factoring method of solving.",
+            "type": "Strong prerequisite",
+            "edge_id": 129
+          },
+          {
+            "from": "8ec70e0f-ad52-4e6a-ab59-4fcf753c273a",
+            "to": "5542b263-681c-45ac-8c6d-5f65edf274a9",
+            "title": "Factoring verification skills transfer to solution verification.",
+            "type": "Strong skill transfer",
+            "edge_id": 130
+          },
+          {
+            "from": "b5d9e6a4-7c28-4f53-a69d-2e8f5a9c3b74",
+            "to": "0d9fec23-da98-4850-b9ed-c8e0c02b1e2e",
+            "title": "Bracket expansion skills directly apply to equation solving.",
+            "type": "Strong skill transfer",
+            "edge_id": 131
+          },
+          {
+            "from": "a9b6f2c7-5d84-4e63-b75c-8f2a9b6c7e54",
+            "to": "f6b9e5c2-4d82-4f57-c94d-6b9f6e5c2d83",
+            "title": "Factoring skills enable finding x-intercepts by setting factors to zero.",
+            "type": "Strong skill transfer",
+            "edge_id": 132
+          },
+          {
+            "from": "d7e4a1c8-3b65-4f84-c93f-8e7d4a1c8b59",
+            "to": "a8c3f7e6-6f64-4b78-b86f-8c3a8f7e6f65",
+            "title": "Quadratic factoring directly reveals x-intercept locations.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 133
+          },
+          {
+            "from": "a6b9e2f5-3c84-4d61-c98f-7e2a6b9f4d83",
+            "to": "2566ee01-be64-4a90-8ef3-6cf6f85621f3",
+            "title": "Factor recognition is essential for fraction simplification.",
+            "type": "Strong prerequisite",
+            "edge_id": 134
+          },
+          {
+            "from": "8ec70e0f-ad52-4e6a-ab59-4fcf753c273a",
+            "to": "7e8a7d63-012a-4b41-8272-fff57092b8ae",
+            "title": "Factoring verification prevents improper cancellation errors.",
+            "type": "Error prevention",
+            "edge_id": 135
+          },
+          {
+            "from": "b6c9e2a5-4f73-4d86-a59c-7e6c9e2a5f74",
+            "to": "2e0d15e7-be97-4ab2-8598-e2a90933f98f",
+            "title": "Fraction understanding must include when fractions are undefined.",
+            "type": "Strong prerequisite",
+            "edge_id": 136
+          },
+          {
+            "from": "2e0d15e7-be97-4ab2-8598-e2a90933f98f",
+            "to": "2566ee01-be64-4a90-8ef3-6cf6f85621f3",
+            "title": "Domain awareness prevents improper cancellation of restricted values.",
+            "type": "Error prevention",
+            "edge_id": 137
+          },
+          {
+            "from": "2566ee01-be64-4a90-8ef3-6cf6f85621f3",
+            "to": "c8d4f7b2-6a95-4e42-c73b-9f8d4f7b2a96",
+            "title": "Factoring is essential prerequisite to proper cancellation.",
+            "type": "Strong prerequisite",
+            "edge_id": 138
+          },
+          {
+            "from": "c8d4f7b2-6a95-4e42-c73b-9f8d4f7b2a96",
+            "to": "7e8a7d63-012a-4b41-8272-fff57092b8ae",
+            "title": "Factor cancellation must distinguish factors from terms.",
+            "type": "Error prevention",
+            "edge_id": 139
+          },
+          {
+            "from": "7e8a7d63-012a-4b41-8272-fff57092b8ae",
+            "to": "d5e8a3f6-2b67-4c54-b86f-4e5d8a3f6b68",
+            "title": "Proper cancellation rules enable complete simplification.",
+            "type": "Strong prerequisite",
+            "edge_id": 140
+          },
+          {
+            "from": "e7f2c9a4-5d83-4f61-a72c-6f7e2c9a4d85",
+            "to": "7ea124da-33d6-4b9e-ba4d-ef0f96caecf8",
+            "title": "Multiplication understanding supports cross-multiplication technique.",
+            "type": "Technique reinforcement",
+            "edge_id": 141
+          },
+          {
+            "from": "f9a6d3b7-8c45-4b78-c94a-8a9f6d3b7c46",
+            "to": "7ea124da-33d6-4b9e-ba4d-ef0f96caecf8",
+            "title": "Division by multiplication of reciprocal uses cross-multiplication.",
+            "type": "Strong skill transfer",
+            "edge_id": 142
+          },
+          {
+            "from": "a3c5f8e2-4b69-4d35-b67d-2c3a5f8e2b69",
+            "to": "3e90c9a5-9c81-428a-9f62-a9e3b656bb53",
+            "title": "General common denominator concept requires specific LCD techniques.",
+            "type": "Technique reinforcement",
+            "edge_id": 143
+          },
+          {
+            "from": "3e90c9a5-9c81-428a-9f62-a9e3b656bb53",
+            "to": "41ab1f6a-d609-4a36-abed-d5f7a766a6fa",
+            "title": "LCD identification enables systematic conversion process.",
+            "type": "Strong prerequisite",
+            "edge_id": 144
+          },
+          {
+            "from": "41ab1f6a-d609-4a36-abed-d5f7a766a6fa",
+            "to": "b5d8a4f7-6e52-4c86-a84e-5d8b5a4f7e53",
+            "title": "Common denominator conversion enables addition operation.",
+            "type": "Strong prerequisite",
+            "edge_id": 145
+          },
+          {
+            "from": "b5d8a4f7-6e52-4c86-a84e-5d8b5a4f7e53",
+            "to": "c7f3b6e9-9a74-4d47-c75a-7f3c7b6e9a75",
+            "title": "Same denominator addition is prerequisite to different denominator cases.",
+            "type": "Strong prerequisite",
+            "edge_id": 146
+          },
+          {
+            "from": "d5e8a3f6-2b67-4c54-b86f-4e5d8a3f6b68",
+            "to": "05f2c1a5-30be-46a6-aa4e-88616617e970",
+            "title": "Basic simplification skills needed before tackling complex fractions.",
+            "type": "Strong prerequisite",
+            "edge_id": 147
+          },
+          {
+            "from": "2e0d15e7-be97-4ab2-8598-e2a90933f98f",
+            "to": "d8f4c7a5-6b59-4f48-b75b-8f4d8c7a5b58",
+            "title": "Domain restriction awareness helps identify when equations have no solution.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 148
+          },
+          {
+            "from": "a3c5f8e2-4b69-4d35-b67d-2c3a5f8e2b69",
+            "to": "3fc80db3-46a1-4555-afa8-36e1460ec60f",
+            "title": "Common denominator skills directly apply to equation solving.",
+            "type": "Strong skill transfer",
+            "edge_id": 149
+          },
+          {
+            "from": "c7f3b6e9-9a74-4d47-c75a-7f3c7b6e9a75",
+            "to": "b4d8a6f3-8c54-4f72-a86c-4d8b4a6f3c55",
+            "title": "Fraction addition skills are essential for fractional equations.",
+            "type": "Strong prerequisite",
+            "edge_id": 150
+          },
+          {
+            "from": "2e0d15e7-be97-4ab2-8598-e2a90933f98f",
+            "to": "c5e7b2d8-2a76-4f59-c82a-5e7c5b2d8a77",
+            "title": "Domain restriction concept transfers to function domain analysis.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 151
+          },
+          {
+            "from": "2e0d15e7-be97-4ab2-8598-e2a90933f98f",
+            "to": "d2f8c5a7-3b62-4d89-b83b-2f8d2c5a7b63",
+            "title": "Domain restriction skills help identify critical boundary points.",
+            "type": "Skill transfer",
+            "edge_id": 152
+          },
+          {
+            "from": "d9e6c2a5-3b87-4f58-b68b-9e6d9c2a5b88",
+            "to": "614b043c-5605-47b9-bb93-4cf965ddab5f",
+            "title": "Equation understanding requires distinguishing from expressions.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 153
+          },
+          {
+            "from": "e2a7f4d8-5c63-4b29-a59c-2a7e2f4d8c64",
+            "to": "5542b263-681c-45ac-8c6d-5f65edf274a9",
+            "title": "Solution concept requires verification technique.",
+            "type": "Technique reinforcement",
+            "edge_id": 154
+          },
+          {
+            "from": "f4b9e6c3-7d48-4f73-c86d-4b9f4e6c3d49",
+            "to": "6abebf9d-7ed3-4039-8123-6eb04e3c1bd0",
+            "title": "Inverse operation concept requires systematic order understanding.",
+            "type": "Technique reinforcement",
+            "edge_id": 155
+          },
+          {
+            "from": "6abebf9d-7ed3-4039-8123-6eb04e3c1bd0",
+            "to": "0eece207-2848-4c3a-a2ba-9a8e8354bd3a",
+            "title": "Operation order must maintain balance principle.",
+            "type": "Strong skill transfer",
+            "edge_id": 156
+          },
+          {
+            "from": "a6c2f5d9-8e54-4b67-b79e-6c2a6f5d9e55",
+            "to": "68957425-025f-40dc-83d6-93560f49ea11",
+            "title": "Balance method requires recognizing when variable is isolated.",
+            "type": "Technique reinforcement",
+            "edge_id": 157
+          },
+          {
+            "from": "b8d5a3f7-4c76-4d84-a92c-8d5b8a3f7c77",
+            "to": "926909a8-84d1-4e44-9171-5b95d8aa1b64",
+            "title": "One-step solving includes fraction coefficient cases.",
+            "type": "Technique extension",
+            "edge_id": 158
+          },
+          {
+            "from": "c3e7b6a4-6f59-4c45-c85f-3e7c3b6a4f58",
+            "to": "d3fd1d06-5f5b-415b-816d-48bf07b7c586",
+            "title": "Two-step solving often requires like term combination.",
+            "type": "Strong skill transfer",
+            "edge_id": 159
+          },
+          {
+            "from": "d5f9c2e8-9a42-4b68-b73a-5f9d5c2e8a43",
+            "to": "1f8e2d57-9092-4740-9586-7f059078713f",
+            "title": "Multi-step solving requires strategic variable collection.",
+            "type": "Strong skill transfer",
+            "edge_id": 160
+          },
+          {
+            "from": "1f8e2d57-9092-4740-9586-7f059078713f",
+            "to": "fd6b652a-ffd3-48ba-9abf-529b4ea3e43d",
+            "title": "Variable collection coordinated with constant movement.",
+            "type": "Strong skill transfer",
+            "edge_id": 161
+          },
+          {
+            "from": "e7a4f6d2-3b85-4f54-a64b-7a4e7f6d2b86",
+            "to": "88968044-f47d-4fbe-870c-a8ad4b7cdcce",
+            "title": "Both-sided equations can lead to contradiction cases.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 162
+          },
+          {
+            "from": "e7a4f6d2-3b85-4f54-a64b-7a4e7f6d2b86",
+            "to": "1e12c67e-3ee4-4d7e-a5eb-0d8140298dff",
+            "title": "Both-sided equations can lead to identity cases.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 163
+          },
+          {
+            "from": "f9b7c5e3-5d67-4c39-c76d-9b7f9c5e3d68",
+            "to": "0d9fec23-da98-4850-b9ed-c8e0c02b1e2e",
+            "title": "Bracket equations require systematic expansion approach.",
+            "type": "Technique reinforcement",
+            "edge_id": 164
+          },
+          {
+            "from": "a2c6f9d5-7e48-4b83-b95e-2c6a2f9d5e49",
+            "to": "3fc80db3-46a1-4555-afa8-36e1460ec60f",
+            "title": "Fraction clearing concept requires systematic LCD approach.",
+            "type": "Technique reinforcement",
+            "edge_id": 165
+          },
+          {
+            "from": "e3a7b4f8-9d52-4c36-a69d-3a7e3b4f8d53",
+            "to": "9b2ca6c2-c31d-4977-9248-900101ebaf6c",
+            "title": "Simultaneous equation concept enhanced by graphical understanding.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 166
+          },
+          {
+            "from": "f5b9e6c2-2e74-4f65-c87e-5b9f5e6c2e75",
+            "to": "a7c3f6d4-5a86-4b49-b78a-7c3a7f6d4a87",
+            "title": "Conceptual understanding requires step-by-step implementation.",
+            "type": "Strong prerequisite",
+            "edge_id": 167
+          },
+          {
+            "from": "a7c3f6d4-5a86-4b49-b78a-7c3a7f6d4a87",
+            "to": "6281fb5d-7509-4ae3-83b6-68f0dde62da4",
+            "title": "Step-by-step method requires careful substitution execution.",
+            "type": "Technique reinforcement",
+            "edge_id": 168
+          },
+          {
+            "from": "b9d5a8e7-6c43-4d72-a95c-9d5b9a8e7c44",
+            "to": "c4e8b6f2-8f57-4c64-c86f-4e8c4b6f2f58",
+            "title": "Elimination concept starts with simplest same-coefficient case.",
+            "type": "Strong prerequisite",
+            "edge_id": 169
+          },
+          {
+            "from": "c4e8b6f2-8f57-4c64-c86f-4e8c4b6f2f58",
+            "to": "d6f2c9a8-3b75-4f39-b73b-6f2d6c9a8b76",
+            "title": "Same coefficient elimination must precede different coefficient cases.",
+            "type": "Strong prerequisite",
+            "edge_id": 170
+          },
+          {
+            "from": "d6f2c9a8-3b75-4f39-b73b-6f2d6c9a8b76",
+            "to": "9ad632db-ece1-423e-a720-bdeb7552d29b",
+            "title": "Different coefficients require systematic matching technique.",
+            "type": "Technique reinforcement",
+            "edge_id": 171
+          },
+          {
+            "from": "9ad632db-ece1-423e-a720-bdeb7552d29b",
+            "to": "6dd4ede0-8945-4e0c-ba56-700a36c14dfa",
+            "title": "Coefficient matching determines operation choice.",
+            "type": "Strong skill transfer",
+            "edge_id": 172
+          },
+          {
+            "from": "e8a4f7d3-5c68-4b52-a64c-8a4e8f7d3c69",
+            "to": "b286892e-afa5-4e18-8b71-b762f87e93f3",
+            "title": "Elimination process requires back-substitution to complete solution.",
+            "type": "Strong prerequisite",
+            "edge_id": 173
+          },
+          {
+            "from": "42004a84-e098-4c2e-a345-35e070b71618",
+            "to": "cfa7c33c-b5fd-4bcd-9d86-5b4730879f57",
+            "title": "Method choice should be followed by solution verification.",
+            "type": "Technique reinforcement",
+            "edge_id": 174
+          },
+          {
+            "from": "f3b7e5c9-7d46-4f75-c85d-3b7f3e5c9d47",
+            "to": "8e8873df-3ec7-4a29-8e02-3d710514f399",
+            "title": "Graphical method requires coordinate reading skills.",
+            "type": "Technique reinforcement",
+            "edge_id": 175
+          },
+          {
+            "from": "a5c9f6e2-9a58-4b84-b79a-5c9a5f6e2a59",
+            "to": "b7d3a6f4-4e72-4c47-a63e-7d3b7a6f4e73",
+            "title": "Both represent special cases in simultaneous equation analysis.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 176
+          },
+          {
+            "from": "c9e5b8d7-6f84-4d56-c74f-9e5c9b8d7f85",
+            "to": "d2f7c4a9-8b63-4f72-b86b-2f7d2c4a9b64",
+            "title": "Standard form knowledge helps identify quadratic equations.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 177
+          },
+          {
+            "from": "d2f7c4a9-8b63-4f72-b86b-2f7d2c4a9b64",
+            "to": "e4a8f6d3-5c49-4b95-a75c-4a8e4f6d3c48",
+            "title": "Identification enables systematic rearrangement.",
+            "type": "Strong prerequisite",
+            "edge_id": 178
+          },
+          {
+            "from": "f6b2e9c7-9d57-4f68-c89d-6b2f6e9c7d58",
+            "to": "b3d6a9f2-7e59-4c86-a97e-3d6b3a9f2e58",
+            "title": "Property understanding requires application technique.",
+            "type": "Strong prerequisite",
+            "edge_id": 179
+          },
+          {
+            "from": "c5e8b4d7-4f42-4d73-c84f-5e8c5b4d7f43",
+            "to": "d7f3c6a9-6b65-4f58-b76b-7f3d7c6a9b66",
+            "title": "Understanding purpose enables specific technique learning.",
+            "type": "Strong prerequisite",
+            "edge_id": 180
+          },
+          {
+            "from": "d7f3c6a9-6b65-4f58-b76b-7f3d7c6a9b66",
+            "to": "e9a5f8d2-8c47-4b84-a68c-9a5e9f8d2c48",
+            "title": "Basic pattern understanding enables systematic implementation.",
+            "type": "Strong prerequisite",
+            "edge_id": 181
+          },
+          {
+            "from": "e9a5f8d2-8c47-4b84-a68c-9a5e9f8d2c48",
+            "to": "f2b7e4c8-5d69-4f75-c95d-2b7f2e4c8d68",
+            "title": "Step understanding enables full method mastery.",
+            "type": "Strong prerequisite",
+            "edge_id": 182
+          },
+          {
+            "from": "f2b7e4c8-5d69-4f75-c95d-2b7f2e4c8d68",
+            "to": "a4c8f5b6-9e53-4d42-b79e-4c8a4f5b6e54",
+            "title": "Completing square enables square root solution step.",
+            "type": "Strong prerequisite",
+            "edge_id": 183
+          },
+          {
+            "from": "b6d2a7f9-3f76-4c58-a63f-6d2b6a7f9f77",
+            "to": "c8e4b9d5-7a64-4f87-c74a-8e4c8b9d5a65",
+            "title": "Component understanding prerequisite to formula application.",
+            "type": "Strong prerequisite",
+            "edge_id": 184
+          },
+      
+          {
+            "from": "f3b7e5c9-7d46-4f75-c85d-3b7f3e5c9d47",
+            "to": "c9e6b8d3-9a64-4d75-c89a-9e6c9b8d3a65",
+            "title": "Graphical solutions require coordinate system mastery.",
+            "type": "Strong prerequisite",
+            "edge_id": 185
+          },
+          {
+            "from": "8e8873df-3ec7-4a29-8e02-3d710514f399",
+            "to": "d2f8c5a7-3b52-4f87-b83b-2f8d2c5a7b53",
+            "title": "Coordinate reading skills transfer to point plotting.",
+            "type": "Strong skill transfer",
+            "edge_id": 186
+          },
+          {
+            "from": "a8c4f7e5-3a76-4b43-b78a-8c4a8f7e5a77",
+            "to": "f6b9e5c2-4d82-4f57-c94d-6b9f6e5c2d83",
+            "title": "Factoring solutions become x-intercepts on graphs.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 187
+          },
+          {
+            "from": "b8d5a3f7-4c76-4d84-a92c-8d5b8a3f7c77",
+            "to": "c4e3b9d7-9a68-4d43-c89a-4e3c4b9d7a69",
+            "title": "Linear equation solving skills transfer to inequalities.",
+            "type": "Strong skill transfer",
+            "edge_id": 188
+          },
+          {
+            "from": "c3e7b6a4-6f59-4c45-c85f-3e7c3b6a4f58",
+            "to": "d6f5c7a4-2b85-4f56-b82b-6f5d6c7a4b86",
+            "title": "Two-step equation techniques apply to inequalities.",
+            "type": "Strong skill transfer",
+            "edge_id": 189
+          },
+          {
+            "from": "d5f9c2e8-9a42-4b68-b73a-5f9d5c2e8a43",
+            "to": "e8a7f2d6-6c74-4b89-a76c-8a7e8f2d6c75",
+            "title": "Multi-step equation skills transfer with rule modifications.",
+            "type": "Strong skill transfer",
+            "edge_id": 190
+          },
+          {
+            "from": "f6b2e9c7-9d57-4f68-c89d-6b2f6e9c7d58",
+            "to": "d2f8c5a7-3b62-4d89-b83b-2f8d2c5a7b63",
+            "title": "Zero product property helps find inequality critical points.",
+            "type": "Strong skill transfer",
+            "edge_id": 191
+          },
+          {
+            "from": "c8e4b9d5-7a64-4f87-c74a-8e4c8b9d5a65",
+            "to": "f3b6e9c2-6d43-4b85-c96d-3b6f3e9c2d44",
+            "title": "Formula solutions connect to root relationship formulas.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 192
+          },
+          {
+            "from": "5542b263-681c-45ac-8c6d-5f65edf274a9",
+            "to": "338c56d9-3517-4631-bc06-6d2413e928ef",
+            "title": "General solution checking transfers to absolute value cases.",
+            "type": "Strong skill transfer",
+            "edge_id": 193
+          },
+      
+          {
+            "from": "c9e6b8d3-9a64-4d75-c89a-9e6c9b8d3a65",
+            "to": "d2f8c5a7-3b52-4f87-b83b-2f8d2c5a7b53",
+            "title": "Coordinate system understanding is prerequisite to point plotting.",
+            "type": "Strong prerequisite",
+            "edge_id": 194
+          },
+          {
+            "from": "d2f8c5a7-3b52-4f87-b83b-2f8d2c5a7b53",
+            "to": "e4a7f9d6-7c73-4b46-a67c-4a7e4f9d6c74",
+            "title": "Point plotting experience needed to recognize linear patterns.",
+            "type": "Strong prerequisite",
+            "edge_id": 195
+          },
+          {
+            "from": "f6b3e5c8-4d68-4f59-c74d-6b3f6e5c8d69",
+            "to": "a8c7f4e2-6f85-4b72-b86f-8c7a8f4e2f86",
+            "title": "Rate of change concept requires geometric rise/run understanding.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 196
+          },
+          {
+            "from": "a8c7f4e2-6f85-4b72-b86f-8c7a8f4e2f86",
+            "to": "b3d9a6f5-9e54-4c67-a69e-3d9b3a6f5e55",
+            "title": "Rise/run concept enables point-to-point slope calculation.",
+            "type": "Strong prerequisite",
+            "edge_id": 197
+          },
+          {
+            "from": "b3d9a6f5-9e54-4c67-a69e-3d9b3a6f5e55",
+            "to": "c5e2b8d4-2a76-4f83-c82a-5e2c5b8d4a77",
+            "title": "Slope calculation enables slope direction interpretation.",
+            "type": "Strong prerequisite",
+            "edge_id": 198
+          },
+          {
+            "from": "b3d9a6f5-9e54-4c67-a69e-3d9b3a6f5e55",
+            "to": "d7f4c6a9-5b69-4d58-b75b-7f4d7c6a9b68",
+            "title": "Slope calculation enables negative slope recognition.",
+            "type": "Strong prerequisite",
+            "edge_id": 199
+          },
+          {
+            "from": "c5e2b8d4-2a76-4f83-c82a-5e2c5b8d4a77",
+            "to": "e9a6f3d2-8c47-4f74-a68c-9a6e9f3d2c48",
+            "title": "Slope direction understanding includes zero slope case.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 200
+          },
+          {
+            "from": "d7f4c6a9-5b69-4d58-b75b-7f4d7c6a9b68",
+            "to": "f2b8e5c7-4d63-4b89-c94d-2b8f2e5c7d64",
+            "title": "Slope understanding includes undefined slope case.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 201
+          },
+          {
+            "from": "a4c7f9e6-6f52-4d45-b76f-4c7a4f9e6f53",
+            "to": "b6d3a8f4-9e75-4c68-a89e-6d3b6a8f4e76",
+            "title": "Y-intercept understanding supports x-intercept concept.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 202
+          },
+          {
+            "from": "a4c7f9e6-6f52-4d45-b76f-4c7a4f9e6f53",
+            "to": "c8e5b2d7-3a64-4f57-c73a-8e5c8b2d7a65",
+            "title": "Y-intercept concept essential for slope-intercept form.",
+            "type": "Strong prerequisite",
+            "edge_id": 203
+          },
+          {
+            "from": "b3d9a6f5-9e54-4c67-a69e-3d9b3a6f5e55",
+            "to": "c8e5b2d7-3a64-4f57-c73a-8e5c8b2d7a65",
+            "title": "Slope calculation skills support slope-intercept form usage.",
+            "type": "Strong prerequisite",
+            "edge_id": 204
+          },
+          {
+            "from": "c8e5b2d7-3a64-4f57-c73a-8e5c8b2d7a65",
+            "to": "d3f7c9a6-7b83-4d46-b87b-3f7d3c9a6b84",
+            "title": "Form understanding enables systematic graphing technique.",
+            "type": "Strong prerequisite",
+            "edge_id": 205
+          },
+          {
+            "from": "c8e5b2d7-3a64-4f57-c73a-8e5c8b2d7a65",
+            "to": "e5a4f6d8-4c59-4f72-a74c-5a4e5f6d8c58",
+            "title": "Slope-intercept knowledge supports alternative form understanding.",
+            "type": "Conceptual reinforcement",
+            "edge_id": 206
+          },
+          {
+            "from": "e5a4f6d8-4c59-4f72-a74c-5a4e5f6d8c58",
+            "to": "f7b6e9c2-6d48-4b85-c96d-7b6f7e9c2d49",
+            "title": "Point-slope form enables equation finding technique.",
+            "type": "Strong prerequisite",
+            "edge_id": 207
+          },
+          {
+            "from": "f7b6e9c2-6d48-4b85-c96d-7b6f7e9c2d49",
+            "to": "a9c2f5d7-8e67-4f54-b78e-9c2a9f5d7e68",
+            "title": "Point-slope technique extends to two-point method.",
+            "type": "Strong prerequisite",
+            "edge_id": 208
+          },
+          {
+            "from": "b4d8a3f6-5f73-4c49-a65f-4d8b4a3f6f74",
+            "to": "c6e7b9d4-9a56-4d78-c89a-6e7c6b9d4a57",
+            "title": "Multiple form knowledge enables systematic conversion.",
+            "type": "Strong prerequisite",
+            "edge_id": 209
+          }]
   }

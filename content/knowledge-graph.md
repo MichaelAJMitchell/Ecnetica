@@ -20,8 +20,8 @@ This interactive visualization shows the relationships between mathematical conc
   
   <button id="reset-view" style="margin-left: 10px;">Reset View</button>
   <button id="toggle-physics" style="margin-left: 10px;">Toggle Physics</button>
-  <button id="load-simplified" style="margin-left: 10px;">Load Simplified (50 nodes)</button>
-  <button id="load-full" style="margin-left: 10px;">Load Full (457 nodes)</button>
+  <button id="load-simplified" style="margin-left: 10px;">Load Small Dense Graph</button>
+  <button id="load-full" style="margin-left: 10px;">Load Full</button>
 </div>
 
 <div id="node-info" style="margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-radius: 4px; display: none;">
@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Load simplified data
     document.getElementById('load-simplified').addEventListener('click', function() {
-        loadGraphData('/_static/graph-data-simplified.json');
+        loadGraphData('/_static/small-graph.json');
     });
 
     // Load full data

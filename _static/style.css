@@ -193,6 +193,13 @@ html[data-theme="dark"] .answer-content {
     color: #e9ecef !important;
 }
 
+html[data-theme="dark"] .question-title {
+    color: #ffffff !important;
+}
+
+html[data-theme="dark"] .answer-button {
+    color: #000000 !important;
+}
 
 
 

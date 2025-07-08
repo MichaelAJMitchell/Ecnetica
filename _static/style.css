@@ -83,3 +83,123 @@ tr:hover {
     /*background-color: #ffff00;*/
     font-weight: bold;
 }
+
+
+/* Dark mode fixes */
+/*--------------------------------------------------------------------*/ 
+
+/* Dark mode text color fixes */
+html[data-theme="dark"] {
+    --pst-color-text-base: #e9ecef;  
+    --pst-color-text-muted: #adb5bd; 
+}
+
+/* Scope dark mode fixes to main content areas only, exclude visualization containers */
+html[data-theme="dark"] .bd-main .bd-content p,
+html[data-theme="dark"] .bd-main .bd-content > *:not(.visualization-container),
+html[data-theme="dark"] .bd-article-container > *:not(.visualization-container) {
+    color: #e9ecef !important;
+}
+
+/* Fix heading colors in dark mode - scoped to main content */
+html[data-theme="dark"] .bd-main .bd-content h1,
+html[data-theme="dark"] .bd-main .bd-content h2,
+html[data-theme="dark"] .bd-main .bd-content h3,
+html[data-theme="dark"] .bd-main .bd-content h4,
+html[data-theme="dark"] .bd-main .bd-content h5,
+html[data-theme="dark"] .bd-main .bd-content h6 {
+    color: #f8f9fa !important;
+}
+
+/* Make visualization containers immune to site theme changes */
+.visualization-container {
+    /* Create a new stacking context and color inheritance boundary */
+    isolation: isolate;
+    contain: style;
+}
+
+/* Explicitly set colors for light-mode graphs regardless of site theme */
+.visualization-container:not(.dark-theme) {
+    color: #2d3748;
+    background-color: white;
+}
+
+.visualization-container:not(.dark-theme) .info-box,
+.visualization-container:not(.dark-theme) .slider-container,
+.visualization-container:not(.dark-theme) .graph-title {
+    color: #2d3748;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Dark-mode graphs use their own dark colors */
+.visualization-container.dark-theme {
+    color: #ecf0f1;
+    background-color: rgba(30, 39, 46, 0.85);
+}
+
+.visualization-container.dark-theme .info-box,
+.visualization-container.dark-theme .slider-container {
+    color: #ecf0f1;
+    background-color: rgba(30, 39, 46, 0.85);
+}
+
+/* Fix for graph titles and headers in visualization containers - force black text */
+html[data-theme="dark"] .visualization-container:not(.dark-theme) .graph-title,
+html[data-theme="dark"] .visualization-container:not(.dark-theme) .section-header,
+html[data-theme="dark"] .visualization-container:not(.dark-theme) h1,
+html[data-theme="dark"] .visualization-container:not(.dark-theme) h2,
+html[data-theme="dark"] .visualization-container:not(.dark-theme) h3,
+html[data-theme="dark"] .visualization-container:not(.dark-theme) h4,
+html[data-theme="dark"] .visualization-container:not(.dark-theme) h5,
+html[data-theme="dark"] .visualization-container:not(.dark-theme) h6,
+.visualization-container:not(.dark-theme) .graph-title,
+.visualization-container:not(.dark-theme) .section-header,
+.visualization-container:not(.dark-theme) h1,
+.visualization-container:not(.dark-theme) h2,
+.visualization-container:not(.dark-theme) h3,
+.visualization-container:not(.dark-theme) h4,
+.visualization-container:not(.dark-theme) h5,
+.visualization-container:not(.dark-theme) h6 {
+    color: #2d3748 !important;
+    background-color: transparent !important;
+}
+
+/* If the graph itself is in dark theme, use light text */
+.visualization-container.dark-theme .graph-title,
+.visualization-container.dark-theme .section-header,
+.visualization-container.dark-theme h1,
+.visualization-container.dark-theme h2,
+.visualization-container.dark-theme h3,
+.visualization-container.dark-theme h4,
+.visualization-container.dark-theme h5,
+.visualization-container.dark-theme h6 {
+    color: #ecf0f1 !important;
+    background-color: transparent !important;
+}
+
+/* Dark mode override for topic-intro */
+html[data-theme="dark"] .topic-intro {
+    background-color: #3c4757 !important;
+    color: #e9ecef !important;
+}
+
+html[data-theme="dark"] .question-content {
+    background-color: #3c4757 !important;
+    color: #e9ecef !important;
+}
+
+html[data-theme="dark"] .answer-content {
+    background-color: #1e293b !important;
+    color: #e9ecef !important;
+}
+
+html[data-theme="dark"] .question-title {
+    color: #ffffff !important;
+}
+
+html[data-theme="dark"] .answer-button {
+    color: #000000 !important;
+}
+
+
+

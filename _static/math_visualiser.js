@@ -17,7 +17,7 @@ const MathVisualizer = (function() {
             point: '#3498db',
             pointHighlight: '#2980b9',
             pointStroke: '#ffffff',
-            functionGraph: '#2e86c1',
+            functionGraph: '#9d4edd',
             functionGraphHighlight: '#1c638e',
             text: '#2d3436'
         },
@@ -322,7 +322,8 @@ const MathVisualizer = (function() {
                     return compileExpr.evaluate(scope);
                 };
                 
-                const graphColor = useSequentialColors ? getNextSequentialColor() : '#2e86c1';
+                const graphColor = useSequentialColors ? getNextSequentialColor() : 
+                    (board.currentTheme === 'dark' ? colorThemes.dark.functionGraph : colorThemes.light.functionGraph);
                 
                 functionGraph = board.create('functiongraph', [func, -30, 30], {
                     strokeWidth: 3,

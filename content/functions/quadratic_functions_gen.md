@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+
 ### Application
 
 #### Examples
@@ -298,6 +299,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+
 ### Application
 
 #### Examples
@@ -526,16 +528,6 @@ Start with factorization when you see "nice" integer coefficients, especially wh
 Factorization doesn't always work with integer factors! If you can't find suitable integers quickly, move to completing the square or the quadratic formula.
 ```
 
-#### Interactive Visualization: Factorization Explorer
-
-<div id="factorization-container" class="visualization-container" style="height: 500px; display: flex; align-items: center; justify-content: center; background-color: #f8f9fa; border: 2px dashed #dee2e6; border-radius: 8px;">
-    <div style="text-align: center; color: #6c757d; font-size: 18px; font-weight: 500;">
-        Interactive Graph
-        <div style="font-size: 14px; margin-top: 8px; font-weight: normal;">
-            Factorization visualization will be implemented here
-        </div>
-    </div>
-</div>
 
 ### Application
 
@@ -839,6 +831,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+
 ### Application
 
 #### Examples
@@ -1107,16 +1100,6 @@ The discriminant connects to several important ideas:
 Be careful with signs when calculating $b^2 - 4ac$! The most common error is incorrectly handling negative values of $b$ or $c$.
 ```
 
-#### Interactive Visualization: Discriminant Analysis
-
-<div id="discriminant-container" class="visualization-container" style="height: 500px; display: flex; align-items: center; justify-content: center; background-color: #f8f9fa; border: 2px dashed #dee2e6; border-radius: 8px;">
-    <div style="text-align: center; color: #6c757d; font-size: 18px; font-weight: 500;">
-        Interactive Graph
-        <div style="font-size: 14px; margin-top: 8px; font-weight: normal;">
-            Discriminant and roots visualization will be implemented here
-        </div>
-    </div>
-</div>
 
 ### Application
 

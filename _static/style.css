@@ -176,3 +176,23 @@ html[data-theme="dark"] .visualization-container:not(.dark-theme) h6,
     color: #ecf0f1 !important;
     background-color: transparent !important;
 }
+
+/* Dark mode override for topic-intro */
+html[data-theme="dark"] .topic-intro {
+    background-color: #3c4757 !important;
+    color: #e9ecef !important;
+}
+
+html[data-theme="dark"] .question-content {
+    background-color: #3c4757 !important;
+    color: #e9ecef !important;
+}
+
+html[data-theme="dark"] .answer-content {
+    background-color: #1e293b !important;
+    color: #e9ecef !important;
+}
+
+
+
+

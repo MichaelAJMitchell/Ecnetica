@@ -92,6 +92,7 @@ parts:
       sections:
       - file: content/functions/linear_functions
       - file: algebra_2/algebra_2
+      - file: content/functions/quadratic_functions_gen
       - file: content/functions/completed_square_form
       - file: content/functions/cubic_polynomial
       - file: content/functions/exponential_functions

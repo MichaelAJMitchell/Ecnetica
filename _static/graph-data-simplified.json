@@ -1,3 +1,555 @@
+<<<<<<< HEAD
+{
+  "nodes": [
+    {
+      "id": "39b22619-da33-4853-91b5-41a85db74da8",
+      "label": "Pythagorean identity for sine ...",
+      "group": "Trigonometry",
+      "title": "The fundamental trigonometric identity stating that the square of cosine plus the square of sine of an angle equals one."
+    },
+    {
+      "id": "a5355524-2fa8-4dfc-804b-8ebde71f80fd",
+      "label": "Sine rule for triangle side ra...",
+      "group": "Trigonometry",
+      "title": "A formula relating the ratios of sides of a triangle to the sines of their opposite angles."
+    },
+    {
+      "id": "8010ddf4-5c83-49d4-ac3f-f12185620850",
+      "label": "Cosine rule for triangle side ...",
+      "group": "Trigonometry",
+      "title": "A formula that relates the lengths of sides of a triangle to the cosine of one of its angles, useful for finding unknown sides or angles."
+    },
+    {
+      "id": "097cb42c-4c49-4165-8239-15b48eb58f05",
+      "label": "Cosine of angle difference for...",
+      "group": "Trigonometry",
+      "title": "An identity expressing the cosine of the difference between two angles in terms of the cosines and sines of the individual angles."
+    },
+    {
+      "id": "3688833b-c7de-4c0b-9888-6f2394081c36",
+      "label": "Cosine of angle sum formula",
+      "group": "Trigonometry",
+      "title": "An identity expressing the cosine of the sum of two angles in terms of the cosines and sines of the individual angles."
+    },
+    {
+      "id": "f6429b2f-66ea-432e-ab47-e492b52af3c2",
+      "label": "Double angle formula for cosin...",
+      "group": "Trigonometry",
+      "title": "An identity expressing the cosine of twice an angle as the difference of the squares of cosine and sine of the angle."
+    },
+    {
+      "id": "3a27c8ea-e142-4d15-a239-8e827b5dd4f8",
+      "label": "Sine of angle sum formula",
+      "group": "Trigonometry",
+      "title": "An identity expressing the sine of the sum of two angles in terms of the sines and cosines of the individual angles."
+    },
+    {
+      "id": "6d5c7afd-c666-4948-9ac2-229908fd6868",
+      "label": "Sine of angle difference formu...",
+      "group": "Trigonometry",
+      "title": "An identity expressing the sine of the difference between two angles in terms of the sines and cosines of the individual angles."
+    },
+    {
+      "id": "4a2d1702-374a-48c5-992d-3079f913d2f4",
+      "label": "Tangent of angle sum formula",
+      "group": "Trigonometry",
+      "title": "An identity expressing the tangent of the sum of two angles in terms of the tangents of the individual angles."
+    },
+    {
+      "id": "e9bd786c-541c-4604-a2b6-e2db079c585e",
+      "label": "Tangent of angle difference fo...",
+      "group": "Trigonometry",
+      "title": "An identity expressing the tangent of the difference between two angles in terms of the tangents of the individual angles."
+    },
+    {
+      "id": "122779e8-e7c1-4f88-b7d3-11fb24494a16",
+      "label": "Double angle formula for sine ...",
+      "group": "Trigonometry",
+      "title": "An identity expressing the sine of twice an angle as twice the product of sine and cosine of the angle."
+    },
+    {
+      "id": "6b0d52e2-0910-4543-b67a-df64660016f6",
+      "label": "Double angle formula for tange...",
+      "group": "Trigonometry",
+      "title": "An identity expressing the tangent of twice an angle in terms of the tangent of the angle."
+    },
+    {
+      "id": "07cb91c8-0144-4370-a071-0f92ab41f348",
+      "label": "Cosine squared in terms of cos...",
+      "group": "Trigonometry",
+      "title": "An identity expressing the square of cosine of an angle as half the sum of one and the cosine of twice the angle."
+    },
+    {
+      "id": "7cf2213d-d9d5-4c24-b37a-590b6d48bbcf",
+      "label": "Sine squared in terms of cosin...",
+      "group": "Trigonometry",
+      "title": "An identity expressing the square of sine of an angle as half the difference of one and the cosine of twice the angle."
+    },
+    {
+      "id": "56aa7868-7d61-454b-971e-158aa1f79743",
+      "label": "Product-to-sum formula for 2 c...",
+      "group": "Trigonometry",
+      "title": "An identity expressing twice the product of cosines of two angles as the sum of cosines of their sum and difference."
+    },
+    {
+      "id": "35a1bf20-e670-4b6f-869b-8d7b8d0837f2",
+      "label": "Product-to-sum formula for 2 s...",
+      "group": "Trigonometry",
+      "title": "An identity expressing twice the product of sine of one angle and cosine of another as the sum of sines of their sum and difference."
+    },
+    {
+      "id": "5e09c106-d7e7-4742-ad2b-3ae5b31fd06a",
+      "label": "Product-to-sum formula for 2 s...",
+      "group": "Trigonometry",
+      "title": "An identity expressing twice the product of sines of two angles as the difference of cosines of their difference and sum."
+    },
+    {
+      "id": "1b7cbfc0-30a1-4067-a9b0-daa1457c87a5",
+      "label": "Product-to-sum formula for 2 c...",
+      "group": "Trigonometry",
+      "title": "An identity expressing twice the product of cosine of one angle and sine of another as the difference of sines of their sum and difference."
+    },
+    {
+      "id": "777085df-4b4d-4a4d-9f89-2013fb396e6f",
+      "label": "Sum-to-product formula for cos...",
+      "group": "Trigonometry",
+      "title": "An identity expressing the sum of cosines of two angles as twice the product of cosines of half their sum and half their difference."
+    },
+    {
+      "id": "deec1eb8-1f35-4e82-8568-35a898dea18d",
+      "label": "Sum-to-product formula for cos...",
+      "group": "Trigonometry",
+      "title": "An identity expressing the difference of cosines of two angles as negative twice the product of sines of half their sum and half their difference."
+    },
+    {
+      "id": "ed3ef232-91ef-4671-a494-78d94c06c0b5",
+      "label": "Sum-to-product formula for sin...",
+      "group": "Trigonometry",
+      "title": "An identity expressing the sum of sines of two angles as twice the product of sines of half their sum and cosines of half their difference."
+    },
+    {
+      "id": "550d1a19-f886-4de0-b3de-bacbc17bdd43",
+      "label": "Sum-to-product formula for sin...",
+      "group": "Trigonometry",
+      "title": "An identity expressing the difference of sines of two angles as twice the product of cosines of half their sum and sines of half their difference."
+    },
+    {
+      "id": "1f7078b1-9434-4894-b9e2-867eae877dc8",
+      "label": "circle drawing with given radi...",
+      "group": "Synthetic geometry",
+      "title": "Constructing a circle using a compass with a specified radius from a given center point."
+    },
+    {
+      "id": "69fcec90-ae91-4055-8d9d-1796e095594a",
+      "label": "use of straight edge in geomet...",
+      "group": "Synthetic geometry",
+      "title": "Employing a straight edge tool to draw straight lines accurately in geometric diagrams."
+    },
+    {
+      "id": "c318537e-f049-4e87-8554-30c63e7c2234",
+      "label": "use of compass in geometric co...",
+      "group": "Synthetic geometry",
+      "title": "Using a compass to draw arcs and circles with precision in geometric diagrams."
+    },
+    {
+      "id": "09616f1a-5d07-43fb-afaf-d62dda5c2b29",
+      "label": "use of ruler in geometric cons...",
+      "group": "Synthetic geometry",
+      "title": "Applying a ruler to measure lengths and draw straight lines in geometric diagrams."
+    },
+    {
+      "id": "010a0c35-5296-435b-aafe-f82622f6f671",
+      "label": "use of protractor in geometric...",
+      "group": "Synthetic geometry",
+      "title": "Using a protractor to measure and construct specific angles in geometric diagrams."
+    },
+    {
+      "id": "17289349-2b9d-45a3-952c-0c525c86d19c",
+      "label": "use of set square in geometric...",
+      "group": "Synthetic geometry",
+      "title": "Employing a set square to draw perpendicular and parallel lines accurately in geometric diagrams."
+    },
+    {
+      "id": "e8a71f47-2bfd-4641-9e09-408194b1f107",
+      "label": "coordinating the plane",
+      "group": "Coordinate geometry",
+      "title": "Assigning ordered pairs (x, y) to points in the plane to represent their positions numerically."
+    },
+    {
+      "id": "c2cb8846-05cd-4690-8571-11a5fe277c59",
+      "label": "representing linear relationsh...",
+      "group": "Coordinate geometry",
+      "title": "Organizing values of variables that satisfy a linear relationship into tables for analysis."
+    },
+    {
+      "id": "a3389202-e7ed-451b-977a-338f2b91f812",
+      "label": "representing linear relationsh...",
+      "group": "Coordinate geometry",
+      "title": "Plotting points on a coordinate plane to visualize linear relationships as straight lines."
+    },
+    {
+      "id": "45f7af2f-c610-4a03-96c4-c0a624551c77",
+      "label": "equivalence of slope and rate ...",
+      "group": "Coordinate geometry",
+      "title": "Understanding that the slope of a linear graph corresponds to the rate of change of the dependent variable with respect to the independent variable."
+    },
+    {
+      "id": "c0613010-2043-4e7b-b40a-6435f8bf29cc",
+      "label": "interpretation of start value ...",
+      "group": "Coordinate geometry",
+      "title": "Recognizing the y-intercept as the initial value or starting point of a linear relationship in context."
+    },
+    {
+      "id": "30d16cfa-ada4-41c2-9f9e-7d0c2e3f3170",
+      "label": "point of intersection of two l...",
+      "group": "Coordinate geometry",
+      "title": "The coordinate point where two linear graphs meet, representing the solution to the system of equations."
+    },
+    {
+      "id": "c78af0e2-3139-47b3-a012-c9a8d3262b3a",
+      "label": "strategies for solving systems...",
+      "group": "Coordinate geometry",
+      "title": "Using graphical, numeric, or mental methods to find solutions to problems involving two linear relationships."
+    },
+    {
+      "id": "d12c261f-08ea-44d0-a5b2-696eb6719515",
+      "label": "Pythagorean theorem applicatio...",
+      "group": "Trigonometry",
+      "title": "Using the relation a² + b² = c² to solve problems involving lengths in right-angled triangles, including heights and distances."
+    },
+    {
+      "id": "88d476f7-04c2-41ae-8390-49b8c8ee96d3",
+      "label": "use of trigonometric ratios in...",
+      "group": "Trigonometry",
+      "title": "Applying sine, cosine, and tangent ratios to find unknown sides or angles in right-angled triangles in real-world contexts."
+    },
+    {
+      "id": "dbec3474-bf12-4e23-a9da-7a757cdd42e2",
+      "label": "identification of axes of symm...",
+      "group": "Transformation geometry",
+      "title": "Locating lines through shapes that divide them into mirror-image halves."
+    },
+    {
+      "id": "1a596e77-7d10-49bb-8232-a243cc9bed73",
+      "label": "recognition of images under tr...",
+      "group": "Transformation geometry",
+      "title": "Understanding how points and objects shift uniformly in a given direction and distance without rotation or reflection."
+    },
+    {
+      "id": "197ef568-2cba-41d1-b7ca-1d7e47f99011",
+      "label": "recognition of images under ce...",
+      "group": "Transformation geometry",
+      "title": "Identifying points and objects reflected through a central point producing an image rotated 180 degrees about that point."
+    },
+    {
+      "id": "f87bd697-7e09-4ec0-9226-72ce699bd18a",
+      "label": "recognition of images under ax...",
+      "group": "Transformation geometry",
+      "title": "Identifying points and objects reflected across a line (axis of symmetry) producing mirror images."
+    },
+    {
+      "id": "122ff4b5-4a12-4a22-8c63-12355e135408",
+      "label": "recognition of images under ro...",
+      "group": "Transformation geometry",
+      "title": "Understanding how points and objects are turned about a fixed point through a specified angle and direction."
+    },
+    {
+      "id": "dfee8c6b-cd76-4a02-8d95-79071bd6e657",
+      "label": "investigation of enlargements ...",
+      "group": "Transformation geometry",
+      "title": "Studying how enlargements with a given centre and scale factor affect the size and area of shapes, including scale factors less than 1 and greater than 1 (rational numbers)."
+    },
+    {
+      "id": "6fd3577d-62e0-4ec2-b641-4c813bdf986b",
+      "label": "performing geometric construct...",
+      "group": "Synthetic geometry",
+      "title": "Executing specific geometric constructions numbered 16 through 21 as per referenced curriculum materials."
+    },
+    {
+      "id": "0cba7d23-2526-468d-953a-e51c997eace4",
+      "label": "use of logic and deductive rea...",
+      "group": "Synthetic geometry",
+      "title": "Understanding and applying terms such as theorem, proof, axiom, corollary, converse, implies, is equivalent to, if and only if, and proof by contradiction in geometric reasoning."
+    },
+    {
+      "id": "3e8ad8e3-951d-4392-8663-48454c248266",
+      "label": "investigation and proof of the...",
+      "group": "Synthetic geometry",
+      "title": "Studying and proving theorems concerning ratios that underpin the Pythagorean theorem and other geometric results."
+    },
+    {
+      "id": "bc4a0ff8-ec6e-49b8-a7e9-ca88aeb81eac",
+      "label": "use of slope to determine para...",
+      "group": "Coordinate geometry",
+      "title": "Using the equality of slopes to establish that two lines are parallel."
+    },
+    {
+      "id": "ec178aa4-851c-4c32-a012-872df6e839aa",
+      "label": "use of slope to determine perp...",
+      "group": "Coordinate geometry",
+      "title": "Using the negative reciprocal relationship of slopes to establish that two lines are perpendicular."
+    },
+    {
+      "id": "57d1f659-5564-4a1d-97b1-6048d10c1d96",
+      "label": "recognition of linear equation...",
+      "group": "Coordinate geometry",
+      "title": "Understanding that equations of the form ax + by + c = 0 represent straight lines in the coordinate plane."
+    },
+    {
+      "id": "76ed66c9-9b24-483b-b4ab-0dca16ce3f26",
+      "label": "calculation of triangle area u...",
+      "group": "Coordinate geometry",
+      "title": "Finding the area of a triangle given the coordinates of its vertices using coordinate geometry formulas."
+    }
+  ],
+  "edges": [
+    {
+      "from": "39b22619-da33-4853-91b5-41a85db74da8",
+      "to": "f6429b2f-66ea-432e-ab47-e492b52af3c2",
+      "title": "The double angle formula for cosine (cos 2A = cos²A – sin²A) directly uses the squares of sine and cosine, which are related by the Pythagorean identity."
+    },
+    {
+      "from": "39b22619-da33-4853-91b5-41a85db74da8",
+      "to": "07cb91c8-0144-4370-a071-0f92ab41f348",
+      "title": "Expressing cos²A in terms of cos 2A relies on the Pythagorean identity to relate sine squared and cosine squared."
+    },
+    {
+      "from": "39b22619-da33-4853-91b5-41a85db74da8",
+      "to": "7cf2213d-d9d5-4c24-b37a-590b6d48bbcf",
+      "title": "Expressing sin²A in terms of cos 2A uses the Pythagorean identity to connect sine squared and cosine squared."
+    },
+    {
+      "from": "3688833b-c7de-4c0b-9888-6f2394081c36",
+      "to": "097cb42c-4c49-4165-8239-15b48eb58f05",
+      "title": "The cosine of angle difference formula is similar in form to the cosine of angle sum formula and can be derived using similar reasoning; the text lists the difference formula after the sum formula, implying the sum formula is foundational."
+    },
+    {
+      "from": "3a27c8ea-e142-4d15-a239-8e827b5dd4f8",
+      "to": "6d5c7afd-c666-4948-9ac2-229908fd6868",
+      "title": "The sine of angle difference formula is closely related to the sine of angle sum formula and is listed after it, indicating the sum formula is a prerequisite."
+    },
+    {
+      "from": "3688833b-c7de-4c0b-9888-6f2394081c36",
+      "to": "f6429b2f-66ea-432e-ab47-e492b52af3c2",
+      "title": "The double angle formula for cosine can be derived by applying the cosine of angle sum formula with equal angles (A + A), so understanding the sum formula is necessary."
+    },
+    {
+      "from": "3a27c8ea-e142-4d15-a239-8e827b5dd4f8",
+      "to": "122779e8-e7c1-4f88-b7d3-11fb24494a16",
+      "title": "The double angle formula for sine is derived by applying the sine of angle sum formula with equal angles (A + A), so the sum formula is a prerequisite."
+    },
+    {
+      "from": "4a2d1702-374a-48c5-992d-3079f913d2f4",
+      "to": "e9bd786c-541c-4604-a2b6-e2db079c585e",
+      "title": "The tangent of angle difference formula is listed after the sum formula and is closely related, implying the sum formula is foundational for understanding the difference formula."
+    },
+    {
+      "from": "4a2d1702-374a-48c5-992d-3079f913d2f4",
+      "to": "6b0d52e2-0910-4543-b67a-df64660016f6",
+      "title": "The double angle formula for tangent can be derived by applying the tangent of angle sum formula with equal angles (A + A), so the sum formula is a prerequisite."
+    },
+    {
+      "from": "3688833b-c7de-4c0b-9888-6f2394081c36",
+      "to": "56aa7868-7d61-454b-971e-158aa1f79743",
+      "title": "The product-to-sum formula for 2 cos A cos B is expressed in terms of cos(A+B) and cos(A–B), so understanding the cosine sum formula is necessary."
+    },
+    {
+      "from": "097cb42c-4c49-4165-8239-15b48eb58f05",
+      "to": "56aa7868-7d61-454b-971e-158aa1f79743",
+      "title": "Similarly, the product-to-sum formula for 2 cos A cos B depends on cos(A–B), so the cosine difference formula is also a prerequisite."
+    },
+    {
+      "from": "3a27c8ea-e142-4d15-a239-8e827b5dd4f8",
+      "to": "35a1bf20-e670-4b6f-869b-8d7b8d0837f2",
+      "title": "The product-to-sum formula for 2 sin A cos B is expressed in terms of sin(A+B) and sin(A–B), so understanding the sine sum formula is necessary."
+    },
+    {
+      "from": "6d5c7afd-c666-4948-9ac2-229908fd6868",
+      "to": "35a1bf20-e670-4b6f-869b-8d7b8d0837f2",
+      "title": "Similarly, the product-to-sum formula for 2 sin A cos B depends on sin(A–B), so the sine difference formula is also a prerequisite."
+    },
+    {
+      "from": "3688833b-c7de-4c0b-9888-6f2394081c36",
+      "to": "5e09c106-d7e7-4742-ad2b-3ae5b31fd06a",
+      "title": "The product-to-sum formula for 2 sin A sin B is expressed in terms of cos(A–B) and cos(A+B), so the cosine sum formula is necessary."
+    },
+    {
+      "from": "097cb42c-4c49-4165-8239-15b48eb58f05",
+      "to": "5e09c106-d7e7-4742-ad2b-3ae5b31fd06a",
+      "title": "Similarly, the product-to-sum formula for 2 sin A sin B depends on cos(A–B), so the cosine difference formula is also a prerequisite."
+    },
+    {
+      "from": "3a27c8ea-e142-4d15-a239-8e827b5dd4f8",
+      "to": "1b7cbfc0-30a1-4067-a9b0-daa1457c87a5",
+      "title": "The product-to-sum formula for 2 cos A sin B is expressed in terms of sin(A+B) and sin(A–B), so the sine sum formula is necessary."
+    },
+    {
+      "from": "6d5c7afd-c666-4948-9ac2-229908fd6868",
+      "to": "1b7cbfc0-30a1-4067-a9b0-daa1457c87a5",
+      "title": "Similarly, the product-to-sum formula for 2 cos A sin B depends on sin(A–B), so the sine difference formula is also a prerequisite."
+    },
+    {
+      "from": "56aa7868-7d61-454b-971e-158aa1f79743",
+      "to": "777085df-4b4d-4a4d-9f89-2013fb396e6f",
+      "title": "The sum-to-product formula for cos A + cos B expresses the sum in terms of products of cosines of half-angles, which is conceptually related to product-to-sum formulas and likely builds on them."
+    },
+    {
+      "from": "5e09c106-d7e7-4742-ad2b-3ae5b31fd06a",
+      "to": "deec1eb8-1f35-4e82-8568-35a898dea18d",
+      "title": "The sum-to-product formula for cos A – cos B involves sines of half sums and differences, related to the product-to-sum identities involving sine products, indicating a prerequisite relationship."
+    },
+    {
+      "from": "35a1bf20-e670-4b6f-869b-8d7b8d0837f2",
+      "to": "ed3ef232-91ef-4671-a494-78d94c06c0b5",
+      "title": "The sum-to-product formula for sin A + sin B expresses the sum as products of sines and cosines of half angles, related to product-to-sum formulas involving sine and cosine products."
+    },
+    {
+      "from": "1b7cbfc0-30a1-4067-a9b0-daa1457c87a5",
+      "to": "550d1a19-f886-4de0-b3de-bacbc17bdd43",
+      "title": "The sum-to-product formula for sin A – sin B expresses the difference as products of cosines and sines of half angles, related to product-to-sum formulas involving cosine and sine products."
+    },
+    {
+      "from": "a5355524-2fa8-4dfc-804b-8ebde71f80fd",
+      "to": "8010ddf4-5c83-49d4-ac3f-f12185620850",
+      "title": "The text lists the sine formula before the cosine formula and the cosine rule builds on understanding of triangle side ratios and angles, implying the sine rule is a prerequisite."
+    },
+    {
+      "from": "1f7078b1-9434-4894-b9e2-867eae877dc8",
+      "to": "c318537e-f049-4e87-8554-30c63e7c2234",
+      "title": "Drawing a circle of given radius requires using a compass, so understanding circle drawing is foundational to using the compass effectively in constructions."
+    },
+    {
+      "from": "69fcec90-ae91-4055-8d9d-1796e095594a",
+      "to": "09616f1a-5d07-43fb-afaf-d62dda5c2b29",
+      "title": "Using a ruler to measure and draw straight lines builds on the basic skill of drawing straight lines with a straight edge."
+    },
+    {
+      "from": "c318537e-f049-4e87-8554-30c63e7c2234",
+      "to": "6fd3577d-62e0-4ec2-b641-4c813bdf986b",
+      "title": "Performing specific geometric constructions requires skillful use of the compass to draw arcs and circles accurately."
+    },
+    {
+      "from": "69fcec90-ae91-4055-8d9d-1796e095594a",
+      "to": "6fd3577d-62e0-4ec2-b641-4c813bdf986b",
+      "title": "Performing specific geometric constructions requires accurate drawing of straight lines using a straight edge."
+    },
+    {
+      "from": "09616f1a-5d07-43fb-afaf-d62dda5c2b29",
+      "to": "6fd3577d-62e0-4ec2-b641-4c813bdf986b",
+      "title": "Performing specific geometric constructions requires measuring lengths and drawing lines precisely using a ruler."
+    },
+    {
+      "from": "010a0c35-5296-435b-aafe-f82622f6f671",
+      "to": "6fd3577d-62e0-4ec2-b641-4c813bdf986b",
+      "title": "Performing specific geometric constructions requires measuring and constructing angles accurately using a protractor."
+    },
+    {
+      "from": "17289349-2b9d-45a3-952c-0c525c86d19c",
+      "to": "6fd3577d-62e0-4ec2-b641-4c813bdf986b",
+      "title": "Performing specific geometric constructions requires drawing perpendicular and parallel lines accurately using a set square."
+    },
+    {
+      "from": "0cba7d23-2526-468d-953a-e51c997eace4",
+      "to": "3e8ad8e3-951d-4392-8663-48454c248266",
+      "title": "Understanding terms such as theorem, proof, axiom, and corollary is necessary to investigate and prove theorems related to ratios."
+    },
+    {
+      "from": "3e8ad8e3-951d-4392-8663-48454c248266",
+      "to": "d12c261f-08ea-44d0-a5b2-696eb6719515",
+      "title": "Proving theorems concerning ratios lays the foundation for understanding and applying the Pythagorean theorem in right-angled triangles."
+    },
+    {
+      "from": "d12c261f-08ea-44d0-a5b2-696eb6719515",
+      "to": "88d476f7-04c2-41ae-8390-49b8c8ee96d3",
+      "title": "Applying trigonometric ratios in right-angled triangles requires prior understanding of the Pythagorean theorem to relate side lengths."
+    },
+    {
+      "from": "e8a71f47-2bfd-4641-9e09-408194b1f107",
+      "to": "57d1f659-5564-4a1d-97b1-6048d10c1d96",
+      "title": "Recognizing linear equations in standard form requires understanding coordinate systems and how points are represented numerically."
+    },
+    {
+      "from": "e8a71f47-2bfd-4641-9e09-408194b1f107",
+      "to": "bc4a0ff8-ec6e-49b8-a7e9-ca88aeb81eac",
+      "title": "Using slope to determine parallelism requires knowledge of coordinate plane and how slope is calculated from coordinates."
+    },
+    {
+      "from": "e8a71f47-2bfd-4641-9e09-408194b1f107",
+      "to": "ec178aa4-851c-4c32-a012-872df6e839aa",
+      "title": "Using slope to determine perpendicularity depends on understanding the coordinate plane and slope concept."
+    },
+    {
+      "from": "e8a71f47-2bfd-4641-9e09-408194b1f107",
+      "to": "76ed66c9-9b24-483b-b4ab-0dca16ce3f26",
+      "title": "Calculating triangle area from coordinates requires understanding how points are represented in the plane numerically."
+    },
+    {
+      "from": "88d476f7-04c2-41ae-8390-49b8c8ee96d3",
+      "to": "a5355524-2fa8-4dfc-804b-8ebde71f80fd",
+      "title": "The sine rule extends trigonometric reasoning from right-angled to any triangle."
+    },
+    {
+      "from": "88d476f7-04c2-41ae-8390-49b8c8ee96d3",
+      "to": "8010ddf4-5c83-49d4-ac3f-f12185620850",
+      "title": "The cosine rule generalizes trigonometric calculations to any triangle using side lengths and included angles."
+    },
+    {
+      "from": "39b22619-da33-4853-91b5-41a85db74da8",
+      "to": "f6429b2f-66ea-432e-ab47-e492b52af3c2",
+      "title": "The double angle formula for cosine uses the Pythagorean identity relating sine and cosine squares."
+    },
+    {
+      "from": "f6429b2f-66ea-432e-ab47-e492b52af3c2",
+      "to": "07cb91c8-0144-4370-a071-0f92ab41f348",
+      "title": "Expressing cosine squared in terms of cosine double angle depends on the double angle formula."
+    },
+    {
+      "from": "f6429b2f-66ea-432e-ab47-e492b52af3c2",
+      "to": "7cf2213d-d9d5-4c24-b37a-590b6d48bbcf",
+      "title": "Expressing sine squared in terms of cosine double angle depends on the double angle formula."
+    },
+    {
+      "from": "0cba7d23-2526-468d-953a-e51c997eace4",
+      "to": "0cba7d23-2526-468d-953a-e51c997eace4",
+      "title": "Proof by contradiction is a deductive reasoning method used to establish mathematical truths."
+    },
+    {
+      "from": "0cba7d23-2526-468d-953a-e51c997eace4",
+      "to": "bc4a0ff8-ec6e-49b8-a7e9-ca88aeb81eac",
+      "title": "Determining parallelism using slope requires understanding logical implications and definitions."
+    },
+    {
+      "from": "0cba7d23-2526-468d-953a-e51c997eace4",
+      "to": "ec178aa4-851c-4c32-a012-872df6e839aa",
+      "title": "Determining perpendicularity using slope relies on logical relationships between slopes."
+    },
+    {
+      "from": "30d16cfa-ada4-41c2-9f9e-7d0c2e3f3170",
+      "to": "c78af0e2-3139-47b3-a012-c9a8d3262b3a",
+      "title": "Solving systems of linear equations involves finding points of intersection graphically or algebraically."
+    },
+    {
+      "from": "c2cb8846-05cd-4690-8571-11a5fe277c59",
+      "to": "a3389202-e7ed-451b-977a-338f2b91f812",
+      "title": "Students first use tables to represent repeating-pattern situations and linear relationships before plotting these relationships graphically to visualize them as straight lines."
+    },
+    {
+      "from": "a3389202-e7ed-451b-977a-338f2b91f812",
+      "to": "45f7af2f-c610-4a03-96c4-c0a624551c77",
+      "title": "Understanding linear graphs allows students to interpret the slope as the rate of change of the dependent variable with respect to the independent variable."
+    },
+    {
+      "from": "45f7af2f-c610-4a03-96c4-c0a624551c77",
+      "to": "c0613010-2043-4e7b-b40a-6435f8bf29cc",
+      "title": "Once students understand slope as rate of change, they can interpret the y-intercept as the start value or initial condition in a linear relationship."
+    },
+    {
+      "from": "a3389202-e7ed-451b-977a-338f2b91f812",
+      "to": "30d16cfa-ada4-41c2-9f9e-7d0c2e3f3170",
+      "title": "Plotting linear relationships graphically enables students to find the point where two lines intersect, representing the solution to a system of equations."
+    }
+  ]
+=======
 {
   "nodes": [
     {
@@ -1138,4 +1690,5 @@
       "title": "Understanding the cosine double angle formula aids in comprehending the sine double angle formula, as both are derived from similar principles and identities."
     }
   ]
+>>>>>>> origin/develop
 }

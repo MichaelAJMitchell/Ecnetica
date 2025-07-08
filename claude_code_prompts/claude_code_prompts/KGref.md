@@ -1,6 +1,6 @@
 # Ecnetica Knowledge Graph Reference
 
-This document provides the essential knowledge graph structure for content generation and MCQ creation. It will expand to cover all 18 mathematics sections as the system scales.
+This document provides the essential knowledge graph structure for content generation and MCQ creation. 
 
 ## Current Implementation: Quadratic Functions Knowledge Graph
 

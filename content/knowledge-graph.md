@@ -149,12 +149,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Load simplified data
     document.getElementById('load-simplified').addEventListener('click', function() {
-        loadGraphData('/_static/graph-data-simplified.json');
+        loadGraphData('/_static/small-graph-data.json');
     });
 
     // Load full data
     document.getElementById('load-full').addEventListener('click', function() {
-        loadGraphData('/_static/graph-data.json');
+        loadGraphData('/_static/small-graph-data.json');
     });
 
     // Load full data by default

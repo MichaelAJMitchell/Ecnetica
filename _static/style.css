@@ -83,3 +83,27 @@ tr:hover {
     /*background-color: #ffff00;*/
     font-weight: bold;
 }
+
+
+/* Dark mode text color fixes */
+html[data-theme="dark"] {
+    --pst-color-text-base: #e9ecef;  
+    --pst-color-text-muted: #adb5bd; 
+}
+
+/* Ensure paragraphs and main content use proper dark mode colors */
+html[data-theme="dark"] p,
+html[data-theme="dark"] .bd-main .bd-content,
+html[data-theme="dark"] .bd-article-container {
+    color: #e9ecef !important;
+}
+
+/* Fix heading colors in dark mode */
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] h5,
+html[data-theme="dark"] h6 {
+    color: #f8f9fa !important;
+}

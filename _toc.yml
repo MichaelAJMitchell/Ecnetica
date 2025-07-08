@@ -8,7 +8,6 @@ parts:
       sections:
       - file: content/introduction/problem_solving
       - file: content/introduction/proof_techniques
-    - file: content/knowledge-graph
 
   - caption: Number Systems
     chapters:

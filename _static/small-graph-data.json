@@ -1,1548 +1,1548 @@
 {
-  "nodes": [
-    {
+    "nodes": [
+      {
         "id": "a7f3d8e2-5b91-4c73-9a42-1e6f8d3c7b5a",
         "label": "Understanding variables as unknowns",
         "group": "Algebra",
         "title": "Recognizing that letters like x, y, a represent unknown numbers that can change or be solved for."
-    },
-    {
-    "id": "b2e9f7a1-8c64-4d15-b73e-9f2a5c8e1d47",
-    "label": "Understanding coefficients",
-    "group": "Algebra",
-    "title": "Recognizing that numbers in front of variables (like 3 in 3x) multiply the variable."
-    },
-    {
-    "id": "c4a8b9d3-7e52-4f89-a61c-8b7e3f9a2c65",
-    "label": "Understanding constant terms",
-    "group": "Algebra",
-    "title": "Recognizing numbers without variables (like +5 or -7) as constant terms that don't change."
-    },
-    {
-    "id": "d6c2e5f8-9a73-4b16-c84d-7a3f6e9b4c28",
-    "label": "Identifying terms in expressions",
-    "group": "Algebra",
-    "title": "Breaking down expressions into separate terms separated by + or - signs."
-    },
-    {
-    "id": "e8f4a7b2-6d59-4e32-b95f-3c8a7e2b6d91",
-    "label": "Recognizing like terms",
-    "group": "Algebra",
-    "title": "Identifying terms with the same variable and same power that can be combined (e.g., 3x and 5x)."
-    },
-    {
-    "id": "f9b6c3e7-4a85-4f61-a72b-5d9e8f3a7c64",
-    "label": "Combining like terms",
-    "group": "Algebra",
-    "title": "Adding or subtracting coefficients of like terms while keeping the variable part unchanged."
-    },
-    {
-    "id": "a3c7f2d8-5e94-4b27-c85e-8f6a9b3d7e52",
-    "label": "Understanding distributive property",
-    "group": "Algebra",
-    "title": "Recognizing that a(b + c) = ab + ac - multiplying outside brackets affects everything inside."
-    },
-    {
-    "id": "b5d9e6a4-7c28-4f53-a69d-2e8f5a9c3b74",
-    "label": "Expanding single brackets",
-    "group": "Algebra",
-    "title": "Multiplying a number or variable outside brackets by everything inside: 3(x + 2) = 3x + 6."
-    },
-    {
-    "id": "c7f1a8e5-9b42-4d76-b83a-6f9c2e7d4a85",
-    "label": "Expanding with negative signs",
-    "group": "Algebra",
-    "title": "Understanding that -(x + 3) = -x - 3 and multiplying by negative numbers changes all signs."
-    },
-    {
-    "id": "d9e3b6c8-4a57-4f84-c92b-8e5a7f3d6c91",
-    "label": "FOIL method for binomials",
-    "group": "Algebra",
-    "title": "Multiplying (a+b)(c+d) by multiplying First, Outer, Inner, Last terms systematically."
-    },
-    {
-    "id": "e2f8c5a9-6d73-4b18-a64f-3c9e8a2f7b58",
-    "label": "Expanding double brackets",
-    "group": "Algebra",
-    "title": "Multiplying two bracketed expressions by ensuring every term in first bracket multiplies every term in second."
-    },
-    {
-    "id": "f4a7d3b6-8e59-4c25-b71c-5f8d9e4a3c72",
-    "label": "Collecting terms after expansion",
-    "group": "Algebra",
-    "title": "Simplifying expanded expressions by combining like terms to get final simplified form."
-    },
-    {
-    "id": "a6b9e2f5-3c84-4d61-c98f-7e2a6b9f4d83",
-    "label": "Recognizing common factors",
-    "group": "Algebra",
-    "title": "Identifying the highest common factor that can be taken out of all terms in an expression."
-    },
-    {
-    "id": "b8c4f7a3-5e96-4b47-a82e-9f6c3b8e7a54",
-    "label": "Factoring out numerical common factors",
-    "group": "Algebra",
-    "title": "Taking out the largest number that divides all coefficients: 6x + 9 = 3(2x + 3)."
-    },
-    {
-    "id": "c9d6a5e8-7f23-4c58-b94a-6e8f2c9a5d76",
-    "label": "Factoring out variable common factors",
-    "group": "Algebra",
-    "title": "Taking out the highest power of variables common to all terms: x² + x³ = x²(1 + x)."
-    },
-    {
-    "id": "d2e7b4f9-4a68-4d83-c56b-8f3e7d2b9c85",
-    "label": "Factoring out mixed common factors",
-    "group": "Algebra",
-    "title": "Taking out both numerical and variable factors: 4x²y + 6xy² = 2xy(2x + 3y)."
-    },
-    {
-    "id": "e4f9c6a2-6b85-4f72-a37d-5c8f6e4a9b72",
-    "label": "Factoring by grouping",
-    "group": "Algebra",
-    "title": "Grouping terms in fours and factoring each pair before factoring the resulting expression."
-    },
-    {
-    "id": "f7a3d8e5-8c47-4b96-c84f-9e6a3f7d8c53",
-    "label": "Recognizing difference of two squares",
-    "group": "Algebra",
-    "title": "Identifying expressions of the form a² - b² that can be factored as (a-b)(a+b)."
-    },
-    {
-    "id": "a9b6f2c7-5d84-4e63-b75c-8f2a9b6c7e54",
-    "label": "Factoring difference of two squares",
-    "group": "Algebra",
-    "title": "Converting a² - b² into factored form (a - b)(a + b)."
-    },
-    {
-    "id": "b3c8e5a4-7f29-4d46-a68d-6e9c3b8e5f72",
-    "label": "Recognizing perfect square trinomials",
-    "group": "Algebra",
-    "title": "Identifying trinomials of the form a² ± 2ab + b² that factor as (a ± b)²."
-    },
-    {
-    "id": "c5d2f9b6-9a47-4c73-b82e-7f4c5d2f9a68",
-    "label": "Factoring perfect square trinomials",
-    "group": "Algebra",
-    "title": "Converting a² + 2ab + b² = (a + b)² or a² - 2ab + b² = (a - b)²."
-    },
-    {
-    "id": "d7e4a1c8-3b65-4f84-c93f-8e7d4a1c8b59",
-    "label": "Factoring x² + bx + c",
-    "group": "Algebra",
-    "title": "Finding two numbers that multiply to c and add to b to factor as (x + p)(x + q)."
-    },
-    {
-    "id": "e9f6b3d5-5c82-4a57-a64b-2f9e6b3d5c84",
-    "label": "Factoring ax² + bx + c (a ≠ 1)",
-    "group": "Algebra",
-    "title": "Using ac-method or trial and error to factor quadratics where leading coefficient is not 1."
-    },
-    {
-    "id": "f2a8c5e6-7d48-4b73-c85d-6a2f8c5e7d49",
-    "label": "Trial and error for factoring quadratics",
-    "group": "Algebra",
-    "title": "Systematically testing factor combinations for ax² + bx + c until correct factorization is found."
-    },
-    {
-    "id": "a4b7f3d9-8e56-4c29-b76e-5b4a7f3d9e58",
-    "label": "AC method for factoring quadratics",
-    "group": "Algebra",
-    "title": "Finding factors of ac that add to b, then grouping terms to factor ax² + bx + c."
-    },
-    {
-    "id": "b6c9e2a5-4f73-4d86-a59c-7e6c9e2a5f74",
-    "label": "Understanding algebraic fractions",
-    "group": "Algebra",
-    "title": "Recognizing fractions where numerator and/or denominator contain variables."
-    },
-    {
-    "id": "c8d4f7b2-6a95-4e42-c73b-9f8d4f7b2a96",
-    "label": "Canceling common factors in fractions",
-    "group": "Algebra",
-    "title": "Dividing both numerator and denominator by common factors to simplify fractions."
-    },
-    {
-    "id": "d5e8a3f6-2b67-4c54-b86f-4e5d8a3f6b68",
-    "label": "Simplifying algebraic fractions",
-    "group": "Algebra",
-    "title": "Factoring numerator and denominator then canceling common factors to lowest terms."
-    },
-    {
-    "id": "e7f2c9a4-5d83-4f61-a72c-6f7e2c9a4d85",
-    "label": "Multiplying algebraic fractions",
-    "group": "Algebra",
-    "title": "Multiplying numerators together and denominators together: (a/b) × (c/d) = (ac)/(bd)."
-    },
-    {
-    "id": "f9a6d3b7-8c45-4b78-c94a-8a9f6d3b7c46",
-    "label": "Dividing algebraic fractions",
-    "group": "Algebra",
-    "title": "Multiplying by the reciprocal: (a/b) ÷ (c/d) = (a/b) × (d/c) = (ad)/(bc)."
-    },
-    {
-    "id": "a3c5f8e2-4b69-4d35-b67d-2c3a5f8e2b69",
-    "label": "Finding common denominators for algebraic fractions",
-    "group": "Algebra",
-    "title": "Finding the least common multiple of denominators to add or subtract fractions."
-    },
-    {
-    "id": "b5d8a4f7-6e52-4c86-a84e-5d8b5a4f7e53",
-    "label": "Adding fractions with same denominator",
-    "group": "Algebra",
-    "title": "Adding numerators while keeping denominator the same: a/c + b/c = (a+b)/c."
-    },
-    {
-    "id": "c7f3b6e9-9a74-4d47-c75a-7f3c7b6e9a75",
-    "label": "Adding fractions with different denominators",
-    "group": "Algebra",
-    "title": "Converting to common denominator then adding numerators."
-    },
-    {
-    "id": "d9e6c2a5-3b87-4f58-b68b-9e6d9c2a5b88",
-    "label": "Understanding what an equation is",
-    "group": "Algebra",
-    "title": "Recognizing equations as mathematical statements saying two expressions are equal (using = sign)."
-    },
-    {
-    "id": "e2a7f4d8-5c63-4b29-a59c-2a7e2f4d8c64",
-    "label": "Understanding what a solution is",
-    "group": "Algebra",
-    "title": "Recognizing that a solution is a value that makes the equation true when substituted."
-    },
-    {
-    "id": "f4b9e6c3-7d48-4f73-c86d-4b9f4e6c3d49",
-    "label": "Understanding inverse operations",
-    "group": "Algebra",
-    "title": "Knowing that addition/subtraction and multiplication/division are opposite operations that undo each other."
-    },
-    {
-    "id": "a6c2f5d9-8e54-4b67-b79e-6c2a6f5d9e55",
-    "label": "Balance method for equations",
-    "group": "Algebra",
-    "title": "Understanding that what you do to one side of equation, you must do to the other side."
-    },
-    {
-    "id": "b8d5a3f7-4c76-4d84-a92c-8d5b8a3f7c77",
-    "label": "Solving one-step linear equations",
-    "group": "Algebra",
-    "title": "Solving equations like x + 3 = 7 or 2x = 10 using single inverse operation."
-    },
-    {
-    "id": "c3e7b6a4-6f59-4c45-c85f-3e7c3b6a4f58",
-    "label": "Solving two-step linear equations",
-    "group": "Algebra",
-    "title": "Solving equations like 2x + 3 = 11 by using two inverse operations in correct order."
-    },
-    {
-    "id": "d5f9c2e8-9a42-4b68-b73a-5f9d5c2e8a43",
-    "label": "Solving multi-step linear equations",
-    "group": "Algebra",
-    "title": "Solving complex linear equations by combining like terms and using multiple operations."
-    },
-    {
-    "id": "e7a4f6d2-3b85-4f54-a64b-7a4e7f6d2b86",
-    "label": "Linear equations with variables on both sides",
-    "group": "Algebra",
-    "title": "Solving equations like 3x + 2 = x + 8 by collecting variables on one side."
-    },
-    {
-    "id": "f9b7c5e3-5d67-4c39-c76d-9b7f9c5e3d68",
-    "label": "Linear equations with brackets",
-    "group": "Algebra",
-    "title": "Expanding brackets first, then solving: 3(x + 2) = 15 becomes 3x + 6 = 15."
-    },
-    {
-    "id": "a2c6f9d5-7e48-4b83-b95e-2c6a2f9d5e49",
-    "label": "Clearing fractions in equations",
-    "group": "Algebra",
-    "title": "Multiplying all terms by LCD to eliminate fractions before solving."
-    },
-    {
-    "id": "b4d8a6f3-8c54-4f72-a86c-4d8b4a6f3c55",
-    "label": "Linear equations with fractions",
-    "group": "Algebra",
-    "title": "Solving equations containing fractions by clearing denominators or finding common denominators."
-    },
-    {
-    "id": "c6e2f5b9-4a73-4d67-c84a-6e2c6f5b9a74",
-    "label": "Checking solutions to linear equations",
-    "group": "Algebra",
-    "title": "Substituting solution back into original equation to verify it makes both sides equal."
-    },
-    {
-    "id": "d8f4c7a5-6b59-4f48-b75b-8f4d8c7a5b58",
-    "label": "Identifying no solution vs infinite solutions",
-    "group": "Algebra",
-    "title": "Recognizing when solving leads to contradictions (no solution) or identities (infinite solutions)."
-    },
-    {
-    "id": "e3a7b4f8-9d52-4c36-a69d-3a7e3b4f8d53",
-    "label": "Understanding simultaneous equations",
-    "group": "Algebra",
-    "title": "Recognizing that we need to find values that satisfy both equations at the same time."
-    },
-    {
-    "id": "f5b9e6c2-2e74-4f65-c87e-5b9f5e6c2e75",
-    "label": "Substitution method concept",
-    "group": "Algebra",
-    "title": "Understanding that we can replace one variable with an expression from the other equation."
-    },
-    {
-    "id": "a7c3f6d4-5a86-4b49-b78a-7c3a7f6d4a87",
-    "label": "Substitution method steps",
-    "group": "Algebra",
-    "title": "1) Make one variable the subject 2) Substitute into other equation 3) Solve 4) Find second variable."
-    },
-    {
-    "id": "b9d5a8e7-6c43-4d72-a95c-9d5b9a8e7c44",
-    "label": "Elimination method concept",
-    "group": "Algebra",
-    "title": "Understanding that we can add or subtract equations to eliminate one variable."
-    },
-    {
-    "id": "c4e8b6f2-8f57-4c64-c86f-4e8c4b6f2f58",
-    "label": "Elimination with same coefficients",
-    "group": "Algebra",
-    "title": "When coefficients of a variable are the same or opposites, directly add or subtract equations."
-    },
-    {
-    "id": "d6f2c9a8-3b75-4f39-b73b-6f2d6c9a8b76",
-    "label": "Elimination with different coefficients",
-    "group": "Algebra",
-    "title": "Multiplying one or both equations to make coefficients the same, then eliminating."
-    },
-    {
-    "id": "e8a4f7d3-5c68-4b52-a64c-8a4e8f7d3c69",
-    "label": "Elimination method complete process",
-    "group": "Algebra",
-    "title": "Systematic process of making coefficients equal, eliminating, solving, then substituting back."
-    },
-    {
-    "id": "f3b7e5c9-7d46-4f75-c85d-3b7f3e5c9d47",
-    "label": "Graphical solution of simultaneous equations",
-    "group": "Algebra",
-    "title": "Finding intersection point of two lines as the solution to the system."
-    },
-    {
-    "id": "a5c9f6e2-9a58-4b84-b79a-5c9a5f6e2a59",
-    "label": "Recognizing parallel lines (no solution)",
-    "group": "Algebra",
-    "title": "When simultaneous equations represent parallel lines, there is no intersection point."
-    },
-    {
-    "id": "b7d3a6f4-4e72-4c47-a63e-7d3b7a6f4e73",
-    "label": "Recognizing same line (infinite solutions)",
-    "group": "Algebra",
-    "title": "When simultaneous equations represent the same line, every point is a solution."
-    },
-    {
-    "id": "c9e5b8d7-6f84-4d56-c74f-9e5c9b8d7f85",
-    "label": "Standard form of quadratic equation",
-    "group": "Algebra",
-    "title": "Recognizing ax² + bx + c = 0 as standard form where a ≠ 0."
-    },
-    {
-    "id": "d2f7c4a9-8b63-4f72-b86b-2f7d2c4a9b64",
-    "label": "Identifying quadratic equations",
-    "group": "Algebra",
-    "title": "Recognizing equations with x² as highest power, distinguishing from linear equations."
-    },
-    {
-    "id": "e4a8f6d3-5c49-4b95-a75c-4a8e4f6d3c48",
-    "label": "Rearranging to standard form",
-    "group": "Algebra",
-    "title": "Moving all terms to one side to get ax² + bx + c = 0 form."
-    },
-    {
-    "id": "f6b2e9c7-9d57-4f68-c89d-6b2f6e9c7d58",
-    "label": "Zero product property",
-    "group": "Algebra",
-    "title": "Understanding that if AB = 0, then A = 0 or B = 0 (or both)."
-    },
-    {
-    "id": "a8c4f7e5-3a76-4b43-b78a-8c4a8f7e5a77",
-    "label": "Solving quadratics by factoring",
-    "group": "Algebra",
-    "title": "Factor the quadratic, then use zero product property to find solutions."
-    },
-    {
-    "id": "b3d6a9f2-7e59-4c86-a97e-3d6b3a9f2e58",
-    "label": "Applying zero product property after factoring",
-    "group": "Algebra",
-    "title": "Setting each factor equal to zero and solving the resulting linear equations."
-    },
-    {
-    "id": "c5e8b4d7-4f42-4d73-c84f-5e8c5b4d7f43",
-    "label": "Why we complete the square",
-    "group": "Algebra",
-    "title": "Understanding that we want to create a perfect square to take square roots."
-    },
-    {
-    "id": "d7f3c6a9-6b65-4f58-b76b-7f3d7c6a9b66",
-    "label": "Completing square for x² + bx",
-    "group": "Algebra",
-    "title": "Adding (b/2)² to make x² + bx + (b/2)² = (x + b/2)²."
-    },
-    {
-    "id": "e9a5f8d2-8c47-4b84-a68c-9a5e9f8d2c48",
-    "label": "Step-by-step completing the square",
-    "group": "Algebra",
-    "title": "1) Move constant to right 2) Add (b/2)² to both sides 3) Factor left side 4) Take square root."
-    },
-    {
-    "id": "f2b7e4c8-5d69-4f75-c95d-2b7f2e4c8d68",
-    "label": "Completing the square method",
-    "group": "Algebra",
-    "title": "Complete systematic method for solving quadratics by creating perfect square trinomials."
-    },
-    {
-    "id": "a4c8f5b6-9e53-4d42-b79e-4c8a4f5b6e54",
-    "label": "Taking square root of both sides",
-    "group": "Algebra",
-    "title": "Understanding that √(x²) = ±x, so we get two solutions from taking square roots."
-    },
-    {
-    "id": "b6d2a7f9-3f76-4c58-a63f-6d2b6a7f9f77",
-    "label": "Understanding quadratic formula components",
-    "group": "Algebra",
-    "title": "Identifying a, b, c in ax² + bx + c = 0 and understanding the formula structure."
-    },
-    {
-    "id": "c8e4b9d5-7a64-4f87-c74a-8e4c8b9d5a65",
-    "label": "Quadratic formula",
-    "group": "Algebra",
-    "title": "x = (-b ± √(b² - 4ac)) / (2a) for solving any quadratic equation."
-    },
-    {
-    "id": "d3f6c2e8-4b59-4d73-b84b-3f6d3c2e8b58",
-    "label": "Substituting values into quadratic formula",
-    "group": "Algebra",
-    "title": "Carefully substituting a, b, c values, paying attention to negative signs."
-    },
-    {
-    "id": "e5a8f4d7-6c46-4f62-a76c-5a8e5f4d7c47",
-    "label": "Simplifying quadratic formula results",
-    "group": "Algebra",
-    "title": "Simplifying radicals and fractions in the final answer."
-    },
-    {
-    "id": "f7b3e6c9-8d72-4b95-c98d-7b3f7e6c9d73",
-    "label": "Understanding the discriminant",
-    "group": "Algebra",
-    "title": "Recognizing b² - 4ac as the discriminant that determines nature of roots."
-    },
-    {
-    "id": "a9c5f8e4-5a65-4d48-b75a-9c5a9f8e4a66",
-    "label": "Discriminant of a quadratic equation",
-    "group": "Algebra",
-    "title": "Calculating b² - 4ac to determine the nature of the roots."
-    },
-    {
-    "id": "b2d7a4f6-9e83-4c57-a69e-2d7b2a4f6e84",
-    "label": "Discriminant > 0: two real roots",
-    "group": "Algebra",
-    "title": "When b² - 4ac > 0, the quadratic has two distinct real solutions."
-    },
-    {
-    "id": "c4e9b6d8-3f74-4f46-c83f-4e9c4b6d8f75",
-    "label": "Discriminant = 0: one repeated root",
-    "group": "Algebra",
-    "title": "When b² - 4ac = 0, the quadratic has one repeated real solution."
-    },
-    {
-    "id": "d6f2c8a5-7b67-4d59-b67b-6f2d6c8a5b68",
-    "label": "Discriminant < 0: no real roots",
-    "group": "Algebra",
-    "title": "When b² - 4ac < 0, the quadratic has no real solutions (complex solutions)."
-    },
-    {
-    "id": "e8a4f7d9-4c58-4f72-a74c-8a4e8f7d9c59",
-    "label": "Nature of quadratic roots",
-    "group": "Algebra",
-    "title": "Using discriminant to predict the type and number of solutions before solving."
-    },
-    {
-    "id": "f3b6e9c2-6d43-4b85-c96d-3b6f3e9c2d44",
-    "label": "Sum and product of quadratic roots",
-    "group": "Algebra",
-    "title": "For ax² + bx + c = 0: sum = -b/a, product = c/a."
-    },
-    {
-    "id": "a5c9f2d7-8e56-4f68-b78e-5c9a5f2d7e57",
-    "label": "Forming quadratic from given roots",
-    "group": "Algebra",
-    "title": "If roots are p and q, then equation is (x - p)(x - q) = 0."
-    },
-    {
-    "id": "b7d4a6f8-5f79-4c42-a65f-7d4b7a6f8f78",
-    "label": "Expanding (x - p)(x - q) form",
-    "group": "Algebra",
-    "title": "Expanding factored form to get standard form ax² + bx + c = 0."
-    },
-    {
-    "id": "c9e6b8d3-9a64-4d75-c89a-9e6c9b8d3a65",
-    "label": "Understanding coordinate system",
-    "group": "Algebra",
-    "title": "Understanding x-axis (horizontal), y-axis (vertical), and ordered pairs (x, y)."
-    },
-    {
-    "id": "d2f8c5a7-3b52-4f87-b83b-2f8d2c5a7b53",
-    "label": "Plotting points on coordinate plane",
-    "group": "Algebra",
-    "title": "Locating and marking points using x and y coordinates."
-    },
-    {
-    "id": "e4a7f9d6-7c73-4b46-a67c-4a7e4f9d6c74",
-    "label": "Identifying linear vs non-linear relationships",
-    "group": "Algebra",
-    "title": "Recognizing that linear relationships form straight lines when graphed."
-    },
-    {
-    "id": "f6b3e5c8-4d68-4f59-c74d-6b3f6e5c8d69",
-    "label": "Understanding slope as rate of change",
-    "group": "Algebra",
-    "title": "Recognizing slope as how much y changes for each unit change in x."
-    },
-    {
-    "id": "a8c7f4e2-6f85-4b72-b86f-8c7a8f4e2f86",
-    "label": "Slope as rise over run",
-    "group": "Algebra",
-    "title": "Calculating slope as vertical change divided by horizontal change."
-    },
-    {
-    "id": "b3d9a6f5-9e54-4c67-a69e-3d9b3a6f5e55",
-    "label": "Finding slope from two points",
-    "group": "Algebra",
-    "title": "Using m = (y₂ - y₁)/(x₂ - x₁) to calculate slope from coordinates."
-    },
-    {
-    "id": "c5e2b8d4-2a76-4f83-c82a-5e2c5b8d4a77",
-    "label": "Understanding positive slope",
-    "group": "Algebra",
-    "title": "Recognizing that positive slope means line goes up from left to right."
-    },
-    {
-    "id": "d7f4c6a9-5b69-4d58-b75b-7f4d7c6a9b68",
-    "label": "Understanding negative slope",
-    "group": "Algebra",
-    "title": "Recognizing that negative slope means line goes down from left to right."
-    },
-    {
-    "id": "e9a6f3d2-8c47-4f74-a68c-9a6e9f3d2c48",
-    "label": "Zero slope for horizontal lines",
-    "group": "Algebra",
-    "title": "Understanding that horizontal lines have slope = 0 and equation y = constant."
-    },
-    {
-    "id": "f2b8e5c7-4d63-4b89-c94d-2b8f2e5c7d64",
-    "label": "Undefined slope for vertical lines",
-    "group": "Algebra",
-    "title": "Understanding that vertical lines have undefined slope and equation x = constant."
-    },
-    {
-    "id": "a4c7f9e6-6f52-4d45-b76f-4c7a4f9e6f53",
-    "label": "Understanding y-intercept",
-    "group": "Algebra",
-    "title": "Recognizing y-intercept as where line crosses y-axis (when x = 0)."
-    },
-    {
-    "id": "b6d3a8f4-9e75-4c68-a89e-6d3b6a8f4e76",
-    "label": "Understanding x-intercept",
-    "group": "Algebra",
-    "title": "Recognizing x-intercept as where line crosses x-axis (when y = 0)."
-    },
-    {
-    "id": "c8e5b2d7-3a64-4f57-c73a-8e5c8b2d7a65",
-    "label": "Slope-intercept form y = mx + c",
-    "group": "Algebra",
-    "title": "Understanding that m is slope and c is y-intercept in this form."
-    },
-    {
-    "id": "d3f7c9a6-7b83-4d46-b87b-3f7d3c9a6b84",
-    "label": "Graphing lines using slope-intercept form",
-    "group": "Algebra",
-    "title": "Starting at y-intercept and using slope to find additional points."
-    },
-    {
-    "id": "e5a4f6d8-4c59-4f72-a74c-5a4e5f6d8c58",
-    "label": "Understanding point-slope form",
-    "group": "Algebra",
-    "title": "Using y - y₁ = m(x - x₁) when given a point and slope."
-    },
-    {
-    "id": "f7b6e9c2-6d48-4b85-c96d-7b6f7e9c2d49",
-    "label": "Finding equation from point and slope",
-    "group": "Algebra",
-    "title": "Using point-slope form then converting to slope-intercept form."
-    },
-    {
-    "id": "a9c2f5d7-8e67-4f54-b78e-9c2a9f5d7e68",
-    "label": "Finding equation from two points",
-    "group": "Algebra",
-    "title": "Finding slope first, then using point-slope form with either point."
-    },
-    {
-    "id": "b4d8a3f6-5f73-4c49-a65f-4d8b4a3f6f74",
-    "label": "General form ax + by + c = 0",
-    "group": "Algebra",
-    "title": "Understanding standard form of linear equation where A, B, C are integers."
-    },
-    {
-    "id": "c6e7b9d4-9a56-4d78-c89a-6e7c6b9d4a57",
-    "label": "Converting between forms of linear equations",
-    "group": "Algebra",
-    "title": "Converting between slope-intercept, point-slope, and general forms."
-    },
-    {
-    "id": "d8f3c6a2-2b84-4f65-b82b-8f3d8c6a2b85",
-    "label": "Parallel lines have same slope",
-    "group": "Algebra",
-    "title": "Understanding that parallel lines never intersect and have equal slopes."
-    },
-    {
-    "id": "e3a5f8d9-6c47-4b72-a76c-3a5e3f8d9c48",
-    "label": "Perpendicular lines have negative reciprocal slopes",
-    "group": "Algebra",
-    "title": "Understanding that if m₁ × m₂ = -1, then lines are perpendicular."
-    },
-    {
-    "id": "f5b7e4c6-8d69-4f58-c98d-5b7f5e4c6d68",
-    "label": "Finding parallel and perpendicular line equations",
-    "group": "Algebra",
-    "title": "Using slope relationships to find equations of parallel or perpendicular lines."
-    },
-    {
-    "id": "a7c9f2e8-4f53-4d84-b74f-7c9a7f2e8f54",
-    "label": "Recognizing parabola shape",
-    "group": "Algebra",
-    "title": "Understanding that quadratic functions create U-shaped or upside-down U curves."
-    },
-    {
-    "id": "b2d6a5f3-9e76-4c67-a89e-2d6b2a5f3e77",
-    "label": "Direction of parabola opening",
-    "group": "Algebra",
-    "title": "If a > 0, parabola opens upward; if a < 0, parabola opens downward."
-    },
-    {
-    "id": "c4e8b7d5-3a64-4f49-c73a-4e8c4b7d5a65",
-    "label": "Quadratic function vs equation",
-    "group": "Algebra",
-    "title": "Understanding difference between y = ax² + bx + c (function) and ax² + bx + c = 0 (equation)."
-    },
-    {
-    "id": "d6f3c9a7-7b58-4d72-b87b-6f3d6c9a7b59",
-    "label": "Understanding vertex as turning point",
-    "group": "Algebra",
-    "title": "Recognizing vertex as the highest or lowest point on the parabola."
-    },
-    {
-    "id": "e8a2f5d4-4c83-4f65-a74c-8a2e8f5d4c84",
-    "label": "Vertex coordinates",
-    "group": "Algebra",
-    "title": "Finding vertex using x = -b/(2a), then substituting to find y-coordinate."
-    },
-    {
-    "id": "f3b4e7c9-6d46-4b78-c96d-3b4f3e7c9d47",
-    "label": "Vertex form y = a(x - h)² + k",
-    "group": "Algebra",
-    "title": "Understanding that vertex is at (h, k) in this form."
-    },
-    {
-    "id": "a5c7f9d6-8e69-4f54-b78e-5c7a5f9d6e68",
-    "label": "Converting to vertex form by completing square",
-    "group": "Algebra",
-    "title": "Using completing the square to rewrite in vertex form."
-    },
-    {
-    "id": "b7d2a6f8-5f72-4c47-a65f-7d2b7a6f8f73",
-    "label": "Minimum point identification",
-    "group": "Algebra",
-    "title": "Recognizing minimum occurs when a > 0 (parabola opens upward)."
-    },
-    {
-    "id": "c9e4b8d3-9a85-4d56-c89a-9e4c9b8d3a86",
-    "label": "Maximum point identification",
-    "group": "Algebra",
-    "title": "Recognizing maximum occurs when a < 0 (parabola opens downward)."
-    },
-    {
-    "id": "d2f6c5a9-3b74-4f68-b83b-2f6d2c5a9b75",
-    "label": "Axis of symmetry",
-    "group": "Algebra",
-    "title": "Understanding that parabola is symmetric about vertical line x = -b/(2a)."
-    },
-    {
-    "id": "e4a8f3d7-7c59-4b43-a67c-4a8e4f3d7c58",
-    "label": "Y-intercept of quadratic",
-    "group": "Algebra",
-    "title": "Finding y-intercept by setting x = 0, giving y = c."
-    },
-    {
-    "id": "f6b9e5c2-4d82-4f57-c94d-6b9f6e5c2d83",
-    "label": "X-intercepts of quadratic",
-    "group": "Algebra",
-    "title": "Finding x-intercepts by solving ax² + bx + c = 0."
-    },
-    {
-    "id": "a8c3f7e6-6f64-4b78-b86f-8c3a8f7e6f65",
-    "label": "Relationship between intercepts and roots",
-    "group": "Algebra",
-    "title": "Understanding that x-intercepts of y = ax² + bx + c are the roots of ax² + bx + c = 0."
-    },
-    {
-    "id": "b3d5a9f4-9e47-4c83-a69e-3d5b3a9f4e48",
-    "label": "Sketching parabola using key points",
-    "group": "Algebra",
-    "title": "Using vertex, intercepts, and axis of symmetry to sketch accurate parabola."
-    },
-    {
-    "id": "c5e7b2d8-2a76-4f59-c82a-5e7c5b2d8a77",
-    "label": "Domain and range of quadratic functions",
-    "group": "Algebra",
-    "title": "Domain: all real numbers; Range: depends on vertex and direction of opening."
-    },
-    {
-    "id": "d7f4c6a3-5b68-4d72-b75b-7f4d7c6a3b69",
-    "label": "Creating table of values for parabola",
-    "group": "Algebra",
-    "title": "Choosing x-values around vertex to create systematic table for graphing."
-    },
-    {
-    "id": "e9a6f8d5-8c54-4f46-a68c-9a6e9f8d5c55",
-    "label": "Using symmetry when graphing parabolas",
-    "group": "Algebra",
-    "title": "Using axis of symmetry to find corresponding points on either side of vertex."
-    },
-    {
-    "id": "f2b8e4c7-4d73-4b89-c94d-2b8f2e4c7d74",
-    "label": "Inequality symbols and meaning",
-    "group": "Algebra",
-    "title": "Understanding <, >, ≤, ≥ symbols and their meanings in mathematical expressions."
-    },
-    {
-    "id": "a4c6f9e2-6f85-4d45-b76f-4c6a4f9e2f86",
-    "label": "Difference between inequalities and equations",
-    "group": "Algebra",
-    "title": "Understanding that inequalities show ranges of values, not exact values."
-    },
-    {
-    "id": "b6d8a3f7-9e52-4c68-a89e-6d8b6a3f7e53",
-    "label": "Understanding solution sets",
-    "group": "Algebra",
-    "title": "Recognizing that inequalities have many solutions, often expressed as intervals."
-    },
-    {
-    "id": "c8e5b7d4-3a67-4f57-c73a-8e5c8b7d4a68",
-    "label": "Representing inequalities on number line",
-    "group": "Algebra",
-    "title": "Using open/closed circles and arrows to show solution sets on number line."
-    },
-    {
-    "id": "d3f7c2a6-7b84-4d49-b87b-3f7d3c2a6b85",
-    "label": "Interval notation for inequalities",
-    "group": "Algebra",
-    "title": "Writing solution sets using interval notation like [a, b) or (-∞, c]."
-    },
-    {
-    "id": "e5a9f6d8-4c73-4f62-a74c-5a9e5f6d8c74",
-    "label": "Adding/subtracting same number to inequalities",
-    "group": "Algebra",
-    "title": "Understanding that adding or subtracting same number preserves inequality direction."
-    },
-    {
-    "id": "f7b4e8c5-6d59-4b75-c96d-7b4f7e8c5d58",
-    "label": "Multiplying/dividing by positive numbers",
-    "group": "Algebra",
-    "title": "Understanding that multiplying/dividing by positive numbers preserves inequality direction."
-    },
-    {
-    "id": "a9c6f3d2-8e46-4f84-b78e-9c6a9f3d2e47",
-    "label": "Multiplying/dividing by negative numbers",
-    "group": "Algebra",
-    "title": "Understanding that multiplying/dividing by negative numbers reverses inequality direction."
-    },
-    {
-    "id": "b2d8a5f9-5f71-4c57-a65f-2d8b2a5f9f72",
-    "label": "Complete rules for manipulating inequalities",
-    "group": "Algebra",
-    "title": "All rules for adding, subtracting, multiplying, and dividing inequalities."
-    },
-    {
-    "id": "c4e3b9d7-9a68-4d43-c89a-4e3c4b9d7a69",
-    "label": "Solving one-step inequalities",
-    "group": "Algebra",
-    "title": "Solving inequalities like x + 3 > 7 or 2x ≤ 10 using single operations."
-    },
-    {
-    "id": "d6f5c7a4-2b85-4f56-b82b-6f5d6c7a4b86",
-    "label": "Solving two-step inequalities",
-    "group": "Algebra",
-    "title": "Solving inequalities like 2x + 3 < 11 using multiple operations."
-    },
-    {
-    "id": "e8a7f2d6-6c74-4b89-a76c-8a7e8f2d6c75",
-    "label": "Multi-step linear inequalities",
-    "group": "Algebra",
-    "title": "Solving complex linear inequalities with variables on both sides."
-    },
-    {
-    "id": "f3b9e6c8-4d63-4f52-c94d-3b9f3e6c8d64",
-    "label": "Compound inequalities with 'and'",
-    "group": "Algebra",
-    "title": "Solving inequalities like -3 < 2x + 1 < 7 (intersection of conditions)."
-    },
-    {
-    "id": "a5c2f8d5-8e49-4d78-b78e-5c2a5f8d5e48",
-    "label": "Compound inequalities with 'or'",
-    "group": "Algebra",
-    "title": "Solving inequalities like x < -2 or x > 5 (union of conditions)."
-    },
-    {
-    "id": "b7d4a6f3-5f86-4c67-a65f-7d4b7a6f3f87",
-    "label": "Graphing compound inequalities",
-    "group": "Algebra",
-    "title": "Representing and/or compound inequalities on number lines."
-    },
-    {
-    "id": "c9e6b8d2-9a75-4f54-c89a-9e6c9b8d2a76",
-    "label": "Understanding quadratic inequalities",
-    "group": "Algebra",
-    "title": "Recognizing inequalities involving quadratic expressions like x² + 3x - 4 > 0."
-    },
-    {
-    "id": "d2f8c5a7-3b62-4d89-b83b-2f8d2c5a7b63",
-    "label": "Finding critical points",
-    "group": "Algebra",
-    "title": "Finding where quadratic expression equals zero (the boundary points)."
-    },
-    {
-    "id": "e4a3f7d9-7c48-4f73-a67c-4a3e4f7d9c49",
-    "label": "Sign chart method for quadratic inequalities",
-    "group": "Algebra",
-    "title": "Testing sign of expression in each interval between critical points."
-    },
-    {
-    "id": "f6b5e9c4-4d87-4b56-c94d-6b5f6e9c4d88",
-    "label": "Solving quadratic inequalities completely",
-    "group": "Algebra",
-    "title": "Complete process: factor, find critical points, test intervals, write solution."
-    },
-    {
-    "id": "a8c7f2e6-6f74-4d42-b86f-8c7a8f2e6f75",
-    "label": "Interpreting inequalities graphically",
-    "group": "Algebra",
-    "title": "Understanding that y > f(x) means points above the graph."
-    },
-    {
-    "id": "b3d9a5f8-9e53-4c85-a69e-3d9b3a5f8e54",
-    "label": "Using graphs to solve inequalities",
-    "group": "Algebra",
-    "title": "Reading solution sets from graphs by identifying relevant regions."
-    },
-    {
-    "id": "c5e2b7d4-2a79-4f68-c82a-5e2c5b7d4a78",
-    "label": "Understanding what a sequence is",
-    "group": "Algebra",
-    "title": "Recognizing sequences as ordered lists of numbers following a pattern."
-    },
-    {
-    "id": "d7f4c9a6-5b66-4d57-b75b-7f4d7c9a6b67",
-    "label": "Understanding term and position",
-    "group": "Algebra",
-    "title": "Recognizing that each number in sequence has a position (1st, 2nd, 3rd, etc.)."
-    },
-    {
-    "id": "e9a6f3d8-8c45-4f84-a68c-9a6e9f3d8c46",
-    "label": "Recognizing arithmetic sequences",
-    "group": "Algebra",
-    "title": "Identifying sequences where consecutive terms have constant difference."
-    },
-    {
-    "id": "f2b8e5c7-4d72-4b89-c94d-2b8f2e5c7d73",
-    "label": "Finding common difference",
-    "group": "Algebra",
-    "title": "Calculating d by subtracting consecutive terms: d = a₂ - a₁."
-    },
-    {
-    "id": "a4c6f9e2-6f58-4d45-b76f-4c6a4f9e2f59",
-    "label": "Understanding arithmetic sequences",
-    "group": "Algebra",
-    "title": "Recognizing pattern and structure of arithmetic sequences."
-    },
-    {
-    "id": "b6d8a3f7-9e84-4c68-a89e-6d8b6a3f7e85",
-    "label": "First term notation a₁",
-    "group": "Algebra",
-    "title": "Understanding that a₁ (or a) represents the first term of the sequence."
-    },
-    {
-    "id": "c8e5b7d4-3a61-4f57-c73a-8e5c8b7d4a62",
-    "label": "nth term formula for arithmetic sequences",
-    "group": "Algebra",
-    "title": "Using aₙ = a₁ + (n-1)d to find any term in arithmetic sequence."
-    },
-    {
-    "id": "d3f7c2a9-7b77-4d49-b87b-3f7d3c2a9b78",
-    "label": "Finding specific terms in arithmetic sequences",
-    "group": "Algebra",
-    "title": "Using nth term formula to find particular terms like 10th term, 25th term."
-    },
-    {
-    "id": "e5a9f6d5-4c93-4f62-a74c-5a9e5f6d5c94",
-    "label": "Finding position when given term value",
-    "group": "Algebra",
-    "title": "Using nth term formula to find which position has a given value."
-    },
-    {
-    "id": "f7b4e8c2-6d56-4b75-c96d-7b4f7e8c2d57",
-    "label": "Understanding difference between series and sequence",
-    "group": "Algebra",
-    "title": "Sequence is list of terms; series is sum of terms."
-    },
-    {
-    "id": "a9c6f3d8-8e82-4f84-b78e-9c6a9f3d8e83",
-    "label": "Arithmetic series concept",
-    "group": "Algebra",
-    "title": "Understanding arithmetic series as sum of arithmetic sequence terms."
-    },
-    {
-    "id": "b2d8a5f4-5f65-4c57-a65f-2d8b2a5f4f66",
-    "label": "Partial sum notation Sₙ",
-    "group": "Algebra",
-    "title": "Understanding that Sₙ represents sum of first n terms."
-    },
-    {
-    "id": "c4e3b9d7-9a48-4d43-c89a-4e3c4b9d7a49",
-    "label": "Sum formula for arithmetic series",
-    "group": "Algebra",
-    "title": "Using Sₙ = n/2[2a + (n-1)d] or Sₙ = n/2(first + last)."
-    },
-    {
-    "id": "d6f5c7a3-2b71-4f56-b82b-6f5d6c7a3b72",
-    "label": "Choosing appropriate sum formula",
-    "group": "Algebra",
-    "title": "Use Sₙ = n/2[2a + (n-1)d] when given a and d; use Sₙ = n/2(first + last) when given endpoints."
-    },
-    {
-    "id": "e8a7f2d6-6c94-4b89-a76c-8a7e8f2d6c95",
-    "label": "Recognizing geometric sequences",
-    "group": "Algebra",
-    "title": "Identifying sequences where consecutive terms have constant ratio."
-    },
-    {
-    "id": "f3b9e6c8-4d57-4f52-c94d-3b9f3e6c8d58",
-    "label": "Finding common ratio",
-    "group": "Algebra",
-    "title": "Calculating r by dividing consecutive terms: r = a₂/a₁."
-    },
-    {
-    "id": "a5c2f8d5-8e73-4d78-b78e-5c2a5f8d5e74",
-    "label": "Understanding geometric sequences",
-    "group": "Algebra",
-    "title": "Recognizing pattern and structure of geometric sequences."
-    },
-    {
-    "id": "b7d4a6f3-5f46-4c67-a65f-7d4b7a6f3f47",
-    "label": "nth term formula for geometric sequences",
-    "group": "Algebra",
-    "title": "Using aₙ = a₁ × r^(n-1) to find any term in geometric sequence."
-    },
-    {
-    "id": "c9e6b8d2-9a89-4f54-c89a-9e6c9b8d2a88",
-    "label": "Understanding geometric growth and decay",
-    "group": "Algebra",
-    "title": "Recognizing that r > 1 gives growth, 0 < r < 1 gives decay."
-    },
-    {
-    "id": "d2f8c5a7-3b52-4d89-b83b-2f8d2c5a7b53",
-    "label": "Geometric series concept",
-    "group": "Algebra",
-    "title": "Understanding geometric series as sum of geometric sequence terms."
-    },
-    {
-    "id": "e4a3f7d9-7c75-4f73-a67c-4a3e4f7d9c76",
-    "label": "Sum of finite geometric series",
-    "group": "Algebra",
-    "title": "Using Sₙ = a(rⁿ - 1)/(r - 1) when r ≠ 1."
-    },
-    {
-    "id": "f6b5e9c4-4d68-4b56-c94d-6b5f6e9c4d69",
-    "label": "Understanding convergent series",
-    "group": "Algebra",
-    "title": "Recognizing when infinite geometric series has finite sum (when |r| < 1)."
-    },
-    {
-    "id": "a8c7f2e6-6f51-4d42-b86f-8c7a8f2e6f52",
-    "label": "Sum of infinite geometric series",
-    "group": "Algebra",
-    "title": "Using S = a/(1 - r) when |r| < 1 for infinite geometric series."
-    },
-    {
-    "id": "b3d9a5f8-9e74-4c85-a69e-3d9b3a5f8e75",
-    "label": "Understanding exponential functions",
-    "group": "Algebra",
-    "title": "Recognizing functions of the form y = aˣ where base is constant, exponent is variable."
-    },
-    {
-    "id": "c5e2b7d4-2a67-4f68-c82a-5e2c5b7d4a68",
-    "label": "Exponential vs polynomial functions",
-    "group": "Algebra",
-    "title": "Understanding difference between aˣ (exponential) and xᵃ (polynomial)."
-    },
-    {
-    "id": "d7f4c9a6-5b93-4d57-b75b-7f4d7c9a6b94",
-    "label": "Exponential equations with same base",
-    "group": "Algebra",
-    "title": "Solving aˣ = aʸ by equating exponents: x = y."
-    },
-    {
-    "id": "e9a6f3d8-8c56-4f84-a68c-9a6e9f3d8c57",
-    "label": "Steps for same-base exponential equations",
-    "group": "Algebra",
-    "title": "1) Express both sides with same base 2) Equate exponents 3) Solve resulting equation."
-    },
-    {
-    "id": "f2b8e5c7-4d79-4b89-c94d-2b8f2e5c7d78",
-    "label": "More complex exponential equations",
-    "group": "Algebra",
-    "title": "Solving exponential equations that require factoring or substitution."
-    },
-    {
-    "id": "a4c6f9e2-6f42-4d45-b76f-4c6a4f9e2f43",
-    "label": "Logarithm as inverse of exponential",
-    "group": "Algebra",
-    "title": "Understanding that log and exponential functions undo each other."
-    },
-    {
-    "id": "b6d8a3f7-9e65-4c68-a89e-6d8b6a3f7e66",
-    "label": "Definition of logarithm",
-    "group": "Algebra",
-    "title": "Understanding that log_a(x) = y means aʸ = x."
-    },
-    {
-    "id": "c8e5b7d4-3a88-4f57-c73a-8e5c8b7d4a89",
-    "label": "Logarithmic function notation",
-    "group": "Algebra",
-    "title": "Understanding notation log_a(x) and special cases log(x) = log₁₀(x), ln(x) = log_e(x)."
-    },
-    {
-    "id": "d3f7c2a9-7b53-4d49-b87b-3f7d3c2a9b54",
-    "label": "Converting between exponential and logarithmic form",
-    "group": "Algebra",
-    "title": "Converting aʸ = x to y = log_a(x) and vice versa."
-    },
-    {
-    "id": "e5a9f6d5-4c76-4f62-a74c-5a9e5f6d5c77",
-    "label": "Logarithm product rule",
-    "group": "Algebra",
-    "title": "Understanding that log(xy) = log(x) + log(y)."
-    },
-    {
-    "id": "f7b4e8c2-6d99-4b75-c96d-7b4f7e8c2d98",
-    "label": "Logarithm quotient rule",
-    "group": "Algebra",
-    "title": "Understanding that log(x/y) = log(x) - log(y)."
-    },
-    {
-    "id": "a9c6f3d8-8e62-4f84-b78e-9c6a9f3d8e63",
-    "label": "Logarithm power rule",
-    "group": "Algebra",
-    "title": "Understanding that log(xⁿ) = n·log(x)."
-    },
-    {
-    "id": "b2d8a5f4-5f85-4c57-a65f-2d8b2a5f4f86",
-    "label": "All laws of logarithms",
-    "group": "Algebra",
-    "title": "Complete set of logarithm rules for products, quotients, and powers."
-    },
-    {
-    "id": "c4e3b9d7-9a48-4d43-c89a-4e3c4b9d7a49",
-    "label": "Expanding logarithmic expressions",
-    "group": "Algebra",
-    "title": "Using logarithm rules to expand expressions like log(x²y/z)."
-    },
-    {
-    "id": "d6f5c7a3-2b71-4f56-b82b-6f5d6c7a3b72",
-    "label": "Condensing logarithmic expressions",
-    "group": "Algebra",
-    "title": "Combining multiple logarithms into single logarithm using rules."
-    },
-    {
-    "id": "e8a7f2d6-6c94-4b89-a76c-8a7e8f2d6c95",
-    "label": "Basic logarithmic equations",
-    "group": "Algebra",
-    "title": "Solving equations like log(x) = 3 by converting to exponential form."
-    },
-    {
-    "id": "f3b9e6c8-4d57-4f52-c94d-3b9f3e6c8d58",
-    "label": "Logarithmic equations with same base",
-    "group": "Algebra",
-    "title": "Solving log_a(x) = log_a(y) by equating arguments: x = y."
-    },
-    {
-    "id": "a5c2f8d5-8e73-4d78-b78e-5c2a5f8d5e74",
-    "label": "Change of base formula",
-    "group": "Algebra",
-    "title": "Converting log_a(x) = log_b(x)/log_b(a) to use calculator-friendly bases."
-    },
-    {
-    "id": "b7d4a6f3-5f46-4c67-a65f-7d4b7a6f3f47",
-    "label": "Understanding absolute value",
-    "group": "Algebra",
-    "title": "Understanding |x| as distance from zero, always non-negative."
-    },
-    {
-    "id": "c9e6b8d2-9a89-4f54-c89a-9e6c9b8d2a88",
-    "label": "Absolute value definition",
-    "group": "Algebra",
-    "title": "Understanding |x| = x when x ≥ 0, and |x| = -x when x < 0."
-    },
-    {
-    "id": "d2f8c5a7-3b52-4d89-b83b-2f8d2c5a7b53",
-    "label": "Modulus function properties",
-    "group": "Algebra",
-    "title": "Understanding properties like |xy| = |x||y| and |x/y| = |x|/|y|."
-    },
-    {
-    "id": "e4a3f7d9-7c75-4f73-a67c-4a3e4f7d9c76",
-    "label": "Simple absolute value equations",
-    "group": "Algebra",
-    "title": "Solving |x| = a by considering x = a or x = -a (when a ≥ 0)."
-    },
-    {
-    "id": "f6b5e9c4-4d68-4b56-c94d-6b5f6e9c4d69",
-    "label": "Basic modulus equations",
-    "group": "Algebra",
-    "title": "Solving |ax + b| = c by considering both positive and negative cases."
-    },
-    {
-    "id": "a8c7f2e6-6f51-4d42-b86f-8c7a8f2e6f52",
-    "label": "Complex modulus equations",
-    "group": "Algebra",
-    "title": "Solving equations with multiple absolute value expressions."
-    },
-    {
-    "id": "b3d9a5f8-9e74-4c85-a69e-3d9b3a5f8e75",
-    "label": "Absolute value inequalities",
-    "group": "Algebra",
-    "title": "Solving |x| < a (gives -a < x < a) and |x| > a (gives x < -a or x > a)."
-    },
-    {
-    "id": "c5e2b7d4-2a67-4f68-c82a-5e2c5b7d4a68",
-    "label": "Checking solutions in absolute value equations",
-    "group": "Algebra",
-    "title": "Verifying solutions by substituting back into original equation."
-    },
-    {
-    "id": "d7f4c9a6-5b93-4d57-b75b-7f4d7c9a6b94",
-    "label": "Recognizing when expression is algebraic",
-    "group": "Algebra",
-    "title": "Distinguishing algebraic expressions from arithmetic expressions by presence of variables."
-    },
-    {
-    "id": "e9a6f3d8-8c56-4f84-a68c-9a6e9f3d8c57",
-    "label": "Systematic term counting technique",
-    "group": "Algebra",
-    "title": "Looking for + and - signs to separate terms, remembering first term might not have visible sign."
-    },
-    {
-    "id": "f2b8e5c7-4d79-4b89-c94d-2b8f2e5c7d78",
-    "label": "Recognizing implicit coefficients",
-    "group": "Algebra",
-    "title": "Understanding that x means 1x and -x means -1x (coefficient of 1 is usually hidden)."
-    },
-    {
-    "id": "a4c6f9e2-6f42-4d45-b76f-4c6a4f9e2f43",
-    "label": "Recognizing implied exponents",
-    "group": "Algebra",
-    "title": "Understanding that x means x¹ (exponent of 1 is usually hidden)."
-    },
-    {
-    "id": "b6d8a3f7-9e65-4c68-a89e-6d8b6a3f7e66",
-    "label": "Finding degree of individual terms",
-    "group": "Algebra",
-    "title": "Adding exponents of all variables in a term to find its degree."
-    },
-    {
-    "id": "c8e5b7d4-3a88-4f57-c73a-8e5c8b7d4a89",
-    "label": "Identifying leading term",
-    "group": "Algebra",
-    "title": "Finding the term with highest degree (usually written first in standard form)."
-    },
-    {
-    "id": "d3f7c2a9-7b53-4d49-b87b-3f7d3c2a9b54",
-    "label": "Arranging polynomials in standard form",
-    "group": "Algebra",
-    "title": "Writing terms in descending order of degree (highest power first)."
-    },
-    {
-    "id": "e5a9f6d5-4c76-4f62-a74c-5a9e5f6d5c77",
-    "label": "Recognizing missing terms in polynomials",
-    "group": "Algebra",
-    "title": "Understanding that x³ + 5x + 2 is missing the x² term (coefficient is 0)."
-    },
-    {
-    "id": "f7b4e8c2-6d99-4b75-c96d-7b4f7e8c2d98",
-    "label": "Recognizing like terms with multiple variables",
-    "group": "Algebra",
-    "title": "Understanding that 3xy and -7xy are like terms, but 3xy and 3x²y are not."
-    },
-    {
-    "id": "a9c6f3d8-8e62-4f84-b78e-9c6a9f3d8e63",
-    "label": "Handling signs when combining like terms",
-    "group": "Algebra",
-    "title": "Technique: treat the sign as part of the coefficient (3x + (-5x) = -2x)."
-    },
-    {
-    "id": "b2d8a5f4-5f85-4c57-a65f-2d8b2a5f4f86",
-    "label": "Visual technique for distributive property",
-    "group": "Algebra",
-    "title": "Drawing arrows from outside term to each inside term to ensure nothing is missed."
-    },
-    {
-    "id": "c4e3b9d7-9a48-4d43-c89a-4e3c4b9d7a49",
-    "label": "Distributive property with variables outside",
-    "group": "Algebra",
-    "title": "Applying distributive law when variable is outside: x(y + 3) = xy + 3x."
-    },
-    {
-    "id": "d6f5c7a3-2b71-4f56-b82b-6f5d6c7a3b72",
-    "label": "Double negative rule in expansion",
-    "group": "Algebra",
-    "title": "Understanding that -(-x) = +x when expanding negative brackets."
-    },
-    {
-    "id": "e8a7f2d6-6c94-4b89-a76c-8a7e8f2d6c95",
-    "label": "Common mistakes in bracket expansion",
-    "group": "Algebra",
-    "title": "Avoiding errors like 2(x + 3) = 2x + 3 (forgetting to multiply second term)."
-    },
-    {
-    "id": "f3b9e6c8-4d57-4f52-c94d-3b9f3e6c8d58",
-    "label": "Physical finger technique for FOIL",
-    "group": "Algebra",
-    "title": "Using fingers to point to terms being multiplied to avoid missing combinations."
-    },
-    {
-    "id": "a5c2f8d5-8e73-4d78-b78e-5c2a5f8d5e74",
-    "label": "Organizing FOIL calculations",
-    "group": "Algebra",
-    "title": "Writing F, O, I, L labels to systematically track which terms have been multiplied."
-    },
-    {
-    "id": "b7d4a6f3-5f46-4c67-a65f-7d4b7a6f3f47",
-    "label": "Recognizing special products before expanding",
-    "group": "Algebra",
-    "title": "Checking if expression is (a+b)², (a-b)², or (a+b)(a-b) before using FOIL."
-    },
-    {
-    "id": "c9e6b8d2-9a89-4f54-c89a-9e6c9b8d2a88",
-    "label": "Collecting middle terms in quadratic expansion",
-    "group": "Algebra",
-    "title": "Combining the O and I terms from FOIL to get the bx term in ax² + bx + c."
-    },
-    {
-    "id": "d2f8c5a7-3b52-4d89-b83b-2f8d2c5a7b53",
-    "label": "Perfect square expansion shortcuts",
-    "group": "Algebra",
-    "title": "Using (a±b)² = a² ± 2ab + b² instead of FOIL for faster expansion."
-    },
-    {
-    "id": "e4a3f7d9-7c75-4f73-a67c-4a3e4f7d9c76",
-    "label": "GCF inspection technique",
-    "group": "Algebra",
-    "title": "Looking at each term to find largest number and highest variable power that divides all."
-    },
-    {
-    "id": "f6b5e9c4-4d68-4b56-c94d-6b5f6e9c4d69",
-    "label": "Checking factoring by distributing back",
-    "group": "Algebra",
-    "title": "Multiplying factored form back out to verify it equals original expression."
-    },
-    {
-    "id": "a8c7f2e6-6f51-4d42-b86f-8c7a8f2e6f52",
-    "label": "Strategic grouping for factoring by grouping",
-    "group": "Algebra",
-    "title": "Grouping first two and last two terms, or trying different groupings if first doesn't work."
-    },
-    {
-    "id": "b3d9a5f8-9e74-4c85-a69e-3d9b3a5f8e75",
-    "label": "Finding GCF within each group",
-    "group": "Algebra",
-    "title": "Taking out common factors from each group separately before looking for common binomial."
-    },
-    {
-    "id": "c5e2b7d4-2a67-4f68-c82a-5e2c5b7d4a68",
-    "label": "Recognizing common binomial factor",
-    "group": "Algebra",
-    "title": "Identifying when both groups have the same binomial factor after initial factoring."
-    },
-    {
-    "id": "d7f4c9a6-5b93-4d57-b75b-7f4d7c9a6b94",
-    "label": "Visual pattern recognition for difference of squares",
-    "group": "Algebra",
-    "title": "Looking for 'something squared minus something else squared' pattern."
-    },
-    {
-    "id": "e9a6f3d8-8c56-4f84-a68c-9a6e9f3d8c57",
-    "label": "Pattern recognition for perfect square trinomials",
-    "group": "Algebra",
-    "title": "Checking if first and last terms are perfect squares and middle term is twice their product."
-    },
-    {
-    "id": "f2b8e5c7-4d79-4b89-c94d-2b8f2e5c7d78",
-    "label": "Middle term check for perfect squares",
-    "group": "Algebra",
-    "title": "Verifying that middle coefficient equals 2√(first term × last term)."
-    },
-    {
-    "id": "a4c6f9e2-6f42-4d45-b76f-4c6a4f9e2f43",
-    "label": "Listing factor pairs systematically",
-    "group": "Algebra",
-    "title": "Writing all factor pairs of c, then checking which pair adds to b."
-    },
-    {
-    "id": "b6d8a3f7-9e65-4c68-a89e-6d8b6a3f7e66",
-    "label": "Sign analysis for quadratic factoring",
-    "group": "Algebra",
-    "title": "If c > 0, factors have same sign as b; if c < 0, factors have opposite signs."
-    },
-    {
-    "id": "c8e5b7d4-3a88-4f57-c73a-8e5c8b7d4a89",
-    "label": "AC method: multiply a and c",
-    "group": "Algebra",
-    "title": "First step of AC method - calculate the product a×c."
-    },
-    {
-    "id": "d3f7c2a9-7b53-4d49-b87b-3f7d3c2a9b54",
-    "label": "AC method: find factor pairs of ac",
-    "group": "Algebra",
-    "title": "List all factor pairs of ac that multiply to give ac."
-    },
-    {
-    "id": "e5a9f6d5-4c76-4f62-a74c-5a9e5f6d5c77",
-    "label": "AC method: check which pair sums to b",
-    "group": "Algebra",
-    "title": "Test each factor pair to see which adds up to the middle coefficient b."
-    },
-    {
-    "id": "f7b4e8c2-6d99-4b75-c96d-7b4f7e8c2d98",
-    "label": "AC method: split middle term",
-    "group": "Algebra",
-    "title": "Rewrite bx as the sum of the two factors found, creating four terms."
-    },
-    {
-    "id": "a9c6f3d8-8e62-4f84-b78e-9c6a9f3d8e63",
-    "label": "AC method: group and factor",
-    "group": "Algebra",
-    "title": "Group the four terms in pairs and factor by grouping."
-    },
-    {
-    "id": "b2d8a5f4-5f85-4c57-a65f-2d8b2a5f4f86",
-    "label": "Systematic trial and error for factoring",
-    "group": "Algebra",
-    "title": "Testing factor combinations in organized way rather than random guessing."
-    },
-    {
-    "id": "c4e3b9d7-9a48-4d43-c89a-4e3c4b9d7a49",
-    "label": "Identifying domain restrictions for fractions",
-    "group": "Algebra",
-    "title": "Finding values that make denominator zero (these values are excluded from domain)."
-    },
-    {
-    "id": "d6f5c7a3-2b71-4f56-b82b-6f5d6c7a3b72",
-    "label": "Always factor before canceling",
-    "group": "Algebra",
-    "title": "Factoring numerator and denominator completely before looking for common factors to cancel."
-    },
-    {
-    "id": "e8a7f2d6-6c94-4b89-a76c-8a7e8f2d6c95",
-    "label": "Canceling factors, not terms",
-    "group": "Algebra",
-    "title": "Understanding that only multiplied factors can be canceled, not added/subtracted terms."
-    },
-    {
-    "id": "f3b9e6c8-4d57-4f52-c94d-3b9f3e6c8d58",
-    "label": "Cross multiplication for algebraic fractions",
-    "group": "Algebra",
-    "title": "Using cross multiplication when dividing fractions: (a/b) ÷ (c/d) = (a/b) × (d/c)."
-    },
-    {
-    "id": "a5c2f8d5-8e73-4d78-b78e-5c2a5f8d5e74",
-    "label": "Finding LCD for algebraic expressions",
-    "group": "Algebra",
-    "title": "Taking highest power of each factor that appears in any denominator."
-    },
-    {
-    "id": "b7d4a6f3-5f46-4c67-a65f-7d4b7a6f3f47",
-    "label": "Converting to common denominator technique",
-    "group": "Algebra",
-    "title": "Multiplying numerator and denominator by missing factors to achieve LCD."
-    },
-    {
-    "id": "c9e6b8d2-9a89-4f54-c89a-9e6c9b8d2a88",
-    "label": "Identifying main fraction bar in complex fractions",
-    "group": "Algebra",
-    "title": "Recognizing which fraction bar represents the main division in complex fractions."
-    },
-    {
-    "id": "d2f8c5a7-3b52-4d89-b83b-2f8d2c5a7b53",
-    "label": "Distinguishing equations from expressions",
-    "group": "Algebra",
-    "title": "Equations have equals signs and can be solved; expressions are simplified or evaluated."
-    },
-    {
-    "id": "e4a3f7d9-7c75-4f73-a67c-4a3e4f7d9c76",
-    "label": "Understanding 'isolating the variable'",
-    "group": "Algebra",
-    "title": "Getting the variable by itself on one side of the equation."
-    },
-    {
-    "id": "f6b5e9c4-4d68-4b56-c94d-6b5f6e9c4d69",
-    "label": "Order for undoing operations",
-    "group": "Algebra",
-    "title": "Undoing operations in reverse order of operations (PEMDAS backwards)."
-    },
-    {
-    "id": "a8c7f2e6-6f51-4d42-b86f-8c7a8f2e6f52",
-    "label": "Maintaining equation balance technique",
-    "group": "Algebra",
-    "title": "Always performing the same operation on both sides to keep equation true."
-    },
-    {
-    "id": "b3d9a5f8-9e74-4c85-a69e-3d9b3a5f8e75",
-    "label": "Recognizing when coefficient is 1",
-    "group": "Algebra",
-    "title": "Understanding when variable is isolated (coefficient = 1) vs. when more work is needed."
-    },
-    {
-    "id": "c5e2b7d4-2a67-4f68-c82a-5e2c5b7d4a68",
-    "label": "Clearing fraction coefficients",
-    "group": "Algebra",
-    "title": "Multiplying both sides by reciprocal to eliminate fraction coefficient of variable."
-    },
-    {
-    "id": "d7f4c9a6-5b93-4d57-b75b-7f4d7c9a6b94",
-    "label": "Combining like terms within equations",
-    "group": "Algebra",
-    "title": "Simplifying each side of equation before attempting to isolate variable."
-    },
-    {
-    "id": "e9a6f3d8-8c56-4f84-a68c-9a6e9f3d8c57",
-    "label": "Moving all variables to one side",
-    "group": "Algebra",
-    "title": "Adding or subtracting variable terms to collect them on one side of equation."
-    },
-    {
-    "id": "f2b8e5c7-4d79-4b89-c94d-2b8f2e5c7d78",
-    "label": "Moving constants to opposite side",
-    "group": "Algebra",
-    "title": "Adding or subtracting constant terms to move them away from variables."
-    },
-    {
-    "id": "a4c6f9e2-6f42-4d45-b76f-4c6a4f9e2f43",
-    "label": "Expanding brackets as first step in equations",
-    "group": "Algebra",
-    "title": "Using distributive property before attempting to solve equation."
-    },
-    {
-    "id": "b6d8a3f7-9e65-4c68-a89e-6d8b6a3f7e66",
-    "label": "Clearing fractions by multiplying by LCD",
-    "group": "Algebra",
-    "title": "Multiplying every term by LCD to eliminate all fractions at once."
-    },
-    {
-    "id": "c8e5b7d4-3a88-4f57-c73a-8e5c8b7d4a89",
-    "label": "Substitution technique for checking",
-    "group": "Algebra",
-    "title": "Replacing variable with solution value in original equation to verify both sides equal."
-    },
-    {
-    "id": "d3f7c2a9-7b53-4d49-b87b-3f7d3c2a9b54",
-    "label": "Recognizing no solution situations",
-    "group": "Algebra",
-    "title": "Identifying contradictions like 5 = 7 that indicate no solution exists."
-    },
-    {
-    "id": "e5a9f6d5-4c76-4f62-a74c-5a9e5f6d5c77",
-    "label": "Recognizing infinite solution situations",
-    "group": "Algebra",
-    "title": "Identifying identities like 3 = 3 that indicate all values are solutions."
-    },
-    {
-    "id": "f7b4e8c2-6d99-4b75-c96d-7b4f7e8c2d98",
-    "label": "Visual interpretation of simultaneous equations",
-    "group": "Algebra",
-    "title": "Understanding that solution is where two lines intersect on a graph."
-    },
-    {
-    "id": "a9c6f3d8-8e62-4f84-b78e-9c6a9f3d8e63",
-    "label": "Choosing between substitution and elimination",
-    "group": "Algebra",
-    "title": "Using substitution when one variable has coefficient 1; elimination when coefficients are multiples."
-    },
-    {
-    "id": "b2d8a5f4-5f85-4c57-a65f-2d8b2a5f4f86",
-    "label": "Making the substitution in substitution method",
-    "group": "Algebra",
-    "title": "Carefully replacing every instance of chosen variable with the expression."
-    },
-    {
-    "id": "c4e3b9d7-9a48-4d43-c89a-4e3c4b9d7a49",
-    "label": "Making coefficients match for elimination",
-    "group": "Algebra",
-    "title": "Multiplying equations by appropriate numbers to make coefficients opposites or equal."
-    },
-    {
-    "id": "d6f5c7a3-2b71-4f56-b82b-6f5d6c7a3b72",
-    "label": "Choosing addition vs subtraction in elimination",
-    "group": "Algebra",
-    "title": "Adding equations when coefficients are opposites; subtracting when coefficients are equal."
-    },
-    {
-    "id": "e8a7f2d6-6c94-4b89-a76c-8a7e8f2d6c95",
-    "label": "Back-substitution technique",
-    "group": "Algebra",
-    "title": "Using found value of one variable to find the other variable."
-    },
-    {
-    "id": "f3b9e6c8-4d57-4f52-c94d-3b9f3e6c8d58",
-    "label": "Verifying simultaneous equation solutions",
-    "group": "Algebra",
-    "title": "Checking that solution pair satisfies both original equations."
-    },
-    {
-    "id": "a5c2f8d5-8e73-4d78-b78e-5c2a5f8d5e74",
-    "label": "Reading intersection coordinates from graph",
-    "group": "Algebra",
-    "title": "Accurately determining x and y coordinates where two lines cross."
-    },
-    {
-    "id": "b7d4a6f3-5f46-4c67-a65f-7d4b7a6f3f47",
-    "label": "Systematic error checking techniques",
-    "group": "Algebra",
-    "title": "Double-checking work by using different methods or working backwards."
-    },
-    {
-    "id": "c9e6b8d2-9a89-4f54-c89a-9e6c9b8d2a88",
-    "label": "Awareness of common algebraic mistakes",
-    "group": "Algebra",
-    "title": "Watching for errors like (x + y)² ≠ x² + y² and x/(x + y) ≠ 1/y."
-    },
-    {
-    "id": "d2f8c5a7-3b52-4d89-b83b-2f8d2c5a7b53",
-    "label": "Preventing sign errors",
-    "group": "Algebra",
-    "title": "Extra care with negative signs, using parentheses, and double-checking sign changes."
-    },
-    {
-    "id": "e4a3f7d9-7c75-4f73-a67c-4a3e4f7d9c76",
-    "label": "Preventing fraction errors",
-    "group": "Algebra",
-    "title": "Being careful with fraction operations and always checking if simplification is possible."
-    }
-],
+      },
+      {
+        "id": "b2e9f7a1-8c64-4d15-b73e-9f2a5c8e1d47",
+        "label": "Understanding coefficients",
+        "group": "Algebra",
+        "title": "Recognizing that numbers in front of variables (like 3 in 3x) multiply the variable."
+      },
+      {
+        "id": "c4a8b9d3-7e52-4f89-a61c-8b7e3f9a2c65",
+        "label": "Understanding constant terms",
+        "group": "Algebra",
+        "title": "Recognizing numbers without variables (like +5 or -7) as constant terms that don't change."
+      },
+      {
+        "id": "d6c2e5f8-9a73-4b16-c84d-7a3f6e9b4c28",
+        "label": "Identifying terms in expressions",
+        "group": "Algebra",
+        "title": "Breaking down expressions into separate terms separated by + or - signs."
+      },
+      {
+        "id": "e8f4a7b2-6d59-4e32-b95f-3c8a7e2b6d91",
+        "label": "Recognizing like terms",
+        "group": "Algebra",
+        "title": "Identifying terms with the same variable and same power that can be combined (e.g., 3x and 5x)."
+      },
+      {
+        "id": "f9b6c3e7-4a85-4f61-a72b-5d9e8f3a7c64",
+        "label": "Combining like terms",
+        "group": "Algebra",
+        "title": "Adding or subtracting coefficients of like terms while keeping the variable part unchanged."
+      },
+      {
+        "id": "a3c7f2d8-5e94-4b27-c85e-8f6a9b3d7e52",
+        "label": "Understanding distributive property",
+        "group": "Algebra",
+        "title": "Recognizing that a(b + c) = ab + ac - multiplying outside brackets affects everything inside."
+      },
+      {
+        "id": "b5d9e6a4-7c28-4f53-a69d-2e8f5a9c3b74",
+        "label": "Expanding single brackets",
+        "group": "Algebra",
+        "title": "Multiplying a number or variable outside brackets by everything inside: 3(x + 2) = 3x + 6."
+      },
+      {
+        "id": "c7f1a8e5-9b42-4d76-b83a-6f9c2e7d4a85",
+        "label": "Expanding with negative signs",
+        "group": "Algebra",
+        "title": "Understanding that -(x + 3) = -x - 3 and multiplying by negative numbers changes all signs."
+      },
+      {
+        "id": "d9e3b6c8-4a57-4f84-c92b-8e5a7f3d6c91",
+        "label": "FOIL method for binomials",
+        "group": "Algebra",
+        "title": "Multiplying (a+b)(c+d) by multiplying First, Outer, Inner, Last terms systematically."
+      },
+      {
+        "id": "e2f8c5a9-6d73-4b18-a64f-3c9e8a2f7b58",
+        "label": "Expanding double brackets",
+        "group": "Algebra",
+        "title": "Multiplying two bracketed expressions by ensuring every term in first bracket multiplies every term in second."
+      },
+      {
+        "id": "f4a7d3b6-8e59-4c25-b71c-5f8d9e4a3c72",
+        "label": "Collecting terms after expansion",
+        "group": "Algebra",
+        "title": "Simplifying expanded expressions by combining like terms to get final simplified form."
+      },
+      {
+        "id": "a6b9e2f5-3c84-4d61-c98f-7e2a6b9f4d83",
+        "label": "Recognizing common factors",
+        "group": "Algebra",
+        "title": "Identifying the highest common factor that can be taken out of all terms in an expression."
+      },
+      {
+        "id": "b8c4f7a3-5e96-4b47-a82e-9f6c3b8e7a54",
+        "label": "Factoring out numerical common factors",
+        "group": "Algebra",
+        "title": "Taking out the largest number that divides all coefficients: 6x + 9 = 3(2x + 3)."
+      },
+      {
+        "id": "c9d6a5e8-7f23-4c58-b94a-6e8f2c9a5d76",
+        "label": "Factoring out variable common factors",
+        "group": "Algebra",
+        "title": "Taking out the highest power of variables common to all terms: x² + x³ = x²(1 + x)."
+      },
+      {
+        "id": "d2e7b4f9-4a68-4d83-c56b-8f3e7d2b9c85",
+        "label": "Factoring out mixed common factors",
+        "group": "Algebra",
+        "title": "Taking out both numerical and variable factors: 4x²y + 6xy² = 2xy(2x + 3y)."
+      },
+      {
+        "id": "e4f9c6a2-6b85-4f72-a37d-5c8f6e4a9b72",
+        "label": "Factoring by grouping",
+        "group": "Algebra",
+        "title": "Grouping terms in fours and factoring each pair before factoring the resulting expression."
+      },
+      {
+        "id": "f7a3d8e5-8c47-4b96-c84f-9e6a3f7d8c53",
+        "label": "Recognizing difference of two squares",
+        "group": "Algebra",
+        "title": "Identifying expressions of the form a² - b² that can be factored as (a-b)(a+b)."
+      },
+      {
+        "id": "a9b6f2c7-5d84-4e63-b75c-8f2a9b6c7e54",
+        "label": "Factoring difference of two squares",
+        "group": "Algebra",
+        "title": "Converting a² - b² into factored form (a - b)(a + b)."
+      },
+      {
+        "id": "b3c8e5a4-7f29-4d46-a68d-6e9c3b8e5f72",
+        "label": "Recognizing perfect square trinomials",
+        "group": "Algebra",
+        "title": "Identifying trinomials of the form a² ± 2ab + b² that factor as (a ± b)²."
+      },
+      {
+        "id": "c5d2f9b6-9a47-4c73-b82e-7f4c5d2f9a68",
+        "label": "Factoring perfect square trinomials",
+        "group": "Algebra",
+        "title": "Converting a² + 2ab + b² = (a + b)² or a² - 2ab + b² = (a - b)²."
+      },
+      {
+        "id": "d7e4a1c8-3b65-4f84-c93f-8e7d4a1c8b59",
+        "label": "Factoring x² + bx + c",
+        "group": "Algebra",
+        "title": "Finding two numbers that multiply to c and add to b to factor as (x + p)(x + q)."
+      },
+      {
+        "id": "e9f6b3d5-5c82-4a57-a64b-2f9e6b3d5c84",
+        "label": "Factoring ax² + bx + c (a ≠ 1)",
+        "group": "Algebra",
+        "title": "Using ac-method or trial and error to factor quadratics where leading coefficient is not 1."
+      },
+      {
+        "id": "f2a8c5e6-7d48-4b73-c85d-6a2f8c5e7d49",
+        "label": "Trial and error for factoring quadratics",
+        "group": "Algebra",
+        "title": "Systematically testing factor combinations for ax² + bx + c until correct factorization is found."
+      },
+      {
+        "id": "a4b7f3d9-8e56-4c29-b76e-5b4a7f3d9e58",
+        "label": "AC method for factoring quadratics",
+        "group": "Algebra",
+        "title": "Finding factors of ac that add to b, then grouping terms to factor ax² + bx + c."
+      },
+      {
+        "id": "b6c9e2a5-4f73-4d86-a59c-7e6c9e2a5f74",
+        "label": "Understanding algebraic fractions",
+        "group": "Algebra",
+        "title": "Recognizing fractions where numerator and/or denominator contain variables."
+      },
+      {
+        "id": "c8d4f7b2-6a95-4e42-c73b-9f8d4f7b2a96",
+        "label": "Canceling common factors in fractions",
+        "group": "Algebra",
+        "title": "Dividing both numerator and denominator by common factors to simplify fractions."
+      },
+      {
+        "id": "d5e8a3f6-2b67-4c54-b86f-4e5d8a3f6b68",
+        "label": "Simplifying algebraic fractions",
+        "group": "Algebra",
+        "title": "Factoring numerator and denominator then canceling common factors to lowest terms."
+      },
+      {
+        "id": "e7f2c9a4-5d83-4f61-a72c-6f7e2c9a4d85",
+        "label": "Multiplying algebraic fractions",
+        "group": "Algebra",
+        "title": "Multiplying numerators together and denominators together: (a/b) × (c/d) = (ac)/(bd)."
+      },
+      {
+        "id": "f9a6d3b7-8c45-4b78-c94a-8a9f6d3b7c46",
+        "label": "Dividing algebraic fractions",
+        "group": "Algebra",
+        "title": "Multiplying by the reciprocal: (a/b) ÷ (c/d) = (a/b) × (d/c) = (ad)/(bc)."
+      },
+      {
+        "id": "a3c5f8e2-4b69-4d35-b67d-2c3a5f8e2b69",
+        "label": "Finding common denominators for algebraic fractions",
+        "group": "Algebra",
+        "title": "Finding the least common multiple of denominators to add or subtract fractions."
+      },
+      {
+        "id": "b5d8a4f7-6e52-4c86-a84e-5d8b5a4f7e53",
+        "label": "Adding fractions with same denominator",
+        "group": "Algebra",
+        "title": "Adding numerators while keeping denominator the same: a/c + b/c = (a+b)/c."
+      },
+      {
+        "id": "c7f3b6e9-9a74-4d47-c75a-7f3c7b6e9a75",
+        "label": "Adding fractions with different denominators",
+        "group": "Algebra",
+        "title": "Converting to common denominator then adding numerators."
+      },
+      {
+        "id": "d9e6c2a5-3b87-4f58-b68b-9e6d9c2a5b88",
+        "label": "Understanding what an equation is",
+        "group": "Algebra",
+        "title": "Recognizing equations as mathematical statements saying two expressions are equal (using = sign)."
+      },
+      {
+        "id": "e2a7f4d8-5c63-4b29-a59c-2a7e2f4d8c64",
+        "label": "Understanding what a solution is",
+        "group": "Algebra",
+        "title": "Recognizing that a solution is a value that makes the equation true when substituted."
+      },
+      {
+        "id": "f4b9e6c3-7d48-4f73-c86d-4b9f4e6c3d49",
+        "label": "Understanding inverse operations",
+        "group": "Algebra",
+        "title": "Knowing that addition/subtraction and multiplication/division are opposite operations that undo each other."
+      },
+      {
+        "id": "a6c2f5d9-8e54-4b67-b79e-6c2a6f5d9e55",
+        "label": "Balance method for equations",
+        "group": "Algebra",
+        "title": "Understanding that what you do to one side of equation, you must do to the other side."
+      },
+      {
+        "id": "b8d5a3f7-4c76-4d84-a92c-8d5b8a3f7c77",
+        "label": "Solving one-step linear equations",
+        "group": "Algebra",
+        "title": "Solving equations like x + 3 = 7 or 2x = 10 using single inverse operation."
+      },
+      {
+        "id": "c3e7b6a4-6f59-4c45-c85f-3e7c3b6a4f58",
+        "label": "Solving two-step linear equations",
+        "group": "Algebra",
+        "title": "Solving equations like 2x + 3 = 11 by using two inverse operations in correct order."
+      },
+      {
+        "id": "d5f9c2e8-9a42-4b68-b73a-5f9d5c2e8a43",
+        "label": "Solving multi-step linear equations",
+        "group": "Algebra",
+        "title": "Solving complex linear equations by combining like terms and using multiple operations."
+      },
+      {
+        "id": "e7a4f6d2-3b85-4f54-a64b-7a4e7f6d2b86",
+        "label": "Linear equations with variables on both sides",
+        "group": "Algebra",
+        "title": "Solving equations like 3x + 2 = x + 8 by collecting variables on one side."
+      },
+      {
+        "id": "f9b7c5e3-5d67-4c39-c76d-9b7f9c5e3d68",
+        "label": "Linear equations with brackets",
+        "group": "Algebra",
+        "title": "Expanding brackets first, then solving: 3(x + 2) = 15 becomes 3x + 6 = 15."
+      },
+      {
+        "id": "a2c6f9d5-7e48-4b83-b95e-2c6a2f9d5e49",
+        "label": "Clearing fractions in equations",
+        "group": "Algebra",
+        "title": "Multiplying all terms by LCD to eliminate fractions before solving."
+      },
+      {
+        "id": "b4d8a6f3-8c54-4f72-a86c-4d8b4a6f3c55",
+        "label": "Linear equations with fractions",
+        "group": "Algebra",
+        "title": "Solving equations containing fractions by clearing denominators or finding common denominators."
+      },
+      {
+        "id": "c6e2f5b9-4a73-4d67-c84a-6e2c6f5b9a74",
+        "label": "Checking solutions to linear equations",
+        "group": "Algebra",
+        "title": "Substituting solution back into original equation to verify it makes both sides equal."
+      },
+      {
+        "id": "d8f4c7a5-6b59-4f48-b75b-8f4d8c7a5b58",
+        "label": "Identifying no solution vs infinite solutions",
+        "group": "Algebra",
+        "title": "Recognizing when solving leads to contradictions (no solution) or identities (infinite solutions)."
+      },
+      {
+        "id": "e3a7b4f8-9d52-4c36-a69d-3a7e3b4f8d53",
+        "label": "Understanding simultaneous equations",
+        "group": "Algebra",
+        "title": "Recognizing that we need to find values that satisfy both equations at the same time."
+      },
+      {
+        "id": "f5b9e6c2-2e74-4f65-c87e-5b9f5e6c2e75",
+        "label": "Substitution method concept",
+        "group": "Algebra",
+        "title": "Understanding that we can replace one variable with an expression from the other equation."
+      },
+      {
+        "id": "a7c3f6d4-5a86-4b49-b78a-7c3a7f6d4a87",
+        "label": "Substitution method steps",
+        "group": "Algebra",
+        "title": "1) Make one variable the subject 2) Substitute into other equation 3) Solve 4) Find second variable."
+      },
+      {
+        "id": "b9d5a8e7-6c43-4d72-a95c-9d5b9a8e7c44",
+        "label": "Elimination method concept",
+        "group": "Algebra",
+        "title": "Understanding that we can add or subtract equations to eliminate one variable."
+      },
+      {
+        "id": "c4e8b6f2-8f57-4c64-c86f-4e8c4b6f2f58",
+        "label": "Elimination with same coefficients",
+        "group": "Algebra",
+        "title": "When coefficients of a variable are the same or opposites, directly add or subtract equations."
+      },
+      {
+        "id": "d6f2c9a8-3b75-4f39-b73b-6f2d6c9a8b76",
+        "label": "Elimination with different coefficients",
+        "group": "Algebra",
+        "title": "Multiplying one or both equations to make coefficients the same, then eliminating."
+      },
+      {
+        "id": "e8a4f7d3-5c68-4b52-a64c-8a4e8f7d3c69",
+        "label": "Elimination method complete process",
+        "group": "Algebra",
+        "title": "Systematic process of making coefficients equal, eliminating, solving, then substituting back."
+      },
+      {
+        "id": "f3b7e5c9-7d46-4f75-c85d-3b7f3e5c9d47",
+        "label": "Graphical solution of simultaneous equations",
+        "group": "Algebra",
+        "title": "Finding intersection point of two lines as the solution to the system."
+      },
+      {
+        "id": "a5c9f6e2-9a58-4b84-b79a-5c9a5f6e2a59",
+        "label": "Recognizing parallel lines (no solution)",
+        "group": "Algebra",
+        "title": "When simultaneous equations represent parallel lines, there is no intersection point."
+      },
+      {
+        "id": "b7d3a6f4-4e72-4c47-a63e-7d3b7a6f4e73",
+        "label": "Recognizing same line (infinite solutions)",
+        "group": "Algebra",
+        "title": "When simultaneous equations represent the same line, every point is a solution."
+      },
+      {
+        "id": "c9e5b8d7-6f84-4d56-c74f-9e5c9b8d7f85",
+        "label": "Standard form of quadratic equation",
+        "group": "Algebra",
+        "title": "Recognizing ax² + bx + c = 0 as standard form where a ≠ 0."
+      },
+      {
+        "id": "d2f7c4a9-8b63-4f72-b86b-2f7d2c4a9b64",
+        "label": "Identifying quadratic equations",
+        "group": "Algebra",
+        "title": "Recognizing equations with x² as highest power, distinguishing from linear equations."
+      },
+      {
+        "id": "e4a8f6d3-5c49-4b95-a75c-4a8e4f6d3c48",
+        "label": "Rearranging to standard form",
+        "group": "Algebra",
+        "title": "Moving all terms to one side to get ax² + bx + c = 0 form."
+      },
+      {
+        "id": "f6b2e9c7-9d57-4f68-c89d-6b2f6e9c7d58",
+        "label": "Zero product property",
+        "group": "Algebra",
+        "title": "Understanding that if AB = 0, then A = 0 or B = 0 (or both)."
+      },
+      {
+        "id": "a8c4f7e5-3a76-4b43-b78a-8c4a8f7e5a77",
+        "label": "Solving quadratics by factoring",
+        "group": "Algebra",
+        "title": "Factor the quadratic, then use zero product property to find solutions."
+      },
+      {
+        "id": "b3d6a9f2-7e59-4c86-a97e-3d6b3a9f2e58",
+        "label": "Applying zero product property after factoring",
+        "group": "Algebra",
+        "title": "Setting each factor equal to zero and solving the resulting linear equations."
+      },
+      {
+        "id": "c5e8b4d7-4f42-4d73-c84f-5e8c5b4d7f43",
+        "label": "Why we complete the square",
+        "group": "Algebra",
+        "title": "Understanding that we want to create a perfect square to take square roots."
+      },
+      {
+        "id": "d7f3c6a9-6b65-4f58-b76b-7f3d7c6a9b66",
+        "label": "Completing square for x² + bx",
+        "group": "Algebra",
+        "title": "Adding (b/2)² to make x² + bx + (b/2)² = (x + b/2)²."
+      },
+      {
+        "id": "e9a5f8d2-8c47-4b84-a68c-9a5e9f8d2c48",
+        "label": "Step-by-step completing the square",
+        "group": "Algebra",
+        "title": "1) Move constant to right 2) Add (b/2)² to both sides 3) Factor left side 4) Take square root."
+      },
+      {
+        "id": "f2b7e4c8-5d69-4f75-c95d-2b7f2e4c8d68",
+        "label": "Completing the square method",
+        "group": "Algebra",
+        "title": "Complete systematic method for solving quadratics by creating perfect square trinomials."
+      },
+      {
+        "id": "a4c8f5b6-9e53-4d42-b79e-4c8a4f5b6e54",
+        "label": "Taking square root of both sides",
+        "group": "Algebra",
+        "title": "Understanding that √(x²) = ±x, so we get two solutions from taking square roots."
+      },
+      {
+        "id": "b6d2a7f9-3f76-4c58-a63f-6d2b6a7f9f77",
+        "label": "Understanding quadratic formula components",
+        "group": "Algebra",
+        "title": "Identifying a, b, c in ax² + bx + c = 0 and understanding the formula structure."
+      },
+      {
+        "id": "c8e4b9d5-7a64-4f87-c74a-8e4c8b9d5a65",
+        "label": "Quadratic formula",
+        "group": "Algebra",
+        "title": "x = (-b ± √(b² - 4ac)) / (2a) for solving any quadratic equation."
+      },
+      {
+        "id": "d3f6c2e8-4b59-4d73-b84b-3f6d3c2e8b58",
+        "label": "Substituting values into quadratic formula",
+        "group": "Algebra",
+        "title": "Carefully substituting a, b, c values, paying attention to negative signs."
+      },
+      {
+        "id": "e5a8f4d7-6c46-4f62-a76c-5a8e5f4d7c47",
+        "label": "Simplifying quadratic formula results",
+        "group": "Algebra",
+        "title": "Simplifying radicals and fractions in the final answer."
+      },
+      {
+        "id": "f7b3e6c9-8d72-4b95-c98d-7b3f7e6c9d73",
+        "label": "Understanding the discriminant",
+        "group": "Algebra",
+        "title": "Recognizing b² - 4ac as the discriminant that determines nature of roots."
+      },
+      {
+        "id": "a9c5f8e4-5a65-4d48-b75a-9c5a9f8e4a66",
+        "label": "Discriminant of a quadratic equation",
+        "group": "Algebra",
+        "title": "Calculating b² - 4ac to determine the nature of the roots."
+      },
+      {
+        "id": "b2d7a4f6-9e83-4c57-a69e-2d7b2a4f6e84",
+        "label": "Discriminant > 0: two real roots",
+        "group": "Algebra",
+        "title": "When b² - 4ac > 0, the quadratic has two distinct real solutions."
+      },
+      {
+        "id": "c4e9b6d8-3f74-4f46-c83f-4e9c4b6d8f75",
+        "label": "Discriminant = 0: one repeated root",
+        "group": "Algebra",
+        "title": "When b² - 4ac = 0, the quadratic has one repeated real solution."
+      },
+      {
+        "id": "d6f2c8a5-7b67-4d59-b67b-6f2d6c8a5b68",
+        "label": "Discriminant < 0: no real roots",
+        "group": "Algebra",
+        "title": "When b² - 4ac < 0, the quadratic has no real solutions (complex solutions)."
+      },
+      {
+        "id": "e8a4f7d9-4c58-4f72-a74c-8a4e8f7d9c59",
+        "label": "Nature of quadratic roots",
+        "group": "Algebra",
+        "title": "Using discriminant to predict the type and number of solutions before solving."
+      },
+      {
+        "id": "f3b6e9c2-6d43-4b85-c96d-3b6f3e9c2d44",
+        "label": "Sum and product of quadratic roots",
+        "group": "Algebra",
+        "title": "For ax² + bx + c = 0: sum = -b/a, product = c/a."
+      },
+      {
+        "id": "a5c9f2d7-8e56-4f68-b78e-5c9a5f2d7e57",
+        "label": "Forming quadratic from given roots",
+        "group": "Algebra",
+        "title": "If roots are p and q, then equation is (x - p)(x - q) = 0."
+      },
+      {
+        "id": "b7d4a6f8-5f79-4c42-a65f-7d4b7a6f8f78",
+        "label": "Expanding (x - p)(x - q) form",
+        "group": "Algebra",
+        "title": "Expanding factored form to get standard form ax² + bx + c = 0."
+      },
+      {
+        "id": "c9e6b8d3-9a64-4d75-c89a-9e6c9b8d3a65",
+        "label": "Understanding coordinate system",
+        "group": "Algebra",
+        "title": "Understanding x-axis (horizontal), y-axis (vertical), and ordered pairs (x, y)."
+      },
+      {
+        "id": "d2f8c5a7-3b52-4f87-b83b-2f8d2c5a7b53",
+        "label": "Plotting points on coordinate plane",
+        "group": "Algebra",
+        "title": "Locating and marking points using x and y coordinates."
+      },
+      {
+        "id": "e4a7f9d6-7c73-4b46-a67c-4a7e4f9d6c74",
+        "label": "Identifying linear vs non-linear relationships",
+        "group": "Algebra",
+        "title": "Recognizing that linear relationships form straight lines when graphed."
+      },
+      {
+        "id": "f6b3e5c8-4d68-4f59-c74d-6b3f6e5c8d69",
+        "label": "Understanding slope as rate of change",
+        "group": "Algebra",
+        "title": "Recognizing slope as how much y changes for each unit change in x."
+      },
+      {
+        "id": "a8c7f4e2-6f85-4b72-b86f-8c7a8f4e2f86",
+        "label": "Slope as rise over run",
+        "group": "Algebra",
+        "title": "Calculating slope as vertical change divided by horizontal change."
+      },
+      {
+        "id": "b3d9a6f5-9e54-4c67-a69e-3d9b3a6f5e55",
+        "label": "Finding slope from two points",
+        "group": "Algebra",
+        "title": "Using m = (y₂ - y₁)/(x₂ - x₁) to calculate slope from coordinates."
+      },
+      {
+        "id": "c5e2b8d4-2a76-4f83-c82a-5e2c5b8d4a77",
+        "label": "Understanding positive slope",
+        "group": "Algebra",
+        "title": "Recognizing that positive slope means line goes up from left to right."
+      },
+      {
+        "id": "d7f4c6a9-5b69-4d58-b75b-7f4d7c6a9b68",
+        "label": "Understanding negative slope",
+        "group": "Algebra",
+        "title": "Recognizing that negative slope means line goes down from left to right."
+      },
+      {
+        "id": "e9a6f3d2-8c47-4f74-a68c-9a6e9f3d2c48",
+        "label": "Zero slope for horizontal lines",
+        "group": "Algebra",
+        "title": "Understanding that horizontal lines have slope = 0 and equation y = constant."
+      },
+      {
+        "id": "f2b8e5c7-4d63-4b89-c94d-2b8f2e5c7d64",
+        "label": "Undefined slope for vertical lines",
+        "group": "Algebra",
+        "title": "Understanding that vertical lines have undefined slope and equation x = constant."
+      },
+      {
+        "id": "a4c7f9e6-6f52-4d45-b76f-4c7a4f9e6f53",
+        "label": "Understanding y-intercept",
+        "group": "Algebra",
+        "title": "Recognizing y-intercept as where line crosses y-axis (when x = 0)."
+      },
+      {
+        "id": "b6d3a8f4-9e75-4c68-a89e-6d3b6a8f4e76",
+        "label": "Understanding x-intercept",
+        "group": "Algebra",
+        "title": "Recognizing x-intercept as where line crosses x-axis (when y = 0)."
+      },
+      {
+        "id": "c8e5b2d7-3a64-4f57-c73a-8e5c8b2d7a65",
+        "label": "Slope-intercept form y = mx + c",
+        "group": "Algebra",
+        "title": "Understanding that m is slope and c is y-intercept in this form."
+      },
+      {
+        "id": "d3f7c9a6-7b83-4d46-b87b-3f7d3c9a6b84",
+        "label": "Graphing lines using slope-intercept form",
+        "group": "Algebra",
+        "title": "Starting at y-intercept and using slope to find additional points."
+      },
+      {
+        "id": "e5a4f6d8-4c59-4f72-a74c-5a4e5f6d8c58",
+        "label": "Understanding point-slope form",
+        "group": "Algebra",
+        "title": "Using y - y₁ = m(x - x₁) when given a point and slope."
+      },
+      {
+        "id": "f7b6e9c2-6d48-4b85-c96d-7b6f7e9c2d49",
+        "label": "Finding equation from point and slope",
+        "group": "Algebra",
+        "title": "Using point-slope form then converting to slope-intercept form."
+      },
+      {
+        "id": "a9c2f5d7-8e67-4f54-b78e-9c2a9f5d7e68",
+        "label": "Finding equation from two points",
+        "group": "Algebra",
+        "title": "Finding slope first, then using point-slope form with either point."
+      },
+      {
+        "id": "b4d8a3f6-5f73-4c49-a65f-4d8b4a3f6f74",
+        "label": "General form ax + by + c = 0",
+        "group": "Algebra",
+        "title": "Understanding standard form of linear equation where A, B, C are integers."
+      },
+      {
+        "id": "c6e7b9d4-9a56-4d78-c89a-6e7c6b9d4a57",
+        "label": "Converting between forms of linear equations",
+        "group": "Algebra",
+        "title": "Converting between slope-intercept, point-slope, and general forms."
+      },
+      {
+        "id": "d8f3c6a2-2b84-4f65-b82b-8f3d8c6a2b85",
+        "label": "Parallel lines have same slope",
+        "group": "Algebra",
+        "title": "Understanding that parallel lines never intersect and have equal slopes."
+      },
+      {
+        "id": "e3a5f8d9-6c47-4b72-a76c-3a5e3f8d9c48",
+        "label": "Perpendicular lines have negative reciprocal slopes",
+        "group": "Algebra",
+        "title": "Understanding that if m₁ × m₂ = -1, then lines are perpendicular."
+      },
+      {
+        "id": "f5b7e4c6-8d69-4f58-c98d-5b7f5e4c6d68",
+        "label": "Finding parallel and perpendicular line equations",
+        "group": "Algebra",
+        "title": "Using slope relationships to find equations of parallel or perpendicular lines."
+      },
+      {
+        "id": "a7c9f2e8-4f53-4d84-b74f-7c9a7f2e8f54",
+        "label": "Recognizing parabola shape",
+        "group": "Algebra",
+        "title": "Understanding that quadratic functions create U-shaped or upside-down U curves."
+      },
+      {
+        "id": "b2d6a5f3-9e76-4c67-a89e-2d6b2a5f3e77",
+        "label": "Direction of parabola opening",
+        "group": "Algebra",
+        "title": "If a > 0, parabola opens upward; if a < 0, parabola opens downward."
+      },
+      {
+        "id": "c4e8b7d5-3a64-4f49-c73a-4e8c4b7d5a65",
+        "label": "Quadratic function vs equation",
+        "group": "Algebra",
+        "title": "Understanding difference between y = ax² + bx + c (function) and ax² + bx + c = 0 (equation)."
+      },
+      {
+        "id": "d6f3c9a7-7b58-4d72-b87b-6f3d6c9a7b59",
+        "label": "Understanding vertex as turning point",
+        "group": "Algebra",
+        "title": "Recognizing vertex as the highest or lowest point on the parabola."
+      },
+      {
+        "id": "e8a2f5d4-4c83-4f65-a74c-8a2e8f5d4c84",
+        "label": "Vertex coordinates",
+        "group": "Algebra",
+        "title": "Finding vertex using x = -b/(2a), then substituting to find y-coordinate."
+      },
+      {
+        "id": "f3b4e7c9-6d46-4b78-c96d-3b4f3e7c9d47",
+        "label": "Vertex form y = a(x - h)² + k",
+        "group": "Algebra",
+        "title": "Understanding that vertex is at (h, k) in this form."
+      },
+      {
+        "id": "a5c7f9d6-8e69-4f54-b78e-5c7a5f9d6e68",
+        "label": "Converting to vertex form by completing square",
+        "group": "Algebra",
+        "title": "Using completing the square to rewrite in vertex form."
+      },
+      {
+        "id": "b7d2a6f8-5f72-4c47-a65f-7d2b7a6f8f73",
+        "label": "Minimum point identification",
+        "group": "Algebra",
+        "title": "Recognizing minimum occurs when a > 0 (parabola opens upward)."
+      },
+      {
+        "id": "c9e4b8d3-9a85-4d56-c89a-9e4c9b8d3a86",
+        "label": "Maximum point identification",
+        "group": "Algebra",
+        "title": "Recognizing maximum occurs when a < 0 (parabola opens downward)."
+      },
+      {
+        "id": "d2f6c5a9-3b74-4f68-b83b-2f6d2c5a9b75",
+        "label": "Axis of symmetry",
+        "group": "Algebra",
+        "title": "Understanding that parabola is symmetric about vertical line x = -b/(2a)."
+      },
+      {
+        "id": "e4a8f3d7-7c59-4b43-a67c-4a8e4f3d7c58",
+        "label": "Y-intercept of quadratic",
+        "group": "Algebra",
+        "title": "Finding y-intercept by setting x = 0, giving y = c."
+      },
+      {
+        "id": "f6b9e5c2-4d82-4f57-c94d-6b9f6e5c2d83",
+        "label": "X-intercepts of quadratic",
+        "group": "Algebra",
+        "title": "Finding x-intercepts by solving ax² + bx + c = 0."
+      },
+      {
+        "id": "a8c3f7e6-6f64-4b78-b86f-8c3a8f7e6f65",
+        "label": "Relationship between intercepts and roots",
+        "group": "Algebra",
+        "title": "Understanding that x-intercepts of y = ax² + bx + c are the roots of ax² + bx + c = 0."
+      },
+      {
+        "id": "b3d5a9f4-9e47-4c83-a69e-3d5b3a9f4e48",
+        "label": "Sketching parabola using key points",
+        "group": "Algebra",
+        "title": "Using vertex, intercepts, and axis of symmetry to sketch accurate parabola."
+      },
+      {
+        "id": "c5e7b2d8-2a76-4f59-c82a-5e7c5b2d8a77",
+        "label": "Domain and range of quadratic functions",
+        "group": "Algebra",
+        "title": "Domain: all real numbers; Range: depends on vertex and direction of opening."
+      },
+      {
+        "id": "d7f4c6a3-5b68-4d72-b75b-7f4d7c6a3b69",
+        "label": "Creating table of values for parabola",
+        "group": "Algebra",
+        "title": "Choosing x-values around vertex to create systematic table for graphing."
+      },
+      {
+        "id": "e9a6f8d5-8c54-4f46-a68c-9a6e9f8d5c55",
+        "label": "Using symmetry when graphing parabolas",
+        "group": "Algebra",
+        "title": "Using axis of symmetry to find corresponding points on either side of vertex."
+      },
+      {
+        "id": "f2b8e4c7-4d73-4b89-c94d-2b8f2e4c7d74",
+        "label": "Inequality symbols and meaning",
+        "group": "Algebra",
+        "title": "Understanding <, >, ≤, ≥ symbols and their meanings in mathematical expressions."
+      },
+      {
+        "id": "a4c6f9e2-6f85-4d45-b76f-4c6a4f9e2f86",
+        "label": "Difference between inequalities and equations",
+        "group": "Algebra",
+        "title": "Understanding that inequalities show ranges of values, not exact values."
+      },
+      {
+        "id": "b6d8a3f7-9e52-4c68-a89e-6d8b6a3f7e53",
+        "label": "Understanding solution sets",
+        "group": "Algebra",
+        "title": "Recognizing that inequalities have many solutions, often expressed as intervals."
+      },
+      {
+        "id": "c8e5b7d4-3a67-4f57-c73a-8e5c8b7d4a68",
+        "label": "Representing inequalities on number line",
+        "group": "Algebra",
+        "title": "Using open/closed circles and arrows to show solution sets on number line."
+      },
+      {
+        "id": "d3f7c2a6-7b84-4d49-b87b-3f7d3c2a6b85",
+        "label": "Interval notation for inequalities",
+        "group": "Algebra",
+        "title": "Writing solution sets using interval notation like [a, b) or (-∞, c]."
+      },
+      {
+        "id": "e5a9f6d8-4c73-4f62-a74c-5a9e5f6d8c74",
+        "label": "Adding/subtracting same number to inequalities",
+        "group": "Algebra",
+        "title": "Understanding that adding or subtracting same number preserves inequality direction."
+      },
+      {
+        "id": "f7b4e8c5-6d59-4b75-c96d-7b4f7e8c5d58",
+        "label": "Multiplying/dividing by positive numbers",
+        "group": "Algebra",
+        "title": "Understanding that multiplying/dividing by positive numbers preserves inequality direction."
+      },
+      {
+        "id": "a9c6f3d2-8e46-4f84-b78e-9c6a9f3d2e47",
+        "label": "Multiplying/dividing by negative numbers",
+        "group": "Algebra",
+        "title": "Understanding that multiplying/dividing by negative numbers reverses inequality direction."
+      },
+      {
+        "id": "b2d8a5f9-5f71-4c57-a65f-2d8b2a5f9f72",
+        "label": "Complete rules for manipulating inequalities",
+        "group": "Algebra",
+        "title": "All rules for adding, subtracting, multiplying, and dividing inequalities."
+      },
+      {
+        "id": "c4e3b9d7-9a68-4d43-c89a-4e3c4b9d7a69",
+        "label": "Solving one-step inequalities",
+        "group": "Algebra",
+        "title": "Solving inequalities like x + 3 > 7 or 2x ≤ 10 using single operations."
+      },
+      {
+        "id": "d6f5c7a4-2b85-4f56-b82b-6f5d6c7a4b86",
+        "label": "Solving two-step inequalities",
+        "group": "Algebra",
+        "title": "Solving inequalities like 2x + 3 < 11 using multiple operations."
+      },
+      {
+        "id": "e8a7f2d6-6c74-4b89-a76c-8a7e8f2d6c75",
+        "label": "Multi-step linear inequalities",
+        "group": "Algebra",
+        "title": "Solving complex linear inequalities with variables on both sides."
+      },
+      {
+        "id": "f3b9e6c8-4d63-4f52-c94d-3b9f3e6c8d64",
+        "label": "Compound inequalities with 'and'",
+        "group": "Algebra",
+        "title": "Solving inequalities like -3 < 2x + 1 < 7 (intersection of conditions)."
+      },
+      {
+        "id": "a5c2f8d5-8e49-4d78-b78e-5c2a5f8d5e48",
+        "label": "Compound inequalities with 'or'",
+        "group": "Algebra",
+        "title": "Solving inequalities like x < -2 or x > 5 (union of conditions)."
+      },
+      {
+        "id": "b7d4a6f3-5f86-4c67-a65f-7d4b7a6f3f87",
+        "label": "Graphing compound inequalities",
+        "group": "Algebra",
+        "title": "Representing and/or compound inequalities on number lines."
+      },
+      {
+        "id": "c9e6b8d2-9a75-4f54-c89a-9e6c9b8d2a76",
+        "label": "Understanding quadratic inequalities",
+        "group": "Algebra",
+        "title": "Recognizing inequalities involving quadratic expressions like x² + 3x - 4 > 0."
+      },
+      {
+        "id": "d2f8c5a7-3b62-4d89-b83b-2f8d2c5a7b63",
+        "label": "Finding critical points",
+        "group": "Algebra",
+        "title": "Finding where quadratic expression equals zero (the boundary points)."
+      },
+      {
+        "id": "e4a3f7d9-7c48-4f73-a67c-4a3e4f7d9c49",
+        "label": "Sign chart method for quadratic inequalities",
+        "group": "Algebra",
+        "title": "Testing sign of expression in each interval between critical points."
+      },
+      {
+        "id": "f6b5e9c4-4d87-4b56-c94d-6b5f6e9c4d88",
+        "label": "Solving quadratic inequalities completely",
+        "group": "Algebra",
+        "title": "Complete process: factor, find critical points, test intervals, write solution."
+      },
+      {
+        "id": "a8c7f2e6-6f74-4d42-b86f-8c7a8f2e6f75",
+        "label": "Interpreting inequalities graphically",
+        "group": "Algebra",
+        "title": "Understanding that y > f(x) means points above the graph."
+      },
+      {
+        "id": "b3d9a5f8-9e53-4c85-a69e-3d9b3a5f8e54",
+        "label": "Using graphs to solve inequalities",
+        "group": "Algebra",
+        "title": "Reading solution sets from graphs by identifying relevant regions."
+      },
+      {
+        "id": "c5e2b7d4-2a79-4f68-c82a-5e2c5b7d4a78",
+        "label": "Understanding what a sequence is",
+        "group": "Algebra",
+        "title": "Recognizing sequences as ordered lists of numbers following a pattern."
+      },
+      {
+        "id": "d7f4c9a6-5b66-4d57-b75b-7f4d7c9a6b67",
+        "label": "Understanding term and position",
+        "group": "Algebra",
+        "title": "Recognizing that each number in sequence has a position (1st, 2nd, 3rd, etc.)."
+      },
+      {
+        "id": "e9a6f3d8-8c45-4f84-a68c-9a6e9f3d8c46",
+        "label": "Recognizing arithmetic sequences",
+        "group": "Algebra",
+        "title": "Identifying sequences where consecutive terms have constant difference."
+      },
+      {
+        "id": "f2b8e5c7-4d72-4b89-c94d-2b8f2e5c7d73",
+        "label": "Finding common difference",
+        "group": "Algebra",
+        "title": "Calculating d by subtracting consecutive terms: d = a₂ - a₁."
+      },
+      {
+        "id": "a4c6f9e2-6f58-4d45-b76f-4c6a4f9e2f59",
+        "label": "Understanding arithmetic sequences",
+        "group": "Algebra",
+        "title": "Recognizing pattern and structure of arithmetic sequences."
+      },
+      {
+        "id": "b6d8a3f7-9e84-4c68-a89e-6d8b6a3f7e85",
+        "label": "First term notation a₁",
+        "group": "Algebra",
+        "title": "Understanding that a₁ (or a) represents the first term of the sequence."
+      },
+      {
+        "id": "c8e5b7d4-3a61-4f57-c73a-8e5c8b7d4a62",
+        "label": "nth term formula for arithmetic sequences",
+        "group": "Algebra",
+        "title": "Using aₙ = a₁ + (n-1)d to find any term in arithmetic sequence."
+      },
+      {
+        "id": "d3f7c2a9-7b77-4d49-b87b-3f7d3c2a9b78",
+        "label": "Finding specific terms in arithmetic sequences",
+        "group": "Algebra",
+        "title": "Using nth term formula to find particular terms like 10th term, 25th term."
+      },
+      {
+        "id": "e5a9f6d5-4c93-4f62-a74c-5a9e5f6d5c94",
+        "label": "Finding position when given term value",
+        "group": "Algebra",
+        "title": "Using nth term formula to find which position has a given value."
+      },
+      {
+        "id": "f7b4e8c2-6d56-4b75-c96d-7b4f7e8c2d57",
+        "label": "Understanding difference between series and sequence",
+        "group": "Algebra",
+        "title": "Sequence is list of terms; series is sum of terms."
+      },
+      {
+        "id": "a9c6f3d8-8e82-4f84-b78e-9c6a9f3d8e83",
+        "label": "Arithmetic series concept",
+        "group": "Algebra",
+        "title": "Understanding arithmetic series as sum of arithmetic sequence terms."
+      },
+      {
+        "id": "b2d8a5f4-5f65-4c57-a65f-2d8b2a5f4f66",
+        "label": "Partial sum notation Sₙ",
+        "group": "Algebra",
+        "title": "Understanding that Sₙ represents sum of first n terms."
+      },
+      {
+        "id": "c4e3b9d7-9a48-4d43-c89a-4e3c4b9d7a49",
+        "label": "Sum formula for arithmetic series",
+        "group": "Algebra",
+        "title": "Using Sₙ = n/2[2a + (n-1)d] or Sₙ = n/2(first + last)."
+      },
+      {
+        "id": "d6f5c7a3-2b71-4f56-b82b-6f5d6c7a3b72",
+        "label": "Choosing appropriate sum formula",
+        "group": "Algebra",
+        "title": "Use Sₙ = n/2[2a + (n-1)d] when given a and d; use Sₙ = n/2(first + last) when given endpoints."
+      },
+      {
+        "id": "e8a7f2d6-6c94-4b89-a76c-8a7e8f2d6c95",
+        "label": "Recognizing geometric sequences",
+        "group": "Algebra",
+        "title": "Identifying sequences where consecutive terms have constant ratio."
+      },
+      {
+        "id": "f3b9e6c8-4d57-4f52-c94d-3b9f3e6c8d58",
+        "label": "Finding common ratio",
+        "group": "Algebra",
+        "title": "Calculating r by dividing consecutive terms: r = a₂/a₁."
+      },
+      {
+        "id": "a5c2f8d5-8e73-4d78-b78e-5c2a5f8d5e74",
+        "label": "Understanding geometric sequences",
+        "group": "Algebra",
+        "title": "Recognizing pattern and structure of geometric sequences."
+      },
+      {
+        "id": "b7d4a6f3-5f46-4c67-a65f-7d4b7a6f3f47",
+        "label": "nth term formula for geometric sequences",
+        "group": "Algebra",
+        "title": "Using aₙ = a₁ × r^(n-1) to find any term in geometric sequence."
+      },
+      {
+        "id": "c9e6b8d2-9a89-4f54-c89a-9e6c9b8d2a88",
+        "label": "Understanding geometric growth and decay",
+        "group": "Algebra",
+        "title": "Recognizing that r > 1 gives growth, 0 < r < 1 gives decay."
+      },
+      {
+        "id": "d2f8c5a7-3b52-4d89-b83b-2f8d2c5a7b53",
+        "label": "Geometric series concept",
+        "group": "Algebra",
+        "title": "Understanding geometric series as sum of geometric sequence terms."
+      },
+      {
+        "id": "e4a3f7d9-7c75-4f73-a67c-4a3e4f7d9c76",
+        "label": "Sum of finite geometric series",
+        "group": "Algebra",
+        "title": "Using Sₙ = a(rⁿ - 1)/(r - 1) when r ≠ 1."
+      },
+      {
+        "id": "f6b5e9c4-4d68-4b56-c94d-6b5f6e9c4d69",
+        "label": "Understanding convergent series",
+        "group": "Algebra",
+        "title": "Recognizing when infinite geometric series has finite sum (when |r| < 1)."
+      },
+      {
+        "id": "a8c7f2e6-6f51-4d42-b86f-8c7a8f2e6f52",
+        "label": "Sum of infinite geometric series",
+        "group": "Algebra",
+        "title": "Using S = a/(1 - r) when |r| < 1 for infinite geometric series."
+      },
+      {
+        "id": "b3d9a5f8-9e74-4c85-a69e-3d9b3a5f8e75",
+        "label": "Understanding exponential functions",
+        "group": "Algebra",
+        "title": "Recognizing functions of the form y = aˣ where base is constant, exponent is variable."
+      },
+      {
+        "id": "c5e2b7d4-2a67-4f68-c82a-5e2c5b7d4a68",
+        "label": "Exponential vs polynomial functions",
+        "group": "Algebra",
+        "title": "Understanding difference between aˣ (exponential) and xᵃ (polynomial)."
+      },
+      {
+        "id": "d7f4c9a6-5b93-4d57-b75b-7f4d7c9a6b94",
+        "label": "Exponential equations with same base",
+        "group": "Algebra",
+        "title": "Solving aˣ = aʸ by equating exponents: x = y."
+      },
+      {
+        "id": "e9a6f3d8-8c56-4f84-a68c-9a6e9f3d8c57",
+        "label": "Steps for same-base exponential equations",
+        "group": "Algebra",
+        "title": "1) Express both sides with same base 2) Equate exponents 3) Solve resulting equation."
+      },
+      {
+        "id": "f2b8e5c7-4d79-4b89-c94d-2b8f2e5c7d78",
+        "label": "More complex exponential equations",
+        "group": "Algebra",
+        "title": "Solving exponential equations that require factoring or substitution."
+      },
+      {
+        "id": "a4c6f9e2-6f42-4d45-b76f-4c6a4f9e2f43",
+        "label": "Logarithm as inverse of exponential",
+        "group": "Algebra",
+        "title": "Understanding that log and exponential functions undo each other."
+      },
+      {
+        "id": "b6d8a3f7-9e65-4c68-a89e-6d8b6a3f7e66",
+        "label": "Definition of logarithm",
+        "group": "Algebra",
+        "title": "Understanding that log_a(x) = y means aʸ = x."
+      },
+      {
+        "id": "c8e5b7d4-3a88-4f57-c73a-8e5c8b7d4a89",
+        "label": "Logarithmic function notation",
+        "group": "Algebra",
+        "title": "Understanding notation log_a(x) and special cases log(x) = log₁₀(x), ln(x) = log_e(x)."
+      },
+      {
+        "id": "d3f7c2a9-7b53-4d49-b87b-3f7d3c2a9b54",
+        "label": "Converting between exponential and logarithmic form",
+        "group": "Algebra",
+        "title": "Converting aʸ = x to y = log_a(x) and vice versa."
+      },
+      {
+        "id": "e5a9f6d5-4c76-4f62-a74c-5a9e5f6d5c77",
+        "label": "Logarithm product rule",
+        "group": "Algebra",
+        "title": "Understanding that log(xy) = log(x) + log(y)."
+      },
+      {
+        "id": "f7b4e8c2-6d99-4b75-c96d-7b4f7e8c2d98",
+        "label": "Logarithm quotient rule",
+        "group": "Algebra",
+        "title": "Understanding that log(x/y) = log(x) - log(y)."
+      },
+      {
+        "id": "a9c6f3d8-8e62-4f84-b78e-9c6a9f3d8e63",
+        "label": "Logarithm power rule",
+        "group": "Algebra",
+        "title": "Understanding that log(xⁿ) = n·log(x)."
+      },
+      {
+        "id": "b2d8a5f4-5f85-4c57-a65f-2d8b2a5f4f86",
+        "label": "All laws of logarithms",
+        "group": "Algebra",
+        "title": "Complete set of logarithm rules for products, quotients, and powers."
+      },
+      {
+        "id": "3a1937e2-df56-4574-a05d-4ccef87176a0",
+        "label": "Expanding logarithmic expressions",
+        "group": "Algebra",
+        "title": "Using logarithm rules to expand expressions like log(x²y/z)."
+      },
+      {
+        "id": "d535db44-4e8c-412e-acee-681b3cbf778c",
+        "label": "Condensing logarithmic expressions",
+        "group": "Algebra",
+        "title": "Combining multiple logarithms into single logarithm using rules."
+      },
+      {
+        "id": "e490e83e-d07e-485f-aed0-e3c496c1dee5",
+        "label": "Basic logarithmic equations",
+        "group": "Algebra",
+        "title": "Solving equations like log(x) = 3 by converting to exponential form."
+      },
+      {
+        "id": "35649796-3f6a-478a-8d6b-2e0ca615d218",
+        "label": "Logarithmic equations with same base",
+        "group": "Algebra",
+        "title": "Solving log_a(x) = log_a(y) by equating arguments: x = y."
+      },
+      {
+        "id": "2cb3d0e1-0cd8-4df8-8024-7fc935761615",
+        "label": "Change of base formula",
+        "group": "Algebra",
+        "title": "Converting log_a(x) = log_b(x)/log_b(a) to use calculator-friendly bases."
+      },
+      {
+        "id": "6361e577-655b-418e-9783-55668b6cdd15",
+        "label": "Understanding absolute value",
+        "group": "Algebra",
+        "title": "Understanding |x| as distance from zero, always non-negative."
+      },
+      {
+        "id": "08acff52-9f2b-4cb7-aabb-e80e0bc0bb32",
+        "label": "Absolute value definition",
+        "group": "Algebra",
+        "title": "Understanding |x| = x when x ≥ 0, and |x| = -x when x < 0."
+      },
+      {
+        "id": "308d08d0-5db6-4143-aa1a-1d14dc9e6e18",
+        "label": "Modulus function properties",
+        "group": "Algebra",
+        "title": "Understanding properties like |xy| = |x||y| and |x/y| = |x|/|y|."
+      },
+      {
+        "id": "99fa22b9-5ebb-4451-b9df-24cf66a78439",
+        "label": "Simple absolute value equations",
+        "group": "Algebra",
+        "title": "Solving |x| = a by considering x = a or x = -a (when a ≥ 0)."
+      },
+      {
+        "id": "731e2cc8-d7b7-4b6c-ae98-769915254fc0",
+        "label": "Basic modulus equations",
+        "group": "Algebra",
+        "title": "Solving |ax + b| = c by considering both positive and negative cases."
+      },
+      {
+        "id": "7b9f37dc-ea6e-471c-8df2-4a8a13496d38",
+        "label": "Complex modulus equations",
+        "group": "Algebra",
+        "title": "Solving equations with multiple absolute value expressions."
+      },
+      {
+        "id": "241ce722-344e-4fee-bf34-d67744d44154",
+        "label": "Absolute value inequalities",
+        "group": "Algebra",
+        "title": "Solving |x| < a (gives -a < x < a) and |x| > a (gives x < -a or x > a)."
+      },
+      {
+        "id": "338c56d9-3517-4631-bc06-6d2413e928ef",
+        "label": "Checking solutions in absolute value equations",
+        "group": "Algebra",
+        "title": "Verifying solutions by substituting back into original equation."
+      },
+      {
+        "id": "051438f2-0459-49a7-8af2-26ae14b08c33",
+        "label": "Recognizing when expression is algebraic",
+        "group": "Algebra",
+        "title": "Distinguishing algebraic expressions from arithmetic expressions by presence of variables."
+      },
+      {
+        "id": "630153d7-cf11-40d9-b24c-ba42cbbd4308",
+        "label": "Systematic term counting technique",
+        "group": "Algebra",
+        "title": "Looking for + and - signs to separate terms, remembering first term might not have visible sign."
+      },
+      {
+        "id": "376c331f-530e-4d2f-b9b0-c2713647d386",
+        "label": "Recognizing implicit coefficients",
+        "group": "Algebra",
+        "title": "Understanding that x means 1x and -x means -1x (coefficient of 1 is usually hidden)."
+      },
+      {
+        "id": "c7262aa8-66e1-45c1-8d4d-c673154cc4be",
+        "label": "Recognizing implied exponents",
+        "group": "Algebra",
+        "title": "Understanding that x means x¹ (exponent of 1 is usually hidden)."
+      },
+      {
+        "id": "a5146351-4572-4bb7-ad60-73b13a70cc09",
+        "label": "Finding degree of individual terms",
+        "group": "Algebra",
+        "title": "Adding exponents of all variables in a term to find its degree."
+      },
+      {
+        "id": "07357d70-7a13-4a10-b8f7-73116a2125d4",
+        "label": "Identifying leading term",
+        "group": "Algebra",
+        "title": "Finding the term with highest degree (usually written first in standard form)."
+      },
+      {
+        "id": "0866c8a4-cf2c-4503-af34-eaa7464d6de4",
+        "label": "Arranging polynomials in standard form",
+        "group": "Algebra",
+        "title": "Writing terms in descending order of degree (highest power first)."
+      },
+      {
+        "id": "eddcb13f-bfe1-4349-9d71-7d3db69e53af",
+        "label": "Recognizing missing terms in polynomials",
+        "group": "Algebra",
+        "title": "Understanding that x³ + 5x + 2 is missing the x² term (coefficient is 0)."
+      },
+      {
+        "id": "089ef9a7-b555-45e6-b1f9-26f55885339a",
+        "label": "Recognizing like terms with multiple variables",
+        "group": "Algebra",
+        "title": "Understanding that 3xy and -7xy are like terms, but 3xy and 3x²y are not."
+      },
+      {
+        "id": "972185e4-5b10-4d6a-bf58-656419ef3d26",
+        "label": "Handling signs when combining like terms",
+        "group": "Algebra",
+        "title": "Technique: treat the sign as part of the coefficient (3x + (-5x) = -2x)."
+      },
+      {
+        "id": "4455e69e-a9e9-4434-b357-5a0513c2e0c2",
+        "label": "Visual technique for distributive property",
+        "group": "Algebra",
+        "title": "Drawing arrows from outside term to each inside term to ensure nothing is missed."
+      },
+      {
+        "id": "6fdecc90-ad12-4b2a-83d7-5d0b3e0b15f4",
+        "label": "Distributive property with variables outside",
+        "group": "Algebra",
+        "title": "Applying distributive law when variable is outside: x(y + 3) = xy + 3x."
+      },
+      {
+        "id": "d67deb51-a7cd-4ee6-b0e0-67d4cbba497d",
+        "label": "Double negative rule in expansion",
+        "group": "Algebra",
+        "title": "Understanding that -(-x) = +x when expanding negative brackets."
+      },
+      {
+        "id": "25232aad-5d8d-4510-b2ec-7bf4a4b6fb15",
+        "label": "Common mistakes in bracket expansion",
+        "group": "Algebra",
+        "title": "Avoiding errors like 2(x + 3) = 2x + 3 (forgetting to multiply second term)."
+      },
+      {
+        "id": "0fa26d68-37fc-4859-91bb-eeac20901ae9",
+        "label": "Physical finger technique for FOIL",
+        "group": "Algebra",
+        "title": "Using fingers to point to terms being multiplied to avoid missing combinations."
+      },
+      {
+        "id": "e0766c4f-3368-4d54-b1dd-0e4659a97621",
+        "label": "Organizing FOIL calculations",
+        "group": "Algebra",
+        "title": "Writing F, O, I, L labels to systematically track which terms have been multiplied."
+      },
+      {
+        "id": "477cb4d1-9fb4-49ad-bf8b-297bcc9850ec",
+        "label": "Recognizing special products before expanding",
+        "group": "Algebra",
+        "title": "Checking if expression is (a+b)², (a-b)², or (a+b)(a-b) before using FOIL."
+      },
+      {
+        "id": "206494a0-3876-43a6-adb0-eb38f5f1a0c4",
+        "label": "Collecting middle terms in quadratic expansion",
+        "group": "Algebra",
+        "title": "Combining the O and I terms from FOIL to get the bx term in ax² + bx + c."
+      },
+      {
+        "id": "b358042b-6619-4698-b4b1-0c7766028a57",
+        "label": "Perfect square expansion shortcuts",
+        "group": "Algebra",
+        "title": "Using (a±b)² = a² ± 2ab + b² instead of FOIL for faster expansion."
+      },
+      {
+        "id": "9be90f0d-7d5e-4ecb-8746-3237c3d1f703",
+        "label": "GCF inspection technique",
+        "group": "Algebra",
+        "title": "Looking at each term to find largest number and highest variable power that divides all."
+      },
+      {
+        "id": "8ec70e0f-ad52-4e6a-ab59-4fcf753c273a",
+        "label": "Checking factoring by distributing back",
+        "group": "Algebra",
+        "title": "Multiplying factored form back out to verify it equals original expression."
+      },
+      {
+        "id": "70216645-13f0-49d6-b096-860a1258af60",
+        "label": "Strategic grouping for factoring by grouping",
+        "group": "Algebra",
+        "title": "Grouping first two and last two terms, or trying different groupings if first doesn't work."
+      },
+      {
+        "id": "3c144f67-0103-45c4-9fe1-38aacb059ddc",
+        "label": "Finding GCF within each group",
+        "group": "Algebra",
+        "title": "Taking out common factors from each group separately before looking for common binomial."
+      },
+      {
+        "id": "0decc56d-f5ee-4a0f-a43d-cb1bf7d94afc",
+        "label": "Recognizing common binomial factor",
+        "group": "Algebra",
+        "title": "Identifying when both groups have the same binomial factor after initial factoring."
+      },
+      {
+        "id": "36fa7f95-7bd4-442f-8283-b6153962ae26",
+        "label": "Visual pattern recognition for difference of squares",
+        "group": "Algebra",
+        "title": "Looking for 'something squared minus something else squared' pattern."
+      },
+      {
+        "id": "d45f83c3-ec97-49c7-993d-419537a2c37d",
+        "label": "Pattern recognition for perfect square trinomials",
+        "group": "Algebra",
+        "title": "Checking if first and last terms are perfect squares and middle term is twice their product."
+      },
+      {
+        "id": "4c6a5449-fced-4b5c-862b-853f1dd0c440",
+        "label": "Middle term check for perfect squares",
+        "group": "Algebra",
+        "title": "Verifying that middle coefficient equals 2√(first term × last term)."
+      },
+      {
+        "id": "326d4e6d-6227-4641-99c8-93b03fa4899f",
+        "label": "Listing factor pairs systematically",
+        "group": "Algebra",
+        "title": "Writing all factor pairs of c, then checking which pair adds to b."
+      },
+      {
+        "id": "4ce028ed-4dab-4d57-b273-f714c051d023",
+        "label": "Sign analysis for quadratic factoring",
+        "group": "Algebra",
+        "title": "If c > 0, factors have same sign as b; if c < 0, factors have opposite signs."
+      },
+      {
+        "id": "b14457ab-5634-42eb-920a-b572a06df707",
+        "label": "AC method: multiply a and c",
+        "group": "Algebra",
+        "title": "First step of AC method - calculate the product a×c."
+      },
+      {
+        "id": "605bae8b-80ed-45a1-9888-dc1ef2123363",
+        "label": "AC method: find factor pairs of ac",
+        "group": "Algebra",
+        "title": "List all factor pairs of ac that multiply to give ac."
+      },
+      {
+        "id": "0867e03e-e972-41d2-a1d8-707b015a90d7",
+        "label": "AC method: check which pair sums to b",
+        "group": "Algebra",
+        "title": "Test each factor pair to see which adds up to the middle coefficient b."
+      },
+      {
+        "id": "f6f6b0b6-3ac6-4948-a1bb-e1e1052dbc22",
+        "label": "AC method: split middle term",
+        "group": "Algebra",
+        "title": "Rewrite bx as the sum of the two factors found, creating four terms."
+      },
+      {
+        "id": "7921844c-e22e-4fe2-bd43-7671bb437d30",
+        "label": "AC method: group and factor",
+        "group": "Algebra",
+        "title": "Group the four terms in pairs and factor by grouping."
+      },
+      {
+        "id": "5dc60c74-b286-4a7a-a656-62bdda71a8f3",
+        "label": "Systematic trial and error for factoring",
+        "group": "Algebra",
+        "title": "Testing factor combinations in organized way rather than random guessing."
+      },
+      {
+        "id": "2e0d15e7-be97-4ab2-8598-e2a90933f98f",
+        "label": "Identifying domain restrictions for fractions",
+        "group": "Algebra",
+        "title": "Finding values that make denominator zero (these values are excluded from domain)."
+      },
+      {
+        "id": "2566ee01-be64-4a90-8ef3-6cf6f85621f3",
+        "label": "Always factor before canceling",
+        "group": "Algebra",
+        "title": "Factoring numerator and denominator completely before looking for common factors to cancel."
+      },
+      {
+        "id": "7e8a7d63-012a-4b41-8272-fff57092b8ae",
+        "label": "Canceling factors, not terms",
+        "group": "Algebra",
+        "title": "Understanding that only multiplied factors can be canceled, not added/subtracted terms."
+      },
+      {
+        "id": "7ea124da-33d6-4b9e-ba4d-ef0f96caecf8",
+        "label": "Cross multiplication for algebraic fractions",
+        "group": "Algebra",
+        "title": "Using cross multiplication when dividing fractions: (a/b) ÷ (c/d) = (a/b) × (d/c)."
+      },
+      {
+        "id": "3e90c9a5-9c81-428a-9f62-a9e3b656bb53",
+        "label": "Finding LCD for algebraic expressions",
+        "group": "Algebra",
+        "title": "Taking highest power of each factor that appears in any denominator."
+      },
+      {
+        "id": "41ab1f6a-d609-4a36-abed-d5f7a766a6fa",
+        "label": "Converting to common denominator technique",
+        "group": "Algebra",
+        "title": "Multiplying numerator and denominator by missing factors to achieve LCD."
+      },
+      {
+        "id": "05f2c1a5-30be-46a6-aa4e-88616617e970",
+        "label": "Identifying main fraction bar in complex fractions",
+        "group": "Algebra",
+        "title": "Recognizing which fraction bar represents the main division in complex fractions."
+      },
+      {
+        "id": "614b043c-5605-47b9-bb93-4cf965ddab5f",
+        "label": "Distinguishing equations from expressions",
+        "group": "Algebra",
+        "title": "Equations have equals signs and can be solved; expressions are simplified or evaluated."
+      },
+      {
+        "id": "fd96b7ad-a201-4d8d-aeb9-b26c3b2a7de1",
+        "label": "Understanding 'isolating the variable'",
+        "group": "Algebra",
+        "title": "Getting the variable by itself on one side of the equation."
+      },
+      {
+        "id": "6abebf9d-7ed3-4039-8123-6eb04e3c1bd0",
+        "label": "Order for undoing operations",
+        "group": "Algebra",
+        "title": "Undoing operations in reverse order of operations (PEMDAS backwards)."
+      },
+      {
+        "id": "0eece207-2848-4c3a-a2ba-9a8e8354bd3a",
+        "label": "Maintaining equation balance technique",
+        "group": "Algebra",
+        "title": "Always performing the same operation on both sides to keep equation true."
+      },
+      {
+        "id": "68957425-025f-40dc-83d6-93560f49ea11",
+        "label": "Recognizing when coefficient is 1",
+        "group": "Algebra",
+        "title": "Understanding when variable is isolated (coefficient = 1) vs. when more work is needed."
+      },
+      {
+        "id": "926909a8-84d1-4e44-9171-5b95d8aa1b64",
+        "label": "Clearing fraction coefficients",
+        "group": "Algebra",
+        "title": "Multiplying both sides by reciprocal to eliminate fraction coefficient of variable."
+      },
+      {
+        "id": "d3fd1d06-5f5b-415b-816d-48bf07b7c586",
+        "label": "Combining like terms within equations",
+        "group": "Algebra",
+        "title": "Simplifying each side of equation before attempting to isolate variable."
+      },
+      {
+        "id": "1f8e2d57-9092-4740-9586-7f059078713f",
+        "label": "Moving all variables to one side",
+        "group": "Algebra",
+        "title": "Adding or subtracting variable terms to collect them on one side of equation."
+      },
+      {
+        "id": "fd6b652a-ffd3-48ba-9abf-529b4ea3e43d",
+        "label": "Moving constants to opposite side",
+        "group": "Algebra",
+        "title": "Adding or subtracting constant terms to move them away from variables."
+      },
+      {
+        "id": "0d9fec23-da98-4850-b9ed-c8e0c02b1e2e",
+        "label": "Expanding brackets as first step in equations",
+        "group": "Algebra",
+        "title": "Using distributive property before attempting to solve equation."
+      },
+      {
+        "id": "3fc80db3-46a1-4555-afa8-36e1460ec60f",
+        "label": "Clearing fractions by multiplying by LCD",
+        "group": "Algebra",
+        "title": "Multiplying every term by LCD to eliminate all fractions at once."
+      },
+      {
+        "id": "5542b263-681c-45ac-8c6d-5f65edf274a9",
+        "label": "Substitution technique for checking",
+        "group": "Algebra",
+        "title": "Replacing variable with solution value in original equation to verify both sides equal."
+      },
+      {
+        "id": "88968044-f47d-4fbe-870c-a8ad4b7cdcce",
+        "label": "Recognizing no solution situations",
+        "group": "Algebra",
+        "title": "Identifying contradictions like 5 = 7 that indicate no solution exists."
+      },
+      {
+        "id": "1e12c67e-3ee4-4d7e-a5eb-0d8140298dff",
+        "label": "Recognizing infinite solution situations",
+        "group": "Algebra",
+        "title": "Identifying identities like 3 = 3 that indicate all values are solutions."
+      },
+      {
+        "id": "9b2ca6c2-c31d-4977-9248-900101ebaf6c",
+        "label": "Visual interpretation of simultaneous equations",
+        "group": "Algebra",
+        "title": "Understanding that solution is where two lines intersect on a graph."
+      },
+      {
+        "id": "42004a84-e098-4c2e-a345-35e070b71618",
+        "label": "Choosing between substitution and elimination",
+        "group": "Algebra",
+        "title": "Using substitution when one variable has coefficient 1; elimination when coefficients are multiples."
+      },
+      {
+        "id": "6281fb5d-7509-4ae3-83b6-68f0dde62da4",
+        "label": "Making the substitution in substitution method",
+        "group": "Algebra",
+        "title": "Carefully replacing every instance of chosen variable with the expression."
+      },
+      {
+        "id": "9ad632db-ece1-423e-a720-bdeb7552d29b",
+        "label": "Making coefficients match for elimination",
+        "group": "Algebra",
+        "title": "Multiplying equations by appropriate numbers to make coefficients opposites or equal."
+      },
+      {
+        "id": "6dd4ede0-8945-4e0c-ba56-700a36c14dfa",
+        "label": "Choosing addition vs subtraction in elimination",
+        "group": "Algebra",
+        "title": "Adding equations when coefficients are opposites; subtracting when coefficients are equal."
+      },
+      {
+        "id": "b286892e-afa5-4e18-8b71-b762f87e93f3",
+        "label": "Back-substitution technique",
+        "group": "Algebra",
+        "title": "Using found value of one variable to find the other variable."
+      },
+      {
+        "id": "cfa7c33c-b5fd-4bcd-9d86-5b4730879f57",
+        "label": "Verifying simultaneous equation solutions",
+        "group": "Algebra",
+        "title": "Checking that solution pair satisfies both original equations."
+      },
+      {
+        "id": "8e8873df-3ec7-4a29-8e02-3d710514f399",
+        "label": "Reading intersection coordinates from graph",
+        "group": "Algebra",
+        "title": "Accurately determining x and y coordinates where two lines cross."
+      },
+      {
+        "id": "7598241a-7742-4ced-8db0-13bed8b51375",
+        "label": "Systematic error checking techniques",
+        "group": "Algebra",
+        "title": "Double-checking work by using different methods or working backwards."
+      },
+      {
+        "id": "4432a84d-e9d9-4766-9383-c051fe579dd9",
+        "label": "Awareness of common algebraic mistakes",
+        "group": "Algebra",
+        "title": "Watching for errors like (x + y)² ≠ x² + y² and x/(x + y) ≠ 1/y."
+      },
+      {
+        "id": "d2b175f3-d92a-4068-bdec-ec0c6464f8db",
+        "label": "Preventing sign errors",
+        "group": "Algebra",
+        "title": "Extra care with negative signs, using parentheses, and double-checking sign changes."
+      },
+      {
+        "id": "4ffaccd7-f8fa-4355-94c9-d3a846e92beb",
+        "label": "Preventing fraction errors",
+        "group": "Algebra",
+        "title": "Being careful with fraction operations and always checking if simplification is possible."
+      }
+    ],
     "edges": [
       {
         "from": "a7f3d8e2-5b91-4c73-9a42-1e6f8d3c7b5a",

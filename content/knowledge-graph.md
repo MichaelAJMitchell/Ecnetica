@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Load simplified data
     document.getElementById('load-simplified').addEventListener('click', function() {
-        loadGraphData('/_static/small-graph-data.json');
+        loadGraphData('/_static/graph-data-simplified.json');
     });
 
     // Load full data
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Load full data by default
-    loadGraphData('/_static/graph-data.json');
+    loadGraphData('/_static/small-graph-data.json');
 });
 
 function loadGraphData(filename) {

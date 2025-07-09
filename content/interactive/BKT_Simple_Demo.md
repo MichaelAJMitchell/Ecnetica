@@ -1,4 +1,3 @@
-
 # BKT Simple Demo
 
 
@@ -212,14 +211,39 @@
         font-family: Arial, sans-serif !important;
         line-height: 1.5 !important;
       }
+
+      /* Legend styling */
+      .mastery-legend {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 10px 0;
+        border: 1px solid #dee2e6;
+      }
+      
+      .legend-item {
+        display: inline-block;
+        margin-right: 20px;
+        margin-bottom: 5px;
+      }
+      
+      .legend-color {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin-right: 8px;
+        vertical-align: middle;
+        border: 2px solid #333;
+      }
     </style>
 </head>
 <body>
     <div class="bkt-demo-container">
       <div class="container">
         <h1>🧠 BKT Algorithm Visual Demo</h1>
-        <p>This demo shows how Bayesian Knowledge Tracing works with a simple knowledge graph.
-           Students start with low mastery levels and improve through practice.</p>
+        <p>This demo shows how Bayesian Knowledge Tracing works with a dynamic knowledge graph.
+           As students answer questions, both their mastery levels and the graph colors update in real-time.</p>
         
         <div class="controls">
           <button onclick="initializeDemo()" class="primary-btn">🚀 Initialize BKT System</button>
@@ -237,12 +261,78 @@
       </div>
     </div>
 
-    
+    <div class="bkt-demo-container">
+      <div class="container">
+        <h2>📊 Knowledge Graph</h2>
+        <p>The graph colors reflect your current mastery levels. Practice questions to see the colors change!</p>
+        
+        <div class="mastery-legend">
+          <strong>Mastery Level Legend:</strong><br>
+          <div class="legend-item">
+            <span class="legend-color" style="background-color: #dc3545;"></span>
+            <span>Low Mastery (0-40%)</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-color" style="background-color: #ffc107;"></span>
+            <span>Medium Mastery (40-70%)</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-color" style="background-color: #28a745;"></span>
+            <span>High Mastery (70-100%)</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-color" style="background-color: #6c757d;"></span>
+            <span>Not Yet Studied</span>
+          </div>
+        </div>
+        
+        <div id="graph-container" style="width: 100%; height: 600px; border: 1px solid #ddd; border-radius: 4px;"></div>
+
+        <div id="controls" style="margin-top: 20px;">
+          <label for="strand-filter">Filter by Strand: </label>
+          <select id="strand-filter">
+            <option value="">All Strands</option>
+            <option value="Algebra">Algebra</option>
+            <option value="Geometry">Geometry</option>
+            <option value="Trigonometry">Trigonometry</option>
+            <option value="Calculus">Calculus</option>
+            <option value="Number">Number</option>
+            <option value="Statistics">Statistics</option>
+            <option value="Probability">Probability</option>
+            <option value="Coordinate Geometry">Coordinate Geometry</option>
+          </select>
+          
+          <button id="reset-view" style="margin-left: 10px;">Reset View</button>
+          <button id="toggle-physics" style="margin-left: 10px;">Toggle Physics</button>
+          <button id="load-simplified" style="margin-left: 10px;">Load Small Dense Graph</button>
+          <button id="load-full" style="margin-left: 10px;">Load Full</button>
+        </div>
+
+        <div id="node-info" style="margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-radius: 4px; display: none;">
+          <h4 id="node-title"></h4>
+          <p id="node-description"></p>
+          <p><strong>Strand:</strong> <span id="node-strand"></span></p>
+          <p><strong>Mastery Level:</strong> <span id="node-mastery"></span></p>
+        </div>
+
+        <div id="stats" style="margin-top: 20px; padding: 10px; background-color: #e9ecef; border-radius: 4px;">
+          <strong>Graph Statistics:</strong> <span id="node-count">0</span> nodes, <span id="edge-count">0</span> edges
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
     <script type="text/javascript">
       let pyodideInstance = null;
       let currentStudent = null;
       let currentMCQ = null;
       let selectedOption = null;
+      
+      // Global variables for knowledge graph
+      let network;
+      let currentData = {nodes: [], edges: []};
+      let currentMasteryLevels = {};
+      let topicIndexToNodeId = {}; // Maps BKT topic indices to graph node IDs
       
       function updateStatus(message, type = 'info') {
         const statusDiv = document.getElementById('status');
@@ -254,6 +344,81 @@
         const output = document.getElementById('output');
         output.textContent += message + '\n';
         output.scrollTop = output.scrollHeight;
+      }
+
+      // Function to get mastery-based color
+      function getMasteryColor(masteryLevel) {
+        if (masteryLevel === null || masteryLevel === undefined) {
+          return '#6c757d'; // Gray for not studied
+        }
+        
+        if (masteryLevel < 0.4) {
+          return '#dc3545'; // Red for low mastery
+        } else if (masteryLevel < 0.7) {
+          return '#ffc107'; // Yellow for medium mastery
+        } else {
+          return '#28a745'; // Green for high mastery
+        }
+      }
+
+      // Function to update graph colors based on mastery levels
+      async function updateGraphMasteryColors() {
+        if (!network || !currentStudent || !pyodideInstance) return;
+        
+        try {
+          // Get current mastery levels from Python
+          const masteryResult = await pyodideInstance.runPythonAsync(`
+            student = student_manager.get_student(current_student_id)
+            mastery_data = {}
+            topic_mapping = {}
+            
+            # Get mastery levels and topic names
+            for topic_idx in student.mastery_levels:
+                topic_name = kg.get_topic_of_index(topic_idx)
+                mastery_level = student.get_mastery(topic_idx)
+                mastery_data[topic_name] = mastery_level
+                topic_mapping[topic_idx] = topic_name
+            
+            js_export({
+                "mastery_levels": mastery_data,
+                "topic_mapping": topic_mapping
+            })
+          `);
+          
+          const masteryData = JSON.parse(masteryResult);
+          currentMasteryLevels = masteryData.mastery_levels;
+          
+          // Update node colors based on mastery levels
+          const updatedNodes = currentData.nodes.map(node => {
+            const masteryLevel = currentMasteryLevels[node.label];
+            const color = getMasteryColor(masteryLevel);
+            
+            return {
+              ...node,
+              color: {
+                background: color,
+                border: '#2B7CE9',
+                highlight: {
+                  background: color,
+                  border: '#2B7CE9'
+                },
+                hover: {
+                  background: color,
+                  border: '#2B7CE9'
+                }
+              }
+            };
+          });
+          
+          // Update the network with new colors
+          network.setData({nodes: updatedNodes, edges: currentData.edges});
+          currentData.nodes = updatedNodes;
+          
+          console.log('Graph colors updated based on mastery levels');
+          
+        } catch (error) {
+          console.error('Error updating graph mastery colors:', error);
+        }
       }
       
       async function initializeDemo() {
@@ -414,6 +579,9 @@
           document.getElementById('generateMCQBtn').disabled = false;
           document.getElementById('showGraphBtn').disabled = false;
           updateOutput(data.status);
+          
+          // Initialize the knowledge graph with mastery colors
+          await updateGraphMasteryColors();
           
         } catch (error) {
           updateStatus('❌ Failed to create student', 'error');
@@ -680,6 +848,9 @@
           const data = JSON.parse(result);
           displayResult(data);
           
+          // Update graph colors after answer is processed
+          await updateGraphMasteryColors();
+          
           // Reset for next question
           selectedOption = null;
           currentMCQ = null;
@@ -714,6 +885,7 @@
             <p><strong>After:</strong> ${(result.after_mastery * 100).toFixed(1)}%</p>
             <p><strong>Change:</strong> ${changeIcon} ${result.mastery_change > 0 ? '+' : ''}${(result.mastery_change * 100).toFixed(2)}%</p>
             <p><strong>Total Topics Updated:</strong> ${result.total_changes}</p>
+            <p><em>📊 Check the knowledge graph below to see the color changes!</em></p>
             
             <div class="progress-bar" style="margin: 10px 0;">
               <div class="progress-fill" style="width: ${result.after_mastery * 100}%; background-color: ${result.after_mastery > result.before_mastery ? '#28a745' : '#ffc107'};"></div>
@@ -786,231 +958,189 @@
         currentStudent = null;
         currentMCQ = null;
         selectedOption = null;
+        currentMasteryLevels = {};
+        
+        // Reset graph colors to default
+        if (network && currentData.nodes.length > 0) {
+          const resetNodes = currentData.nodes.map(node => ({
+            ...node,
+            color: '#6c757d' // Gray for reset state
+          }));
+          network.setData({nodes: resetNodes, edges: currentData.edges});
+          currentData.nodes = resetNodes;
+        }
       }
-    </script>
 
-<div id="graph-container" style="width: 100%; height: 600px; border: 1px solid #ddd; border-radius: 4px;"></div>
-
-<div id="controls" style="margin-top: 20px;">
-  <label for="strand-filter">Filter by Strand: </label>
-  <select id="strand-filter">
-    <option value="">All Strands</option>
-    <option value="Algebra">Algebra</option>
-    <option value="Geometry">Geometry</option>
-    <option value="Trigonometry">Trigonometry</option>
-    <option value="Calculus">Calculus</option>
-    <option value="Number">Number</option>
-    <option value="Statistics">Statistics</option>
-    <option value="Probability">Probability</option>
-    <option value="Coordinate Geometry">Coordinate Geometry</option>
-  </select>
-  
-  <button id="reset-view" style="margin-left: 10px;">Reset View</button>
-  <button id="toggle-physics" style="margin-left: 10px;">Toggle Physics</button>
-  <button id="load-simplified" style="margin-left: 10px;">Load Small Dense Graph</button>
-  <button id="load-full" style="margin-left: 10px;">Load Full</button>
-</div>
-
-<div id="node-info" style="margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-radius: 4px; display: none;">
-  <h4 id="node-title"></h4>
-  <p id="node-description"></p>
-  <p><strong>Strand:</strong> <span id="node-strand"></span></p>
-</div>
-
-<div id="stats" style="margin-top: 20px; padding: 10px; background-color: #e9ecef; border-radius: 4px;">
-  <strong>Graph Statistics:</strong> <span id="node-count">0</span> nodes, <span id="edge-count">0</span> edges
-</div>
-
-<script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
-<script>
-// Global variables
-let network;
-let currentData = {nodes: [], edges: []};
-
-// Group color mapping
-function getGroupColor(group) {
-    const colors = {
-        'Algebra': '#ff7675',
-        'Geometry': '#74b9ff',
-        'Trigonometry': '#55a3ff',
-        'Calculus': '#fd79a8',
-        'Number': '#00b894',
-        'Statistics': '#fdcb6e',
-        'Probability': '#e17055',
-        'Coordinate Geometry': '#a29bfe',
-        'Functions': '#fd79a8',
-        'Sequences and Series': '#00cec9',
-        'Complex Numbers': '#6c5ce7',
-        'Measurement': '#fdcb6e',
-        'Synthetic geometry': '#74b9ff',
-        'Transformation geometry': '#55a3ff',
-        'Differential Calculus': '#fd79a8',
-        'Integral Calculus': '#e84393',
-        'Counting and Probability': '#e17055'
-    };
-    return colors[group] || '#636e72';
-}
-
-// Load and process the knowledge graph data
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize the network
-    const container = document.getElementById('graph-container');
-    
-    // Network options
-    const options = {
-        nodes: {
+      // Initialize the network
+      document.addEventListener('DOMContentLoaded', function() {
+        const container = document.getElementById('graph-container');
+        
+        // Network options
+        const options = {
+          nodes: {
             shape: 'dot',
             size: 25,
             font: {
-                size: 12,
-                face: 'Arial'
+              size: 12,
+              face: 'Arial'
             },
             borderWidth: 2,
             shadow: true
-        },
-        edges: {
+          },
+          edges: {
             width: 1,
             shadow: true,
             smooth: {
-                type: 'continuous'
+              type: 'continuous'
             },
             color: {
-                color: '#848484',
-                highlight: '#848484',
-                hover: '#848484'
+              color: '#848484',
+              highlight: '#848484',
+              hover: '#848484'
             }
-        },
-        physics: {
+          },
+          physics: {
             stabilization: false,
             barnesHut: {
-                gravitationalConstant: -50000,
-                springConstant: 0.002,
-                springLength: 150
+              gravitationalConstant: -50000,
+              springConstant: 0.002,
+              springLength: 150
             }
-        },
-        interaction: {
+          },
+          interaction: {
             navigationButtons: true,
             keyboard: true,
             hover: true
-        }
-    };
+          }
+        };
 
-    // Create network
-    network = new vis.Network(container, currentData, options);
+        // Create network
+        network = new vis.Network(container, currentData, options);
 
-    // Handle node selection
-    network.on('select', function(params) {
-        if (params.nodes.length > 0) {
+        // Handle node selection
+        network.on('select', function(params) {
+          if (params.nodes.length > 0) {
             const nodeId = params.nodes[0];
             const node = currentData.nodes.find(n => n.id === nodeId);
             if (node) {
-                document.getElementById('node-title').textContent = node.label;
-                document.getElementById('node-description').textContent = node.label || 'No description available';
-                document.getElementById('node-strand').textContent = node.group || 'Unknown';
-                document.getElementById('node-info').style.display = 'block';
+              document.getElementById('node-title').textContent = node.label;
+              document.getElementById('node-description').textContent = node.label || 'No description available';
+              document.getElementById('node-strand').textContent = node.group || 'Unknown';
+              
+              // Show mastery level
+              const masteryLevel = currentMasteryLevels[node.label];
+              const masteryText = masteryLevel !== undefined ? 
+                `${(masteryLevel * 100).toFixed(1)}%` : 'Not studied yet';
+              document.getElementById('node-mastery').textContent = masteryText;
+              
+              document.getElementById('node-info').style.display = 'block';
             }
-        }
-    });
+          }
+        });
 
-    // Handle deselection
-    network.on('deselectNode', function() {
-        document.getElementById('node-info').style.display = 'none';
-    });
+        // Handle deselection
+        network.on('deselectNode', function() {
+          document.getElementById('node-info').style.display = 'none';
+        });
 
-    // Filter by strand
-    document.getElementById('strand-filter').addEventListener('change', function() {
-        const selectedStrand = this.value;
-        const nodes = currentData.nodes.map(node => {
+        // Filter by strand
+        document.getElementById('strand-filter').addEventListener('change', function() {
+          const selectedStrand = this.value;
+          const nodes = currentData.nodes.map(node => {
             if (selectedStrand === '' || node.group === selectedStrand) {
-                node.hidden = false;
+              node.hidden = false;
             } else {
-                node.hidden = true;
+              node.hidden = true;
             }
             return node;
-        });
-        
-        const edges = currentData.edges.map(edge => {
+          });
+          
+          const edges = currentData.edges.map(edge => {
             const fromNode = currentData.nodes.find(n => n.id === edge.from);
             const toNode = currentData.nodes.find(n => n.id === edge.to);
             if (selectedStrand === '' || 
                 (fromNode && !fromNode.hidden && toNode && !toNode.hidden)) {
-                edge.hidden = false;
+              edge.hidden = false;
             } else {
-                edge.hidden = true;
+              edge.hidden = true;
             }
             return edge;
+          });
+          
+          network.setData({nodes: nodes, edges: edges});
+          updateStats(nodes.filter(n => !n.hidden).length, edges.filter(e => !e.hidden).length);
         });
-        
-        network.setData({nodes: nodes, edges: edges});
-        updateStats(nodes.filter(n => !n.hidden).length, edges.filter(e => !e.hidden).length);
-    });
 
-    // Reset view
-    document.getElementById('reset-view').addEventListener('click', function() {
-        network.fit();
-    });
+        // Reset view
+        document.getElementById('reset-view').addEventListener('click', function() {
+          network.fit();
+        });
 
-    // Toggle physics
-    let physicsEnabled = true;
-    document.getElementById('toggle-physics').addEventListener('click', function() {
-        physicsEnabled = !physicsEnabled;
-        network.setOptions({physics: {enabled: physicsEnabled}});
-        this.textContent = physicsEnabled ? 'Disable Physics' : 'Enable Physics';
-    });
+        // Toggle physics
+        let physicsEnabled = true;
+        document.getElementById('toggle-physics').addEventListener('click', function() {
+          physicsEnabled = !physicsEnabled;
+          network.setOptions({physics: {enabled: physicsEnabled}});
+          this.textContent = physicsEnabled ? 'Toggle Physics' : 'Toggle Physics';
+        });
 
-    // Load simplified data
-    document.getElementById('load-simplified').addEventListener('click', function() {
-        loadGraphData('_static/small-graph.json');
-    });
+        // Load graph data
+        document.getElementById('load-simplified').addEventListener('click', function() {
+          loadGraphData('../../_static/small-graph.json');
+        });
 
-    // Load full data
-    document.getElementById('load-full').addEventListener('click', function() {
-        loadGraphData('/_static/graph-data.json');
-    });
+        document.getElementById('load-full').addEventListener('click', function() {
+          loadGraphData('../../_static/graph-data.json');
+        });
 
-    // Load full data by default
-    loadGraphData('_static/small-graph.json');
-});
+        // Load simplified data by default
+        loadGraphData('../../_static/small-graph.json');
+      });
 
-function loadGraphData(filename) {
-    fetch(filename)
-        .then(response => response.json())
-        .then(data => {
+      function loadGraphData(filename) {
+        fetch(filename)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+            return response.json();
+          })
+          .then(data => {
             // Add initial positioning based on groups
             const groupPositions = {
-                'Algebra': {x: -400, y: -200},
-                'Geometry': {x: 400, y: -200},
-                'Trigonometry': {x: 0, y: -400},
-                'Calculus': {x: 0, y: 400},
-                'Number': {x: -400, y: 200},
-                'Statistics': {x: 400, y: 200},
-                'Probability': {x: 400, y: 0},
-                'Coordinate Geometry': {x: 200, y: -300},
-                'Functions': {x: -200, y: 300},
-                'Sequences and Series': {x: -200, y: -300},
-                'Complex Numbers': {x: -300, y: 0},
-                'Measurement': {x: 300, y: -100},
-                'Synthetic geometry': {x: 300, y: -300},
-                'Transformation geometry': {x: 200, y: 300},
-                'Differential Calculus': {x: -100, y: 300},
-                'Integral Calculus': {x: 100, y: 300},
-                'Counting and Probability': {x: 300, y: 100}
+              'Algebra': {x: -400, y: -200},
+              'Geometry': {x: 400, y: -200},
+              'Trigonometry': {x: 0, y: -400},
+              'Calculus': {x: 0, y: 400},
+              'Number': {x: -400, y: 200},
+              'Statistics': {x: 400, y: 200},
+              'Probability': {x: 400, y: 0},
+              'Coordinate Geometry': {x: 200, y: -300},
+              'Functions': {x: -200, y: 300},
+              'Sequences and Series': {x: -200, y: -300},
+              'Complex Numbers': {x: -300, y: 0},
+              'Measurement': {x: 300, y: -100},
+              'Synthetic geometry': {x: 300, y: -300},
+              'Transformation geometry': {x: 200, y: 300},
+              'Differential Calculus': {x: -100, y: 300},
+              'Integral Calculus': {x: 100, y: 300},
+              'Counting and Probability': {x: 300, y: 100}
             };
             
-            // Apply group-based positioning and colors
+            // Apply group-based positioning and initial colors
             data.nodes.forEach(node => {
-                // Add color based on group
-                node.color = getGroupColor(node.group);
-                
-                // Add initial positioning with some randomness
-                if (groupPositions[node.group]) {
-                    node.x = groupPositions[node.group].x + (Math.random() - 0.5) * 150;
-                    node.y = groupPositions[node.group].y + (Math.random() - 0.5) * 150;
-                } else {
-                    // Random positioning for unknown groups
-                    node.x = (Math.random() - 0.5) * 800;
-                    node.y = (Math.random() - 0.5) * 800;
-                }
+              // Start with gray color (not studied)
+              node.color = '#6c757d';
+              
+              // Add initial positioning with some randomness
+              if (groupPositions[node.group]) {
+                node.x = groupPositions[node.group].x + (Math.random() - 0.5) * 150;
+                node.y = groupPositions[node.group].y + (Math.random() - 0.5) * 150;
+              } else {
+                // Random positioning for unknown groups
+                node.x = (Math.random() - 0.5) * 800;
+                node.y = (Math.random() - 0.5) * 800;
+              }
             });
             
             currentData = data;
@@ -1025,24 +1155,29 @@ function loadGraphData(filename) {
             const filter = document.getElementById('strand-filter');
             filter.innerHTML = '<option value="">All Strands</option>';
             strands.forEach(strand => {
-                if (strand && strand !== 'Unknown') {
-                    filter.innerHTML += `<option value="${strand}">${strand}</option>`;
-                }
+              if (strand && strand !== 'Unknown') {
+                filter.innerHTML += `<option value="${strand}">${strand}</option>`;
+              }
             });
             
+            // Update colors if student exists
+            if (currentStudent) {
+              updateGraphMasteryColors();
+            }
+            
             console.log(`Loaded ${data.nodes.length} nodes and ${data.edges.length} edges from ${filename}`);
-        })
-        .catch(error => {
+          })
+          .catch(error => {
             console.error('Error loading graph data:', error);
             // Fallback to simplified data
             loadSimplifiedFallback();
-        });
-}
+          });
+      }
 
-function loadSimplifiedFallback() {
-    // Fallback data if JSON files can't be loaded
-    const fallbackData = {
-        nodes: [
+      function loadSimplifiedFallback() {
+        // Fallback data if JSON files can't be loaded
+        const fallbackData = {
+          nodes: [
             {id: '1', label: 'Natural Numbers', group: 'Number', title: 'Counting numbers starting from 1'},
             {id: '2', label: 'Integers', group: 'Number', title: 'Whole numbers including negatives'},
             {id: '3', label: 'Rational Numbers', group: 'Number', title: 'Numbers expressible as fractions'},
@@ -1053,8 +1188,8 @@ function loadSimplifiedFallback() {
             {id: '8', label: 'Derivatives', group: 'Calculus', title: 'Rate of change of functions'},
             {id: '9', label: 'Integration', group: 'Calculus', title: 'Antiderivatives and areas'},
             {id: '10', label: 'Probability', group: 'Probability', title: 'Likelihood of events'}
-        ],
-        edges: [
+          ],
+          edges: [
             {from: '1', to: '2', title: 'Natural numbers extend to integers'},
             {from: '2', to: '3', title: 'Integers extend to rational numbers'},
             {from: '3', to: '4', title: 'Rational numbers extend to complex numbers'},
@@ -1063,18 +1198,28 @@ function loadSimplifiedFallback() {
             {from: '8', to: '9', title: 'Integration is the reverse of differentiation'},
             {from: '7', to: '8', title: 'Trigonometric functions can be differentiated'},
             {from: '7', to: '9', title: 'Trigonometric functions can be integrated'}
-        ]
-    };
-    
-    currentData = fallbackData;
-    network.setData(fallbackData);
-    updateStats(fallbackData.nodes.length, fallbackData.edges.length);
-}
+          ]
+        };
+        
+        // Apply initial gray colors
+        fallbackData.nodes.forEach(node => {
+          node.color = '#6c757d';
+        });
+        
+        currentData = fallbackData;
+        network.setData(fallbackData);
+        updateStats(fallbackData.nodes.length, fallbackData.edges.length);
+        
+        // Update colors if student exists
+        if (currentStudent) {
+          updateGraphMasteryColors();
+        }
+      }
 
-function updateStats(nodeCount, edgeCount) {
-    document.getElementById('node-count').textContent = nodeCount;
-    document.getElementById('edge-count').textContent = edgeCount;
-}
-</script> 
+      function updateStats(nodeCount, edgeCount) {
+        document.getElementById('node-count').textContent = nodeCount;
+        document.getElementById('edge-count').textContent = edgeCount;
+      }
+    </script>
 </body>
 </html>

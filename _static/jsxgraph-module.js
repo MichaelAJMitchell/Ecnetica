@@ -23,6 +23,37 @@ const JSXGraphModule = (function() {
         '#c0392b',  // Dark Red
         '#8e44ad',  // Wisteria
         '#27ae60',  // Nephritis
+    
+    // Color themes for light and dark modes
+    const colorThemes = {
+        light: {
+            background: '#ffffff',
+            grid: '#dddddd',
+            gridMajor: '#cccccc',
+            axis: '#666666',
+            axisLabel: '#444444',
+            point: '#3498db',
+            pointHighlight: '#2980b9',
+            pointStroke: '#ffffff',
+            functionGraph: '#9d4edd',
+            functionGraphHighlight: '#1c638e',
+            text: '#2d3436'
+        },
+        
+        dark: {
+            background: '#000000',
+            grid: '#ffffff',
+            gridMajor: '#2c3e50',
+            axis: '#ecf0f1',
+            axisLabel: '#bdc3c7',
+            point: '#3498db',
+            pointHighlight: '#2ecc71',
+            pointStroke: '#1e272e',
+            functionGraph: '#2ecc71',
+            functionGraphHighlight: '#27ae60',
+            text: '#ecf0f1'
+        }
+    };
         '#e67e22',  // Carrot
         '#2980b9',  // Belize Hole
     ];

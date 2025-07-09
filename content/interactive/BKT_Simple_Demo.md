@@ -7,7 +7,7 @@ html_theme.sidebar_secondary.remove: true
 <!doctype html>
 <html>
 <head>
-    <title>Bayesian Knowledge Tracing Algorithm Demo</title>
+    <title>Bayesian Knowledge Tracing Algorithm Visual Demo</title>
     <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
     
     <!-- MathJax configuration -->
@@ -470,8 +470,11 @@ html_theme.sidebar_secondary.remove: true
         <!-- Left side: BKT Demo -->
         <div class="bkt-section">
           <div class="container">
-            <h1>🧠 BKT Algorithm Demo</h1>
-                       
+            <h1>🧠 BKT Algorithm Visual Demo</h1>
+            <p class="subtitle">Experience how Bayesian Knowledge Tracing adapts to your learning in real-time</p>
+            
+
+            
             <div id="status" class="status loading">
               <div class="loading-spinner"></div>
               Initializing BKT System...
@@ -485,6 +488,7 @@ html_theme.sidebar_secondary.remove: true
         <div class="graph-section">
           <div class="container">
             <h1>📊 Knowledge Graph</h1>
+            <p>The graph colors reflect your current mastery levels. Practice questions to see the colors change!</p>
             
             <div class="mastery-legend">
               <strong>Mastery Level Legend:</strong><br>
@@ -552,6 +556,7 @@ html_theme.sidebar_secondary.remove: true
       let currentMCQ = null;
       let selectedOption = null;
       let isInitialized = false;
+      let isInitialGraphLoad = false; // Flag to track initial graph load
       
       // Global variables for knowledge graph
       let network;
@@ -592,6 +597,9 @@ html_theme.sidebar_secondary.remove: true
         if (!network || !currentStudent || !pyodideInstance) return;
         
         try {
+          // Get current view position and scale to preserve user's zoom/pan
+          const currentView = network.getViewPosition();
+          
           // Get current mastery levels from Python
           const masteryResult = await pyodideInstance.runPythonAsync(`
             student = student_manager.get_student(current_student_id)
@@ -614,13 +622,22 @@ html_theme.sidebar_secondary.remove: true
           const masteryData = JSON.parse(masteryResult);
           currentMasteryLevels = masteryData.mastery_levels;
           
-          // Update node colors based on mastery levels
+          // Get current node positions to preserve them
+          const positions = network.getPositions();
+          
+          // Update node colors based on mastery levels while preserving positions
           const updatedNodes = currentData.nodes.map(node => {
             const masteryLevel = currentMasteryLevels[node.label];
             const color = getMasteryColor(masteryLevel);
             
+            // Preserve current position if it exists
+            const currentPos = positions[node.id];
+            
             return {
               ...node,
+              // Keep current position
+              x: currentPos ? currentPos.x : node.x,
+              y: currentPos ? currentPos.y : node.y,
               color: {
                 background: color,
                 border: '#2B7CE9',
@@ -637,14 +654,23 @@ html_theme.sidebar_secondary.remove: true
             };
           });
           
-          // Update the network with new colors
+          // Update the network with new colors and preserved positions
           network.setData({nodes: updatedNodes, edges: currentData.edges});
           currentData.nodes = updatedNodes;
-
-          // Maintain the zoom level after update
-          network.moveTo({scale: 0.05});
           
-          console.log('Graph colors updated based on mastery levels');
+          // Only restore view if this is NOT the initial load
+          if (!isInitialGraphLoad) {
+            // Wait a bit longer for the network to process the data update
+            setTimeout(() => {
+              network.moveTo({
+                position: currentView.position,
+                scale: currentView.scale,
+                animation: false // Disable animation to make it instant
+              });
+            }, 150);
+          }
+          
+          console.log('Graph colors updated based on mastery levels (zoom and position preserved)');
           
         } catch (error) {
           console.error('Error updating graph mastery colors:', error);
@@ -766,9 +792,6 @@ html_theme.sidebar_secondary.remove: true
           
           // Mark as initialized
           isInitialized = true;
-          
-          // Initialize graph colors
-          await updateGraphMasteryColors();
           
         } catch (error) {
           updateStatus(`❌ Initialization failed: ${error.message}`, 'error');
@@ -928,7 +951,7 @@ html_theme.sidebar_secondary.remove: true
           const data = JSON.parse(result);
           displayResult(data);
           
-          // Update graph colors after answer is processed
+          // Update graph colors after answer is processed (preserving zoom level)
           await updateGraphMasteryColors();
           
           // Reset for next question
@@ -1006,7 +1029,6 @@ html_theme.sidebar_secondary.remove: true
           },
           edges: {
             width: 1,
-            shadow: false,
             smooth: {
               type: 'continuous'
             },
@@ -1110,11 +1132,14 @@ html_theme.sidebar_secondary.remove: true
           loadGraphData('../../_static/graph-data.json');
         });
 
-        // Load simplified data by default and start auto-initialization
+        // Start auto-initialization
         autoInitialize();
       });
 
       function loadGraphData(filename) {
+        // Set flag for initial load
+        isInitialGraphLoad = true;
+        
         fetch(filename)
           .then(response => {
             if (!response.ok) {
@@ -1167,9 +1192,6 @@ html_theme.sidebar_secondary.remove: true
             network.setData(data);
             updateStats(data.nodes.length, data.edges.length);
 
-            network.fit({scale: 0.05});
-            network.moveTo({scale: 0.05});
-            
             // Update strand filter options
             const strands = [...new Set(data.nodes.map(node => node.group))].sort();
             const filter = document.getElementById('strand-filter');
@@ -1185,6 +1207,16 @@ html_theme.sidebar_secondary.remove: true
               updateGraphMasteryColors();
             }
             
+            // Set default zoomed out view (after a longer delay to ensure everything is loaded)
+            setTimeout(() => {
+              network.moveTo({
+                scale: 0.05,
+                animation: false // Disable animation for instant zoom
+              });
+              // Clear the initial load flag after zoom is set
+              isInitialGraphLoad = false;
+            }, 300);
+            
             console.log(`Loaded ${data.nodes.length} nodes and ${data.edges.length} edges from ${filename}`);
           })
           .catch(error => {
@@ -1194,6 +1226,9 @@ html_theme.sidebar_secondary.remove: true
       }
 
       function loadSimplifiedFallback() {
+        // Set flag for initial load
+        isInitialGraphLoad = true;
+        
         // Hide loading spinner
         const loadingDiv = document.getElementById('graph-loading');
         if (loadingDiv) {
@@ -1239,6 +1274,16 @@ html_theme.sidebar_secondary.remove: true
         if (currentStudent) {
           updateGraphMasteryColors();
         }
+        
+        // Set default zoomed out view (after a delay to ensure everything is loaded)
+        setTimeout(() => {
+          network.moveTo({
+            scale: 0.05,
+            animation: false // Disable animation for instant zoom
+          });
+          // Clear the initial load flag after zoom is set
+          isInitialGraphLoad = false;
+        }, 300);
       }
 
       function updateStats(nodeCount, edgeCount) {

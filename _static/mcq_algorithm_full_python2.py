@@ -569,8 +569,8 @@ class KnowledgeGraph:
     Core knowledge structure representing relationships between learning topics.
     Uses a directed graph where edges represent prerequisite relationships.
     """
-    def __init__(self, nodes_file: str = 'kg.json',
-                 mcqs_file: str = 'computed_mcqs.json',
+    def __init__(self, nodes_file: str = 'small-graph-kg.json',
+                 mcqs_file: str = 'small-graph-computed_mcqs.json',
                  config_file: str = 'config.json'):
 
         self.nodes = {}  # {index: Node}
@@ -2115,8 +2115,8 @@ def test_greedy_algorithm_functionality():
 
 
         kg = KnowledgeGraph(
-            nodes_file='kg.json',
-            mcqs_file='computed_mcqs.json', 
+            nodes_file='small-graph-kg.json',
+            mcqs_file='small-graph-computed_mcqs.json', 
             config_file='config.json'
         )
         student_manager = StudentManager(kg.config)
@@ -2422,8 +2422,8 @@ def run_knowledge_graph_test():
     try:
         # Initialize system
         kg = KnowledgeGraph(
-            nodes_file='kg.json',
-            mcqs_file='computed_mcqs.json', 
+            nodes_file='small-graph-kg.json',
+            mcqs_file='small-graph-computed_mcqs.json', 
             config_file='config.json'
         )
         student_manager = StudentManager(kg.config)

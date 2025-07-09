@@ -3,8 +3,8 @@
     "default": {
       "prior_knowledge": 0.1,
       "learning_rate": 0.3,
-      "slip_rate": 0.05,
-      "guess_rate": 0.15
+      "slip_rate": 0.03,
+      "guess_rate": 0.1
     },
     "topic_specific": {
       "17": {

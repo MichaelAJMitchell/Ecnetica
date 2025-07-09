@@ -289,7 +289,7 @@
           
           // Fetch and load the BKT code
           updateOutput('Fetching BKT algorithm code...');
-          const pyResponse = await fetch("../../_static/mcq_algorithm_full_python.py");
+          const pyResponse = await fetch("../../_static/mcq_algorithm_with_json.py");
           if (!pyResponse.ok) {
             throw new Error(`Failed to fetch Python code: ${pyResponse.status}`);
           }
@@ -347,12 +347,17 @@
             def js_export(obj):
                 """Convert Python object to JSON string for JavaScript"""
                 return json.dumps(obj)
-            
-            print("Initializing BKT system with configuration files...")
-            
+                        
             # Initialize the system using Caoimhe's design
-            kg = bkt_system.KnowledgeGraph()
-            student_manager = bkt_system.StudentManager()
+            print("Initializing BKT system with JSON configuration files...")
+
+            # Initialize the system using JSON files
+            kg = bkt_system.KnowledgeGraph(
+                nodes_file='kg.json',
+                mcqs_file='computed_mcqs.json', 
+                config_file='config.json'
+            )
+            student_manager = bkt_system.StudentManager(kg.config)
             mcq_scheduler = bkt_system.MCQScheduler(kg, student_manager)
             bkt = bkt_system.BayesianKnowledgeTracing(kg, student_manager)
             

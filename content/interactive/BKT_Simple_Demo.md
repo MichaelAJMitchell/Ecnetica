@@ -1,12 +1,9 @@
-# BKT Simple Demo
-
-
 ```{raw} html
 
 <!doctype html>
 <html>
 <head>
-    <title>BKT Algorithm Visual Demo</title>
+    <title>Bayesian Knowledge Tracing Algorithm Visual Demo</title>
     <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
     
     <!-- MathJax configuration -->
@@ -398,6 +395,7 @@
               color: {
                 background: color,
                 border: '#2B7CE9',
+                borderWidth: 0
                 highlight: {
                   background: color,
                   border: '#2B7CE9'
@@ -413,9 +411,9 @@
           // Update the network with new colors
           network.setData({nodes: updatedNodes, edges: currentData.edges});
           currentData.nodes = updatedNodes;
-          
+
           // Maintain the zoom level after update
-          network.moveTo({scale: 0.075});
+          network.moveTo({scale: 0.05});
           
           console.log('Graph colors updated based on mastery levels');
           
@@ -987,7 +985,7 @@
               size: 12,
               face: 'Arial'
             },
-            borderWidth: 2,
+            borderWidth: 0,
             shadow: true
           },
           edges: {
@@ -1151,7 +1149,7 @@
             updateStats(data.nodes.length, data.edges.length);
 
             network.fit({scale: 0.05});
-            network.moveTo({scale: 0.075});
+            network.moveTo({scale: 0.05});
             
             // Update strand filter options based on available data
             const strands = [...new Set(data.nodes.map(node => node.group))].sort();

@@ -23,6 +23,9 @@ const JSXGraphModule = (function() {
         '#c0392b',  // Dark Red
         '#8e44ad',  // Wisteria
         '#27ae60',  // Nephritis
+        '#e67e22',  // Carrot
+        '#2980b9',  // Belize Hole
+    ];
     
     // Color themes for light and dark modes
     const colorThemes = {
@@ -54,9 +57,6 @@ const JSXGraphModule = (function() {
             text: '#ecf0f1'
         }
     };
-        '#e67e22',  // Carrot
-        '#2980b9',  // Belize Hole
-    ];
     
     // Element style templates for consistent styling
     const elementStyles = {

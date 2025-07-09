@@ -52,6 +52,7 @@ const MCQQuiz = (function() {
             explanationContainer: document.getElementById(`${quizId}-explanation-container`),
             explanationTitle: document.querySelector(`#${quizId}-explanation-container h4`),
             explanationText: document.getElementById(`${quizId}-explanation-text`),
+            breakdownContainer: document.getElementById(`${quizId}-breakdown-container`),
             resultContainer: document.getElementById(`${quizId}-result-container`),
             score: document.getElementById(`${quizId}-score`),
             proficiencyLevel: document.getElementById(`${quizId}-proficiency-level`),
@@ -162,6 +163,7 @@ const MCQQuiz = (function() {
             elements.nextBtn.disabled = !state.answerSelected;
             
             elements.explanationContainer.style.display = 'none';
+            elements.breakdownContainer.style.display = 'none';
             
             // Show explanation if answer was selected previously
             if (state.answers[index] !== null) {
@@ -206,9 +208,18 @@ const MCQQuiz = (function() {
          */
         function showExplanation(index) {
             const question = questions[index];
+            const selectedAnswer = state.answers[index];
+            
+            // Use option_explanations if available, otherwise fall back to explanation
+            let explanationText = '';
+            if (question.option_explanations && question.option_explanations[selectedAnswer]) {
+                explanationText = question.option_explanations[selectedAnswer];
+            } else {
+                explanationText = question.explanation || '';
+            }
             
             // Use innerHTML to support LaTeX rendering
-            elements.explanationText.innerHTML = question.explanation || '';
+            elements.explanationText.innerHTML = explanationText;
             elements.explanationContainer.style.display = 'block';
             
             if (state.answers[index] === question.correctIndex) {
@@ -225,9 +236,46 @@ const MCQQuiz = (function() {
                 elements.explanationTitle.classList.remove('correct');
             }
             
+            // Show solution breakdown if available
+            if (question.solution_breakdown) {
+                showSolutionBreakdown(question.solution_breakdown);
+            }
+            
             // Render LaTeX in explanation
             if (quizOptions.renderLatex) {
                 renderLatex(elements.explanationText);
+            }
+        }
+        
+        /**
+         * Shows step-by-step solution breakdown
+         * @param {Array} breakdown - Array of solution steps
+         */
+        function showSolutionBreakdown(breakdown) {
+            const breakdownContainer = document.getElementById(`${quizId}-breakdown-container`);
+            if (!breakdownContainer) return;
+            
+            // Create solution breakdown HTML
+            let breakdownHTML = '<div class="solution-breakdown"><h5>Step-by-Step Solution</h5>';
+            
+            breakdown.forEach((step, index) => {
+                breakdownHTML += `
+                    <div class="solution-step">
+                        <div class="step-description">Step ${index + 1}: ${step.description}</div>
+                        ${step.equation ? `<div class="step-equation">${step.equation}</div>` : ''}
+                        ${step.reasoning ? `<div class="step-reasoning">${step.reasoning}</div>` : ''}
+                    </div>
+                `;
+            });
+            
+            breakdownHTML += '</div>';
+            
+            breakdownContainer.innerHTML = breakdownHTML;
+            breakdownContainer.style.display = 'block';
+            
+            // Render LaTeX in breakdown
+            if (quizOptions.renderLatex) {
+                renderLatex(breakdownContainer);
             }
         }
         
@@ -336,6 +384,7 @@ const MCQQuiz = (function() {
                     <div id="${quizId}-explanation-container" class="explanation-container">
                         <h4 class="explanation-title">Explanation</h4>
                         <p id="${quizId}-explanation-text" class="explanation-text"></p>
+                        <div id="${quizId}-breakdown-container" class="breakdown-container"></div>
                     </div>
                     
                     <div id="${quizId}-result-container" class="result-container">

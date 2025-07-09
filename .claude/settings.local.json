@@ -6,7 +6,10 @@
       "Bash(echo:*)",
       "Bash(grep:*)",
       "Bash(rm:*)",
-      "Bash(mv:*)"
+      "Bash(mv:*)",
+      "Bash(jq:*)",
+      "Bash(node:*)",
+      "Bash(jupyter-book build:*)"
     ],
     "deny": []
   }

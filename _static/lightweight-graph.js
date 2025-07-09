@@ -22,7 +22,7 @@ class LightweightGraph {
         this.selectedNode = null;
         
         // Visual settings
-        this.nodeRadius = 8;
+        this.nodeRadius = 12;
         this.nodeColors = {
             'Algebra': '#ff7675',
             'Geometry': '#74b9ff',
@@ -50,9 +50,9 @@ class LightweightGraph {
     }
     
     setupCanvas() {
-        // Set canvas size
-        this.canvas.width = 800;
-        this.canvas.height = 600;
+        // Set canvas size - much larger now
+        this.canvas.width = 1200;
+        this.canvas.height = 900;
         
         // Set canvas style
         this.canvas.style.border = '1px solid #ddd';
@@ -141,7 +141,7 @@ class LightweightGraph {
         
         // Zoom towards mouse position
         const zoomFactor = e.deltaY > 0 ? 0.9 : 1.1;
-        const newScale = Math.max(0.1, Math.min(3, this.scale * zoomFactor));
+        const newScale = Math.max(0.3, Math.min(5, this.scale * zoomFactor));
         
         // Adjust offset to zoom towards mouse
         this.offsetX = x - (x - this.offsetX) * (newScale / this.scale);
@@ -294,11 +294,16 @@ class LightweightGraph {
             this.ctx.fill();
             this.ctx.stroke();
             
-            // Draw node label
-            this.ctx.fillStyle = '#333';
-            this.ctx.font = '12px Arial';
-            this.ctx.textAlign = 'center';
-            this.ctx.fillText(node.name, x, y + radius + 15);
+            // Draw node label only when zoomed in enough (scale > 0.8)
+            // and make text larger and more readable
+            if (this.scale > 0.8) {
+                this.ctx.fillStyle = '#333';
+                // Larger font size - scale from 6px to 12px based on zoom level
+                const fontSize = Math.max(6, Math.min(12, 6 + (this.scale - 0.8) * 8));
+                this.ctx.font = `${fontSize}px Arial`;
+                this.ctx.textAlign = 'center';
+                this.ctx.fillText(node.name, x, y + radius + fontSize + 2);
+            }
         });
     }
     
@@ -409,7 +414,7 @@ class LightweightGraph {
         const graphHeight = maxY - minY;
         const scaleX = (this.canvas.width - 100) / graphWidth;
         const scaleY = (this.canvas.height - 100) / graphHeight;
-        this.scale = Math.min(scaleX, scaleY, 2); // Max scale of 2
+        this.scale = Math.min(scaleX, scaleY, 3); // Max scale of 3 for fit to view
         
         // Center the graph
         this.offsetX = (this.canvas.width - graphWidth * this.scale) / 2 - minX * this.scale;

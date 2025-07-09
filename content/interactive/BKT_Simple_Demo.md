@@ -1006,7 +1006,7 @@ html_theme.sidebar_secondary.remove: true
           },
           edges: {
             width: 1,
-            shadow: true,
+            shadow: false,
             smooth: {
               type: 'continuous'
             },

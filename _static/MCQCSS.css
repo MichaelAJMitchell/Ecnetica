@@ -1,16 +1,15 @@
-/* MCQ Quiz Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    color: #333;
-}
+/*====================================================================*\
+MCQ QUIZ STYLES
+\*====================================================================*/
 
+/* MCQ Container */
 .mcq-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
+/* MCQ Module */
 .mcq-module {
     font-family: 'Arial', sans-serif; 
     max-width: 900px; 
@@ -21,12 +20,14 @@ body {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
+/* Quiz Title */
 .quiz-title {
     text-align: center; 
     color: #2c3e50; 
     margin-bottom: 25px;
 }
 
+/* Progress Section */
 .progress-container {
     margin-bottom: 20px;
 }
@@ -51,6 +52,7 @@ body {
     transition: width 0.3s ease-in-out;
 }
 
+/* Question Container */
 .question-container {
     background-color: white; 
     padding: 20px; 
@@ -64,6 +66,7 @@ body {
     margin-bottom: 20px;
 }
 
+/* Options */
 .options-container {
     display: flex; 
     flex-direction: column; 
@@ -96,6 +99,7 @@ body {
     width: 100%;
 }
 
+/* Explanations */
 .explanation-container {
     display: none; 
     padding: 15px; 
@@ -130,6 +134,7 @@ body {
     line-height: 1.6;
 }
 
+/* Results */
 .result-container {
     display: none; 
     text-align: center; 
@@ -144,6 +149,7 @@ body {
     color: #27ae60;
 }
 
+/* Navigation Buttons */
 .button-container {
     display: flex; 
     justify-content: space-between;
@@ -180,7 +186,11 @@ body {
     cursor: not-allowed;
 }
 
-/* Dark Mode Styles */
+/*====================================================================*\
+MCQ DARK MODE STYLES
+\*====================================================================*/
+
+/* MCQ Module Dark Mode */
 html[data-theme="dark"] .mcq-module {
     background-color: #374151 !important;
     color: #e9ecef !important;
@@ -191,10 +201,12 @@ html[data-theme="dark"] .quiz-title {
     color: #f8f9fa !important;
 }
 
+/* Progress Dark Mode */
 html[data-theme="dark"] .progress-bar-bg {
     background-color: #374151 !important;
 }
 
+/* Question Container Dark Mode */
 html[data-theme="dark"] .question-container {
     background-color: #1e293b !important;
     color: #e9ecef !important;
@@ -205,6 +217,7 @@ html[data-theme="dark"] .question-text {
     color: #f8f9fa !important;
 }
 
+/* Options Dark Mode */
 html[data-theme="dark"] .option {
     background-color: #374151 !important;
     color: #e9ecef !important;
@@ -222,6 +235,7 @@ html[data-theme="dark"] .option.selected {
     border-color: #3b82f6 !important;
 }
 
+/* Explanations Dark Mode */
 html[data-theme="dark"] .explanation-container {
     background-color: #374151 !important;
     color: #e9ecef !important;
@@ -249,6 +263,7 @@ html[data-theme="dark"] .explanation-title.incorrect {
     color: #f87171 !important;
 }
 
+/* Results Dark Mode */
 html[data-theme="dark"] .result-container {
     background-color: #065f46 !important;
     color: #d1fae5 !important;
@@ -258,7 +273,10 @@ html[data-theme="dark"] .result-title {
     color: #34d399 !important;
 }
 
-/* Responsive styles */
+/*====================================================================*\
+MCQ RESPONSIVE STYLES
+\*====================================================================*/
+
 @media (max-width: 768px) {
     .mcq-module {
         padding: 15px;

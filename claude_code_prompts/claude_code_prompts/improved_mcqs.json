@@ -1,0 +1,400 @@
+{
+    "mcqs": [
+      {
+        "id": "mcq_variables_conceptual_001",
+        "text": "Why do mathematicians use letters like $x$ and $y$ in algebraic expressions instead of just using numbers?",
+        "options": [
+          "Letters can represent unknown or changing quantities that we need to solve for or analyze",
+          "Letters make the mathematics look more complicated and professional",
+          "Letters are shorter to write than numbers",
+          "Letters always represent the same value in every equation"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! Variables like $x$ and $y$ are powerful because they can represent unknown values we need to find, or quantities that can change, allowing us to write general mathematical relationships.",
+          "Incorrect. Variables aren't used to make math look complicated - they serve the essential purpose of representing unknown or changing quantities.",
+          "Incorrect. While letters might be shorter, that's not the mathematical reason we use them. We use variables to represent unknown or changing values.",
+          "Incorrect. Variables can represent different values in different contexts - that's exactly what makes them useful for representing unknowns and changing quantities."
+        ],
+        "main_topic_index": "a7f3d8e2-5b91-4c73-9a42-1e6f8d3c7b5a",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "a7f3d8e2-5b91-4c73-9a42-1e6f8d3c7b5a": 1.0
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.6,
+          "procedural_fluency": 0.1,
+          "problem_solving": 0.2,
+          "mathematical_communication": 0.5,
+          "memory": 0.3,
+          "spatial_reasoning": 0.0
+        }
+      },
+      {
+        "id": "mcq_coefficients_error_001", 
+        "text": "A student says the coefficient of $x$ in $-5x + 2y - 8$ is $5$ because 'coefficients are always positive.' What error did they make?",
+        "options": [
+          "They ignored the negative sign - the coefficient is $-5$, and coefficients can be negative",
+          "They confused the coefficient with the variable",
+          "They added the constant term to get $5$",
+          "They're actually correct - coefficients are always positive"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! The coefficient includes the sign in front of the variable. Coefficients can be positive, negative, or zero.",
+          "Incorrect. The student correctly identified which number goes with $x$, but they forgot that the negative sign is part of the coefficient.",
+          "Incorrect. The constant term $-8$ doesn't affect the coefficient of $x$, which is $-5$.",
+          "Incorrect. Coefficients can definitely be negative, positive, or zero. The coefficient of $x$ here is $-5$."
+        ],
+        "main_topic_index": "b2e9f7a1-8c64-4d15-b73e-9f2a5c8e1d47",
+        "chapter": "Algebra", 
+        "subtopic_weights": {
+          "b2e9f7a1-8c64-4d15-b73e-9f2a5c8e1d47": 0.8,
+          "a7f3d8e2-5b91-4c73-9a42-1e6f8d3c7b5a": 0.2
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.7,
+          "procedural_fluency": 0.4,
+          "problem_solving": 0.3,
+          "mathematical_communication": 0.6,
+          "memory": 0.3,
+          "spatial_reasoning": 0.0
+        }
+      },
+      {
+        "id": "mcq_like_terms_strategic_001",
+        "text": "When simplifying $4x^2 + 3x - 2x^2 + 7x - 5$, what should be your first step?",
+        "options": [
+          "Group like terms: $(4x^2 - 2x^2) + (3x + 7x) + (-5)$",
+          "Add all the numbers together first",
+          "Factor out $x$ from every term",
+          "Convert everything to have the same power"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! Grouping like terms first makes the simplification clear: $(4x^2 - 2x^2) + (3x + 7x) + (-5) = 2x^2 + 10x - 5$.",
+          "Incorrect. You can only add like terms. Numbers with different variable parts (like $4x^2$ and $3x$) cannot be combined.",
+          "Incorrect. Not every term contains $x$ as a factor (the constant $-5$ doesn't), and this doesn't help simplify the expression.",
+          "Incorrect. Terms naturally have different powers - that's what makes them unlike terms. We combine terms with the same powers, not try to change them."
+        ],
+        "main_topic_index": "e8f4a7b2-6d59-4e32-b95f-3c8a7e2b6d91",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "e8f4a7b2-6d59-4e32-b95f-3c8a7e2b6d91": 0.9,
+          "d6c2e5f8-9a73-4b16-c84d-7a3f6e9b4c28": 0.1
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.5,
+          "procedural_fluency": 0.6,
+          "problem_solving": 0.7,
+          "mathematical_communication": 0.4,
+          "memory": 0.3,
+          "spatial_reasoning": 0.0
+        }
+      },
+      {
+        "id": "mcq_distributive_conceptual_001",
+        "text": "Why does $3(2x - 5) = 6x - 15$ rather than $3(2x - 5) = 6x - 5$?",
+        "options": [
+          "The 3 must be distributed to both terms inside the brackets: $3 \\times 2x$ and $3 \\times (-5)$",
+          "You can only multiply the first term in the brackets",
+          "The negative sign stays with the 5",
+          "You add 3 to each term instead of multiplying"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! The distributive property requires multiplying the outside term by every term inside: $3(2x - 5) = 3 \\times 2x + 3 \\times (-5) = 6x - 15$.",
+          "Incorrect. The distributive property means the 3 multiplies both terms: $3 \\times 2x = 6x$ and $3 \\times (-5) = -15$.",
+          "Incorrect. The 3 must multiply the $-5$, giving $3 \\times (-5) = -15$, not just $-5$.",
+          "Incorrect. Distribution means multiplication, not addition. We multiply the 3 by each term inside the brackets."
+        ],
+        "main_topic_index": "b5d9e6a4-7c28-4f53-a69d-2e8f5a9c3b74",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "b5d9e6a4-7c28-4f53-a69d-2e8f5a9c3b74": 0.8,
+          "a3c7f2d8-5e94-4b27-c85e-8f6a9b3d7e52": 0.2
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.8,
+          "procedural_fluency": 0.4,
+          "problem_solving": 0.3,
+          "mathematical_communication": 0.6,
+          "memory": 0.4,
+          "spatial_reasoning": 0.0
+        }
+      },
+      {
+        "id": "mcq_quadratic_factoring_strategic_001",
+        "text": "Which approach would be most efficient for factoring $x^2 - 5x - 14$?",
+        "options": [
+          "Look for two numbers that multiply to $-14$ and add to $-5$",
+          "Use the quadratic formula first to find the roots", 
+          "Try to factor out a common factor first",
+          "Complete the square method"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! For $x^2 + bx + c$ form, finding two numbers that multiply to $c$ and add to $b$ is the most direct method. Here: $-7 \\times 2 = -14$ and $-7 + 2 = -5$, giving $(x - 7)(x + 2)$.",
+          "Incorrect. While the quadratic formula works, it's unnecessarily complex for a factorable quadratic. The inspection method is faster.",
+          "Incorrect. There's no common factor among $x^2$, $-5x$, and $-14$ other than 1, so this step isn't helpful here.",
+          "Incorrect. Completing the square works but is more complex than needed. For simple quadratics like this, factoring by inspection is more efficient."
+        ],
+        "main_topic_index": "d7e4a1c8-3b65-4f84-c93f-8e7d4a1c8b59",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "d7e4a1c8-3b65-4f84-c93f-8e7d4a1c8b59": 1.0
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.6,
+          "procedural_fluency": 0.5,
+          "problem_solving": 0.8,
+          "mathematical_communication": 0.5,
+          "memory": 0.4,
+          "spatial_reasoning": 0.0
+        }
+      },
+      {
+        "id": "mcq_linear_equation_error_001",
+        "text": "A student solved $3x - 7 = 2x + 5$ and got $x = 2$. What mistake did they likely make?",
+        "options": [
+          "They probably forgot to subtract $2x$ from both sides or made a sign error when moving terms",
+          "They used the wrong formula",
+          "They should have used the quadratic formula",
+          "They factored incorrectly"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! The right solution is: $3x - 2x = 5 + 7$, so $x = 12$. Getting $x = 2$ suggests they didn't properly collect like terms or made sign errors.",
+          "Incorrect. Linear equations don't require special formulas - just inverse operations. The error was likely in the algebraic manipulation.",
+          "Incorrect. This is a linear equation, not quadratic. The quadratic formula isn't needed here.",
+          "Incorrect. This linear equation doesn't require factoring. The error was probably in collecting like terms or handling signs."
+        ],
+        "main_topic_index": "e7a4f6d2-3b85-4f54-a64b-7a4e7f6d2b86",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "e7a4f6d2-3b85-4f54-a64b-7a4e7f6d2b86": 0.8,
+          "d5f9c2e8-9a42-4b68-b73a-5f9d5c2e8a43": 0.2
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.4,
+          "procedural_fluency": 0.6,
+          "problem_solving": 0.7,
+          "mathematical_communication": 0.5,
+          "memory": 0.3,
+          "spatial_reasoning": 0.0
+        }
+      },
+      {
+        "id": "mcq_quadratic_vertex_conceptual_001",
+        "text": "What does the vertex of the parabola $y = x^2 - 6x + 8$ represent?",
+        "options": [
+          "The lowest point of the parabola, where it changes from decreasing to increasing",
+          "The point where the parabola crosses the y-axis",
+          "The point where the parabola crosses the x-axis",
+          "The highest point of the parabola"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! Since the coefficient of $x^2$ is positive (1), this parabola opens upward, making the vertex at $(3, -1)$ the minimum point where the function changes direction.",
+          "Incorrect. The y-intercept is where the parabola crosses the y-axis (when $x = 0$). Here that's $(0, 8)$, not the vertex.",
+          "Incorrect. The x-intercepts are where the parabola crosses the x-axis (when $y = 0$). The vertex is the turning point of the parabola.",
+          "Incorrect. This parabola opens upward (positive coefficient of $x^2$), so the vertex is the lowest point, not the highest."
+        ],
+        "main_topic_index": "e8a2f5d4-4c83-4f65-a74c-8a2e8f5d4c84",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "e8a2f5d4-4c83-4f65-a74c-8a2e8f5d4c84": 0.8,
+          "d6f3c9a7-7b58-4d72-b87b-6f3d6c9a7b59": 0.2
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.9,
+          "procedural_fluency": 0.3,
+          "problem_solving": 0.4,
+          "mathematical_communication": 0.6,
+          "memory": 0.4,
+          "spatial_reasoning": 0.7
+        }
+      },
+      {
+        "id": "mcq_discriminant_conceptual_001",
+        "text": "Why does a negative discriminant mean 'no real roots' for a quadratic equation?",
+        "options": [
+          "Because the quadratic formula requires taking the square root of the discriminant, and square roots of negative numbers aren't real",
+          "Because negative numbers can't be solutions to equations",
+          "Because the parabola is upside down",
+          "Because we made an error in our calculation"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! The quadratic formula is $x = \\frac{-b \\pm \\sqrt{\\Delta}}{2a}$. When $\\Delta < 0$, we need $\\sqrt{\\text{negative number}}$, which isn't a real number.",
+          "Incorrect. Negative numbers can definitely be solutions to equations. The issue is that we need the square root of a negative number, which isn't real.",
+          "Incorrect. The direction the parabola opens (determined by the sign of $a$) doesn't directly relate to whether roots are real. A negative discriminant means the parabola doesn't cross the x-axis.",
+          "Incorrect. A negative discriminant is mathematically valid - it simply tells us the parabola doesn't intersect the x-axis, so there are no real solutions."
+        ],
+        "main_topic_index": "d6f2c8a5-7b67-4d59-b67b-6f2d6c8a5b68",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "d6f2c8a5-7b67-4d59-b67b-6f2d6c8a5b68": 0.8,
+          "a9c5f8e4-5a65-4d48-b75a-9c5a9f8e4a66": 0.2
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.9,
+          "procedural_fluency": 0.4,
+          "problem_solving": 0.5,
+          "mathematical_communication": 0.7,
+          "memory": 0.6,
+          "spatial_reasoning": 0.2
+        }
+      },
+      {
+        "id": "mcq_inequality_conceptual_001",
+        "text": "When solving $-3x + 7 > 1$, why must we flip the inequality sign when dividing by $-3$?",
+        "options": [
+          "Because dividing by a negative number reverses the order relationship between numbers",
+          "Because the variable becomes negative",
+          "Because we're subtracting instead of adding",
+          "We don't need to flip the sign"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! When we divide by $-3$, we're multiplying by $\\frac{1}{-3}$ (a negative number). Multiplying an inequality by a negative flips the relationship: if $a > b$, then $-a < -b$.",
+          "Incorrect. Whether the variable is positive or negative doesn't determine sign flipping. We flip because we're dividing by a negative number.",
+          "Incorrect. The operation that matters is division by a negative, not whether we're adding or subtracting in other steps.",
+          "Incorrect. We must flip the inequality sign when multiplying or dividing both sides by a negative number to maintain the true relationship."
+        ],
+        "main_topic_index": "d6f5c7a4-2b85-4f56-b82b-6f5d6c7a4b86",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "d6f5c7a4-2b85-4f56-b82b-6f5d6c7a4b86": 0.9,
+          "a9c6f3d2-8e46-4f84-b78e-9c6a9f3d2e47": 0.1
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.8,
+          "procedural_fluency": 0.5,
+          "problem_solving": 0.4,
+          "mathematical_communication": 0.7,
+          "memory": 0.5,
+          "spatial_reasoning": 0.1
+        }
+      },
+      {
+        "id": "mcq_absolute_value_strategic_001",
+        "text": "When solving $|2x - 3| = 7$, what's the most systematic approach?",
+        "options": [
+          "Set up two equations: $2x - 3 = 7$ and $2x - 3 = -7$, then solve both",
+          "Square both sides to eliminate the absolute value",
+          "Graph the function and find where it equals 7",
+          "Try different values of $x$ until you find the answers"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! Since $|A| = 7$ means $A = 7$ or $A = -7$, we solve both $2x - 3 = 7$ (giving $x = 5$) and $2x - 3 = -7$ (giving $x = -2$).",
+          "Incorrect. While squaring eliminates absolute value, it can introduce extraneous solutions and is less direct than the two-case method.",
+          "Incorrect. Graphing works but is less efficient than the algebraic method, especially when exact answers are needed.",
+          "Incorrect. Trial and error is inefficient and doesn't guarantee finding all solutions. The systematic two-case approach is more reliable."
+        ],
+        "main_topic_index": "99fa22b9-5ebb-4451-b9df-24cf66a78439",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "99fa22b9-5ebb-4451-b9df-24cf66a78439": 0.9,
+          "6361e577-655b-418e-9783-55668b6cdd15": 0.1
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.7,
+          "procedural_fluency": 0.6,
+          "problem_solving": 0.8,
+          "mathematical_communication": 0.5,
+          "memory": 0.4,
+          "spatial_reasoning": 0.0
+        }
+      },
+      {
+        "id": "mcq_simultaneous_error_001",
+        "text": "A student solved the system $y = 2x + 1$ and $x + y = 7$ by substitution and got $x = 3, y = 4$. What error did they make?",
+        "options": [
+          "They made an arithmetic error - the correct answer is $x = 2, y = 5$",
+          "They used elimination instead of substitution",
+          "They forgot to substitute back to find $y$",
+          "They set up the equations incorrectly"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! Checking: if $x = 3, y = 4$, then $y = 2(3) + 1 = 7 \\neq 4$. The correct solution: substitute $y = 2x + 1$ into $x + y = 7$ to get $x + (2x + 1) = 7$, so $3x = 6$ and $x = 2$, $y = 5$.",
+          "Incorrect. The method choice doesn't matter - both substitution and elimination should give the same answer. The error was computational.",
+          "Incorrect. They did find both $x$ and $y$ values, but at least one is wrong due to an arithmetic mistake.",
+          "Incorrect. The equations are set up correctly. The error occurred in the solving process, likely in combining like terms or arithmetic."
+        ],
+        "main_topic_index": "a7c3f6d4-5a86-4b49-b78a-7c3a7f6d4a87",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "a7c3f6d4-5a86-4b49-b78a-7c3a7f6d4a87": 0.8,
+          "f5b9e6c2-2e74-4f65-c87e-5b9f5e6c2e75": 0.2
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.3,
+          "procedural_fluency": 0.7,
+          "problem_solving": 0.8,
+          "mathematical_communication": 0.4,
+          "memory": 0.3,
+          "spatial_reasoning": 0.1
+        }
+      },
+      {
+        "id": "mcq_exponential_conceptual_001",
+        "text": "Why can we solve $2^{x+1} = 2^5$ by just setting the exponents equal?",
+        "options": [
+          "Because exponential functions with the same base are one-to-one: if $a^m = a^n$, then $m = n$",
+          "Because we can always ignore the base when solving exponential equations", 
+          "Because exponents follow the same rules as regular algebra",
+          "Because 2 is a special number in exponential equations"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! Exponential functions are one-to-one, meaning each output corresponds to exactly one input. So if $2^{x+1} = 2^5$, the only way this can be true is if $x + 1 = 5$.",
+          "Incorrect. We can only ignore the base when the bases are the same and non-zero. If bases were different (like $2^x = 3^x$), we couldn't just equate exponents.",
+          "Incorrect. Exponents have special properties. We can only equate exponents when the bases are the same because of the one-to-one property of exponential functions.",
+          "Incorrect. This property works for any positive base (except 1). The base 2 isn't special - the same reasoning applies to $3^{x+1} = 3^5$ or $10^{x+1} = 10^5$."
+        ],
+        "main_topic_index": "d7f4c9a6-5b93-4d57-b75b-7f4d7c9a6b94",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "d7f4c9a6-5b93-4d57-b75b-7f4d7c9a6b94": 0.9,
+          "b3d9a5f8-9e74-4c85-a69e-3d9b3a5f8e75": 0.1
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.8,
+          "procedural_fluency": 0.4,
+          "problem_solving": 0.5,
+          "mathematical_communication": 0.7,
+          "memory": 0.4,
+          "spatial_reasoning": 0.0
+        }
+      }
+    ],
+    "metadata": {
+      "total_mcqs": 12,
+      "chapters_covered": ["Algebra"],
+      "topics_covered": [
+        "a7f3d8e2-5b91-4c73-9a42-1e6f8d3c7b5a",
+        "b2e9f7a1-8c64-4d15-b73e-9f2a5c8e1d47", 
+        "e8f4a7b2-6d59-4e32-b95f-3c8a7e2b6d91",
+        "b5d9e6a4-7c28-4f53-a69d-2e8f5a9c3b74",
+        "d7e4a1c8-3b65-4f84-c93f-8e7d4a1c8b59",
+        "e7a4f6d2-3b85-4f54-a64b-7a4e7f6d2b86",
+        "e8a2f5d4-4c83-4f65-a74c-8a2e8f5d4c84",
+        "d6f2c8a5-7b67-4d59-b67b-6f2d6c8a5b68",
+        "d6f5c7a4-2b85-4f56-b82b-6f5d6c7a4b86",
+        "99fa22b9-5ebb-4451-b9df-24cf66a78439",
+        "a7c3f6d4-5a86-4b49-b78a-7c3a7f6d4a87",
+        "d7f4c9a6-5b93-4d57-b75b-7f4d7c9a6b94"
+      ],
+      "difficulty_range": [0.2, 0.8],
+      "question_type_distribution": {
+        "conceptual_understanding": 6,
+        "procedural_fluency": 0, 
+        "strategic_reasoning": 3,
+        "error_analysis": 3
+      },
+      "description": "Improved MCQ examples demonstrating varied question types, meaningful distractors based on real misconceptions, and explanations that support learning rather than just correcting errors"
+    }
+  }

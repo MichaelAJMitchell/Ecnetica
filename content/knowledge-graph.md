@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Load full data by default
-    loadGraphData('/_static/small-graph.json');
+    loadGraphData('/_static/graph-data.json');
 });
 
 function loadGraphData(filename) {
@@ -229,9 +229,6 @@ function loadGraphData(filename) {
             currentData = data;
             network.setData(data);
             updateStats(data.nodes.length, data.edges.length);
-
-            network.fit({scale: 0.05});
-            network.moveTo({scale: 0.075});
             
             // Update strand filter options based on available data
             const strands = [...new Set(data.nodes.map(node => node.group))].sort();

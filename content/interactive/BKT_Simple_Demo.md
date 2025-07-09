@@ -960,7 +960,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Load simplified data
     document.getElementById('load-simplified').addEventListener('click', function() {
-        loadGraphData('/_static/small-graph.json');
+        loadGraphData('_static/small-graph.json');
     });
 
     // Load full data
@@ -969,7 +969,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Load full data by default
-    loadGraphData('/_static/small-graph.json');
+    loadGraphData('_static/small-graph.json');
 });
 
 function loadGraphData(filename) {

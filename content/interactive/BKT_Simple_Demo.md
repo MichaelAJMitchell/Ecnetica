@@ -7,7 +7,7 @@ html_theme.sidebar_secondary.remove: true
 <!doctype html>
 <html>
 <head>
-    <title>Bayesian Knowledge Tracing Algorithm Visual Demo</title>
+    <title>Bayesian Knowledge Tracing Algorithm Demo</title>
     <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
     
     <!-- MathJax configuration -->
@@ -34,7 +34,7 @@ html_theme.sidebar_secondary.remove: true
         max-width: 1400px;
         margin: 0 auto;
         padding: 20px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: #f8f9fa;
         min-height: 100vh;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       }
@@ -74,9 +74,8 @@ html_theme.sidebar_secondary.remove: true
         color: #2c3e50;
         text-align: center;
         margin-bottom: 10px;
-        font-size: 2.5em;
+        font-size: 2.2em;
         font-weight: 300;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
       }
       
       .bkt-demo-container .subtitle {
@@ -87,13 +86,7 @@ html_theme.sidebar_secondary.remove: true
         font-style: italic;
       }
       
-      .bkt-demo-container .controls {
-        display: flex;
-        gap: 15px;
-        margin: 20px 0;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
+
       
       /* Enhanced button styling */
       .bkt-demo-container button {
@@ -307,6 +300,32 @@ html_theme.sidebar_secondary.remove: true
         font-size: 13px;
       }
       
+      .gradient-legend {
+        margin: 10px 0 15px 0;
+      }
+      
+      .gradient-bar {
+        height: 20px;
+        background: linear-gradient(to right, 
+          hsl(0, 80%, 50%) 0%,
+          hsl(30, 80%, 50%) 25%,
+          hsl(60, 80%, 50%) 50%,
+          hsl(90, 80%, 50%) 75%,
+          hsl(120, 80%, 50%) 100%
+        );
+        border-radius: 10px;
+        border: 2px solid #2c3e50;
+        margin-bottom: 5px;
+      }
+      
+      .gradient-labels {
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        color: #2c3e50;
+        font-weight: 500;
+      }
+      
       .legend-item {
         display: block;
         margin-bottom: 8px;
@@ -341,6 +360,38 @@ html_theme.sidebar_secondary.remove: true
         100% { transform: rotate(360deg); }
       }
       
+      /* Graph loading spinner */
+      .graph-loading {
+        position: absolute;
+        top: 1px;
+        left: 1px;
+        right: 1px;
+        bottom: 1px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: rgba(248, 249, 250, 0.95);
+        border-radius: 8px;
+        z-index: 10;
+      }
+      
+      .graph-loading-spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid #e9ecef;
+        border-top: 4px solid #3498db;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 15px;
+      }
+      
+      .graph-loading-text {
+        color: #6c757d;
+        font-size: 16px;
+        font-weight: 500;
+      }
+      
       /* Responsive design */
       @media (max-width: 1024px) {
         .main-layout {
@@ -355,6 +406,16 @@ html_theme.sidebar_secondary.remove: true
         #graph-container {
           height: 400px !important;
         }
+        
+        .graph-loading-spinner {
+          width: 30px !important;
+          height: 30px !important;
+          border-width: 3px !important;
+        }
+        
+        .graph-loading-text {
+          font-size: 14px !important;
+        }
       }
       
       @media (max-width: 768px) {
@@ -363,12 +424,7 @@ html_theme.sidebar_secondary.remove: true
         }
         
         .bkt-demo-container h1 {
-          font-size: 2em;
-        }
-        
-        .bkt-demo-container .controls {
-          flex-direction: column;
-          align-items: center;
+          font-size: 1.8em;
         }
         
         .bkt-demo-container .mcq-meta {
@@ -382,6 +438,16 @@ html_theme.sidebar_secondary.remove: true
         
         #graph-container {
           height: 350px !important;
+        }
+        
+        .graph-loading-spinner {
+          width: 25px !important;
+          height: 25px !important;
+          border-width: 2px !important;
+        }
+        
+        .graph-loading-text {
+          font-size: 12px !important;
         }
         
         #controls {
@@ -404,18 +470,8 @@ html_theme.sidebar_secondary.remove: true
         <!-- Left side: BKT Demo -->
         <div class="bkt-section">
           <div class="container">
-            <h1>🧠 BKT Algorithm Visual Demo</h1>
-            <p class="subtitle">Experience how Bayesian Knowledge Tracing adapts to your learning in real-time</p>
-            
-            <div class="controls">
-              <button onclick="showKnowledgeGraph()" class="primary-btn" id="showGraphBtn" disabled>
-                📊 Show Knowledge Graph
-              </button>
-              <button onclick="resetDemo()" class="danger-btn">
-                🔄 Reset Demo
-              </button>
-            </div>
-            
+            <h1>🧠 BKT Algorithm Demo</h1>
+                       
             <div id="status" class="status loading">
               <div class="loading-spinner"></div>
               Initializing BKT System...
@@ -428,22 +484,17 @@ html_theme.sidebar_secondary.remove: true
         <!-- Right side: Knowledge Graph -->
         <div class="graph-section">
           <div class="container">
-            <h2>📊 Knowledge Graph</h2>
-            <p>The graph colors reflect your current mastery levels. Practice questions to see the colors change!</p>
+            <h1>📊 Knowledge Graph</h1>
             
             <div class="mastery-legend">
               <strong>Mastery Level Legend:</strong><br>
-              <div class="legend-item">
-                <span class="legend-color" style="background-color: #dc3545;"></span>
-                <span>Low Mastery (0-40%)</span>
-              </div>
-              <div class="legend-item">
-                <span class="legend-color" style="background-color: #ffc107;"></span>
-                <span>Medium Mastery (40-70%)</span>
-              </div>
-              <div class="legend-item">
-                <span class="legend-color" style="background-color: #28a745;"></span>
-                <span>High Mastery (70-100%)</span>
+              <div class="gradient-legend">
+                <div class="gradient-bar"></div>
+                <div class="gradient-labels">
+                  <span>0% (Red)</span>
+                  <span>50% (Orange)</span>
+                  <span>100% (Green)</span>
+                </div>
               </div>
               <div class="legend-item">
                 <span class="legend-color" style="background-color: #6c757d;"></span>
@@ -451,7 +502,13 @@ html_theme.sidebar_secondary.remove: true
               </div>
             </div>
             
-            <div id="graph-container" style="width: 100%; height: 500px; border: 1px solid #ddd; border-radius: 8px;"></div>
+            <div style="position: relative;">
+              <div id="graph-container" style="width: 100%; height: 500px; border: 1px solid #ddd; border-radius: 8px;"></div>
+              <div id="graph-loading" class="graph-loading">
+                <div class="graph-loading-spinner"></div>
+                <div class="graph-loading-text">Loading Knowledge Graph...</div>
+              </div>
+            </div>
 
             <div id="controls" style="margin-top: 15px;">
               <label for="strand-filter">Filter by Strand: </label>
@@ -513,19 +570,21 @@ html_theme.sidebar_secondary.remove: true
         }
       }
 
-      // Function to get mastery-based color
+      // Function to get mastery-based color with smooth gradient
       function getMasteryColor(masteryLevel) {
         if (masteryLevel === null || masteryLevel === undefined) {
           return '#6c757d'; // Gray for not studied
         }
         
-        if (masteryLevel < 0.4) {
-          return '#dc3545'; // Red for low mastery
-        } else if (masteryLevel < 0.7) {
-          return '#ffc107'; // Yellow for medium mastery
-        } else {
-          return '#28a745'; // Green for high mastery
-        }
+        // Ensure masteryLevel is between 0 and 1
+        const clampedMastery = Math.max(0, Math.min(1, masteryLevel));
+        
+        // Map mastery level (0-1) to hue (0-120 degrees)
+        // 0 = red (0°), 0.5 = orange/yellow (~40°), 1 = green (120°)
+        const hue = clampedMastery * 120;
+        
+        // Use full saturation and medium lightness for vibrant colors
+        return `hsl(${hue}, 80%, 50%)`;
       }
 
       // Function to update graph colors based on mastery levels
@@ -701,8 +760,11 @@ html_theme.sidebar_secondary.remove: true
           
           await generateMCQ();
           
-          // Enable buttons
-          document.getElementById('showGraphBtn').disabled = false;
+          // Step 6: Load knowledge graph after MCQ is ready
+          updateStatus('Loading knowledge graph...', 'loading');
+          loadGraphData('../../_static/small-graph.json');
+          
+          // Mark as initialized
           isInitialized = true;
           
           // Initialize graph colors
@@ -761,7 +823,6 @@ html_theme.sidebar_secondary.remove: true
           if (data.success) {
             currentMCQ = data;
             displayMCQ(data);
-            updateStatus('❓ Question ready! Select your answer and submit.', 'info');
           } else {
             updateStatus(`❌ ${data.error}`, 'error');
           }
@@ -775,6 +836,9 @@ html_theme.sidebar_secondary.remove: true
       function displayMCQ(mcqData) {
         const mcqSection = document.getElementById('mcq-section');
         mcqSection.style.display = 'block';
+        
+        // Hide status div when question is displayed
+        document.getElementById('status').style.display = 'none';
         
         mcqSection.innerHTML = `
           <div class="mcq-container">
@@ -917,75 +981,11 @@ html_theme.sidebar_secondary.remove: true
         if (window.MathJax) {
           MathJax.typesetPromise([mcqSection]).catch((err) => console.log('MathJax render error:', err));
         }
-        
-        updateStatus(isCorrect ? '✅ Correct! Knowledge updated. Ready for next question.' : '❌ Learning opportunity! Knowledge updated. Ready for next question.', isCorrect ? 'success' : 'info');
       }
       
       async function nextQuestion() {
         updateStatus('Generating next question...', 'loading');
         await generateMCQ();
-      }
-          
-      async function showKnowledgeGraph() {
-        try {
-          updateStatus('📊 Analyzing knowledge graph...', 'loading');
-          
-          const result = await pyodideInstance.runPythonAsync(`
-            student = student_manager.get_student(current_student_id)
-            
-            graph_info = "Knowledge Graph Summary:\\n"
-            graph_info += f"Total topics: {len(kg.nodes)}\\n"
-            graph_info += f"Total connections: {len(kg.graph.edges())}\\n\\n"
-            graph_info += "Topic Mastery Levels:\\n"
-            
-            for topic_idx in sorted(student.mastery_levels.keys()):
-                topic_name = kg.get_topic_of_index(topic_idx)
-                mastery = student.get_mastery(topic_idx)
-                level = "🟢" if mastery > 0.6 else "🟡" if mastery > 0.3 else "🔴"
-                graph_info += f"{level} {topic_name}: {mastery:.2f}\\n"
-            
-            js_export({"success": True, "info": graph_info})
-          `);
-          
-          const data = JSON.parse(result);
-          updateStatus('✅ Knowledge graph analysis complete.', 'success');
-          
-        } catch (error) {
-          updateStatus('❌ Failed to analyze knowledge graph', 'error');
-          console.error('Graph analysis error:', error);
-        }
-      }
-      
-      function resetDemo() {
-        updateStatus('🔄 Resetting demo...', 'loading');
-        
-        // Reset variables
-        currentStudent = null;
-        currentMCQ = null;
-        selectedOption = null;
-        currentMasteryLevels = {};
-        isInitialized = false;
-        
-        // Hide MCQ section
-        document.getElementById('mcq-section').style.display = 'none';
-        
-        // Reset buttons
-        document.getElementById('showGraphBtn').disabled = true;
-        
-        // Reset graph colors to default
-        if (network && currentData.nodes.length > 0) {
-          const resetNodes = currentData.nodes.map(node => ({
-            ...node,
-            color: '#6c757d'
-          }));
-          network.setData({nodes: resetNodes, edges: currentData.edges});
-          currentData.nodes = resetNodes;
-        }
-        
-        // Restart the demo
-        setTimeout(() => {
-          autoInitialize();
-        }, 1000);
       }
 
       // Initialize the network
@@ -1111,7 +1111,6 @@ html_theme.sidebar_secondary.remove: true
         });
 
         // Load simplified data by default and start auto-initialization
-        loadGraphData('../../_static/small-graph.json');
         autoInitialize();
       });
 
@@ -1124,6 +1123,12 @@ html_theme.sidebar_secondary.remove: true
             return response.json();
           })
           .then(data => {
+            // Hide loading spinner
+            const loadingDiv = document.getElementById('graph-loading');
+            if (loadingDiv) {
+              loadingDiv.style.display = 'none';
+            }
+            
             // Add initial positioning based on groups
             const groupPositions = {
               'Algebra': {x: -400, y: -200},
@@ -1189,6 +1194,12 @@ html_theme.sidebar_secondary.remove: true
       }
 
       function loadSimplifiedFallback() {
+        // Hide loading spinner
+        const loadingDiv = document.getElementById('graph-loading');
+        if (loadingDiv) {
+          loadingDiv.style.display = 'none';
+        }
+        
         // Fallback data if JSON files can't be loaded
         const fallbackData = {
           nodes: [

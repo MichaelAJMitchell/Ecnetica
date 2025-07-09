@@ -8,10 +8,32 @@
    ```
    python -m http.server
    ```
-### Or
-Run this script in the home directory, ctrl +c to escape
+## Running the code via a script
+In the home directory run `quick-build.sh`. 
 
-```bash quick-build.sh```
+Either use
+
+   ```
+   bash quick-build.sh
+   ```
+
+or 
+
+Make the script executable with 
+
+   ```
+   chmod u+x quick-build.sh
+   ```
+
+and then run the script in the home directory with
+
+   ``` 
+   ./quickbuild.sh
+   ```
+
+Use ctrl +c to escape the process.
+
+
 
 ## Adding Chapters
 

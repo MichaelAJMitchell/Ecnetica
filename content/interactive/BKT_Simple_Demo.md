@@ -414,6 +414,9 @@
           network.setData({nodes: updatedNodes, edges: currentData.edges});
           currentData.nodes = updatedNodes;
           
+          // Maintain the zoom level after update
+          network.moveTo({scale: 0.075});
+          
           console.log('Graph colors updated based on mastery levels');
           
         } catch (error) {

@@ -11,111 +11,68 @@ import json
 import random
 import os
 
-def create_lightweight_graph(max_nodes=None):
-    """Create a minimal graph from ontology data"""
-    
-    print("Reading ontology data...")
-    
-    # Read CSV files
-    concepts_file = 'Ontology/concepts_06_07_better.csv'
-    relationships_file = 'Ontology/relationships_enriched_07_07.csv'
-    
-    if not os.path.exists(concepts_file):
-        print(f"Error: {concepts_file} not found")
+def create_lightweight_graph_from_coords(coords_file='graph_with_coords.json', canvas_width=800, canvas_height=600, margin=50):
+    """Create a minimal graph using node positions from graph_with_coords.json, scaled to fit the canvas."""
+    print(f"Reading node positions from {coords_file} ...")
+    if not os.path.exists(coords_file):
+        print(f"Error: {coords_file} not found")
         return None
-        
-    if not os.path.exists(relationships_file):
-        print(f"Error: {relationships_file} not found")
-        return None
+    with open(coords_file, 'r', encoding='utf-8') as f:
+        graph_data = json.load(f)
+    nodes = graph_data['nodes']
+    edges = graph_data['edges']
+
+    # Find min/max for scaling
+    xs = [n['x'] for n in nodes]
+    ys = [n['y'] for n in nodes]
+    min_x, max_x = min(xs), max(xs)
+    min_y, max_y = min(ys), max(ys)
     
-    concepts = pd.read_csv(concepts_file)
-    relationships = pd.read_csv(relationships_file)
+    # Scale and center to fit canvas
+    def scale(val, minv, maxv, out_min, out_max):
+        if maxv == minv:
+            return (out_min + out_max) / 2
+        return out_min + (val - minv) / (maxv - minv) * (out_max - out_min)
     
-    print(f"Loaded {len(concepts)} concepts and {len(relationships)} relationships")
+    for n in nodes:
+        n['x'] = scale(n['x'], min_x, max_x, margin, canvas_width - margin)
+        n['y'] = scale(n['y'], min_y, max_y, margin, canvas_height - margin)
+        # Rename label -> name for lightweight format
+        n['name'] = n['label']
+        n['full_name'] = n['label']
     
-    # Remove node limit: use all concepts
-    sample_concepts = concepts
-    print(f"Using all {len(sample_concepts)} concepts (no node limit)")
+    # Convert edges to lightweight format
+    lw_edges = []
+    for e in edges:
+        # Accept both 'source'/'target' or 'from'/'to'
+        src = e.get('source', e.get('from'))
+        tgt = e.get('target', e.get('to'))
+        lw_edges.append({'from': src, 'to': tgt})
     
-    concept_ids = set(sample_concepts['id'])
-    
-    # Filter relationships to only include sampled concepts
-    sample_relationships = relationships[
-        (relationships['prerequisite_id'].isin(concept_ids)) & 
-        (relationships['dependent_id'].isin(concept_ids))
-    ]
-    
-    print(f"Filtered to {len(sample_relationships)} relationships")
-    
-    # Create minimal nodes with simple positioning
-    nodes = []
-    strand_groups = {}
-    
-    for i, concept in sample_concepts.iterrows():
-        strand = concept['strand'] if pd.notna(concept['strand']) else 'Other'
-        
-        # Group nodes by strand for better positioning
-        if strand not in strand_groups:
-            strand_groups[strand] = []
-        strand_groups[strand].append(concept['id'])
-        
-        nodes.append({
-            'id': concept['id'],
-            'name': concept['name'][:30] + '...' if len(concept['name']) > 30 else concept['name'],
-            'strand': strand,
-            'full_name': concept['name'],
-            'explanation': concept['explanation'] if pd.notna(concept['explanation']) else concept['name']
-        })
-    
-    # Position nodes by strand groups
-    canvas_width = 800
-    canvas_height = 600
-    margin = 50
-    
-    strands = list(strand_groups.keys())
-    nodes_per_row = 3
-    rows = (len(strands) + nodes_per_row - 1) // nodes_per_row
-    
-    for i, strand in enumerate(strands):
-        row = i // nodes_per_row
-        col = i % nodes_per_row
-        
-        # Calculate base position for this strand group
-        base_x = margin + col * (canvas_width - 2 * margin) // nodes_per_row
-        base_y = margin + row * (canvas_height - 2 * margin) // rows
-        
-        # Position nodes in this strand
-        strand_nodes = strand_groups[strand]
-        for j, node_id in enumerate(strand_nodes):
-            # Find the node and update its position
-            for node in nodes:
-                if node['id'] == node_id:
-                    # Add some randomness within the strand area
-                    node['x'] = base_x + random.randint(-50, 50)
-                    node['y'] = base_y + random.randint(-30, 30)
-                    break
-    
-    # Create minimal edges
-    edges = []
-    for _, rel in sample_relationships.iterrows():
-        edges.append({
-            'from': rel['prerequisite_id'],
-            'to': rel['dependent_id']
-        })
-    
-    # Create the final graph data
-    graph_data = {
-        'nodes': nodes,
-        'edges': edges,
+    # Compose metadata
+    strands = sorted(set(n.get('strand', 'Unknown') for n in nodes))
+    lw_graph = {
+        'nodes': [
+            {
+                'id': n['id'],
+                'name': n['name'],
+                'full_name': n['full_name'],
+                'strand': n.get('strand', 'Unknown'),
+                'explanation': n.get('explanation', n['name']),
+                'x': n['x'],
+                'y': n['y']
+            }
+            for n in nodes
+        ],
+        'edges': lw_edges,
         'metadata': {
             'total_nodes': len(nodes),
-            'total_edges': len(edges),
-            'strands': list(strand_groups.keys()),
+            'total_edges': len(lw_edges),
+            'strands': strands,
             'max_nodes': None
         }
     }
-    
-    return graph_data
+    return lw_graph
 
 def save_lightweight_graph(graph_data, output_file='_static/lightweight-graph.json'):
     """Save the graph data to JSON file"""
@@ -134,10 +91,10 @@ def save_lightweight_graph(graph_data, output_file='_static/lightweight-graph.js
 def main():
     """Main function to process and save the lightweight graph"""
     
-    print("Creating lightweight knowledge graph...")
+    print("Creating lightweight knowledge graph using layout_knowledge_graph.py output...")
     
     # Create graph with 100 nodes for good performance
-    graph_data = create_lightweight_graph(max_nodes=100)
+    graph_data = create_lightweight_graph_from_coords()
     
     if graph_data:
         save_lightweight_graph(graph_data)

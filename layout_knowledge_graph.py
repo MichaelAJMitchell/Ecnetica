@@ -20,6 +20,13 @@ import os
 import glob
 from pathlib import Path
 
+try:
+    import pygraphviz
+    from networkx.drawing.nx_agraph import to_agraph
+    HAS_PYGRAPHVIZ = True
+except ImportError:
+    HAS_PYGRAPHVIZ = False
+
 def find_csv_files():
     """Automatically find concepts and relationships CSV files in current directory."""
     concepts_file = None
@@ -72,62 +79,63 @@ def build_graph(concepts_df, relationships_df):
     
     return G
 
-def compute_layout(G):
-    """
-    Compute layout using graphviz with dot algorithm.
-    
-    Args:
-        G: NetworkX directed graph
-    
-    Returns:
-        dict: Node positions and levels
-    """
-    try:
-        # Use graphviz layout with dot algorithm, top-to-bottom direction
-        pos = nx.drawing.nx_agraph.graphviz_layout(G, prog='dot', args='-rankdir=TB')
-        
-        # Invert y-axis so origin is bottom-left for viewer
-        # Get the range of y coordinates
-        y_coords = [coord[1] for coord in pos.values()]
+def compute_layout_with_clusters(G, concepts_df):
+    if HAS_PYGRAPHVIZ:
+        # Create an AGraph (pygraphviz) for advanced layout
+        A = to_agraph(G)
+        A.graph_attr.update(rankdir='TB', splines='true', overlap='false')
+        # Group nodes into clusters by strand
+        strands = concepts_df['strand'].fillna('Unknown').unique()
+        strand_to_nodes = {strand: concepts_df[concepts_df['strand'] == strand]['id'].tolist() for strand in strands}
+        for i, (strand, node_ids) in enumerate(strand_to_nodes.items()):
+            if not node_ids:
+                continue
+            sg = A.add_subgraph(node_ids, name=f'cluster_{i}', label=strand, color='lightgrey')
+            sg.graph_attr['style'] = 'filled'
+            sg.graph_attr['color'] = 'lightgrey'
+            sg.graph_attr['label'] = strand
+        A.layout(prog='dot')
+        pos = {}
+        for n in G.nodes():
+            node = A.get_node(n)
+            x, y = map(float, node.attr['pos'].split(','))
+            pos[n] = (x, y)
+        y_coords = [y for x, y in pos.values()]
         min_y, max_y = min(y_coords), max(y_coords)
-        
-        # Invert y coordinates
-        inverted_pos = {}
-        for node, (x, y) in pos.items():
-            inverted_y = max_y - y + min_y  # Invert y-axis
-            inverted_pos[node] = (x, inverted_y)
-        
-        # Compute levels (longest path distance from roots)
-        levels = {}
-        roots = [n for n in G.nodes() if G.in_degree(n) == 0]
-        
-        for node in G.nodes():
-            if node in roots:
-                levels[node] = 0
-            else:
-                # Find longest path from any root to this node
-                max_level = 0
-                for root in roots:
-                    try:
-                        path_length = nx.shortest_path_length(G, root, node)
-                        max_level = max(max_level, path_length)
-                    except nx.NetworkXNoPath:
-                        continue
-                levels[node] = max_level
-        
-        return inverted_pos, levels
-        
-    except Exception as e:
-        print(f"Warning: Could not use graphviz layout: {e}")
-        print("Falling back to spring layout...")
-        
-        # Fallback to spring layout
-        pos = nx.spring_layout(G, k=1, iterations=50)
-        
-        # Compute simple levels based on in-degree
-        levels = {node: G.in_degree(node) for node in G.nodes()}
-        
-        return pos, levels
+        for k in pos:
+            x, y = pos[k]
+            pos[k] = (x, max_y - y + min_y)
+    else:
+        print("pygraphviz not found, using networkx.spring_layout for fallback.")
+        pos = nx.spring_layout(G, k=2, iterations=200)
+        xs = [x for x, y in pos.values()]
+        ys = [y for x, y in pos.values()]
+        min_x, max_x = min(xs), max(xs)
+        min_y, max_y = min(ys), max(ys)
+        def scale(val, minv, maxv, out_min, out_max):
+            return out_min + (val - minv) / (maxv - minv) * (out_max - out_min)
+        for k in pos:
+            x, y = pos[k]
+            pos[k] = (
+                scale(x, min_x, max_x, 50, 800 - 50),
+                scale(y, min_y, max_y, 50, 600 - 50)
+            )
+    # Compute levels (longest path from roots)
+    levels = {}
+    roots = [n for n in G.nodes() if G.in_degree(n) == 0]
+    for node in G.nodes():
+        if node in roots:
+            levels[node] = 0
+        else:
+            max_level = 0
+            for root in roots:
+                try:
+                    path_length = nx.shortest_path_length(G, root, node)
+                    max_level = max(max_level, path_length)
+                except nx.NetworkXNoPath:
+                    continue
+            levels[node] = max_level
+    return pos, levels
 
 def create_sigma_json(G, pos, levels):
     """
@@ -219,9 +227,9 @@ def main():
             print(f"Warning: Graph has {len(components)} disconnected components")
             print(f"Component sizes: {[len(c) for c in components]}")
         
-        # Compute layout
-        print("Computing layout...")
-        pos, levels = compute_layout(G)
+        # Compute layout with clusters by strand
+        print("Computing layout with clusters by strand...")
+        pos, levels = compute_layout_with_clusters(G, concepts_df)
         
         # Create Sigma.js JSON
         print("Creating Sigma.js JSON...")

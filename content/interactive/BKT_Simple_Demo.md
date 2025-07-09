@@ -1,3 +1,7 @@
+---
+html_theme.sidebar_secondary.remove: true
+---
+
 ```{raw} html
 
 <!doctype html>
@@ -27,12 +31,33 @@
     <style>
       /* Override Jupyter Book styles for BKT demo */
       .bd-content .bkt-demo-container {
-        max-width: 1200px;
+        max-width: 1400px;
         margin: 0 auto;
         padding: 20px;
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         min-height: 100vh;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      
+      /* Main layout container */
+      .main-layout {
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+      }
+      
+      /* BKT section (left side) */
+      .bkt-section {
+        flex: 1;
+        min-width: 0; /* Prevents flex item from overflowing */
+        max-width: 600px;
+      }
+      
+      /* Graph section (right side) */
+      .graph-section {
+        flex: 1;
+        min-width: 0; /* Prevents flex item from overflowing */
+        max-width: 700px;
       }
       
       .bkt-demo-container .container {
@@ -273,28 +298,27 @@
       /* Legend styling */
       .mastery-legend {
         background: rgba(255, 255, 255, 0.95);
-        padding: 20px;
+        padding: 15px;
         border-radius: 12px;
-        margin: 15px 0;
+        margin: 10px 0;
         border: 1px solid rgba(255,255,255,0.2);
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         backdrop-filter: blur(10px);
+        font-size: 13px;
       }
       
       .legend-item {
-        display: inline-block;
-        margin-right: 25px;
+        display: block;
         margin-bottom: 8px;
-        font-size: 14px;
         color: #2c3e50;
       }
       
       .legend-color {
         display: inline-block;
-        width: 20px;
-        height: 20px;
+        width: 16px;
+        height: 16px;
         border-radius: 50%;
-        margin-right: 10px;
+        margin-right: 8px;
         vertical-align: middle;
         border: 2px solid #2c3e50;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -318,7 +342,26 @@
       }
       
       /* Responsive design */
+      @media (max-width: 1024px) {
+        .main-layout {
+          flex-direction: column;
+        }
+        
+        .bkt-section,
+        .graph-section {
+          max-width: none;
+        }
+        
+        #graph-container {
+          height: 400px !important;
+        }
+      }
+      
       @media (max-width: 768px) {
+        .bkt-demo-container {
+          padding: 10px;
+        }
+        
         .bkt-demo-container h1 {
           font-size: 2em;
         }
@@ -334,92 +377,113 @@
         }
         
         .legend-item {
-          display: block;
           margin-bottom: 10px;
+        }
+        
+        #graph-container {
+          height: 350px !important;
+        }
+        
+        #controls {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+        
+        #controls label,
+        #controls select,
+        #controls button {
+          width: 100%;
         }
       }
     </style>
 </head>
 <body>
     <div class="bkt-demo-container">
-      <div class="container">
-        <h1>🧠 BKT Algorithm Visual Demo</h1>
-        <p class="subtitle">Experience how Bayesian Knowledge Tracing adapts to your learning in real-time</p>
-        
-        <div class="controls">
-          <button onclick="showKnowledgeGraph()" class="primary-btn" id="showGraphBtn" disabled>
-            📊 Show Knowledge Graph
-          </button>
-          <button onclick="resetDemo()" class="danger-btn">
-            🔄 Reset Demo
-          </button>
-        </div>
-        
-        <div id="status" class="status loading">
-          <div class="loading-spinner"></div>
-          Initializing BKT System...
-        </div>
-        
-        <div id="mcq-section" style="display: none;"></div>
-      </div>
-    </div>
-
-    <div class="bkt-demo-container">
-      <div class="container">
-        <h2>📊 Knowledge Graph</h2>
-        <p>The graph colors reflect your current mastery levels. Practice questions to see the colors change!</p>
-        
-        <div class="mastery-legend">
-          <strong>Mastery Level Legend:</strong><br>
-          <div class="legend-item">
-            <span class="legend-color" style="background-color: #dc3545;"></span>
-            <span>Low Mastery (0-40%)</span>
-          </div>
-          <div class="legend-item">
-            <span class="legend-color" style="background-color: #ffc107;"></span>
-            <span>Medium Mastery (40-70%)</span>
-          </div>
-          <div class="legend-item">
-            <span class="legend-color" style="background-color: #28a745;"></span>
-            <span>High Mastery (70-100%)</span>
-          </div>
-          <div class="legend-item">
-            <span class="legend-color" style="background-color: #6c757d;"></span>
-            <span>Not Yet Studied</span>
+      <div class="main-layout">
+        <!-- Left side: BKT Demo -->
+        <div class="bkt-section">
+          <div class="container">
+            <h1>🧠 BKT Algorithm Visual Demo</h1>
+            <p class="subtitle">Experience how Bayesian Knowledge Tracing adapts to your learning in real-time</p>
+            
+            <div class="controls">
+              <button onclick="showKnowledgeGraph()" class="primary-btn" id="showGraphBtn" disabled>
+                📊 Show Knowledge Graph
+              </button>
+              <button onclick="resetDemo()" class="danger-btn">
+                🔄 Reset Demo
+              </button>
+            </div>
+            
+            <div id="status" class="status loading">
+              <div class="loading-spinner"></div>
+              Initializing BKT System...
+            </div>
+            
+            <div id="mcq-section" style="display: none;"></div>
           </div>
         </div>
-        
-        <div id="graph-container" style="width: 100%; height: 600px; border: 1px solid #ddd; border-radius: 4px;"></div>
 
-        <div id="controls" style="margin-top: 20px;">
-          <label for="strand-filter">Filter by Strand: </label>
-          <select id="strand-filter">
-            <option value="">All Strands</option>
-            <option value="Algebra">Algebra</option>
-            <option value="Geometry">Geometry</option>
-            <option value="Trigonometry">Trigonometry</option>
-            <option value="Calculus">Calculus</option>
-            <option value="Number">Number</option>
-            <option value="Statistics">Statistics</option>
-            <option value="Probability">Probability</option>
-            <option value="Coordinate Geometry">Coordinate Geometry</option>
-          </select>
-          
-          <button id="reset-view" style="margin-left: 10px;">Reset View</button>
-          <button id="toggle-physics" style="margin-left: 10px;">Toggle Physics</button>
-          <button id="load-simplified" style="margin-left: 10px;">Load Small Dense Graph</button>
-          <button id="load-full" style="margin-left: 10px;">Load Full</button>
-        </div>
+        <!-- Right side: Knowledge Graph -->
+        <div class="graph-section">
+          <div class="container">
+            <h2>📊 Knowledge Graph</h2>
+            <p>The graph colors reflect your current mastery levels. Practice questions to see the colors change!</p>
+            
+            <div class="mastery-legend">
+              <strong>Mastery Level Legend:</strong><br>
+              <div class="legend-item">
+                <span class="legend-color" style="background-color: #dc3545;"></span>
+                <span>Low Mastery (0-40%)</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color" style="background-color: #ffc107;"></span>
+                <span>Medium Mastery (40-70%)</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color" style="background-color: #28a745;"></span>
+                <span>High Mastery (70-100%)</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color" style="background-color: #6c757d;"></span>
+                <span>Not Yet Studied</span>
+              </div>
+            </div>
+            
+            <div id="graph-container" style="width: 100%; height: 500px; border: 1px solid #ddd; border-radius: 8px;"></div>
 
-        <div id="node-info" style="margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-radius: 4px; display: none;">
-          <h4 id="node-title"></h4>
-          <p id="node-description"></p>
-          <p><strong>Strand:</strong> <span id="node-strand"></span></p>
-          <p><strong>Mastery Level:</strong> <span id="node-mastery"></span></p>
-        </div>
+            <div id="controls" style="margin-top: 15px;">
+              <label for="strand-filter">Filter by Strand: </label>
+              <select id="strand-filter">
+                <option value="">All Strands</option>
+                <option value="Algebra">Algebra</option>
+                <option value="Geometry">Geometry</option>
+                <option value="Trigonometry">Trigonometry</option>
+                <option value="Calculus">Calculus</option>
+                <option value="Number">Number</option>
+                <option value="Statistics">Statistics</option>
+                <option value="Probability">Probability</option>
+                <option value="Coordinate Geometry">Coordinate Geometry</option>
+              </select>
+              
+              <button id="reset-view" style="margin-left: 10px;">Reset View</button>
+              <button id="toggle-physics" style="margin-left: 10px;">Toggle Physics</button>
+              <button id="load-simplified" style="margin-left: 10px;">Load Small Dense Graph</button>
+              <button id="load-full" style="margin-left: 10px;">Load Full</button>
+            </div>
 
-        <div id="stats" style="margin-top: 20px; padding: 10px; background-color: #e9ecef; border-radius: 4px;">
-          <strong>Graph Statistics:</strong> <span id="node-count">0</span> nodes, <span id="edge-count">0</span> edges
+            <div id="node-info" style="margin-top: 15px; padding: 10px; background-color: #f8f9fa; border-radius: 8px; display: none;">
+              <h4 id="node-title"></h4>
+              <p id="node-description"></p>
+              <p><strong>Strand:</strong> <span id="node-strand"></span></p>
+              <p><strong>Mastery Level:</strong> <span id="node-mastery"></span></p>
+            </div>
+
+            <div id="stats" style="margin-top: 15px; padding: 10px; background-color: #e9ecef; border-radius: 8px;">
+              <strong>Graph Statistics:</strong> <span id="node-count">0</span> nodes, <span id="edge-count">0</span> edges
+            </div>
+          </div>
         </div>
       </div>
     </div>

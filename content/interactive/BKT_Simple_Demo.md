@@ -289,7 +289,7 @@
           
           // Fetch and load the BKT code
           updateOutput('Fetching BKT algorithm code...');
-          const pyResponse = await fetch("../../_static/mcq_algorithm_full_python.py");
+          const pyResponse = await fetch("../../_static/mcq_algorithm_full_python2.py");
           if (!pyResponse.ok) {
             throw new Error(`Failed to fetch Python code: ${pyResponse.status}`);
           }
@@ -310,30 +310,30 @@
           updateOutput('✓ config.json loaded');
           
           // Fetch kg.json
-          const kgResponse = await fetch("../../_static/kg.json");
+          const kgResponse = await fetch("../../_static/small-graph-kg.json");
           if (!kgResponse.ok) {
-            throw new Error(`Failed to fetch kg.json: ${kgResponse.status}`);
+            throw new Error(`Failed to FETCH kg.json: ${kgResponse.status}`);
           }
           const kgData = await kgResponse.text();
-          pyodideInstance.FS.writeFile("kg.json", kgData);
+          pyodideInstance.FS.writeFile("small-graph-kg.json", kgData);
           updateOutput('✓ kg.json loaded');
           
           // Fetch mcqs.json
-          const mcqsResponse = await fetch("../../_static/mcqs.json");
+          const mcqsResponse = await fetch("../../_static/small-graph-mcqs.json");
           if (!mcqsResponse.ok) {
             throw new Error(`Failed to fetch mcqs.json: ${mcqsResponse.status}`);
           }
           const mcqsData = await mcqsResponse.text();
-          pyodideInstance.FS.writeFile("mcqs.json", mcqsData);
+          pyodideInstance.FS.writeFile("small-graph-mcqs.json", mcqsData);
           updateOutput('✓ mcqs.json loaded');
           
           // Fetch computed_mcqs.json
-          const computedMcqsResponse = await fetch("../../_static/computed_mcqs.json");
+          const computedMcqsResponse = await fetch("../../_static/small-graph-computed_mcqs.json");
           if (!computedMcqsResponse.ok) {
             throw new Error(`Failed to fetch computed_mcqs.json: ${computedMcqsResponse.status}`);
           }
           const computedMcqsData = await computedMcqsResponse.text();
-          pyodideInstance.FS.writeFile("computed_mcqs.json", computedMcqsData);
+          pyodideInstance.FS.writeFile("small-graph-computed_mcqs.json", computedMcqsData);
           updateOutput('✓ computed_mcqs.json loaded');
           
           // Import and initialize the system
@@ -450,6 +450,7 @@
           print(f"Due topics (mastery < {mastery_threshold}): {len(due_topics)} out of {len(student.mastery_levels)}")
           
           # 3. Sample MCQ analysis
+          print(f"Total MCQs loaded: {len(kg.mcqs)}")
           sample_mcq_id = list(kg.mcqs.keys())[0]
           sample_mcq = kg.mcqs[sample_mcq_id]
           print(f"\\nSample MCQ analysis:")

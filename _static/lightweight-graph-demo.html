@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lightweight Knowledge Graph Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .graph-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .controls {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        button {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        button:hover {
+            background-color: #1976D2;
+        }
+        
+        .info {
+            background-color: #e3f2fd;
+            border: 1px solid #2196F3;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .stats {
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧠 Lightweight Knowledge Graph Visualization</h1>
+        
+        <div class="info">
+            <strong>Features:</strong>
+            <ul>
+                <li>✅ Pure JavaScript - no external dependencies</li>
+                <li>✅ Interactive zoom and pan</li>
+                <li>✅ Node selection and information display</li>
+                <li>✅ Color-coded by math strand</li>
+                <li>✅ Mobile-friendly touch controls</li>
+                <li>✅ Lightweight (~5KB total)</li>
+            </ul>
+        </div>
+        
+        <div class="controls">
+            <button onclick="graph.resetView()">Reset View</button>
+            <button onclick="graph.fitToView()">Fit to View</button>
+            <button onclick="toggleInfo()">Toggle Info</button>
+        </div>
+        
+        <div class="graph-container">
+            <canvas id="knowledge-graph"></canvas>
+        </div>
+        
+        <div class="stats" id="stats">
+            Loading graph data...
+        </div>
+        
+        <div class="info" id="instructions" style="display: none;">
+            <strong>How to use:</strong>
+            <ul>
+                <li><strong>Drag:</strong> Pan around the graph</li>
+                <li><strong>Scroll:</strong> Zoom in/out</li>
+                <li><strong>Click:</strong> Select nodes to see details</li>
+                <li><strong>Touch:</strong> Works on mobile devices</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="lightweight-graph.js"></script>
+    <script>
+        let graph;
+        let graphData;
+        
+        // Load and initialize the graph
+        fetch('lightweight-graph.json')
+            .then(response => response.json())
+            .then(data => {
+                graphData = data;
+                graph = new LightweightGraph('knowledge-graph', data);
+                
+                // Update stats
+                updateStats();
+                
+                // Auto-fit to view
+                setTimeout(() => graph.fitToView(), 100);
+            })
+            .catch(error => {
+                console.error('Error loading graph data:', error);
+                document.getElementById('stats').innerHTML = 'Error loading graph data: ' + error.message;
+            });
+        
+        function updateStats() {
+            if (graphData) {
+                const stats = document.getElementById('stats');
+                stats.innerHTML = `
+                    <strong>Graph Statistics:</strong><br>
+                    Nodes: ${graphData.nodes.length}<br>
+                    Edges: ${graphData.edges.length}<br>
+                    Strands: ${graphData.metadata.strands.join(', ')}
+                `;
+            }
+        }
+        
+        function toggleInfo() {
+            const instructions = document.getElementById('instructions');
+            instructions.style.display = instructions.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html> 

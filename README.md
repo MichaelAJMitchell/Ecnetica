@@ -8,19 +8,28 @@
    ```
    python -m http.server
    ```
-### Running the code via a script
+## Running the code via a script
 In the home directory run `quick-build.sh`. 
 
 Either use
-```bash quick-build.sh```
+
+   ```
+   bash quick-build.sh
+   ```
 
 or 
 
 Make the script executable with 
-```chmod u+x quick-build.sh```
+
+   ```
+   chmod u+x quick-build.sh
+   ```
 
 and then run the script in the home directory with
-``` ./quickbuild.sh```
+
+   ``` 
+   ./quickbuild.sh
+   ```
 
 Use ctrl +c to escape the process.
 

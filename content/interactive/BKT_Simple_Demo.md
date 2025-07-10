@@ -29,15 +29,17 @@ html_theme.sidebar_secondary.remove: true
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
-    <style>
+   <style>
       /* Override Jupyter Book styles for BKT demo */
       .bd-content .bkt-demo-container {
         max-width: 1400px;
         margin: 0 auto;
         padding: 20px;
-        background: #f8f9fa;
+        background: var(--pst-color-background, #f8f9fa);
         min-height: 100vh;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--pst-color-text-base, #2c3e50);
+        transition: background-color 0.3s ease, color 0.3s ease;
       }
       
       /* Main layout container */
@@ -50,29 +52,30 @@ html_theme.sidebar_secondary.remove: true
       /* BKT section (left side) */
       .bkt-section {
         flex: 1;
-        min-width: 0; /* Prevents flex item from overflowing */
+        min-width: 0;
         max-width: 600px;
       }
       
       /* Graph section (right side) */
       .graph-section {
         flex: 1;
-        min-width: 0; /* Prevents flex item from overflowing */
+        min-width: 0;
         max-width: 700px;
       }
       
       .bkt-demo-container .container {
-        background: rgba(255, 255, 255, 0.95);
+        background: var(--pst-color-surface, rgba(255, 255, 255, 0.95));
         padding: 30px;
         border-radius: 15px;
         box-shadow: 0 8px 32px rgba(0,0,0,0.1);
         margin-bottom: 20px;
         backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.2);
+        border: 1px solid var(--pst-color-border, rgba(255,255,255,0.2));
+        transition: all 0.3s ease;
       }
       
       .bkt-demo-container h1 {
-        color: #2c3e50;
+        color: var(--pst-color-text-base, #2c3e50);
         text-align: center;
         margin-bottom: 10px;
         font-size: 2.2em;
@@ -81,13 +84,11 @@ html_theme.sidebar_secondary.remove: true
       
       .bkt-demo-container .subtitle {
         text-align: center;
-        color: #7f8c8d;
+        color: var(--pst-color-text-muted, #7f8c8d);
         font-size: 1.1em;
         margin-bottom: 30px;
         font-style: italic;
       }
-      
-
       
       /* Enhanced button styling */
       .bkt-demo-container button {
@@ -186,20 +187,21 @@ html_theme.sidebar_secondary.remove: true
       
       /* Enhanced MCQ container styling */
       .bkt-demo-container .mcq-container {
-        background: rgba(255, 255, 255, 0.95) !important;
+        background: var(--pst-color-surface, rgba(255, 255, 255, 0.95)) !important;
         border: 3px solid #3498db !important;
         border-radius: 15px !important;
         padding: 25px !important;
         margin: 20px 0 !important;
         box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
       }
       
       .bkt-demo-container .mcq-question {
         font-size: 20px !important;
         font-weight: 600 !important;
         margin-bottom: 20px !important;
-        color: #2c3e50 !important;
+        color: var(--pst-color-text-base, #2c3e50) !important;
         line-height: 1.4;
       }
       
@@ -208,7 +210,7 @@ html_theme.sidebar_secondary.remove: true
         gap: 20px;
         margin: 15px 0;
         flex-wrap: wrap;
-        color: #7f8c8d;
+        color: var(--pst-color-text-muted, #7f8c8d);
         font-size: 14px;
       }
       
@@ -228,6 +230,7 @@ html_theme.sidebar_secondary.remove: true
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
         font-size: 16px !important;
         backdrop-filter: blur(5px);
+        color: var(--pst-color-text-base, #2c3e50) !important;
       }
       
       .bkt-demo-container .mcq-option:hover {
@@ -291,14 +294,15 @@ html_theme.sidebar_secondary.remove: true
 
       /* Legend styling */
       .mastery-legend {
-        background: rgba(255, 255, 255, 0.95);
+        background: var(--pst-color-surface, rgba(255, 255, 255, 0.95));
         padding: 15px;
         border-radius: 12px;
         margin: 10px 0;
-        border: 1px solid rgba(255,255,255,0.2);
+        border: 1px solid var(--pst-color-border, rgba(255,255,255,0.2));
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         backdrop-filter: blur(10px);
         font-size: 13px;
+        transition: all 0.3s ease;
       }
       
       .gradient-legend {
@@ -315,7 +319,7 @@ html_theme.sidebar_secondary.remove: true
           hsl(120, 80%, 50%) 100%
         );
         border-radius: 10px;
-        border: 2px solid #2c3e50;
+        border: 2px solid var(--pst-color-text-base, #2c3e50);
         margin-bottom: 5px;
       }
       
@@ -323,14 +327,14 @@ html_theme.sidebar_secondary.remove: true
         display: flex;
         justify-content: space-between;
         font-size: 11px;
-        color: #2c3e50;
+        color: var(--pst-color-text-base, #2c3e50);
         font-weight: 500;
       }
       
       .legend-item {
         display: block;
         margin-bottom: 8px;
-        color: #2c3e50;
+        color: var(--pst-color-text-base, #2c3e50);
       }
       
       .legend-color {
@@ -340,7 +344,7 @@ html_theme.sidebar_secondary.remove: true
         border-radius: 50%;
         margin-right: 8px;
         vertical-align: middle;
-        border: 2px solid #2c3e50;
+        border: 2px solid var(--pst-color-text-base, #2c3e50);
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       }
       
@@ -372,7 +376,7 @@ html_theme.sidebar_secondary.remove: true
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background: rgba(248, 249, 250, 0.95);
+        background: var(--pst-color-surface, rgba(248, 249, 250, 0.95));
         border-radius: 8px;
         z-index: 10;
       }
@@ -388,9 +392,149 @@ html_theme.sidebar_secondary.remove: true
       }
       
       .graph-loading-text {
-        color: #6c757d;
+        color: var(--pst-color-text-muted, #6c757d);
         font-size: 16px;
         font-weight: 500;
+      }
+
+      /* ========== DARK MODE OVERRIDES ========== */
+      
+      /* Dark mode container background */
+      html[data-theme="dark"] .bkt-demo-container {
+        background: #1a1a1a !important;
+        color: #e9ecef !important;
+      }
+      
+      /* Dark mode container boxes */
+      html[data-theme="dark"] .bkt-demo-container .container {
+        background: var(--dark-gray-dark, #374151) !important;
+        border: 1px solid var(--dark-gray-medium, #4a5568) !important;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.3) !important;
+      }
+      
+      /* Dark mode headings */
+      html[data-theme="dark"] .bkt-demo-container h1,
+      html[data-theme="dark"] .bkt-demo-container .subtitle {
+        color: #f8f9fa !important;
+      }
+      
+      /* Dark mode MCQ container */
+      html[data-theme="dark"] .bkt-demo-container .mcq-container {
+        background: var(--dark-gray-darker) !important;
+        border-color: #3498db !important;
+        color: #e9ecef !important;
+      }
+      
+      /* Dark mode MCQ question */
+      html[data-theme="dark"] .bkt-demo-container .mcq-question {
+        color: #f8f9fa !important;
+      }
+      
+      /* Dark mode MCQ meta */
+      html[data-theme="dark"] .bkt-demo-container .mcq-meta {
+        color: #adb5bd !important;
+      }
+      
+      /* Dark mode MCQ options */
+      html[data-theme="dark"] .bkt-demo-container .mcq-option {
+        background: var(--dark-gray-dark, #374151) !important;
+        color: #e9ecef !important;
+        border-color: var(--dark-gray-medium, #4a5568) !important;
+      }
+      
+      html[data-theme="dark"] .bkt-demo-container .mcq-option:hover {
+        background: var(--dark-gray-medium, #4a5568) !important;
+        border-color: var(--dark-gray-light, #6b7280) !important;
+      }
+      
+      /* Dark mode status messages */
+      html[data-theme="dark"] .bkt-demo-container .status.success {
+        background: #065f46 !important;
+        color: #d1fae5 !important;
+        border-color: #10b981 !important;
+      }
+      
+      html[data-theme="dark"] .bkt-demo-container .status.error {
+        background: #7f1d1d !important;
+        color: #fecaca !important;
+        border-color: #ef4444 !important;
+      }
+      
+      html[data-theme="dark"] .bkt-demo-container .status.info {
+        background: #1e3a8a !important;
+        color: #dbeafe !important;
+        border-color: #3b82f6 !important;
+      }
+      
+      html[data-theme="dark"] .bkt-demo-container .status.loading {
+        background: #92400e !important;
+        color: #fef3c7 !important;
+        border-color: #f59e0b !important;
+      }
+      
+      /* Dark mode progress bar */
+      html[data-theme="dark"] .bkt-demo-container .progress-bar {
+        background-color: var(--dark-gray-dark, #374151) !important;
+      }
+      
+      /* Keep progress fill green in dark mode */
+      html[data-theme="dark"] .bkt-demo-container .progress-fill {
+        background: linear-gradient(45deg, #27ae60, #2ecc71) !important;
+        box-shadow: 0 2px 10px rgba(39, 174, 96, 0.3) !important;
+      }
+      
+      /* Dark mode legend */
+      html[data-theme="dark"] .mastery-legend {
+        background: var(--dark-gray-dark, #374151) !important;
+        border-color: var(--dark-gray-medium, #4a5568) !important;
+      }
+      
+      html[data-theme="dark"] .gradient-bar {
+        border-color: #f8f9fa !important;
+      }
+      
+      html[data-theme="dark"] .gradient-labels,
+      html[data-theme="dark"] .legend-item {
+        color: #f8f9fa !important;
+      }
+      
+      html[data-theme="dark"] .legend-color {
+        border-color: #f8f9fa !important;
+      }
+      
+      /* Dark mode loading states */
+      html[data-theme="dark"] .graph-loading {
+        background: rgba(55, 65, 81, 0.95) !important;
+      }
+      
+      /* Override inline styles for any BKT visualization elements */
+      html[data-theme="dark"] .bkt-demo-container [style*="background"]:not(.progress-bar):not(.progress-fill) {
+        background: var(--dark-gray-dark, #374151) !important;
+      }
+      
+      html[data-theme="dark"] .bkt-demo-container [style*="rgba(255, 255, 255"]:not(.progress-bar):not(.progress-fill) {
+        background: var(--dark-gray-dark, #374151) !important;
+      }
+      
+      html[data-theme="dark"] .bkt-demo-container [style*="background-color: white"]:not(.progress-bar):not(.progress-fill),
+      html[data-theme="dark"] .bkt-demo-container [style*="background-color:#ffffff"]:not(.progress-bar):not(.progress-fill),
+      html[data-theme="dark"] .bkt-demo-container [style*="background-color: #ffffff"]:not(.progress-bar):not(.progress-fill) {
+        background-color: var(--dark-gray-dark, #374151) !important;
+      }
+      
+      html[data-theme="dark"] .graph-loading-spinner {
+        border-color: #4a5568 !important;
+        border-top-color: #3498db !important;
+      }
+      
+      html[data-theme="dark"] .graph-loading-text {
+        color: #adb5bd !important;
+      }
+      
+      /* Dark mode disabled buttons */
+      html[data-theme="dark"] .bkt-demo-container .submit-btn:disabled {
+        background: #4a5568 !important;
+        color: #9ca3af !important;
       }
       
       /* Responsive design */
@@ -463,7 +607,7 @@ html_theme.sidebar_secondary.remove: true
           width: 100%;
         }
       }
-    </style>
+</style>
 </head>
 <body>
     <div class="bkt-demo-container">

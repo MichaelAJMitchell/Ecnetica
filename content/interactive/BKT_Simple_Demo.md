@@ -1,6 +1,7 @@
 ---
 html_theme.sidebar_secondary.remove: true
 ---
+# Bayesian Knowledge Tracing X Knowledge Graph Framework
 
 ```{raw} html
 

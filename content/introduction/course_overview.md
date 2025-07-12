@@ -1,5 +1,4 @@
 # Course Overview
-hi this is Caoimhe testing adding stuff to the website
 Content goes here.
 
 ## Section 1

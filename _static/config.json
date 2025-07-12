@@ -2,23 +2,23 @@
   "bkt_parameters": {
     "default": {
       "prior_knowledge": 0.1,
-      "learning_rate": 0.3,
-      "slip_rate": 0.05,
-      "guess_rate": 0.15
+      "learning_rate": 0.02,   
+      "slip_rate": 0.05,       
+      "guess_rate": 0.4 
     },
     "topic_specific": {
       "17": {
         "prior_knowledge": 0.05,
-        "learning_rate": 0.25,
-        "slip_rate": 0.03,
-        "guess_rate": 0.1,
+        "learning_rate": 0.02,
+        "slip_rate": 0.05,
+        "guess_rate": 0.4,
         "description": "Discriminant - requires more foundational knowledge"
       },
       "15": {
         "prior_knowledge": 0.08,
-        "learning_rate": 0.35,
-        "slip_rate": 0.06,
-        "guess_rate": 0.12,
+        "learning_rate": 0.02,
+        "slip_rate": 0.05,
+        "guess_rate": 0.4,
         "description": "Quadratic formula - procedural skill"
       }
     }

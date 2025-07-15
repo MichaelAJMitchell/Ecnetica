@@ -1,30 +1,695 @@
-p {text-align: justify;}
+/*====================================================================*\
+ECNETICA PROJECT - CONSOLIDATED STYLESHEET
+\*====================================================================*/
 
-.bd-main .bd-content .bd-article-container {
-    max-width: 81em;  /* default is 60em */
+/*--------------------------------------------------------------------*\
+1. CSS VARIABLES (ROOT & THEMES)
+\*--------------------------------------------------------------------*/
+
+:root {
+  /* Background colors */
+  --background-primary: #ffffff;
+  --background-secondary: #f8f9fa;
+  --background-tertiary: #e9ecef;
+  
+  /* Primary brand colors */
+  --primary: #3498db;
+  --primary-hover: #2980b9;
+  --primary-light: #d6eaf8;
+  
+  /* Secondary colors */
+  --secondary: #95a5a6;
+  --secondary-hover: #7f8c8d;
+  
+  /* Text colors */
+  --text-primary: #2c3e50;
+  --text-secondary: #6c757d;
+  --text-muted: #adb5bd;
+  --text-inverse: #ffffff;
+  
+  /* State colors */
+  --success: #27ae60;
+  --success-bg: #e8f8f5;
+  --error: #c0392b;
+  --error-bg: #fdedec;
+  --warning: #f39c12;
+  --warning-bg: #fef9e7;
+  --info: #3498db;
+  --info-bg: #e8f4fc;
+  
+  /* Border colors */
+  --border-primary: #dee2e6;
+  --border-secondary: #999999;
+  --border-light: #e9ecef;
+  
+  /* Shadows */
+  --shadow-light: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-medium: 0 2px 10px rgba(0,0,0,0.1);
+  --shadow-heavy: 0 4px 20px rgba(0,0,0,0.15);
+  
+  /* Spacing */
+  --spacing-xs: 5px;
+  --spacing-sm: 10px;
+  --spacing-md: 15px;
+  --spacing-lg: 20px;
+  --spacing-xl: 30px;
+  --spacing-xxl: 40px;
+  
+  /* Border radius */
+  --border-radius-sm: 5px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 10px;
+  
+  /* Category colors */
+  --category-scientific: #3498db;
+  --category-engineering: #e67e22;
+  --category-financial: #2ecc71;
+  --category-creative: #9b59b6;
+}
+
+html[data-theme="light"] {
+  /* Explicit light theme - same as root */
+  --background-primary: #ffffff;
+  --background-secondary: #f8f9fa;
+  --background-tertiary: #e9ecef;
+  --primary: #3498db;
+  --primary-hover: #2980b9;
+  --primary-light: #d6eaf8;
+  --secondary: #95a5a6;
+  --secondary-hover: #7f8c8d;
+  --text-primary: #2c3e50;
+  --text-secondary: #6c757d;
+  --text-muted: #adb5bd;
+  --text-inverse: #ffffff;
+  --success: #27ae60;
+  --success-bg: #e8f8f5;
+  --error: #c0392b;
+  --error-bg: #fdedec;
+  --warning: #f39c12;
+  --warning-bg: #fef9e7;
+  --info: #3498db;
+  --info-bg: #e8f4fc;
+  --border-primary: #dee2e6;
+  --border-secondary: #999999;
+  --border-light: #e9ecef;
+  --shadow-light: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-medium: 0 2px 10px rgba(0,0,0,0.1);
+  --shadow-heavy: 0 4px 20px rgba(0,0,0,0.15);
+  --category-scientific: #3498db;
+  --category-engineering: #e67e22;
+  --category-financial: #2ecc71;
+  --category-creative: #9b59b6;
+}
+
+html[data-theme="dark"] {
+  /* Dark theme overrides */
+  --background-primary: #1e293b;
+  --background-secondary: #374151;
+  --background-tertiary: #4a5568;
+  --primary: #60a5fa;
+  --primary-hover: #3b82f6;
+  --primary-light: #3b82f6;
+  --secondary: #6b7280;
+  --secondary-hover: #4a5568;
+  --text-primary: #f8f9fa;
+  --text-secondary: #e9ecef;
+  --text-muted: #adb5bd;
+  --text-inverse: #000000;
+  --success: #34d399;
+  --success-bg: #065f46;
+  --error: #f87171;
+  --error-bg: #7f1d1d;
+  --warning: #fbbf24;
+  --warning-bg: #78350f;
+  --info: #60a5fa;
+  --info-bg: #1e40af;
+  --border-primary: #4a5568;
+  --border-secondary: #6b7280;
+  --border-light: #374151;
+  --shadow-light: 0 1px 3px rgba(0,0,0,0.2);
+  --shadow-medium: 0 2px 10px rgba(0,0,0,0.3);
+  --shadow-heavy: 0 4px 20px rgba(0,0,0,0.4);
+  --category-scientific: #60a5fa;
+  --category-engineering: #f97316;
+  --category-financial: #10b981;
+  --category-creative: #8b5cf6;
+}
+
+/*--------------------------------------------------------------------*\
+2. BASE TYPOGRAPHY & LAYOUT
+\*--------------------------------------------------------------------*/
+
+/* Global typography settings */
+p {
+  text-align: justify;
 }
 
 html {
-    --pst-font-family-base: Verdana, var(--pst-font-family-base-system);
-    --pst-font-family-heading: Cambria, Georgia, Times, var(--pst-font-family-base-system);
-    --pst-font-family-monospace: Courier, var(--pst-font-family-monospace-system);
+  --pst-font-family-base: Verdana, var(--pst-font-family-base-system);
+  --pst-font-family-heading: Cambria, Georgia, Times, var(--pst-font-family-base-system);
+  --pst-font-family-monospace: Courier, var(--pst-font-family-monospace-system);
 }
 
-/*--------------------------------------------------------------------*\ 
-Styling for Table of Contents 
+/* Content width adjustment */
+.bd-main .bd-content .bd-article-container {
+  max-width: 81em;
+}
 
-- Ensures that menu items in the table of contents are big enough for readers
+/* Import Computer Modern font for math expressions */
+@import url('https://cdn.jsdelivr.net/npm/computer-modern@0.1.2/fonts/Sans/cmun-sans.css');
 
-\*--------------------------------------------------------------------*/ 
+/* General heading styles */
+h1, h2 {
+  color: var(--text-primary);
+  text-align: center;
+}
 
-  
-/*-------------------------------------------------------------------*\
-Styling for Embedded Videos (iframes) 
+/* Top-level container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-- Ensures that videos can resize to suit the screen the book is read from.
-- Also ensures that videos are horizontally centered.
+/*--------------------------------------------------------------------*\
+3. VISUALIZATION CONTAINERS (CORE MATH CONTENT)
+\*--------------------------------------------------------------------*/
 
-/*--------------------------------------------------------------------*/ 
+/* Make visualization containers immune to site theme changes */
+.visualization-container {
+  isolation: isolate;
+  contain: style;
+}
+
+/* Light-mode graphs - explicit colors regardless of site theme */
+.visualization-container:not(.dark-theme) {
+  color: #2d3748;
+  background-color: white;
+}
+
+.visualization-container:not(.dark-theme) .info-box,
+.visualization-container:not(.dark-theme) .slider-container,
+.visualization-container:not(.dark-theme) .graph-title {
+  color: #2d3748;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Dark-mode graphs use their own dark colors */
+.visualization-container.dark-theme {
+  color: #ecf0f1;
+  background-color: rgba(30, 39, 46, 0.85);
+}
+
+.visualization-container.dark-theme .info-box,
+.visualization-container.dark-theme .slider-container {
+  color: #ecf0f1;
+  background-color: rgba(30, 39, 46, 0.85);
+}
+
+/* Control buttons for visualizations */
+.visualization-container .controls {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.visualization-container .control-btn {
+  background-color: var(--background-secondary);
+  border: none;
+  padding: 6px 12px;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.visualization-container .control-btn:hover {
+  background-color: var(--background-tertiary);
+}
+
+.visualization-container .dark-theme .control-btn {
+  background-color: var(--background-secondary);
+  color: var(--text-secondary);
+}
+
+.visualization-container .dark-theme .control-btn:hover {
+  background-color: var(--background-tertiary);
+}
+
+/* Force correct colors for graph titles and headers */
+html[data-theme="dark"] .visualization-container:not(.dark-theme) .graph-title,
+html[data-theme="dark"] .visualization-container:not(.dark-theme) .section-header {
+  color: #2d3748;
+}
+
+/*--------------------------------------------------------------------*\
+4. MATH QUESTION MODULE
+\*--------------------------------------------------------------------*/
+
+.math-question-module {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xxl);
+  font-family: inherit;
+}
+
+.math-question-module h2 {
+  text-align: center;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xl);
+}
+
+.math-question-module .question-container {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.math-question-module .topic-intro {
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-light);
+  margin-bottom: var(--spacing-lg);
+}
+
+.math-question-module .question-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.math-question-module .category-box {
+  flex: 1;
+  min-width: 180px;
+  padding: var(--spacing-md);
+  text-align: center;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-light);
+  font-weight: bold;
+}
+
+.math-question-module .category-box:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Category box colors */
+.math-question-module .scientific {
+  background-color: var(--category-scientific);
+  color: var(--text-inverse);
+}
+
+.math-question-module .engineering {
+  background-color: var(--category-engineering);
+  color: var(--text-inverse);
+}
+
+.math-question-module .financial {
+  background-color: var(--category-financial);
+  color: var(--text-inverse);
+}
+
+.math-question-module .creative {
+  background-color: var(--category-creative);
+  color: var(--text-inverse);
+}
+
+.math-question-module .question-content {
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+}
+
+.math-question-module .question-title {
+  color: var(--text-primary);
+}
+
+.math-question-module .answer-content {
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  border-left: 4px solid var(--primary);
+}
+
+.math-question-module pre {
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+}
+
+/* Answer content colors by category */
+.math-question-module .scientific-answer {
+  border-left-color: var(--category-scientific);
+}
+
+.math-question-module .engineering-answer {
+  border-left-color: var(--category-engineering);
+}
+
+.math-question-module .financial-answer {
+  border-left-color: var(--category-financial);
+}
+
+.math-question-module .creative-answer {
+  border-left-color: var(--category-creative);
+}
+
+/*--------------------------------------------------------------------*\
+5. INTERACTIVE ELEMENTS
+\*--------------------------------------------------------------------*/
+
+/* === MCQ QUIZ STYLES === */
+
+/* MCQ Container */
+.mcq-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+}
+
+/* MCQ Module */
+.mcq-module {
+  font-family: 'Arial', sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+  background-color: var(--background-secondary);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Quiz Title */
+.quiz-title {
+  text-align: center;
+  color: var(--text-primary);
+  margin-bottom: 25px;
+}
+
+/* Progress Section */
+.progress-container {
+  margin-bottom: var(--spacing-lg);
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-xs);
+}
+
+.progress-bar-bg {
+  height: var(--spacing-sm);
+  background-color: var(--background-tertiary);
+  border-radius: var(--border-radius-sm);
+}
+
+.progress-bar {
+  height: 100%;
+  width: 20%;
+  background-color: var(--primary);
+  border-radius: var(--border-radius-sm);
+  transition: width 0.3s ease-in-out;
+}
+
+/* Question Container */
+.question-container {
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-light);
+  margin-bottom: var(--spacing-lg);
+}
+
+.question-text {
+  font-size: 18px;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Options */
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.option {
+  padding: var(--spacing-sm);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+}
+
+.option:hover {
+  background-color: var(--background-tertiary);
+  border-color: var(--border-secondary);
+}
+
+.option.selected {
+  background-color: var(--primary-light);
+  border-color: var(--primary);
+}
+
+.option-label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Explanations */
+.explanation-container {
+  display: none;
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--spacing-lg);
+  background-color: var(--info-bg);
+  color: var(--text-primary);
+}
+
+.explanation-container.correct {
+  background-color: var(--success-bg);
+  color: var(--text-primary);
+}
+
+.explanation-container.incorrect {
+  background-color: var(--error-bg);
+  color: var(--text-primary);
+}
+
+.explanation-title {
+  margin-top: 0;
+  color: var(--info);
+}
+
+.explanation-title.correct {
+  color: var(--success);
+}
+
+.explanation-title.incorrect {
+  color: var(--error);
+}
+
+.explanation-text {
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+.breakdown-container {
+  display: none;
+  margin-top: var(--spacing-md);
+}
+
+.solution-breakdown {
+  background-color: var(--background-secondary);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--border-primary);
+  margin-top: var(--spacing-md);
+}
+
+.solution-breakdown h5 {
+  margin: 0 0 25px 0;
+  color: var(--text-secondary);
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--primary);
+}
+
+.solution-step {
+  margin-bottom: var(--spacing-xxl);
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.solution-step:last-child {
+  margin-bottom: 0;
+}
+
+.step-description {
+  display: block;
+  width: 100%;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: var(--spacing-md);
+  padding: 12px var(--spacing-lg);
+  background-color: var(--background-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-light);
+}
+
+.step-equation {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: var(--background-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-light);
+}
+
+.step-reasoning {
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: var(--spacing-md);
+  padding: 12px var(--spacing-lg);
+  background-color: var(--background-tertiary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--border-radius-sm);
+  border-left: 4px solid var(--primary);
+  box-shadow: var(--shadow-light);
+}
+
+/* Results */
+.result-container {
+  display: none;
+  text-align: center;
+  background-color: var(--success-bg);
+  color: var(--text-primary);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.result-title {
+  margin-top: 0;
+  color: var(--success);
+}
+
+/* === SSQ (SELF-STUDY QUESTIONS) === */
+
+.question-title {
+  color: var(--text-primary);
+  font-weight: bold;
+  margin-bottom: var(--spacing-sm);
+}
+
+.answer-button {
+  background-color: var(--primary);
+  color: var(--text-inverse);
+  border: none;
+  padding: 8px 16px;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.answer-button:hover {
+  background-color: var(--primary-hover);
+}
+
+/* === NAVIGATION BUTTONS === */
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-button {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  color: var(--text-inverse);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.prev-button {
+  background-color: var(--secondary);
+  display: none;
+}
+
+.prev-button:hover {
+  background-color: var(--secondary-hover);
+}
+
+.next-button {
+  background-color: var(--primary);
+}
+
+.next-button:hover {
+  background-color: var(--primary-hover);
+}
+
+.nav-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/*--------------------------------------------------------------------*\
+6. SUPPORTING CONTENT
+\*--------------------------------------------------------------------*/
+
+/* === TABLE STYLING === */
+
+th, td {
+  border: 1px solid var(--border-secondary);
+  text-align: center;
+  padding: var(--spacing-sm);
+  color: var(--text-primary);
+}
+
+th {
+  font-weight: bold;
+  background-color: var(--background-tertiary);
+  color: var(--text-primary);
+}
+
+table caption {
+  color: var(--text-primary);
+  text-align: center;
+}
+
+table caption .footnote {
+  color: var(--text-muted);
+  text-align: left;
+  font-size: smaller;
+}
+
+tr:hover {
+  font-weight: bold;
+  background-color: var(--background-tertiary);
+  color: var(--text-primary);
+}
+
+/* === EMBEDDED VIDEOS === */
 
 .video-container {
   position: relative;
@@ -36,590 +701,81 @@ Styling for Embedded Videos (iframes)
 
 .video-container iframe {
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 }
 
 iframe {
-    margin: auto;
-    display:block;
+  margin: auto;
+  display: block;
 }
 
 /*--------------------------------------------------------------------*\
+7. RESPONSIVE DESIGN
+\*--------------------------------------------------------------------*/
 
-Styling for Tables
-
-- Improves styling of tables over the default Markdown standard
-- Adds borders to tables, and allows a rows to be highlighted when hovered
-
-\*--------------------------------------------------------------------*/ 
-
-th, td {
-    border: 1px solid #999999 !important; 
-    text-align: center; 
-    padding: 10px
+/* MCQ Responsive Styles */
+@media (max-width: 768px) {
+  .mcq-module {
+    padding: var(--spacing-md);
   }
   
-th {
-    font-weight: bold; 
-    background-color: #EEEEEE;
-}
+  .progress-info {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
   
-table caption {
-    color: black; 
-    text-align: center;
-}
+  .button-container {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
   
-table caption .footnote {
-    color: #666666; 
-    text-align: left; 
-    font-size: smaller;
-}
-  
-tr:hover {
-    /*background-color: #ffff00;*/
-    font-weight: bold;
-}
-
-/*====================================================================*\
-DARK MODE STYLES
-\*====================================================================*/
-
-/* Dark mode CSS custom properties */
-html[data-theme="dark"] {
-    --pst-color-text-base: #e9ecef;  
-    --pst-color-text-muted: #adb5bd;
-    
-    /* Custom dark mode color variables */
-    --dark-blue-light: #60a5fa;
-    --dark-blue-medium: #3b82f6;
-    --dark-blue-dark: #2563eb;
-    --dark-gray-light: #6b7280;
-    --dark-gray-medium: #4a5568;
-    --dark-gray-dark: #374151;
-    --dark-gray-darker: #1e293b;
-    --dark-gray-darkest: #0f172a;
-}
-
-/* Base content styling for dark mode */
-html[data-theme="dark"] .bd-main .bd-content p,
-html[data-theme="dark"] .bd-main .bd-content > *:not(.visualization-container),
-html[data-theme="dark"] .bd-article-container > *:not(.visualization-container) {
-    color: #e9ecef !important;
-}
-
-/* Heading colors in dark mode */
-html[data-theme="dark"] .bd-main .bd-content h1,
-html[data-theme="dark"] .bd-main .bd-content h2,
-html[data-theme="dark"] .bd-main .bd-content h3,
-html[data-theme="dark"] .bd-main .bd-content h4,
-html[data-theme="dark"] .bd-main .bd-content h5,
-html[data-theme="dark"] .bd-main .bd-content h6 {
-    color: #f8f9fa !important;
-}
-
-/* Table styling for dark mode */
-html[data-theme="dark"] th, 
-html[data-theme="dark"] td {
-    border-color: #4a5568 !important;
-    color: #e9ecef !important;
-}
-
-html[data-theme="dark"] th {
-    background-color: #374151 !important;
-    color: #f8f9fa !important;
-}
-
-html[data-theme="dark"] tr:hover {
-    background-color: #4a5568 !important;
-    color: #ffffff !important;
-}
-
-html[data-theme="dark"] table caption {
-    color: #e9ecef !important;
-}
-
-html[data-theme="dark"] table caption .footnote {
-    color: #adb5bd !important;
-}
-
-/*--------------------------------------------------------------------*\
-VISUALIZATION CONTAINER STYLING
-\*--------------------------------------------------------------------*/
-
-/* Make visualization containers immune to site theme changes */
-.visualization-container {
-    /* Create a new stacking context and color inheritance boundary */
-    isolation: isolate;
-    contain: style;
-}
-
-/* Light-mode graphs - explicit colors regardless of site theme */
-.visualization-container:not(.dark-theme) {
-    color: #2d3748;
-    background-color: white;
-}
-
-.visualization-container:not(.dark-theme) .info-box,
-.visualization-container:not(.dark-theme) .slider-container,
-.visualization-container:not(.dark-theme) .graph-title {
-    color: #2d3748;
-    background-color: rgba(255, 255, 255, 0.9);
-}
-
-/* Dark-mode graphs use their own dark colors */
-.visualization-container.dark-theme {
-    color: #ecf0f1;
-    background-color: rgba(30, 39, 46, 0.85);
-}
-
-.visualization-container.dark-theme .info-box,
-.visualization-container.dark-theme .slider-container {
-    color: #ecf0f1;
-    background-color: rgba(30, 39, 46, 0.85);
-}
-
-/* Control buttons for visualizations */
-.visualization-container .controls {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-.visualization-container .control-btn {
-    background-color: #f1f5f9;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-    color: #4a5568;
-    transition: all 0.2s ease;
-}
-
-.visualization-container .control-btn:hover {
-    background-color: #e2e8f0;
-}
-
-.visualization-container .dark-theme .control-btn {
-    background-color: #374151;
-    color: #e9ecef;
-}
-
-.visualization-container .dark-theme .control-btn:hover {
-    background-color: #4a5568;
-}
-
-/* Force correct colors for graph titles and headers */
-html[data-theme="dark"] .visualization-container:not(.dark-theme) .graph-title,
-html[data-theme="dark"] .visualization-container:not(.dark-theme) .section-header,
-html[data-theme="dark"] .visualization-container:not(.dark-theme) h1,
-html[data-theme="dark"] .visualization-container:not(.dark-theme) h2,
-html[data-theme="dark"] .visualization-container:not(.dark-theme) h3,
-html[data-theme="dark"] .visualization-container:not(.dark-theme) h4,
-html[data-theme="dark"] .visualization-container:not(.dark-theme) h5,
-html[data-theme="dark"] .visualization-container:not(.dark-theme) h6,
-.visualization-container:not(.dark-theme) .graph-title,
-.visualization-container:not(.dark-theme) .section-header,
-.visualization-container:not(.dark-theme) h1,
-.visualization-container:not(.dark-theme) h2,
-.visualization-container:not(.dark-theme) h3,
-.visualization-container:not(.dark-theme) h4,
-.visualization-container:not(.dark-theme) h5,
-.visualization-container:not(.dark-theme) h6 {
-    color: #2d3748 !important;
-    background-color: transparent !important;
-}
-
-/* If the graph itself is in dark theme, use light text */
-.visualization-container.dark-theme .graph-title,
-.visualization-container.dark-theme .section-header,
-.visualization-container.dark-theme h1,
-.visualization-container.dark-theme h2,
-.visualization-container.dark-theme h3,
-.visualization-container.dark-theme h4,
-.visualization-container.dark-theme h5,
-.visualization-container.dark-theme h6 {
-    color: #ecf0f1 !important;
-    background-color: transparent !important;
-}
-
-/*--------------------------------------------------------------------*\
-SECTOR SPECIFIC QUESTIONS (SSQ) STYLING
-\*--------------------------------------------------------------------*/
-
-/* SSQ topic introduction */
-.topic-intro {
-    background-color: #f8f9fa;
-    color: #2d3748;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    border-left: 4px solid #3498db;
-}
-
-html[data-theme="dark"] .topic-intro {
-    background-color: #3c4757 !important;
-    color: #e9ecef !important;
-    border-left-color: #60a5fa;
-}
-
-/* SSQ question content */
-.question-content {
-    background-color: #ffffff;
-    color: #2d3748;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #e2e8f0;
-}
-
-html[data-theme="dark"] .question-content {
-    background-color: #3c4757 !important;
-    color: #e9ecef !important;
-    border-color: #4a5568 !important;
-}
-
-/* SSQ answer content */
-.answer-content {
-    background-color: #f8f9fa;
-    color: #2d3748;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #e2e8f0;
-}
-
-html[data-theme="dark"] .answer-content {
-    background-color: #1e293b !important;
-    color: #e9ecef !important;
-    border-color: #374151 !important;
-}
-
-/* SSQ question titles */
-.question-title {
-    color: #2c3e50;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-html[data-theme="dark"] .question-title {
-    color: #ffffff !important;
-}
-
-/* SSQ answer buttons */
-.answer-button {
-    background-color: #3498db;
-    color: #ffffff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-.answer-button:hover {
-    background-color: #2980b9;
-}
-
-html[data-theme="dark"] .answer-button {
-    background-color: #60a5fa;
-    color: #000000 !important;
-}
-
-html[data-theme="dark"] .answer-button:hover {
-    background-color: #3b82f6;
-}
-
-/*--------------------------------------------------------------------*\
-MATH QUESTION MODULE (IDENTITY QUESTIONS) STYLING
-\*--------------------------------------------------------------------*/
-
-/* Import Computer Modern font for math expressions */
-@import url('https://cdn.jsdelivr.net/npm/computer-modern@0.1.2/fonts/Sans/cmun-sans.css');
-
-/* Base module styling */
-.math-question-module {
-    color: #2c3e50;
-    margin-bottom: 40px;
-    font-family: inherit;
-}
-
-.math-question-module h2 {
-    text-align: center;
-    color: #2c3e50;
-    margin-bottom: 30px;
-}
-
-.math-question-module .question-container {
+  .nav-button {
     width: 100%;
-    box-sizing: border-box;
-}
-
-.math-question-module .topic-intro {
-    background-color: #f8f9fa;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
-}
-
-.math-question-module .question-categories {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.math-question-module .category-box {
-    flex: 1;
-    min-width: 180px;
-    padding: 15px;
-    text-align: center;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    font-weight: bold;
-}
-
-.math-question-module .category-box:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-/* Category box colors */
-.math-question-module .scientific {
-    background-color: #3498db;
-    color: white;
-}
-
-.math-question-module .engineering {
-    background-color: #e67e22;
-    color: white;
-}
-
-.math-question-module .financial {
-    background-color: #2ecc71;
-    color: white;
-}
-
-.math-question-module .creative {
-    background-color: #9b59b6;
-    color: white;
-}
-
-/* Question content */
-.math-question-module .question-content {
-    display: none;
-    background-color: #f8f9fa;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    margin-top: 10px;
-    animation: questionFadeIn 0.5s ease;
-}
-
-@keyframes questionFadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.math-question-module .question-title {
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #2c3e50;
-}
-
-.math-question-module .active {
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transform: translateY(-3px);
-}
-
-/* Answer button and content */
-.math-question-module .answer-button {
-    background-color: #f0f0f0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 8px 16px;
-    margin-top: 15px;
-    cursor: pointer;
-    font-weight: bold;
-    display: inline-block;
-    transition: all 0.2s ease;
-    color: #2c3e50;
-}
-
-.math-question-module .answer-button:hover {
-    background-color: #e0e0e0;
-}
-
-.math-question-module .answer-content {
-    display: none;
-    background-color: #f5f5f5;
-    border-left: 4px solid #3498db;
-    padding: 15px;
-    margin-top: 10px;
-    animation: answerFadeIn 0.5s ease;
-}
-
-@keyframes answerFadeIn {
-    from { opacity: 0; transform: translateY(-5px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Answer content colors by category */
-.math-question-module .scientific-answer {
-    border-left-color: #3498db;
-}
-
-.math-question-module .engineering-answer {
-    border-left-color: #e67e22;
-}
-
-.math-question-module .financial-answer {
-    border-left-color: #2ecc71;
-}
-
-.math-question-module .creative-answer {
-    border-left-color: #9b59b6;
-}
-
-/* Code blocks */
-.math-question-module pre {
-    background-color: #f1f1f1;
-    padding: 10px;
-    border-radius: 4px;
-    overflow-x: auto;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    .math-question-module .question-categories {
-        flex-direction: column;
-    }
-    
-    .math-question-module .category-box {
-        width: 100%;
-    }
-}
-
-/* Dark mode for math question module */
-html[data-theme="dark"] .math-question-module {
-    color: #e9ecef;
-}
-
-html[data-theme="dark"] .math-question-module h2 {
-    color: #f8f9fa;
-}
-
-html[data-theme="dark"] .math-question-module .topic-intro {
-    background-color: #3c4757;
-    color: #e9ecef;
-}
-
-html[data-theme="dark"] .math-question-module .question-content {
-    background-color: #3c4757;
-    color: #e9ecef;
-}
-
-html[data-theme="dark"] .math-question-module .question-title {
-    color: #f8f9fa;
-}
-
-html[data-theme="dark"] .math-question-module .answer-button {
-    background-color: var(--dark-gray-medium) !important;
-    color: #e9ecef !important;
-    border-color: var(--dark-gray-light) !important;
-}
-
-html[data-theme="dark"] .math-question-module .answer-button:hover {
-    background-color: var(--dark-gray-dark) !important;
-    border-color: #9ca3af !important;
-}
-
-html[data-theme="dark"] .math-question-module .answer-content {
-    background-color: var(--dark-gray-darker);
-    color: #e9ecef;
-    border-left-color: var(--dark-blue-light);
-}
-
-html[data-theme="dark"] .math-question-module pre {
-    background-color: var(--dark-gray-dark);
-    color: #e9ecef;
-}
-
-/* Dark mode answer content colors by category - with !important to override */
-html[data-theme="dark"] .math-question-module .scientific-answer {
-    border-left-color: #3498db !important;
-}
-
-html[data-theme="dark"] .math-question-module .engineering-answer {
-    border-left-color: #f97316 !important;
-}
-
-html[data-theme="dark"] .math-question-module .financial-answer {
-    border-left-color: #10b981 !important;
-}
-
-html[data-theme="dark"] .math-question-module .creative-answer {
-    border-left-color: #8b5cf6 !important;
-}
-
-/*--------------------------------------------------------------------*\
-RESPONSIVE DESIGN
-\*--------------------------------------------------------------------*/
-
-/* Top-level container */
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* General heading styles */
-h1, h2 {
-    color: #2d3748;
-    text-align: center;
-}
-
-html[data-theme="dark"] h1,
-html[data-theme="dark"] h2 {
-    color: #f8f9fa;
+  }
+  
+  .prev-button {
+    order: 2;
+  }
+  
+  .next-button {
+    order: 1;
+  }
 }
 
 /* Responsive adjustments for visualizations */
 @media (max-width: 900px) {
-    .visualization-container {
-        flex: 1 1 100%;
-    }
-    
-    .visualization-container .info-box {
-        position: relative;
-        top: auto;
-        left: auto;
-        max-width: 100%;
-        margin-bottom: 15px;
-    }
-    
-    .visualization-container .slider-container {
-        position: relative;
-        bottom: auto;
-        left: auto;
-        margin-top: 15px;
-    }
+  .visualization-container {
+    flex: 1 1 100%;
+  }
+  
+  .visualization-container .info-box {
+    position: relative;
+    top: auto;
+    left: auto;
+    max-width: 100%;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .visualization-container .slider-container {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin-top: var(--spacing-md);
+  }
 }
 
 @media (max-width: 768px) {
-    .container {
-        padding: 10px;
-    }
-    
-    .topic-intro,
-    .question-content,
-    .answer-content {
-        padding: 15px;
-    }
+  .container {
+    padding: var(--spacing-sm);
+  }
+  
+  .topic-intro,
+  .question-content,
+  .answer-content {
+    padding: var(--spacing-md);
+  }
 }
+

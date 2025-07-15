@@ -33,6 +33,9 @@ html:
   use_edit_page_button: true
   baseurl: ""
   extra_footer: "Copyright-info"
+  extra_css:
+    - "_static/style.css"
+    - "_static/jsxgraph.css"
   sidebar:
     maxdepth: 1  # Try adding this
 

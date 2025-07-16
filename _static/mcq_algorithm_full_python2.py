@@ -1479,37 +1479,213 @@ class MCQScheduler:
         return importance_bonus
 
 
+@dataclass
+class FSRSMemoryComponents:
+    """FSRS-inspired memory components for modeling different types of forgetting"""
+    stability: float = 1.0
+    difficulty: float = 0.5
+    retrievability: float = 1.0
+    last_review: Optional[datetime] = None
+    review_count: int = 0
+    recent_success_rate: float = 0.5
+
+
+
+@dataclass
+class FSRSForgettingConfig:
+    """Configuration for FSRS-inspired forgetting model"""
+    stability_power_factor: float = -0.5
+    difficulty_power_factor: float = 0.3
+    retrievability_power_factor: float = -0.8
+    stability_weight: float = 0.4
+    difficulty_weight: float = 0.3
+    retrievability_weight: float = 0.3
+    success_stability_boost: float = 1.2
+    failure_stability_penalty: float = 0.8
+    difficulty_adaptation_rate: float = 0.1
+    base_forgetting_time: float = 1.0
+    max_stability: float = 365.0
+    min_stability: float = 0.1
+    retrievability_threshold: float = 0.9
+    min_retrievability: float = 0.1
+
+
+
+class FSRSForgettingModel:
+    """FSRS-inspired forgetting model using power functions"""
+    
+    def __init__(self, config: FSRSForgettingConfig = None):
+        self.config = config or FSRSForgettingConfig()
+        self.memory_components: Dict[str, Dict[int, FSRSMemoryComponents]] = {}
+    
+    def get_memory_components(self, student_id: str, topic_index: int) -> FSRSMemoryComponents:
+        """Get or initialize memory components for a student-topic pair"""
+        if student_id not in self.memory_components:
+            self.memory_components[student_id] = {}
+        
+        if topic_index not in self.memory_components[student_id]:
+            # Initialize with default values
+            self.memory_components[student_id][topic_index] = FSRSMemoryComponents(
+                stability=1.0,
+                difficulty=0.5,
+                retrievability=1.0,
+                last_review=datetime.now(),
+                review_count=0,
+                recent_success_rate=0.5
+            )
+        
+        return self.memory_components[student_id][topic_index]
+    
+    def apply_forgetting(self, student_id: str, topic_index: int, current_mastery: float) -> float:
+        """Apply FSRS-inspired forgetting to current mastery level"""
+        components = self.get_memory_components(student_id, topic_index)
+        
+        if components.last_review is None:
+            components.last_review = datetime.now()
+            return current_mastery
+        
+        # Calculate time since last review in days
+        time_elapsed = (datetime.now() - components.last_review).total_seconds() / (24 * 3600)
+        
+        if time_elapsed <= 0:
+            return current_mastery
+        
+        # FSRS-inspired forgetting formula using power functions
+        stability_factor = math.pow(time_elapsed, self.config.stability_power_factor) * components.stability
+        difficulty_factor = math.pow(components.difficulty, self.config.difficulty_power_factor)
+        retrievability_factor = math.pow(components.retrievability, self.config.retrievability_power_factor)
+        
+        # Combine factors with weights
+        forgetting_multiplier = (
+            self.config.stability_weight * stability_factor +
+            self.config.difficulty_weight * difficulty_factor +
+            self.config.retrievability_weight * retrievability_factor
+        )
+        
+        # Apply forgetting with exponential decay
+        forgetting_rate = math.exp(-time_elapsed / (self.config.base_forgetting_time * forgetting_multiplier))
+        
+        # Ensure forgetting doesn't go below minimum threshold
+        forgotten_mastery = max(0.01, current_mastery * forgetting_rate)
+        
+        # Update last access time for retrievability calculations
+        components.last_review = datetime.now()
+        
+        return forgotten_mastery
+    
+    def update_memory_components(self, student_id: str, topic_index: int, 
+                               is_correct: bool, new_mastery: float):
+        """Update FSRS memory components based on learning event"""
+        components = self.get_memory_components(student_id, topic_index)
+        
+        # Update review count
+        components.review_count += 1
+        
+        # Update success rate with exponential moving average
+        alpha = 0.3  # Learning rate for moving average
+        success_value = 1.0 if is_correct else 0.0
+        components.recent_success_rate = (
+            alpha * success_value + 
+            (1 - alpha) * components.recent_success_rate
+        )
+        
+        # Update stability based on performance
+        if is_correct:
+            components.stability = min(
+                self.config.max_stability,
+                components.stability * self.config.success_stability_boost
+            )
+        else:
+            components.stability = max(
+                self.config.min_stability,
+                components.stability * self.config.failure_stability_penalty
+            )
+        
+        # Update difficulty based on performance and mastery
+        if is_correct and new_mastery > 0.7:
+            components.difficulty = max(0.1, components.difficulty - self.config.difficulty_adaptation_rate)
+        elif not is_correct and new_mastery < 0.5:
+            components.difficulty = min(1.0, components.difficulty + self.config.difficulty_adaptation_rate)
+        
+        # Update retrievability
+        if is_correct:
+            components.retrievability = min(1.0, components.retrievability + 0.2)
+        else:
+            components.retrievability = max(0.1, components.retrievability - 0.1)
+
 
 class BayesianKnowledgeTracing:
-    """Bayesian Knowledge Tracing implementation for the education knowledge graph."""
-
-    def __init__(self, knowledge_graph, student_manager,config_manager=None,scheduler: Optional[MCQScheduler] = None):
+    """
+    Enhanced Bayesian Knowledge Tracing with FSRS forgetting
+    """
+    
+    def __init__(self, knowledge_graph, student_manager, config_manager=None, scheduler=None):
         """
         Initialize BKT with knowledge graph and student manager
-
-        Args:
-            knowledge_graph: The KnowledgeGraph instance
-            student_manager: The StudentManager instance
-            default_params: Default BKT parameters for all topics
-            config: BKT configuration object
         """
         self.kg = knowledge_graph
         self.student_manager = student_manager
         self.config = config_manager or knowledge_graph.config
         self.scheduler = scheduler
 
-
-    def get_topic_parameters(self, main_topic_index: int):
-        """Get BKT parameters for a topic using direct config values"""
-        params = self.config.get_bkt_parameters(main_topic_index)
+        # Use config manager to get BKT parameters instead of hardcoded defaults
+        self.default_params = self._get_default_params_from_config()
         
-        # Return a simple dict instead of a complex object
-        return {
-            'prior_knowledge': params.get('prior_knowledge', 0.1),
-            'learning_rate': params.get('learning_rate', 0.3),
-            'slip_rate': params.get('slip_rate', 0.05),
-            'guess_rate': params.get('guess_rate', 0.15)
-        }
+        # Topic-specific parameters (loaded from config)
+        self.topic_parameters: Dict[int, Dict] = {}
+        self._initialize_topic_parameters()
+        
+        # Initialize FSRS forgetting model if enabled
+        if self.config.get('bkt_config.enable_fsrs_forgetting', True):
+            fsrs_config = self._create_fsrs_config_from_config()
+            self.fsrs_forgetting = FSRSForgettingModel(fsrs_config)
+        else:
+            self.fsrs_forgetting = None
+
+    def _get_default_params_from_config(self) -> Dict:
+        """Get default BKT parameters from config manager"""
+        return self.config.get('bkt_parameters.default', {
+            'prior_knowledge': 0.1,
+            'learning_rate': 0.3,
+            'slip_rate': 0.03,
+            'guess_rate': 0.1
+        })
+
+    def _create_fsrs_config_from_config(self) -> FSRSForgettingConfig:
+        """Create FSRS config from the main config manager"""
+        return FSRSForgettingConfig(
+            stability_power_factor=self.config.get('bkt_config.fsrs_stability_power', -0.5),
+            difficulty_power_factor=self.config.get('bkt_config.fsrs_difficulty_power', 0.3),
+            retrievability_power_factor=self.config.get('bkt_config.fsrs_retrievability_power', -0.8),
+            stability_weight=self.config.get('bkt_config.fsrs_stability_weight', 0.4),
+            difficulty_weight=self.config.get('bkt_config.fsrs_difficulty_weight', 0.3),
+            retrievability_weight=self.config.get('bkt_config.fsrs_retrievability_weight', 0.3),
+            success_stability_boost=self.config.get('bkt_config.fsrs_success_stability_boost', 1.2),
+            failure_stability_penalty=self.config.get('bkt_config.fsrs_failure_stability_penalty', 0.8),
+            difficulty_adaptation_rate=self.config.get('bkt_config.fsrs_difficulty_adaptation_rate', 0.1),
+            base_forgetting_time=self.config.get('bkt_config.fsrs_base_forgetting_time', 1.0),
+            max_stability=self.config.get('bkt_config.fsrs_max_stability', 365.0),
+            min_stability=self.config.get('bkt_config.fsrs_min_stability', 0.1),
+            retrievability_threshold=self.config.get('bkt_config.fsrs_retrievability_threshold', 0.9),
+            min_retrievability=self.config.get('bkt_config.fsrs_min_retrievability', 0.1)
+        )
+
+    def _initialize_topic_parameters(self):
+        """Initialize BKT parameters for all topics from config"""
+        for node_index in self.kg.get_all_indexes():
+            self.topic_parameters[node_index] = self.get_topic_parameters(node_index)
+
+    def get_topic_parameters(self, topic_index: int) -> Dict:
+        """Get BKT parameters for a topic using config manager (matches original signature)"""
+        # Try to get topic-specific parameters first
+        topic_params = self.config.get_bkt_parameters(topic_index)
+        
+        if topic_params:
+            return topic_params
+        else:
+            # Fall back to default parameters
+            return self.default_params
+
     def is_area_effect_enabled(self):
         """Check if area effect is enabled"""
         return self.config.get('bkt_config.area_effect_enabled', True)
@@ -1521,59 +1697,17 @@ class BayesianKnowledgeTracing:
             'decay_rate': self.config.get('bkt_config.area_effect_decay_rate', 0.6),
             'min_effect': self.config.get('bkt_config.area_effect_min_effect', 0.01)
         }
-    '''
-    def _initialize_topic_parameters(self):
-        """Initialize BKT parameters for all topics in the knowledge graph"""
-        for node_index in self.kg.get_all_indexes():
-            if node_index not in self.topic_parameters:
-                # customize parameters based on topic difficulty/properties here
-                self.topic_parameters[node_index] = BKTParameters(prior_knowledge=0.1,    learning_rate=0.3,  slip_rate=0.05,  guess_rate=0.15       )
 
-    def set_topic_parameters(self, main_topic_index: int, params: BKTParameters):
-        """Set custom BKT parameters for a specific topic"""
-        self.topic_parameters[main_topic_index] = params
-
-    def get_topic_parameters(self, main_topic_index: int) -> BKTParameters:
-        """Get BKT parameters for a specific topic"""
-        return self.topic_parameters.get(main_topic_index, self.default_params)
-
-    def _get_effective_parameters(self, main_topic_index: int, mcq_id: str = None) -> BKTParameters:
-        """
-        Get effective parameters for a topic, potentially adjusted for difficulty
-
-        Args:
-            main_topic_index: Index of the topic
-            mcq_id: Optional MCQ ID for difficulty-based adjustments
-
-        Returns:
-            BKTParameters object (may be modified copy)
-        """
-        base_params = self.get_topic_parameters(main_topic_index)
-
-        # If difficulty adaptation is disabled, return base parameters
-        if not self.config.enable_difficulty_adaptation:
-            return base_params
-
-        # For now, return base parameters - can be extended later
-        # to adjust based on MCQ difficulty
-        return base_params
-    '''
-    def initialize_student_mastery(self, student_id: str, main_topic_index: int = None):
-        """
-        Initialize student's mastery level for a topic or all topics using P(L_0)
-
-        Args:
-            student_id: Student identifier
-            main_topic_index: Specific topic index, or None for all topics
-        """
+    def initialize_student_mastery(self, student_id: str, topic_index: int = None):
+        """Initialize student's mastery level for a topic or all topics using P(L_0)"""
         student = self.student_manager.get_student(student_id)
         if not student:
             return
 
-        if main_topic_index is not None:
+        if topic_index is not None:
             # Initialize specific topic
-            params = self.get_topic_parameters(main_topic_index)
-            student.mastery_levels[main_topic_index] = params['prior_knowledge']
+            params = self.get_topic_parameters(topic_index)
+            student.mastery_levels[topic_index] = params['prior_knowledge']
         else:
             # Initialize all topics
             for node_index in self.kg.get_all_indexes():
@@ -1582,123 +1716,116 @@ class BayesianKnowledgeTracing:
                     student.mastery_levels[node_index] = params['prior_knowledge']
 
     def calculate_conditional_probability(self, current_mastery: float, is_correct: bool, params: Dict) -> float:
-        """
-        Calculate P(L_t | Result) using Bayes' theorem
-
-        Args:
-            current_mastery: Current P(L_t)
-            is_correct: Whether the student answered correctly
-            params: BKT parameters for this topic
-
-        Returns:
-            Updated probability that student knows the skill
-        """
+        """Calculate P(L_t | Result) using Bayes' theorem"""
         if is_correct:
-            # P(L_t | Correct) = P(L_t)(1-P(S)) / [P(L_t)(1-P(S)) + (1-P(L_t))P(G)]
             numerator = current_mastery * (1 - params['slip_rate'])
             denominator = (current_mastery * (1 - params['slip_rate']) +
                           (1 - current_mastery) * params['guess_rate'])
         else:
-            # P(L_t | Incorrect) = P(L_t)P(S) / [P(L_t)P(S) + (1-P(L_t))(1-P(G))]
             numerator = current_mastery * params['slip_rate']
-            denominator = (current_mastery *  params['slip_rate'] +
+            denominator = (current_mastery * params['slip_rate'] +
                           (1 - current_mastery) * (1 - params['guess_rate']))
 
-        # Avoid division by zero
         if denominator == 0:
             return current_mastery
-
         return numerator / denominator
 
     def update_mastery(self, conditional_prob: float, params: Dict) -> float:
-        """
-        Update mastery using learning rate: P(L_{t+1}) = P(L_t|Result) + (1-P(L_t|Result))P(T)
-
-        Args:
-            conditional_prob: P(L_t | Result) from calculate_conditional_probability
-            params: BKT parameters for this topic
-
-        Returns:
-            Updated mastery level P(L_{t+1})
-        """
+        """Update mastery using learning rate: P(L_{t+1}) = P(L_t|Result) + (1-P(L_t|Result))P(T)"""
         return conditional_prob + (1 - conditional_prob) * params['learning_rate']
 
     def predict_correctness(self, mastery: float, params: Dict) -> float:
-        """
-        Predict probability of correct answer: P(Correct) = P(L_t)(1-P(S)) + (1-P(L_t))P(G)
-
-        Args:
-            mastery: Current mastery level P(L_t)
-            params: BKT parameters for this topic
-
-        Returns:
-            Probability of answering correctly
-        """
+        """Predict probability of correct answer: P(Correct) = P(L_t)(1-P(S)) + (1-P(L_t))P(G)"""
         return mastery * (1 - params['slip_rate']) + (1 - mastery) * params['guess_rate']
 
-    def process_student_response(self, student_id: str, main_topic_index: int,
+    def process_student_response(self, student_id: str, topic_index: int,
                                 is_correct: bool, mcq_id: str = None,
                                 custom_params: Optional[Dict] = None) -> Dict:
-      """
-      Process a student's response and update their mastery using BKT
+        """
+        Process a student's response and update their mastery using BKT
+        FSRS forgetting applied automatically
+        """
+        student = self.student_manager.get_student(student_id)
+        if not student:
+            raise ValueError(f"Student {student_id} not found")
 
-      Args:
-          student_id: Student identifier
-          main_topic_index: Index of the topic being tested
-          is_correct: Whether the student answered correctly
-          mcq_id: Optional MCQ identifier for logging
+        # Use provided custom parameters or default for topic
+        params = custom_params if custom_params else self.get_topic_parameters(topic_index)
 
-      Returns:
-          Dictionary with before/after mastery and prediction info
-      """
-      student = self.student_manager.get_student(student_id)
-      if not student:
-          raise ValueError(f"Student {student_id} not found")
-      # Use provided custom parameters or default for topic
-      params = custom_params if custom_params else self.get_topic_parameters(main_topic_index)
+        # Get current mastery level
+        current_mastery = student.get_mastery(topic_index)
+        mastery_before_forgetting = current_mastery
 
-      # Get current mastery level
-      current_mastery = student.get_mastery(main_topic_index)
+        # If this is the first time seeing this topic, initialize with prior
+        if topic_index not in student.mastery_levels:
+            current_mastery = params['prior_knowledge']
+            student.mastery_levels[topic_index] = current_mastery
+            mastery_before_forgetting = current_mastery
 
+        # Apply FSRS forgetting if enabled
+        if self.config.get('bkt_config.enable_fsrs_forgetting', True) and self.fsrs_forgetting:
+            forgotten_mastery = self.fsrs_forgetting.apply_forgetting(
+                student_id, topic_index, current_mastery)
+            student.mastery_levels[topic_index] = forgotten_mastery
+            current_mastery = forgotten_mastery
+        else:
+            forgotten_mastery = current_mastery
 
-      # If this is the first time seeing this topic, initialize with prior
-      if main_topic_index not in student.mastery_levels:
-          current_mastery = params['prior_knowledge']
-          student.mastery_levels[main_topic_index] = current_mastery
+        # Calculate prediction before update (for validation)
+        prediction_before = self.predict_correctness(current_mastery, params)
 
-      # Calculate prediction before update (for validation)
-      prediction_before = self.predict_correctness(current_mastery, params)
+        # Apply BKT update
+        conditional_prob = self.calculate_conditional_probability(current_mastery, is_correct, params)
+        new_mastery = self.update_mastery(conditional_prob, params)
 
-      # Apply BKT update
-      conditional_prob = self.calculate_conditional_probability(current_mastery, is_correct, params)
-      new_mastery = self.update_mastery(conditional_prob, params)
+        # Update student's mastery level
+        student.mastery_levels[topic_index] = new_mastery
 
-      # Update student's mastery level
-      student.mastery_levels[main_topic_index] = new_mastery
+        # Update FSRS memory components after BKT update
+        if self.config.get('bkt_config.enable_fsrs_forgetting', True) and self.fsrs_forgetting:
+            self.fsrs_forgetting.update_memory_components(
+                student_id, topic_index, is_correct, new_mastery)
 
-      # Calculate new prediction
-      prediction_after = self.predict_correctness(new_mastery, params)
+        # Calculate new prediction
+        prediction_after = self.predict_correctness(new_mastery, params)
 
-      # Return detailed information about the update
-      return {
-                                'student_id': student_id,
-                                'main_topic_index': main_topic_index,
-                                'topic_name': self.kg.get_topic_of_index(main_topic_index),
-                                'mcq_id': mcq_id,
-                                'is_correct': is_correct,
-                                'mastery_before': current_mastery,
-                                'mastery_after': new_mastery,
-                                'mastery_change': new_mastery - current_mastery,
-                                'conditional_probability': conditional_prob,
-                                'prediction_before': prediction_before,
-                                'prediction_after': prediction_after,
-                                'parameters_used': params.copy()
-                                }
+        # Return detailed information about the update (enhanced with FSRS info)
+        result = {
+            'student_id': student_id,
+            'main_topic_index': topic_index,
+            'topic_name': self.kg.get_topic_of_index(topic_index),
+            'mcq_id': mcq_id,
+            'is_correct': is_correct,
+            'mastery_before': mastery_before_forgetting,
+            'mastery_after': new_mastery,
+            'mastery_change': new_mastery - current_mastery,
+            'conditional_probability': conditional_prob,
+            'prediction_before': prediction_before,
+            'prediction_after': prediction_after,
+            'parameters_used': params.copy()
+        }
+
+        # Add FSRS information if enabled
+        if self.config.get('bkt_config.enable_fsrs_forgetting', True) and self.fsrs_forgetting:
+            components = self.fsrs_forgetting.get_memory_components(student_id, topic_index)
+            result['fsrs_components'] = {
+                'stability': components.stability,
+                'difficulty': components.difficulty,
+                'retrievability': components.retrievability,
+                'review_count': components.review_count,
+                'recent_success_rate': components.recent_success_rate
+            }
+            result['mastery_after_forgetting'] = forgotten_mastery
+            result['forgetting_applied'] = mastery_before_forgetting - forgotten_mastery
+            result['total_change'] = new_mastery - mastery_before_forgetting
+
+        return result
 
     def process_mcq_response_improved(self, student_id: str, mcq_id: str,
                                     is_correct: bool) -> List[Dict]:
         """
-        Enhanced version that uses explicit topic weights from the MCQ (ive chaned this a bit)
+        Enhanced version that uses explicit topic weights from the MCQ
+        with FSRS forgetting applied automatically
         """
         mcq = self.kg.mcqs.get(mcq_id)
         if not mcq:
@@ -1706,10 +1833,10 @@ class BayesianKnowledgeTracing:
 
         updates = []
 
-        # Use the MCQ's explicit topic weights directly
-        for main_topic_index, weight in mcq.subtopic_weights.items():
+        # Use the MCQ's explicit topic weights directly 
+        for topic_index, weight in mcq.subtopic_weights.items():
             # Get base parameters for this topic
-            base_params = self.get_topic_parameters(main_topic_index)
+            base_params = self.get_topic_parameters(topic_index)
 
             # Create adjusted parameters with scaled learning rate
             adjusted_params = {
@@ -1718,30 +1845,25 @@ class BayesianKnowledgeTracing:
                 'slip_rate': base_params['slip_rate'],
                 'guess_rate': base_params['guess_rate']
             }
-            update = self.process_student_response(student_id, main_topic_index, is_correct, mcq_id, custom_params=adjusted_params)
+
+            # Process with enhanced method (includes FSRS forgetting)
+            update = self.process_student_response(
+                student_id, topic_index, is_correct, mcq_id, custom_params=adjusted_params)
+            
             update['topic_weight'] = weight
-            update['is_primary_topic'] = (main_topic_index == mcq.main_topic_index)
+            update['is_primary_topic'] = (topic_index == mcq.main_topic_index)
 
             updates.append(update)
 
         return updates
 
-    def apply_area_of_effect(self, student_id: str, center_main_topic_index: int,mastery_change: float) -> List[Dict]:
+    def apply_area_of_effect(self, student_id: str, center_topic_index: int, mastery_change: float) -> List[Dict]:
         """
         Area of effect that uses actual path weights between topics.
-
-        Args:
-            student_id: Student identifier
-            center_main_topic_index: Topic that was updated
-            mastery_change: How much the center topic changed
-            max_distance: Maximum hops to propagate (default 3)
-            decay_rate: How much effect decays per hop (default 0.5)
-
-        Returns:
-            List of update dictionaries for affected topics
         """
         if not self.is_area_effect_enabled() or mastery_change <= 0:
             return []
+        
         # Get area effect configuration
         area_config = self.get_area_effect_config()
         max_distance = area_config['max_distance']
@@ -1757,16 +1879,16 @@ class BayesianKnowledgeTracing:
 
         try:
             # Get all shortest paths to nodes within max_distance
-            paths = nx.single_source_shortest_path(undirected_graph, center_main_topic_index, cutoff=max_distance)
+            paths = nx.single_source_shortest_path(undirected_graph, center_topic_index, cutoff=max_distance)
         except Exception:  # Catch any NetworkX errors
             return []
 
         # Remove center node (path to itself)
-        paths.pop(center_main_topic_index, None)
+        paths.pop(center_topic_index, None)
 
         updates = []
 
-        for main_topic_index, path in paths.items():
+        for topic_index, path in paths.items():
             distance = len(path) - 1  # Number of edges in path
 
             # Calculate path weight by multiplying all edge weights along the path
@@ -1777,17 +1899,17 @@ class BayesianKnowledgeTracing:
             final_effect = base_effect * path_weight
 
             # Only apply significant effects
-            if final_effect > 0.01:
-                current_mastery = student.get_mastery(main_topic_index)
+            if final_effect > min_effect:
+                current_mastery = student.get_mastery(topic_index)
                 new_mastery = min(1.0, current_mastery + final_effect)
 
                 # Update student mastery
-                student.mastery_levels[main_topic_index] = new_mastery
+                student.mastery_levels[topic_index] = new_mastery
 
                 # Record the update
                 updates.append({
-                    'main_topic_index': main_topic_index,
-                    'topic_name': self.kg.get_topic_of_index(main_topic_index),
+                    'main_topic_index': topic_index,
+                    'topic_name': self.kg.get_topic_of_index(topic_index),
                     'mastery_before': current_mastery,
                     'mastery_after': new_mastery,
                     'mastery_change': new_mastery - current_mastery,
@@ -1801,32 +1923,22 @@ class BayesianKnowledgeTracing:
         return updates
 
     def _calculate_path_weight(self, path: List[int]) -> float:
-        """
-        Calculate the combined weight along a path by multiplying edge weights.
-
-        Args:
-            path: List of topic indices representing the path
-
-        Returns:
-            Combined weight (product of all edge weights in path)
-        """
+        """Calculate the combined weight along a path by multiplying edge weights."""
         if len(path) < 2:
             return 1.0
 
         total_weight = 1.0
-
         for i in range(len(path) - 1):
-            source = path[i]
-            target = path[i + 1]
-
+            source, target = path[i], path[i + 1]
+            
             # Get edge weight (check both directions since we're using undirected)
             edge_weight = 0.5  # Default weight
-
+            
             if self.kg.graph.has_edge(source, target):
                 edge_weight = self.kg.graph[source][target].get('weight', 0.5)
             elif self.kg.graph.has_edge(target, source):
                 edge_weight = self.kg.graph[target][source].get('weight', 0.5)
-
+            
             # Multiply weights along the path
             total_weight *= edge_weight
 
@@ -1848,26 +1960,19 @@ class BayesianKnowledgeTracing:
         # Add area effects for primary topics that had positive mastery changes
         for update in primary_updates:
             if update.get('is_primary_topic', False) and update['mastery_change'] > 0:
-                area_updates = self.apply_area_of_effect(student_id,update['main_topic_index'],update['mastery_change'])
+                area_updates = self.apply_area_of_effect(
+                    student_id, update['main_topic_index'], update['mastery_change'])
                 all_updates.extend(area_updates)
 
         return all_updates
 
-    def calibrate_parameters(self, student_id: str, main_topic_index: int,attempt_history: List[Tuple[bool, datetime]]) -> Dict:
+    def calibrate_parameters(self, student_id: str, topic_index: int,
+                           attempt_history: List[Tuple[bool, datetime]]) -> Dict:
         """
         Simple parameter calibration based on student's attempt history
-        This is a basic implementation - more sophisticated methods exist
-
-        Args:
-            student_id: Student identifier
-            main_topic_index: Topic to calibrate for
-            attempt_history: List of (is_correct, timestamp) tuples
-
-        Returns:
-            Calibrated BKT parameters
         """
         if not attempt_history:
-            return self.get_topic_parameters(main_topic_index)
+            return self.get_topic_parameters(topic_index)
 
         # Calculate basic statistics
         total_attempts = len(attempt_history)
@@ -1875,7 +1980,7 @@ class BayesianKnowledgeTracing:
         success_rate = correct_attempts / total_attempts
 
         # Simple heuristic calibration
-        current_params = self.get_topic_parameters(main_topic_index)
+        current_params = self.get_topic_parameters(topic_index)
 
         # Adjust guess rate based on early performance
         early_attempts = attempt_history[:min(3, total_attempts)]
@@ -1889,7 +1994,8 @@ class BayesianKnowledgeTracing:
         adjusted_slip = max(0.01, current_params['slip_rate'] - (success_rate - 0.7) * 0.1)
 
         # If success rate is low but attempts are many, increase learning rate
-        adjusted_learning = min(0.8, current_params['learning_rate'] +(0.1 if success_rate < 0.5 and total_attempts > 5 else 0))
+        adjusted_learning = min(0.8, current_params['learning_rate'] +
+                              (0.1 if success_rate < 0.5 and total_attempts > 5 else 0))
 
         return {
             'prior_knowledge': adjusted_prior,
@@ -1897,6 +2003,134 @@ class BayesianKnowledgeTracing:
             'slip_rate': max(0.01, min(0.3, adjusted_slip)),
             'guess_rate': current_params['guess_rate']
         }
+
+    # NEW METHODS FOR FSRS FUNCTIONALITY
+    def get_current_mastery_with_decay(self, student_id: str, topic_index: int) -> float:
+        """Get current mastery level with forgetting applied, without updating stored values"""
+        student = self.student_manager.get_student(student_id)
+        if not student:
+            return 0.0
+
+        stored_mastery = student.get_mastery(topic_index)
+
+        if self.config.get('bkt_config.enable_fsrs_forgetting', True) and self.fsrs_forgetting:
+            return self.fsrs_forgetting.apply_forgetting(student_id, topic_index, stored_mastery)
+        else:
+            return stored_mastery
+
+    def get_review_recommendations(self, student_id: str, 
+                                 target_retention: float = 0.9) -> List[Dict]:
+        """Get review recommendations based on FSRS forgetting predictions"""
+        if not self.config.get('bkt_config.enable_fsrs_forgetting', True) or not self.fsrs_forgetting:
+            return []
+
+        student = self.student_manager.get_student(student_id)
+        if not student:
+            return []
+
+        recommendations = []
+
+        for topic_index, mastery in student.mastery_levels.items():
+            if mastery > 0.05:  # Only consider topics with minimal mastery
+                components = self.fsrs_forgetting.get_memory_components(student_id, topic_index)
+                
+                if components.review_count > 0:
+                    # Calculate current retention
+                    current_mastery = self.get_current_mastery_with_decay(student_id, topic_index)
+                    retention_ratio = current_mastery / mastery if mastery > 0 else 0
+                    
+                    # Calculate priority score based on retention drop and importance
+                    retention_drop = 1.0 - retention_ratio
+                    importance_score = mastery  # Higher mastery = more important to maintain
+                    
+                    priority_score = retention_drop * importance_score
+                    
+                    if retention_ratio < target_retention:
+                        recommendations.append({
+                            'topic_index': topic_index,
+                            'topic_name': self.kg.get_topic_of_index(topic_index),
+                            'current_mastery': current_mastery,
+                            'original_mastery': mastery,
+                            'retention_ratio': retention_ratio,
+                            'priority_score': priority_score,
+                            'review_count': components.review_count,
+                            'stability': components.stability,
+                            'difficulty': components.difficulty
+                        })
+
+        # Sort by priority score (descending)
+        recommendations.sort(key=lambda x: x['priority_score'], reverse=True)
+        return recommendations
+
+    def get_fsrs_diagnostics(self, student_id: str) -> Dict:
+        """Get diagnostic information about FSRS forgetting state for a student"""
+        if not self.config.get('bkt_config.enable_fsrs_forgetting', True) or not self.fsrs_forgetting:
+            return {'fsrs_enabled': False}
+
+        student = self.student_manager.get_student(student_id)
+        if not student:
+            return {'error': 'Student not found'}
+
+        diagnostics = {
+            'fsrs_enabled': True,
+            'total_topics': len(student.mastery_levels),
+            'topics_with_memory_components': 0,
+            'average_stability': 0.0,
+            'average_difficulty': 0.0,
+            'average_retrievability': 0.0,
+            'topics_needing_review': 0
+        }
+
+        stability_sum = 0.0
+        difficulty_sum = 0.0
+        retrievability_sum = 0.0
+        component_count = 0
+
+        for topic_index, mastery in student.mastery_levels.items():
+            if mastery > 0.05:  # Only consider topics with minimal mastery
+                components = self.fsrs_forgetting.get_memory_components(student_id, topic_index)
+                
+                if components.review_count > 0:
+                    component_count += 1
+                    stability_sum += components.stability
+                    difficulty_sum += components.difficulty
+                    retrievability_sum += components.retrievability
+        
+                    # Check if needs review (retention < 90%)
+                    current_retention = self.fsrs_forgetting.apply_forgetting(
+                        student_id, topic_index, mastery) / mastery
+                    if current_retention < 0.9:
+                        diagnostics['topics_needing_review'] += 1
+
+        diagnostics['topics_with_memory_components'] = component_count
+        if component_count > 0:
+            diagnostics['average_stability'] = stability_sum / component_count
+            diagnostics['average_difficulty'] = difficulty_sum / component_count
+            diagnostics['average_retrievability'] = retrievability_sum / component_count
+
+        return diagnostics
+
+
+# UTILITY FUNCTIONS (from full Python file)
+def analyze_area_of_effect(bkt_updates: List[Dict], kg) -> Dict:
+    """
+    Analyze BKT updates to categorize primary vs area-of-effect changes.
+    """
+    if not bkt_updates:
+        return {'primary_count': 0, 'area_effect_count': 0, 'total_updates': 0,
+                'primary_updates': [], 'area_effect_updates': []}
+
+    primary_updates = [u for u in bkt_updates if u.get('is_primary_topic', False)]
+    area_effect_updates = [u for u in bkt_updates if not u.get('is_primary_topic', False)]
+
+    return {
+        'primary_count': len(primary_updates),
+        'area_effect_count': len(area_effect_updates),
+        'total_updates': len(bkt_updates),
+        'primary_updates': primary_updates,
+        'area_effect_updates': area_effect_updates
+    }
+
     
 
 

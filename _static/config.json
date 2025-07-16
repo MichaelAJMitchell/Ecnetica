@@ -35,7 +35,22 @@
     "area_effect_enabled": true,
     "area_effect_max_distance": 2,
     "area_effect_decay_rate": 0.6,
-    "area_effect_min_effect": 0.01
+    "area_effect_min_effect": 0.01,
+    "enable_fsrs_forgetting": true,
+    "fsrs_stability_power": -0.5,
+    "fsrs_difficulty_power": 0.3,
+    "fsrs_retrievability_power": -0.8,
+    "fsrs_stability_weight": 0.4,
+    "fsrs_difficulty_weight": 0.3,
+    "fsrs_retrievability_weight": 0.3,
+    "fsrs_success_stability_boost": 1.2,
+    "fsrs_failure_stability_penalty": 0.8,
+    "fsrs_difficulty_adaptation_rate": 0.1,
+    "fsrs_base_forgetting_time": 1.0,
+    "fsrs_max_stability": 365.0,
+    "fsrs_min_stability": 0.1,
+    "fsrs_retrievability_threshold": 0.9,
+    "fsrs_min_retrievability": 0.1
   },
   "algorithm_config": {
     "difficulty_range": 0.5,

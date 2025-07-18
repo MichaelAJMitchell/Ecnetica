@@ -1,6 +1,6 @@
 # mcqs structure
 
-the mcqs definelty need to store this information:
+the mcqs definitely need to store this information:
 
 - main topic 
 
@@ -18,7 +18,7 @@ the mcqs definelty need to store this information:
 
 - explanation  
 
-other possibilties:
+other possibilities:
 - links 
 - difficulty breakdown
 - chapter of main topic (for sorting mostly)
@@ -90,7 +90,7 @@ out. Current ideas:
 
   -level of interconnectedness to other topics/multisubjetness of topic could be determined by
   comparing the weight of the main topic to subtopics. If this weight is
-  one, topic interconnectedness is 0. Contributions to this could be limited to subtopics outside of the main topics either chapter or topic, to aviod contributions from closely related concepts.
+  one, topic interconnectedness is 0. Contributions to this could be limited to subtopics outside of the main topics either chapter or topic, to avoid contributions from closely related concepts.
 
 -question ids this is unique identifiers to keep track of questions and
 to prevent repeats of questions in the same session. Two possible
@@ -152,7 +152,7 @@ example of projecting mcq vector onto knowledge graph basis: given
 graph (just having non weighted dependencies for now):
 
 
-topics algebra, differenciation, geomerty, trigonometry and integration 
+topics algebra, differentiation, geometry, trigonometry and integration 
 with connections as in adjacency matrix$$\begin{matrix}
     A\\D\\G\\T\\I
 \end{matrix}\begin{bmatrix}
@@ -184,7 +184,7 @@ into account that integration depends on algebra.
 
 # choosing mcqs
 
-## Factors to concider:  
+## Factors to consider:    
 depends on topics to review and difficulty, how are you factoring in
 breakdown of difficulty, making sure no repeats. Need to go
 through the bank of questions, choose one that covers the topic that
@@ -254,7 +254,7 @@ the ideal question would have:
 
 - to cover as many other prereqs due for review as possible
 
-two possibilites:
+two possibilities:
 
 Give each component a score and choose the highest score?- easy option
 that doesn't necessarily give the least questions needed to cover the
@@ -288,14 +288,14 @@ the lowest cost and add it to questions to do. Then repeat the process,
 seeing how many of the remaining topics a question covers.
 [reference: @setcovergfg]
 
-there is also other things that can be concidered to optimise learning:  
+there is also other things that can be considered to optimise learning:  
 -how important of a topic is it? you might want to cover key topics more.
 this can be determined in a couple of different ways:   
-1. nodes that have high out-degree ie a lot of toics depend on them. This is probably the easiest way. 
-2. relevance of the topic to learning in the future. can be defined as the number of nodes x such that there exists a path between the current topic and x. This would make sure students are stong at topics which are involved in a lot of topics later on.  
+1. nodes that have high out-degree ie a lot of topics depend on them. This is probably the easiest way. 
+2. relevance of the topic to learning in the future. can be defined as the number of nodes x such that there exists a path between the current topic and x. This would make sure students are strong at topics which are involved in a lot of topics later on.  
 
 
-How this would look in practise:   
+How this would look in practice:   
 cost function:$$\frac{\text{difficulty + difficulty breakdown - importance }}{\text{subtopics}\cdot\text{due topics}+\text{prereqs}\cdot \text{due topics}} $$
 with weighting and difference between question difficulty and student mastery as in the first method 
 
@@ -333,32 +333,32 @@ second part could also be used to choose questions if a student wants to
 study a chapter that we haven't said is due, like if they have a test in
 class they want to study for.  
 ### identifying chapters
-The easiest way to identify chapters would be to just take the average mastery of all the nodes in that chapter. If the average mastery is beloew the same threshold you use to trigger reviews for individual nodes, then the chapter is due. Issues: outliers eg very good or very bad topics could impact this. Also doesn't take importance of topic into account. 
+The easiest way to identify chapters would be to just take the average mastery of all the nodes in that chapter. If the average mastery is below the same threshold you use to trigger reviews for individual nodes, then the chapter is due. Issues: outliers eg very good or very bad topics could impact this. Also doesn't take importance of topic into account. 
 
 Also want to take into account:
 - how important the topic is  
 - if it is the cause of weakness down the line
-- variation in the mastery within the topic. If their his a high variation, then there is a few very weak topics bringing the score down. These should be already be a priority in the normal mcqs. If there is low varience and also low mastery, then most of the ndoes in the chapter are weak and the chapter as a whole would benefit from a review. 
+- variation in the mastery within the topic. If their his a high variation, then there is a few very weak topics bringing the score down. These should be already be a priority in the normal mcqs. If there is low variance and also low mastery, then most of the nodes in the chapter are weak and the chapter as a whole would benefit from a review. 
 
 Can compute the mastery of all nodes that depend on one node: Gather all nodes that can be reached from a node (depth first search is a method). compute the average mastery of these nodes to give the average mastery of dependant nodes.  
 
-varience is (mastery of node - averge mastery of chapter)$^2$. This gives the average mastery of a chapter as $$\frac{1}{\text{number of nodes}}\cdot \sum (\text{mastery of each topic - average mastery})^2 $$
+variance is (mastery of node - average mastery of chapter)$^2$. This gives the average mastery of a chapter as $$\frac{1}{\text{number of nodes}}\cdot \sum (\text{mastery of each topic - average mastery})^2 $$
 
-This gives a formula for calculating the proiority of chapters for review. 
+This gives a formula for calculating the priority of chapters for review. 
 $$ a\text{(number of outgoing nodes)(1 - average mastery of nodes in chapter})+b(\text{average of the average mastery of nodes dependant on each node })-c(\text{varience}) $$ 
 
 (there might be a better way than getting a bunch of averages)
 
-The chapter with the highest score should be prioritised for review and depending on the weightings a thereshold could be set over which a chapter is due. 
+The chapter with the highest score should be prioritised for review and depending on the weightings a threshold could be set over which a chapter is due. 
 
 ### choosing questions given chapter  
-Do we want to review all ndoes in a chapter? This could end up being a lot, but also given that there is quite a lot of dependancies and interconnectedness on topics that could reduce the number of questions needed significantly. 
+Do we want to review all nodes in a chapter? This could end up being a lot, but also given that there is quite a lot of dependencies and interconnectedness on topics that could reduce the number of questions needed significantly. 
 
-Could use an adapated version of the scheduler for normal mcqs. Take a vector of due topics as all the topics in the chapter. Instead of ranking by 'dueness', rank from low mastery to high. This takes into account that we want to review nodes even if they are not due. The mastery limit for nodes to be counted as 'completed' should be higher than in normal reviews to ensure that the nodes tht are not due are still covered. 
+Could use an adapted version of the scheduler for normal mcqs. Take a vector of due topics as all the topics in the chapter. Instead of ranking by 'dueness', rank from low mastery to high. This takes into account that we want to review nodes even if they are not due. The mastery limit for nodes to be counted as 'completed' should be higher than in normal reviews to ensure that the nodes tht are not due are still covered. 
 
-The multisubject nature of a question in the difficulty breakdown should have a lower wieght or be disregraded in this review, as that is not what we are testing. 
+The multisubject nature of a question in the difficulty breakdown should have a lower weight or be disregarded in this review, as that is not what we are testing. 
 
-The questions should be ordered by graph depth. The loww levels of mastery of all the chapter might suggest a fundamental misunderstang, so work from the basics up to build up knowledge. 
+The questions should be ordered by graph depth. The loww levels of mastery of all the chapter might suggest a fundamental misunderstanding, so work from the basics up to build up knowledge. 
 
 Other than those, I think the normal algorithm should probably work. 
 

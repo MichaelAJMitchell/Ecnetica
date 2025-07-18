@@ -6,11 +6,7 @@
       "id": 0,
       "topic": "solving linear equations",
       "chapter": "algebra",
-      "dependencies": [
-        {"target": 6, "weight": 0.5},
-        {"target": 14, "weight": 0.8},
-        {"target": 15, "weight": 0.6}
-      ]
+      "dependencies": [[6,0.5],[14, 0.8],[15, 0.6]]
     },
 ```
 ## id
@@ -30,4 +26,9 @@ This is useful for clustering. This should roughly correspond to the chapters st
 ### node area (maybe)
 We could possibly cluster the nodes at another level below chapters and store this information with each node too. This would correspond to an area within a chapter, such as trig -> trig graphs -> graph of sin(ax)
 
-## 
+## dependencies
+edges in a list with index of node the edge goes to and the weight of the edge. 
+An edge should exist when knowledge of a topic is directly required to progress to the next topic, eg power rule differentiation -> chain rule differentiation. Nodes that are already assumed knowledge for prerequisites should not be included, as they are implicitly included already. The only exception to this is when a topic is directly required to understand/ solve the topic in question. Eg solving quadratic questions is directly required for finding turing points of cubic functions, so it should be a direct prerequisite, even if it is already an indirect prerequisite. This means that when mastery is backpropagated to related nodes, topics explicitly used in the question receive a higher update. 
+
+The weight of an edge is determined by how closely related two topics are. If they are very conceptually similar, ie the conceptual jump from one node to the next is small, then the weighting should be large. If the topics are not very similar (ie large conceptual jump between them, maybe with one topic much more fundamental than the next), then the weighting should be small. This means that mastery levels of one topic more directly predicts knowledge of the next. Mastering a necessary prerequisite such as basic algebra is necessary, but will not be very accurate at predicting ability for a more complex calculus topic. However a student being strong at a closely related topic means that they will most likely also be good at another. This also applies to backpropagating masteries, as the mastery of a much more closely related topic should get a higher mastery update than more conceptually distant topics. 
+

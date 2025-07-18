@@ -6,6 +6,7 @@ from typing import Dict, List, Set, Tuple, Optional
 from dataclasses import dataclass, field
 from datetime import datetime
 import random
+import json 
 
 @dataclass
 class Node:
@@ -662,43 +663,7 @@ class KnowledgeGraph:
 
         for topic, chapter, dependencies in node_data:
             self._add_node_internal(topic, chapter, dependencies)
-    '''
-    def _load_mcqs_from_json(self, mcqs_file: str):
-        """Load MCQs from JSON file"""
-        try:
-            with open(mcqs_file, 'r') as f:
-                data = json.load(f)
-        except FileNotFoundError:
-            raise FileNotFoundError(f"Required MCQs file '{mcqs_file}' not found. Please ensure the MCQs JSON file exists.")
-        except json.JSONDecodeError as e:
-            raise ValueError(f"Invalid JSON in MCQs file '{mcqs_file}': {e}")
-        
-        # Validate JSON structure
-        if 'mcqs' not in data:
-            raise ValueError(f"Invalid JSON structure in '{mcqs_file}': missing 'mcqs' key")
-        
-        # Clear existing MCQs  
-        self.mcqs.clear()
-        
-        # Load each MCQ
-        for i, mcq_data in enumerate(data['mcqs']):
-            try:
-                mcq = MCQ.from_dict(mcq_data)
-                
-                # Check for duplicate IDs
-                if mcq.id in self.mcqs:
-                    raise ValueError(f"Duplicate MCQ ID '{mcq.id}' found. IDs must be unique.")
-                
-            except Exception as e:
-                raise ValueError(f"Error creating MCQ #{i+1} from data: {e}")
-        
-        print(f"✅ Successfully loaded {len(self.mcqs)} MCQs from {mcqs_file}")
-        
-        # Print ID generation summary
-        auto_generated_count = sum(1 for mcq_id in self.mcqs.keys() if mcq_id.startswith('mcq_') and len(mcq_id.split('_')) == 3)
-        if auto_generated_count > 0:
-            print(f"   📝 Auto-generated {auto_generated_count} MCQ IDs")
-    '''
+
     def _load_mcqs_from_json(self, mcqs_file: str):
         """Load MCQs from JSON file with detailed diagnostic information"""
         try:
@@ -2755,7 +2720,7 @@ def run_knowledge_graph_test():
         print("Please check your system configuration and try again.")
 
 
-import json
+
 if __name__ == "__main__":
     # Run the main test system
     run_knowledge_graph_test()

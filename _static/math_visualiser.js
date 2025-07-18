@@ -117,6 +117,14 @@ const MathVisualizer = (function() {
         let specialPoints = [];
         let specialLines = [];
         let getNextSequentialColor = createColorGenerator();
+
+        /**
+        * Get the current website theme from the HTML data-theme attribute
+        */
+        function getWebsiteTheme() {
+            const htmlTheme = document.documentElement.getAttribute('data-theme');
+        return htmlTheme === 'dark' ? 'dark' : 'light';
+        }
         
         // DOM elements
         let elements = {
@@ -217,17 +225,6 @@ const MathVisualizer = (function() {
             resetButton.textContent = 'Reset View';
             resetButton.addEventListener('click', resetView);
             
-            // Add theme toggle button
-            const themeButton = getOrCreateElement(
-                containerId,
-                'toggleTheme',
-                'control-btn',
-                'button',
-                controlsDiv
-            );
-            themeButton.textContent = 'Toggle Theme';
-            themeButton.addEventListener('click', toggleTheme);
-            
             return true;
         }
 
@@ -240,7 +237,7 @@ const MathVisualizer = (function() {
             const { boundingBox, theme, useSequentialColors, elements: customElements, parametrizedFunctions, infoBox } = description;
             
             // Set up DOM elements
-            if (!setupDomElements(theme || 'light')) {
+            if (!setupDomElements(getWebsiteTheme())) {
                 return null;
             }
             
@@ -276,12 +273,10 @@ const MathVisualizer = (function() {
             
             // Store original bounding box
             board.originalBoundingBox = boundingBox || [-5, 5, 5, -5];
-            board.currentTheme = theme || 'light';
+            board.currentTheme = getWebsiteTheme();
             
-            // Setup theme
-            if (theme === 'dark') {
-                applyTheme('dark');
-            }
+            // Setup theme to match website
+            applyTheme(board.currentTheme);
             
             // Reset sequential color counter if needed
             if (useSequentialColors) {
@@ -376,6 +371,26 @@ const MathVisualizer = (function() {
                 e.stopPropagation();
             }, true);
             
+            // Set up observer to sync with website theme changes
+            const themeObserver = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+                        const newWebsiteTheme = getWebsiteTheme();
+                        if (board && board.currentTheme !== newWebsiteTheme) {
+                            board.currentTheme = newWebsiteTheme;
+                            applyTheme(newWebsiteTheme);
+                        }
+                    }
+                });
+            });
+
+            // Start observing the html element for data-theme changes
+            themeObserver.observe(document.documentElement, {
+                attributes: true,
+                attributeFilter: ['data-theme']
+            });
+
+
             // Return board and related objects
             return {
                 board,
@@ -383,7 +398,6 @@ const MathVisualizer = (function() {
                 parameterValues,
                 updateFunctionVisualization,
                 resetView,
-                toggleTheme,
                 removeAxes: function() {
                     if (board.defaultAxes) {
                         board.removeObject(board.defaultAxes.x);
@@ -1083,6 +1097,25 @@ const MathVisualizer = (function() {
                 // Update UI elements
                 elements.infoBox.classList.add('dark-theme');
                 elements.sliderContainer.classList.add('dark-theme');
+                
+                // Update container element
+                const containerElement = document.getElementById(containerId);
+                if (containerElement) {
+                    containerElement.classList.add('dark-theme');
+                }
+                
+                // Update graph title
+                if (elements.graphTitle) {
+                    elements.graphTitle.classList.add('dark-theme');
+                }
+                
+                // Update reset button
+                const resetButton = document.getElementById(`${containerId}-resetView`);
+                if (resetButton) {
+                    resetButton.classList.add('dark-theme');
+        }
+
+                
             } else {
                 if (!board) return;
                 
@@ -1113,19 +1146,26 @@ const MathVisualizer = (function() {
                 // Update UI elements
                 elements.infoBox.classList.remove('dark-theme');
                 elements.sliderContainer.classList.remove('dark-theme');
+                
+                // ADD THESE LINES:
+                const containerElement = document.getElementById(containerId);
+                if (containerElement) {
+                    containerElement.classList.remove('dark-theme');
+                }
+                
+                // Update graph title
+                if (elements.graphTitle) {
+                    elements.graphTitle.classList.remove('dark-theme');
+                }
+
+                // Update reset button
+                const resetButton = document.getElementById(`${containerId}-resetView`);
+                if (resetButton) {
+                    resetButton.classList.remove('dark-theme');
+        }
             }
             
             board.update();
-        }
-
-        /**
-         * Toggle between light and dark themes
-         */
-        function toggleTheme() {
-            const isDark = board.currentTheme === 'dark';
-            board.currentTheme = isDark ? 'light' : 'dark';
-            
-            applyTheme(board.currentTheme);
         }
 
         // Return the public API

@@ -7,4 +7,3 @@ Gemfile.lock
 _build/
 _build/*
 venv/
-venv/*

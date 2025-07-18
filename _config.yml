@@ -45,7 +45,6 @@ sphinx:
     html_theme_options:
       navigation_depth: 4
       sidebar_hide_name: false
-    html_extra_path: ['InteractiveComponents']  # This will copy the entire folder
 
 parse:
   myst_enable_extensions:

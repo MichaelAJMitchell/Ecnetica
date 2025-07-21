@@ -681,6 +681,7 @@ html_theme.sidebar_secondary.remove: true
       // Automated initialization function
       async function autoInitialize() {
         try {
+          console.log("🔧 Starting auto-initialization...");
           // Step 1: Initialize Pyodide and BKT System
           updateStatus('Loading Pyodide and packages...', 'loading');
           
@@ -809,37 +810,47 @@ html_theme.sidebar_secondary.remove: true
                 student = student_manager.get_student(current_student_id)
                 
                 # Get eligible MCQs
-                greedy_eligible = mcq_scheduler.get_eligible_mcqs_for_greedy_selection(current_student_id)
+                greedy_eligible = mcq_scheduler.get_available_questions_for_student(current_student_id)
+                #Initialize result variable
+                result = None
                 
                 if len(greedy_eligible) > 0:
                     mcq_id = greedy_eligible[0]
-                    mcq = kg.mcqs[mcq_id]
-                    topic_name = kg.get_topic_of_index(mcq.main_topic_index)
-                    current_mastery = student.get_mastery(mcq.main_topic_index)
-                    
-                    mcq_data = {
-                        "success": True,
-                        "mcq_id": mcq_id,
-                        "text": mcq.text,
-                        "options": mcq.options,
-                        "correct_index": mcq.correctindex,
-                        "explanations": mcq.option_explanations,
-                        "topic_name": topic_name,
-                        "current_mastery": current_mastery,
-                        "difficulty": getattr(mcq, 'difficulty', 0.5)
-                    }
-                    
-                    result_json = json.dumps(mcq_data)
+                    mcq = kg.get_mcq_safely(mcq_id, need_full_text=True)
+
+                    if mcq:
+                        topic_name = kg.get_topic_of_index(mcq.main_topic_index)
+                        current_mastery = student.get_mastery(mcq.main_topic_index)
+                        
+                        mcq_data = {
+                            "success": True,
+                            "mcq_id": mcq_id,
+                            "text": mcq.text,
+                            "options": mcq.options,
+                            "correct_index": mcq.correctindex,
+                            "explanations": mcq.option_explanations,
+                            "topic_name": topic_name,
+                            "current_mastery": current_mastery,
+                            "difficulty": getattr(mcq, 'difficulty', 0.5)
+                        }
+                        result = json.dumps(mcq_data)
+                    else:
+                        # MCQ not found
+                        error_data = {
+                            "success": False, 
+                            "error": f"MCQ {mcq_id} not found"
+                        }
+                        result = json.dumps(error_data)
                 else:
-                    result_json = json.dumps({
+                    result = json.dumps({
                         "success": False,
                         "error": "No eligible MCQs found"
                     })
 
             except Exception as e:
-                result_json = json.dumps({"success": False, "error": f"Error: {str(e)}"})
+                resul = json.dumps({"success": False, "error": f"Error: {str(e)}"})
 
-            result_json
+            result
           `);
           
           const data = JSON.parse(result);
@@ -847,8 +858,10 @@ html_theme.sidebar_secondary.remove: true
           if (data.success) {
             currentMCQ = data;
             displayMCQ(data);
+            updateStatus('Question ready! 🎯', 'success');
           } else {
             updateStatus(`❌ ${data.error}`, 'error');
+            console.error('MCQ generation error details:', data);
           }
           
         } catch (error) {
@@ -920,7 +933,7 @@ html_theme.sidebar_secondary.remove: true
             )
             
             # Get response data
-            mcq = kg.mcqs[mcq_id]
+            mcq = kg.get_mcq_safely(mcq_id, need_full_text=True)
             student = student_manager.get_student(current_student_id)
             topic_name = kg.get_topic_of_index(mcq.main_topic_index)
             
@@ -1219,6 +1232,10 @@ html_theme.sidebar_secondary.remove: true
             }, 300);
             
             console.log(`Loaded ${data.nodes.length} nodes and ${data.edges.length} edges from ${filename}`);
+            if (isInitialGraphLoad) {
+              updateStatus('🎉 System ready! Answer questions to see your progress.', 'success');
+            }
+            isInitialGraphLoad = false;
           })
           .catch(error => {
             console.error('Error loading graph data:', error);

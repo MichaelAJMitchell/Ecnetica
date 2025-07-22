@@ -14,6 +14,7 @@ parts:
     chapters:
     - file: content/interactive/python_playground
     - file: content/interactive/BKT_Simple_Demo
+    - file: content/interactive/BKT_FSRS_Demo
 
 
   - caption: Number Systems

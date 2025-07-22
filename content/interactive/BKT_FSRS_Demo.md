@@ -1,0 +1,1827 @@
+---
+html_theme.sidebar_secondary.remove: true
+---
+# Bayesian Knowledge Tracing FSRS Demo
+
+```{raw} html
+
+<!doctype html>
+<html>
+<head>
+    <title>Bayesian Knowledge Tracing Algorithm Visual Demo</title>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
+    
+    <!-- MathJax configuration -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true,
+          processEnvironments: true
+        },
+        options: {
+          ignoreHtmlClass: 'tex2jax_ignore',
+          processHtmlClass: 'tex2jax_process'
+        }
+      };
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <style>
+      /* Override Jupyter Book styles for BKT demo */
+      .bd-content .bkt-demo-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 20px;
+        background: #f8f9fa;
+        min-height: 100vh;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      
+      /* Main layout container */
+      .main-layout {
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+      }
+      
+      /* BKT section (left side) */
+      .bkt-section {
+        flex: 1;
+        min-width: 0; /* Prevents flex item from overflowing */
+        max-width: 600px;
+      }
+      
+      /* Graph section (right side) */
+      .graph-section {
+        flex: 1;
+        min-width: 0; /* Prevents flex item from overflowing */
+        max-width: 700px;
+      }
+      
+      .bkt-demo-container .container {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.2);
+      }
+      
+      .bkt-demo-container h1 {
+        color: #2c3e50;
+        text-align: center;
+        margin-bottom: 10px;
+        font-size: 2.2em;
+        font-weight: 300;
+      }
+      
+      .bkt-demo-container .subtitle {
+        text-align: center;
+        color: #7f8c8d;
+        font-size: 1.1em;
+        margin-bottom: 30px;
+        font-style: italic;
+      }
+      
+
+      
+      /* Enhanced button styling */
+      .bkt-demo-container button {
+        padding: 15px 25px !important;
+        font-size: 16px !important;
+        border: none !important;
+        border-radius: 25px !important;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+        font-weight: 500 !important;
+        text-decoration: none !important;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 1.4;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      }
+      
+      .bkt-demo-container .primary-btn {
+        background: linear-gradient(45deg, #3498db, #2980b9) !important;
+        color: white !important;
+      }
+      
+      .bkt-demo-container .primary-btn:hover {
+        background: linear-gradient(45deg, #2980b9, #1f5f8b) !important;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      }
+      
+      .bkt-demo-container .success-btn {
+        background: linear-gradient(45deg, #27ae60, #2ecc71) !important;
+        color: white !important;
+      }
+      
+      .bkt-demo-container .success-btn:hover {
+        background: linear-gradient(45deg, #1e8449, #27ae60) !important;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      }
+      
+      .bkt-demo-container .danger-btn {
+        background: linear-gradient(45deg, #e74c3c, #c0392b) !important;
+        color: white !important;
+      }
+      
+      .bkt-demo-container .danger-btn:hover {
+        background: linear-gradient(45deg, #c0392b, #a93226) !important;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      }
+      
+      /* Enhanced status styling */
+      .bkt-demo-container .status {
+        padding: 15px 20px !important;
+        border-radius: 10px !important;
+        margin: 15px 0 !important;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+        font-size: 16px !important;
+        font-weight: 500;
+        text-align: center;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      }
+      
+      .bkt-demo-container .status.success {
+        background: linear-gradient(45deg, #d4edda, #c3e6cb) !important;
+        color: #155724 !important;
+        border: 1px solid #c3e6cb !important;
+      }
+      
+      .bkt-demo-container .status.error {
+        background: linear-gradient(45deg, #f8d7da, #f5c6cb) !important;
+        color: #721c24 !important;
+        border: 1px solid #f5c6cb !important;
+      }
+      
+      .bkt-demo-container .status.info {
+        background: linear-gradient(45deg, #d1ecf1, #bee5eb) !important;
+        color: #0c5460 !important;
+        border: 1px solid #bee5eb !important;
+      }
+      
+      .bkt-demo-container .status.loading {
+        background: linear-gradient(45deg, #fff3cd, #ffeaa7) !important;
+        color: #856404 !important;
+        border: 1px solid #ffeaa7 !important;
+        animation: pulse 1.5s infinite;
+      }
+      
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.7; }
+      }
+      
+      /* Enhanced MCQ container styling */
+      .bkt-demo-container .mcq-container {
+        background: rgba(255, 255, 255, 0.95) !important;
+        border: 3px solid #3498db !important;
+        border-radius: 15px !important;
+        padding: 25px !important;
+        margin: 20px 0 !important;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        backdrop-filter: blur(10px);
+      }
+      
+      .bkt-demo-container .mcq-question {
+        font-size: 20px !important;
+        font-weight: 600 !important;
+        margin-bottom: 20px !important;
+        color: #2c3e50 !important;
+        line-height: 1.4;
+      }
+      
+      .bkt-demo-container .mcq-meta {
+        display: flex;
+        gap: 20px;
+        margin: 15px 0;
+        flex-wrap: wrap;
+        color: #7f8c8d;
+        font-size: 14px;
+      }
+      
+      .bkt-demo-container .mcq-options {
+        margin: 20px 0 !important;
+      }
+      
+      .bkt-demo-container .mcq-option {
+        display: block !important;
+        margin: 10px 0 !important;
+        padding: 15px 20px !important;
+        background: rgba(248, 249, 250, 0.8) !important;
+        border: 2px solid #e9ecef !important;
+        border-radius: 10px !important;
+        cursor: pointer !important;
+        transition: all 0.3s ease !important;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+        font-size: 16px !important;
+        backdrop-filter: blur(5px);
+      }
+      
+      .bkt-demo-container .mcq-option:hover {
+        background: rgba(233, 236, 239, 0.9) !important;
+        border-color: #3498db !important;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      }
+      
+      .bkt-demo-container .mcq-option.selected {
+        background: linear-gradient(45deg, #3498db, #2980b9) !important;
+        color: white !important;
+        border-color: #2980b9 !important;
+        box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+      }
+      
+      .bkt-demo-container .submit-btn {
+        background: linear-gradient(45deg, #27ae60, #2ecc71) !important;
+        color: white !important;
+        padding: 15px 30px !important;
+        font-size: 16px !important;
+        border: none !important;
+        border-radius: 25px !important;
+        cursor: pointer !important;
+        transition: all 0.3s ease !important;
+        margin-top: 20px !important;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      }
+      
+      .bkt-demo-container .submit-btn:hover:not(:disabled) {
+        background: linear-gradient(45deg, #1e8449, #27ae60) !important;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      }
+      
+      .bkt-demo-container .submit-btn:disabled {
+        background: #bdc3c7 !important;
+        cursor: not-allowed !important;
+        transform: none !important;
+        box-shadow: none !important;
+      }
+      
+      /* Enhanced progress bar styling */
+      .bkt-demo-container .progress-bar {
+        width: 100% !important;
+        height: 25px !important;
+        background-color: #ecf0f1 !important;
+        border-radius: 15px !important;
+        overflow: hidden !important;
+        margin: 15px 0 !important;
+        box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+      }
+      
+      .bkt-demo-container .progress-fill {
+        height: 100% !important;
+        background: linear-gradient(45deg, #27ae60, #2ecc71) !important;
+        transition: width 0.5s ease !important;
+        border-radius: 15px;
+        box-shadow: 0 2px 10px rgba(39, 174, 96, 0.3);
+      }
+
+      /* Legend styling */
+      .mastery-legend {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 15px;
+        border-radius: 12px;
+        margin: 10px 0;
+        border: 1px solid rgba(255,255,255,0.2);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        backdrop-filter: blur(10px);
+        font-size: 13px;
+      }
+      
+      .gradient-legend {
+        margin: 10px 0 15px 0;
+      }
+      
+      .gradient-bar {
+        height: 20px;
+        background: linear-gradient(to right, 
+          hsl(0, 80%, 50%) 0%,
+          hsl(30, 80%, 50%) 25%,
+          hsl(60, 80%, 50%) 50%,
+          hsl(90, 80%, 50%) 75%,
+          hsl(120, 80%, 50%) 100%
+        );
+        border-radius: 10px;
+        border: 2px solid #2c3e50;
+        margin-bottom: 5px;
+      }
+      
+      .gradient-labels {
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        color: #2c3e50;
+        font-weight: 500;
+      }
+      
+      .legend-item {
+        display: block;
+        margin-bottom: 8px;
+        color: #2c3e50;
+      }
+      
+      .legend-color {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        margin-right: 8px;
+        vertical-align: middle;
+        border: 2px solid #2c3e50;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      }
+      
+      /* Loading spinner */
+      .loading-spinner {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 3px solid #f3f3f3;
+        border-top: 3px solid #3498db;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-right: 10px;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      /* Graph loading spinner */
+      .graph-loading {
+        position: absolute;
+        top: 1px;
+        left: 1px;
+        right: 1px;
+        bottom: 1px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: rgba(248, 249, 250, 0.95);
+        border-radius: 8px;
+        z-index: 10;
+      }
+      
+      .graph-loading-spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid #e9ecef;
+        border-top: 4px solid #3498db;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 15px;
+      }
+      
+      .graph-loading-text {
+        color: #6c757d;
+        font-size: 16px;
+        font-weight: 500;
+      }
+      
+      /* Responsive design */
+      @media (max-width: 1024px) {
+        .main-layout {
+          flex-direction: column;
+        }
+        
+        .bkt-section,
+        .graph-section {
+          max-width: none;
+        }
+        
+        #graph-container {
+          height: 400px !important;
+        }
+        
+        .graph-loading-spinner {
+          width: 30px !important;
+          height: 30px !important;
+          border-width: 3px !important;
+        }
+        
+        .graph-loading-text {
+          font-size: 14px !important;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .bkt-demo-container {
+          padding: 10px;
+        }
+        
+        .bkt-demo-container h1 {
+          font-size: 1.8em;
+        }
+        
+        .bkt-demo-container .mcq-meta {
+          flex-direction: column;
+          gap: 10px;
+        }
+        
+        .legend-item {
+          margin-bottom: 10px;
+        }
+        
+        #graph-container {
+          height: 350px !important;
+        }
+        
+        .graph-loading-spinner {
+          width: 25px !important;
+          height: 25px !important;
+          border-width: 2px !important;
+        }
+        
+        .graph-loading-text {
+          font-size: 12px !important;
+        }
+        
+        #controls {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+        
+        #controls label,
+        #controls select,
+        #controls button {
+          width: 100%;
+        }
+      }
+    </style>
+</head>
+<body>
+    <div class="bkt-demo-container">
+      <div class="main-layout">
+        <!-- Left side: BKT Demo -->
+        <div class="bkt-section">
+          <div class="container">
+            <h1>🧠 BKT Algorithm Visual Demo</h1>
+            <p class="subtitle">Experience how Bayesian Knowledge Tracing adapts to your learning in real-time</p>
+            
+            
+
+            <div class="container">
+              <h2>⏰ Time Manipulation Controls</h2>
+              <p>Test FSRS forgetting curves by fast-forwarding time and observing mastery decay</p>
+              
+              <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 15px;">
+                  <div style="display: flex; flex-direction: column; align-items: center;">
+                    <label style="font-weight: bold; margin-bottom: 5px;">Days</label>
+                    <input type="number" id="timeDays" value="0" min="0" max="365" 
+                          style="width: 60px; padding: 8px; border: 1px solid #ddd; border-radius: 4px; text-align: center;">
+                  </div>
+                  <div style="display: flex; flex-direction: column; align-items: center;">
+                    <label style="font-weight: bold; margin-bottom: 5px;">Hours</label>
+                    <input type="number" id="timeHours" value="0" min="0" max="23" 
+                          style="width: 60px; padding: 8px; border: 1px solid #ddd; border-radius: 4px; text-align: center;">
+                  </div>
+                  <div style="display: flex; flex-direction: column; align-items: center;">
+                    <label style="font-weight: bold; margin-bottom: 5px;">Minutes</label>
+                    <input type="number" id="timeMinutes" value="0" min="0" max="59" 
+                          style="width: 60px; padding: 8px; border: 1px solid #ddd; border-radius: 4px; text-align: center;">
+                  </div>
+                  
+                  
+                  <button onclick="fastForwardTime()" style="background: #ffc107; color: black; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;">
+                    ⏩ Fast Forward
+                  </button>
+                  <button onclick="resetTime()" style="background: #dc3545; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;">
+                    🔄 Reset Time
+                  </button>
+                </div>
+                
+                
+
+              <div style="margin-top: 20px; padding-top: 15px; border-top: 2px solid #dee2e6;">
+                <button onclick="showCurrentMasteryWithDecay()" style="background: #17a2b8; color: white; padding: 12px 20px; border: none; border-radius: 5px; cursor: pointer; margin-right: 10px;">
+                    📊 Check Current Mastery
+                </button>
+                <button onclick="resetTopicForDemo()" style="background: #6f42c1; color: white; padding: 12px 20px; border: none; border-radius: 5px; cursor: pointer;">
+                    🔄 Switch Topic
+                </button>
+                </div>
+              </div>
+              
+              <div id="timeStatus" style="background: #e9ecef; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: monospace; font-size: 14px;">
+                <strong>Time Status:</strong> <span id="timeStatusText">Real time</span>
+              </div>
+              
+              <div id="decayPreview" style="display: none; background: #fff3cd; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #ffc107;">
+                <h4>🔮 Mastery Decay Preview</h4>
+                <div id="decayPreviewContent"></div>
+              </div>
+            </div>
+
+            <script>
+
+              function getTimeInputs() {
+                const days = parseInt(document.getElementById('timeDays').value) || 0;
+                const hours = parseInt(document.getElementById('timeHours').value) || 0;
+                const minutes = parseInt(document.getElementById('timeMinutes').value) || 0;
+                return { days, hours, minutes };
+              }
+
+              function quickTimeJump(days, hours, minutes) {
+                document.getElementById('timeDays').value = days;
+                document.getElementById('timeHours').value = hours;
+                document.getElementById('timeMinutes').value = minutes;
+                fastForwardTime();
+              }
+
+              async function previewTimeDecay() {
+                const { days, hours, minutes } = getTimeInputs();
+                
+                if (days === 0 && hours === 0 && minutes === 0) {
+                  updateStatus('⚠️ Please enter a time period to preview', 'error');
+                  return;
+                }
+                
+                const totalDays = days + (hours / 24) + (minutes / (24 * 60));
+                
+                try {
+                  updateStatus('Calculating mastery decay preview...', 'loading');
+                  
+                  const result = await pyodideInstance.runPythonAsync(`
+                    # Import the time manipulation functions
+                    from BKT_FSRS import preview_mastery_decay, time_manipulator
+                    
+                    # Preview decay
+                    preview_result = preview_mastery_decay(bkt, current_student_id, ${Math.round(totalDays)})
+                    
+                    js_export(preview_result)
+                  `);
+                  
+                  const previewData = JSON.parse(result);
+                  
+                  if (previewData.error) {
+                    updateStatus('❌ ' + previewData.error, 'error');
+                    return;
+                  }
+                  
+                  // Show preview
+                  displayDecayPreview(previewData);
+                  updateStatus(`📊 Showing decay preview for ${days}d ${hours}h ${minutes}m`, 'info');
+                  
+                } catch (error) {
+                  updateStatus('❌ Failed to preview decay: ' + error.message, 'error');
+                  console.error('Preview error:', error);
+                }
+              }
+
+              async function fastForwardTime() {
+                const { days, hours, minutes } = getTimeInputs();
+                
+                if (days === 0 && hours === 0 && minutes === 0) {
+                    updateStatus('⚠️ Please enter a time period to fast forward', 'error');
+                    return;
+                }
+                
+                try {
+                    updateStatus('Fast forwarding time and applying forgetting...', 'loading');
+                    
+                    const result = await pyodideInstance.runPythonAsync(`
+                    # Check if FSRS is enabled first
+                    if not bkt.config.get('bkt_config.enable_fsrs_forgetting', True) or not bkt.fsrs_forgetting:
+                        js_export({'error': 'FSRS forgetting not enabled'})
+                    else:
+                        student = student_manager.get_student(current_student_id)
+                        if not student:
+                            js_export({'error': 'Student not found'})
+                        else:
+                            # Manual time manipulation and forgetting application
+                            mastery_before = student.mastery_levels.copy()
+                            
+                            # Apply forgetting to all topics with some mastery
+                            decay_results = []
+                            total_decay = 0
+                            topics_affected = 0
+                            
+                            for topic_idx, original_mastery in mastery_before.items():
+                                if original_mastery > 0.05:  # Only apply to topics with some mastery
+                                    # Get FSRS components
+                                    components = bkt.fsrs_forgetting.get_memory_components(current_student_id, topic_idx)
+                                    
+                                    # Simulate time passage by manipulating the last_review time
+                                    if components.last_review:
+                                        from datetime import datetime, timedelta
+                                        # Move last review backwards to simulate time passage
+                                        time_offset = timedelta(days=${days}, hours=${hours}, minutes=${minutes})
+                                        components.last_review = components.last_review - time_offset
+                                        
+                                        # Apply FSRS forgetting with the new time
+                                        new_mastery = bkt.fsrs_forgetting.apply_forgetting(
+                                            current_student_id, topic_idx, original_mastery
+                                        )
+                                        
+                                        # Update student's actual mastery
+                                        student.mastery_levels[topic_idx] = new_mastery
+                                        
+                                        decay_amount = original_mastery - new_mastery
+                                        if decay_amount > 0.001:
+                                            decay_results.append({
+                                                'topic_index': topic_idx,
+                                                'topic_name': kg.get_topic_of_index(topic_idx),
+                                                'mastery_before': original_mastery,
+                                                'mastery_after': new_mastery,
+                                                'decay_amount': decay_amount,
+                                                'decay_percentage': (decay_amount / original_mastery) * 100
+                                            })
+                                            total_decay += decay_amount
+                                            topics_affected += 1
+                            
+                            # Sort by decay amount
+                            decay_results.sort(key=lambda x: x['decay_amount'], reverse=True)
+                            
+                            time_result = {
+                                'success': True,
+                                'time_advanced': {
+                                    'days': ${days},
+                                    'hours': ${hours},
+                                    'minutes': ${minutes}
+                                },
+                                'decay_summary': {
+                                    'total_decay': total_decay,
+                                    'topics_affected': topics_affected,
+                                    'average_decay': total_decay / topics_affected if topics_affected > 0 else 0
+                                },
+                                'topic_changes': decay_results
+                            }
+                            
+                            js_export(time_result)
+                    `);
+                    
+                    const timeData = JSON.parse(result);
+                    
+                    if (timeData.error) {
+                    updateStatus('❌ ' + timeData.error, 'error');
+                    return;
+                    }
+                    
+                    if (!timeData.success) {
+                    updateStatus('❌ Time forwarding failed', 'error');
+                    return;
+                    }
+                    
+                    // Update graph colors to show decay
+                    await updateGraphMasteryColors();
+                    
+                    // Show decay results
+                    displayTimeResults(timeData);
+                    
+                    updateStatus(`⏩ Fast forwarded ${days}d ${hours}h ${minutes}m - ${timeData.decay_summary.topics_affected} topics affected`, 'success');
+                    
+                    // Update time status display
+                    const timeStatusElement = document.getElementById('timeStatusText');
+                    timeStatusElement.innerHTML = `
+                    <strong>⏰ Time Advanced</strong><br>
+                    Advanced: ${days}d ${hours}h ${minutes}m<br>
+                    Topics Affected: ${timeData.decay_summary.topics_affected}<br>
+                    Total Decay: ${timeData.decay_summary.total_decay.toFixed(3)}
+                    `;
+                    timeStatusElement.style.color = '#856404';
+                    
+                } catch (error) {
+                    updateStatus('❌ Failed to fast forward time: ' + error.message, 'error');
+                    console.error('Time manipulation error:', error);
+                }
+                }
+
+              async function resetTime() {
+                try {
+                  updateStatus('Resetting time to real time...', 'loading');
+                  
+                  const result = await pyodideInstance.runPythonAsync(`
+                    # Import the time manipulation functions
+                    from BKT_FSRS import reset_time_to_real
+                    
+                    # Reset time
+                    reset_result = reset_time_to_real()
+                    
+                    js_export(reset_result)
+                  `);
+                  
+                  const resetData = JSON.parse(result);
+                  
+                  // Update time status display
+                  updateTimeStatusDisplay();
+                  
+                  // Hide preview
+                  document.getElementById('decayPreview').style.display = 'none';
+                  
+                  updateStatus('🔄 Time reset to real time', 'success');
+                  
+                } catch (error) {
+                  updateStatus('❌ Failed to reset time: ' + error.message, 'error');
+                  console.error('Time reset error:', error);
+                }
+              }
+
+              async function updateTimeStatusDisplay() {
+                try {
+                  const result = await pyodideInstance.runPythonAsync(`
+                    # Import the time manipulation functions
+                    from BKT_FSRS import get_time_status
+                    
+                    # Get time status
+                    time_info = get_time_status()
+                    
+                    js_export(time_info)
+                  `);
+                  
+                  const timeInfo = JSON.parse(result);
+                  
+                  const statusElement = document.getElementById('timeStatusText');
+                  
+                  if (timeInfo.time_manipulation_active) {
+                    statusElement.innerHTML = `
+                      <strong>⏰ Time Manipulation Active</strong><br>
+                      Real Time: ${timeInfo.real_time}<br>
+                      Simulated Time: ${timeInfo.simulated_time}<br>
+                      Offset: ${timeInfo.offset_days}d ${timeInfo.offset_hours}h ${timeInfo.offset_minutes}m
+                    `;
+                    statusElement.style.color = '#856404';
+                  } else {
+                    statusElement.innerHTML = `
+                      <strong>🕐 Real Time</strong><br>
+                      Current: ${timeInfo.real_time}
+                    `;
+                    statusElement.style.color = '#155724';
+                  }
+                  
+                } catch (error) {
+                  console.error('Failed to update time status:', error);
+                }
+              }
+
+              function displayDecayPreview(previewData) {
+                const previewDiv = document.getElementById('decayPreview');
+                const contentDiv = document.getElementById('decayPreviewContent');
+                
+                let html = `<p><strong>Simulated ${previewData.days_simulated} days ahead:</strong></p>`;
+                
+                if (previewData.topics.length === 0) {
+                  html += '<p>No significant decay predicted.</p>';
+                } else {
+                  html += '<div style="max-height: 200px; overflow-y: auto;">';
+                  previewData.topics.slice(0, 10).forEach((topic, index) => {
+                    const decayColor = topic.decay_percentage > 20 ? '#dc3545' : 
+                                      topic.decay_percentage > 10 ? '#ffc107' : '#28a745';
+                    
+                    html += `
+                      <div style="display: flex; justify-content: space-between; padding: 8px; margin: 5px 0; background: white; border-radius: 5px; border-left: 3px solid ${decayColor};">
+                        <span style="font-weight: bold;">${topic.topic_name.substring(0, 30)}...</span>
+                        <span>${(topic.current_mastery * 100).toFixed(1)}% → ${(topic.predicted_mastery * 100).toFixed(1)}% (-${topic.decay_percentage.toFixed(1)}%)</span>
+                      </div>
+                    `;
+                  });
+                  html += '</div>';
+                  
+                  if (previewData.topics.length > 10) {
+                    html += `<p style="text-align: center; margin-top: 10px;"><em>... and ${previewData.topics.length - 10} more topics</em></p>`;
+                  }
+                }
+                
+                contentDiv.innerHTML = html;
+                previewDiv.style.display = 'block';
+              }
+
+              function displayTimeResults(timeData) {
+                if (timeData.topic_changes.length > 0) {
+                  console.log('📉 Mastery decay results:', timeData);
+                  
+                  // You can add a more detailed results display here if needed
+                  const topDecay = timeData.topic_changes.slice(0, 3);
+                  let decayMsg = `Top decay: `;
+                  topDecay.forEach((topic, index) => {
+                    decayMsg += `${topic.topic_name.substring(0, 20)} (-${topic.decay_percentage.toFixed(1)}%)`;
+                    if (index < topDecay.length - 1) decayMsg += ', ';
+                  });
+                  
+                  console.log(decayMsg);
+                }
+              }
+
+              // Update time status when page loads
+              document.addEventListener('DOMContentLoaded', function() {
+                // Add a small delay to ensure Python is loaded
+                setTimeout(updateTimeStatusDisplay, 1000);
+              });
+            </script>
+            
+            <div id="status" class="status loading">
+              <div class="loading-spinner"></div>
+              Initializing BKT System...
+            </div>
+            
+            <div id="mcq-section" style="display: none;"></div>
+          </div>
+        </div>
+
+        <!-- Right side: Knowledge Graph -->
+        <div class="graph-section">
+          <div class="container">
+            <h1>📊 Knowledge Graph</h1>
+            <p>The graph colors reflect your current mastery levels. Practice questions to see the colors change!</p>
+            
+            <div class="mastery-legend">
+              <strong>Mastery Level Legend:</strong><br>
+              <div class="gradient-legend">
+                <div class="gradient-bar"></div>
+                <div class="gradient-labels">
+                  <span>0% (Red)</span>
+                  <span>50% (Orange)</span>
+                  <span>100% (Green)</span>
+                </div>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color" style="background-color: #6c757d;"></span>
+                <span>Not Yet Studied</span>
+              </div>
+            </div>
+            
+            <div style="position: relative;">
+              <div id="graph-container" style="width: 100%; height: 500px; border: 1px solid #ddd; border-radius: 8px;"></div>
+              <div id="graph-loading" class="graph-loading">
+                <div class="graph-loading-spinner"></div>
+                <div class="graph-loading-text">Loading Knowledge Graph...</div>
+              </div>
+            </div>
+
+            <div id="controls" style="margin-top: 15px;">
+              <label for="strand-filter">Filter by Strand: </label>
+              <select id="strand-filter">
+                <option value="">All Strands</option>
+                <option value="Algebra">Algebra</option>
+                <option value="Geometry">Geometry</option>
+                <option value="Trigonometry">Trigonometry</option>
+                <option value="Calculus">Calculus</option>
+                <option value="Number">Number</option>
+                <option value="Statistics">Statistics</option>
+                <option value="Probability">Probability</option>
+                <option value="Coordinate Geometry">Coordinate Geometry</option>
+              </select>
+              
+              <button id="reset-view" style="margin-left: 10px;">Reset View</button>
+              <button id="toggle-physics" style="margin-left: 10px;">Toggle Physics</button>
+              <button id="load-simplified" style="margin-left: 10px;">Load Small Dense Graph</button>
+              <button id="load-full" style="margin-left: 10px;">Load Full</button>
+            </div>
+
+            <div id="node-info" style="margin-top: 15px; padding: 10px; background-color: #f8f9fa; border-radius: 8px; display: none;">
+              <h4 id="node-title"></h4>
+              <p id="node-description"></p>
+              <p><strong>Strand:</strong> <span id="node-strand"></span></p>
+              <p><strong>Mastery Level:</strong> <span id="node-mastery"></span></p>
+            </div>
+
+            <div id="stats" style="margin-top: 15px; padding: 10px; background-color: #e9ecef; border-radius: 8px;">
+              <strong>Graph Statistics:</strong> <span id="node-count">0</span> nodes, <span id="edge-count">0</span> edges
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <script type="text/javascript">
+      let pyodideInstance = null;
+      let currentStudent = null;
+      let currentMCQ = null;
+      let selectedOption = null;
+      let isInitialized = false;
+      let isInitialGraphLoad = false; // Flag to track initial graph load
+      
+      // Global variables for knowledge graph
+      let network;
+      let currentData = {nodes: [], edges: []};
+      let currentMasteryLevels = {};
+      let topicIndexToNodeId = {}; // Maps BKT topic indices to graph node IDs
+      
+      function updateStatus(message, type = 'info') {
+        const statusDiv = document.getElementById('status');
+        statusDiv.className = `status ${type}`;
+        
+        if (type === 'loading') {
+          statusDiv.innerHTML = `<div class="loading-spinner"></div>${message}`;
+        } else {
+          statusDiv.textContent = message;
+        }
+      }
+
+      // Function to get mastery-based color with smooth gradient
+      function getMasteryColor(masteryLevel) {
+        if (masteryLevel === null || masteryLevel === undefined) {
+          return '#6c757d'; // Gray for not studied
+        }
+        
+        // Ensure masteryLevel is between 0 and 1
+        const clampedMastery = Math.max(0, Math.min(1, masteryLevel));
+        
+        // Map mastery level (0-1) to hue (0-120 degrees)
+        // 0 = red (0°), 0.5 = orange/yellow (~40°), 1 = green (120°)
+        const hue = clampedMastery * 120;
+        
+        // Use full saturation and medium lightness for vibrant colors
+        return `hsl(${hue}, 80%, 50%)`;
+      }
+
+      // Function to update graph colors based on mastery levels
+      async function updateGraphMasteryColors() {
+        if (!network || !currentStudent || !pyodideInstance) return;
+        
+        try {
+          // Get current view position and scale to preserve user's zoom/pan
+          const currentView = network.getViewPosition();
+          
+          // Get current mastery levels from Python
+          const masteryResult = await pyodideInstance.runPythonAsync(`
+            student = student_manager.get_student(current_student_id)
+            mastery_data = {}
+            topic_mapping = {}
+            
+            # Get mastery levels and topic names
+            for topic_idx in student.mastery_levels:
+                topic_name = kg.get_topic_of_index(topic_idx)
+                mastery_level = student.get_mastery(topic_idx)
+                mastery_data[topic_name] = mastery_level
+                topic_mapping[topic_idx] = topic_name
+            
+            js_export({
+                "mastery_levels": mastery_data,
+                "topic_mapping": topic_mapping
+            })
+          `);
+          
+          const masteryData = JSON.parse(masteryResult);
+          currentMasteryLevels = masteryData.mastery_levels;
+          
+          // Get current node positions to preserve them
+          const positions = network.getPositions();
+          
+          // Update node colors based on mastery levels while preserving positions
+          const updatedNodes = currentData.nodes.map(node => {
+            const masteryLevel = currentMasteryLevels[node.label];
+            const color = getMasteryColor(masteryLevel);
+            
+            // Preserve current position if it exists
+            const currentPos = positions[node.id];
+            
+            return {
+              ...node,
+              // Keep current position
+              x: currentPos ? currentPos.x : node.x,
+              y: currentPos ? currentPos.y : node.y,
+              color: {
+                background: color,
+                border: '#2B7CE9',
+                borderWidth: 0,
+                highlight: {
+                  background: color,
+                  border: '#2B7CE9'
+                },
+                hover: {
+                  background: color,
+                  border: '#2B7CE9'
+                }
+              }
+            };
+          });
+          
+          // Update the network with new colors and preserved positions
+          network.setData({nodes: updatedNodes, edges: currentData.edges});
+          currentData.nodes = updatedNodes;
+          
+          // Only restore view if this is NOT the initial load
+          if (!isInitialGraphLoad) {
+            // Wait a bit longer for the network to process the data update
+            setTimeout(() => {
+              network.moveTo({
+                position: currentView.position,
+                scale: currentView.scale,
+                animation: false // Disable animation to make it instant
+              });
+            }, 150);
+          }
+          
+          console.log('Graph colors updated based on mastery levels (zoom and position preserved)');
+          
+        } catch (error) {
+          console.error('Error updating graph mastery colors:', error);
+        }
+      }
+      async function showCurrentMasteryWithDecay() {
+        try {
+            updateStatus('Calculating current mastery with FSRS decay...', 'loading');
+            
+            const result = await pyodideInstance.runPythonAsync(`
+            # Get current topic mastery with and without decay
+            if 'current_demo_topic' in globals() and current_demo_topic is not None:
+                student = student_manager.get_student(current_student_id)
+                topic_name = kg.get_topic_of_index(current_demo_topic)
+                
+                # Get stored mastery (without decay)
+                stored_mastery = student.get_mastery(current_demo_topic)
+                
+                # Get current mastery with decay applied
+                current_mastery_with_decay = bkt.get_current_mastery_with_decay(current_student_id, current_demo_topic)
+                
+                # Get FSRS components for additional info
+                if bkt.fsrs_forgetting:
+                    components = bkt.fsrs_forgetting.get_memory_components(current_student_id, current_demo_topic)
+                    fsrs_info = {
+                        'stability': components.stability,
+                        'difficulty': components.difficulty,
+                        'retrievability': components.retrievability,
+                        'review_count': components.review_count,
+                        'recent_success_rate': components.recent_success_rate
+                    }
+                else:
+                    fsrs_info = None
+                
+                mastery_data = {
+                    'success': True,
+                    'topic_name': topic_name,
+                    'stored_mastery': stored_mastery,
+                    'current_mastery': current_mastery_with_decay,
+                    'decay_amount': stored_mastery - current_mastery_with_decay,
+                    'fsrs_components': fsrs_info
+                }
+            else:
+                mastery_data = {'success': False, 'error': 'No current topic selected'}
+            
+            js_export(mastery_data)
+            `);
+            
+            const data = JSON.parse(result);
+            
+            if (data.success) {
+            displayMasteryStatus(data);
+            updateStatus('📊 Current mastery status displayed', 'info');
+            } else {
+            updateStatus('❌ ' + data.error, 'error');
+            }
+            
+        } catch (error) {
+            updateStatus('❌ Failed to get mastery status: ' + error.message, 'error');
+            console.error('Mastery status error:', error);
+        }
+        }
+
+        function displayMasteryStatus(data) {
+        const decayAmount = data.decay_amount;
+        const decayPercentage = (decayAmount / data.stored_mastery) * 100;
+        
+        let html = `
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0; border: 2px solid #007bff;">
+            <h4 style="color: #007bff; margin-top: 0;">📊 Current Mastery Status: ${data.topic_name}</h4>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 15px 0;">
+                <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #28a745;">
+                <strong>💾 Stored Mastery:</strong><br>
+                <span style="font-size: 24px; color: #28a745;">${(data.stored_mastery * 100).toFixed(1)}%</span>
+                </div>
+                <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid ${decayAmount > 0.05 ? '#dc3545' : '#ffc107'};">
+                <strong>⏰ Current (with decay):</strong><br>
+                <span style="font-size: 24px; color: ${decayAmount > 0.05 ? '#dc3545' : '#ffc107'};">${(data.current_mastery * 100).toFixed(1)}%</span>
+                </div>
+            </div>
+            
+            ${decayAmount > 0.001 ? `
+                <div style="background: #fff3cd; padding: 15px; border-radius: 8px; border-left: 4px solid #ffc107; margin: 15px 0;">
+                <strong>📉 Decay Applied:</strong> ${(decayAmount * 100).toFixed(2)}% (${decayPercentage.toFixed(1)}% relative)
+                </div>
+            ` : `
+                <div style="background: #d4edda; padding: 15px; border-radius: 8px; border-left: 4px solid #28a745; margin: 15px 0;">
+                <strong>✅ No significant decay detected</strong>
+                </div>
+            `}
+        `;
+        
+        if (data.fsrs_components) {
+            html += `
+            <div style="background: white; padding: 15px; border-radius: 8px; margin: 15px 0; border: 1px solid #dee2e6;">
+                <strong>🧠 FSRS Memory Components:</strong><br>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 10px; font-size: 14px;">
+                <div><strong>Stability:</strong> ${data.fsrs_components.stability.toFixed(2)} days</div>
+                <div><strong>Difficulty:</strong> ${(data.fsrs_components.difficulty * 100).toFixed(1)}%</div>
+                <div><strong>Retrievability:</strong> ${(data.fsrs_components.retrievability * 100).toFixed(1)}%</div>
+                <div><strong>Reviews:</strong> ${data.fsrs_components.review_count}</div>
+                <div><strong>Success Rate:</strong> ${(data.fsrs_components.recent_success_rate * 100).toFixed(1)}%</div>
+                </div>
+            </div>
+            `;
+        }
+        
+        html += `</div>`;
+        
+        // Insert into the MCQ section or create a dedicated status area
+        const existingStatus = document.getElementById('masteryStatusDisplay');
+        if (existingStatus) {
+            existingStatus.innerHTML = html;
+        } else {
+            const mcqSection = document.getElementById('mcq-section');
+            mcqSection.insertAdjacentHTML('beforebegin', `<div id="masteryStatusDisplay">${html}</div>`);
+        }
+      }
+
+      async function resetTopicForDemo() {
+        try {
+            updateStatus('Resetting topic selection...', 'loading');
+            
+            await pyodideInstance.runPythonAsync(`
+            # Clear current demo topic to allow new topic selection
+            if 'current_demo_topic' in globals():
+                del globals()['current_demo_topic']
+            
+            # Clear daily completed to allow retrying questions
+            student = student_manager.get_student(current_student_id)
+            student.daily_completed.clear()
+            `);
+            
+            // Clear mastery status display
+            const masteryDisplay = document.getElementById('masteryStatusDisplay');
+            if (masteryDisplay) {
+            masteryDisplay.remove();
+            }
+            
+            // Generate new MCQ from different topic
+            await generateMCQ();
+            
+            updateStatus('🔄 Topic reset - new topic selected', 'success');
+            
+        } catch (error) {
+            updateStatus('❌ Failed to reset topic: ' + error.message, 'error');
+            console.error('Topic reset error:', error);
+        }
+        }
+
+
+      // Automated initialization function
+      async function autoInitialize() {
+        try {
+          // Step 1: Initialize Pyodide and BKT System
+          updateStatus('Loading Pyodide and packages...', 'loading');
+          
+          if (!pyodideInstance) {
+            pyodideInstance = await loadPyodide({
+              indexURL: "../../_static/",
+              packageCacheKey: "bkt-demo-v1",
+              loadPackages: false
+            });
+            
+            const originalIndexURL = pyodideInstance._api.config.indexURL;
+            pyodideInstance._api.config.indexURL = "https://cdn.jsdelivr.net/pyodide/v0.27.7/full/";
+            
+            const packages = ["numpy", "networkx", "matplotlib"];
+            await pyodideInstance.loadPackage(packages, {
+              messageCallback: (msg) => console.log(`Package loading: ${msg}`),
+              errorCallback: (err) => console.error(`Package error: ${err}`)
+            });
+            
+            pyodideInstance._api.config.indexURL = originalIndexURL;
+          }
+          
+          // Step 2: Load BKT code and files
+          updateStatus('Loading BKT algorithm...', 'loading');
+          
+          const pyResponse = await fetch("../../_static/mcq_algorithm_full_python2.py");
+          if (!pyResponse.ok) {
+            throw new Error(`Failed to fetch Python code: ${pyResponse.status}`);
+          }
+          const code = await pyResponse.text();
+          pyodideInstance.FS.writeFile("bkt_system.py", code);
+          
+          // Load JSON files
+          const files = [
+            { name: "config.json", url: "../../_static/config.json" },
+            { name: "small-graph-kg.json", url: "../../_static/small-graph-kg.json" },
+            { name: "small-graph-mcqs.json", url: "../../_static/small-graph-mcqs.json" },
+            { name: "small-graph-computed_mcqs.json", url: "../../_static/small-graph-computed_mcqs.json" }
+          ];
+          
+          for (const file of files) {
+            const response = await fetch(file.url);
+            if (!response.ok) {
+              throw new Error(`Failed to fetch ${file.name}: ${response.status}`);
+            }
+            const data = await response.text();
+            pyodideInstance.FS.writeFile(file.name, data);
+          }
+          
+          // Step 3: Initialize BKT System
+          updateStatus('Initializing BKT system...', 'loading');
+          
+          await pyodideInstance.runPythonAsync(`
+            import sys
+            sys.path.append('.')
+            import bkt_system
+            import json
+            
+            def js_export(obj):
+                return json.dumps(obj)
+            
+            # Initialize the system
+            kg = bkt_system.KnowledgeGraph()
+            student_manager = bkt_system.StudentManager()
+            mcq_scheduler = bkt_system.MCQScheduler(kg, student_manager)
+            bkt = bkt_system.BayesianKnowledgeTracing(kg, student_manager)
+            
+            # Connect systems
+            mcq_scheduler.set_bkt_system(bkt)
+            student_manager.set_bkt_system(bkt)
+            
+            # Store globally
+            globals()['kg'] = kg
+            globals()['student_manager'] = student_manager
+            globals()['bkt'] = bkt
+            globals()['mcq_scheduler'] = mcq_scheduler
+          `);
+          
+          // Step 4: Create Student
+          updateStatus('Creating student profile...', 'loading');
+          
+          const result = await pyodideInstance.runPythonAsync(`
+            import random
+            random.seed(42)
+            
+            current_student_id = "demo_student"
+            student = student_manager.create_student(current_student_id)
+            
+            # Set initial mastery levels
+            for topic_idx in kg.get_all_indexes():
+                mastery = random.uniform(0.1, 0.6)
+                student.mastery_levels[topic_idx] = mastery
+                student.confidence_levels[topic_idx] = mastery * 0.8
+                student.studied_topics[topic_idx] = True
+            
+            js_export({"success": True, "student_id": current_student_id})
+          `);
+          
+          const data = JSON.parse(result);
+          currentStudent = data.student_id;
+          
+          // Step 5: Generate first MCQ
+          updateStatus('Generating your first question...', 'loading');
+          
+          await generateMCQ();
+          
+          // Step 6: Load knowledge graph after MCQ is ready
+          updateStatus('Loading knowledge graph...', 'loading');
+          loadGraphData('../../_static/small-graph.json');
+          
+          // Mark as initialized
+          isInitialized = true;
+          
+        } catch (error) {
+          updateStatus(`❌ Initialization failed: ${error.message}`, 'error');
+          console.error('Auto-initialization error:', error);
+        }
+      }
+      async function generateMCQ() {
+        try {
+            const result = await pyodideInstance.runPythonAsync(`
+            import json
+
+            try:
+                student = student_manager.get_student(current_student_id)
+                
+                # Get all eligible MCQs (same topic filtering)
+                all_eligible = mcq_scheduler.get_eligible_mcqs_for_student(current_student_id)
+                
+                # Group by topic and select from the same topic if we have a current topic
+                if hasattr(globals(), 'current_demo_topic') and current_demo_topic is not None:
+                    # Filter for current topic only
+                    topic_mcqs = [mcq_id for mcq_id in all_eligible 
+                                if kg.mcqs[mcq_id].main_topic_index == current_demo_topic]
+                    
+                    # Remove already completed questions from today
+                    topic_mcqs = [mcq_id for mcq_id in topic_mcqs 
+                                if mcq_id not in student.daily_completed]
+                else:
+                    # First question - pick a random topic with multiple questions
+                    topic_counts = {}
+                    for mcq_id in all_eligible:
+                        topic_idx = kg.mcqs[mcq_id].main_topic_index
+                        topic_counts[topic_idx] = topic_counts.get(topic_idx, 0) + 1
+                    
+                    # Find topics with at least 3 questions
+                    good_topics = [topic for topic, count in topic_counts.items() if count >= 3]
+                    if good_topics:
+                        import random
+                        current_demo_topic = random.choice(good_topics)
+                        topic_mcqs = [mcq_id for mcq_id in all_eligible 
+                                    if kg.mcqs[mcq_id].main_topic_index == current_demo_topic]
+                    else:
+                        topic_mcqs = all_eligible[:1]  # Fallback
+                
+                if len(topic_mcqs) > 0:
+                    import random
+                    mcq_id = random.choice(topic_mcqs)
+                    mcq = kg.mcqs[mcq_id]
+                    topic_name = kg.get_topic_of_index(mcq.main_topic_index)
+                    current_mastery = student.get_mastery(mcq.main_topic_index)
+                    
+                    # Store current topic for consistency
+                    globals()['current_demo_topic'] = mcq.main_topic_index
+                    
+                    mcq_data = {
+                        "success": True,
+                        "mcq_id": mcq_id,
+                        "text": mcq.text,
+                        "options": mcq.options,
+                        "correct_index": mcq.correctindex,
+                        "explanations": mcq.option_explanations,
+                        "topic_name": topic_name,
+                        "current_mastery": current_mastery,
+                        "difficulty": getattr(mcq, 'difficulty', 0.5),
+                        "remaining_questions": len(topic_mcqs) - 1
+                    }
+                    
+                    result_json = json.dumps(mcq_data)
+                else:
+                    result_json = json.dumps({
+                        "success": False,
+                        "error": "No more questions available for this topic today"
+                    })
+
+            except Exception as e:
+                result_json = json.dumps({"success": False, "error": f"Error: {str(e)}"})
+
+            result_json
+            `);
+            
+            const data = JSON.parse(result);
+            
+            if (data.success) {
+            currentMCQ = data;
+            displayMCQ(data);
+            } else {
+            updateStatus(`❌ ${data.error}`, 'error');
+            }
+            
+        } catch (error) {
+            updateStatus('❌ Failed to generate MCQ', 'error');
+            console.error('MCQ generation error:', error);
+        }
+        }
+      
+      function displayMCQ(mcqData) {
+        const mcqSection = document.getElementById('mcq-section');
+        mcqSection.style.display = 'block';
+        
+        // Hide status div when question is displayed
+        document.getElementById('status').style.display = 'none';
+        
+        mcqSection.innerHTML = `
+            <div class="mcq-container">
+            <div style="background: #e3f2fd; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #2196f3;">
+                <h4 style="margin: 0 0 10px 0; color: #1976d2;">🎯 FSRS Topic Focus Demo</h4>
+                <p style="margin: 0; font-size: 14px;">Practicing: <strong>${mcqData.topic_name}</strong> | Questions remaining: <strong>${mcqData.remaining_questions || 'Unknown'}</strong></p>
+            </div>
+            
+            <div class="mcq-question">${mcqData.text}</div>
+            <div class="mcq-meta">
+                <div><strong>📚 Topic:</strong> ${mcqData.topic_name}</div>
+                <div><strong>📊 Current Mastery:</strong> ${(mcqData.current_mastery * 100).toFixed(1)}%</div>
+                <div><strong>⚡ Difficulty:</strong> ${(mcqData.difficulty * 100).toFixed(1)}%</div>
+            </div>
+            
+            <div class="mcq-options">
+                ${mcqData.options.map((option, index) => 
+                `<button class="mcq-option" onclick="selectOption(${index})">${option}</button>`
+                ).join('')}
+            </div>
+            
+            <button onclick="submitAnswer()" class="submit-btn" disabled id="submitBtn">
+                ✅ Submit Answer
+            </button>
+            </div>
+        `;
+        
+        // Re-render MathJax for the new content
+        if (window.MathJax) {
+            MathJax.typesetPromise([mcqSection]).catch((err) => console.log('MathJax render error:', err));
+        }
+        }
+      
+      
+      function selectOption(index) {
+        // Remove previous selection
+        document.querySelectorAll('.mcq-option').forEach(btn => btn.classList.remove('selected'));
+        
+        // Add selection to clicked option
+        document.querySelectorAll('.mcq-option')[index].classList.add('selected');
+        
+        selectedOption = index;
+        document.getElementById('submitBtn').disabled = false;
+      }
+      
+      async function submitAnswer() {
+        if (selectedOption === null || !currentMCQ) return;
+        
+        try {
+          updateStatus('Processing your answer...', 'loading');
+          
+          const result = await pyodideInstance.runPythonAsync(`
+            mcq_id = "${currentMCQ.mcq_id}"
+            selected_option = ${selectedOption}
+            correct_index = ${currentMCQ.correct_index}
+            is_correct = selected_option == correct_index
+            
+            # Record the attempt and get BKT updates
+            bkt_updates = student_manager.record_attempt(
+                current_student_id, mcq_id, is_correct, 30.0, kg
+            )
+            
+            # Get response data
+            mcq = kg.mcqs[mcq_id]
+            student = student_manager.get_student(current_student_id)
+            topic_name = kg.get_topic_of_index(mcq.main_topic_index)
+            
+            mastery_before = None
+            mastery_after = student.get_mastery(mcq.main_topic_index)
+            mastery_change = 0
+            
+            if bkt_updates:
+                primary_update = next((u for u in bkt_updates if u.get('is_primary_topic', False)), None)
+                if primary_update:
+                    mastery_before = primary_update['mastery_before']
+                    mastery_change = primary_update['mastery_change']
+            
+            response_data = {
+                "is_correct": is_correct,
+                "selected_text": mcq.options[selected_option],
+                "correct_option": mcq.options[correct_index],
+                "explanation": mcq.option_explanations[selected_option],
+                "main_topic": topic_name,
+                "before_mastery": mastery_before or mastery_after,
+                "after_mastery": mastery_after,
+                "mastery_change": mastery_change,
+                "total_changes": len(bkt_updates)
+            }
+            
+            js_export(response_data)
+          `);
+          
+          const data = JSON.parse(result);
+          displayResult(data);
+          
+          // Update graph colors after answer is processed (preserving zoom level)
+          await updateGraphMasteryColors();
+          
+          // Reset for next question
+          selectedOption = null;
+          currentMCQ = null;
+          
+        } catch (error) {
+          updateStatus('❌ Failed to process answer', 'error');
+          console.error('Answer processing error:', error);
+        }
+      }
+      
+      function displayResult(result) {
+        const mcqSection = document.getElementById('mcq-section');
+        const isCorrect = result.is_correct;
+        const borderColor = isCorrect ? '#27ae60' : '#e74c3c';
+        const bgColor = isCorrect ? 'rgba(212, 237, 218, 0.9)' : 'rgba(248, 215, 218, 0.9)';
+        const textColor = isCorrect ? '#155724' : '#721c24';
+        const icon = isCorrect ? '✅' : '❌';
+        const changeIcon = result.mastery_change > 0 ? '📈' : result.mastery_change < 0 ? '📉' : '➖';
+        
+        mcqSection.innerHTML = `
+          <div class="mcq-container" style="border-color: ${borderColor}; background-color: ${bgColor}; color: ${textColor};">
+            <h3>${icon} ${isCorrect ? 'Excellent!' : 'Not quite right, but you\'re learning!'}</h3>
+            <p><strong>Your Answer:</strong> ${result.selected_text}</p>
+            <p><strong>Correct Answer:</strong> ${result.correct_option}</p>
+            <p><strong>Explanation:</strong> ${result.explanation}</p>
+            
+            <div style="background: rgba(255, 255, 255, 0.95); padding: 20px; margin: 15px 0; border-radius: 10px; color: #2c3e50; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+              <h4>🧠 BKT Mastery Update</h4>
+              <p><strong>📚 Topic:</strong> ${result.main_topic}</p>
+              <p><strong>📊 Before:</strong> ${(result.before_mastery * 100).toFixed(1)}%</p>
+              <p><strong>📊 After:</strong> ${(result.after_mastery * 100).toFixed(1)}%</p>
+              <p><strong>📈 Change:</strong> ${changeIcon} ${result.mastery_change > 0 ? '+' : ''}${(result.mastery_change * 100).toFixed(2)}%</p>
+              <p><strong>🔄 Total Topics Updated:</strong> ${result.total_changes}</p>
+              <p><em>💡 Check the knowledge graph below to see the color changes!</em></p>
+              
+              <div class="progress-bar" style="margin: 15px 0;">
+                <div class="progress-fill" style="width: ${result.after_mastery * 100}%; background: ${result.after_mastery > result.before_mastery ? 'linear-gradient(45deg, #27ae60, #2ecc71)' : 'linear-gradient(45deg, #f39c12, #e67e22)'};"></div>
+              </div>
+            </div>
+            
+            <button onclick="nextQuestion()" class="submit-btn" style="background: linear-gradient(45deg, #3498db, #2980b9) !important;">
+              🚀 Next Question
+            </button>
+          </div>
+        `;
+        
+        // Re-render MathJax for the new content
+        if (window.MathJax) {
+          MathJax.typesetPromise([mcqSection]).catch((err) => console.log('MathJax render error:', err));
+        }
+      }
+      
+      async function nextQuestion() {
+        updateStatus('Generating next question...', 'loading');
+        await generateMCQ();
+      }
+
+      // Initialize the network
+      document.addEventListener('DOMContentLoaded', function() {
+        const container = document.getElementById('graph-container');
+        
+        // Network options
+        const options = {
+          nodes: {
+            shape: 'dot',
+            size: 25,
+            font: {
+              size: 12,
+              face: 'Segoe UI'
+            },
+            borderWidth: 0,
+            shadow: true
+          },
+          edges: {
+            width: 1,
+            smooth: {
+              type: 'continuous'
+            },
+            color: {
+              color: '#848484',
+              highlight: '#848484',
+              hover: '#848484'
+            }
+          },
+          physics: {
+            stabilization: false,
+            barnesHut: {
+              gravitationalConstant: -50000,
+              springConstant: 0.002,
+              springLength: 150
+            }
+          },
+          interaction: {
+            navigationButtons: true,
+            keyboard: true,
+            hover: true
+          }
+        };
+
+        // Create network
+        network = new vis.Network(container, currentData, options);
+
+        // Handle node selection
+        network.on('select', function(params) {
+          if (params.nodes.length > 0) {
+            const nodeId = params.nodes[0];
+            const node = currentData.nodes.find(n => n.id === nodeId);
+            if (node) {
+              document.getElementById('node-title').textContent = node.label;
+              document.getElementById('node-description').textContent = node.label || 'No description available';
+              document.getElementById('node-strand').textContent = node.group || 'Unknown';
+              
+              // Show mastery level
+              const masteryLevel = currentMasteryLevels[node.label];
+              const masteryText = masteryLevel !== undefined ? 
+                `${(masteryLevel * 100).toFixed(1)}%` : 'Not studied yet';
+              document.getElementById('node-mastery').textContent = masteryText;
+              
+              document.getElementById('node-info').style.display = 'block';
+            }
+          }
+        });
+
+        // Handle deselection
+        network.on('deselectNode', function() {
+          document.getElementById('node-info').style.display = 'none';
+        });
+
+        // Filter by strand
+        document.getElementById('strand-filter').addEventListener('change', function() {
+          const selectedStrand = this.value;
+          const nodes = currentData.nodes.map(node => {
+            if (selectedStrand === '' || node.group === selectedStrand) {
+              node.hidden = false;
+            } else {
+              node.hidden = true;
+            }
+            return node;
+          });
+          
+          const edges = currentData.edges.map(edge => {
+            const fromNode = currentData.nodes.find(n => n.id === edge.from);
+            const toNode = currentData.nodes.find(n => n.id === edge.to);
+            if (selectedStrand === '' || 
+                (fromNode && !fromNode.hidden && toNode && !toNode.hidden)) {
+              edge.hidden = false;
+            } else {
+              edge.hidden = true;
+            }
+            return edge;
+          });
+          
+          network.setData({nodes: nodes, edges: edges});
+          updateStats(nodes.filter(n => !n.hidden).length, edges.filter(e => !e.hidden).length);
+        });
+
+        // Reset view
+        document.getElementById('reset-view').addEventListener('click', function() {
+          network.fit();
+        });
+
+        // Toggle physics
+        let physicsEnabled = true;
+        document.getElementById('toggle-physics').addEventListener('click', function() {
+          physicsEnabled = !physicsEnabled;
+          network.setOptions({physics: {enabled: physicsEnabled}});
+          this.textContent = physicsEnabled ? 'Toggle Physics' : 'Toggle Physics';
+        });
+
+        // Load graph data
+        document.getElementById('load-simplified').addEventListener('click', function() {
+          loadGraphData('../../_static/small-graph.json');
+        });
+
+        document.getElementById('load-full').addEventListener('click', function() {
+          loadGraphData('../../_static/graph-data.json');
+        });
+
+        // Start auto-initialization
+        autoInitialize();
+      });
+
+      function loadGraphData(filename) {
+        // Set flag for initial load
+        isInitialGraphLoad = true;
+        
+        fetch(filename)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+            return response.json();
+          })
+          .then(data => {
+            // Hide loading spinner
+            const loadingDiv = document.getElementById('graph-loading');
+            if (loadingDiv) {
+              loadingDiv.style.display = 'none';
+            }
+            
+            // Add initial positioning based on groups
+            const groupPositions = {
+              'Algebra': {x: -400, y: -200},
+              'Geometry': {x: 400, y: -200},
+              'Trigonometry': {x: 0, y: -400},
+              'Calculus': {x: 0, y: 400},
+              'Number': {x: -400, y: 200},
+              'Statistics': {x: 400, y: 200},
+              'Probability': {x: 400, y: 0},
+              'Coordinate Geometry': {x: 200, y: -300},
+              'Functions': {x: -200, y: 300},
+              'Sequences and Series': {x: -200, y: -300},
+              'Complex Numbers': {x: -300, y: 0},
+              'Measurement': {x: 300, y: -100},
+              'Synthetic geometry': {x: 300, y: -300},
+              'Transformation geometry': {x: 200, y: 300},
+              'Differential Calculus': {x: -100, y: 300},
+              'Integral Calculus': {x: 100, y: 300},
+              'Counting and Probability': {x: 300, y: 100}
+            };
+            
+            // Apply group-based positioning and initial colors
+            data.nodes.forEach(node => {
+              node.color = '#6c757d';
+              
+              if (groupPositions[node.group]) {
+                node.x = groupPositions[node.group].x + (Math.random() - 0.5) * 150;
+                node.y = groupPositions[node.group].y + (Math.random() - 0.5) * 150;
+              } else {
+                node.x = (Math.random() - 0.5) * 800;
+                node.y = (Math.random() - 0.5) * 800;
+              }
+            });
+            
+            currentData = data;
+            network.setData(data);
+            updateStats(data.nodes.length, data.edges.length);
+
+            // Update strand filter options
+            const strands = [...new Set(data.nodes.map(node => node.group))].sort();
+            const filter = document.getElementById('strand-filter');
+            filter.innerHTML = '<option value="">All Strands</option>';
+            strands.forEach(strand => {
+              if (strand && strand !== 'Unknown') {
+                filter.innerHTML += `<option value="${strand}">${strand}</option>`;
+              }
+            });
+            
+            // Update colors if student exists
+            if (currentStudent) {
+              updateGraphMasteryColors();
+            }
+            
+            // Set default zoomed out view (after a longer delay to ensure everything is loaded)
+            setTimeout(() => {
+              network.moveTo({
+                scale: 0.05,
+                animation: false // Disable animation for instant zoom
+              });
+              // Clear the initial load flag after zoom is set
+              isInitialGraphLoad = false;
+            }, 300);
+            
+            console.log(`Loaded ${data.nodes.length} nodes and ${data.edges.length} edges from ${filename}`);
+          })
+          .catch(error => {
+            console.error('Error loading graph data:', error);
+            loadSimplifiedFallback();
+          });
+      }
+
+      function loadSimplifiedFallback() {
+        // Set flag for initial load
+        isInitialGraphLoad = true;
+        
+        // Hide loading spinner
+        const loadingDiv = document.getElementById('graph-loading');
+        if (loadingDiv) {
+          loadingDiv.style.display = 'none';
+        }
+        
+        // Fallback data if JSON files can't be loaded
+        const fallbackData = {
+          nodes: [
+            {id: '1', label: 'Natural Numbers', group: 'Number', title: 'Counting numbers starting from 1'},
+            {id: '2', label: 'Integers', group: 'Number', title: 'Whole numbers including negatives'},
+            {id: '3', label: 'Rational Numbers', group: 'Number', title: 'Numbers expressible as fractions'},
+            {id: '4', label: 'Complex Numbers', group: 'Number', title: 'Numbers with real and imaginary parts'},
+            {id: '5', label: 'Linear Equations', group: 'Algebra', title: 'First-degree equations'},
+            {id: '6', label: 'Quadratic Equations', group: 'Algebra', title: 'Second-degree equations'},
+            {id: '7', label: 'Trigonometric Functions', group: 'Trigonometry', title: 'Sine, cosine, tangent functions'},
+            {id: '8', label: 'Derivatives', group: 'Calculus', title: 'Rate of change of functions'},
+            {id: '9', label: 'Integration', group: 'Calculus', title: 'Antiderivatives and areas'},
+            {id: '10', label: 'Probability', group: 'Probability', title: 'Likelihood of events'}
+          ],
+          edges: [
+            {from: '1', to: '2', title: 'Natural numbers extend to integers'},
+            {from: '2', to: '3', title: 'Integers extend to rational numbers'},
+            {from: '3', to: '4', title: 'Rational numbers extend to complex numbers'},
+            {from: '5', to: '6', title: 'Linear equations are prerequisite for quadratics'},
+            {from: '6', to: '8', title: 'Quadratic functions can be differentiated'},
+            {from: '8', to: '9', title: 'Integration is the reverse of differentiation'},
+            {from: '7', to: '8', title: 'Trigonometric functions can be differentiated'},
+            {from: '7', to: '9', title: 'Trigonometric functions can be integrated'}
+          ]
+        };
+        
+        // Apply initial gray colors
+        fallbackData.nodes.forEach(node => {
+          node.color = '#6c757d';
+        });
+        
+        currentData = fallbackData;
+        network.setData(fallbackData);
+        updateStats(fallbackData.nodes.length, fallbackData.edges.length);
+        
+        // Update colors if student exists
+        if (currentStudent) {
+          updateGraphMasteryColors();
+        }
+        
+        // Set default zoomed out view (after a delay to ensure everything is loaded)
+        setTimeout(() => {
+          network.moveTo({
+            scale: 0.05,
+            animation: false // Disable animation for instant zoom
+          });
+          // Clear the initial load flag after zoom is set
+          isInitialGraphLoad = false;
+        }, 300);
+      }
+
+      function updateStats(nodeCount, edgeCount) {
+        document.getElementById('node-count').textContent = nodeCount;
+        document.getElementById('edge-count').textContent = edgeCount;
+      }
+    </script>
+</body>
+</html>

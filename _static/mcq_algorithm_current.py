@@ -1605,6 +1605,7 @@ class FSRSForgettingConfig:
 
 
 
+
 class FSRSForgettingModel:
     """FSRS-inspired forgetting model using power functions"""
     
@@ -1706,6 +1707,7 @@ class FSRSForgettingModel:
             components.retrievability = min(1.0, components.retrievability + 0.2)
         else:
             components.retrievability = max(0.1, components.retrievability - 0.1)
+
 
 
 class BayesianKnowledgeTracing:
@@ -2226,6 +2228,339 @@ class BayesianKnowledgeTracing:
             diagnostics['average_retrievability'] = retrievability_sum / component_count
 
         return diagnostics
+    
+##############  FSRS TIME TESTING   ##################
+
+from datetime import datetime, timedelta
+import math
+
+class TimeManipulator:
+    """
+    Time manipulation utility for testing FSRS forgetting curves
+    Allows simulating the passage of time without actually waiting
+    """
+    
+    def __init__(self):
+        self._time_offset = timedelta(0)  # How much time we've "fast-forwarded"
+        self._original_now = datetime.now  # Store original datetime.now function
+        
+    def get_current_time(self) -> datetime:
+        """Get the current "simulated" time"""
+        return self._original_now() + self._time_offset
+    
+    def fast_forward(self, days: int = 0, hours: int = 0, minutes: int = 0) -> datetime:
+        """
+        Fast forward time by the specified amount
+        
+        Args:
+            days: Number of days to advance
+            hours: Number of hours to advance  
+            minutes: Number of minutes to advance
+            
+        Returns:
+            New current time after fast forwarding
+        """
+        time_delta = timedelta(days=days, hours=hours, minutes=minutes)
+        self._time_offset += time_delta
+        new_time = self.get_current_time()
+        
+        print(f"⏰ Time fast-forwarded by {days} days, {hours} hours, {minutes} minutes")
+        print(f"📅 Current simulated time: {new_time.strftime('%Y-%m-%d %H:%M:%S')}")
+        
+        return new_time
+    
+    def reset_time(self) -> datetime:
+        """Reset time manipulation back to real time"""
+        self._time_offset = timedelta(0)
+        real_time = self._original_now()
+        print(f"🔄 Time reset to real time: {real_time.strftime('%Y-%m-%d %H:%M:%S')}")
+        return real_time
+    
+    def get_time_offset(self) -> timedelta:
+        """Get current time offset"""
+        return self._time_offset
+    
+    def get_time_info(self) -> dict:
+        """Get time manipulation info for display"""
+        real_time = self._original_now()
+        sim_time = self.get_current_time()
+        
+        return {
+            'real_time': real_time.strftime('%Y-%m-%d %H:%M:%S'),
+            'simulated_time': sim_time.strftime('%Y-%m-%d %H:%M:%S'),
+            'offset_days': self._time_offset.days,
+            'offset_hours': self._time_offset.seconds // 3600,
+            'offset_minutes': (self._time_offset.seconds % 3600) // 60,
+            'time_manipulation_active': self._time_offset != timedelta(0)
+        }
+
+# Global time manipulator instance
+time_manipulator = TimeManipulator()
+
+# Monkey patch the FSRSForgettingModel to use simulated time
+def patch_fsrs_for_time_manipulation():
+    """Patch the existing FSRSForgettingModel to use simulated time"""
+    
+    # Store original methods
+    original_get_memory_components = FSRSForgettingModel.get_memory_components
+    original_apply_forgetting = FSRSForgettingModel.apply_forgetting
+    original_update_memory_components = FSRSForgettingModel.update_memory_components
+    
+    def patched_get_memory_components(self, student_id: str, topic_index: int) -> FSRSMemoryComponents:
+        """Patched version that uses simulated time for initialization"""
+        if student_id not in self.memory_components:
+            self.memory_components[student_id] = {}
+        
+        if topic_index not in self.memory_components[student_id]:
+            # Initialize with simulated time
+            self.memory_components[student_id][topic_index] = FSRSMemoryComponents(
+                stability=1.0,
+                difficulty=0.5,
+                retrievability=1.0,
+                last_review=time_manipulator.get_current_time(),  # Use simulated time
+                review_count=0,
+                recent_success_rate=0.5
+            )
+        
+        return self.memory_components[student_id][topic_index]
+    
+    def patched_apply_forgetting(self, student_id: str, topic_index: int, current_mastery: float) -> float:
+        """Patched version that uses simulated time for forgetting calculations"""
+        components = self.get_memory_components(student_id, topic_index)
+        
+        if components.last_review is None:
+            components.last_review = time_manipulator.get_current_time()
+            return current_mastery
+        
+        # Calculate time since last review using simulated time
+        current_time = time_manipulator.get_current_time()
+        time_elapsed = (current_time - components.last_review).total_seconds() / (24 * 3600)
+        
+        if time_elapsed <= 0:
+            return current_mastery
+        
+        # FSRS-inspired forgetting formula using power functions
+        stability_factor = math.pow(time_elapsed, self.config.stability_power_factor) * components.stability
+        difficulty_factor = math.pow(components.difficulty, self.config.difficulty_power_factor)
+        retrievability_factor = math.pow(components.retrievability, self.config.retrievability_power_factor)
+        
+        # Combine factors with weights
+        forgetting_multiplier = (
+            self.config.stability_weight * stability_factor +
+            self.config.difficulty_weight * difficulty_factor +
+            self.config.retrievability_weight * retrievability_factor
+        )
+        
+        # Apply forgetting with exponential decay
+        forgetting_rate = math.exp(-time_elapsed / (self.config.base_forgetting_time * forgetting_multiplier))
+        
+        # Ensure forgetting doesn't go below minimum threshold
+        forgotten_mastery = max(0.01, current_mastery * forgetting_rate)
+        
+        # Update last access time using simulated time
+        components.last_review = current_time
+        
+        return forgotten_mastery
+    
+    def patched_update_memory_components(self, student_id: str, topic_index: int, 
+                                       is_correct: bool, new_mastery: float):
+        """Patched version that uses simulated time for updates"""
+        components = self.get_memory_components(student_id, topic_index)
+        
+        # Update review count
+        components.review_count += 1
+        
+        # Update last review time to simulated time
+        components.last_review = time_manipulator.get_current_time()
+        
+        # Update success rate with exponential moving average
+        alpha = 0.3
+        success_value = 1.0 if is_correct else 0.0
+        components.recent_success_rate = (
+            alpha * success_value + 
+            (1 - alpha) * components.recent_success_rate
+        )
+        
+        # Update stability based on performance
+        if is_correct:
+            components.stability = min(
+                self.config.max_stability,
+                components.stability * self.config.success_stability_boost
+            )
+        else:
+            components.stability = max(
+                self.config.min_stability,
+                components.stability * self.config.failure_stability_penalty
+            )
+        
+        # Update difficulty based on performance and mastery
+        if is_correct and new_mastery > 0.7:
+            components.difficulty = max(0.1, components.difficulty - self.config.difficulty_adaptation_rate)
+        elif not is_correct and new_mastery < 0.5:
+            components.difficulty = min(1.0, components.difficulty + self.config.difficulty_adaptation_rate)
+        
+        # Update retrievability
+        if is_correct:
+            components.retrievability = min(1.0, components.retrievability + 0.2)
+        else:
+            components.retrievability = max(0.1, components.retrievability - 0.1)
+    
+    # Apply the patches
+    FSRSForgettingModel.get_memory_components = patched_get_memory_components
+    FSRSForgettingModel.apply_forgetting = patched_apply_forgetting
+    FSRSForgettingModel.update_memory_components = patched_update_memory_components
+
+# Apply the patches when this module is imported
+patch_fsrs_for_time_manipulation()
+
+# Utility functions for testing
+def simulate_time_passage(bkt_system, student_id: str, days: int = 0, hours: int = 0, minutes: int = 0) -> dict:
+    """
+    Fast-forward time and apply forgetting to student's mastery levels
+    
+    Args:
+        bkt_system: The BayesianKnowledgeTracing instance
+        student_id: Student identifier
+        days: Days to fast forward
+        hours: Hours to fast forward
+        minutes: Minutes to fast forward
+        
+    Returns:
+        Dictionary with before/after mastery levels and decay statistics
+    """
+    if not bkt_system.config.get('bkt_config.enable_fsrs_forgetting', True) or not bkt_system.fsrs_forgetting:
+        return {'error': 'FSRS forgetting not enabled'}
+    
+    student = bkt_system.student_manager.get_student(student_id)
+    if not student:
+        return {'error': 'Student not found'}
+    
+    # Store mastery levels before time passage
+    mastery_before = student.mastery_levels.copy()
+    
+    # Fast forward time
+    new_time = time_manipulator.fast_forward(days=days, hours=hours, minutes=minutes)
+    
+    # Apply forgetting to all topics
+    decay_results = []
+    total_decay = 0
+    topics_affected = 0
+    
+    for topic_index, original_mastery in mastery_before.items():
+        if original_mastery > 0.05:  # Only apply forgetting to topics with some mastery
+            # Apply forgetting and update student's mastery
+            new_mastery = bkt_system.fsrs_forgetting.apply_forgetting(student_id, topic_index, original_mastery)
+            student.mastery_levels[topic_index] = new_mastery
+            
+            decay_amount = original_mastery - new_mastery
+            if decay_amount > 0.001:  # Only track significant decay
+                decay_results.append({
+                    'topic_index': topic_index,
+                    'topic_name': bkt_system.kg.get_topic_of_index(topic_index),
+                    'mastery_before': original_mastery,
+                    'mastery_after': new_mastery,
+                    'decay_amount': decay_amount,
+                    'decay_percentage': (decay_amount / original_mastery) * 100
+                })
+                total_decay += decay_amount
+                topics_affected += 1
+    
+    # Sort by decay amount
+    decay_results.sort(key=lambda x: x['decay_amount'], reverse=True)
+    
+    return {
+        'time_advanced': {
+            'days': days,
+            'hours': hours,
+            'minutes': minutes,
+            'new_current_time': new_time.strftime('%Y-%m-%d %H:%M:%S')
+        },
+        'decay_summary': {
+            'total_decay': total_decay,
+            'topics_affected': topics_affected,
+            'average_decay': total_decay / topics_affected if topics_affected > 0 else 0
+        },
+        'topic_changes': decay_results
+    }
+
+def preview_mastery_decay(bkt_system, student_id: str, days_ahead: int = 30) -> dict:
+    """
+    Preview how mastery levels will decay over time without actually fast-forwarding
+    
+    Args:
+        bkt_system: The BayesianKnowledgeTracing instance
+        student_id: Student identifier
+        days_ahead: How many days ahead to simulate
+        
+    Returns:
+        Dictionary with current mastery, predicted mastery, and decay info
+    """
+    if not bkt_system.config.get('bkt_config.enable_fsrs_forgetting', True) or not bkt_system.fsrs_forgetting:
+        return {'error': 'FSRS forgetting not enabled'}
+    
+    student = bkt_system.student_manager.get_student(student_id)
+    if not student:
+        return {'error': 'Student not found'}
+    
+    # Store original time offset
+    original_offset = time_manipulator.get_time_offset()
+    
+    # Simulate time passage
+    time_manipulator.fast_forward(days=days_ahead)
+    
+    decay_preview = {
+        'days_simulated': days_ahead,
+        'topics': []
+    }
+    
+    for topic_index, current_mastery in student.mastery_levels.items():
+        if current_mastery > 0.05:  # Only preview topics with some mastery
+            # Calculate predicted mastery after time passage
+            predicted_mastery = bkt_system.fsrs_forgetting.apply_forgetting(
+                student_id, topic_index, current_mastery)
+            
+            decay_amount = current_mastery - predicted_mastery
+            decay_percentage = (decay_amount / current_mastery) * 100 if current_mastery > 0 else 0
+            
+            # Get memory components for additional info
+            components = bkt_system.fsrs_forgetting.get_memory_components(student_id, topic_index)
+            
+            decay_preview['topics'].append({
+                'topic_index': topic_index,
+                'topic_name': bkt_system.kg.get_topic_of_index(topic_index),
+                'current_mastery': current_mastery,
+                'predicted_mastery': predicted_mastery,
+                'decay_amount': decay_amount,
+                'decay_percentage': decay_percentage,
+                'stability': components.stability,
+                'difficulty': components.difficulty,
+                'retrievability': components.retrievability
+            })
+    
+    # Restore original time offset
+    time_manipulator._time_offset = original_offset
+    
+    # Sort by decay amount (most decay first)
+    decay_preview['topics'].sort(key=lambda x: x['decay_amount'], reverse=True)
+    
+    return decay_preview
+
+def reset_time_to_real() -> dict:
+    """Reset time manipulation back to real time"""
+    old_offset = time_manipulator.get_time_offset()
+    real_time = time_manipulator.reset_time()
+    
+    return {
+        'time_offset_was': str(old_offset),
+        'real_time_now': real_time.strftime('%Y-%m-%d %H:%M:%S'),
+        'reset_successful': True
+    }
+
+def get_time_status() -> dict:
+    """Get current time manipulation status"""
+    return time_manipulator.get_time_info()
+
+################################
 
 
 # UTILITY FUNCTIONS (from full Python file)

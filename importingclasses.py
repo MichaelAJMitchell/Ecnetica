@@ -1,1 +1,0 @@
-import mcq_algorithm_files.mcq_algorithm_full_python

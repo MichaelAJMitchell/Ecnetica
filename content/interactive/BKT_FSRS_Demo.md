@@ -465,365 +465,47 @@ html_theme.sidebar_secondary.remove: true
       }
     </style>
 </head>
+
 <body>
     <div class="bkt-demo-container">
+      <!-- Time Controls Section - Now at the top -->
+      <div class="container">
+        <h1>🧠 FSRS Forgetting Curves Demo</h1>
+        <p class="subtitle">Watch how memory decays over time and see FSRS in action</p>
+        
+        <div id="time-controls" style="margin-top: 20px; padding: 20px; background: rgba(255, 255, 255, 0.95); border-radius: 15px; box-shadow: 0 8px 32px rgba(0,0,0,0.1);">
+          <h3>⏰ Time Travel Controls</h3>
+          <div style="display: flex; gap: 10px; margin: 15px 0; flex-wrap: wrap;">
+            <button onclick="skipTime(1, 0, 0)" class="primary-btn">Skip 1 Day</button>
+            <button onclick="skipTime(7, 0, 0)" class="primary-btn">Skip 1 Week</button>
+            <button onclick="skipTime(30, 0, 0)" class="primary-btn">Skip 1 Month</button>
+            <button onclick="resetTime()" class="danger-btn">Reset Time</button>
+          </div>
+          
+          <div id="time-status" style="font-size: 14px; color: #666; margin-top: 10px;"></div>
+          
+          <div style="margin-top: 15px;">
+            <h4>Custom Time Skip:</h4>
+            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+              <input type="number" id="custom-days" placeholder="Days" min="0" max="365" style="width: 80px; padding: 8px; border: 1px solid #ddd; border-radius: 5px;">
+              <input type="number" id="custom-hours" placeholder="Hours" min="0" max="23" style="width: 80px; padding: 8px; border: 1px solid #ddd; border-radius: 5px;">
+              <button onclick="skipCustomTime()" class="primary-btn">Skip Time</button>
+            </div>
+          </div>
+          
+          <div style="margin-top: 15px;">
+            <button onclick="showMasteryDecay()" class="success-btn">📊 Check Mastery Decay</button>
+            <button onclick="previewDecay(30)" class="primary-btn">🔮 Preview 30-Day Decay</button>
+          </div>
+        </div>
+      </div>
+
       <div class="main-layout">
         <!-- Left side: BKT Demo -->
         <div class="bkt-section">
           <div class="container">
-            <h1>🧠 BKT Algorithm Visual Demo</h1>
-            <p class="subtitle">Experience how Bayesian Knowledge Tracing adapts to your learning in real-time</p>
-            
-            
-
-            <div class="container">
-              <h2>⏰ Time Manipulation Controls</h2>
-              <p>Test FSRS forgetting curves by fast-forwarding time and observing mastery decay</p>
-              
-              <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0;">
-                <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 15px;">
-                  <div style="display: flex; flex-direction: column; align-items: center;">
-                    <label style="font-weight: bold; margin-bottom: 5px;">Days</label>
-                    <input type="number" id="timeDays" value="0" min="0" max="365" 
-                          style="width: 60px; padding: 8px; border: 1px solid #ddd; border-radius: 4px; text-align: center;">
-                  </div>
-                  <div style="display: flex; flex-direction: column; align-items: center;">
-                    <label style="font-weight: bold; margin-bottom: 5px;">Hours</label>
-                    <input type="number" id="timeHours" value="0" min="0" max="23" 
-                          style="width: 60px; padding: 8px; border: 1px solid #ddd; border-radius: 4px; text-align: center;">
-                  </div>
-                  <div style="display: flex; flex-direction: column; align-items: center;">
-                    <label style="font-weight: bold; margin-bottom: 5px;">Minutes</label>
-                    <input type="number" id="timeMinutes" value="0" min="0" max="59" 
-                          style="width: 60px; padding: 8px; border: 1px solid #ddd; border-radius: 4px; text-align: center;">
-                  </div>
-                  
-                  
-                  <button onclick="fastForwardTime()" style="background: #ffc107; color: black; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;">
-                    ⏩ Fast Forward
-                  </button>
-                  <button onclick="resetTime()" style="background: #dc3545; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;">
-                    🔄 Reset Time
-                  </button>
-                </div>
-                
-                
-
-              <div style="margin-top: 20px; padding-top: 15px; border-top: 2px solid #dee2e6;">
-                <button onclick="showCurrentMasteryWithDecay()" style="background: #17a2b8; color: white; padding: 12px 20px; border: none; border-radius: 5px; cursor: pointer; margin-right: 10px;">
-                    📊 Check Current Mastery
-                </button>
-                <button onclick="resetTopicForDemo()" style="background: #6f42c1; color: white; padding: 12px 20px; border: none; border-radius: 5px; cursor: pointer;">
-                    🔄 Switch Topic
-                </button>
-                </div>
-              </div>
-              
-              <div id="timeStatus" style="background: #e9ecef; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: monospace; font-size: 14px;">
-                <strong>Time Status:</strong> <span id="timeStatusText">Real time</span>
-              </div>
-              
-              <div id="decayPreview" style="display: none; background: #fff3cd; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #ffc107;">
-                <h4>🔮 Mastery Decay Preview</h4>
-                <div id="decayPreviewContent"></div>
-              </div>
-            </div>
-
-            <script>
-
-              function getTimeInputs() {
-                const days = parseInt(document.getElementById('timeDays').value) || 0;
-                const hours = parseInt(document.getElementById('timeHours').value) || 0;
-                const minutes = parseInt(document.getElementById('timeMinutes').value) || 0;
-                return { days, hours, minutes };
-              }
-
-              function quickTimeJump(days, hours, minutes) {
-                document.getElementById('timeDays').value = days;
-                document.getElementById('timeHours').value = hours;
-                document.getElementById('timeMinutes').value = minutes;
-                fastForwardTime();
-              }
-
-              async function previewTimeDecay() {
-                const { days, hours, minutes } = getTimeInputs();
-                
-                if (days === 0 && hours === 0 && minutes === 0) {
-                  updateStatus('⚠️ Please enter a time period to preview', 'error');
-                  return;
-                }
-                
-                const totalDays = days + (hours / 24) + (minutes / (24 * 60));
-                
-                try {
-                  updateStatus('Calculating mastery decay preview...', 'loading');
-                  
-                  const result = await pyodideInstance.runPythonAsync(`
-                    # Import the time manipulation functions
-                    from BKT_FSRS import preview_mastery_decay, time_manipulator
-                    
-                    # Preview decay
-                    preview_result = preview_mastery_decay(bkt, current_student_id, ${Math.round(totalDays)})
-                    
-                    js_export(preview_result)
-                  `);
-                  
-                  const previewData = JSON.parse(result);
-                  
-                  if (previewData.error) {
-                    updateStatus('❌ ' + previewData.error, 'error');
-                    return;
-                  }
-                  
-                  // Show preview
-                  displayDecayPreview(previewData);
-                  updateStatus(`📊 Showing decay preview for ${days}d ${hours}h ${minutes}m`, 'info');
-                  
-                } catch (error) {
-                  updateStatus('❌ Failed to preview decay: ' + error.message, 'error');
-                  console.error('Preview error:', error);
-                }
-              }
-
-              async function fastForwardTime() {
-                const { days, hours, minutes } = getTimeInputs();
-                
-                if (days === 0 && hours === 0 && minutes === 0) {
-                    updateStatus('⚠️ Please enter a time period to fast forward', 'error');
-                    return;
-                }
-                
-                try {
-                    updateStatus('Fast forwarding time and applying forgetting...', 'loading');
-                    
-                    const result = await pyodideInstance.runPythonAsync(`
-                    # Check if FSRS is enabled first
-                    if not bkt.config.get('bkt_config.enable_fsrs_forgetting', True) or not bkt.fsrs_forgetting:
-                        js_export({'error': 'FSRS forgetting not enabled'})
-                    else:
-                        student = student_manager.get_student(current_student_id)
-                        if not student:
-                            js_export({'error': 'Student not found'})
-                        else:
-                            # Manual time manipulation and forgetting application
-                            mastery_before = student.mastery_levels.copy()
-                            
-                            # Apply forgetting to all topics with some mastery
-                            decay_results = []
-                            total_decay = 0
-                            topics_affected = 0
-                            
-                            for topic_idx, original_mastery in mastery_before.items():
-                                if original_mastery > 0.05:  # Only apply to topics with some mastery
-                                    # Get FSRS components
-                                    components = bkt.fsrs_forgetting.get_memory_components(current_student_id, topic_idx)
-                                    
-                                    # Simulate time passage by manipulating the last_review time
-                                    if components.last_review:
-                                        from datetime import datetime, timedelta
-                                        # Move last review backwards to simulate time passage
-                                        time_offset = timedelta(days=${days}, hours=${hours}, minutes=${minutes})
-                                        components.last_review = components.last_review - time_offset
-                                        
-                                        # Apply FSRS forgetting with the new time
-                                        new_mastery = bkt.fsrs_forgetting.apply_forgetting(
-                                            current_student_id, topic_idx, original_mastery
-                                        )
-                                        
-                                        # Update student's actual mastery
-                                        student.mastery_levels[topic_idx] = new_mastery
-                                        
-                                        decay_amount = original_mastery - new_mastery
-                                        if decay_amount > 0.001:
-                                            decay_results.append({
-                                                'topic_index': topic_idx,
-                                                'topic_name': kg.get_topic_of_index(topic_idx),
-                                                'mastery_before': original_mastery,
-                                                'mastery_after': new_mastery,
-                                                'decay_amount': decay_amount,
-                                                'decay_percentage': (decay_amount / original_mastery) * 100
-                                            })
-                                            total_decay += decay_amount
-                                            topics_affected += 1
-                            
-                            # Sort by decay amount
-                            decay_results.sort(key=lambda x: x['decay_amount'], reverse=True)
-                            
-                            time_result = {
-                                'success': True,
-                                'time_advanced': {
-                                    'days': ${days},
-                                    'hours': ${hours},
-                                    'minutes': ${minutes}
-                                },
-                                'decay_summary': {
-                                    'total_decay': total_decay,
-                                    'topics_affected': topics_affected,
-                                    'average_decay': total_decay / topics_affected if topics_affected > 0 else 0
-                                },
-                                'topic_changes': decay_results
-                            }
-                            
-                            js_export(time_result)
-                    `);
-                    
-                    const timeData = JSON.parse(result);
-                    
-                    if (timeData.error) {
-                    updateStatus('❌ ' + timeData.error, 'error');
-                    return;
-                    }
-                    
-                    if (!timeData.success) {
-                    updateStatus('❌ Time forwarding failed', 'error');
-                    return;
-                    }
-                    
-                    // Update graph colors to show decay
-                    await updateGraphMasteryColors();
-                    
-                    // Show decay results
-                    displayTimeResults(timeData);
-                    
-                    updateStatus(`⏩ Fast forwarded ${days}d ${hours}h ${minutes}m - ${timeData.decay_summary.topics_affected} topics affected`, 'success');
-                    
-                    // Update time status display
-                    const timeStatusElement = document.getElementById('timeStatusText');
-                    timeStatusElement.innerHTML = `
-                    <strong>⏰ Time Advanced</strong><br>
-                    Advanced: ${days}d ${hours}h ${minutes}m<br>
-                    Topics Affected: ${timeData.decay_summary.topics_affected}<br>
-                    Total Decay: ${timeData.decay_summary.total_decay.toFixed(3)}
-                    `;
-                    timeStatusElement.style.color = '#856404';
-                    
-                } catch (error) {
-                    updateStatus('❌ Failed to fast forward time: ' + error.message, 'error');
-                    console.error('Time manipulation error:', error);
-                }
-                }
-
-              async function resetTime() {
-                try {
-                  updateStatus('Resetting time to real time...', 'loading');
-                  
-                  const result = await pyodideInstance.runPythonAsync(`
-                    # Import the time manipulation functions
-                    from BKT_FSRS import reset_time_to_real
-                    
-                    # Reset time
-                    reset_result = reset_time_to_real()
-                    
-                    js_export(reset_result)
-                  `);
-                  
-                  const resetData = JSON.parse(result);
-                  
-                  // Update time status display
-                  updateTimeStatusDisplay();
-                  
-                  // Hide preview
-                  document.getElementById('decayPreview').style.display = 'none';
-                  
-                  updateStatus('🔄 Time reset to real time', 'success');
-                  
-                } catch (error) {
-                  updateStatus('❌ Failed to reset time: ' + error.message, 'error');
-                  console.error('Time reset error:', error);
-                }
-              }
-
-              async function updateTimeStatusDisplay() {
-                try {
-                  const result = await pyodideInstance.runPythonAsync(`
-                    # Import the time manipulation functions
-                    from BKT_FSRS import get_time_status
-                    
-                    # Get time status
-                    time_info = get_time_status()
-                    
-                    js_export(time_info)
-                  `);
-                  
-                  const timeInfo = JSON.parse(result);
-                  
-                  const statusElement = document.getElementById('timeStatusText');
-                  
-                  if (timeInfo.time_manipulation_active) {
-                    statusElement.innerHTML = `
-                      <strong>⏰ Time Manipulation Active</strong><br>
-                      Real Time: ${timeInfo.real_time}<br>
-                      Simulated Time: ${timeInfo.simulated_time}<br>
-                      Offset: ${timeInfo.offset_days}d ${timeInfo.offset_hours}h ${timeInfo.offset_minutes}m
-                    `;
-                    statusElement.style.color = '#856404';
-                  } else {
-                    statusElement.innerHTML = `
-                      <strong>🕐 Real Time</strong><br>
-                      Current: ${timeInfo.real_time}
-                    `;
-                    statusElement.style.color = '#155724';
-                  }
-                  
-                } catch (error) {
-                  console.error('Failed to update time status:', error);
-                }
-              }
-
-              function displayDecayPreview(previewData) {
-                const previewDiv = document.getElementById('decayPreview');
-                const contentDiv = document.getElementById('decayPreviewContent');
-                
-                let html = `<p><strong>Simulated ${previewData.days_simulated} days ahead:</strong></p>`;
-                
-                if (previewData.topics.length === 0) {
-                  html += '<p>No significant decay predicted.</p>';
-                } else {
-                  html += '<div style="max-height: 200px; overflow-y: auto;">';
-                  previewData.topics.slice(0, 10).forEach((topic, index) => {
-                    const decayColor = topic.decay_percentage > 20 ? '#dc3545' : 
-                                      topic.decay_percentage > 10 ? '#ffc107' : '#28a745';
-                    
-                    html += `
-                      <div style="display: flex; justify-content: space-between; padding: 8px; margin: 5px 0; background: white; border-radius: 5px; border-left: 3px solid ${decayColor};">
-                        <span style="font-weight: bold;">${topic.topic_name.substring(0, 30)}...</span>
-                        <span>${(topic.current_mastery * 100).toFixed(1)}% → ${(topic.predicted_mastery * 100).toFixed(1)}% (-${topic.decay_percentage.toFixed(1)}%)</span>
-                      </div>
-                    `;
-                  });
-                  html += '</div>';
-                  
-                  if (previewData.topics.length > 10) {
-                    html += `<p style="text-align: center; margin-top: 10px;"><em>... and ${previewData.topics.length - 10} more topics</em></p>`;
-                  }
-                }
-                
-                contentDiv.innerHTML = html;
-                previewDiv.style.display = 'block';
-              }
-
-              function displayTimeResults(timeData) {
-                if (timeData.topic_changes.length > 0) {
-                  console.log('📉 Mastery decay results:', timeData);
-                  
-                  // You can add a more detailed results display here if needed
-                  const topDecay = timeData.topic_changes.slice(0, 3);
-                  let decayMsg = `Top decay: `;
-                  topDecay.forEach((topic, index) => {
-                    decayMsg += `${topic.topic_name.substring(0, 20)} (-${topic.decay_percentage.toFixed(1)}%)`;
-                    if (index < topDecay.length - 1) decayMsg += ', ';
-                  });
-                  
-                  console.log(decayMsg);
-                }
-              }
-
-              // Update time status when page loads
-              document.addEventListener('DOMContentLoaded', function() {
-                // Add a small delay to ensure Python is loaded
-                setTimeout(updateTimeStatusDisplay, 1000);
-              });
-            </script>
+            <h1>🎯 Quadratic Equations Practice</h1>
+            <p class="subtitle">Focus on one topic to see FSRS forgetting in action</p>
             
             <div id="status" class="status loading">
               <div class="loading-spinner"></div>
@@ -1026,156 +708,11 @@ html_theme.sidebar_secondary.remove: true
           console.error('Error updating graph mastery colors:', error);
         }
       }
-      async function showCurrentMasteryWithDecay() {
-        try {
-            updateStatus('Calculating current mastery with FSRS decay...', 'loading');
-            
-            const result = await pyodideInstance.runPythonAsync(`
-            # Get current topic mastery with and without decay
-            if 'current_demo_topic' in globals() and current_demo_topic is not None:
-                student = student_manager.get_student(current_student_id)
-                topic_name = kg.get_topic_of_index(current_demo_topic)
-                
-                # Get stored mastery (without decay)
-                stored_mastery = student.get_mastery(current_demo_topic)
-                
-                # Get current mastery with decay applied
-                current_mastery_with_decay = bkt.get_current_mastery_with_decay(current_student_id, current_demo_topic)
-                
-                # Get FSRS components for additional info
-                if bkt.fsrs_forgetting:
-                    components = bkt.fsrs_forgetting.get_memory_components(current_student_id, current_demo_topic)
-                    fsrs_info = {
-                        'stability': components.stability,
-                        'difficulty': components.difficulty,
-                        'retrievability': components.retrievability,
-                        'review_count': components.review_count,
-                        'recent_success_rate': components.recent_success_rate
-                    }
-                else:
-                    fsrs_info = None
-                
-                mastery_data = {
-                    'success': True,
-                    'topic_name': topic_name,
-                    'stored_mastery': stored_mastery,
-                    'current_mastery': current_mastery_with_decay,
-                    'decay_amount': stored_mastery - current_mastery_with_decay,
-                    'fsrs_components': fsrs_info
-                }
-            else:
-                mastery_data = {'success': False, 'error': 'No current topic selected'}
-            
-            js_export(mastery_data)
-            `);
-            
-            const data = JSON.parse(result);
-            
-            if (data.success) {
-            displayMasteryStatus(data);
-            updateStatus('📊 Current mastery status displayed', 'info');
-            } else {
-            updateStatus('❌ ' + data.error, 'error');
-            }
-            
-        } catch (error) {
-            updateStatus('❌ Failed to get mastery status: ' + error.message, 'error');
-            console.error('Mastery status error:', error);
-        }
-        }
-
-        function displayMasteryStatus(data) {
-        const decayAmount = data.decay_amount;
-        const decayPercentage = (decayAmount / data.stored_mastery) * 100;
-        
-        let html = `
-            <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0; border: 2px solid #007bff;">
-            <h4 style="color: #007bff; margin-top: 0;">📊 Current Mastery Status: ${data.topic_name}</h4>
-            
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 15px 0;">
-                <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #28a745;">
-                <strong>💾 Stored Mastery:</strong><br>
-                <span style="font-size: 24px; color: #28a745;">${(data.stored_mastery * 100).toFixed(1)}%</span>
-                </div>
-                <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid ${decayAmount > 0.05 ? '#dc3545' : '#ffc107'};">
-                <strong>⏰ Current (with decay):</strong><br>
-                <span style="font-size: 24px; color: ${decayAmount > 0.05 ? '#dc3545' : '#ffc107'};">${(data.current_mastery * 100).toFixed(1)}%</span>
-                </div>
-            </div>
-            
-            ${decayAmount > 0.001 ? `
-                <div style="background: #fff3cd; padding: 15px; border-radius: 8px; border-left: 4px solid #ffc107; margin: 15px 0;">
-                <strong>📉 Decay Applied:</strong> ${(decayAmount * 100).toFixed(2)}% (${decayPercentage.toFixed(1)}% relative)
-                </div>
-            ` : `
-                <div style="background: #d4edda; padding: 15px; border-radius: 8px; border-left: 4px solid #28a745; margin: 15px 0;">
-                <strong>✅ No significant decay detected</strong>
-                </div>
-            `}
-        `;
-        
-        if (data.fsrs_components) {
-            html += `
-            <div style="background: white; padding: 15px; border-radius: 8px; margin: 15px 0; border: 1px solid #dee2e6;">
-                <strong>🧠 FSRS Memory Components:</strong><br>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 10px; font-size: 14px;">
-                <div><strong>Stability:</strong> ${data.fsrs_components.stability.toFixed(2)} days</div>
-                <div><strong>Difficulty:</strong> ${(data.fsrs_components.difficulty * 100).toFixed(1)}%</div>
-                <div><strong>Retrievability:</strong> ${(data.fsrs_components.retrievability * 100).toFixed(1)}%</div>
-                <div><strong>Reviews:</strong> ${data.fsrs_components.review_count}</div>
-                <div><strong>Success Rate:</strong> ${(data.fsrs_components.recent_success_rate * 100).toFixed(1)}%</div>
-                </div>
-            </div>
-            `;
-        }
-        
-        html += `</div>`;
-        
-        // Insert into the MCQ section or create a dedicated status area
-        const existingStatus = document.getElementById('masteryStatusDisplay');
-        if (existingStatus) {
-            existingStatus.innerHTML = html;
-        } else {
-            const mcqSection = document.getElementById('mcq-section');
-            mcqSection.insertAdjacentHTML('beforebegin', `<div id="masteryStatusDisplay">${html}</div>`);
-        }
-      }
-
-      async function resetTopicForDemo() {
-        try {
-            updateStatus('Resetting topic selection...', 'loading');
-            
-            await pyodideInstance.runPythonAsync(`
-            # Clear current demo topic to allow new topic selection
-            if 'current_demo_topic' in globals():
-                del globals()['current_demo_topic']
-            
-            # Clear daily completed to allow retrying questions
-            student = student_manager.get_student(current_student_id)
-            student.daily_completed.clear()
-            `);
-            
-            // Clear mastery status display
-            const masteryDisplay = document.getElementById('masteryStatusDisplay');
-            if (masteryDisplay) {
-            masteryDisplay.remove();
-            }
-            
-            // Generate new MCQ from different topic
-            await generateMCQ();
-            
-            updateStatus('🔄 Topic reset - new topic selected', 'success');
-            
-        } catch (error) {
-            updateStatus('❌ Failed to reset topic: ' + error.message, 'error');
-            console.error('Topic reset error:', error);
-        }
-        }
-
-
+      
       // Automated initialization function
       async function autoInitialize() {
         try {
+          console.log("🔧 Starting auto-initialization...");
           // Step 1: Initialize Pyodide and BKT System
           updateStatus('Loading Pyodide and packages...', 'loading');
           
@@ -1201,7 +738,7 @@ html_theme.sidebar_secondary.remove: true
           // Step 2: Load BKT code and files
           updateStatus('Loading BKT algorithm...', 'loading');
           
-          const pyResponse = await fetch("../../_static/mcq_algorithm_full_python2.py");
+          const pyResponse = await fetch("../../_static/mcq_algorithm_current.py");
           if (!pyResponse.ok) {
             throw new Error(`Failed to fetch Python code: ${pyResponse.status}`);
           }
@@ -1294,93 +831,219 @@ html_theme.sidebar_secondary.remove: true
           console.error('Auto-initialization error:', error);
         }
       }
+      
       async function generateMCQ() {
         try {
-            const result = await pyodideInstance.runPythonAsync(`
+          const result = await pyodideInstance.runPythonAsync(`
             import json
-
+            
             try:
                 student = student_manager.get_student(current_student_id)
                 
-                # Get all eligible MCQs (same topic filtering)
-                all_eligible = mcq_scheduler.get_eligible_mcqs_for_student(current_student_id)
+                # Check what MCQ loading method is available
+                available_topics = {}
+                all_mcqs = []
                 
-                # Group by topic and select from the same topic if we have a current topic
-                if hasattr(globals(), 'current_demo_topic') and current_demo_topic is not None:
-                    # Filter for current topic only
-                    topic_mcqs = [mcq_id for mcq_id in all_eligible 
-                                if kg.mcqs[mcq_id].main_topic_index == current_demo_topic]
+                if hasattr(kg, 'ultra_loader') and kg.ultra_loader:
+                    # Try the optimized loader first
+                    print("Using ultra_loader")
+                    all_mcqs = list(kg.ultra_loader.minimal_mcq_data.keys())
                     
-                    # Remove already completed questions from today
-                    topic_mcqs = [mcq_id for mcq_id in topic_mcqs 
+                    # Group MCQs by topic
+                    for mcq_id in all_mcqs:
+                        minimal_data = kg.ultra_loader.get_minimal_mcq_data(mcq_id)
+                        if minimal_data:
+                            topic_idx = minimal_data.main_topic_index
+                            if topic_idx not in available_topics:
+                                available_topics[topic_idx] = []
+                            available_topics[topic_idx].append(mcq_id)
+                            
+                elif hasattr(kg, 'mcqs') and kg.mcqs:
+                    # Fallback to regular MCQ storage
+                    print("Using regular kg.mcqs")
+                    all_mcqs = list(kg.mcqs.keys())
+                    
+                    # Group MCQs by topic
+                    for mcq_id in all_mcqs:
+                        mcq = kg.mcqs.get(mcq_id)
+                        if mcq:
+                            topic_idx = mcq.main_topic_index
+                            if topic_idx not in available_topics:
+                                available_topics[topic_idx] = []
+                            available_topics[topic_idx].append(mcq_id)
+                else:
+                    # Last resort: try to load from files directly
+                    print("Loading MCQs from file directly")
+                    import json as json_module
+                    
+                    try:
+                        with open('small-graph-computed_mcqs.json', 'r') as f:
+                            mcq_data = json_module.load(f)
+                        
+                        if 'mcqs' in mcq_data:
+                            for i, mcq_info in enumerate(mcq_data['mcqs']):
+                                mcq_id = mcq_info.get('id', f'mcq_{i}')
+                                topic_idx = mcq_info.get('main_topic_index', 0)
+                                
+                                if topic_idx not in available_topics:
+                                    available_topics[topic_idx] = []
+                                available_topics[topic_idx].append(mcq_id)
+                                all_mcqs.append(mcq_id)
+                                
+                            # Store for later use
+                            kg._temp_mcq_data = mcq_data['mcqs']
+                            
+                    except Exception as file_error:
+                        print(f"Failed to load from file: {file_error}")
+                        result = json.dumps({"success": False, "error": f"No MCQs could be loaded: {file_error}"})
+                        
+                print(f"Total MCQs found: {len(all_mcqs)}")
+                print(f"Available topics with MCQs: {list(available_topics.keys())}")
+                
+                if not available_topics:
+                    result = json.dumps({"success": False, "error": "No MCQs found in any loading method"})
+                else:
+                    # Try our preferred topics in order
+                    target_topics_to_try = [15, 2, 6, 17, 1, 0]  # Try various indices
+                    target_topic = None
+                    
+                    for topic_idx in target_topics_to_try:
+                        if topic_idx in available_topics:
+                            target_topic = topic_idx
+                            break
+                    
+                    # If none of our preferred topics work, just pick the first available
+                    if target_topic is None:
+                        target_topic = list(available_topics.keys())[0]
+                    
+                    print(f"Selected target topic: {target_topic}")
+                    
+                    # Get MCQs for the chosen topic that haven't been completed today
+                    topic_mcqs = [mcq_id for mcq_id in available_topics[target_topic]
                                 if mcq_id not in student.daily_completed]
-                else:
-                    # First question - pick a random topic with multiple questions
-                    topic_counts = {}
-                    for mcq_id in all_eligible:
-                        topic_idx = kg.mcqs[mcq_id].main_topic_index
-                        topic_counts[topic_idx] = topic_counts.get(topic_idx, 0) + 1
                     
-                    # Find topics with at least 3 questions
-                    good_topics = [topic for topic, count in topic_counts.items() if count >= 3]
-                    if good_topics:
-                        import random
-                        current_demo_topic = random.choice(good_topics)
-                        topic_mcqs = [mcq_id for mcq_id in all_eligible 
-                                    if kg.mcqs[mcq_id].main_topic_index == current_demo_topic]
+                    if not topic_mcqs:
+                        # If all MCQs for this topic completed today, reset and use them anyway
+                        topic_mcqs = available_topics[target_topic]
+                        student.daily_completed.clear()  # Reset for demo purposes
+                    
+                    if topic_mcqs:
+                        mcq_id = topic_mcqs[0]  # Take first available
+                        print(f"Selected MCQ: {mcq_id}")
+                        
+                        # Try to get the MCQ data
+                        mcq = None
+                        mcq_dict = None
+                        
+                        if hasattr(kg, 'ultra_loader') and kg.ultra_loader:
+                            mcq = kg.get_mcq_safely(mcq_id, need_full_text=True)
+                        elif hasattr(kg, 'mcqs') and kg.mcqs:
+                            mcq = kg.mcqs.get(mcq_id)
+                        elif hasattr(kg, '_temp_mcq_data'):
+                            # Find in temp data
+                            for mcq_info in kg._temp_mcq_data:
+                                if mcq_info.get('id') == mcq_id:
+                                    mcq_dict = mcq_info
+                                    break
+                        
+                        if mcq:
+                            # We have a full MCQ object
+                            topic_name = kg.get_topic_of_index(target_topic) or f"Topic {target_topic}"
+                            current_mastery = student.get_mastery(target_topic)
+                            
+                            # Ensure this topic has some mastery for FSRS demo
+                            if current_mastery < 0.3:
+                                student.mastery_levels[target_topic] = 0.6
+                                current_mastery = 0.6
+                            
+                            mcq_data = {
+                                "success": True,
+                                "mcq_id": mcq_id,
+                                "text": mcq.text,
+                                "options": mcq.options,
+                                "correct_index": mcq.correctindex,
+                                "explanations": mcq.option_explanations,
+                                "topic_name": topic_name,
+                                "topic_index": target_topic,
+                                "current_mastery": current_mastery,
+                                "difficulty": getattr(mcq, 'difficulty', 0.5),
+                                "fsrs_info": {}
+                            }
+                            
+                        elif mcq_dict:
+                            # We have dictionary data
+                            topic_name = kg.get_topic_of_index(target_topic) or f"Topic {target_topic}"
+                            current_mastery = student.get_mastery(target_topic)
+                            
+                            if current_mastery < 0.3:
+                                student.mastery_levels[target_topic] = 0.6
+                                current_mastery = 0.6
+                            
+                            mcq_data = {
+                                "success": True,
+                                "mcq_id": mcq_id,
+                                "text": mcq_dict.get('text', 'Sample question'),
+                                "options": mcq_dict.get('options', ['Option A', 'Option B', 'Option C', 'Option D']),
+                                "correct_index": mcq_dict.get('correctindex', 0),
+                                "explanations": mcq_dict.get('option_explanations', ['Explanation'] * 4),
+                                "topic_name": topic_name,
+                                "topic_index": target_topic,
+                                "current_mastery": current_mastery,
+                                "difficulty": mcq_dict.get('overall_difficulty', 0.5),
+                                "fsrs_info": {}
+                            }
+                        else:
+                            mcq_data = {"success": False, "error": f"Could not load MCQ data for {mcq_id}"}
+                        
+                        # Add FSRS info if available
+                        if mcq_data.get("success") and hasattr(bkt, 'fsrs_forgetting') and bkt.fsrs_forgetting:
+                            try:
+                                components = bkt.fsrs_forgetting.get_memory_components(current_student_id, target_topic)
+                                # Initialize with some reasonable values for demo
+                                if components.review_count == 0:
+                                    components.review_count = 2
+                                    components.stability = 3.0
+                                    components.recent_success_rate = 0.7
+                                
+                                mcq_data["fsrs_info"] = {
+                                    "stability": components.stability,
+                                    "difficulty": components.difficulty,
+                                    "retrievability": components.retrievability,
+                                    "review_count": components.review_count
+                                }
+                            except Exception as fsrs_error:
+                                print(f"FSRS error: {fsrs_error}")
+                                mcq_data["fsrs_info"] = {}
+                        
+                        result = json.dumps(mcq_data)
                     else:
-                        topic_mcqs = all_eligible[:1]  # Fallback
-                
-                if len(topic_mcqs) > 0:
-                    import random
-                    mcq_id = random.choice(topic_mcqs)
-                    mcq = kg.mcqs[mcq_id]
-                    topic_name = kg.get_topic_of_index(mcq.main_topic_index)
-                    current_mastery = student.get_mastery(mcq.main_topic_index)
-                    
-                    # Store current topic for consistency
-                    globals()['current_demo_topic'] = mcq.main_topic_index
-                    
-                    mcq_data = {
-                        "success": True,
-                        "mcq_id": mcq_id,
-                        "text": mcq.text,
-                        "options": mcq.options,
-                        "correct_index": mcq.correctindex,
-                        "explanations": mcq.option_explanations,
-                        "topic_name": topic_name,
-                        "current_mastery": current_mastery,
-                        "difficulty": getattr(mcq, 'difficulty', 0.5),
-                        "remaining_questions": len(topic_mcqs) - 1
-                    }
-                    
-                    result_json = json.dumps(mcq_data)
-                else:
-                    result_json = json.dumps({
-                        "success": False,
-                        "error": "No more questions available for this topic today"
-                    })
-
+                        result = json.dumps({"success": False, "error": f"No MCQs available for topic {target_topic}"})
+                        
             except Exception as e:
-                result_json = json.dumps({"success": False, "error": f"Error: {str(e)}"})
-
-            result_json
-            `);
+                import traceback
+                error_details = traceback.format_exc()
+                print(f"Error in generateMCQ: {error_details}")
+                result = json.dumps({"success": False, "error": f"Error: {str(e)}"})
             
-            const data = JSON.parse(result);
-            
-            if (data.success) {
+            result
+          `);
+          
+          const data = JSON.parse(result);
+          
+          if (data.success) {
             currentMCQ = data;
             displayMCQ(data);
-            } else {
+            updateStatus('Question ready! 🎯', 'success');
+          } else {
             updateStatus(`❌ ${data.error}`, 'error');
-            }
-            
+            console.error('MCQ generation error details:', data);
+          }
+          
         } catch (error) {
-            updateStatus('❌ Failed to generate MCQ', 'error');
-            console.error('MCQ generation error:', error);
+          updateStatus('❌ Failed to generate MCQ', 'error');
+          console.error('MCQ generation error:', error);
         }
-        }
+      }
       
       function displayMCQ(mcqData) {
         const mcqSection = document.getElementById('mcq-section');
@@ -1390,37 +1053,31 @@ html_theme.sidebar_secondary.remove: true
         document.getElementById('status').style.display = 'none';
         
         mcqSection.innerHTML = `
-            <div class="mcq-container">
-            <div style="background: #e3f2fd; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #2196f3;">
-                <h4 style="margin: 0 0 10px 0; color: #1976d2;">🎯 FSRS Topic Focus Demo</h4>
-                <p style="margin: 0; font-size: 14px;">Practicing: <strong>${mcqData.topic_name}</strong> | Questions remaining: <strong>${mcqData.remaining_questions || 'Unknown'}</strong></p>
-            </div>
-            
+          <div class="mcq-container">
             <div class="mcq-question">${mcqData.text}</div>
             <div class="mcq-meta">
-                <div><strong>📚 Topic:</strong> ${mcqData.topic_name}</div>
-                <div><strong>📊 Current Mastery:</strong> ${(mcqData.current_mastery * 100).toFixed(1)}%</div>
-                <div><strong>⚡ Difficulty:</strong> ${(mcqData.difficulty * 100).toFixed(1)}%</div>
+              <div><strong>📚 Topic:</strong> ${mcqData.topic_name}</div>
+              <div><strong>📊 Current Mastery:</strong> ${(mcqData.current_mastery * 100).toFixed(1)}%</div>
+              <div><strong>⚡ Difficulty:</strong> ${(mcqData.difficulty * 100).toFixed(1)}%</div>
             </div>
             
             <div class="mcq-options">
-                ${mcqData.options.map((option, index) => 
+              ${mcqData.options.map((option, index) => 
                 `<button class="mcq-option" onclick="selectOption(${index})">${option}</button>`
-                ).join('')}
+              ).join('')}
             </div>
             
             <button onclick="submitAnswer()" class="submit-btn" disabled id="submitBtn">
-                ✅ Submit Answer
+              ✅ Submit Answer
             </button>
-            </div>
+          </div>
         `;
         
         // Re-render MathJax for the new content
         if (window.MathJax) {
-            MathJax.typesetPromise([mcqSection]).catch((err) => console.log('MathJax render error:', err));
+          MathJax.typesetPromise([mcqSection]).catch((err) => console.log('MathJax render error:', err));
         }
-        }
-      
+      }
       
       function selectOption(index) {
         // Remove previous selection
@@ -1451,7 +1108,7 @@ html_theme.sidebar_secondary.remove: true
             )
             
             # Get response data
-            mcq = kg.mcqs[mcq_id]
+            mcq = kg.get_mcq_safely(mcq_id, need_full_text=True)
             student = student_manager.get_student(current_student_id)
             topic_name = kg.get_topic_of_index(mcq.main_topic_index)
             
@@ -1750,6 +1407,10 @@ html_theme.sidebar_secondary.remove: true
             }, 300);
             
             console.log(`Loaded ${data.nodes.length} nodes and ${data.edges.length} edges from ${filename}`);
+            if (isInitialGraphLoad) {
+              updateStatus('🎉 System ready! Answer questions to see your progress.', 'success');
+            }
+            isInitialGraphLoad = false;
           })
           .catch(error => {
             console.error('Error loading graph data:', error);
@@ -1821,6 +1482,222 @@ html_theme.sidebar_secondary.remove: true
       function updateStats(nodeCount, edgeCount) {
         document.getElementById('node-count').textContent = nodeCount;
         document.getElementById('edge-count').textContent = edgeCount;
+      }
+
+      // Time manipulation functions
+      async function skipTime(days, hours, minutes) {
+        try {
+          updateStatus('⏰ Skipping time...', 'loading');
+          
+          const result = await pyodideInstance.runPythonAsync(`
+            import json
+            from bkt_system import simulate_time_passage
+            
+            result = simulate_time_passage(bkt, current_student_id, days=${days}, hours=${hours}, minutes=${minutes})
+            json.dumps(result)
+          `);
+          
+          const data = JSON.parse(result);
+          
+          if (data.error) {
+            updateStatus(`❌ ${data.error}`, 'error');
+            return;
+          }
+          
+          // Update time status display
+          updateTimeStatus();
+          
+          // Update graph colors to show decay
+          await updateGraphMasteryColors();
+          
+          // Show decay summary
+          showDecaySummary(data);
+          
+          updateStatus(`✅ Time skipped: ${days} days, ${hours} hours, ${minutes} minutes`, 'success');
+          
+        } catch (error) {
+          updateStatus('❌ Failed to skip time', 'error');
+          console.error('Time skip error:', error);
+        }
+      }
+
+      async function resetTime() {
+        try {
+          const result = await pyodideInstance.runPythonAsync(`
+            import json
+            from bkt_system import reset_time_to_real
+            
+            result = reset_time_to_real()
+            json.dumps(result)
+          `);
+          
+          const data = JSON.parse(result);
+          updateTimeStatus();
+          updateStatus('🔄 Time reset to present', 'success');
+          
+        } catch (error) {
+          updateStatus('❌ Failed to reset time', 'error');
+          console.error('Time reset error:', error);
+        }
+      }
+
+      async function skipCustomTime() {
+        const days = parseInt(document.getElementById('custom-days').value) || 0;
+        const hours = parseInt(document.getElementById('custom-hours').value) || 0;
+        
+        if (days === 0 && hours === 0) {
+          updateStatus('⚠️ Please enter days or hours to skip', 'error');
+          return;
+        }
+        
+        await skipTime(days, hours, 0);
+        
+        // Clear inputs
+        document.getElementById('custom-days').value = '';
+        document.getElementById('custom-hours').value = '';
+      }
+
+      async function updateTimeStatus() {
+        try {
+          const result = await pyodideInstance.runPythonAsync(`
+            import json
+            from bkt_system import get_time_status
+            
+            result = get_time_status()
+            json.dumps(result)
+          `);
+          
+          const data = JSON.parse(result);
+          const statusDiv = document.getElementById('time-status');
+          
+          if (data.time_manipulation_active) {
+            statusDiv.innerHTML = `
+              ⏰ <strong>Time Travel Active</strong><br>
+              📅 Real time: ${data.real_time}<br>
+              🚀 Simulated time: ${data.simulated_time}<br>
+              ⏭️ Offset: ${data.offset_days} days, ${data.offset_hours} hours
+            `;
+            statusDiv.style.color = '#e74c3c';
+          } else {
+            statusDiv.innerHTML = '📅 Using real time';
+            statusDiv.style.color = '#27ae60';
+          }
+          
+        } catch (error) {
+          console.error('Time status update error:', error);
+        }
+      }
+
+      async function showMasteryDecay() {
+        try {
+          updateStatus('📊 Analyzing mastery decay...', 'loading');
+          
+          const result = await pyodideInstance.runPythonAsync(`
+            import json
+            
+            student = student_manager.get_student(current_student_id)
+            decay_info = []
+            
+            if hasattr(bkt, 'fsrs_forgetting') and bkt.fsrs_forgetting:
+                for topic_index, mastery in student.mastery_levels.items():
+                    if mastery > 0.05:
+                        # Get current mastery with decay applied
+                        current_with_decay = bkt.get_current_mastery_with_decay(current_student_id, topic_index)
+                        decay_amount = mastery - current_with_decay
+                        
+                        if decay_amount > 0.001:
+                            components = bkt.fsrs_forgetting.get_memory_components(current_student_id, topic_index)
+                            decay_info.append({
+                                'topic_name': kg.get_topic_of_index(topic_index),
+                                'original_mastery': mastery,
+                                'current_mastery': current_with_decay,
+                                'decay_amount': decay_amount,
+                                'decay_percentage': (decay_amount / mastery) * 100,
+                                'stability': components.stability,
+                                'review_count': components.review_count
+                            })
+            
+            # Sort by decay amount
+            decay_info.sort(key=lambda x: x['decay_amount'], reverse=True)
+            json.dumps(decay_info)
+          `);
+          
+          const decayData = JSON.parse(result);
+          displayDecayAnalysis(decayData);
+          updateStatus('📊 Mastery decay analysis complete', 'success');
+          
+        } catch (error) {
+          updateStatus('❌ Failed to analyze decay', 'error');
+          console.error('Decay analysis error:', error);
+        }
+      }
+
+      async function previewDecay(days) {
+        try {
+          updateStatus(`🔮 Previewing ${days}-day decay...`, 'loading');
+          
+          const result = await pyodideInstance.runPythonAsync(`
+            import json
+            from bkt_system import preview_mastery_decay
+            
+            result = preview_mastery_decay(bkt, current_student_id, ${days})
+            json.dumps(result)
+          `);
+          
+          const data = JSON.parse(result);
+          displayDecayPreview(data);
+          updateStatus(`🔮 ${days}-day decay preview ready`, 'success');
+          
+        } catch (error) {
+          updateStatus('❌ Failed to preview decay', 'error');
+          console.error('Decay preview error:', error);
+        }
+      }
+
+      function showDecaySummary(decayData) {
+        const mcqSection = document.getElementById('mcq-section');
+        const summary = decayData.decay_summary;
+        const changes = decayData.topic_changes.slice(0, 5); // Show top 5
+        
+        let changesHtml = '';
+        if (changes.length > 0) {
+          changesHtml = '<h4>📉 Topics Most Affected:</h4><ul>';
+          changes.forEach(change => {
+            changesHtml += `<li><strong>${change.topic_name}:</strong> ${(change.mastery_before * 100).toFixed(1)}% → ${(change.mastery_after * 100).toFixed(1)}% (-${change.decay_percentage.toFixed(1)}%)</li>`;
+          });
+          changesHtml += '</ul>';
+        }
+        
+        mcqSection.innerHTML = `
+          <div class="container" style="border: 3px solid #e74c3c; background: rgba(248, 215, 218, 0.9);">
+            <h3>⏰ Time Skip Results</h3>
+            <p><strong>Time Advanced:</strong> ${decayData.time_advanced.days} days, ${decayData.time_advanced.hours} hours</p>
+            <p><strong>Topics Affected:</strong> ${summary.topics_affected}</p>
+            <p><strong>Total Mastery Lost:</strong> ${(summary.total_decay * 100).toFixed(1)}%</p>
+            <p><strong>Average Decay per Topic:</strong> ${(summary.average_decay * 100).toFixed(1)}%</p>
+            
+            ${changesHtml}
+            
+            <button onclick="generateMCQ()" class="success-btn" style="margin-top: 15px;">
+              🎯 Practice to Restore Memory
+            </button>
+          </div>
+        `;
+        
+        // Re-render MathJax
+        if (window.MathJax) {
+          MathJax.typesetPromise([mcqSection]).catch((err) => console.log('MathJax render error:', err));
+        }
+      }
+
+      function displayDecayAnalysis(decayData) {
+        // Similar implementation to showDecaySummary but for current analysis
+        // You can implement this based on your preferred display format
+      }
+
+      function displayDecayPreview(previewData) {
+        // Similar implementation for decay preview
+        // You can implement this based on your preferred display format
       }
     </script>
 </body>

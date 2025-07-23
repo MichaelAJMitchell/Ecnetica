@@ -32,27 +32,60 @@ Now we have our `venv` set up ready for building our site. Make sure for the res
 
 ## Building
 
-This site uses jupyter notebooks for compiling. From `~/${path-to}/Ecnetica/` run the script `quick-build.sh`:
+### Making the Script Executable
+First, make the build script executable:
+```bash
+chmod u+x quick-build.sh
+```
+
+<!--
+**Alternative execution:**
+The bash script can also be run with the command:
 ```bash
 bash quick-build.sh
+```
+but I prefer `./`
+-->
+
+### Standard Build
+This site uses jupyter notebooks for compiling. From `~/${path-to}/Ecnetica/` run:
+```bash
+./quick-build.sh
 ```
 
 This script runs `jupyter-book build .`, then navigates to `Ecnetica/_build/html` and runs a python server. Note: the website must be loaded in a server or else the python quizzes won't be able to load properly. 
 
 Now you should be able to view the site from `http://localhost:8000/`, to escape this process `Ctrl + C`.
 
-**Alternative execution:**
-The bash script can also be run with the command:
+### Fast Testing Build
+For rapid theme development and testing, use the testing build which only builds a few specified pages (configurable in quick-build.sh):
+
 ```bash
-./quick-build.sh
+./quick-build.sh testing
 ```
 
-As long as you have made the bash script executable with:
-```bash
-chmod u+x quick-build.sh
-``` 
+This creates a minimal `content-testing/` directory with essential files and builds much faster for iterating on:
+- Theme customizations
+- Navbar layout changes
+- CSS modifications
+- Interactive component testing
 
-Both `./quick-build.sh` and `bash quick-build.sh` are identical.
+The testing build currently includes:
+- Index page
+- Quadratic functions (with interactive visualizations)
+- Interactive tools (Python playground, BKT demo)
+
+### Custom TOC Build
+You can also build with custom table of contents files:
+
+```bash
+./quick-build.sh <name>
+```
+
+This uses `_toc-<name>.yml` file. For example:
+- `./quick-build.sh full` uses `_toc-full.yml`
+- `./quick-build.sh minimal` uses `_toc-minimal.yml`
+
 
 <!--
 ## Adding Chapters

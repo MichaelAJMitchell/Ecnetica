@@ -91,28 +91,7 @@ class MCQ:
     _prerequisites: Optional[Dict[int, float]] = field(default=None, init=False)
     _difficulty: Optional[float] = field(default=None, init=False)
 ```
-an example of the current mcq format is
-```    
-mcqs.append(kg.create_mcq_with_explicit_weights(
-        text='Which of the following is the standard form of a quadratic equation?',
-        options=[
-            '\\(y = mx + c\\)',
-            '\\(ax^2 + bx + c = 0\\)',
-            '\\(x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)',
-            '\\(y = a(x - h)^2 + k\\)'
-        ],
-        correctindex=1,
-        option_explanations=[
-            'This is the slope-intercept form of a linear equation, not a quadratic. Linear equations have degree 1, while quadratics have degree 2.',
-            'Correct! This is the standard form of a quadratic equation where a, b, and c are constants and a ≠ 0. This form is used for solving and analyzing quadratic equations.',
-            'This is the quadratic formula used to find solutions, not the standard form of the equation itself. The formula is derived from the standard form.',
-            'This is the vertex form of a quadratic function, which shows the vertex coordinates but is not the standard form used for general analysis.'
-        ],
-        main_topic_index=2,
-        subtopic_weights={2: 1.0},
-        conceptual=0.3, procedural=0.0, problem_solving=0.2, communication=0.4, memory=0.4, spatial=0.0
-    ))
-```
+
 
 
 
@@ -177,7 +156,7 @@ the prerequisites for each mcq are stored, to save calculating them every time f
 
 
 ### difficulty
-the overall difficulty score for a question is the average of the skills in the difficulty breakdown. it is calculated automatically based on the difficulty breakdown values.
+the overall difficulty score for a question is the average of the skills in the difficulty breakdown. it is calculated automatically based on the difficulty breakdown values. There could be a better way of calculating this. 
 
 
 

@@ -1,54 +1,50 @@
 # how the mcq choosing algorithm works
-more of the redundant code should be gone, but the cover functions needed in python are still currenlty also in the json version. the full python code is also there in case anything is wrong with the other. 
-### defining classes
-defining node, difficulty breakdown (calculates the overall difficulty from the breakdown- from the json)
-mcq dataclass, with imported properties and stuff it calculates.
-student attempt. from dict to create mcqs from json file
-### config
-in python has some bkt defining stuff, then algorithm config is where all the changeable parameters are stored so they can be changed easily. 
 
-in json, all parameters are stored in a json file and configuration manager helps load them in. has some functions for getting them from file every time. 
-all the calling parameters should be changed to the new format, but there might be one or two i have missed. 
+mcq_algorithm_current, computed mcqs, knowledge graph and config json files
+
+## McqLoader
+the algorithm now has the option to only load in minimal data on mcqs, as things like the text and options aren't actually needed until the question is displayed. The minima loading currently loads id, main topic and subtopic, difficulty and difficulty breakdown, prerequisites and chapter. To get an mcqs, this is the function mcq = kg.get_mcq_safely(mcq_id, need_full_text=True), with the need full text set to true of false depending on which is needed. 
+
+## defining classes
+MinimalMCqData, node just define stuff. Difficulty breakdown should already be in the json, this just makes sure its the right format and calculates the overall difficulty is something is missing. StudentAttempt just is format of attempt. 
+
+## MCQ- loading from json
+the from_dict function loads in all the information in an mcq from the json file, makes sure its in the right format, has some functions to call stuff. 
+## ConfigurationManager 
+This deals with the fact that the variables are stored in the config file. Called with . Theres a function to get the bkt parameters. 
+
 ### student related things
 student profile class has their mastery levels and other parameters like that individual to a student. also calculates confidence (our confidence in our estimate of their mastery), which changes with how often they use the website. there’s also a couple of other useful functions here  
 
 student manager is for the creating new student, recording attempts and other things that have to do with how students interact with the system
 
-### knowledge graph
-actually defining the knowledge graph. 
-
-in python, the actual information is put in here as a list of the form (topic, chapter, dependencies[(destination node, weight)]). there is a function to actually make the proper graph based on this and assign indexes and stuff. there is also a function to add nodes to this if needed, but if the graph needs to be changed, actually putting it in here is probably best. this also has the actual function that creates the mcqs. it automatically assigns an id, calculates the overall difficulty. there’s also a function that gets only studied topics and some other filtering stuff. the in and out degree are stored for each node because they are used a lot.
-
-it also loads the nodes from a json file. also has the function to load the mcqs from json. 
-
+## Knowledge graph
+Theres a good bit of stuff here. This loads the nodes and mcqs with _load_nodes/mcqs_from_json. It coverts the dependencies to edges and things. Has some useful functions like get_adjacency_matrix, which also stores it if it hasn't changed, get node degree, etc. 
 topics are mainly referred to by their index in the code. there's some functions to convert between topic and index and stuff. 
+## Actual mcq choosing stuff
+OptimizedMcqVector is just the reduced version for the algorithm. 
 
- this has some graph theory functions, including getting the adjacency matrix and visualising the graph. 
+MCQScheduler does all the actual calculations. 
 
-### mcq stuff
-the mcq vector is a reduced version of the mcqs for running the choosing algorithm. 
-
-the mcq scheduler class has the actual algorithm: 
 - gets all mcqs for which the main topic and all the subtopics have been studied, the student has not done that day, and has a mastery below the threshold for the main topic. 
-- select_mcqs_greedy is the main function. if the number of eligible questions is over a limit, it currently just sorts them by mastery and takes the lowest ones, up to that limit. this might be necessary when we have a lot of questions, but it would be better if it wasn't
+- select_optimal_mcqs is the main function. Most of the rest are called inside it. if the number of eligible questions is over a limit, it currently just sorts them by mastery and takes the lowest ones, up to that limit. this might be necessary when we have a lot of questions, but it would be better if it wasn't
 - only considers topics below mastery threshold
 - calculates cost to coverage ratio for each mcq: calculates how much of the main, sub and prereq topics the mcq covers. calculates difficulty cost based on the question mastery matching the student, and importance factor. 
 - the best question is chosen. the difficulty of the question is then added to a virtual mastery, along with prereqs and subtopics, as a simple way to remove topics that haven't been covered. when this puts a topic over the mastery threshold, that topic is no longer considered. 
   (this might eventually end up using what the actual bkt updates would be, this is for now anyway)
 -and the whole thing goes again, until all the topics are covered, the max number of questions is reached, or you run out of mcqs
-- there is also an early stopping thing currently that stops it if the coverage increase is small. im not sure if this is a good thing or not, I haven't really thought about it too much yet. 
+- there is also an early stopping thing currently that stops it if the coverage increase is small. im not sure yet if this is a good thing or 
+
+## FSRS and BKT
+These are the functions which update the mastery after a question is answered, and decay the mastery with time. Ameilia has more details on them in the BKT_algorithm folder. 
 
 
-### bkt updates
-this has ameilia’s bkt updates depending on if questions are answered right or wrong, along with the area of affect propagation of mastery
 
-### mcqs (only in python)
-the actual mcqs are then loaded in with the create mcqs function
 
 ### testing code
-the rest is test code for various things. it creates a student with random masteries, after asking for a name for input. It asks questions and then gives a bunch of statistics. there’s also an independent test of the current mcq algorithm. bar removing some stuff, ive mostly just went with whatever claude gave me for this stuff since it most likely won't end up in the final website version. 
+The testing code is now in a different file. It isn't interactive, it just checks that everything works. 
 ## overall how it works
-generate mcqs and knowledge graph in json form, maybe change config parameters. run the process mcqs to calculate their properties (info in the other file). then can run the knowledge graph code, with the file names of the three json files. the core functions needed to run it:
+generate mcqs and knowledge graph in json form, maybe change config parameters. run the process mcqs to calculate the overall difficulty, id and prerequisites for the mcqs. then can run the knowledge graph code, with the file names of the three json files. the core functions needed to run it:
 ```
   kg = KnowledgeGraph(
       nodes_file='kg.json',
@@ -66,20 +62,25 @@ generate mcqs and knowledge graph in json form, maybe change config parameters. 
   #create student (example)
   student_id = "test_student"
   student = student_manager.create_student(student_id)
+  import random
+  # Set initial mastery levels if you want 
+  for topic_idx in kg.get_all_indexes():
+      mastery = random.uniform(0.1, 0.6)
+      student.mastery_levels[topic_idx] = mastery
+      student.confidence_levels[topic_idx] = mastery * 0.8
+      student.studied_topics[topic_idx] = True
 
   #select questions
-  selected_mcqs = mcq_scheduler.select_mcqs_greedy(student_id, num_questions=1)
+  selected_mcqs = mcq_scheduler.select_optimal_mcqs(student_id, num_questions=1)
 
   #answer question
 
-  #bkt
-  bkt_updates = student_manager.record_attempt(student_id, mcq_id, is_correct, time_taken, kg)
-
-
-
 ```
 
-# static versus dynamic content
+
+
+
+# static versus dynamic content (old stuff)
 Things that do/don't change once you've imported the knowledge graph and mcqs
 
 ## completely static stuff
@@ -114,7 +115,7 @@ Things that do/don't change once you've imported the knowledge graph and mcqs
 
 - student attempt (i think)
 
-## dynamic calculating funcions
+## dynamic calculating functions
 - mcq scheduler
 - bayesian knowledge tracing class
 ### dynamic packages

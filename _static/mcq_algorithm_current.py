@@ -8,7 +8,7 @@ This implements an intelligent question selection system that:
 - Optimizes for maximum learning efficiency
 
 Main Classes:
-    MCQScheduler: Core algorithm for adaptive question selection
+    MCQScheduler: Core algorithm for adaptive question 
     OptimizedMCQVector: Efficient question representation
     MinimalMCQData: Memory-optimized question data
 """
@@ -62,108 +62,49 @@ class MCQLoader:
         """Build index with only essential data for the algorithm"""
         print(f"🔍 Building optimized MCQ index from {self.mcqs_file}...")
         
-        with open(self.mcqs_file, 'r', encoding='utf-8') as f:
-            data = json.load(f)
-        
-        if 'mcqs' not in data:
-            raise ValueError("Invalid MCQ file format")
-        
-        total_mcqs = len(data['mcqs'])
-        processed = 0
-        
-        for i, mcq_data in enumerate(data['mcqs']):
-            try:
-                # Extract only essential data
-                mcq_id = mcq_data.get('id', f"mcq_{i}")
-                main_topic = mcq_data.get('main_topic_index', 0)
+        try:
+            with open(self.mcqs_file, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            
+            mcqs_data = data.get('mcqs', data) if isinstance(data, dict) else data
+            
+            for mcq_data in mcqs_data:
+                mcq_id = mcq_data['id']
                 
-                # Extract subtopic weights 
-                subtopic_weights = {}
-                raw_weights = mcq_data.get('subtopic_weights', {})
-                for k, v in raw_weights.items():
-                    subtopic_weights[int(k)] = float(v)
+                # Convert string keys to integers (only conversion needed)
+                subtopic_weights = {int(k): v for k, v in mcq_data['subtopic_weights'].items()}
+                prerequisites = {int(k): v for k, v in mcq_data['prerequisites'].items()}
                 
-                # Calculate minimal difficulty 
-                difficulty = self._extract_essential_difficulty(mcq_data)
-                
-                # Store minimal data
+                # Use precomputed values directly - no calculations!
                 minimal_data = MinimalMCQData(
                     id=mcq_id,
-                    main_topic_index=main_topic,
+                    main_topic_index=mcq_data['main_topic_index'],
                     subtopic_weights=subtopic_weights,
-                    difficulty=difficulty,
-                    prerequisites={},  # Will be computed when needed
-                    chapter=mcq_data.get('chapter', 'unknown')  # For debugging only
+                    difficulty=mcq_data['overall_difficulty'],  # Direct use
+                    prerequisites=prerequisites,  # Direct use
+                    chapter=mcq_data.get('chapter')
                 )
                 
                 self.minimal_mcq_data[mcq_id] = minimal_data
                 
-                # Build topic index (using sets for O(1) operations)
+                # Index by main topic
+                main_topic = mcq_data['main_topic_index']
                 if main_topic not in self.topic_to_mcq_ids:
                     self.topic_to_mcq_ids[main_topic] = set()
                 self.topic_to_mcq_ids[main_topic].add(mcq_id)
                 
-                # Store raw data for full MCQ loading if needed later
+                # Store raw data for full MCQ creation
                 self._raw_mcq_data[mcq_id] = mcq_data
                 
-                processed += 1
-                
-                # Progress feedback
-                if processed % 200 == 0:
-                    percentage = (processed / total_mcqs) * 100
-                    print(f"📥 Index progress: {processed}/{total_mcqs} ({percentage:.1f}%)")
-                
-            except Exception as e:
-                print(f"❌ Failed to index MCQ {i}: {e}")
-        
+        except Exception as e:
+            print(f"❌ Error building minimal index: {e}")
+            raise
+    
         print(f"✅  optimized index complete:")
         print(f"   📊 {len(self.minimal_mcq_data)} MCQs indexed")
         print(f"   📂 {len(self.topic_to_mcq_ids)} topics") 
-        print(f"   💾 Memory usage: ~{len(self.minimal_mcq_data) * 0.5:.1f}KB (minimal data only)")
     
-    def _extract_essential_difficulty(self, mcq_data: dict) -> float:
-        """Extract only the difficulty value needed for algorithm"""
-        difficulty_breakdown = mcq_data.get('difficulty_breakdown', {})
-        if not difficulty_breakdown:
-            return 0.5
-        
-        # Quick calculation 
-        values = [v for v in difficulty_breakdown.values() if isinstance(v, (int, float))]
-        return sum(values) / len(values) if values else 0.5
-    
-    def compute_prerequisites_for_mcqs(self, mcq_ids: List[str], adjacency_matrix):
-        """
-        Compute prerequisites only for specific MCQs
-        This replaces the expensive _precompute_prerequisites for all MCQs
-        """
-        print(f"📊 Computing prerequisites for {len(mcq_ids)} MCQs...")
-        
-        for mcq_id in mcq_ids:
-            if mcq_id in self.minimal_mcq_data:
-                minimal_data = self.minimal_mcq_data[mcq_id]
-                prerequisites = self._compute_prerequisites_for_mcq(minimal_data, adjacency_matrix)
-                minimal_data.prerequisites = prerequisites
-    
-    def _compute_prerequisites_for_mcq(self, minimal_data: MinimalMCQData, adjacency_matrix) -> Dict[int, float]:
-        """Compute prerequisites for a !single! MCQ using minimal data"""
-        prerequisites = {}
-        
-        if adjacency_matrix.size == 0:
-            return prerequisites
-        
-        for main_topic_index, topic_weight in minimal_data.subtopic_weights.items():
-            if main_topic_index < adjacency_matrix.shape[0]:
-                topic_prereqs = adjacency_matrix[main_topic_index, :]
-                for prereq_index, prereq_strength in enumerate(topic_prereqs):
-                    if prereq_strength > 0:
-                        weighted_prereq = prereq_strength * topic_weight
-                        if prereq_index in prerequisites:
-                            prerequisites[prereq_index] = max(prerequisites[prereq_index], weighted_prereq)
-                        else:
-                            prerequisites[prereq_index] = weighted_prereq
-        
-        return prerequisites
-    
+
     def get_mcqs_for_due_topics_minimal(self, due_topic_indices: List[int]) -> List[MinimalMCQData]:
         """
         Get minimal MCQ data for due topics
@@ -177,7 +118,6 @@ class MCQLoader:
                     minimal_data = self.minimal_mcq_data[mcq_id]
                     relevant_mcqs.append(minimal_data)
         
-        print(f"📥 Retrieved {len(relevant_mcqs)} minimal MCQ data objects for {len(due_topic_indices)} due topics")
         return relevant_mcqs
     
     def get_mcq_ids_for_due_topics(self, due_topic_indices: List[int]) -> List[str]:
@@ -302,14 +242,10 @@ class MCQ:
     subtopic_weights: Dict[int, float]  # Topics tested: {topic_index: importance_weight}
     difficulty_breakdown: DifficultyBreakdown  # Cognitive skill requirements
     id: str  # Unique identifier
-    _prerequisites: Optional[Dict[int, float]] = field(default=None, init=False)  # Cached prerequisites
-    _difficulty: Optional[float] = field(default=None, init=False)
 
-    def get_prerequisites(self, kg) -> Dict[int, float]:
-        """Cache prerequisite calculation"""
-        if self._prerequisites is None:
-            self._prerequisites = self._calculate_prerequisites(kg)
-        return self._prerequisites
+    overall_difficulty: float  # NEW: Store directly from JSON
+    prerequisites: Dict[int, float] 
+
     
 
 
@@ -318,7 +254,8 @@ class MCQ:
         """Create MCQ from JSON dictionary"""
         # Validate core required fields 
         required_fields = ['text', 'options', 'correctindex', 'option_explanations', 
-                          'main_topic_index', 'subtopic_weights']
+                        'main_topic_index', 'subtopic_weights', 'difficulty_breakdown',
+                        'overall_difficulty', 'prerequisites'] 
         
         for field in required_fields:
             if field not in data:
@@ -339,6 +276,12 @@ class MCQ:
             subtopic_weights = {int(k): v for k, v in data['subtopic_weights'].items()}
         except ValueError as e:
             raise ValueError(f"Invalid subtopic_weights format - keys must be convertible to integers: {e}")
+
+        # Convert string keys to integers for prerequisites
+        try:
+            prerequisites = {int(k): v for k, v in data['prerequisites'].items()}
+        except ValueError as e:
+            raise ValueError(f"Invalid prerequisites format - keys must be convertible to integers: {e}")
         
         # Validate subtopic weights sum to 1.0 (with tolerance)
         weight_sum = sum(subtopic_weights.values())
@@ -350,6 +293,8 @@ class MCQ:
         
         difficulty_breakdown = DifficultyBreakdown.from_dict(data['difficulty_breakdown'])
 
+        overall_difficulty = data['overall_difficulty']
+
         
         return cls(
             text=data['text'],
@@ -360,36 +305,24 @@ class MCQ:
             chapter=chapter,
             subtopic_weights=subtopic_weights,
             difficulty_breakdown=difficulty_breakdown,
-            id=mcq_id  # Use generated or provided ID
+            id=mcq_id,  
+            overall_difficulty=overall_difficulty,  
+            prerequisites=prerequisites
         )
-
-    def _calculate_prerequisites(self, kg) -> Dict[int, float]:
-        """
-        Get all prerequisite topics needed to attempt this question.
-        Uses graph traversal to find dependencies of tested topics.
-        """
-        adjacency_matrix = kg.get_adjacency_matrix()
-        prerequisites = {}
-
-        if adjacency_matrix.size > 0:
-            for topic_index, topic_weight in self.explicit_topic_weights.items():
-                if topic_index < adjacency_matrix.shape[0]:
-                    topic_prereqs = adjacency_matrix[topic_index, :]
-                    for prereq_index, prereq_strength in enumerate(topic_prereqs):
-                        if prereq_strength > 0:
-                            weighted_prereq = prereq_strength * topic_weight
-                            if prereq_index in prerequisites:
-                                prerequisites[prereq_index] = max(prerequisites[prereq_index], weighted_prereq)
-                            else:
-                                prerequisites[prereq_index] = weighted_prereq
-        return prerequisites
-
+    
+    #for backwards compatibility for now
     @property
     def difficulty(self) -> float:
-        """Cache difficulty calculation"""
-        if self._difficulty is None:
-            self._difficulty = self.difficulty_breakdown.calculate_overall()
-        return self._difficulty
+        """Direct access to precomputed overall difficulty"""
+        return self.overall_difficulty
+
+    def get_prerequisites(self, kg=None) -> Dict[int, float]:
+        """Direct access to precomputed prerequisites (kg parameter kept for compatibility)"""
+        return self.prerequisites
+
+    def get_difficulty(self) -> float:
+        """Direct access to precomputed overall difficulty"""
+        return self.overall_difficulty
 
 
     def __post_init__(self):
@@ -889,7 +822,6 @@ class KnowledgeGraph:
         
         # Show memory savings
         stats = self.ultra_loader.get_stats()
-        print(f"   💾 Memory savings: {stats['memory_savings_percent']:.1f}%")
         print(f"   📊 {stats['total_indexed']} MCQs indexed with minimal data")
 
     def preload_for_student(self, student_id: str, student_manager) -> List[str]:
@@ -909,13 +841,9 @@ class KnowledgeGraph:
             if student.is_topic_studied(topic_index) and mastery < mastery_threshold:
                 due_topics.append(topic_index)
         
-        # Get MCQ IDs for due topics
+         # Get MCQ IDs for due topics
         relevant_mcq_ids = self.ultra_loader.get_mcq_ids_for_due_topics(due_topics)
-        
-        # Compute prerequisites for these specific MCQs
-        adjacency_matrix = self.get_adjacency_matrix()
-        self.ultra_loader.compute_prerequisites_for_mcqs(relevant_mcq_ids, adjacency_matrix)
-        
+
         print(f"👤 Preloaded minimal data for {len(relevant_mcq_ids)} MCQs across {len(due_topics)} due topics for student {student_id}")
         
         return relevant_mcq_ids
@@ -1031,15 +959,12 @@ class OptimizedMCQVector:
     
     @property
     def difficulty_breakdown(self) -> Dict[str, float]:
-        # For algorithms that need this - simplified version
-        return {
-            'conceptual_understanding': self.minimal_data.difficulty,
-            'procedural_fluency': self.minimal_data.difficulty,
-            'problem_solving': self.minimal_data.difficulty,
-            'mathematical_communication': self.minimal_data.difficulty * 0.8,
-            'memory': self.minimal_data.difficulty * 0.6,
-            'spatial_reasoning': self.minimal_data.difficulty * 0.7
-        }
+        """Return detailed breakdown if available, otherwise synthesize from overall"""
+        if self.minimal_data.difficulty_breakdown:
+            return self.minimal_data.difficulty_breakdown
+        else:
+            print('no difficuty breakdown')
+            return []
 
 class MCQScheduler:
     """the bit that does the actual mcq algorithm calculations
@@ -1070,49 +995,7 @@ class MCQScheduler:
         # Also set the reference in student manager
         self.student_manager.bkt_system = bkt_system
 
-    def _precompute_prerequisites(self):
-        """Precompute prerequisites for all MCQs using explicit weights and adjacency matrix"""
-        adjacency_matrix = self.kg.get_adjacency_matrix()
-
-        for mcq_id, mcq in self.kg.mcqs.items():
-            # Use the MCQ's explicit topic weights directly
-            subtopic_weights = mcq.subtopic_weights
-
-            # Calculate weighted prerequisites
-            prerequisites = {}
-
-            if adjacency_matrix.size > 0:
-                # For each topic in the MCQ, find its prerequisites
-                for main_topic_index, topic_weight in subtopic_weights.items():
-                    if main_topic_index < adjacency_matrix.shape[0]:
-                        # Get direct prerequisites for this topic
-                        topic_prereqs = adjacency_matrix[main_topic_index, :]
-
-                        # Weight the prerequisites by the topic's explicit weight in the MCQ
-                        for prereq_index, prereq_strength in enumerate(topic_prereqs):
-                            if prereq_strength > 0:
-                                weighted_prereq = prereq_strength * topic_weight
-                                if prereq_index in prerequisites:
-                                    prerequisites[prereq_index] = max(prerequisites[prereq_index], weighted_prereq)
-                                else:
-                                    prerequisites[prereq_index] = weighted_prereq
-
-            # Create MCQ vector
-            mcq_vector = OptimizedMCQVector(mcq_id=mcq_id,mcq_ref=mcq,prerequisites=prerequisites
-        )
-
-            self.mcq_vectors[mcq_id] = mcq_vector
-
-    def _ensure_vectors_computed(self):
-        """Compute vectors only for relevant MCQs using minimal data"""
-        if not self.mcq_vectors:
-            if hasattr(self.kg, 'ultra_loader'):
-                print("📊  optimized vector computation - only processing loaded minimal data")
-                # Vectors will be computed on-demand for relevant MCQs
-                return
-            else:
-                # Fallback to original method
-                self._precompute_prerequisites_for_mcqs()
+ 
 
     def _get_or_create_optimized_mcq_vector(self, mcq_id: str) -> Optional[OptimizedMCQVector]:
         """Get or create MCQ vector using minimal data"""
@@ -1122,11 +1005,7 @@ class MCQScheduler:
         if hasattr(self.kg, 'ultra_loader'):
             minimal_data = self.kg.ultra_loader.get_minimal_mcq_data(mcq_id)
             if minimal_data:
-                if not minimal_data.prerequisites:
-                    print(f"⚠️  Computing prerequisites for MCQ {mcq_id}")
-                    adjacency_matrix = self.kg.get_adjacency_matrix()
-                    prerequisites = self.kg.ultra_loader._compute_prerequisites_for_mcq(minimal_data, adjacency_matrix)
-                    minimal_data.prerequisites = prerequisites
+
                 
                 # Create optimized vector
                 vector = OptimizedMCQVector(
@@ -1172,11 +1051,7 @@ class MCQScheduler:
             eligible_mcqs = [mcq_id for mcq_id in eligible_mcqs if mcq_id not in student.daily_completed]
             
             print(f"🎯 Found {len(eligible_mcqs)} eligible MCQs for {len(due_topics)} due topics")
-            if eligible_mcqs:
-                print(f"📊 Computing prerequisites for {len(eligible_mcqs)} eligible MCQs...")
-                adjacency_matrix = self.kg.get_adjacency_matrix()
-                self.kg.ultra_loader.compute_prerequisites_for_mcqs(eligible_mcqs, adjacency_matrix)
-                print(f"✅ Prerequisites computed")
+     
             
             return eligible_mcqs
         else:
@@ -1193,7 +1068,6 @@ class MCQScheduler:
         Main greedy algorithm for adaptive MCQ selection.
         Iteratively selects best question, updates virtual mastery, repeats.
         """
-        self._ensure_vectors_computed()
         # Get config values
         greedy_max_mcqs_to_evaluate = self.get_config_value('greedy_algorithm.greedy_max_mcqs_to_evaluate', 50)
         greedy_early_stopping = self.get_config_value('greedy_algorithm.greedy_early_stopping', False)
@@ -1269,7 +1143,6 @@ class MCQScheduler:
                     print(f"   ⚠️  Skipping MCQ {mcq_id} - no vector available")
                     continue
                 
-                print(f"   📈 Calculating coverage-to-cost ratio...")
                 coverage_to_cost_ratio, coverage_info = self._calculate_coverage_to_cost_ratio(mcq_id, topic_priorities, simulated_mastery_levels, student)
                 print(f"   📊 Ratio: {coverage_to_cost_ratio:.3f}")
                 
@@ -1296,10 +1169,9 @@ class MCQScheduler:
             # Update virtual mastery and topic priorities
             try:
                 # Update virtual mastery and topic priorities
-                print(f"📊 Updating virtual mastery...")
                 total_topic_coverage_score = self._update_simulated_mastery_and_priorities(best_mcq, simulated_mastery_levels, topic_priorities, best_coverage_info, student)
                 
-                print(f"✅ Updated - Coverage: {total_topic_coverage_score:.3f}, Remaining topics: {len(topic_priorities)}")
+                print(f"✅ Updated virtual mastery- Coverage: {total_topic_coverage_score:.3f}, Remaining topics: {len(topic_priorities)}")
                 
             except Exception as e:
                 print(f"❌ Error updating virtual mastery: {type(e)} - {e}")

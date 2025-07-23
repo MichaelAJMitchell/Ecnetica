@@ -1565,15 +1565,12 @@ def debug_mcq_loading_issues(config_file: str = 'config.json') -> Dict[str, Any]
         # Check available methods
         has_ensure_vectors = hasattr(mcq_scheduler, '_ensure_vectors_computed')
         has_get_or_create = hasattr(mcq_scheduler, '_get_or_create_optimized_mcq_vector')
-        has_precompute = hasattr(mcq_scheduler, '_precompute_prerequisites_for_mcqs')
         
         debug_info["vector_creation"]["has_ensure_vectors_computed"] = has_ensure_vectors
         debug_info["vector_creation"]["has_get_or_create_optimized"] = has_get_or_create
-        debug_info["vector_creation"]["has_precompute_prerequisites"] = has_precompute
         
         print(f"   📋 _ensure_vectors_computed: {has_ensure_vectors}")
         print(f"   📋 _get_or_create_optimized_mcq_vector: {has_get_or_create}")
-        print(f"   📋 _precompute_prerequisites_for_mcqs: {has_precompute}")
         
         # Test 5: Actual Vector Creation
         print("5️⃣ Testing actual vector creation...")

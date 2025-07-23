@@ -810,12 +810,12 @@ html_theme.sidebar_secondary.remove: true
                 student = student_manager.get_student(current_student_id)
                 
                 # Get eligible MCQs
-                greedy_eligible = mcq_scheduler.get_available_questions_for_student(current_student_id)
+                selected_mcqs = mcq_scheduler.select_optimal_mcqs(current_student_id)
                 #Initialize result variable
                 result = None
                 
-                if len(greedy_eligible) > 0:
-                    mcq_id = greedy_eligible[0]
+                if len(selected_mcqs) > 0:
+                    mcq_id = selected_mcqs[0]
                     mcq = kg.get_mcq_safely(mcq_id, need_full_text=True)
 
                     if mcq:

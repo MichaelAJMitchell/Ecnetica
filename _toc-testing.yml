@@ -1,0 +1,13 @@
+format: jb-book
+root: index
+parts:
+  - caption: Functions
+    chapters:
+    - file: functions/types_and_graphs
+      sections:
+      - file: functions/quadratic_functions_gen
+  
+  - caption: Interactive Tools
+    chapters:
+    - file: interactive/python_playground
+    - file: interactive/BKT_Simple_Demo

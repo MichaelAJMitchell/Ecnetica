@@ -58,9 +58,6 @@ const MathQuestionModule = (function() {
         // Merge provided options with defaults
         const moduleOptions = { ...defaultOptions, ...options };
         
-        // Ensure styles are injected
-        injectStyles();
-        
         // Find target element
         const targetElement = document.getElementById(targetElementId);
         if (!targetElement) {
@@ -126,7 +123,7 @@ const MathQuestionModule = (function() {
             questionContent.appendChild(contentDiv);
             
             // Create answer button
-            const answerButton = document.createElement('div');
+            const answerButton = document.createElement('button');
             answerButton.className = 'answer-button';
             answerButton.textContent = 'Show Answer';
             answerButton.onclick = () => toggleAnswer(question.category, targetElementId);

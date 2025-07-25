@@ -241,4 +241,4 @@ const MathQuestionModule = (function() {
         renderLatex,
         DEFAULT_CATEGORIES
     };
-})();y
+})();

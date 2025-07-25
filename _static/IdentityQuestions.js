@@ -16,156 +16,6 @@ const MathQuestionModule = (function() {
     ];
 
     /**
-     * Inject required CSS styles for the math question module
-     */
-    function injectStyles() {
-        // Check if styles are already injected
-        if (document.getElementById('math-question-module-styles')) {
-            return;
-        }
-        
-        const style = document.createElement('style');
-        style.id = 'math-question-module-styles';
-        style.textContent = `
-            .math-question-module {
-                font-family: Arial, sans-serif;
-                margin: 20px 0;
-                padding: 15px;
-                border: 1px solid #ddd;
-                border-radius: 8px;
-                background-color: #f9f9f9;
-            }
-            
-            .question-categories {
-                display: flex;
-                gap: 10px;
-                margin: 15px 0;
-                flex-wrap: wrap;
-            }
-            
-            .category-box {
-                padding: 10px 15px;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: all 0.3s;
-                border: 2px solid transparent;
-                font-weight: 500;
-            }
-            
-            .category-box:hover, .category-box.active {
-                transform: translateY(-2px);
-                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-                border-color: #2196f3;
-            }
-            
-            .scientific { 
-                background-color: #e3f2fd; 
-                color: #1565c0;
-            }
-            .engineering { 
-                background-color: #e8f5e8; 
-                color: #2e7d32;
-            }
-            .financial { 
-                background-color: #fff3e0; 
-                color: #ef6c00;
-            }
-            .creative { 
-                background-color: #f3e5f5; 
-                color: #7b1fa2;
-            }
-            
-            .question-content {
-                display: none;
-                margin: 20px 0;
-                padding: 15px;
-                background-color: white;
-                border-radius: 5px;
-                border-left: 4px solid #2196f3;
-                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            }
-            
-            .question-title {
-                font-weight: bold;
-                font-size: 1.1em;
-                margin-bottom: 10px;
-                color: #333;
-            }
-            
-            .answer-button {
-                background-color: #2196f3;
-                color: white;
-                padding: 8px 16px;
-                border-radius: 4px;
-                cursor: pointer;
-                display: inline-block;
-                margin: 10px 0;
-                transition: background-color 0.3s;
-                border: none;
-                font-size: 14px;
-            }
-            
-            .answer-button:hover {
-                background-color: #1976d2;
-            }
-            
-            .answer-content {
-                display: none;
-                margin-top: 10px;
-                padding: 15px;
-                background-color: #f5f5f5;
-                border-radius: 4px;
-                border-left: 3px solid #4caf50;
-            }
-            
-            .topic-intro {
-                margin: 15px 0;
-                color: #666;
-                line-height: 1.5;
-            }
-            
-            .math-question-module h2 {
-                color: #2c3e50;
-                margin-bottom: 15px;
-                font-size: 1.4em;
-            }
-            
-            /* Dark mode support */
-            @media (prefers-color-scheme: dark) {
-                .math-question-module {
-                    background-color: #2d3748;
-                    border-color: #4a5568;
-                    color: #e2e8f0;
-                }
-                
-                .question-content {
-                    background-color: #1a202c;
-                    color: #e2e8f0;
-                }
-                
-                .answer-content {
-                    background-color: #2d3748;
-                    color: #e2e8f0;
-                }
-                
-                .topic-intro {
-                    color: #a0aec0;
-                }
-                
-                .math-question-module h2 {
-                    color: #e2e8f0;
-                }
-                
-                .question-title {
-                    color: #e2e8f0;
-                }
-            }
-        `;
-        
-        document.head.appendChild(style);
-    }
-
-    /**
      * Handles LaTeX rendering for elements
      * @param {HTMLElement|HTMLElement[]} elements - Element(s) to process for LaTeX rendering
      */
@@ -207,9 +57,6 @@ const MathQuestionModule = (function() {
         
         // Merge provided options with defaults
         const moduleOptions = { ...defaultOptions, ...options };
-        
-        // Ensure styles are injected
-        injectStyles();
         
         // Find target element
         const targetElement = document.getElementById(targetElementId);
@@ -392,7 +239,6 @@ const MathQuestionModule = (function() {
     return {
         render,
         renderLatex,
-        injectStyles,
         DEFAULT_CATEGORIES
     };
 })();

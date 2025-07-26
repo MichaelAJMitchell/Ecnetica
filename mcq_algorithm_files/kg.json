@@ -4,114 +4,77 @@
       "id": 0,
       "topic": "solving linear equations",
       "chapter": "algebra",
-      "dependencies": [
-        {"target": 6, "weight": 0.5},
-        {"target": 14, "weight": 0.8},
-        {"target": 15, "weight": 0.6}
+      "dependencies": [[6,  0.5 ],[14,  0.8 ],[15,  0.6 ]
       ]
     },
     {
       "id": 1,
       "topic": "linear equations in standard form",
       "chapter": "algebra",
-      "dependencies": [
-        {"target": 0, "weight": 0.3},
-        {"target": 2, "weight": 0.4}
+      "dependencies": [[0,  0.3 ],[2,  0.4 ]
       ]
     },
     {
       "id": 2,
       "topic": "form of quadratic equations",
       "chapter": "algebra",
-      "dependencies": [
-        {"target": 5, "weight": 0.9},
-        {"target": 6, "weight": 0.7},
-        {"target": 9, "weight": 0.6},
-        {"target": 10, "weight": 0.8},
-        {"target": 12, "weight": 0.6},
-        {"target": 14, "weight": 0.7},
-        {"target": 15, "weight": 0.8},
-        {"target": 17, "weight": 0.6}
+      "dependencies": [[5,  0.9 ],[6,  0.7 ],[9,  0.6 ],[10,  0.8 ],[12,  0.6 ],[14,  0.7 ],[15,  0.8 ],[17,  0.6 ]
       ]
     },
     {
       "id": 3,
       "topic": "expanding brackets",
       "chapter": "algebra",
-      "dependencies": [
-        {"target": 0, "weight": 0.7},
-        {"target": 9, "weight": 0.8},
-        {"target": 14, "weight": 0.2}
+      "dependencies": [[0,  0.7 ],[9,  0.8 ],[14,  0.2 ]
       ]
     },
     {
       "id": 4,
       "topic": "substitution",
       "chapter": "algebra",
-      "dependencies": [
-        {"target": 5, "weight": 0.9},
-        {"target": 11, "weight": 0.3},
-        {"target": 12, "weight": 0.3},
-        {"target": 13, "weight": 0.4},
-        {"target": 15, "weight": 0.9},
-        {"target": 17, "weight": 0.8}
+      "dependencies": [[5,  0.9 ],[11,  0.3 ],[12,  0.3 ],[13,  0.4 ],[15,  0.9 ],[17,  0.8 ]
       ]
     },
     {
       "id": 5,
       "topic": "using substitution to make equations in quadratic equations",
       "chapter": "algebra",
-      "dependencies": [
-        {"target": 9, "weight": 0.5},
-        {"target": 11, "weight": 0.6},
-        {"target": 12, "weight": 0.7},
-        {"target": 13, "weight": 0.5}
+      "dependencies": [[9,  0.5 ],[11,  0.6 ],[12,  0.7 ],[13,  0.5 ]
       ]
     },
     {
       "id": 6,
       "topic": "factorisation by inspection for a=1",
       "chapter": "algebra",
-      "dependencies": [
-        {"target": 7, "weight": 0.8},
-        {"target": 12, "weight": 0.9}
+      "dependencies": [[7,  0.8 ],[12,  0.9 ]
       ]
     },
     {
       "id": 7,
       "topic": "factorisation by inspection for a ne 1",
       "chapter": "algebra",
-      "dependencies": [
-        {"target": 12, "weight": 0.9}
+      "dependencies": [[12,  0.9 ]
       ]
     },
     {
       "id": 8,
       "topic": "basic coordinate geometry",
       "chapter": "geometry",
-      "dependencies": [
-        {"target": 10, "weight": 0.8},
-        {"target": 11, "weight": 0.6},
-        {"target": 13, "weight": 0.7}
+      "dependencies": [[10,  0.8 ],[11,  0.6 ],[13,  0.7 ]
       ]
     },
     {
       "id": 9,
       "topic": "writing quadratics in completed square form",
       "chapter": "algebra",
-      "dependencies": [
-        {"target": 11, "weight": 0.9},
-        {"target": 13, "weight": 0.8}
+      "dependencies": [[11,  0.9 ],[13,  0.8 ]
       ]
     },
     {
       "id": 10,
       "topic": "graph of quadratics",
       "chapter": "algebra",
-      "dependencies": [
-        {"target": 11, "weight": 0.7},
-        {"target": 12, "weight": 0.5},
-        {"target": 13, "weight": 0.6}
+      "dependencies": [[11,  0.7 ],[12,  0.5 ],[13,  0.6 ]
       ]
     },
     {
@@ -124,10 +87,7 @@
       "id": 12,
       "topic": "x-intercept/roots",
       "chapter": "algebra",
-      "dependencies": [
-        {"target": 15, "weight": 0.4},
-        {"target": 16, "weight": 0.6},
-        {"target": 17, "weight": 0.5}
+      "dependencies": [[15,  0.4 ],[16,  0.6 ],[17,  0.5 ]
       ]
     },
     {
@@ -140,17 +100,14 @@
       "id": 14,
       "topic": "quadratic formula derivation",
       "chapter": "algebra",
-      "dependencies": [
-        {"target": 15, "weight": 0.9}
+      "dependencies": [[15,  0.9 ]
       ]
     },
     {
       "id": 15,
       "topic": "using quadratic formula",
       "chapter": "algebra",
-      "dependencies": [
-        {"target": 16, "weight": 0.8},
-        {"target": 17, "weight": 0.7}
+      "dependencies": [[16,  0.8 ],[17,  0.7 ]
       ]
     },
     {
@@ -163,8 +120,7 @@
       "id": 17,
       "topic": "discriminant",
       "chapter": "algebra",
-      "dependencies": [
-        {"target": 16, "weight": 0.7}
+      "dependencies": [[16,  0.7 ]
       ]
     }
   ],

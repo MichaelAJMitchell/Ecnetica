@@ -1,0 +1,790 @@
+{
+  "mcqs": [
+    {
+      "id": "74bcf9d0-c392-41d1-813c-a5299817eb1a",
+      "text": "What is the discriminant of the quadratic equation ${question_expression_subbed}$?",
+      "question_expression": "a*x**2 +b*x + c = 0",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": -9,
+          "max": 9,
+          "exclude": 0
+        },
+        "b": {
+          "type": "int",
+          "min": -9,
+          "max": 9
+        },
+        "c": {
+          "type": "int",
+          "min": -50,
+          "max": 50
+        }
+      },
+      "calculated_parameters": {},
+      "options": [
+        "b**2-4*a*c",
+        "b**2+4*a*c",
+        "sqrt(b**2-4*a*c)",
+        "(-b+sqrt(b**2-4*a*c))/(2*a))"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! $\\Delta = b^2 - 4ac = (-5)^2 - 4(2)(3) = 25 - 24 = 1$",
+        "Incorrect. You may have calculated $b^2 + 4ac$ instead of $b^2 - 4ac$.",
+        "Incorrect. Remember the formula is $b^2 - 4ac$, not $sqrt{b^2-4ac}$.",
+        "Incorrect. The discriminnant is just the part under square root of the quadratic question."
+      ],
+      "main_topic_index": 17,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "17": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.3,
+        "procedural_fluency": 0.7,
+        "problem_solving": 0.2,
+        "mathematical_communication": 0.1,
+        "memory": 0.4,
+        "spatial_reasoning": 0.0
+      },
+      "overall_difficulty": 0.2833333333333334,
+      "prerequisites": {
+        "16": 0.7
+      }
+    },
+    {
+      "id": "45dbefc0-08f0-48cb-b5af-2aca2694039d",
+      "text": "Factor the quadratic expression ${question_expression_subbed}$.",
+      "question_expression": "(x-r_1)*(x-r_2)",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": -24,
+          "max": 24,
+          "exclude": 0
+        },
+        "b": {
+          "type": "int",
+          "min": -12,
+          "max": 12,
+          "exclude": 0
+        },
+        "c": {
+          "type": "int",
+          "min": -24,
+          "max": 24,
+          "exclude": 0
+        },
+        "d": {
+          "type": "int",
+          "min": -12,
+          "max": 12,
+          "exclude": 0
+        }
+      },
+      "calculated_parameters": {
+        "r_1": "a/b",
+        "r_2": "c/d"
+      },
+      "options": [
+        "(b*x -c)*(d*x -a)",
+        "(b*x -a)*(d*x -c)",
+        "(27x + 1)*(2x - 12)",
+        "(d*x + c)*(b*x - a)"
+      ],
+      "correctindex": 1,
+      "option_explanations": [
+        "Incorrect. Check your factors",
+        "Correct! ",
+        "Incorrect. ",
+        "Incorrect. check your signs."
+      ],
+      "main_topic_index": 6,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "6": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.4,
+        "procedural_fluency": 0.8,
+        "problem_solving": 0.6,
+        "mathematical_communication": 0.2,
+        "memory": 0.3,
+        "spatial_reasoning": 0.0
+      },
+      "overall_difficulty": 0.38333333333333336,
+      "prerequisites": {
+        "7": 0.8,
+        "12": 0.9
+      }
+    },
+    {
+      "id": "18a826ca-0e6e-42ba-91d4-672ca7dc6476",
+      "text": "Solve for x in the linear equation ${question_expression_subbed}$.",
+      "question_expression": "a*x + b = c",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": -8,
+          "max": 8,
+          "exclude": 0
+        },
+        "solution": {
+          "type": "int",
+          "min": -10,
+          "max": 10
+        },
+        "b": {
+          "type": "int",
+          "min": -12,
+          "max": 12
+        }
+      },
+      "calculated_parameters": {
+        "c": "a*solution + b"
+      },
+      "options": [
+        "solution",
+        "solution + 1",
+        "solution - 1",
+        "-solution"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! Isolating x: $ax + b = c \\Rightarrow ax = c - b \\Rightarrow x = \\frac{c-b}{a}$",
+        "Incorrect. You may have made an arithmetic error.",
+        "Incorrect. Check your calculation carefully.",
+        "Incorrect. You may have confused the sign."
+      ],
+      "main_topic_index": 0,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "0": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.3,
+        "procedural_fluency": 0.8,
+        "problem_solving": 0.4,
+        "mathematical_communication": 0.2,
+        "memory": 0.3,
+        "spatial_reasoning": 0.0
+      },
+      "overall_difficulty": 0.3333333333333333,
+      "prerequisites": {
+        "6": 0.5,
+        "14": 0.8,
+        "15": 0.6
+      }
+    },
+    {
+      "id": "01d6a2cf-688f-43d4-9db8-110a7f1b547c",
+      "text": "What is the standard form of the linear equation ${question_expression_subbed}$?",
+      "question_expression": "y - m*x = b",
+      "generated_parameters": {
+        "m": {
+          "type": "int",
+          "min": -8,
+          "max": 8,
+          "exclude": 0
+        },
+        "b": {
+          "type": "int",
+          "min": -12,
+          "max": 12
+        }
+      },
+      "calculated_parameters": {},
+      "options": [
+        "m*x + y = b",
+        "-m*x + y = b",
+        "m*x - y = -b",
+        "y = m*x + b"
+      ],
+      "correctindex": 1,
+      "option_explanations": [
+        "Incorrect. Check the sign of the x term.",
+        "Correct! Rearranging: $y - mx = b \\Rightarrow -mx + y = b$",
+        "Incorrect. This changes the sign of b incorrectly.",
+        "Incorrect. This is slope-intercept form, not standard form."
+      ],
+      "main_topic_index": 1,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "1": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.5,
+        "procedural_fluency": 0.6,
+        "problem_solving": 0.3,
+        "mathematical_communication": 0.4,
+        "memory": 0.4,
+        "spatial_reasoning": 0.0
+      },
+      "overall_difficulty": 0.3666666666666667,
+      "prerequisites": {
+        "0": 0.3,
+        "2": 0.4
+      }
+    },
+    {
+      "id": "74176bc6-216f-4440-9eb6-298acd073ac5",
+      "text": "Expand the expression ${question_expression_subbed}$.",
+      "question_expression": "(a*x + b)*(c*x + d)",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": -6,
+          "max": 6,
+          "exclude": 0
+        },
+        "b": {
+          "type": "int",
+          "min": -8,
+          "max": 8
+        },
+        "c": {
+          "type": "int",
+          "min": -6,
+          "max": 6,
+          "exclude": 0
+        },
+        "d": {
+          "type": "int",
+          "min": -8,
+          "max": 8
+        }
+      },
+      "calculated_parameters": {},
+      "options": [
+        "a*c*x**2 + (a*d + b*c)*x + b*d",
+        "a*c*x**2 + (a*d - b*c)*x + b*d",
+        "(a + c)*x**2 + (b + d)*x",
+        "a*c*x**2 + b*d"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! $(ax + b)(cx + d) = acx^2 + adx + bcx + bd = acx^2 + (ad + bc)x + bd$",
+        "Incorrect. The middle term should be $(ad + bc)x$, not $(ad - bc)x$.",
+        "Incorrect. This doesn't account for all the cross terms.",
+        "Incorrect. You're missing the middle term $(ad + bc)x$."
+      ],
+      "main_topic_index": 3,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "3": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.4,
+        "procedural_fluency": 0.8,
+        "problem_solving": 0.5,
+        "mathematical_communication": 0.3,
+        "memory": 0.5,
+        "spatial_reasoning": 0.0
+      },
+      "overall_difficulty": 0.4166666666666667,
+      "prerequisites": {
+        "0": 0.7,
+        "9": 0.8,
+        "14": 0.2
+      }
+    },
+    {
+      "id": "d87a6a5d-856d-4a2f-930c-2038c6141e4d",
+      "text": "Find the distance between points ${question_expression_subbed}$.",
+      "question_expression": "(x1, y1) and (x2, y2)",
+      "generated_parameters": {
+        "x1": {
+          "type": "int",
+          "min": -8,
+          "max": 8
+        },
+        "y1": {
+          "type": "int",
+          "min": -8,
+          "max": 8
+        },
+        "dx": {
+          "type": "int",
+          "min": 3,
+          "max": 12
+        },
+        "dy": {
+          "type": "int",
+          "min": 4,
+          "max": 9
+        }
+      },
+      "calculated_parameters": {
+        "x2": "x1 + dx",
+        "y2": "y1 + dy",
+        "distance": "sqrt(dx**2 + dy**2)"
+      },
+      "options": [
+        "distance",
+        "dx + dy",
+        "dx**2 + dy**2",
+        "sqrt(dx + dy)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! Using the distance formula: $d = \\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}$",
+        "Incorrect. This is not Euclidean distance.",
+        "Incorrect. Don't forget to take the square root.",
+        "Incorrect. You should add the squares, not the values themselves."
+      ],
+      "main_topic_index": 8,
+      "chapter": "geometry",
+      "subtopic_weights": {
+        "8": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.4,
+        "procedural_fluency": 0.7,
+        "problem_solving": 0.5,
+        "mathematical_communication": 0.3,
+        "memory": 0.6,
+        "spatial_reasoning": 0.7
+      },
+      "overall_difficulty": 0.5333333333333333,
+      "prerequisites": {
+        "10": 0.8,
+        "11": 0.6,
+        "13": 0.7
+      }
+    },
+    {
+      "id": "f1d0e39b-044d-422c-94ff-8166eed3fd5f",
+      "text": "Complete the square for ${question_expression_subbed}$.",
+      "question_expression": "x**2 + b*x + c",
+      "generated_parameters": {
+        "h": {
+          "type": "int",
+          "min": -6,
+          "max": 6
+        },
+        "k": {
+          "type": "int",
+          "min": -8,
+          "max": 8
+        }
+      },
+      "calculated_parameters": {
+        "b": "2*h",
+        "c": "h**2 + k"
+      },
+      "options": [
+        "(x + h)**2 + k",
+        "(x - h)**2 + k",
+        "(x + h)**2 - k",
+        "(x + h)**2 + k + h**2"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! Completing the square: $x^2 + 2hx + (h^2 + k) = (x + h)^2 + k$",
+        "Incorrect. The sign inside the brackets should match the sign of the linear coefficient.",
+        "Incorrect. Check the sign of the constant term.",
+        "Incorrect. You're double-counting the $h^2$ term."
+      ],
+      "main_topic_index": 9,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "9": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.6,
+        "procedural_fluency": 0.8,
+        "problem_solving": 0.7,
+        "mathematical_communication": 0.4,
+        "memory": 0.5,
+        "spatial_reasoning": 0.2
+      },
+      "overall_difficulty": 0.5333333333333333,
+      "prerequisites": {
+        "11": 0.9,
+        "13": 0.8
+      }
+    },
+    {
+      "id": "c963cbaf-9bd7-41b6-9651-17e0a0ae24ae",
+      "text": "What is the axis of symmetry of the parabola ${question_expression_subbed}$?",
+      "question_expression": "y = a*x**2 + b*x + c",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": -5,
+          "max": 5,
+          "exclude": 0
+        },
+        "axis_num": {
+          "type": "int",
+          "min": -6,
+          "max": 6
+        },
+        "axis_den": {
+          "type": "int",
+          "min": 1,
+          "max": 4
+        },
+        "c": {
+          "type": "int",
+          "min": -15,
+          "max": 15
+        }
+      },
+      "calculated_parameters": {
+        "b": "-2*a*axis_num/axis_den"
+      },
+      "options": [
+        "axis_num/axis_den",
+        "-axis_num/axis_den",
+        "axis_den/axis_num",
+        "2*axis_num/axis_den"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! The axis of symmetry is $x = -\\frac{b}{2a}$ for a parabola $y = ax^2 + bx + c$",
+        "Incorrect. You may have the wrong sign.",
+        "Incorrect. You may have inverted the fraction.",
+        "Incorrect. You're missing the factor of 2 in the denominator."
+      ],
+      "main_topic_index": 10,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "10": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.5,
+        "procedural_fluency": 0.6,
+        "problem_solving": 0.4,
+        "mathematical_communication": 0.3,
+        "memory": 0.7,
+        "spatial_reasoning": 0.4
+      },
+      "overall_difficulty": 0.48333333333333334,
+      "prerequisites": {
+        "11": 0.7,
+        "12": 0.5,
+        "13": 0.6
+      }
+    },
+    {
+      "id": "8917508f-8e0d-408c-b9cd-014ea633aa8b",
+      "text": "Find the vertex of the parabola ${question_expression_subbed}$.",
+      "question_expression": "y = a*(x - h)**2 + k",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": -6,
+          "max": 6,
+          "exclude": 0
+        },
+        "h": {
+          "type": "int",
+          "min": -8,
+          "max": 8
+        },
+        "k": {
+          "type": "int",
+          "min": -10,
+          "max": 10
+        }
+      },
+      "calculated_parameters": {},
+      "options": [
+        "(h, k)",
+        "(-h, k)",
+        "(h, -k)",
+        "(-h, -k)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! In vertex form $y = a(x - h)^2 + k$, the vertex is $(h, k)$",
+        "Incorrect. The x-coordinate is h, not -h.",
+        "Incorrect. The y-coordinate is k, not -k.",
+        "Incorrect. Both coordinates have wrong signs."
+      ],
+      "main_topic_index": 11,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "11": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.6,
+        "procedural_fluency": 0.4,
+        "problem_solving": 0.3,
+        "mathematical_communication": 0.3,
+        "memory": 0.8,
+        "spatial_reasoning": 0.5
+      },
+      "overall_difficulty": 0.4833333333333334,
+      "prerequisites": {}
+    },
+    {
+      "id": "8f725c6d-3f68-4cf9-9040-5a7e09ee101a",
+      "text": "Find the x-intercepts of ${question_expression_subbed}$.",
+      "question_expression": "y = (x - r)*(x - s)",
+      "generated_parameters": {
+        "r": {
+          "type": "int",
+          "min": -8,
+          "max": 8
+        },
+        "s": {
+          "type": "int",
+          "min": -8,
+          "max": 8
+        }
+      },
+      "calculated_parameters": {},
+      "options": [
+        "x = r and x = s",
+        "x = -r and x = -s",
+        "x = r and x = -s",
+        "x = -r and x = s"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! Setting $y = 0$: $(x - r)(x - s) = 0$, so $x = r$ or $x = s$",
+        "Incorrect. The roots are r and s, not their negatives.",
+        "Incorrect. Both roots should have the same relationship to r and s.",
+        "Incorrect. Both roots should have the same relationship to r and s."
+      ],
+      "main_topic_index": 12,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "12": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.5,
+        "procedural_fluency": 0.7,
+        "problem_solving": 0.6,
+        "mathematical_communication": 0.3,
+        "memory": 0.4,
+        "spatial_reasoning": 0.3
+      },
+      "overall_difficulty": 0.46666666666666656,
+      "prerequisites": {
+        "15": 0.4,
+        "16": 0.6,
+        "17": 0.5
+      }
+    },
+    {
+      "id": "6a0ff94e-5ab5-4c86-8893-2a7c303f2393",
+      "text": "Use the quadratic formula to solve ${question_expression_subbed}$.",
+      "question_expression": "a*x**2 + b*x + c = 0",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": 1,
+          "max": 4
+        },
+        "root1_num": {
+          "type": "int",
+          "min": -6,
+          "max": 6
+        },
+        "root1_den": {
+          "type": "int",
+          "min": 1,
+          "max": 3
+        },
+        "root2_num": {
+          "type": "int",
+          "min": -6,
+          "max": 6
+        },
+        "root2_den": {
+          "type": "int",
+          "min": 1,
+          "max": 3
+        }
+      },
+      "calculated_parameters": {
+        "b": "-a*(root1_num*root2_den + root2_num*root1_den)/(root1_den*root2_den)",
+        "c": "a*root1_num*root2_num/(root1_den*root2_den)"
+      },
+      "options": [
+        "x = root1_num/root1_den and x = root2_num/root2_den",
+        "x = -root1_num/root1_den and x = -root2_num/root2_den",
+        "x = root1_den/root1_num and x = root2_den/root2_num",
+        "x = (root1_num + root2_num)/(root1_den + root2_den)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! Using the quadratic formula $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$ gives these solutions",
+        "Incorrect. You may have the wrong signs for the roots.",
+        "Incorrect. You may have inverted the fractions.",
+        "Incorrect. You cannot add fractions this way."
+      ],
+      "main_topic_index": 15,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "15": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.4,
+        "procedural_fluency": 0.8,
+        "problem_solving": 0.5,
+        "mathematical_communication": 0.3,
+        "memory": 0.9,
+        "spatial_reasoning": 0.0
+      },
+      "overall_difficulty": 0.48333333333333334,
+      "prerequisites": {
+        "16": 0.8,
+        "17": 0.7
+      }
+    },
+    {
+      "id": "3d684f4e-e784-488b-8113-0f049eadab04",
+      "text": "What is the nature of the roots when the discriminant equals ${question_expression_subbed}$?",
+      "question_expression": "discriminant_value",
+      "generated_parameters": {
+        "discriminant_case": {
+          "type": "int",
+          "min": 1,
+          "max": 3
+        }
+      },
+      "calculated_parameters": {
+        "discriminant_value": "25 if discriminant_case == 1 else (0 if discriminant_case == 2 else -16)"
+      },
+      "options": [
+        "Two distinct real roots if discriminant_value > 0; one repeated real root if discriminant_value = 0; two complex roots if discriminant_value < 0",
+        "Two complex roots if discriminant_value > 0; one repeated real root if discriminant_value = 0; two distinct real roots if discriminant_value < 0",
+        "Always two distinct real roots regardless of discriminant value",
+        "One real root if discriminant_value > 0; no real roots if discriminant_value \u2264 0"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! When $\\Delta > 0$: two distinct real roots; $\\Delta = 0$: one repeated real root; $\\Delta < 0$: two complex roots",
+        "Incorrect. You have the conditions for positive and negative discriminant reversed.",
+        "Incorrect. The nature of roots depends on the discriminant value.",
+        "Incorrect. This doesn't correctly describe all cases."
+      ],
+      "main_topic_index": 16,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "16": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.8,
+        "procedural_fluency": 0.3,
+        "problem_solving": 0.4,
+        "mathematical_communication": 0.6,
+        "memory": 0.7,
+        "spatial_reasoning": 0.0
+      },
+      "overall_difficulty": 0.4666666666666666,
+      "prerequisites": {}
+    },
+    {
+      "id": "f1570cc0-fb01-4eaa-9cd6-740ab9365aae",
+      "text": "Factor the quadratic polynomial ${question_expression_subbed}$ completely.",
+      "question_expression": "poly",
+      "generated_parameters": {
+        "root1": {
+          "type": "int",
+          "min": -4,
+          "max": 4
+        },
+        "root2": {
+          "type": "int",
+          "min": -4,
+          "max": 4
+        }
+      },
+      "calculated_parameters": {
+        "a_coeff": "1",
+        "b_coeff": "-(root1 + root2)",
+        "c_coeff": "root1 * root2",
+        "poly": "x**2 + b_coeff*x + c_coeff"
+      },
+      "options": [
+        "(x - root1)*(x - root2)",
+        "(x + root1)*(x + root2)",
+        "(x - root1)*(x + root2)",
+        "x**2 + root1*x + root2"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! If the roots are r\u2081 and r\u2082, then the factored form is (x - r\u2081)(x - r\u2082)",
+        "Incorrect. Check the signs in your factors.",
+        "Incorrect. Both factors should have the same relationship to the roots.",
+        "Incorrect. This is not the correct factored form."
+      ],
+      "main_topic_index": 6,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "6": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.6,
+        "procedural_fluency": 0.8,
+        "problem_solving": 0.7,
+        "mathematical_communication": 0.4,
+        "memory": 0.5,
+        "spatial_reasoning": 0.2
+      },
+      "overall_difficulty": 0.5333333333333333,
+      "prerequisites": {
+        "7": 0.8,
+        "12": 0.9
+      }
+    },
+    {
+      "id": "8ecee255-0953-4ae0-b519-826456307fb8",
+      "text": "Find the vertex of the quadratic function ${question_expression_subbed}$.",
+      "question_expression": "func",
+      "generated_parameters": {
+        "func": {
+          "type": "function",
+          "function_type": "quadratic",
+          "parameter_ranges": {
+            "a_min": 1,
+            "a_max": 3,
+            "b_min": -8,
+            "b_max": 8,
+            "c_min": -10,
+            "c_max": 10
+          }
+        }
+      },
+      "calculated_parameters": {
+        "vertex_x": "-func_b / (2 * func_a)",
+        "vertex_y": "func_a * vertex_x**2 + func_b * vertex_x + func_c"
+      },
+      "options": [
+        "(vertex_x, vertex_y)",
+        "(-vertex_x, vertex_y)",
+        "(vertex_x, -vertex_y)",
+        "(func_b, func_c)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! The vertex is at (-b/2a, f(-b/2a)) for a quadratic function f(x) = ax\u00b2 + bx + c",
+        "Incorrect. The x-coordinate should be -b/2a, not b/2a.",
+        "Incorrect. Check the sign of the y-coordinate.",
+        "Incorrect. The vertex coordinates are not simply the coefficients b and c."
+      ],
+      "main_topic_index": 11,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "11": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.7,
+        "procedural_fluency": 0.6,
+        "problem_solving": 0.5,
+        "mathematical_communication": 0.4,
+        "memory": 0.6,
+        "spatial_reasoning": 0.4
+      },
+      "overall_difficulty": 0.5333333333333333,
+      "prerequisites": {}
+    }
+  ]
+}

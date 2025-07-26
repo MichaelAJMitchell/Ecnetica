@@ -1,7 +1,7 @@
 import uuid
 import json
 from typing import Dict, List, Union
-from mcq_algorithm_with_json import DifficultyBreakdown,KnowledgeGraph
+from mcq_algorithm_different_numbers import DifficultyBreakdown, KnowledgeGraph, MCQ
 
 def process_mcq_document(mcq_document: Union[List[Dict], Dict], knowledge_graph) -> List[Dict]:
     """
@@ -17,13 +17,18 @@ def process_mcq_document(mcq_document: Union[List[Dict], Dict], knowledge_graph)
     Returns:
         List of complete JSON-ready MCQ dictionaries
     """
-    with open('mcqs.json', 'r') as f:
-        data = json.load(f)
-        mcq_document = data['mcqs']
-
-    # Handle single MCQ input
-    if isinstance(mcq_document, dict):
-        mcq_document = [mcq_document]
+    # Handle different input types
+    if isinstance(mcq_document, str):
+        # If string, treat as filename
+        with open(mcq_document, 'r',encoding='utf-8') as f:
+            data = json.load(f)
+            mcq_document = data.get('mcqs', data)  # Handle both formats
+    elif isinstance(mcq_document, dict):
+        # If dict, check if it's a container or single MCQ
+        if 'mcqs' in mcq_document:
+            mcq_document = mcq_document['mcqs']
+        else:
+            mcq_document = [mcq_document]
     
     processed_mcqs = []
     
@@ -102,15 +107,16 @@ def _process_single_mcq(mcq_input: Dict, knowledge_graph) -> Dict:
     
     # Generate UUID
     mcq_id = str(uuid.uuid4())
-    difficulty_breakdown = _extract_difficulty_from_input(mcq_input)
-    # Get chapter from main topic using existing function
-    main_topic_node = knowledge_graph.get_node_by_index(mcq_input['main_topic_index'])
-    chapter = main_topic_node.chapter
-    
-    # Create temporary MCQ object to use existing prerequisite calculation
     # Convert subtopic_weights to have integer keys for existing functions
-    subtopic_weights = {int(k) if isinstance(k, str) else k: v 
-                       for k, v in mcq_input['subtopic_weights'].items()}
+    subtopic_weights = {int(k): v for k, v in mcq_input['subtopic_weights'].items()}
+    prerequisites = _calculate_prerequisites(subtopic_weights, knowledge_graph)
+    
+    # Extract difficulty breakdown
+    difficulty_breakdown = _extract_difficulty_from_input(mcq_input)
+    
+    # Calculate overall difficulty if not provided
+    overall_difficulty = mcq_input.get('overall_difficulty', difficulty_breakdown.calculate_overall())
+    # Get chapter from main topic using existing function
     
     main_topic_index = mcq_input['main_topic_index']
     main_topic_node = knowledge_graph.get_node_by_index(main_topic_index)
@@ -125,22 +131,18 @@ def _process_single_mcq(mcq_input: Dict, knowledge_graph) -> Dict:
     complete_mcq = {
         "id": mcq_id,
         "text": str(mcq_input['text']),
+        'question_expression': mcq_input.get('question_expression'),
+        'generated_parameters': mcq_input.get('generated_parameters', {}),
+        'calculated_parameters': mcq_input.get('calculated_parameters', {}),
         "options": list(mcq_input['options']),
         "correctindex": int(mcq_input['correctindex']),
         "option_explanations": list(mcq_input['option_explanations']),
         "main_topic_index": int(main_topic_index),
         "chapter": str(chapter),
-        "subtopic_weights": {str(k): float(v) for k, v in subtopic_weights.items()},
-        "difficulty_breakdown": {
-            "conceptual_understanding": float(difficulty_breakdown.conceptual_understanding),
-            "procedural_fluency": float(difficulty_breakdown.procedural_fluency),
-            "problem_solving": float(difficulty_breakdown.problem_solving),
-            "mathematical_communication": float(difficulty_breakdown.mathematical_communication),
-            "memory": float(difficulty_breakdown.memory),
-            "spatial_reasoning": float(difficulty_breakdown.spatial_reasoning)
-        },
+        "subtopic_weights": subtopic_weights,
+        'difficulty_breakdown': difficulty_breakdown.__dict__, 
         "overall_difficulty": float(overall_difficulty),
-        "prerequisites": prerequisites
+        'prerequisites': {str(k): v for k, v in prerequisites.items()}
     }
     return complete_mcq
 
@@ -152,11 +154,11 @@ def _process_single_mcq(mcq_input: Dict, knowledge_graph) -> Dict:
 
 def example_usage():
     kg = KnowledgeGraph()
-    mcq_document = 'mcqs.json'
+    mcq_document = 'mcq_algorithm_files\mcqs_different_numbers.json'
     print("\n" + "="*50)
     # Process all MCQs
     processed_mcqs = process_mcq_document(mcq_document, kg)
-    with open('computed_mcqs.json', 'w') as f:
+    with open('mcq_algorithm_files\computed_mcqs_different_numbers.json', 'w') as f:
         json.dump({"mcqs": processed_mcqs}, f, indent=2)
 
 if __name__ == "__main__":

@@ -1,0 +1,2 @@
+# Force LF for all text files, Git will auto-detect binary files
+* text=auto eol=lf

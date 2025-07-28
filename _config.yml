@@ -41,9 +41,11 @@ html:
 
 sphinx:
   config:
-    #html_theme: sphinx-book-theme
+    #html_theme: pydata_sphinx_theme
     html_theme_options:
       navigation_depth: 4
+      show_navbar_depth: 2
+      collapse_navigation: true
       sidebar_hide_name: false
 
 parse:

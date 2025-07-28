@@ -1,16 +1,6 @@
 #!/bin/bash
 DIR=$(pwd)
 
-# Fix line endings for WSL compatibility
-if [[ -n "${WSL_DISTRO_NAME:-}" ]] || [[ "$(uname -r)" == *microsoft* ]]; then
-    # We're in WSL - fix line endings if dos2unix is available
-    dos2unix "$0" || {
-        # Let the user read the error message, don't guess it's that dos2unix isn't installed
-        exit 1
-    }
-    echo "Line endings fixed for WSL compatibility"
-fi
-
 if [ "$1" == "testing" ]; then
     echo "Creating minimal content structure for fast testing..."
     

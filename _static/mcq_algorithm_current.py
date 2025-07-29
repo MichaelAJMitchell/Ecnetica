@@ -24,6 +24,8 @@ from datetime import datetime
 import math 
 import json
 
+
+
 @dataclass
 class MinimalMCQData:
     """
@@ -426,9 +428,11 @@ class StudentProfile:
         if self.last_active is None:
             self.last_active = datetime.now()
 
+    
     def get_mastery(self, node_index: int) -> float:
         """Get mastery level for a topic, defaulting to 0.1 if not set"""
         return self.mastery_levels.get(node_index, 0.1)
+    
 
     def get_confidence(self, node_index: int) -> float:
         """Get confidence level for a topic, defaulting to 0.1 if not set"""
@@ -1443,7 +1447,7 @@ class MCQScheduler:
                 importance_bonus += topic_importance
 
         return importance_bonus
-
+    
 
 @dataclass
 class FSRSMemoryComponents:
@@ -1456,6 +1460,7 @@ class FSRSMemoryComponents:
     recent_success_rate: float = 0.5
 
 
+#i think i put this in the config, will check
 
 @dataclass
 class FSRSForgettingConfig:
@@ -2455,4 +2460,35 @@ def analyze_area_of_effect(bkt_updates: List[Dict], kg) -> Dict:
         'area_effect_updates': area_effect_updates
     }
 
- 
+def refresh_student_mastery(bkt_system, student_id: str):
+    """
+    Simple function to refresh one student's mastery with current decay
+    """
+    student = bkt_system.student_manager.get_student(student_id)
+    if not student or not bkt_system.fsrs_forgetting:
+        return
+    
+    print(f"🔄 Refreshing mastery for {student_id}...")
+    
+    updates = []
+    for topic_index, stored_mastery in list(student.mastery_levels.items()):
+        if stored_mastery > 0.05:
+            decayed_mastery = bkt_system.fsrs_forgetting.apply_forgetting(
+                student_id, topic_index, stored_mastery)
+            
+            decay_amount = stored_mastery - decayed_mastery
+            if decay_amount > 0.001:
+                student.mastery_levels[topic_index] = decayed_mastery
+                topic_name = bkt_system.kg.get_topic_of_index(topic_index)
+                updates.append(f"   {topic_name}: {stored_mastery:.3f} → {decayed_mastery:.3f} (-{decay_amount:.3f})")
+    
+    if updates:
+        print(f"📉 Applied decay to {len(updates)} topics:")
+        for update in updates[:5]:  # Show first 5
+            print(update)
+        if len(updates) > 5:
+            print(f"   ... and {len(updates)-5} more")
+    else:
+        print("   No significant decay to apply")
+    
+    student._last_decay_update = time_manipulator.get_current_time()

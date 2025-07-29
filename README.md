@@ -1,3 +1,73 @@
+# Ecntica
+### The Ecnetica project is an advanced mathematical resource aiming to tear down barriers to resources providing freely accessible content. Through cutting-edge animations and expert instruction, we're democratizing Higher Level mathematics education and empowering every Irish student with the quantitative reasoning skills needed for tomorrow's challenges.
+
+<img src="logo.png" alt="Problem Solving Logo" width="100px" height="auto" style="display: block; margin: 0 auto;">
+
+## Table of Contents
+
+<div style="font-size: 1.3em;">
+
+1. **Required Configuration for Windows Users** 
+2. **Building and Running the Code** 
+<!--3. **Jupyter Book Explanation**-->
+
+</div>
+
+
+
+# Required Configuration for Windows Users
+Before contributing please ensure you are using UNIX line break standards.
+
+## Line Endings: Unix vs Windows
+
+Most operating systems use LF (Line Feed only: `\n`) to represent a line ending, but Windows uses its own syntax CRLF (Carriage Return + Line Feed: `\r\n`). This causes inconsistencies in the project and files such as our build script won't run in CRLF.
+
+### Our Solution
+
+This repository enforces **LF line endings** for all text files using `.gitattributes`:
+
+```
+* text=auto eol=lf
+```
+
+This configuration:
+- Forces all text files to use Unix-style (LF) line endings in the repository
+- Automatically detects and preserves binary files
+- Applies to all contributors regardless of their operating system
+
+#### Repository Normalization
+We've used `git add --renormalize .` to convert all existing files to LF line endings and ensure consistency across the entire codebase.
+
+### Windows Users: VS Code Configuration
+
+Windows users should configure VS Code to work seamlessly with LF line endings. Add these settings to your VS Code `settings.json`:
+
+```json
+{
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true
+}
+```
+
+**To configure these settings:**
+
+**Alternative method:**
+1. Go to File → Preferences → Settings
+2. Search for "eol"
+3. Set "Files: Eol" to "\n"
+
+With this configuration, VS Code will:
+- Create new files with LF line endings
+- Display line endings consistently
+- Avoid unnecessary file modifications
+
+##### Verification
+
+You can verify your line endings are correct by checking the bottom-right corner of VS Code - it should show "LF" rather than "CRLF".
+
+
+
 # Building and Running the Code
 
 This project uses Jupyter Book to build the site.
@@ -38,15 +108,6 @@ First, make the build script executable:
 chmod u+x quick-build.sh
 ```
 
-<!--
-**Alternative execution:**
-The bash script can also be run with the command:
-```bash
-bash quick-build.sh
-```
-but I prefer `./`
--->
-
 ### Standard Build
 This site uses jupyter notebooks for compiling. From `~/${path-to}/Ecnetica/` run:
 ```bash
@@ -86,6 +147,8 @@ This uses `_toc-<name>.yml` file. For example:
 - `./quick-build.sh full` uses `_toc-full.yml`
 - `./quick-build.sh minimal` uses `_toc-minimal.yml`
 
+
+<!--# Jupyter Book Explanation-->
 
 <!--
 ## Adding Chapters

@@ -5,7 +5,7 @@
       "text": "What is the discriminant of the quadratic equation $2x^2 - 5x + 3 = 0$?",
       "options": [
         "$1$",
-        "$7$", 
+        "$7$",
         "$13$",
         "$-1$"
       ],
@@ -31,7 +31,7 @@
       }
     }
 ```
-### form they will be converted to 
+### form they will be converted to
 ```
 {
       "id": "d8f6f656-c7d6-45a6-ab5d-c180e0e646f1",
@@ -70,7 +70,7 @@
       }
     }
 ```
-if you take the mcq document and run them through the process mcqs python file, it automatically calculates the id, prerequisites and difficulty and them saves them in another json file, which is the one actually used for the mcq algorithm. it also calculates the chapter from the topic for the main node. 
+if you take the mcq document and run them through the process mcqs python file, it automatically calculates the id, prerequisites and difficulty and them saves them in another json file, which is the one actually used for the mcq algorithm. it also calculates the chapter from the topic for the main node.
 
 # python
 ## mcqs structure (old but explanations still the same)
@@ -144,7 +144,7 @@ in the code they are called conceptual, procedural, problem_solving, communicati
 
 ## calculated content
 ### id
-each mcq has an id, which is what's used to refer to it in most of the code. It is a random string of letters and numbers: mcq_id = str(uuid.uuid4()). it is generated when the mcqs are created.  
+each mcq has an id, which is what's used to refer to it in most of the code. It is a random string of letters and numbers: mcq_id = str(uuid.uuid4()). it is generated when the mcqs are created.
 
 
 ### chapter
@@ -156,7 +156,7 @@ the prerequisites for each mcq are stored, to save calculating them every time f
 
 
 ### difficulty
-the overall difficulty score for a question is the average of the skills in the difficulty breakdown. it is calculated automatically based on the difficulty breakdown values. There could be a better way of calculating this. 
+the overall difficulty score for a question is the average of the skills in the difficulty breakdown. it is calculated automatically based on the difficulty breakdown values. There could be a better way of calculating this.
 
 
 

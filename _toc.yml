@@ -9,7 +9,7 @@ parts:
       - file: content/introduction/problem_solving
       - file: content/introduction/proof_techniques
     - file: content/knowledge-graph
-      
+
   - caption: Interactive Tools
     chapters:
     - file: content/interactive/python_playground

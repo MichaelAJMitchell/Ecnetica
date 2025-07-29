@@ -14,7 +14,7 @@ This question can be split into two parts, the first being, what does the studen
 
 The next question is, what should they know? If a topic has a large number of post-requisites, it's likely to be a simple or important topic. If a student says they know a topic like this we should be willing to believe them more than we would if they say they're comfortable with an advanced topic. In practice this means we consider 'graph depth' on our knowledge graph.
 
-If a student says they've covered a topic we respond to this by giving them a higher initial $P(L_0)$ (mastery). The amount we raise it by ( $\Delta P(L_0)$ ) will be based on graph depth (number of prerequisites, R). 
+If a student says they've covered a topic we respond to this by giving them a higher initial $P(L_0)$ (mastery). The amount we raise it by ( $\Delta P(L_0)$ ) will be based on graph depth (number of prerequisites, R).
 
 To figure out the relationship between graph depth and $\Delta P(L_0)$ we should consider a few things:
 We should never ignore the student completely- this means $\Delta P(L_0)$ will approach 0 but never hit it. We also assume this relationship is trending down and has no bumps, since there shouldn't be a jump in $\Delta P(L_0)$  for intermediate topics. These two observations point us to something like an exponential decay, subject to some constant.
@@ -52,7 +52,7 @@ One of the ways we can achieve this is personalised clustering. In this approach
 
 This is a tested method that has been shown to produce favourable results. I think rather than aiming to completely nail the specific values for a student we should instead aim for smaller and smaller intervals, for the longer we have them on the site. We should also allow for a confidence parameter that depends on how long it has been in days since their last log in. We can't necessarily assume the student won't have covered more topics, or studied more in their own time.
 
-# 2 Altered Bayesian Knowledge Tracing 
+# 2 Altered Bayesian Knowledge Tracing
 
 Here we outline the major ways in which the classical BKT algorithm discussed in the research document will be changed for our purposes.
 
@@ -68,10 +68,10 @@ $P(L_{t+1})= P(L_t| Result) + (1-P(L_t| Result))P(T)$  &nbsp; [1.1]
 
 ## 2.2 Multiple skills per question
 
-Here we can just use the weights attached to the MCQ, by normalising the vector, and spreading out the total mastery update onto different topics. Eg, if a question is based on one topic then we just have $P(L_{topic})=1(P(L_t))$, if its based on two with equal weights then, 
-$P(L_{topic1})=\frac{1}{\sqrt{2}}(P(L_t)), \ P(L_{topic2})=\frac{1}{\sqrt{2}}(P(L_t))$ 
+Here we can just use the weights attached to the MCQ, by normalising the vector, and spreading out the total mastery update onto different topics. Eg, if a question is based on one topic then we just have $P(L_{topic})=1(P(L_t))$, if its based on two with equal weights then,
+$P(L_{topic1})=\frac{1}{\sqrt{2}}(P(L_t)), \ P(L_{topic2})=\frac{1}{\sqrt{2}}(P(L_t))$
 
-This might not be exactly the best approach but I think it's a reasonable start. This can be altered once we get a bit more data on its effectiveness. Another point to mention is this might not interface nicely with our "area of effect" approach [2.4.1] for related topic updates. If two topics are in the same question, but are closely related, we may end up over-updating those topics. The main solution here is just to keep skills reasonably distinct, by that I mean, by the time the area of effect actually gets to them it will be a negligible difference. 
+This might not be exactly the best approach but I think it's a reasonable start. This can be altered once we get a bit more data on its effectiveness. Another point to mention is this might not interface nicely with our "area of effect" approach [2.4.1] for related topic updates. If two topics are in the same question, but are closely related, we may end up over-updating those topics. The main solution here is just to keep skills reasonably distinct, by that I mean, by the time the area of effect actually gets to them it will be a negligible difference.
 
 ## 3 Spaced Repetition
 
@@ -81,7 +81,7 @@ The general model for forgetting we'll be using is the **Ebbinghaus Forgetting C
 
 $R = e^{–t/S}$ &nbsp; [2.1]
 
-Repeated review and building on prior knowledge should flatten the curve, i.e memory strength should grow after revision and decay according to a function of time. 
+Repeated review and building on prior knowledge should flatten the curve, i.e memory strength should grow after revision and decay according to a function of time.
 The implementation of this is straightforward with $\Delta t$ being the time since last answering a question and $C=\frac{1}{S}$. We also introduce the constant of initial retention $R_0$.
 
 $R = R_0e^{– C \Delta t}$
@@ -96,15 +96,15 @@ This is the analytical explanation of memory, and can be applied for a simple de
 
 ## 3.2 FSRS ###
 
-If we care more for accuracy we should consider some algorithms already employed by learning software, eg. super memo and FSRS. The **Free Spaced Repetition Scheduler** (FSRS) is a spaced repettition algorithm proven to be 20-30% better at predicting when revisions are due than Super Memo 2 (SM-2). 
+If we care more for accuracy we should consider some algorithms already employed by learning software, eg. super memo and FSRS. The **Free Spaced Repetition Scheduler** (FSRS) is a spaced repettition algorithm proven to be 20-30% better at predicting when revisions are due than Super Memo 2 (SM-2).
 
-FSRS is a spaced repetition aglorithm based on three components of memory: DSR (Difficulty, Stability, Retrievability) 
+FSRS is a spaced repetition aglorithm based on three components of memory: DSR (Difficulty, Stability, Retrievability)
 
-- Retrievability (R): The probability that the person can successfully recall a piece of information at a given moment. It depends on the time elapsed since the last review and the memory stability, R(t,S). 
+- Retrievability (R): The probability that the person can successfully recall a piece of information at a given moment. It depends on the time elapsed since the last review and the memory stability, R(t,S).
 
-- Stability (S): The time, in days, required for R to decrease from 100% to 90%. 
+- Stability (S): The time, in days, required for R to decrease from 100% to 90%.
 
-- Difficulty (D): How difficult it is to increase memory stability after a review. In FSRS, it affects how fast stability grows after each review. 
+- Difficulty (D): How difficult it is to increase memory stability after a review. In FSRS, it affects how fast stability grows after each review.
 
 The value of R changes daily, while D and S change only after a review. Generally, these parameters are found by looking at a user's past performance and fitting it to that data. This is again part of the "cold start" problem we'll be dealing with, and should be something looked at in the diagnostic process.  There's more details on this algorithm in its current state listed here https://expertium.github.io/Algorithm.html .
 
@@ -126,14 +126,14 @@ The difficulty of a question is already something we've discussed at great lengt
 Retrievability is a parameter that be quickly derived by definition from a value we have already been working with. Since retrievability in the classic card case is the chance a student will successfully recall a piece of information (get a flashcard right), in our case it's the chance a student will answer an MCQ correctly.
 
 $R= P(Corr) = P(L_t)(1-P(S)) + (1-P(L_t))P(G)$
- 
+
 Since we want the mastery (student knowledge) to reflect that they may have forgotten a topic, we can just rearrange for mastery decay.
- 
+
 $P(L_t)= \frac{R-P(G)}{1-P(S)-P(G)}$
 
 Finally, stability is the parameter that will actually control the forgetting process. It doesn't have any direct analogy with the BKT system because its a new parameter that we'll be using to define forgetting.
 
-The FSRS model itself is largely empirical. This means much of the model is specifically tailored to the card memorisation use case. For this reason, it isn't as straightforward for us to just copy down the parameters used in the existing FSRS implementations. So the approach we've chosen to take for now, is instead to create a model inspired by the main components of FSRS, with our own values. 
+The FSRS model itself is largely empirical. This means much of the model is specifically tailored to the card memorisation use case. For this reason, it isn't as straightforward for us to just copy down the parameters used in the existing FSRS implementations. So the approach we've chosen to take for now, is instead to create a model inspired by the main components of FSRS, with our own values.
 
 As a sidenote, it may turn out to be more accurate to just use the existing work on FSRS, we can test this later. Self-correcting algorithms are also something we can take from the existing body of work, which will help us ensure we use correct values for each component.
 
@@ -154,13 +154,13 @@ D_analytical = f(intrinsic_load, extraneous_load, germane_load)
 def estimate_analytical_difficulty(mcq, kg):
     # Intrinsic cognitive load
     intrinsic = concept_complexity(mcq.topic_index, kg)
-    
+
     # Extraneous load from prerequisites
     extraneous = prerequisite_load(mcq.topic_index, kg)
-    
+
     # Germane load from interconnections
     germane = connection_complexity(mcq.topic_index, kg)
-    
+
     # Combine using cognitive load principles
     total_difficulty = intrinsic + extraneous * 0.7 + germane * 0.3
     return normalize_to_scale(total_difficulty, 1, 10)
@@ -168,29 +168,29 @@ def estimate_analytical_difficulty(mcq, kg):
 def concept_complexity(topic_index, kg):
     """Analytical complexity based on graph properties"""
     node = kg.get_node_by_index(topic_index)
-    
+
     # Mathematical complexity indicators
     abstraction_level = count_prerequisite_layers(topic_index, kg)
     notation_density = analyze_notation_complexity(node.topic)
     proof_steps = estimate_proof_length(node.topic)
-    
+
     return weighted_sum([abstraction_level, notation_density, proof_steps])
 
 def prerequisite_load(topic_index, kg):
     """Working memory load from prerequisite management"""
     prerequisites = kg.get_prerequisites(topic_index)
-    
+
     # Miller's 7±2 rule: penalty for exceeding working memory
     base_load = len(prerequisites)
     memory_penalty = max(0, len(prerequisites) - 7) ** 1.5
-    
+
     # Weight by prerequisite strength
     weighted_load = sum(weight for _, weight in prerequisites)
-    
+
     return base_load + memory_penalty + weighted_load
 
 
-There are three main types of memory we can consider: working memory, hippocampal memory, and neocortal memory. Working memory relies on temporary, active maintenance of information, while long-term memory involves the gradual consolidation and storage of memories in the hippocampus and neocortex. Generally episodic memories are maintained in the hippocampus, while generalized memories are stored in the neocortex. If we want to analytically represent memory, we can average together exponential decays in all of these areas. 
+There are three main types of memory we can consider: working memory, hippocampal memory, and neocortal memory. Working memory relies on temporary, active maintenance of information, while long-term memory involves the gradual consolidation and storage of memories in the hippocampus and neocortex. Generally episodic memories are maintained in the hippocampus, while generalized memories are stored in the neocortex. If we want to analytically represent memory, we can average together exponential decays in all of these areas.
 
 
 ## 4 Knowledge Spread

@@ -2,7 +2,7 @@
 
 the mcqs definitely need to store this information:
 
-- main topic 
+- main topic
 
 - other topics it includes (vector)
 
@@ -16,31 +16,31 @@ the mcqs definitely need to store this information:
 
 - correct answer
 
-- explanation  
+- explanation
 
 other possibilities:
-- links 
+- links
 - difficulty breakdown
 - chapter of main topic (for sorting mostly)
 - if all topics in chapter have been covered ie can it be asked or not
 - way of breaking down the question into subparts if student gets it wrong
 current example layout: (dictionary)
 
-(quizData1, {  
-    text: "What is the discriminant of a quadratic equation \\(ax^2 + bx + c = 0\\)?",  
-    options: [  
+(quizData1, {
+    text: "What is the discriminant of a quadratic equation \\(ax^2 + bx + c = 0\\)?",
+    options: [
         "\\(a^2 - 4bc\\)",
-        "\\(b^2 - 4ac\\)",  
+        "\\(b^2 - 4ac\\)",
         "\\(2a + b\\)",
         "\\(b^2 + 4ac\\)"
-    ],  
-    correctIndex: 1,  
-    explanation: "The discriminant is \\(b^2 - 4ac\\), determining the nature of the roots.",  
-    difficulty: "Basic",  
-    topic: "Quadratic Equations",  
-    relatedTopics: ["Algebra", "Polynomial Equations", "Roots of Equations"],  
-    link: "https://en.wikipedia.org/wiki/Discriminant"  
-}, topicUuidGenerator);  
+    ],
+    correctIndex: 1,
+    explanation: "The discriminant is \\(b^2 - 4ac\\), determining the nature of the roots.",
+    difficulty: "Basic",
+    topic: "Quadratic Equations",
+    relatedTopics: ["Algebra", "Polynomial Equations", "Roots of Equations"],
+    link: "https://en.wikipedia.org/wiki/Discriminant"
+}, topicUuidGenerator);
 
 -The related topics will be a vector with entries in the columns
 corresponding to the topics, with the columns matching that of the
@@ -107,31 +107,31 @@ methods:
     /**
      * Creates topic-prefixed UUID IDs by combining the first three letters of the topic
      * with a UUID v4 for guaranteed uniqueness.
-     * @returns {Function} A function that generates an ID when provided a topic string  
-     */  
+     * @returns {Function} A function that generates an ID when provided a topic string
+     */
     topicUuid: function() {
-        // Return a function that creates a unique ID for a given topic  
+        // Return a function that creates a unique ID for a given topic
         return function(topic) {
-            // Input validation  
-            if (!topic) {  
-                throw new Error("Topic is required for topicUuid ID generation");  
-            }  
-            
-            // Extract the first 3 letters of the topic, lowercased  
-            const prefix = topic.substring(0, 3).  toLowerCase();  
-            
+            // Input validation
+            if (!topic) {
+                throw new Error("Topic is required for topicUuid ID generation");
+            }
+
+            // Extract the first 3 letters of the topic, lowercased
+            const prefix = topic.substring(0, 3).  toLowerCase();
+
             // Generate UUID v4 using standard algorithm
-            const uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.  replace(/[xy]/g, function(c) {  
-                const r = Math.random() * 16 | 0;  
-                const v = c === 'x' ? r : (r & 0x3 | 0x8);  
-                return v.toString(16);  
-            });  
-            
-            // Combine prefix with UUID to create format "prefix-uuid"  
-            return `${prefix}-${uuid}`;  
-        };  
-    }  
-};  
+            const uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.  replace(/[xy]/g, function(c) {
+                const r = Math.random() * 16 | 0;
+                const v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+
+            // Combine prefix with UUID to create format "prefix-uuid"
+            return `${prefix}-${uuid}`;
+        };
+    }
+};
 
 - questions could also be classes by the number of the node, followed by
   a shorter unique identifier. Sequential numbering could also be used,
@@ -152,7 +152,7 @@ example of projecting mcq vector onto knowledge graph basis: given
 graph (just having non weighted dependencies for now):
 
 
-topics algebra, differentiation, geometry, trigonometry and integration 
+topics algebra, differentiation, geometry, trigonometry and integration
 with connections as in adjacency matrix$$\begin{matrix}
     A\\D\\G\\T\\I
 \end{matrix}\begin{bmatrix}
@@ -184,7 +184,7 @@ into account that integration depends on algebra.
 
 # choosing mcqs
 
-## Factors to consider:    
+## Factors to consider:
 depends on topics to review and difficulty, how are you factoring in
 breakdown of difficulty, making sure no repeats. Need to go
 through the bank of questions, choose one that covers the topic that
@@ -203,7 +203,7 @@ the earlier kg integration
 also had a direct dependence on algebra (more important when you have
 very specific subtopics). You want to try and
 choose a question that will revise a few topics at once to optimise
-study time. 
+study time.
 
 Would it be possible to have like covered questions and not covered
 questions? like either the questions are contained within two lists,
@@ -219,7 +219,7 @@ this for now) if possible.
 Take given topics to revise, gather all relevant questions. Have a list
 of the ids that a student has covered every day and compare this list to
 the questions. If any of the questions are on the already studied list,
-exclude them.   
+exclude them.
 Look at student level of knowledge of that topic. Exclude
 all the questions that have a difficulty outside of a certain range,
 which is a little broad but not massive. Eg if knowledge on scale 0-100,
@@ -288,16 +288,16 @@ the lowest cost and add it to questions to do. Then repeat the process,
 seeing how many of the remaining topics a question covers.
 [reference: @setcovergfg]
 
-there is also other things that can be considered to optimise learning:  
+there is also other things that can be considered to optimise learning:
 -how important of a topic is it? you might want to cover key topics more.
-this can be determined in a couple of different ways:   
-1. nodes that have high out-degree ie a lot of topics depend on them. This is probably the easiest way. 
-2. relevance of the topic to learning in the future. can be defined as the number of nodes x such that there exists a path between the current topic and x. This would make sure students are strong at topics which are involved in a lot of topics later on.  
+this can be determined in a couple of different ways:
+1. nodes that have high out-degree ie a lot of topics depend on them. This is probably the easiest way.
+2. relevance of the topic to learning in the future. can be defined as the number of nodes x such that there exists a path between the current topic and x. This would make sure students are strong at topics which are involved in a lot of topics later on.
 
 
-How this would look in practice:   
+How this would look in practice:
 cost function:$$\frac{\text{difficulty + difficulty breakdown - importance }}{\text{subtopics}\cdot\text{due topics}+\text{prereqs}\cdot \text{due topics}} $$
-with weighting and difference between question difficulty and student mastery as in the first method 
+with weighting and difference between question difficulty and student mastery as in the first method
 
 dealing with fractional reviews is an issue, how do you say a question
 is 'covered' and no longer needs to be considered in the algorithm??
@@ -308,10 +308,10 @@ for it to be the most effective. What way do you choose them if they
 feel like doing more?? maybe select three topics with the lowest mastery levels and run it for
 them or something?
 
-# concept clustered reviews 
+# concept clustered reviews
 
- 
- interleaving more efficient science of learning-wise: try to encourage it.  
+
+ interleaving more efficient science of learning-wise: try to encourage it.
 
 
 Assuming you have the nodes clustered into levels corresponding roughly
@@ -331,36 +331,36 @@ There is two steps to this: identifying chapters which can have a
 cluster review applied, and given a chapter choosing questions. The
 second part could also be used to choose questions if a student wants to
 study a chapter that we haven't said is due, like if they have a test in
-class they want to study for.  
+class they want to study for.
 ### identifying chapters
-The easiest way to identify chapters would be to just take the average mastery of all the nodes in that chapter. If the average mastery is below the same threshold you use to trigger reviews for individual nodes, then the chapter is due. Issues: outliers eg very good or very bad topics could impact this. Also doesn't take importance of topic into account. 
+The easiest way to identify chapters would be to just take the average mastery of all the nodes in that chapter. If the average mastery is below the same threshold you use to trigger reviews for individual nodes, then the chapter is due. Issues: outliers eg very good or very bad topics could impact this. Also doesn't take importance of topic into account.
 
 Also want to take into account:
-- how important the topic is  
+- how important the topic is
 - if it is the cause of weakness down the line
-- variation in the mastery within the topic. If their his a high variation, then there is a few very weak topics bringing the score down. These should be already be a priority in the normal mcqs. If there is low variance and also low mastery, then most of the nodes in the chapter are weak and the chapter as a whole would benefit from a review. 
+- variation in the mastery within the topic. If their his a high variation, then there is a few very weak topics bringing the score down. These should be already be a priority in the normal mcqs. If there is low variance and also low mastery, then most of the nodes in the chapter are weak and the chapter as a whole would benefit from a review.
 
-Can compute the mastery of all nodes that depend on one node: Gather all nodes that can be reached from a node (depth first search is a method). compute the average mastery of these nodes to give the average mastery of dependant nodes.  
+Can compute the mastery of all nodes that depend on one node: Gather all nodes that can be reached from a node (depth first search is a method). compute the average mastery of these nodes to give the average mastery of dependant nodes.
 
 variance is (mastery of node - average mastery of chapter)$^2$. This gives the average mastery of a chapter as $$\frac{1}{\text{number of nodes}}\cdot \sum (\text{mastery of each topic - average mastery})^2 $$
 
-This gives a formula for calculating the priority of chapters for review. 
-$$ a\text{(number of outgoing nodes)(1 - average mastery of nodes in chapter})+b(\text{average of the average mastery of nodes dependant on each node })-c(\text{varience}) $$ 
+This gives a formula for calculating the priority of chapters for review.
+$$ a\text{(number of outgoing nodes)(1 - average mastery of nodes in chapter})+b(\text{average of the average mastery of nodes dependant on each node })-c(\text{varience}) $$
 
 (there might be a better way than getting a bunch of averages)
 
-The chapter with the highest score should be prioritised for review and depending on the weightings a threshold could be set over which a chapter is due. 
+The chapter with the highest score should be prioritised for review and depending on the weightings a threshold could be set over which a chapter is due.
 
-### choosing questions given chapter  
-Do we want to review all nodes in a chapter? This could end up being a lot, but also given that there is quite a lot of dependencies and interconnectedness on topics that could reduce the number of questions needed significantly. 
+### choosing questions given chapter
+Do we want to review all nodes in a chapter? This could end up being a lot, but also given that there is quite a lot of dependencies and interconnectedness on topics that could reduce the number of questions needed significantly.
 
-Could use an adapted version of the scheduler for normal mcqs. Take a vector of due topics as all the topics in the chapter. Instead of ranking by 'dueness', rank from low mastery to high. This takes into account that we want to review nodes even if they are not due. The mastery limit for nodes to be counted as 'completed' should be higher than in normal reviews to ensure that the nodes tht are not due are still covered. 
+Could use an adapted version of the scheduler for normal mcqs. Take a vector of due topics as all the topics in the chapter. Instead of ranking by 'dueness', rank from low mastery to high. This takes into account that we want to review nodes even if they are not due. The mastery limit for nodes to be counted as 'completed' should be higher than in normal reviews to ensure that the nodes tht are not due are still covered.
 
-The multisubject nature of a question in the difficulty breakdown should have a lower weight or be disregarded in this review, as that is not what we are testing. 
+The multisubject nature of a question in the difficulty breakdown should have a lower weight or be disregarded in this review, as that is not what we are testing.
 
-The questions should be ordered by graph depth. The loww levels of mastery of all the chapter might suggest a fundamental misunderstanding, so work from the basics up to build up knowledge. 
+The questions should be ordered by graph depth. The loww levels of mastery of all the chapter might suggest a fundamental misunderstanding, so work from the basics up to build up knowledge.
 
-Other than those, I think the normal algorithm should probably work. 
+Other than those, I think the normal algorithm should probably work.
 
 # naming of nodes
 
@@ -403,8 +403,8 @@ function then related each index to its readable name.
 
 
 # references
-@online{setcovergfg,    
-    author = "geeks for geeks",  
-    title = "Greedy Approximate Algorithm for Set Cover Problem",  
-    url  = "https://www.geeksforgeeks.org/greedy-approximate-algorithm-for-set-cover-problem/",  
-    addendum = "(accessed: 28.5.2025)"}  
+@online{setcovergfg,
+    author = "geeks for geeks",
+    title = "Greedy Approximate Algorithm for Set Cover Problem",
+    url  = "https://www.geeksforgeeks.org/greedy-approximate-algorithm-for-set-cover-problem/",
+    addendum = "(accessed: 28.5.2025)"}

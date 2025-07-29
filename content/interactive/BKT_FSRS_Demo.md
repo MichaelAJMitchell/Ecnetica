@@ -629,6 +629,9 @@ html_theme.sidebar_secondary.remove: true
         if (!network || !currentStudent || !pyodideInstance) return;
         
         try {
+          //applies forgetting
+          await pyodideInstance.runPythonAsync(`refresh_student_mastery(current_student_id)`);
+
           // Get current view position and scale to preserve user's zoom/pan
           const currentView = network.getViewPosition();
           
@@ -793,27 +796,37 @@ html_theme.sidebar_secondary.remove: true
           
           // Step 4: Create Student
           updateStatus('Creating student profile...', 'loading');
-          
+
           const result = await pyodideInstance.runPythonAsync(`
-            import random
-            random.seed(42)
-            
-            current_student_id = "demo_student"
-            student = student_manager.create_student(current_student_id)
-            
-            # Set initial mastery levels
-            for topic_idx in kg.get_all_indexes():
-                mastery = random.uniform(0.1, 0.6)
-                student.mastery_levels[topic_idx] = mastery
-                student.confidence_levels[topic_idx] = mastery * 0.8
-                student.studied_topics[topic_idx] = True
-            
-            js_export({"success": True, "student_id": current_student_id})
+              import random
+              random.seed(42)
+              
+              current_student_id = "demo_student"
+              student = student_manager.create_student(current_student_id)
+              
+              # Set initial mastery levels
+              for topic_idx in kg.get_all_indexes():
+                  mastery = random.uniform(0.1, 0.6)
+                  student.mastery_levels[topic_idx] = mastery
+                  student.confidence_levels[topic_idx] = mastery * 0.8
+                  student.studied_topics[topic_idx] = True
+              
+              # ADD THE REFRESH FUNCTION HERE:
+              def refresh_student_mastery(student_id):
+                  student = student_manager.get_student(student_id)
+                  if student and bkt.fsrs_forgetting:
+                      for topic_index, mastery in list(student.mastery_levels.items()):
+                          if mastery > 0.05:
+                              decayed = bkt.fsrs_forgetting.apply_forgetting(student_id, topic_index, mastery)
+                              student.mastery_levels[topic_index] = decayed
+                  return True
+              
+              js_export({"success": True, "student_id": current_student_id})
           `);
-          
+
           const data = JSON.parse(result);
           currentStudent = data.student_id;
-          
+
           // Step 5: Generate first MCQ
           updateStatus('Generating your first question...', 'loading');
           
@@ -839,7 +852,9 @@ html_theme.sidebar_secondary.remove: true
             
             try:
                 student = student_manager.get_student(current_student_id)
-                
+
+                refresh_student_mastery(current_student_id)
+
                 # Check what MCQ loading method is available
                 available_topics = {}
                 all_mcqs = []
@@ -1097,6 +1112,9 @@ html_theme.sidebar_secondary.remove: true
           updateStatus('Processing your answer...', 'loading');
           
           const result = await pyodideInstance.runPythonAsync(`
+
+            refresh_student_mastery(current_student_id)
+
             mcq_id = "${currentMCQ.mcq_id}"
             selected_option = ${selectedOption}
             correct_index = ${currentMCQ.correct_index}
@@ -1494,6 +1512,9 @@ html_theme.sidebar_secondary.remove: true
             from bkt_system import simulate_time_passage
             
             result = simulate_time_passage(bkt, current_student_id, days=${days}, hours=${hours}, minutes=${minutes})
+
+            refresh_student_mastery(current_student_id)
+
             json.dumps(result)
           `);
           

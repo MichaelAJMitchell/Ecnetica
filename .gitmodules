@@ -1,0 +1,3 @@
+[submodule "Ontology/Ontology_creation_scripts/new_curriculum_scraper"]
+	path = Ontology/Ontology_creation_scripts/new_curriculum_scraper
+	url = https://github.com/pcurran100/concept_extractor

@@ -1,3 +1,6 @@
 [submodule "Ontology/Ontology_creation_scripts/new_curriculum_scraper"]
 	path = Ontology/Ontology_creation_scripts/new_curriculum_scraper
 	url = https://github.com/pcurran100/concept_extractor
+[submodule "Ontology/Ontology/Ontology_enrichemnt_scripts/relationship_enricher"]
+	path = Ontology/Ontology/Ontology_enrichemnt_scripts/relationship_enricher
+	url = https://github.com/pcurran100/relationship_enricher

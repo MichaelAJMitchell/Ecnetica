@@ -1,5 +1,5 @@
 # json
-### form they can be generated in`
+## form they can be generated in`
 ```
     {
       "text": "What is the discriminant of the quadratic equation $2x^2 - 5x + 3 = 0$?",
@@ -17,7 +17,6 @@
         "Incorrect. Check your arithmetic: $25 - 24 = 1$, not $-1$."
       ],
       "main_topic_index": 17,
-      "chapter": "algebra",
       "subtopic_weights": {
         "17": 1.0
       },
@@ -31,7 +30,7 @@
       }
     }
 ```
-### form they will be converted to
+## form they will be converted to
 ```
 {
       "id": "d8f6f656-c7d6-45a6-ab5d-c180e0e646f1",
@@ -71,25 +70,76 @@
     }
 ```
 if you take the mcq document and run them through the process mcqs python file, it automatically calculates the id, prerequisites and difficulty and them saves them in another json file, which is the one actually used for the mcq algorithm. it also calculates the chapter from the topic for the main node.
-
+## Form for questions with randomised numbers
+```
+    {
+      "text": "Factor the quadratic expression ${question_expression_expanded}$.",
+      "question_expression":"(x-r_1)*(x-r_2)",
+      "generated_parameters":{
+        "a":{"type":"int", "min":-24,"max":24,"exclude":0},
+        "b":{"type":"int", "min":-12,"max":12,"exclude":0},
+        "c":{"type":"int", "min":-24,"max":24,"exclude":0},
+        "d":{"type":"int","min":-12,"max":12,"exclude":0}
+      },
+      "calculated_parameters":{
+        "r_1":"a/b",
+        "r_2":"c/d"
+      },
+      "options": [
+        "(b*x -c)*(d*x -a)",
+        "(b*x -a)*(d*x -c)",
+        "(27x + 1)*(2x - 12)",
+        "(d*x + c)*(b*x - a)"
+      ],
+      "correctindex": 1,
+      "option_explanations": [
+        "Incorrect. Check your factors",
+        "Correct! ",
+        "Incorrect. ",
+        "Incorrect. check your signs."
+      ],
+      "main_topic_index": 6,
+      "subtopic_weights": {
+        "6": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.4,
+        "procedural_fluency": 0.8,
+        "problem_solving": 0.6,
+        "mathematical_communication": 0.2,
+        "memory": 0.3,
+        "spatial_reasoning": 0.0
+      }
+    }
+```
+Questions can be generated in either form, depending on the question.
 # python
 ## mcqs structure (old but explanations still the same)
 
 
 ```
-@dataclass
 class MCQ:
-    text: str
-    options: List[str]
-    correctindex: int
-    option_explanations: List[str]  #  Individual explanations for each option
-    main_topic_index: int
-    chapter: str
-    subtopic_weights: Dict[int, float]  #Manually specified weights
-    difficulty_breakdown: DifficultyBreakdown
-    id: str
-    _prerequisites: Optional[Dict[int, float]] = field(default=None, init=False)
-    _difficulty: Optional[float] = field(default=None, init=False)
+    text: str  # Question text (may include LaTeX math)
+    options: List[str]  # Answer choices
+    correctindex: int  # Index of correct answer (0-based)
+    option_explanations: List[str]  # Why each option is correct/incorrect
+    main_topic_index: int  # Primary topic being tested
+    chapter: str  # Course chapter
+    subtopic_weights: Dict[int, float]  # Topics tested: {topic_index: importance_weight}
+    difficulty_breakdown: DifficultyBreakdown  # Cognitive skill requirements
+    id: str  # Unique identifier
+
+    overall_difficulty: float  # Store directly from JSON
+    prerequisites: Dict[int, float]
+
+    # optional fields for parameterization
+    question_expression: Optional[str] = None
+    generated_parameters: Optional[Dict[str, Dict]] = None
+    calculated_parameters: Optional[Dict[str, str]] = None
+
+    # Cache for generated parameters (not saved to JSON)
+    _current_params: Optional[Dict] = field(default=None, init=False)
+    _is_parameterized: Optional[bool] = field(default=None, init=False)
 ```
 
 
@@ -140,6 +190,31 @@ each question has a difficulty breakdown which measures how difficult the questi
 
 
 in the code they are called conceptual, procedural, problem_solving, communication, memory, spatial
+## If the question has randomly generated parameters
+This used sympy to do the substitutions.
+Where the question should be in the question text is replaced with ${question_expression}$, ${question_expression_factored}$, ${question_expression_simplified}$, ${question_expression_collected}$, depending on the question
+
+The actual expression is under question_expression. This can be multiplied out to facilitate working backward, if that is what is needed to make variables which are easy to generate.
+## parameters
+There is two types of parameters, generated and calculated. The generated ones are the ones which are randomly generated. But it isn't always easiest to generate the actual parameters in the question. Sometimes to get the answers to be nice numbers/ question factorisable/solvable etc, its easiest to generate numbers to base the parameters in the question of off. A lot of the time this might mean randomly generating the answers and then working back to calculate what the corresponding question should be. The calculated_parameters field if for any parameters based on the generated, or other calculated ones.
+### generated_parameters
+There is different types of parameters that will follow different rules when they are being randomised.
+- int is just a random integer between the min and the max
+- choice randomly chooses from a list of choices you give it as "choices":
+- fraction generated a numerator and a denominator and then makes them a fraction. It has options numerator_min, numerator_max, denominator_min, denominator_max, exclude_numerator, exclude_denominator, reduce< proper_only, as well an normal exclude.
+- decimal gives a decimal to a specified number of decimal places. It has options min, max, decimal_places, step and exclude. It is calculated by value = min_val + step_number * randomly generated step, then rounded.
+- angle, which has degrees or radians. It has options type: degrees or radians, special_angles_only: true/ false, and quadrant: 1-4.
+- polynomial which has options degree, variable, coefficient_min, coefficient_max, leading_coefficient_exclude, monic:true/ false, integer_coeffs: true/false.
+- function which has func_type: linear/ quadratic/ exponential,  domain_min, domain_max, param_ranges
+
+There is fields for the min and max of the parameter, and also what values should be excluded, eg 0 or another parameter.
+
+If the parameter generation fails, it falls back to the min value.
+### calculated_parameters
+These are formatted as "parameter_name":"rule to calculate it by". The calculations should use the python math conventions.
+Don't have anything using random in calculated parameters, it won't work
+
+
 
 
 ## calculated content

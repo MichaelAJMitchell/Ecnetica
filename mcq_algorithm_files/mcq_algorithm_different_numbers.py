@@ -8,7 +8,7 @@ This implements an intelligent question selection system that:
 - Optimizes for maximum learning efficiency
 
 Main Classes:
-    MCQScheduler: Core algorithm for adaptive question 
+    MCQScheduler: Core algorithm for adaptive question
     OptimizedMCQVector: Efficient question representation
     MinimalMCQData: Memory-optimized question data
 """
@@ -22,11 +22,11 @@ from typing import Dict, List, Set, Tuple, Optional, Union, Any
 from fractions import Fraction
 from dataclasses import dataclass, field
 from datetime import datetime
-import math 
+import math
 import json
 import random
 import sympy as sp
-from sympy import symbols, sympify, latex, pi, simplify, factor, expand, sin, cos, sqrt, tan, Poly
+from sympy import symbols, sympify, latex, pi, simplify, factor, expand, sin, cos, sqrt, tan, Poly, collect
 from sympy.abc import x
 
 x, a, b, c, d, r_1, r_2 = symbols('x a b c d r_1 r_2')
@@ -43,7 +43,7 @@ class MinimalMCQData:
     subtopic_weights: Dict[int, float]  # For coverage calculation
     difficulty: float  # For cost calculation
     prerequisites: Dict[int, float]  # For prerequisite coverage
-    
+
     # Optional: only load if actually needed
     text: Optional[str] = None  # Only for display/debugging
     chapter: Optional[str] = None
@@ -54,38 +54,38 @@ class MCQLoader:
     """
     Loads only the minimal data needed for select_optimal_mcqs algorithm to save memory
     """
-    
+
     def __init__(self, mcqs_file: str):
         self.mcqs_file = mcqs_file
-        
+
         # Core data structures (minimal memory)
         self.minimal_mcq_data: Dict[str, MinimalMCQData] = {}
         self.topic_to_mcq_ids: Dict[int, Set[str]] = {}
-        
+
         # Lazy loading for full MCQ objects (only when absolutely needed)
         self._full_mcq_cache: Dict[str, 'MCQ'] = {}
         self._raw_mcq_data: Dict[str, dict] = {}
-        
+
         # Build the minimal index
         self._build_minimal_index()
-    
+
     def _build_minimal_index(self):
         """Build index with only essential data for the algorithm"""
         print(f"🔍 Building optimized MCQ index from {self.mcqs_file}...")
-        
+
         try:
             with open(self.mcqs_file, 'r', encoding='utf-8') as f:
                 data = json.load(f)
-            
+
             mcqs_data = data.get('mcqs', data) if isinstance(data, dict) else data
-            
+
             for mcq_data in mcqs_data:
                 mcq_id = mcq_data['id']
-                
+
                 # Convert string keys to integers (only conversion needed)
                 subtopic_weights = {int(k): v for k, v in mcq_data['subtopic_weights'].items()}
                 prerequisites = {int(k): v for k, v in mcq_data['prerequisites'].items()}
-                
+
                 # Use precomputed values directly - no calculations!
                 minimal_data = MinimalMCQData(
                     id=mcq_id,
@@ -95,26 +95,26 @@ class MCQLoader:
                     prerequisites=prerequisites,  # Direct use
                     chapter=mcq_data.get('chapter')
                 )
-                
+
                 self.minimal_mcq_data[mcq_id] = minimal_data
-                
+
                 # Index by main topic
                 main_topic = mcq_data['main_topic_index']
                 if main_topic not in self.topic_to_mcq_ids:
                     self.topic_to_mcq_ids[main_topic] = set()
                 self.topic_to_mcq_ids[main_topic].add(mcq_id)
-                
+
                 # Store raw data for full MCQ creation
                 self._raw_mcq_data[mcq_id] = mcq_data
-                
+
         except Exception as e:
             print(f"❌ Error building minimal index: {e}")
             raise
-    
+
         print(f"✅  optimized index complete:")
         print(f"   📊 {len(self.minimal_mcq_data)} MCQs indexed")
-        print(f"   📂 {len(self.topic_to_mcq_ids)} topics") 
-    
+        print(f"   📂 {len(self.topic_to_mcq_ids)} topics")
+
 
     def get_mcqs_for_due_topics_minimal(self, due_topic_indices: List[int]) -> List[MinimalMCQData]:
         """
@@ -122,15 +122,15 @@ class MCQLoader:
         This is what select_optimal_mcqs actually needs
         """
         relevant_mcqs = []
-        
+
         for topic_index in due_topic_indices:
             if topic_index in self.topic_to_mcq_ids:
                 for mcq_id in self.topic_to_mcq_ids[topic_index]:
                     minimal_data = self.minimal_mcq_data[mcq_id]
                     relevant_mcqs.append(minimal_data)
-        
+
         return relevant_mcqs
-    
+
     def get_mcq_ids_for_due_topics(self, due_topic_indices: List[int]) -> List[str]:
         """Get just the MCQ IDs for due topics """
         mcq_ids = []
@@ -138,11 +138,11 @@ class MCQLoader:
             if topic_index in self.topic_to_mcq_ids:
                 mcq_ids.extend(self.topic_to_mcq_ids[topic_index])
         return mcq_ids
-    
+
     def get_minimal_mcq_data(self, mcq_id: str) -> Optional[MinimalMCQData]:
         """Get minimal data for a specific MCQ"""
         return self.minimal_mcq_data.get(mcq_id)
-    
+
     def get_full_mcq_if_needed(self, mcq_id: str) -> Optional['MCQ']:
         """
         Load full MCQ object when necessary
@@ -150,7 +150,7 @@ class MCQLoader:
         """
         if mcq_id in self._full_mcq_cache:
             return self._full_mcq_cache[mcq_id]
-        
+
         if mcq_id in self._raw_mcq_data:
             try:
                 mcq = MCQ.from_dict(self._raw_mcq_data[mcq_id])
@@ -159,14 +159,14 @@ class MCQLoader:
             except Exception as e:
                 print(f"❌ Failed to create full MCQ {mcq_id}: {e}")
                 return None
-        
+
         return None
-    
+
     def get_stats(self) -> Dict:
         """Get loader statistics"""
         minimal_memory = len(self.minimal_mcq_data) * 0.5  # Estimate KB
         full_memory = len(self._full_mcq_cache) * 5  # Estimate KB
-        
+
         return {
             'total_indexed': len(self.minimal_mcq_data),
             'minimal_data_loaded': len(self.minimal_mcq_data),
@@ -204,7 +204,7 @@ class DifficultyBreakdown:
     spatial_reasoning: float = 0.0
 
     def calculate_overall(self) -> float:
-        """Calculate average difficulty across all cognitive skills, 
+        """Calculate average difficulty across all cognitive skills,
         as this is what we take as difficulty for each mcq
         """
         return (self.conceptual_understanding +
@@ -225,7 +225,7 @@ class DifficultyBreakdown:
             memory=data.get('memory', 0.0),
             spatial_reasoning=data.get('spatial_reasoning', 0.0)
         )
-    
+
     @classmethod
     def create(cls, conceptual=0.0, procedural=0.0, problem_solving=0.0,
                communication=0.0, memory=0.0, spatial=0.0):
@@ -255,41 +255,41 @@ class MCQ:
     id: str  # Unique identifier
 
     overall_difficulty: float  # Store directly from JSON
-    prerequisites: Dict[int, float] 
+    prerequisites: Dict[int, float]
 
     # optional fields for parameterization
     question_expression: Optional[str] = None
     generated_parameters: Optional[Dict[str, Dict]] = None
     calculated_parameters: Optional[Dict[str, str]] = None
-    
+
     # Cache for generated parameters (not saved to JSON)
     _current_params: Optional[Dict] = field(default=None, init=False)
     _is_parameterized: Optional[bool] = field(default=None, init=False)
-    
+
 
 
     @classmethod
     def from_dict(cls, data: Dict):
         """Create MCQ from JSON dictionary"""
-        # Validate core required fields 
-        required_fields = ['text', 'options', 'correctindex', 'option_explanations', 
+        # Validate core required fields
+        required_fields = ['text', 'options', 'correctindex', 'option_explanations',
                         'main_topic_index', 'subtopic_weights', 'difficulty_breakdown',
-                        'overall_difficulty', 'prerequisites'] 
-        
+                        'overall_difficulty', 'prerequisites']
+
         for field in required_fields:
             if field not in data:
                 raise ValueError(f"Missing required field '{field}' in MCQ data")
-        
+
         mcq_id = data.get('id')
 
         # Validate options and explanations match
         if len(data['options']) != len(data['option_explanations']):
             raise ValueError("Number of options must match number of option explanations")
-        
+
         # Validate correct index
         if not (0 <= data['correctindex'] < len(data['options'])):
             raise ValueError(f"Question answer index {data['correctindex']} is invalid. Must be between 0 and {len(data['options'])-1} for {len(data['options'])} answer choices.")
-        
+
         # Convert string keys in subtopic_weights to integers
         try:
             subtopic_weights = {int(k): v for k, v in data['subtopic_weights'].items()}
@@ -301,20 +301,20 @@ class MCQ:
             prerequisites = {int(k): v for k, v in data['prerequisites'].items()}
         except ValueError as e:
             raise ValueError(f"Invalid prerequisites format - keys must be convertible to integers: {e}")
-        
+
         # Validate subtopic weights sum to 1.0 (with tolerance)
         weight_sum = sum(subtopic_weights.values())
         if abs(weight_sum - 1.0) > 0.001:
             raise ValueError(f"Subtopic weights must sum to 1.0, got {weight_sum}")
-        
+
         # Handle chapter - use provided or default
         chapter = data.get('chapter', 'unknown')
-        
+
         difficulty_breakdown = DifficultyBreakdown.from_dict(data['difficulty_breakdown'])
 
         overall_difficulty = data['overall_difficulty']
 
-        
+
         return cls(
             text=data['text'],
             options=data['options'],
@@ -324,20 +324,20 @@ class MCQ:
             chapter=chapter,
             subtopic_weights=subtopic_weights,
             difficulty_breakdown=difficulty_breakdown,
-            id=mcq_id,  
-            overall_difficulty=overall_difficulty,  
+            id=mcq_id,
+            overall_difficulty=overall_difficulty,
             prerequisites=prerequisites,
             question_expression=data.get('question_expression'),
             generated_parameters=data.get('generated_parameters', {}),
             calculated_parameters=data.get('calculated_parameters', {})
         )
-    
+
     '''
     def _generate_parameters(self) -> Dict:
         if not self.generated_parameters:
             return {}
         params ={}
-        
+
         for name, rule in self.generated_parameters.items():
             if rule['type']=='int':
                 value = random.randint(rule['min'],rule['max'])
@@ -360,11 +360,11 @@ class MCQ:
         """Completely rewritten parameter generation - simple and robust"""
         if not self.generated_parameters:
             return {}
-        
+
         for attempt in range(100):  # Try up to 100 times
             params = {}
             success = True
-            
+
             # Simple approach: generate all parameters, then check constraints
             for param_name, config in self.generated_parameters.items():
                 if config['type'] == 'int':
@@ -376,18 +376,18 @@ class MCQ:
                     # Generate random value in range
                     value = random.randint(config['min'], config['max'])
                     params[param_name] = value
-                    
+
                 elif config['type'] == 'choice':
                     params[param_name] = random.choice(config['choices'])
 
                 elif config['type'] == 'fraction':
                     # NEW: Fraction type
                     value = self._generate_fraction_parameter(config)
-                    
+
                 elif config['type'] == 'decimal':
                     # NEW: Decimal type
                     value = self._generate_decimal_parameter(config)
-                    
+
                 elif config['type'] == 'angle':
                     # NEW: Angle type - returns dict with multiple representations
                     angle_data = self._generate_angle_parameter(config)
@@ -396,7 +396,7 @@ class MCQ:
                     params[f"{param_name}_degrees"] = angle_data['degrees']
                     params[f"{param_name}_radians"] = angle_data['radians']
                     params[f"{param_name}_unit"] = angle_data['unit']
-                    
+
                 elif config['type'] == 'polynomial':
                     # NEW: Polynomial type - returns dict with expression components
                     poly_data = self._generate_polynomial_parameter(config)
@@ -405,7 +405,7 @@ class MCQ:
                     params[f"{param_name}_coeffs"] = poly_data['coefficients']
                     params[f"{param_name}_degree"] = poly_data['degree']
                     params[f"{param_name}_sympy"] = poly_data['sympy_expr']
-                    
+
                 elif config['type'] == 'function':
                     # NEW: Function type - returns dict with function components
                     func_data = self._generate_function_parameter(config)
@@ -414,14 +414,14 @@ class MCQ:
                     for key, val in func_data['parameters'].items():
                         params[f"{param_name}_{key}"] = val
                     params[f"{param_name}_type"] = func_data['function_type']
-                    params[f"{param_name}_sympy"] = func_data['sympy_expr']                    
+                    params[f"{param_name}_sympy"] = func_data['sympy_expr']
                 else:
                     success = False
                     break
-            
+
             if not success:
                 continue
-                
+
             # Now check all exclude constraints
             all_constraints_met = True
             for param_name, config in self.generated_parameters.items():
@@ -443,22 +443,22 @@ class MCQ:
                         if params[param_name] == exclude_rule:
                             all_constraints_met = False
                             break
-            
+
             if not all_constraints_met:
                 continue  # Try again
-                
+
             # Calculate derived parameters
             try:
                 for calc_name, calc_expr in self.calculated_parameters.items():
                     expr = sympify(calc_expr, locals=local_namespace)
                     result = expr.subs(params)
                     params[calc_name] = float(result)
-                
+
                 return params  # Success!
-                
+
             except Exception as e:
                 continue  # Try again if calculation fails
-        
+
         # If we get here, we failed to generate valid parameters
         print("Warning: Could not generate valid parameters after 100 attempts")
         return self._generate_fallback_parameters()
@@ -467,22 +467,22 @@ class MCQ:
         """Generate a fraction parameter with specified constraints."""
         # Set defaults
         num_min = config.get('numerator_min', -12)
-        num_max = config.get('numerator_max', 12) 
+        num_max = config.get('numerator_max', 12)
         den_min = config.get('denominator_min', 1)
         den_max = config.get('denominator_max', 8)
         exclude_num = config.get('exclude_numerator', [])
         exclude_den = config.get('exclude_denominator', [0])
         reduce_fraction = config.get('reduce', True)
         proper_only = config.get('proper_only', False)
-        
+
         # Generate valid numerator
         valid_numerators = [n for n in range(num_min, num_max + 1) if n not in exclude_num]
         numerator = random.choice(valid_numerators)
-        
+
         # Generate valid denominator
         valid_denominators = [d for d in range(den_min, den_max + 1) if d not in exclude_den]
         denominator = random.choice(valid_denominators)
-        
+
         # Handle proper fraction constraint
         if proper_only and abs(numerator) >= abs(denominator):
             max_num = min(abs(denominator) - 1, num_max)
@@ -490,7 +490,7 @@ class MCQ:
             valid_numerators = [n for n in range(min_num, max_num + 1) if n not in exclude_num]
             if valid_numerators:
                 numerator = random.choice(valid_numerators)
-        
+
         fraction = Fraction(numerator, denominator)
         return fraction if reduce_fraction else Fraction(numerator, denominator)
 
@@ -501,19 +501,19 @@ class MCQ:
         decimal_places = config.get('decimal_places', 2)
         step = config.get('step', 0.01)
         exclude = config.get('exclude', [])
-        
+
         # Calculate number of steps
         num_steps = int((max_val - min_val) / step)
-        
+
         # Generate using steps to ensure precise decimal values
         for _ in range(100):  # Max attempts
             step_number = random.randint(0, num_steps)
             value = min_val + step_number * step
             value = round(value, decimal_places)
-            
+
             if value not in exclude and min_val <= value <= max_val:
                 return value
-        
+
         return round(min_val, decimal_places)  # Fallback
 
     def _generate_angle_parameter(self, config: Dict[str, Any]) -> Dict[str, float]:
@@ -521,32 +521,32 @@ class MCQ:
         unit = config.get('unit', 'degrees')
         special_only = config.get('special_angles_only', False)
         quadrant = config.get('quadrant', 'any')
-        
+
         if special_only:
             # Common special angles in degrees
             special_degrees = [0, 30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330, 360]
-            
+
             # Filter by quadrant if specified
             if quadrant != 'any':
                 quad_ranges = {1: (0, 90), 2: (90, 180), 3: (180, 270), 4: (270, 360)}
                 min_deg, max_deg = quad_ranges[quadrant]
                 special_degrees = [a for a in special_degrees if min_deg <= a <= max_deg]
-            
+
             degrees_value = random.choice(special_degrees)
         else:
             # Generate from range
             min_val = config.get('min', 0)
             max_val = config.get('max', 360 if unit == 'degrees' else 2*math.pi)
-            
+
             if unit == 'degrees':
                 degrees_value = random.randint(min_val, max_val)
             else:
                 radians_value = random.uniform(min_val, max_val)
                 degrees_value = math.degrees(radians_value)
-        
+
         # Convert and return both representations
         radians_value = math.radians(degrees_value)
-        
+
         return {
             'value': degrees_value if unit == 'degrees' else radians_value,
             'unit': unit,
@@ -563,10 +563,10 @@ class MCQ:
         leading_exclude = config.get('leading_coefficient_exclude', [0])
         monic = config.get('monic', False)
         integer_coeffs = config.get('integer_coefficients', True)
-        
+
         var_symbol = symbols(variable)
         coefficients = []
-        
+
         # Generate coefficients from highest degree to constant term
         for i in range(degree + 1):
             if i == 0 and monic:  # Leading coefficient for monic polynomial
@@ -584,20 +584,20 @@ class MCQ:
                     coeff = random.randint(coeff_min, coeff_max)
                 else:
                     coeff = random.uniform(coeff_min, coeff_max)
-            
+
             coefficients.append(coeff)
-        
+
         # Build sympy expression
         sympy_expr = sum(coeff * var_symbol**(degree - i) for i, coeff in enumerate(coefficients))
         sympy_expr = expand(sympy_expr)
-        
-        # Create string representation  
+
+        # Create string representation
         terms = []
         for i, coeff in enumerate(coefficients):
             power = degree - i
             if coeff == 0:
                 continue
-            
+
             # Coefficient handling
             if power == 0:
                 terms.append(str(coeff))
@@ -616,9 +616,9 @@ class MCQ:
                     terms.append(f"{coeff}*{variable}")
                 else:
                     terms.append(f"{coeff}*{variable}**{power}")
-        
+
         expression = " + ".join(terms).replace("+ -", "- ")
-        
+
         return {
             'expression': expression,
             'coefficients': coefficients,
@@ -633,49 +633,49 @@ class MCQ:
         domain_min = config.get('domain_min', -10)
         domain_max = config.get('domain_max', 10)
         param_ranges = config.get('parameter_ranges', {})
-        
+
         x_sym = symbols('x')
-        
+
         if func_type == 'linear':
             # f(x) = mx + b
             m = random.randint(param_ranges.get('slope_min', -5), param_ranges.get('slope_max', 5))
             b = random.randint(param_ranges.get('intercept_min', -10), param_ranges.get('intercept_max', 10))
-            
+
             if m == 0 and not param_ranges.get('allow_zero_slope', False):
                 m = 1
-            
+
             expression = f"{m}*x + {b}" if b >= 0 else f"{m}*x - {abs(b)}"
             sympy_expr = m * x_sym + b
             parameters = {'slope': m, 'y_intercept': b}
-            
+
         elif func_type == 'quadratic':
             # f(x) = ax² + bx + c
             a = random.randint(param_ranges.get('a_min', -3), param_ranges.get('a_max', 3))
             b = random.randint(param_ranges.get('b_min', -5), param_ranges.get('b_max', 5))
             c = random.randint(param_ranges.get('c_min', -10), param_ranges.get('c_max', 10))
-            
+
             if a == 0:  # Ensure it's actually quadratic
                 a = 1
-            
+
             expression = f"{a}*x**2 + {b}*x + {c}".replace("+ -", "- ")
             sympy_expr = a * x_sym**2 + b * x_sym + c
             parameters = {'a': a, 'b': b, 'c': c}
-            
+
         elif func_type == 'exponential':
             # f(x) = a * b^x
             a = random.randint(param_ranges.get('coefficient_min', 1), param_ranges.get('coefficient_max', 5))
             b = random.choice([2, 3, 5, 10] if 'bases' not in param_ranges else param_ranges['bases'])
-            
+
             expression = f"{a} * {b}**x"
             sympy_expr = a * b**x_sym
             parameters = {'coefficient': a, 'base': b}
-            
+
         else:  # Default to linear if unknown type
             m, b = 1, 0
             expression = "x"
             sympy_expr = x_sym
             parameters = {'slope': m, 'y_intercept': b}
-        
+
         return {
             'expression': expression,
             'sympy_expr': sympy_expr,
@@ -693,7 +693,7 @@ class MCQ:
                 params[name] = rule['min']
             elif rule['type'] == 'choice':
                 params[name] = rule['choices'][0]
-        
+
         # Calculate derived parameters for fallback
         for calc_name, calc_expr in self.calculated_parameters.items():
             try:
@@ -705,11 +705,11 @@ class MCQ:
         return params
 
     '''
-    def generate_question_text(self, text: str, params: Dict) -> str: 
+    def generate_question_text(self, text: str, params: Dict) -> str:
         if not params or not text:
             return text
-        
-        
+
+
         sympy_params = {k: sympify(v, locals=local_namespace) for k, v in params.items()}
 
         calc = {
@@ -751,34 +751,184 @@ class MCQ:
         """Fixed question text generation"""
         if not params or not text:
             return text
-        
+
         result_text = text
-        
-        # Handle question expression substitution
+
+                # Handle question expression substitution
+        if self.question_expression:
+            # List all the placeholders you want to support
+            placeholders = [
+                ('${question_expression_expanded}$', 'expanded'),
+                ('${question_expression_factored}$', 'factored'),
+                ('${question_expression_simplified}$', 'simplified'),
+                ('${question_expression_collected}$', 'collected'),
+                ('${question_expression}$', 'as_is')
+            ]
+
+            # Check if any of these placeholders exist in the text
+            for placeholder, format_type in placeholders:
+                if placeholder in result_text:
+                    try:
+                        # NEW: Check if this is an equation or expression
+                        if '=' in self.question_expression:
+                            # Handle equation: split at '=' and process each side
+                            left_side, right_side = self.question_expression.split('=', 1)
+                            left_side = left_side.strip()
+                            right_side = right_side.strip()
+
+                            # Process left side
+                            left_expr = sympify(left_side, locals=local_namespace)
+                            calc = {}
+                            for calc_name, calc_expr in self.calculated_parameters.items():
+                                calc_expr_sympy = sympify(calc_expr, locals=local_namespace)
+                                calc[calc_name] = calc_expr_sympy.subs(params)
+
+                            all_params = {**params, **calc}
+                            left_substituted = left_expr.subs(all_params)
+
+                            # Apply formatting to left side
+                            if format_type == 'expanded':
+                                left_processed = expand(left_substituted)
+                            elif format_type == 'factored':
+                                left_processed = factor(left_substituted)
+                            elif format_type == 'simplified':
+                                left_processed = simplify(left_substituted)
+                            elif format_type == 'collected':
+                                left_processed = collect(left_substituted, symbols('x'))
+                            else:
+                                left_processed = left_substituted
+
+                            # Process right side (usually simpler, often just "0")
+                            right_expr = sympify(right_side, locals=local_namespace)
+                            right_substituted = right_expr.subs(all_params)
+
+                            # Convert to LaTeX
+                            left_latex = latex(left_processed)
+                            right_latex = latex(right_substituted)
+
+                            # Fix signs and combine
+                            left_latex = left_latex.replace('+ -', '- ').replace('- -', '+ ')
+                            right_latex = right_latex.replace('+ -', '- ').replace('- -', '+ ')
+
+                            latex_expr = f"{left_latex} = {right_latex}"
+
+                        else:
+                            # Handle regular expression (your existing code)
+                            expr = sympify(self.question_expression, locals=local_namespace)
+
+                            calc = {}
+                            for calc_name, calc_expr in self.calculated_parameters.items():
+                                calc_expr_sympy = sympify(calc_expr, locals=local_namespace)
+                                calc[calc_name] = calc_expr_sympy.subs(params)
+
+                            all_params = {**params, **calc}
+                            substituted_expr = expr.subs(all_params)
+
+                            if format_type == 'expanded':
+                                processed_expr = expand(substituted_expr)
+                            elif format_type == 'factored':
+                                processed_expr = factor(substituted_expr)
+                            elif format_type == 'simplified':
+                                processed_expr = simplify(substituted_expr)
+                            elif format_type == 'collected':
+                                processed_expr = collect(substituted_expr, symbols('x'))
+                            else:
+                                processed_expr = substituted_expr
+
+                            latex_expr = latex(processed_expr)
+                            latex_expr = latex_expr.replace('+ -', '- ').replace('- -', '+ ')
+
+                        # Replace in text
+                        result_text = result_text.replace(placeholder + '$', f"${latex_expr}$")
+
+                    except Exception as e:
+                        print(f"Error in question expression substitution: {e}")
+                        # Enhanced fallback that handles equations
+                        fallback_expr = self.question_expression
+                        for param_name, param_value in params.items():
+                            if isinstance(param_value, (int, float)) and param_value < 0:
+                                # Handle negative values to avoid "+ -3"
+                                fallback_expr = fallback_expr.replace(f"+ {param_name}", f"- {abs(param_value)}")
+                                fallback_expr = fallback_expr.replace(f"- {param_name}", f"+ {abs(param_value)}")
+                            fallback_expr = fallback_expr.replace(param_name, str(param_value))
+
+                        # Clean up signs
+                        fallback_expr = fallback_expr.replace('+ -', '- ').replace('- -', '+ ')
+                        result_text = result_text.replace(placeholder + '$', f"${fallback_expr}$")
+
+                    break
+                '''
+                        # Create SymPy expression
+                        expr = sympify(self.question_expression, locals=local_namespace)
+
+                        # Calculate derived parameters first
+                        calc = {}
+                        for calc_name, calc_expr in self.calculated_parameters.items():
+                            calc_expr_sympy = sympify(calc_expr, locals=local_namespace)
+                            calc[calc_name] = calc_expr_sympy.subs(params)
+
+                        # Substitute all parameters
+                        all_params = {**params, **calc}
+                        substituted_expr = expr.subs(all_params)
+
+                        # Apply the transformation based on the format type
+                        if format_type == 'expanded':
+                            processed_expr = expand(substituted_expr)
+                        elif format_type == 'factored':
+                            processed_expr = factor(substituted_expr)
+                        elif format_type == 'simplified':
+                            processed_expr = simplify(substituted_expr)
+                        elif format_type == 'collected':
+                            processed_expr = collect(substituted_expr, symbols('x'))
+                        else:  # 'as_is'
+                            processed_expr = substituted_expr
+
+                        # Convert to LaTeX
+                        latex_expr = latex(processed_expr)
+
+                        # Replace in text (handle both with and without trailing $)
+                        result_text = result_text.replace(placeholder , f"${latex_expr}$")
+
+                    except Exception as e:
+                        print(f"Error in question expression substitution: {e}")
+                        # Fallback to simple string replacement
+                        fallback_expr = self.question_expression
+                        for param_name, param_value in params.items():
+                            fallback_expr = fallback_expr.replace(param_name, str(param_value))
+
+                        result_text = result_text.replace(placeholder, f"${fallback_expr}$")
+
+                    break  # Stop after finding the first matching placeholder
+                '''
+        # Handle individual parameter substitutions (UNCHANGED)
+        for param_name, param_value in params.items():
+            placeholder = f'${{{param_name}}}'
+            result_text = result_text.replace(placeholder, str(param_value))
+        '''
         if self.question_expression and ('${question_expression_subbed}' in result_text):
             try:
                 # Create SymPy expression
                 expr = sympify(self.question_expression, locals=local_namespace)
-                
+
                 # Calculate derived parameters first
                 calc = {}
                 for calc_name, calc_expr in self.calculated_parameters.items():
                     calc_expr_sympy = sympify(calc_expr, locals=local_namespace)
                     calc[calc_name] = calc_expr_sympy.subs(params)
-                
+
                 # Substitute all parameters
                 all_params = {**params, **calc}
                 substituted_expr = expr.subs(all_params)
-                
+
                 # Convert to LaTeX
                 latex_expr = latex(substituted_expr)
-                
+
                 # Replace in text (handle both with and without trailing $)
                 if '${question_expression_subbed}$' in result_text:
                     result_text = result_text.replace('${question_expression_subbed}$', f"${latex_expr}$")
                 else:
                     result_text = result_text.replace('${question_expression_subbed}', f"${latex_expr}$")
-                    
+
             except Exception as e:
                 print(f"Error in question expression substitution: {e}")
                 # Fallback to simple string replacement
@@ -786,20 +936,20 @@ class MCQ:
                 for param_name, param_value in params.items():
                     fallback_expr = fallback_expr.replace(param_name, str(param_value))
                 result_text = result_text.replace('${question_expression_subbed}', f"${fallback_expr}$")
-        
+
         # Handle individual parameter substitutions
         for param_name, param_value in params.items():
             placeholder = f'${{{param_name}}}'
             result_text = result_text.replace(placeholder, str(param_value))
-        
+        '''
         return result_text
-    
+
 
     def render_options(self, params: Dict[str, Union[int, float]]) -> List[str]:
         """Render options with robust error handling"""
         try:
             local_namespace = {'__builtins__': {}}
-            
+
             # Calculate derived parameters
             calc = {}
             for name, expr in self.calculated_parameters.items():
@@ -808,10 +958,10 @@ class MCQ:
                     calc[name] = calc_expr.subs(params)
                 except:
                     calc[name] = 0
-            
+
             rendered_options = []
             source_options = self.options
-            
+
             for option in source_options:
                 try:
                     if option in calc:
@@ -820,12 +970,12 @@ class MCQ:
                     else:
                         # Parse and evaluate expression
                         val = sympify(option, locals=local_namespace).subs({**params, **calc})
-                    
+
                     # Simplify and convert to LaTeX
                     simplified = simplify(val)
                     latex_result = latex(simplified)
                     rendered_options.append(f"\\({latex_result}\\)")
-                    
+
                 except Exception as e:
                     print(f"Error rendering option '{option}': {e}")
                     # Fallback to simple substitution
@@ -833,9 +983,9 @@ class MCQ:
                     for name, value in {**params, **calc}.items():
                         fallback_option = fallback_option.replace(name, str(value))
                     rendered_options.append(fallback_option)
-            
+
             return rendered_options
-            
+
         except Exception as e:
             print(f"Error rendering options: {e}")
             return self.options  # Return original options as fallback
@@ -879,10 +1029,10 @@ class MCQ:
         """Get the numerical value of the correct answer"""
         if not self.is_parameterized:
             return self.options[self.correctindex]
-            
+
         if self._current_params is None:
             self._current_params = self._generate_parameters()
-            
+
         try:
             rendered_options = self.render_options(self._current_params)
             return rendered_options[self.correctindex]
@@ -921,11 +1071,11 @@ class StudentAttempt:
 
 class ConfigurationManager:
     """Simple configuration manager that uses JSON values directly"""
-    
+
     def __init__(self, config_file: str = 'config.json'):
         self.config_file = config_file
         self.config = self._load_config_file()
-        
+
     def _load_config_file(self) -> Dict:
         """Load configuration from JSON file"""
         try:
@@ -935,7 +1085,7 @@ class ConfigurationManager:
             raise FileNotFoundError(f"Configuration file '{self.config_file}' not found")
         except json.JSONDecodeError as e:
             raise ValueError(f"Invalid JSON in configuration file '{self.config_file}': {e}")
-    
+
     def get(self, path: str, default=None):
         """
         Get configuration value using dot notation path
@@ -943,14 +1093,14 @@ class ConfigurationManager:
         """
         keys = path.split('.')
         value = self.config
-        
+
         try:
             for key in keys:
                 value = value[key]
             return value
         except (KeyError, TypeError):
             return default
-    
+
     def get_bkt_parameters(self, topic_index: int = None):
         """Get BKT parameters for topic, with fallback to default"""
         if topic_index is not None:
@@ -958,10 +1108,10 @@ class ConfigurationManager:
             topic_params = self.get(f'bkt_parameters.topic_specific.{topic_index}')
             if topic_params:
                 return topic_params
-        
+
         # Fallback to default
         return self.get('bkt_parameters.default')
-    
+
     def reload(self):
         """Reload configuration from file"""
         self.config = self._load_config_file()
@@ -1121,7 +1271,7 @@ class StudentProfile:
                 mcq = kg.mcqs.get(attempt.mcq_id)
                 if mcq and mcq.main_topic_index == node_index:
                     topic_attempts.append(attempt)
-        
+
         return topic_attempts
 
     def get_topic_success_rate(self, node_index: int, kg) -> float:
@@ -1137,16 +1287,16 @@ class StudentProfile:
         """Set ability level for a specific skill (between 0.0 and 1.0)"""
         if not 0.0 <= level <= 1.0:
             raise ValueError(f"Ability level must be between 0.0 and 1.0, got {level}")
-        
+
         # Updated valid ability names to match your config structure
         valid_abilities = [
             'conceptual_understanding', 'procedural_fluency', 'problem_solving',
             'mathematical_communication', 'memory', 'spatial_reasoning'
         ]
-        
+
         if ability_name not in valid_abilities:
             raise ValueError(f"Invalid ability name: {ability_name}. Valid names: {valid_abilities}")
-        
+
         self.ability_levels[ability_name] = level
 
     def get_all_ability_levels(self) -> Dict[str, float]:
@@ -1177,12 +1327,12 @@ class StudentManager:
     def get_mastery_threshold(self):
         """Get mastery threshold from config"""
         return self.config.get('algorithm_config.mastery_threshold', 0.7) if self.config else 0.7
-    
+
     def get_confidence_params(self):
         """Get confidence calculation parameters"""
         if not self.config:
             return {'min_confidence': 0.1, 'max_confidence': 0.95, 'growth_rate': 0.02}
-        
+
         return {
             'min_confidence': self.config.get('algorithm_config.min_confidence', 0.1),
             'max_confidence': self.config.get('algorithm_config.max_confidence', 0.95),
@@ -1191,7 +1341,7 @@ class StudentManager:
             'time_weight': self.config.get('algorithm_config.confidence_time_weight', 0.3),
             'consistency_weight': self.config.get('algorithm_config.confidence_consistency_weight', 0.2)
         }
-    
+
     def create_student(self, student_id: str) -> StudentProfile:
         """Create a new student profile"""
         if student_id in self.students:
@@ -1316,7 +1466,7 @@ class StudentManager:
         }
 
 
-    
+
 class KnowledgeGraph:
     """
     Core knowledge structure representing relationships between learning topics.
@@ -1324,14 +1474,14 @@ class KnowledgeGraph:
     This class stores a lot of things
     """
     def __init__(self, nodes_file: str = 'mcq_algorithm_files\kg.json',
-                 mcqs_file: str = 'mcq_algorithm_files\computed_mcqs.json',
+                 mcqs_file: str = 'mcq_algorithm_files\kg_mcq_code_system\computed_mcqs.json',
                  config_file: str = 'config.json'):
-        
+
         self.nodes = {}  # {index: Node}
         self.topic_to_index = {}  # Maps topic names to indexes: {topic_name: index} for quick lookup
         self.mcqs = {}
         self.graph = nx.DiGraph()
-        self._next_index = 0  # Auto-incrementing index counter for making new topics 
+        self._next_index = 0  # Auto-incrementing index counter for making new topics
         self._adjacency_matrix = None  # Cache the matrix
         self._matrix_dirty = False     # Track if matrix needs recalculation
 
@@ -1344,7 +1494,7 @@ class KnowledgeGraph:
 
         # Create NetworkX graph
         self._build_graph()
-    
+
     def _load_nodes_from_json(self, nodes_file: str):
         """Load knowledge graph nodes from JSON file"""
         try:
@@ -1354,14 +1504,14 @@ class KnowledgeGraph:
             raise FileNotFoundError(f"Required nodes file '{nodes_file}' not found. Please ensure the knowledge graph JSON file exists.")
         except json.JSONDecodeError as e:
             raise ValueError(f"Invalid JSON in nodes file '{nodes_file}': {e}")
-        
+
         # Validate JSON structure
         if 'nodes' not in data:
             raise ValueError(f"Invalid JSON structure in '{nodes_file}': missing 'nodes' key")
-        
+
         # Clear existing nodes
         self.nodes.clear()
-        
+
         # Load each node
         for node_data in data['nodes']:
             # Validate required fields
@@ -1369,11 +1519,11 @@ class KnowledgeGraph:
             for field in required_fields:
                 if field not in node_data:
                     raise ValueError(f"Missing required field '{field}' in node data: {node_data}")
-            
+
             node_id = node_data['id']
             topic = node_data['topic']
             chapter = node_data['chapter']
-            
+
             # Convert dependencies format
             dependencies = []
             for dep in node_data['dependencies']:
@@ -1383,14 +1533,14 @@ class KnowledgeGraph:
                 if not isinstance(target, int) or not isinstance(weight, (int, float)):
                     raise ValueError(f"Invalid dependency types in node {node_id}: target must be int, weight must be number")
                 dependencies.append((target, weight))
-            
+
             # Create and store node
             node = Node(topic, chapter, dependencies)
             self.nodes[node_id] = node
-            
+
             # Update next index
             self._next_index = max(self._next_index, node_id + 1)
-        
+
         print(f"✅ Successfully loaded {len(self.nodes)} nodes from {nodes_file}")
 
     def _load_mcqs_from_json(self, mcqs_file: str):
@@ -1398,7 +1548,7 @@ class KnowledgeGraph:
         print(f"📥 Setting up optimized loading for {mcqs_file}...")
         self.ultra_loader = MCQLoader(mcqs_file)
         print(f"✅  optimized loader ready")
-        
+
         # Show memory savings
         stats = self.ultra_loader.get_stats()
         print(f"   📊 {stats['total_indexed']} MCQs indexed with minimal data")
@@ -1407,24 +1557,24 @@ class KnowledgeGraph:
         """Preload minimal data for student's due topics"""
         if not hasattr(self, 'ultra_loader'):
             return []
-        
+
         student = student_manager.get_student(student_id)
         if not student:
             return []
-        
+
         # Get due topics
         due_topics = []
         mastery_threshold = getattr(self.config, 'mastery_threshold', 0.7)
-        
+
         for topic_index, mastery in student.mastery_levels.items():
             if student.is_topic_studied(topic_index) and mastery < mastery_threshold:
                 due_topics.append(topic_index)
-        
+
          # Get MCQ IDs for due topics
         relevant_mcq_ids = self.ultra_loader.get_mcq_ids_for_due_topics(due_topics)
 
         print(f"👤 Preloaded minimal data for {len(relevant_mcq_ids)} MCQs across {len(due_topics)} due topics for student {student_id}")
-        
+
         return relevant_mcq_ids
 
     def _build_graph(self):
@@ -1471,7 +1621,7 @@ class KnowledgeGraph:
                 # Handle parameter regeneration for parameterized MCQs
             if mcq and mcq.is_parameterized and regenerate_params:
                 mcq.regenerate_parameters()
-                
+
         return mcq
 
 
@@ -1528,19 +1678,19 @@ class OptimizedMCQVector:
     mcq_id: str
     minimal_data: MinimalMCQData  # Instead of full MCQ reference
     prerequisites: Dict[int, float]
-    
+
     @property
     def subtopic_weights(self):
         return self.minimal_data.subtopic_weights
-    
+
     @property
     def difficulty(self):
         return self.minimal_data.difficulty
-    
+
     @property
     def main_topic_index(self):
         return self.minimal_data.main_topic_index
-    
+
     @property
     def difficulty_breakdown(self) -> Dict[str, float]:
         """Return detailed breakdown if available, otherwise synthesize from overall"""
@@ -1554,10 +1704,10 @@ class MCQScheduler:
     """the bit that does the actual mcq algorithm calculations
         Selects optimal questions for students based on:
         - Current mastery levels across topics
-        - Prerequisites and dependencies 
+        - Prerequisites and dependencies
         - Question difficulty and coverage
         - Learning objectives and priorities
-    
+
     The greedy algorithm iteratively selects questions that maximize
     coverage-to-cost ratio until learning goals are met.
     """
@@ -1572,25 +1722,25 @@ class MCQScheduler:
     def get_config_value(self, path: str, default=None):
         """Get configuration value using dot notation"""
         return self.config.get(path, default)
-    
+
     def set_bkt_system(self, bkt_system):
         """Set reference to BKT system after initialization"""
         self.bkt_system = bkt_system
         # Also set the reference in student manager
         self.student_manager.bkt_system = bkt_system
 
- 
+
 
     def _get_or_create_optimized_mcq_vector(self, mcq_id: str) -> Optional[OptimizedMCQVector]:
         """Get or create MCQ vector using minimal data"""
         if mcq_id in self.mcq_vectors:
             return self.mcq_vectors[mcq_id]
-        
+
         if hasattr(self.kg, 'ultra_loader'):
             minimal_data = self.kg.ultra_loader.get_minimal_mcq_data(mcq_id)
             if minimal_data:
 
-                
+
                 # Create optimized vector
                 vector = OptimizedMCQVector(
                     mcq_id=mcq_id,
@@ -1602,7 +1752,7 @@ class MCQScheduler:
             else:
                 print(f"❌ No minimal data found for MCQ {mcq_id}")
                 return None
-    
+
         else:
             print(f"❌ ultra_loader not initialized")
             return None
@@ -1615,38 +1765,38 @@ class MCQScheduler:
         student = self.student_manager.get_student(student_id)
         if not student:
             return []
-        
+
         if hasattr(self.kg, 'ultra_loader'):
             # Get due topics first
             due_topics = []
             mastery_threshold = getattr(self.config, 'mastery_threshold', 0.7)
-            
+
             for topic_index, mastery in student.mastery_levels.items():
                 if student.is_topic_studied(topic_index) and mastery < mastery_threshold:
                     due_topics.append(topic_index)
-            
+
             if not due_topics:
                 return []
-            
+
             # Get MCQ IDs for due topics only
             eligible_mcqs = self.kg.ultra_loader.get_mcq_ids_for_due_topics(due_topics)
-            
+
             # Filter out completed today
             eligible_mcqs = [mcq_id for mcq_id in eligible_mcqs if mcq_id not in student.daily_completed]
-            
+
             print(f"🎯 Found {len(eligible_mcqs)} eligible MCQs for {len(due_topics)} due topics")
-     
-            
+
+
             return eligible_mcqs
         else:
             print("⚠️ No fallback method defined; returning empty list")
             return []
 
 
-   
 
 
-    def select_optimal_mcqs(self, student_id: str, num_questions: int = 1,
+
+    def select_optimal_mcqs(self, student_id: str, num_questions: int = 5,
                           use_chapter_weights: bool = False) -> List[str]:
         """
         Main greedy algorithm for adaptive MCQ selection.
@@ -1656,7 +1806,7 @@ class MCQScheduler:
         greedy_max_mcqs_to_evaluate = self.get_config_value('greedy_algorithm.greedy_max_mcqs_to_evaluate', 50)
         greedy_early_stopping = self.get_config_value('greedy_algorithm.greedy_early_stopping', False)
         greedy_convergence_threshold = self.get_config_value('algorithm_config.greedy_convergence_threshold', 0.05)
-        
+
         # Get MCQs eligible for selection
         eligible_mcqs = self.get_available_questions_for_student(student_id)
 
@@ -1671,13 +1821,13 @@ class MCQScheduler:
                 vectors_created += 1
             else:
                 print(f"❌ Failed to create vector for MCQ {mcq_id}")
-        
+
         print(f"✅ Created {vectors_created}/{len(eligible_mcqs)} MCQ vectors")
-        
+
         if vectors_created == 0:
             print("❌ No MCQ vectors could be created - cannot run algorithm")
             return []
-        
+
         student = self.student_manager.get_student(student_id)
 
         # Performance optimization: limit MCQs evaluated if too many
@@ -1726,16 +1876,16 @@ class MCQScheduler:
                 if not vector:
                     print(f"   ⚠️  Skipping MCQ {mcq_id} - no vector available")
                     continue
-                
+
                 coverage_to_cost_ratio, coverage_info = self._calculate_coverage_to_cost_ratio(mcq_id, topic_priorities, simulated_mastery_levels, student)
                 print(f"   📊 Ratio: {coverage_to_cost_ratio:.3f}")
-                
+
                 if coverage_to_cost_ratio > best_ratio:
                     best_ratio = coverage_to_cost_ratio
                     best_mcq = mcq_id
                     best_coverage_info = coverage_info
                     print(f"   ✅ New best MCQ: {mcq_id} (ratio: {best_ratio:.3f})")
-                
+
             except Exception as e:
                 print(f"   ❌ Error evaluating MCQ {mcq_id}: {type(e)} - {e}")
                 import traceback
@@ -1754,9 +1904,9 @@ class MCQScheduler:
             try:
                 # Update virtual mastery and topic priorities
                 total_topic_coverage_score = self._update_simulated_mastery_and_priorities(best_mcq, simulated_mastery_levels, topic_priorities, best_coverage_info, student)
-                
+
                 print(f"✅ Updated virtual mastery- Coverage: {total_topic_coverage_score:.3f}, Remaining topics: {len(topic_priorities)}")
-                
+
             except Exception as e:
                 print(f"❌ Error updating virtual mastery: {type(e)} - {e}")
                 import traceback
@@ -1800,12 +1950,12 @@ class MCQScheduler:
                                             simulated_mastery_levels: Dict[int, float]) -> Dict[int, float]:
         """
         Calculate continuous priority scores for topics below mastery threshold.
-        Lower mastery = higher priority 
+        Lower mastery = higher priority
         """
         # Get config values
         mastery_threshold = self.get_config_value('algorithm_config.mastery_threshold', 0.7)
         greedy_priority_weight = self.get_config_value('greedy_algorithm.greedy_priority_weight', 2.0)
-        
+
         topic_priorities = {}
 
         for main_topic_index in student.studied_topics:
@@ -1828,13 +1978,13 @@ class MCQScheduler:
         # Get config values
         greedy_subtopic_weight = self.get_config_value('greedy_algorithm.greedy_subtopic_weight', 0.7)
         greedy_prereq_weight = self.get_config_value('greedy_algorithm.greedy_prereq_weight', 0.5)
-        
+
         total_topic_coverage_score = 0.0
         coverage_details = {'main_topic_coverage': 0.0,'subtopic_coverage': 0.0,'prereq_coverage': 0.0}
 
         # Main topic and subtopic coverage - for due topics
         for main_topic_index, mcq_weight in mcq_vector.subtopic_weights.items():
-            if main_topic_index in topic_priorities: 
+            if main_topic_index in topic_priorities:
                 topic_priority = topic_priorities[main_topic_index]
 
                 # Coverage = MCQ weight × topic priority × type weight factor
@@ -1849,7 +1999,7 @@ class MCQScheduler:
 
         # Prerequisite coverage - for due prerequisites
         for prereq_index, prereq_weight in mcq_vector.prerequisites.items():
-            if prereq_index in topic_priorities: 
+            if prereq_index in topic_priorities:
                 topic_priority = topic_priorities[prereq_index]
                 coverage = prereq_weight * topic_priority * greedy_prereq_weight
                 coverage_details['prereq_coverage'] += coverage
@@ -1871,7 +2021,7 @@ class MCQScheduler:
         mastery_threshold = self.get_config_value('algorithm_config.mastery_threshold', 0.7)
         greedy_mastery_update_rate = self.get_config_value('greedy_algorithm.greedy_mastery_update_rate', 0.8)
         greedy_priority_weight = self.get_config_value('greedy_algorithm.greedy_priority_weight', 2.0)
-        
+
         mcq_vector = self.mcq_vectors.get(mcq_id)
 
         if not mcq_vector:
@@ -1931,7 +2081,7 @@ class MCQScheduler:
         return total_topic_coverage_score
     def _calculate_coverage_to_cost_ratio(self, mcq_id: str, topic_priorities: Dict[int, float],simulated_mastery_levels: Dict[int, float],student: StudentProfile) -> Tuple[float, Dict]:
         """
-        Calculate coverage-to-cost ratio 
+        Calculate coverage-to-cost ratio
         Higher ratio = better choice (more benefit, less cost)
         Coverage is weighted by topic priorities and question weights.
         """
@@ -1941,7 +2091,7 @@ class MCQScheduler:
             if not mcq_vector:
                 return 0.0, {'total_topic_coverage_score': 0.0}
             # No need for full MCQ object in coverage calculation
-            mcq = None  
+            mcq = None
         else:
             # Fallback to original method
             mcq = self.kg.mcqs.get(mcq_id)
@@ -1968,7 +2118,7 @@ class MCQScheduler:
         coverage_to_cost_ratio = coverage_info['total_topic_coverage_score'] / total_cost
 
         return coverage_to_cost_ratio, coverage_info
- 
+
 
 
     def _calculate_difficulty_cost_enhanced(self, mcq_vector: OptimizedMCQVector,simulated_mastery_levels: Dict[int, float],student: StudentProfile) -> float:
@@ -1979,7 +2129,7 @@ class MCQScheduler:
         # Get penalty values from config
         greedy_difficulty_penalty = self.get_config_value('greedy_algorithm.greedy_difficulty_penalty', 1.5)
         greedy_too_easy_penalty = self.get_config_value('greedy_algorithm.greedy_too_easy_penalty', 1.5)
-        
+
         # Calculate weighted student ability for this MCQ
         weighted_mastery = 0.0
         total_weight = 0.0
@@ -2012,7 +2162,7 @@ class MCQScheduler:
         """
         # Get importance weight from config
         greedy_importance_weight = self.get_config_value('greedy_algorithm.greedy_importance_weight', 0.3)
-        
+
         importance_bonus = 0.0
 
         # Check importance of all topics in the MCQ
@@ -2064,16 +2214,16 @@ class FSRSForgettingConfig:
 
 class FSRSForgettingModel:
     """FSRS-inspired forgetting model using power functions"""
-    
+
     def __init__(self, config: FSRSForgettingConfig = None):
         self.config = config or FSRSForgettingConfig()
         self.memory_components: Dict[str, Dict[int, FSRSMemoryComponents]] = {}
-    
+
     def get_memory_components(self, student_id: str, topic_index: int) -> FSRSMemoryComponents:
         """Get or initialize memory components for a student-topic pair"""
         if student_id not in self.memory_components:
             self.memory_components[student_id] = {}
-        
+
         if topic_index not in self.memory_components[student_id]:
             # Initialize with default values
             self.memory_components[student_id][topic_index] = FSRSMemoryComponents(
@@ -2084,62 +2234,62 @@ class FSRSForgettingModel:
                 review_count=0,
                 recent_success_rate=0.5
             )
-        
+
         return self.memory_components[student_id][topic_index]
-    
+
     def apply_forgetting(self, student_id: str, topic_index: int, current_mastery: float) -> float:
         """Apply FSRS-inspired forgetting to current mastery level"""
         components = self.get_memory_components(student_id, topic_index)
-        
+
         if components.last_review is None:
             components.last_review = datetime.now()
             return current_mastery
-        
+
         # Calculate time since last review in days
         time_elapsed = (datetime.now() - components.last_review).total_seconds() / (24 * 3600)
-        
+
         if time_elapsed <= 0:
             return current_mastery
-        
+
         # FSRS-inspired forgetting formula using power functions
         stability_factor = math.pow(time_elapsed, self.config.stability_power_factor) * components.stability
         difficulty_factor = math.pow(components.difficulty, self.config.difficulty_power_factor)
         retrievability_factor = math.pow(components.retrievability, self.config.retrievability_power_factor)
-        
+
         # Combine factors with weights
         forgetting_multiplier = (
             self.config.stability_weight * stability_factor +
             self.config.difficulty_weight * difficulty_factor +
             self.config.retrievability_weight * retrievability_factor
         )
-        
+
         # Apply forgetting with exponential decay
         forgetting_rate = math.exp(-time_elapsed / (self.config.base_forgetting_time * forgetting_multiplier))
-        
+
         # Ensure forgetting doesn't go below minimum threshold
         forgotten_mastery = max(0.01, current_mastery * forgetting_rate)
-        
+
         # Update last access time for retrievability calculations
         components.last_review = datetime.now()
-        
+
         return forgotten_mastery
-    
-    def update_memory_components(self, student_id: str, topic_index: int, 
+
+    def update_memory_components(self, student_id: str, topic_index: int,
                                is_correct: bool, new_mastery: float):
         """Update FSRS memory components based on learning event"""
         components = self.get_memory_components(student_id, topic_index)
-        
+
         # Update review count
         components.review_count += 1
-        
+
         # Update success rate with exponential moving average
         alpha = 0.3  # Learning rate for moving average
         success_value = 1.0 if is_correct else 0.0
         components.recent_success_rate = (
-            alpha * success_value + 
+            alpha * success_value +
             (1 - alpha) * components.recent_success_rate
         )
-        
+
         # Update stability based on performance
         if is_correct:
             components.stability = min(
@@ -2151,13 +2301,13 @@ class FSRSForgettingModel:
                 self.config.min_stability,
                 components.stability * self.config.failure_stability_penalty
             )
-        
+
         # Update difficulty based on performance and mastery
         if is_correct and new_mastery > 0.7:
             components.difficulty = max(0.1, components.difficulty - self.config.difficulty_adaptation_rate)
         elif not is_correct and new_mastery < 0.5:
             components.difficulty = min(1.0, components.difficulty + self.config.difficulty_adaptation_rate)
-        
+
         # Update retrievability
         if is_correct:
             components.retrievability = min(1.0, components.retrievability + 0.2)
@@ -2170,7 +2320,7 @@ class BayesianKnowledgeTracing:
     """
     Enhanced Bayesian Knowledge Tracing with FSRS forgetting
     """
-    
+
     def __init__(self, knowledge_graph, student_manager, config_manager=None, scheduler=None):
         """
         Initialize BKT with knowledge graph and student manager
@@ -2182,11 +2332,11 @@ class BayesianKnowledgeTracing:
 
         # Use config manager to get BKT parameters instead of hardcoded defaults
         self.default_params = self._get_default_params_from_config()
-        
+
         # Topic-specific parameters (loaded from config)
         self.topic_parameters: Dict[int, Dict] = {}
         self._initialize_topic_parameters()
-        
+
         # Initialize FSRS forgetting model if enabled
         if self.config.get('bkt_config.enable_fsrs_forgetting', True):
             fsrs_config = self._create_fsrs_config_from_config()
@@ -2231,7 +2381,7 @@ class BayesianKnowledgeTracing:
         """Get BKT parameters for a topic using config manager (matches original signature)"""
         # Try to get topic-specific parameters first
         topic_params = self.config.get_bkt_parameters(topic_index)
-        
+
         if topic_params:
             return topic_params
         else:
@@ -2241,7 +2391,7 @@ class BayesianKnowledgeTracing:
     def is_area_effect_enabled(self):
         """Check if area effect is enabled"""
         return self.config.get('bkt_config.area_effect_enabled', True)
-    
+
     def get_area_effect_config(self):
         """Get area effect configuration"""
         return {
@@ -2384,7 +2534,7 @@ class BayesianKnowledgeTracing:
             minimal_data = self.kg.ultra_loader.get_minimal_mcq_data(mcq_id)
             if not minimal_data:
                 raise ValueError(f"MCQ {mcq_id} not found")
-            
+
             # Use minimal data attributes
             subtopic_weights = minimal_data.subtopic_weights
             main_topic_index = minimal_data.main_topic_index
@@ -2393,14 +2543,14 @@ class BayesianKnowledgeTracing:
             mcq = self.kg.mcqs.get(mcq_id)
             if not mcq:
                 raise ValueError(f"MCQ {mcq_id} not found")
-            
+
             # Use full MCQ attributes
             subtopic_weights = mcq.subtopic_weights
             main_topic_index = mcq.main_topic_index
 
         updates = []
 
-        # Use the MCQ's explicit topic weights directly 
+        # Use the MCQ's explicit topic weights directly
         for topic_index, weight in subtopic_weights.items():
             # Get base parameters for this topic
             base_params = self.get_topic_parameters(topic_index)
@@ -2416,7 +2566,7 @@ class BayesianKnowledgeTracing:
             # Process with enhanced method (includes FSRS forgetting)
             update = self.process_student_response(
                 student_id, topic_index, is_correct, mcq_id, custom_params=adjusted_params)
-            
+
             update['topic_weight'] = weight
             update['is_primary_topic'] = (topic_index == main_topic_index)
 
@@ -2430,7 +2580,7 @@ class BayesianKnowledgeTracing:
         """
         if not self.is_area_effect_enabled() or mastery_change <= 0:
             return []
-        
+
         # Get area effect configuration
         area_config = self.get_area_effect_config()
         max_distance = area_config['max_distance']
@@ -2497,15 +2647,15 @@ class BayesianKnowledgeTracing:
         total_weight = 1.0
         for i in range(len(path) - 1):
             source, target = path[i], path[i + 1]
-            
+
             # Get edge weight (check both directions since we're using undirected)
             edge_weight = 0.5  # Default weight
-            
+
             if self.kg.graph.has_edge(source, target):
                 edge_weight = self.kg.graph[source][target].get('weight', 0.5)
             elif self.kg.graph.has_edge(target, source):
                 edge_weight = self.kg.graph[target][source].get('weight', 0.5)
-            
+
             # Multiply weights along the path
             total_weight *= edge_weight
 
@@ -2533,7 +2683,7 @@ class BayesianKnowledgeTracing:
                     all_updates.extend(area_updates)
 
             return all_updates
-    
+
         except Exception as e:
             print(f"❌ Error in BKT processing: {type(e)} - {e}")
             import traceback
@@ -2593,7 +2743,7 @@ class BayesianKnowledgeTracing:
         else:
             return stored_mastery
 
-    def get_review_recommendations(self, student_id: str, 
+    def get_review_recommendations(self, student_id: str,
                                  target_retention: float = 0.9) -> List[Dict]:
         """Get review recommendations based on FSRS forgetting predictions"""
         if not self.config.get('bkt_config.enable_fsrs_forgetting', True) or not self.fsrs_forgetting:
@@ -2608,18 +2758,18 @@ class BayesianKnowledgeTracing:
         for topic_index, mastery in student.mastery_levels.items():
             if mastery > 0.05:  # Only consider topics with minimal mastery
                 components = self.fsrs_forgetting.get_memory_components(student_id, topic_index)
-                
+
                 if components.review_count > 0:
                     # Calculate current retention
                     current_mastery = self.get_current_mastery_with_decay(student_id, topic_index)
                     retention_ratio = current_mastery / mastery if mastery > 0 else 0
-                    
+
                     # Calculate priority score based on retention drop and importance
                     retention_drop = 1.0 - retention_ratio
                     importance_score = mastery  # Higher mastery = more important to maintain
-                    
+
                     priority_score = retention_drop * importance_score
-                    
+
                     if retention_ratio < target_retention:
                         recommendations.append({
                             'topic_index': topic_index,
@@ -2664,13 +2814,13 @@ class BayesianKnowledgeTracing:
         for topic_index, mastery in student.mastery_levels.items():
             if mastery > 0.05:  # Only consider topics with minimal mastery
                 components = self.fsrs_forgetting.get_memory_components(student_id, topic_index)
-                
+
                 if components.review_count > 0:
                     component_count += 1
                     stability_sum += components.stability
                     difficulty_sum += components.difficulty
                     retrievability_sum += components.retrievability
-        
+
                     # Check if needs review (retention < 90%)
                     current_retention = self.fsrs_forgetting.apply_forgetting(
                         student_id, topic_index, mastery) / mastery
@@ -2684,7 +2834,7 @@ class BayesianKnowledgeTracing:
             diagnostics['average_retrievability'] = retrievability_sum / component_count
 
         return diagnostics
-    
+
 ##############  FSRS TIME TESTING   ##################
 
 from datetime import datetime, timedelta
@@ -2695,52 +2845,52 @@ class TimeManipulator:
     Time manipulation utility for testing FSRS forgetting curves
     Allows simulating the passage of time without actually waiting
     """
-    
+
     def __init__(self):
         self._time_offset = timedelta(0)  # How much time we've "fast-forwarded"
         self._original_now = datetime.now  # Store original datetime.now function
-        
+
     def get_current_time(self) -> datetime:
         """Get the current "simulated" time"""
         return self._original_now() + self._time_offset
-    
+
     def fast_forward(self, days: int = 0, hours: int = 0, minutes: int = 0) -> datetime:
         """
         Fast forward time by the specified amount
-        
+
         Args:
             days: Number of days to advance
-            hours: Number of hours to advance  
+            hours: Number of hours to advance
             minutes: Number of minutes to advance
-            
+
         Returns:
             New current time after fast forwarding
         """
         time_delta = timedelta(days=days, hours=hours, minutes=minutes)
         self._time_offset += time_delta
         new_time = self.get_current_time()
-        
+
         print(f"⏰ Time fast-forwarded by {days} days, {hours} hours, {minutes} minutes")
         print(f"📅 Current simulated time: {new_time.strftime('%Y-%m-%d %H:%M:%S')}")
-        
+
         return new_time
-    
+
     def reset_time(self) -> datetime:
         """Reset time manipulation back to real time"""
         self._time_offset = timedelta(0)
         real_time = self._original_now()
         print(f"🔄 Time reset to real time: {real_time.strftime('%Y-%m-%d %H:%M:%S')}")
         return real_time
-    
+
     def get_time_offset(self) -> timedelta:
         """Get current time offset"""
         return self._time_offset
-    
+
     def get_time_info(self) -> dict:
         """Get time manipulation info for display"""
         real_time = self._original_now()
         sim_time = self.get_current_time()
-        
+
         return {
             'real_time': real_time.strftime('%Y-%m-%d %H:%M:%S'),
             'simulated_time': sim_time.strftime('%Y-%m-%d %H:%M:%S'),
@@ -2756,17 +2906,17 @@ time_manipulator = TimeManipulator()
 # Monkey patch the FSRSForgettingModel to use simulated time
 def patch_fsrs_for_time_manipulation():
     """Patch the existing FSRSForgettingModel to use simulated time"""
-    
+
     # Store original methods
     original_get_memory_components = FSRSForgettingModel.get_memory_components
     original_apply_forgetting = FSRSForgettingModel.apply_forgetting
     original_update_memory_components = FSRSForgettingModel.update_memory_components
-    
+
     def patched_get_memory_components(self, student_id: str, topic_index: int) -> FSRSMemoryComponents:
         """Patched version that uses simulated time for initialization"""
         if student_id not in self.memory_components:
             self.memory_components[student_id] = {}
-        
+
         if topic_index not in self.memory_components[student_id]:
             # Initialize with simulated time
             self.memory_components[student_id][topic_index] = FSRSMemoryComponents(
@@ -2777,66 +2927,66 @@ def patch_fsrs_for_time_manipulation():
                 review_count=0,
                 recent_success_rate=0.5
             )
-        
+
         return self.memory_components[student_id][topic_index]
-    
+
     def patched_apply_forgetting(self, student_id: str, topic_index: int, current_mastery: float) -> float:
         """Patched version that uses simulated time for forgetting calculations"""
         components = self.get_memory_components(student_id, topic_index)
-        
+
         if components.last_review is None:
             components.last_review = time_manipulator.get_current_time()
             return current_mastery
-        
+
         # Calculate time since last review using simulated time
         current_time = time_manipulator.get_current_time()
         time_elapsed = (current_time - components.last_review).total_seconds() / (24 * 3600)
-        
+
         if time_elapsed <= 0:
             return current_mastery
-        
+
         # FSRS-inspired forgetting formula using power functions
         stability_factor = math.pow(time_elapsed, self.config.stability_power_factor) * components.stability
         difficulty_factor = math.pow(components.difficulty, self.config.difficulty_power_factor)
         retrievability_factor = math.pow(components.retrievability, self.config.retrievability_power_factor)
-        
+
         # Combine factors with weights
         forgetting_multiplier = (
             self.config.stability_weight * stability_factor +
             self.config.difficulty_weight * difficulty_factor +
             self.config.retrievability_weight * retrievability_factor
         )
-        
+
         # Apply forgetting with exponential decay
         forgetting_rate = math.exp(-time_elapsed / (self.config.base_forgetting_time * forgetting_multiplier))
-        
+
         # Ensure forgetting doesn't go below minimum threshold
         forgotten_mastery = max(0.01, current_mastery * forgetting_rate)
-        
+
         # Update last access time using simulated time
         components.last_review = current_time
-        
+
         return forgotten_mastery
-    
-    def patched_update_memory_components(self, student_id: str, topic_index: int, 
+
+    def patched_update_memory_components(self, student_id: str, topic_index: int,
                                        is_correct: bool, new_mastery: float):
         """Patched version that uses simulated time for updates"""
         components = self.get_memory_components(student_id, topic_index)
-        
+
         # Update review count
         components.review_count += 1
-        
+
         # Update last review time to simulated time
         components.last_review = time_manipulator.get_current_time()
-        
+
         # Update success rate with exponential moving average
         alpha = 0.3
         success_value = 1.0 if is_correct else 0.0
         components.recent_success_rate = (
-            alpha * success_value + 
+            alpha * success_value +
             (1 - alpha) * components.recent_success_rate
         )
-        
+
         # Update stability based on performance
         if is_correct:
             components.stability = min(
@@ -2848,19 +2998,19 @@ def patch_fsrs_for_time_manipulation():
                 self.config.min_stability,
                 components.stability * self.config.failure_stability_penalty
             )
-        
+
         # Update difficulty based on performance and mastery
         if is_correct and new_mastery > 0.7:
             components.difficulty = max(0.1, components.difficulty - self.config.difficulty_adaptation_rate)
         elif not is_correct and new_mastery < 0.5:
             components.difficulty = min(1.0, components.difficulty + self.config.difficulty_adaptation_rate)
-        
+
         # Update retrievability
         if is_correct:
             components.retrievability = min(1.0, components.retrievability + 0.2)
         else:
             components.retrievability = max(0.1, components.retrievability - 0.1)
-    
+
     # Apply the patches
     FSRSForgettingModel.get_memory_components = patched_get_memory_components
     FSRSForgettingModel.apply_forgetting = patched_apply_forgetting
@@ -2873,41 +3023,41 @@ patch_fsrs_for_time_manipulation()
 def simulate_time_passage(bkt_system, student_id: str, days: int = 0, hours: int = 0, minutes: int = 0) -> dict:
     """
     Fast-forward time and apply forgetting to student's mastery levels
-    
+
     Args:
         bkt_system: The BayesianKnowledgeTracing instance
         student_id: Student identifier
         days: Days to fast forward
         hours: Hours to fast forward
         minutes: Minutes to fast forward
-        
+
     Returns:
         Dictionary with before/after mastery levels and decay statistics
     """
     if not bkt_system.config.get('bkt_config.enable_fsrs_forgetting', True) or not bkt_system.fsrs_forgetting:
         return {'error': 'FSRS forgetting not enabled'}
-    
+
     student = bkt_system.student_manager.get_student(student_id)
     if not student:
         return {'error': 'Student not found'}
-    
+
     # Store mastery levels before time passage
     mastery_before = student.mastery_levels.copy()
-    
+
     # Fast forward time
     new_time = time_manipulator.fast_forward(days=days, hours=hours, minutes=minutes)
-    
+
     # Apply forgetting to all topics
     decay_results = []
     total_decay = 0
     topics_affected = 0
-    
+
     for topic_index, original_mastery in mastery_before.items():
         if original_mastery > 0.05:  # Only apply forgetting to topics with some mastery
             # Apply forgetting and update student's mastery
             new_mastery = bkt_system.fsrs_forgetting.apply_forgetting(student_id, topic_index, original_mastery)
             student.mastery_levels[topic_index] = new_mastery
-            
+
             decay_amount = original_mastery - new_mastery
             if decay_amount > 0.001:  # Only track significant decay
                 decay_results.append({
@@ -2920,10 +3070,10 @@ def simulate_time_passage(bkt_system, student_id: str, days: int = 0, hours: int
                 })
                 total_decay += decay_amount
                 topics_affected += 1
-    
+
     # Sort by decay amount
     decay_results.sort(key=lambda x: x['decay_amount'], reverse=True)
-    
+
     return {
         'time_advanced': {
             'days': days,
@@ -2942,45 +3092,45 @@ def simulate_time_passage(bkt_system, student_id: str, days: int = 0, hours: int
 def preview_mastery_decay(bkt_system, student_id: str, days_ahead: int = 30) -> dict:
     """
     Preview how mastery levels will decay over time without actually fast-forwarding
-    
+
     Args:
         bkt_system: The BayesianKnowledgeTracing instance
         student_id: Student identifier
         days_ahead: How many days ahead to simulate
-        
+
     Returns:
         Dictionary with current mastery, predicted mastery, and decay info
     """
     if not bkt_system.config.get('bkt_config.enable_fsrs_forgetting', True) or not bkt_system.fsrs_forgetting:
         return {'error': 'FSRS forgetting not enabled'}
-    
+
     student = bkt_system.student_manager.get_student(student_id)
     if not student:
         return {'error': 'Student not found'}
-    
+
     # Store original time offset
     original_offset = time_manipulator.get_time_offset()
-    
+
     # Simulate time passage
     time_manipulator.fast_forward(days=days_ahead)
-    
+
     decay_preview = {
         'days_simulated': days_ahead,
         'topics': []
     }
-    
+
     for topic_index, current_mastery in student.mastery_levels.items():
         if current_mastery > 0.05:  # Only preview topics with some mastery
             # Calculate predicted mastery after time passage
             predicted_mastery = bkt_system.fsrs_forgetting.apply_forgetting(
                 student_id, topic_index, current_mastery)
-            
+
             decay_amount = current_mastery - predicted_mastery
             decay_percentage = (decay_amount / current_mastery) * 100 if current_mastery > 0 else 0
-            
+
             # Get memory components for additional info
             components = bkt_system.fsrs_forgetting.get_memory_components(student_id, topic_index)
-            
+
             decay_preview['topics'].append({
                 'topic_index': topic_index,
                 'topic_name': bkt_system.kg.get_topic_of_index(topic_index),
@@ -2992,20 +3142,20 @@ def preview_mastery_decay(bkt_system, student_id: str, days_ahead: int = 30) -> 
                 'difficulty': components.difficulty,
                 'retrievability': components.retrievability
             })
-    
+
     # Restore original time offset
     time_manipulator._time_offset = original_offset
-    
+
     # Sort by decay amount (most decay first)
     decay_preview['topics'].sort(key=lambda x: x['decay_amount'], reverse=True)
-    
+
     return decay_preview
 
 def reset_time_to_real() -> dict:
     """Reset time manipulation back to real time"""
     old_offset = time_manipulator.get_time_offset()
     real_time = time_manipulator.reset_time()
-    
+
     return {
         'time_offset_was': str(old_offset),
         'real_time_now': real_time.strftime('%Y-%m-%d %H:%M:%S'),
@@ -3039,11 +3189,11 @@ def analyze_area_of_effect(bkt_updates: List[Dict], kg) -> Dict:
         'area_effect_updates': area_effect_updates
     }
 
- 
+
 def test():
     kg = KnowledgeGraph(
         nodes_file='mcq_algorithm_files\kg.json',
-        mcqs_file='mcq_algorithm_files\computed_mcqs_different_numbers.json', 
+        mcqs_file='mcq_algorithm_files\computed_mcqs_different_numbers.json',
         config_file='_static\config.json')
     student_manager = StudentManager(kg.config)
     mcq_scheduler = MCQScheduler(kg, student_manager)
@@ -3057,7 +3207,7 @@ def test():
     student_id = "test_student"
     student = student_manager.create_student(student_id)
     import random
-    # Set initial mastery levels if you want 
+    # Set initial mastery levels if you want
     for topic_idx in kg.get_all_indexes():
         mastery = random.uniform(0.1, 0.6)
         student.mastery_levels[topic_idx] = mastery
@@ -3065,16 +3215,19 @@ def test():
         student.studied_topics[topic_idx] = True
 
     #select questions
-    selected_mcqs = mcq_scheduler.select_optimal_mcqs(student_id, num_questions=1)
-
+    selected_mcqs = mcq_scheduler.select_optimal_mcqs(student_id, num_questions=3)
+    for mcq_id in selected_mcqs:
+        mcq = kg.get_mcq_safely(mcq_id, need_full_text=True)
+        q =mcq.question_text
+        print(q)
     test_data ={
       "id": "93d54eb9-5ead-4068-ade5-0482365c0dbe",
-      "text": "Factor the quadratic expression ${question_expression_subbed}$.",
+      "text": "Factor the quadratic expression ${question_expression}$.",
       "question_expression":"(x-r_1)*(x-r_2)",
       "generated_parameters":{
         "a":{"type":"int", "min":-24,"max":24,"exclude":0},
         "b":{"type":"int", "min":-12,"max":12,"exclude":0},
-        "c":{"type":"int", "min":-24,"max":24,"exclude":0}, 
+        "c":{"type":"int", "min":-24,"max":24,"exclude":0},
         "d":{"type":"int","min":-12,"max":12,"exclude":0}
       },
       "calculated_parameters":{
@@ -3084,7 +3237,7 @@ def test():
       "options": [
         "(b*x -c)*(d*x -a)",
         "(b*x -a)*(d*x -c)",
-        "(27*x + 1)*(2*x - 12)", 
+        "(27*x + 1)*(2*x - 12)",
         "(d*x + c)*(b*x - a)"
       ],
       "correctindex": 1,
@@ -3112,23 +3265,23 @@ def test():
         "7": 0.8,
         "12": 0.9
       }}
-    
+
     mcq = MCQ.from_dict(test_data)
     print("✅ MCQ created successfully")
-    
+
     # Test parameter generation
     mcq.regenerate_parameters()
     params = mcq.get_current_parameters()
     print(f"✅ Parameters generated: {params}")
-    
+
     # Test question text
     question_text = mcq.question_text
     print(f"✅ Question text: {question_text}")
-    
+
     # Test options
     options = mcq.question_options
     print(f"✅ Options: {options}")
-    
+
     print("\n🎉 Basic parameterized MCQ test PASSED!")
 
     # Test the exclude logic fix
@@ -3175,7 +3328,7 @@ def test():
     print("\nTesting question text generation...")
     question_test_data = {
         "id": "test_question_text",
-        "text": "What is the discriminant of ${question_expression_subbed}?",
+        "text": "What is the discriminant of ${question_expression}?",
         "question_expression": "a*x**2 + b*x + c",
         "generated_parameters": {
             "a": {"type": "int", "min": 1, "max": 3},
@@ -3230,4 +3383,4 @@ if __name__ == "__main__":
         "overall_difficulty": 0.5,
         "prerequisites": {}
     }
-    '''   
+    '''

@@ -1,8 +1,8 @@
 {
   "mcqs": [
     {
-      "id": "74bcf9d0-c392-41d1-813c-a5299817eb1a",
-      "text": "What is the discriminant of the quadratic equation ${question_expression_subbed}$?",
+      "id": "24604d32-3b8b-49cf-8d12-00eb9eb645e2",
+      "text": "What is the discriminant of the quadratic equation ${question_expression}$?",
       "question_expression": "a*x**2 +b*x + c = 0",
       "generated_parameters": {
         "a": {
@@ -55,8 +55,8 @@
       }
     },
     {
-      "id": "45dbefc0-08f0-48cb-b5af-2aca2694039d",
-      "text": "Factor the quadratic expression ${question_expression_subbed}$.",
+      "id": "cfebfa2c-1d34-4ace-b1b5-db30ac5f7777",
+      "text": "Factor the quadratic expression ${question_expression_expanded}$.",
       "question_expression": "(x-r_1)*(x-r_2)",
       "generated_parameters": {
         "a": {
@@ -121,8 +121,8 @@
       }
     },
     {
-      "id": "18a826ca-0e6e-42ba-91d4-672ca7dc6476",
-      "text": "Solve for x in the linear equation ${question_expression_subbed}$.",
+      "id": "afd07926-39d3-45c9-ad66-daebc5ba0c34",
+      "text": "Solve for x in the linear equation ${question_expression}$.",
       "question_expression": "a*x + b = c",
       "generated_parameters": {
         "a": {
@@ -179,15 +179,19 @@
       }
     },
     {
-      "id": "01d6a2cf-688f-43d4-9db8-110a7f1b547c",
-      "text": "What is the standard form of the linear equation ${question_expression_subbed}$?",
+      "id": "ee686107-ba98-49c4-9dfc-99e158362799",
+      "text": "What is the standard form of the linear equation ${question_expression}$?",
       "question_expression": "y - m*x = b",
       "generated_parameters": {
         "m": {
-          "type": "int",
-          "min": -8,
-          "max": 8,
-          "exclude": 0
+          "type": "fraction",
+          "numerator_min": -8,
+          "numerator_max": 8,
+          "denominator_min": 2,
+          "denominator_max": 5,
+          "exclude_numerator": [
+            0
+          ]
         },
         "b": {
           "type": "int",
@@ -229,8 +233,8 @@
       }
     },
     {
-      "id": "74176bc6-216f-4440-9eb6-298acd073ac5",
-      "text": "Expand the expression ${question_expression_subbed}$.",
+      "id": "f5fc552b-5df7-4260-b386-81c3c64243a9",
+      "text": "Expand the expression ${question_expression}$.",
       "question_expression": "(a*x + b)*(c*x + d)",
       "generated_parameters": {
         "a": {
@@ -291,8 +295,8 @@
       }
     },
     {
-      "id": "d87a6a5d-856d-4a2f-930c-2038c6141e4d",
-      "text": "Find the distance between points ${question_expression_subbed}$.",
+      "id": "380390b3-2e17-422d-8b0d-323b1a82fb5e",
+      "text": "Find the distance between points ${question_expression}$.",
       "question_expression": "(x1, y1) and (x2, y2)",
       "generated_parameters": {
         "x1": {
@@ -355,8 +359,8 @@
       }
     },
     {
-      "id": "f1d0e39b-044d-422c-94ff-8166eed3fd5f",
-      "text": "Complete the square for ${question_expression_subbed}$.",
+      "id": "11890374-0fec-4449-9072-e882fe74982b",
+      "text": "Complete the square for ${question_expression}$.",
       "question_expression": "x**2 + b*x + c",
       "generated_parameters": {
         "h": {
@@ -407,8 +411,8 @@
       }
     },
     {
-      "id": "c963cbaf-9bd7-41b6-9651-17e0a0ae24ae",
-      "text": "What is the axis of symmetry of the parabola ${question_expression_subbed}$?",
+      "id": "ca44b287-0f65-4046-8185-2779e81ee41c",
+      "text": "What is the axis of symmetry of the parabola ${question_expression}$?",
       "question_expression": "y = a*x**2 + b*x + c",
       "generated_parameters": {
         "a": {
@@ -417,15 +421,15 @@
           "max": 5,
           "exclude": 0
         },
-        "axis_num": {
-          "type": "int",
-          "min": -6,
-          "max": 6
-        },
-        "axis_den": {
-          "type": "int",
-          "min": 1,
-          "max": 4
+        "axis_x": {
+          "type": "fraction",
+          "numerator_min": -12,
+          "numerator_max": 12,
+          "denominator_min": 2,
+          "denominator_max": 6,
+          "exclude_numerator": [
+            0
+          ]
         },
         "c": {
           "type": "int",
@@ -434,13 +438,13 @@
         }
       },
       "calculated_parameters": {
-        "b": "-2*a*axis_num/axis_den"
+        "b": "-2*a*axis_x"
       },
       "options": [
-        "axis_num/axis_den",
-        "-axis_num/axis_den",
-        "axis_den/axis_num",
-        "2*axis_num/axis_den"
+        "x = axis_x",
+        "x = -axis_x",
+        "x = 1/axis_x",
+        "x = 2*axis_x"
       ],
       "correctindex": 0,
       "option_explanations": [
@@ -470,8 +474,8 @@
       }
     },
     {
-      "id": "8917508f-8e0d-408c-b9cd-014ea633aa8b",
-      "text": "Find the vertex of the parabola ${question_expression_subbed}$.",
+      "id": "68ca4023-ebcf-411f-bfd8-32a541d4ddbc",
+      "text": "Find the vertex of the parabola ${question_expression}$.",
       "question_expression": "y = a*(x - h)**2 + k",
       "generated_parameters": {
         "a": {
@@ -522,8 +526,8 @@
       "prerequisites": {}
     },
     {
-      "id": "8f725c6d-3f68-4cf9-9040-5a7e09ee101a",
-      "text": "Find the x-intercepts of ${question_expression_subbed}$.",
+      "id": "71646147-4668-4644-a37e-a09e03aafd2f",
+      "text": "Find the x-intercepts of ${question_expression_expanded}$.",
       "question_expression": "y = (x - r)*(x - s)",
       "generated_parameters": {
         "r": {
@@ -572,8 +576,8 @@
       }
     },
     {
-      "id": "6a0ff94e-5ab5-4c86-8893-2a7c303f2393",
-      "text": "Use the quadratic formula to solve ${question_expression_subbed}$.",
+      "id": "62c4921b-1ee0-447b-a187-2892ed06123a",
+      "text": "Use the quadratic formula to solve ${question_expression}$.",
       "question_expression": "a*x**2 + b*x + c = 0",
       "generated_parameters": {
         "a": {
@@ -581,30 +585,30 @@
           "min": 1,
           "max": 4
         },
-        "root1_num": {
-          "type": "int",
-          "min": -6,
-          "max": 6
+        "root1": {
+          "type": "fraction",
+          "numerator_min": -8,
+          "numerator_max": 8,
+          "denominator_min": 2,
+          "denominator_max": 4,
+          "exclude_numerator": [
+            0
+          ]
         },
-        "root1_den": {
-          "type": "int",
-          "min": 1,
-          "max": 3
-        },
-        "root2_num": {
-          "type": "int",
-          "min": -6,
-          "max": 6
-        },
-        "root2_den": {
-          "type": "int",
-          "min": 1,
-          "max": 3
+        "root2": {
+          "type": "fraction",
+          "numerator_min": -8,
+          "numerator_max": 8,
+          "denominator_min": 2,
+          "denominator_max": 4,
+          "exclude_numerator": [
+            0
+          ]
         }
       },
       "calculated_parameters": {
-        "b": "-a*(root1_num*root2_den + root2_num*root1_den)/(root1_den*root2_den)",
-        "c": "a*root1_num*root2_num/(root1_den*root2_den)"
+        "b": "-a*(root1 + root2)",
+        "c": "a*root1*root2"
       },
       "options": [
         "x = root1_num/root1_den and x = root2_num/root2_den",
@@ -639,8 +643,8 @@
       }
     },
     {
-      "id": "3d684f4e-e784-488b-8113-0f049eadab04",
-      "text": "What is the nature of the roots when the discriminant equals ${question_expression_subbed}$?",
+      "id": "bdc3ac3b-5d70-49a3-b599-e6f8c7cfefe4",
+      "text": "What is the nature of the roots when the discriminant equals ${question_expression}$?",
       "question_expression": "discriminant_value",
       "generated_parameters": {
         "discriminant_case": {
@@ -682,8 +686,8 @@
       "prerequisites": {}
     },
     {
-      "id": "f1570cc0-fb01-4eaa-9cd6-740ab9365aae",
-      "text": "Factor the quadratic polynomial ${question_expression_subbed}$ completely.",
+      "id": "129e2e58-99bf-4ebe-98cb-fe8f26814f97",
+      "text": "Factor the quadratic polynomial ${question_expression}$ completely.",
       "question_expression": "poly",
       "generated_parameters": {
         "root1": {
@@ -736,8 +740,8 @@
       }
     },
     {
-      "id": "8ecee255-0953-4ae0-b519-826456307fb8",
-      "text": "Find the vertex of the quadratic function ${question_expression_subbed}$.",
+      "id": "70f32a44-410f-4d1a-960d-a9245e03ab51",
+      "text": "Find the vertex of the quadratic function ${question_expression}$.",
       "question_expression": "func",
       "generated_parameters": {
         "func": {
@@ -785,6 +789,220 @@
       },
       "overall_difficulty": 0.5333333333333333,
       "prerequisites": {}
+    },
+    {
+      "id": "b8a42599-da9d-4f31-b4cc-499edcaecf3c",
+      "text": "Simplify the expression ${question_expression_collected}$.",
+      "question_expression": "a*x**2 + b*x + a*x**2 + c*x + d + e",
+      "generated_parameters": {
+        "a": {
+          "type": "fraction",
+          "numerator_min": 1,
+          "numerator_max": 4,
+          "denominator_min": 2,
+          "denominator_max": 3,
+          "exclude_numerator": [
+            0
+          ]
+        },
+        "b": {
+          "type": "decimal",
+          "min": -2.0,
+          "max": 2.0,
+          "decimal_places": 1,
+          "step": 0.5
+        },
+        "c": {
+          "type": "int",
+          "min": -3,
+          "max": 3,
+          "exclude": 0
+        },
+        "d": {
+          "type": "fraction",
+          "numerator_min": -6,
+          "numerator_max": 6,
+          "denominator_min": 2,
+          "denominator_max": 4
+        },
+        "e": {
+          "type": "decimal",
+          "min": -1.0,
+          "max": 1.0,
+          "decimal_places": 1,
+          "step": 0.5
+        }
+      },
+      "calculated_parameters": {
+        "x_squared_coeff": "2*a",
+        "x_coeff": "b + c",
+        "constant": "d + e",
+        "simplified": "x_squared_coeff*x**2 + x_coeff*x + constant",
+        "wrong_x_squared": "a*x**2 + x_coeff*x + constant",
+        "wrong_multiply": "a*x**2 + (b*c)*x + (d*e)",
+        "uncombined": "a*x**2 + b*x + a*x**2 + c*x + d + e"
+      },
+      "options": [
+        "simplified",
+        "wrong_x_squared",
+        "wrong_multiply",
+        "uncombined"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! Combining like terms: $2ax^2 + (b+c)x + (d+e)$",
+        "Incorrect. The coefficient of $x^2$ should be $2a$ since there are two $ax^2$ terms.",
+        "Incorrect. You should add coefficients of like terms, not multiply them.",
+        "Incorrect. You need to combine the like terms."
+      ],
+      "main_topic_index": 3,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "3": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.4,
+        "procedural_fluency": 0.8,
+        "problem_solving": 0.3,
+        "mathematical_communication": 0.2,
+        "memory": 0.3,
+        "spatial_reasoning": 0.0
+      },
+      "overall_difficulty": 0.3333333333333333,
+      "prerequisites": {
+        "0": 0.7,
+        "9": 0.8,
+        "14": 0.2
+      }
+    },
+    {
+      "id": "f686e19a-3675-4375-800b-9637498b896e",
+      "text": "To derive the quadratic formula from ${question_expression_simplified}$, what is the first step?",
+      "question_expression": "a*x**2 + b*x + c",
+      "generated_parameters": {
+        "a": {
+          "type": "fraction",
+          "numerator_min": 1,
+          "numerator_max": 4,
+          "denominator_min": 1,
+          "denominator_max": 3,
+          "exclude_numerator": [
+            0
+          ]
+        },
+        "b": {
+          "type": "int",
+          "min": -5,
+          "max": 5,
+          "exclude": 0
+        },
+        "c": {
+          "type": "fraction",
+          "numerator_min": 1,
+          "numerator_max": 4,
+          "denominator_min": 1,
+          "denominator_max": 3,
+          "exclude_numerator": [
+            0
+          ]
+        }
+      },
+      "calculated_parameters": {
+        "step1": "Divide by a to get x**2 + (b/a)*x + (c/a) = 0",
+        "wrong_complete": "Complete the square immediately",
+        "wrong_subtract": "Subtract c from both sides",
+        "wrong_factor": "Try to factor the expression"
+      },
+      "options": [
+        "step1",
+        "wrong_complete",
+        "wrong_subtract",
+        "wrong_factor"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! To derive the quadratic formula, first divide by $a$ to make the leading coefficient 1",
+        "Incorrect. You should first make the leading coefficient 1 before completing the square.",
+        "Incorrect. This is not the systematic first step in the derivation.",
+        "Incorrect. The derivation uses completing the square, not factoring."
+      ],
+      "main_topic_index": 14,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "14": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.7,
+        "procedural_fluency": 0.5,
+        "problem_solving": 0.6,
+        "mathematical_communication": 0.6,
+        "memory": 0.7,
+        "spatial_reasoning": 0.0
+      },
+      "overall_difficulty": 0.5166666666666666,
+      "prerequisites": {
+        "15": 0.9
+      }
+    },
+    {
+      "id": "6ece7aba-e102-4cdd-8013-0aa74c30523f",
+      "text": "The function ${question_expression}$ represents which type of mathematical relationship?",
+      "question_expression": "func",
+      "generated_parameters": {
+        "func": {
+          "type": "function",
+          "function_type": "quadratic",
+          "parameter_ranges": {
+            "a_min": -3,
+            "a_max": 3,
+            "a_exclude": [
+              0
+            ],
+            "b_min": -4,
+            "b_max": 4,
+            "c_min": -5,
+            "c_max": 5
+          }
+        }
+      },
+      "calculated_parameters": {},
+      "options": [
+        "Quadratic function (parabola)",
+        "Linear function (straight line)",
+        "Cubic function",
+        "Exponential function"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! This is a quadratic function of the form $f(x) = ax^2 + bx + c$, which graphs as a parabola",
+        "Incorrect. Linear functions have the form $f(x) = mx + b$ with degree 1.",
+        "Incorrect. Cubic functions have degree 3 with terms up to $x^3$.",
+        "Incorrect. Exponential functions have the form $f(x) = ab^x$."
+      ],
+      "main_topic_index": 2,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "2": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.7,
+        "procedural_fluency": 0.2,
+        "problem_solving": 0.3,
+        "mathematical_communication": 0.6,
+        "memory": 0.5,
+        "spatial_reasoning": 0.4
+      },
+      "overall_difficulty": 0.44999999999999996,
+      "prerequisites": {
+        "5": 0.9,
+        "6": 0.7,
+        "9": 0.6,
+        "10": 0.8,
+        "12": 0.6,
+        "14": 0.7,
+        "15": 0.8,
+        "17": 0.6
+      }
     }
   ]
 }

@@ -43,7 +43,7 @@ class MinimalMCQData:
     subtopic_weights: Dict[int, float]  # For coverage calculation
     difficulty: float  # For cost calculation
     prerequisites: Dict[int, float]  # For prerequisite coverage
-
+    difficulty_breakdown: 'DifficultyBreakdown'
     # Optional: only load if actually needed
     text: Optional[str] = None  # Only for display/debugging
     chapter: Optional[str] = None
@@ -85,15 +85,18 @@ class MCQLoader:
                 # Convert string keys to integers (only conversion needed)
                 subtopic_weights = {int(k): v for k, v in mcq_data['subtopic_weights'].items()}
                 prerequisites = {int(k): v for k, v in mcq_data['prerequisites'].items()}
+                difficulty_breakdown = DifficultyBreakdown.from_dict(mcq_data['difficulty_breakdown'])
 
-                # Use precomputed values directly - no calculations!
+                # Use precomputed values directly - no calculations
                 minimal_data = MinimalMCQData(
                     id=mcq_id,
                     main_topic_index=mcq_data['main_topic_index'],
                     subtopic_weights=subtopic_weights,
                     difficulty=mcq_data['overall_difficulty'],  # Direct use
                     prerequisites=prerequisites,  # Direct use
-                    chapter=mcq_data.get('chapter')
+                    difficulty_breakdown=difficulty_breakdown,
+                    chapter=mcq_data.get('chapter'),
+                    is_parameterized=mcq_data.get('is_parameterized', False)
                 )
 
                 self.minimal_mcq_data[mcq_id] = minimal_data
@@ -113,7 +116,6 @@ class MCQLoader:
 
         print(f"✅  optimized index complete:")
         print(f"   📊 {len(self.minimal_mcq_data)} MCQs indexed")
-        print(f"   📂 {len(self.topic_to_mcq_ids)} topics")
 
 
     def get_mcqs_for_due_topics_minimal(self, due_topic_indices: List[int]) -> List[MinimalMCQData]:
@@ -748,116 +750,116 @@ class MCQ:
         }
         '''
     def generate_question_text(self, text: str, params: Dict) -> str:
-        """Fixed question text generation"""
+        """
+        Generate the final question text by substituting parameters and
+        evaluating the question expression in different formats.
+
+        Supports:
+        - Parameter placeholders like ${a}$, ${b}$
+        - Derived/calculated parameters
+        - Question expressions in expanded, factored, simplified, collected, or as-is form
+        - Proper LaTeX formatting
+        """
         if not params or not text:
             return text
 
+        # Start with text to modify
         result_text = text
 
-                # Handle question expression substitution
-        if self.question_expression:
-            # List all the placeholders you want to support
-            placeholders = [
-                ('${question_expression_expanded}$', 'expanded'),
-                ('${question_expression_factored}$', 'factored'),
-                ('${question_expression_simplified}$', 'simplified'),
-                ('${question_expression_collected}$', 'collected'),
-                ('${question_expression}$', 'as_is')
-            ]
+        # Combine parameters and calculated values into local namespace
+        all_params = params
+        local_namespace = dict(all_params)
 
-            # Check if any of these placeholders exist in the text
+        # Define question expression placeholders and formats
+        placeholders = [
+            ('${question_expression_expanded}$', 'expanded'),
+            ('${question_expression_factored}$', 'factored'),
+            ('${question_expression_simplified}$', 'simplified'),
+            ('${question_expression_collected}$', 'collected'),
+            ('${question_expression}$', 'as_is')
+        ]
+
+        # If question_expression is defined and not empty
+        if self.question_expression and self.question_expression.strip() != "":
             for placeholder, format_type in placeholders:
                 if placeholder in result_text:
                     try:
-                        # NEW: Check if this is an equation or expression
+                        latex_expr = ""
+                        # Handle equations separately
                         if '=' in self.question_expression:
-                            # Handle equation: split at '=' and process each side
                             left_side, right_side = self.question_expression.split('=', 1)
-                            left_side = left_side.strip()
-                            right_side = right_side.strip()
+                            left_expr = sympify(left_side.strip(), locals=local_namespace)
+                            right_expr = sympify(right_side.strip(), locals=local_namespace)
 
-                            # Process left side
-                            left_expr = sympify(left_side, locals=local_namespace)
-                            calc = {}
-                            for calc_name, calc_expr in self.calculated_parameters.items():
-                                calc_expr_sympy = sympify(calc_expr, locals=local_namespace)
-                                calc[calc_name] = calc_expr_sympy.subs(params)
+                            left_sub = left_expr.subs(all_params)
+                            right_sub = right_expr.subs(all_params)
 
-                            all_params = {**params, **calc}
-                            left_substituted = left_expr.subs(all_params)
-
-                            # Apply formatting to left side
+                            # Apply format
                             if format_type == 'expanded':
-                                left_processed = expand(left_substituted)
+                                left_proc = expand(left_sub)
+                                right_proc = expand(right_sub)
                             elif format_type == 'factored':
-                                left_processed = factor(left_substituted)
+                                left_proc = factor(left_sub)
+                                right_proc = factor(right_sub)
                             elif format_type == 'simplified':
-                                left_processed = simplify(left_substituted)
+                                left_proc = simplify(left_sub)
+                                right_proc = simplify(right_sub)
                             elif format_type == 'collected':
-                                left_processed = collect(left_substituted, symbols('x'))
+                                left_proc = collect(left_sub, symbols('x'))
+                                right_proc = collect(right_sub, symbols('x'))
                             else:
-                                left_processed = left_substituted
+                                left_proc = left_sub
+                                right_proc = right_sub
 
-                            # Process right side (usually simpler, often just "0")
-                            right_expr = sympify(right_side, locals=local_namespace)
-                            right_substituted = right_expr.subs(all_params)
-
-                            # Convert to LaTeX
-                            left_latex = latex(left_processed)
-                            right_latex = latex(right_substituted)
-
-                            # Fix signs and combine
+                            # Convert both sides to LaTeX
+                            left_latex = latex(left_proc)
+                            right_latex = latex(right_proc)
+                            # Clean signs
                             left_latex = left_latex.replace('+ -', '- ').replace('- -', '+ ')
                             right_latex = right_latex.replace('+ -', '- ').replace('- -', '+ ')
 
                             latex_expr = f"{left_latex} = {right_latex}"
 
                         else:
-                            # Handle regular expression (your existing code)
+                            # Single expression
                             expr = sympify(self.question_expression, locals=local_namespace)
-
-                            calc = {}
-                            for calc_name, calc_expr in self.calculated_parameters.items():
-                                calc_expr_sympy = sympify(calc_expr, locals=local_namespace)
-                                calc[calc_name] = calc_expr_sympy.subs(params)
-
-                            all_params = {**params, **calc}
-                            substituted_expr = expr.subs(all_params)
+                            substituted = expr.subs(all_params)
 
                             if format_type == 'expanded':
-                                processed_expr = expand(substituted_expr)
+                                processed = expand(substituted)
                             elif format_type == 'factored':
-                                processed_expr = factor(substituted_expr)
+                                processed = factor(substituted)
                             elif format_type == 'simplified':
-                                processed_expr = simplify(substituted_expr)
+                                processed = simplify(substituted)
                             elif format_type == 'collected':
-                                processed_expr = collect(substituted_expr, symbols('x'))
+                                processed = collect(substituted, symbols('x'))
                             else:
-                                processed_expr = substituted_expr
+                                processed = substituted
 
-                            latex_expr = latex(processed_expr)
+                            latex_expr = latex(processed)
                             latex_expr = latex_expr.replace('+ -', '- ').replace('- -', '+ ')
 
-                        # Replace in text
-                        result_text = result_text.replace(placeholder + '$', f"${latex_expr}$")
+                        # Replace placeholder with formatted expression wrapped in $...$
+                        result_text = result_text.replace(placeholder, f"${latex_expr}$")
 
                     except Exception as e:
-                        print(f"Error in question expression substitution: {e}")
-                        # Enhanced fallback that handles equations
+                        print(f"⚠️ Error processing question_expression: {e}")
+                        # Fallback: do naive substitution of parameters
                         fallback_expr = self.question_expression
-                        for param_name, param_value in params.items():
-                            if isinstance(param_value, (int, float)) and param_value < 0:
-                                # Handle negative values to avoid "+ -3"
-                                fallback_expr = fallback_expr.replace(f"+ {param_name}", f"- {abs(param_value)}")
-                                fallback_expr = fallback_expr.replace(f"- {param_name}", f"+ {abs(param_value)}")
-                            fallback_expr = fallback_expr.replace(param_name, str(param_value))
-
-                        # Clean up signs
+                        for pname, pvalue in all_params.items():
+                            fallback_expr = fallback_expr.replace(str(pname), str(pvalue))
                         fallback_expr = fallback_expr.replace('+ -', '- ').replace('- -', '+ ')
-                        result_text = result_text.replace(placeholder + '$', f"${fallback_expr}$")
+                        result_text = result_text.replace(placeholder, f"${fallback_expr}$")
 
-                    break
-                '''
+        # Finally: replace individual parameters like ${a}$, ${b}$
+        for pname, pvalue in all_params.items():
+            simple_placeholder = f'${{{pname}}}$'
+            if simple_placeholder in result_text:
+                result_text = result_text.replace(simple_placeholder, str(pvalue))
+
+        return result_text
+
+        '''
                         # Create SymPy expression
                         expr = sympify(self.question_expression, locals=local_namespace)
 
@@ -900,10 +902,7 @@ class MCQ:
 
                     break  # Stop after finding the first matching placeholder
                 '''
-        # Handle individual parameter substitutions (UNCHANGED)
-        for param_name, param_value in params.items():
-            placeholder = f'${{{param_name}}}'
-            result_text = result_text.replace(placeholder, str(param_value))
+
         '''
         if self.question_expression and ('${question_expression_subbed}' in result_text):
             try:
@@ -942,7 +941,7 @@ class MCQ:
             placeholder = f'${{{param_name}}}'
             result_text = result_text.replace(placeholder, str(param_value))
         '''
-        return result_text
+
 
 
     def render_options(self, params: Dict[str, Union[int, float]]) -> List[str]:
@@ -1692,13 +1691,9 @@ class OptimizedMCQVector:
         return self.minimal_data.main_topic_index
 
     @property
-    def difficulty_breakdown(self) -> Dict[str, float]:
-        """Return detailed breakdown if available, otherwise synthesize from overall"""
-        if self.minimal_data.difficulty_breakdown:
-            return self.minimal_data.difficulty_breakdown
-        else:
-            print('no difficuty breakdown')
-            return []
+    def difficulty_breakdown(self) -> 'DifficultyBreakdown':
+        """Return detailed breakdown in minimal data"""
+        return self.minimal_data.difficulty_breakdown
 
 class MCQScheduler:
     """the bit that does the actual mcq algorithm calculations
@@ -1885,6 +1880,9 @@ class MCQScheduler:
                     best_mcq = mcq_id
                     best_coverage_info = coverage_info
                     print(f"   ✅ New best MCQ: {mcq_id} (ratio: {best_ratio:.3f})")
+                if best_mcq is None:
+                    print("✅ No suitable MCQs left — stopping.")
+                    break
 
             except Exception as e:
                 print(f"   ❌ Error evaluating MCQ {mcq_id}: {type(e)} - {e}")
@@ -1905,18 +1903,19 @@ class MCQScheduler:
                 # Update virtual mastery and topic priorities
                 total_topic_coverage_score = self._update_simulated_mastery_and_priorities(best_mcq, simulated_mastery_levels, topic_priorities, best_coverage_info, student)
 
-                print(f"✅ Updated virtual mastery- Coverage: {total_topic_coverage_score:.3f}, Remaining topics: {len(topic_priorities)}")
+                if iteration % 5 == 0:  # Only print every 5th iteration
+                    print(f"✅ Q{iteration}: Coverage {total_topic_coverage_score:.3f}")
 
             except Exception as e:
                 print(f"❌ Error updating virtual mastery: {type(e)} - {e}")
                 import traceback
                 traceback.print_exc()
                 break
-
+            if iteration % 5 == 0:
             #print(f"Selected Q{iteration + 1}: {self.kg.mcqs[best_mcq].text[:50]}...")
-            print(f"  Coverage-to-cost ratio: {best_ratio:.3f}")
-            print(f"  Total coverage gained: {total_topic_coverage_score:.3f}")
-            print(f"  Remaining due topics: {len(topic_priorities)}")
+                print(f"  Coverage-to-cost ratio: {best_ratio:.3f}")
+                print(f"  Total coverage gained: {total_topic_coverage_score:.3f}")
+                print(f"  Remaining due topics: {len(topic_priorities)}")
 
             # Early stopping if improvement is minimal
             if (greedy_early_stopping and abs(total_topic_coverage_score - last_total_coverage) < greedy_convergence_threshold):
@@ -2007,7 +2006,7 @@ class MCQScheduler:
 
         coverage_details['total_topic_coverage_score'] = total_topic_coverage_score
         return coverage_details
-
+    '''
     def _update_simulated_mastery_and_priorities(self, mcq_id: str,
                                             simulated_mastery_levels: Dict[int, float],
                                             topic_priorities: Dict[int, float],
@@ -2079,6 +2078,272 @@ class MCQScheduler:
 
 
         return total_topic_coverage_score
+        '''
+
+    def set_bkt_system(self, bkt_system):
+        """Set reference to BKT system after initialization"""
+        self.bkt_system = bkt_system
+        # Also set the reference in student manager
+        self.student_manager.bkt_system = bkt_system
+    def _update_simulated_mastery_and_priorities(self, mcq_id: str,
+                                            simulated_mastery_levels: Dict[int, float],
+                                            topic_priorities: Dict[int, float],
+                                            coverage_info: Dict,
+                                            student: StudentProfile) -> float:
+        """
+        virtual mastery updates using BKT functions.
+        """
+        if not self.bkt_system:
+            return self._update_simulated_mastery_fallback(
+                mcq_id, simulated_mastery_levels, topic_priorities, coverage_info, student)
+
+        # Get config values
+        mastery_threshold = self.get_config_value('algorithm_config.mastery_threshold', 0.7)
+        greedy_priority_weight = self.get_config_value('greedy_algorithm.greedy_priority_weight', 2.0)
+
+        # Get MCQ data (use existing pattern from process_mcq_response_improved)
+        if hasattr(self.kg, 'ultra_loader'):
+            minimal_data = self.kg.ultra_loader.get_minimal_mcq_data(mcq_id)
+            if not minimal_data:
+                return coverage_info['total_topic_coverage_score']
+            subtopic_weights = minimal_data.subtopic_weights
+            main_topic_index = minimal_data.main_topic_index
+        else:
+            mcq = self.kg.mcqs.get(mcq_id)
+            if not mcq:
+                return coverage_info['total_topic_coverage_score']
+            subtopic_weights = mcq.subtopic_weights
+            main_topic_index = mcq.main_topic_index
+
+        topics_to_remove = []
+        total_topic_coverage_score = coverage_info['total_topic_coverage_score']
+
+        # Process each topic using the same logic as process_mcq_response_improved()
+        for topic_index, weight in subtopic_weights.items():
+            if topic_index not in topic_priorities:
+                continue  # Only update due topics
+
+            current_mastery = simulated_mastery_levels.get(topic_index, student.get_mastery(topic_index))
+
+            # Use existing BKT parameter logic (same as process_mcq_response_improved)
+            base_params = self.bkt_system.get_topic_parameters(topic_index)
+            adjusted_params = {
+                'prior_knowledge': base_params['prior_knowledge'],
+                'learning_rate': base_params['learning_rate'] * weight,  # Scale by weight
+                'slip_rate': base_params['slip_rate'],
+                'guess_rate': base_params['guess_rate']
+            }
+
+            # Calculate BKT update (same logic as process_student_response but virtual)
+            conditional_prob = self.bkt_system.calculate_conditional_probability(
+                current_mastery, True, adjusted_params)
+            new_mastery = self.bkt_system.update_mastery(conditional_prob, adjusted_params)
+
+            # Update virtual mastery
+            simulated_mastery_levels[topic_index] = new_mastery
+
+            # Update topic priorities
+            if new_mastery >= mastery_threshold:
+                topics_to_remove.append(topic_index)
+            else:
+                new_priority = (1.0 - new_mastery) ** greedy_priority_weight
+                topic_priorities[topic_index] = new_priority
+
+        # Remove topics that reached mastery threshold
+        for topic_index in topics_to_remove:
+            topic_priorities.pop(topic_index, None)
+
+        # Apply area of effect simulation if enabled
+        enable_virtual_area_effects = self.get_config_value('greedy_algorithm.enable_virtual_area_effects', True)
+        if (enable_virtual_area_effects and
+            self.bkt_system and
+            hasattr(self.bkt_system, 'is_area_effect_enabled') and
+            self.bkt_system.is_area_effect_enabled()):
+
+            # Calculate mastery changes for area effect
+            mastery_changes = {}
+            for topic_index in subtopic_weights.keys():
+                if topic_index in simulated_mastery_levels:
+                    original_mastery = student.get_mastery(topic_index)
+                    mastery_change = simulated_mastery_levels[topic_index] - original_mastery
+                    if mastery_change > 0:
+                        mastery_changes[topic_index] = mastery_change
+
+            # Apply area effects for each topic that had positive mastery changes
+            for topic_index, mastery_change in mastery_changes.items():
+                area_effect_updates = self._simulate_area_of_effect_single(
+                    topic_index, mastery_change, simulated_mastery_levels, topic_priorities, student)
+
+                # Update coverage score based on area effects
+                for update in area_effect_updates:
+                    total_topic_coverage_score += update.get('coverage_boost', 0)
+
+        return total_topic_coverage_score
+
+    def _simulate_area_of_effect_single(self, center_topic_index: int, mastery_change: float,
+                                    simulated_mastery_levels: Dict[int, float],
+                                    topic_priorities: Dict[int, float],
+                                    student: StudentProfile) -> List[Dict]:
+        """
+        Simulate area of effect for a single topic using existing area effect logic.
+        Based on apply_area_of_effect() but works with virtual mastery levels.
+        """
+        if mastery_change <= 0:
+            return []
+
+        # Get area effect configuration (same as existing function)
+        area_config = self.bkt_system.get_area_effect_config()
+        max_distance = area_config['max_distance']
+        decay_rate = area_config['decay_rate']
+        min_effect = area_config['min_effect']
+        mastery_threshold = self.get_config_value('algorithm_config.mastery_threshold', 0.7)
+        greedy_priority_weight = self.get_config_value('greedy_algorithm.greedy_priority_weight', 2.0)
+
+        # Use NetworkX to find paths (same logic as apply_area_of_effect)
+        undirected_graph = self.kg.graph.to_undirected()
+
+        try:
+            paths = nx.single_source_shortest_path(undirected_graph, center_topic_index, cutoff=max_distance)
+        except Exception:
+            return []
+
+        # Remove center node
+        paths.pop(center_topic_index, None)
+
+        updates = []
+        topics_to_remove = []
+
+        for topic_index, path in paths.items():
+            distance = len(path) - 1
+
+            # Calculate path weight (same logic as _calculate_path_weight)
+            path_weight = self._calculate_path_weight_safe(path)
+
+            # Calculate effect (same formula as apply_area_of_effect)
+            base_effect = mastery_change * (decay_rate ** distance)
+            final_effect = base_effect * path_weight
+
+            if final_effect > min_effect:
+                current_mastery = simulated_mastery_levels.get(topic_index, student.get_mastery(topic_index))
+                new_mastery = min(1.0, current_mastery + final_effect)
+
+                # Update virtual mastery (not real student data)
+                simulated_mastery_levels[topic_index] = new_mastery
+
+                # Calculate coverage boost
+                coverage_boost = 0.0
+                if topic_index in topic_priorities:
+                    coverage_boost = topic_priorities[topic_index] * final_effect * 0.3  # Reduced weight for area effects
+
+                # Update topic priorities
+                if topic_index in topic_priorities:
+                    if new_mastery >= mastery_threshold:
+                        topics_to_remove.append(topic_index)
+                    else:
+                        new_priority = (1.0 - new_mastery) ** greedy_priority_weight
+                        topic_priorities[topic_index] = new_priority
+
+                updates.append({
+                    'topic_index': topic_index,
+                    'center_topic': center_topic_index,
+                    'distance': distance,
+                    'effect_strength': final_effect,
+                    'mastery_change': new_mastery - current_mastery,
+                    'coverage_boost': coverage_boost,
+                    'update_type': 'area_effect_simulation'
+                })
+
+        # Remove topics that reached mastery threshold
+        for topic_index in topics_to_remove:
+            topic_priorities.pop(topic_index, None)
+
+        return updates
+
+    def _calculate_path_weight_safe(self, path: List[int]) -> float:
+        """Calculate path weight with error handling (same as existing _calculate_path_weight)"""
+        if len(path) < 2:
+            return 1.0
+
+        total_weight = 1.0
+        for i in range(len(path) - 1):
+            source, target = path[i], path[i + 1]
+            edge_weight = 0.5  # Default weight
+
+            try:
+                if self.kg.graph.has_edge(source, target):
+                    edge_weight = self.kg.graph[source][target].get('weight', 0.5)
+                elif self.kg.graph.has_edge(target, source):
+                    edge_weight = self.kg.graph[target][source].get('weight', 0.5)
+            except Exception:
+                edge_weight = 0.5
+
+            total_weight *= edge_weight
+
+        return total_weight
+
+
+    def _update_simulated_mastery_fallback(self, mcq_id: str,
+                                        simulated_mastery_levels: Dict[int, float],
+                                        topic_priorities: Dict[int, float],
+                                        coverage_info: Dict,
+                                        student: StudentProfile) -> float:
+        """
+        Fallback method using original difficulty-based approach when BKT unavailable.
+        """
+        # Get config values
+        mastery_threshold = self.get_config_value('algorithm_config.mastery_threshold', 0.7)
+        greedy_mastery_update_rate = self.get_config_value('greedy_algorithm.greedy_mastery_update_rate', 0.8)
+        greedy_priority_weight = self.get_config_value('greedy_algorithm.greedy_priority_weight', 2.0)
+
+        mcq_vector = self.mcq_vectors.get(mcq_id)
+        if not mcq_vector:
+            return coverage_info['total_topic_coverage_score']
+
+        topics_to_remove = []
+
+        # Update main topic and subtopics (original approach)
+        for main_topic_index, topic_weight in mcq_vector.subtopic_weights.items():
+            if main_topic_index in topic_priorities:
+                current_mastery = simulated_mastery_levels.get(main_topic_index, student.get_mastery(main_topic_index))
+
+                # Original difficulty-based mastery increase
+                if main_topic_index == mcq_vector.main_topic_index:
+                    mastery_increase = mcq_vector.difficulty * greedy_mastery_update_rate
+                else:
+                    mastery_increase = (mcq_vector.difficulty * topic_weight * greedy_mastery_update_rate)
+
+                new_mastery = min(1.0, current_mastery + mastery_increase)
+                simulated_mastery_levels[main_topic_index] = new_mastery
+
+                # Update priorities
+                if new_mastery >= mastery_threshold:
+                    topics_to_remove.append(main_topic_index)
+                else:
+                    new_priority = (1.0 - new_mastery) ** greedy_priority_weight
+                    topic_priorities[main_topic_index] = new_priority
+
+        # Update prerequisites (original approach)
+        for prereq_index, prereq_weight in mcq_vector.prerequisites.items():
+            if prereq_index in topic_priorities:
+                current_mastery = simulated_mastery_levels.get(prereq_index, student.get_mastery(prereq_index))
+                mastery_increase = (mcq_vector.difficulty * prereq_weight * greedy_mastery_update_rate * 0.5)
+                new_mastery = min(1.0, current_mastery + mastery_increase)
+                simulated_mastery_levels[prereq_index] = new_mastery
+
+                if new_mastery >= mastery_threshold:
+                    topics_to_remove.append(prereq_index)
+                else:
+                    new_priority = (1.0 - new_mastery) ** greedy_priority_weight
+                    topic_priorities[prereq_index] = new_priority
+
+        # Remove topics that are no longer due
+        for topic_index in topics_to_remove:
+            topic_priorities.pop(topic_index, None)
+
+        return coverage_info['total_topic_coverage_score']
+
+
+
     def _calculate_coverage_to_cost_ratio(self, mcq_id: str, topic_priorities: Dict[int, float],simulated_mastery_levels: Dict[int, float],student: StudentProfile) -> Tuple[float, Dict]:
         """
         Calculate coverage-to-cost ratio
@@ -2106,10 +2371,10 @@ class MCQScheduler:
             return 0.0, coverage_info
 
         # Calculate difficulty cost (penalty for poor match)
-        difficulty_cost = self._calculate_difficulty_cost_enhanced(mcq_vector, simulated_mastery_levels, student)
+        difficulty_cost = self._calculate_difficulty_cost(mcq_vector, simulated_mastery_levels, student)
 
         # Calculate importance bonus (reward for important topics)
-        importance_bonus = self._calculate_importance_bonus_enhanced(mcq_vector, topic_priorities)
+        importance_bonus = self._calculate_importance_bonus(mcq_vector, topic_priorities)
 
         # Total cost (lower is better)
         total_cost = max(0.01, difficulty_cost - importance_bonus)  # Prevent division by zero
@@ -2120,8 +2385,83 @@ class MCQScheduler:
         return coverage_to_cost_ratio, coverage_info
 
 
+    def calculate_skills_difficulty_mismatch(self, mcq_vector: OptimizedMCQVector,
+                                            student: StudentProfile,
+                                            config_weights: Dict[str, float] = None) -> Dict[str, float]:
+        """
+        Calculate how question difficulty differs from student levels across all skill dimensions.
 
-    def _calculate_difficulty_cost_enhanced(self, mcq_vector: OptimizedMCQVector,simulated_mastery_levels: Dict[int, float],student: StudentProfile) -> float:
+        For each skill, calculates: student_skill_level + offset - question_skill_difficulty
+        All mismatches are converted to penalties (negative values).
+        """
+        if config_weights is None:
+            # Read from config file if available, otherwise use defaults
+            config_weights = {
+                'problem_solving_penalty': self.get_config_value('greedy_algorithm.skills_config.problem_solving_penalty', 2.5),
+                'procedural_penalty': self.get_config_value('greedy_algorithm.skills_config.procedural_penalty', 2.0),
+                'conceptual_penalty': self.get_config_value('greedy_algorithm.skills_config.conceptual_penalty', 2.0),
+                'memory_penalty': self.get_config_value('greedy_algorithm.skills_config.memory_penalty', 1.5),
+                'communication_penalty': self.get_config_value('greedy_algorithm.skills_config.communication_penalty', 1.8),
+                'spatial_penalty': self.get_config_value('greedy_algorithm.skills_config.spatial_penalty', 1.5),
+                'student_offset': self.get_config_value('greedy_algorithm.skills_config.student_offset', 2.0),
+            }
+
+        skill_penalties = {}
+
+        # Problem solving skill mismatch
+        student_problem_solving = student.ability_levels.get('problem_solving', 0.5) + config_weights['student_offset']
+        question_problem_solving = mcq_vector.difficulty_breakdown.problem_solving
+        problem_solving_mismatch = student_problem_solving - question_problem_solving
+        skill_penalties['problem_solving'] = -config_weights['problem_solving_penalty'] * abs(problem_solving_mismatch)
+
+        # Procedural fluency (technical difficulty) mismatch
+        student_procedural = student.ability_levels.get('procedural_fluency', 0.5) + config_weights['student_offset']
+        question_procedural = mcq_vector.difficulty_breakdown.procedural_fluency
+        procedural_mismatch = student_procedural - question_procedural
+        skill_penalties['procedural_fluency'] = -config_weights['procedural_penalty'] * abs(procedural_mismatch)
+
+        # Conceptual understanding mismatch
+        student_conceptual = student.ability_levels.get('conceptual_understanding', 0.5) + config_weights['student_offset']
+        question_conceptual = mcq_vector.difficulty_breakdown.conceptual_understanding
+        conceptual_mismatch = student_conceptual - question_conceptual
+        skill_penalties['conceptual_understanding'] = -config_weights['conceptual_penalty'] * abs(conceptual_mismatch)
+
+        # Memory requirement mismatch
+        student_memory = student.ability_levels.get('memory', 0.5) + config_weights['student_offset']
+        question_memory = mcq_vector.difficulty_breakdown.memory
+        memory_mismatch = student_memory - question_memory
+        skill_penalties['memory'] = -config_weights['memory_penalty'] * abs(memory_mismatch)
+
+        # Mathematical communication mismatch
+        student_communication = student.ability_levels.get('mathematical_communication', 0.5) + config_weights['student_offset']
+        question_communication = mcq_vector.difficulty_breakdown.mathematical_communication
+        communication_mismatch = student_communication - question_communication
+        skill_penalties['mathematical_communication'] = -config_weights['communication_penalty'] * abs(communication_mismatch)
+
+        # Spatial reasoning mismatch
+        student_spatial = student.ability_levels.get('spatial_reasoning', 0.5) + config_weights['student_offset']
+        question_spatial = mcq_vector.difficulty_breakdown.spatial_reasoning
+        spatial_mismatch = student_spatial - question_spatial
+        skill_penalties['spatial_reasoning'] = -config_weights['spatial_penalty'] * abs(spatial_mismatch)
+
+        # Calculate total skills penalty (sum of all negative penalties)
+        total_skills_penalty = sum(skill_penalties.values())
+
+        # Return breakdown for analysis and debugging
+        return {
+            'skill_penalties': skill_penalties,
+            'total_skills_penalty': total_skills_penalty,
+            'raw_mismatches': {
+                'problem_solving': problem_solving_mismatch,
+                'procedural_fluency': procedural_mismatch,
+                'conceptual_understanding': conceptual_mismatch,
+                'memory': memory_mismatch,
+                'mathematical_communication': communication_mismatch,
+                'spatial_reasoning': spatial_mismatch
+            }
+        }
+
+    def _calculate_difficulty_cost(self, mcq_vector: OptimizedMCQVector,simulated_mastery_levels: Dict[int, float],student: StudentProfile) -> float:
         """
         Calculate cost based on difficulty mismatch.
         Questions too hard or too easy get penalized.
@@ -2129,6 +2469,14 @@ class MCQScheduler:
         # Get penalty values from config
         greedy_difficulty_penalty = self.get_config_value('greedy_algorithm.greedy_difficulty_penalty', 1.5)
         greedy_too_easy_penalty = self.get_config_value('greedy_algorithm.greedy_too_easy_penalty', 1.5)
+
+        # Calculate skills-based difficulty mismatch
+        skills_analysis = self.calculate_skills_difficulty_mismatch(mcq_vector, student)
+
+        # Use the total skills penalty as the base difficulty cost
+        # Since skills_analysis returns negative penalties, we need to make them positive costs
+        skills_based_cost = abs(skills_analysis['total_skills_penalty'])
+
 
         # Calculate weighted student ability for this MCQ
         weighted_mastery = 0.0
@@ -2142,20 +2490,26 @@ class MCQScheduler:
         if total_weight > 0:
             weighted_mastery /= total_weight
 
-        # Base difficulty mismatch
-        difficulty_diff = abs(mcq_vector.difficulty - weighted_mastery)
+        # Overall difficulty mismatch
+        overall_difficulty_diff = abs(mcq_vector.difficulty - weighted_mastery)
 
-        # Apply configurable penalties
+        # Apply existing penalties for too easy/too hard
         if mcq_vector.difficulty < weighted_mastery:
-            # Extra penalty for too-easy questions
-            difficulty_cost = difficulty_diff * greedy_too_easy_penalty
+            overall_cost = overall_difficulty_diff * greedy_too_easy_penalty
         else:
-            # penalty for difficulty mismatch
-            difficulty_cost = difficulty_diff * greedy_difficulty_penalty
+            overall_cost = overall_difficulty_diff * greedy_difficulty_penalty
 
-        return difficulty_cost
+        # Combine skills-based cost with overall difficulty cost
+        # Weight the skills component higher since it's more granular
+        skills_weight = self.get_config_value('greedy_algorithm.skills_breakdown_weight', 2.0)
+        overall_weight = self.get_config_value('greedy_algorithm.overall_difficulty_weight', 1.0)
 
-    def _calculate_importance_bonus_enhanced(self, mcq_vector: OptimizedMCQVector,topic_priorities: Dict[int, float]) -> float:
+        total_difficulty_cost = (skills_weight * skills_based_cost +
+                                overall_weight * overall_cost)
+
+        return total_difficulty_cost
+
+    def _calculate_importance_bonus(self, mcq_vector: OptimizedMCQVector,topic_priorities: Dict[int, float]) -> float:
         """
         Calculate bonus for covering important topics.
         Topics with many dependencies are more important.
@@ -3328,7 +3682,7 @@ def test():
     print("\nTesting question text generation...")
     question_test_data = {
         "id": "test_question_text",
-        "text": "What is the discriminant of ${question_expression}?",
+        "text": "What is the discriminant of ${question_expression}$?",
         "question_expression": "a*x**2 + b*x + c",
         "generated_parameters": {
             "a": {"type": "int", "min": 1, "max": 3},
@@ -3352,7 +3706,7 @@ def test():
     question_text = mcq2.generate_question_text(mcq2.text, params)
     print(f"Generated text: {question_text}")
 
-    if '${question_expression_subbed}' not in question_text and '$' in question_text:
+    if '${question_expression}' not in question_text and '$' in question_text:
         print("✅ Question text generation fix PASSED")
     else:
         print("❌ Question text generation fix FAILED")
@@ -3363,24 +3717,4 @@ def test():
 if __name__ == "__main__":
     test()
 
-'''{
-        "id": "test_discriminant_001",
-        "text": "What is the discriminant of ${question_expression_subbed}$?",
-        "question_expression": "a*x**2 + b*x + c",
-        "generated_parameters": {
-            "a": {"type": "int", "min": 1, "max": 5},
-            "b": {"type": "int", "min": -5, "max": 5},
-            "c": {"type": "int", "min": -5, "max": 5}
-        },
-        "calculated_parameters": {},
-        "options": ["b**2-4*a*c", "b**2+4*a*c", "sqrt(b**2-4*a*c)", "other"],
-        "correctindex": 0,
-        "option_explanations": ["Correct!", "Wrong", "Wrong", "Wrong"],
-        "main_topic_index": 17,
-        "chapter": "algebra",
-        "subtopic_weights": {"17": 1.0},
-        "difficulty_breakdown": {"conceptual_understanding": 0.5},
-        "overall_difficulty": 0.5,
-        "prerequisites": {}
-    }
-    '''
+

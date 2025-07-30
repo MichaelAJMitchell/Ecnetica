@@ -79,7 +79,10 @@
     "greedy_prereq_weight": 0.5,
     "greedy_mastery_update_rate": 0.8,
     "greedy_early_stopping": false,
-    "greedy_max_mcqs_to_evaluate": 50
+    "greedy_max_mcqs_to_evaluate": 50,
+    "skills_breakdown_weight": 2.0,
+    "overall_difficulty_weight": 1.0,
+    "enable_virtual_area_effects": true
   },
   "ui_settings": {
     "default_questions_per_session": 5,
@@ -88,6 +91,15 @@
     "show_difficulty": false,
     "enable_confidence_display": true
   },
+      "skills_config": {
+      "problem_solving_penalty": 2.5,
+      "procedural_penalty": 2.0,
+      "conceptual_penalty": 2.0,
+      "memory_penalty": 1.5,
+      "communication_penalty": 1.8,
+      "spatial_penalty": 1.5,
+      "student_offset": 2.0
+    },
   "metadata": {
     "config_version": "1.0",
     "created_date": "2025-01-01",

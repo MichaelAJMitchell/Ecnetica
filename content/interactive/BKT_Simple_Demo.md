@@ -1,13 +1,14 @@
-
-# BKT Simple Demo
-
+---
+html_theme.sidebar_secondary.remove: true
+---
+# Bayesian Knowledge Tracing X Knowledge Graph Framework
 
 ```{raw} html
 
 <!doctype html>
 <html>
 <head>
-    <title>BKT Algorithm Visual Demo</title>
+    <title>Bayesian Knowledge Tracing Algorithm Visual Demo</title>
     <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
     
     <!-- MathJax configuration -->
@@ -28,250 +29,232 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
-    <style>
-      /* Override Jupyter Book styles for BKT demo */
-      .bd-content .bkt-demo-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #f5f5f5;
-        font-family: Arial, sans-serif;
-      }
-      
-      .bkt-demo-container .container {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        margin-bottom: 20px;
-      }
-      
-      .bkt-demo-container .controls {
-        display: flex;
-        gap: 10px;
-        margin: 20px 0;
-        flex-wrap: wrap;
-      }
-      
-      /* Original button styling - restore exact appearance */
-      .bkt-demo-container button {
-        padding: 12px 20px !important;
-        font-size: 16px !important;
-        border: none !important;
-        border-radius: 5px !important;
-        cursor: pointer;
-        transition: background-color 0.3s;
-        font-family: Arial, sans-serif !important;
-        font-weight: normal !important;
-        text-decoration: none !important;
-        display: inline-block;
-        text-align: center;
-        vertical-align: middle;
-        line-height: 1.4;
-      }
-      
-      .bkt-demo-container .primary-btn {
-        background-color: #2196F3 !important;
-        color: white !important;
-      }
-      
-      .bkt-demo-container .primary-btn:hover {
-        background-color: #1976D2 !important;
-        color: white !important;
-      }
-      
-      .bkt-demo-container .success-btn {
-        background-color: #4CAF50 !important;
-        color: white !important;
-      }
-      
-      .bkt-demo-container .success-btn:hover {
-        background-color: #45a049 !important;
-        color: white !important;
-      }
-      
-      .bkt-demo-container .danger-btn {
-        background-color: #f44336 !important;
-        color: white !important;
-      }
-      
-      .bkt-demo-container .danger-btn:hover {
-        background-color: #da190b !important;
-        color: white !important;
-      }
-      
-      /* Original terminal/output styling */
-      .bkt-demo-container #output {
-        background-color: #f8f9fa !important;
-        border: 1px solid #dee2e6 !important;
-        border-radius: 5px !important;
-        padding: 15px !important;
-        margin: 15px 0 !important;
-        min-height: 100px !important;
-        font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
-        white-space: pre-wrap !important;
-        overflow-x: auto !important;
-        font-size: 14px !important;
-        line-height: 1.4 !important;
-        color: #333 !important;
-      }
-      
-      /* Original status styling */
-      .bkt-demo-container .status {
-        padding: 10px !important;
-        border-radius: 5px !important;
-        margin: 10px 0 !important;
-        font-family: Arial, sans-serif !important;
-        font-size: 14px !important;
-      }
-      
-      .bkt-demo-container .status.success {
-        background-color: #d4edda !important;
-        color: #155724 !important;
-        border: 1px solid #c3e6cb !important;
-      }
-      
-      .bkt-demo-container .status.error {
-        background-color: #f8d7da !important;
-        color: #721c24 !important;
-        border: 1px solid #f5c6cb !important;
-      }
-      
-      .bkt-demo-container .status.info {
-        background-color: #d1ecf1 !important;
-        color: #0c5460 !important;
-        border: 1px solid #bee5eb !important;
-      }
-      
-      /* Original MCQ container styling */
-      .bkt-demo-container .mcq-container {
-        background-color: #fff !important;
-        border: 2px solid #007bff !important;
-        border-radius: 8px !important;
-        padding: 20px !important;
-        margin: 15px 0 !important;
-      }
-      
-      .bkt-demo-container .mcq-question {
-        font-size: 18px !important;
-        font-weight: bold !important;
-        margin-bottom: 15px !important;
-        color: #333 !important;
-      }
-      
-      .bkt-demo-container .mcq-options {
-        margin: 15px 0 !important;
-      }
-      
-      .bkt-demo-container .mcq-option {
-        display: block !important;
-        margin: 8px 0 !important;
-        padding: 10px !important;
-        background-color: #f8f9fa !important;
-        border: 2px solid #e9ecef !important;
-        border-radius: 5px !important;
-        cursor: pointer !important;
-        transition: all 0.3s !important;
-        font-family: Arial, sans-serif !important;
-        font-size: 14px !important;
-      }
-      
-      .bkt-demo-container .mcq-option:hover {
-        background-color: #e9ecef !important;
-        border-color: #007bff !important;
-      }
-      
-      .bkt-demo-container .mcq-option.selected {
-        background-color: #007bff !important;
-        color: white !important;
-        border-color: #0056b3 !important;
-      }
-      
-      /* Original progress bar styling */
-      .bkt-demo-container .progress-bar {
-        width: 100% !important;
-        height: 20px !important;
-        background-color: #e9ecef !important;
-        border-radius: 10px !important;
-        overflow: hidden !important;
-        margin: 10px 0 !important;
-      }
-      
-      .bkt-demo-container .progress-fill {
-        height: 100% !important;
-        background-color: #28a745 !important;
-        transition: width 0.3s ease !important;
-      }
-      
-      /* Ensure text doesn't inherit Jupyter Book styling */
-      .bkt-demo-container h1, .bkt-demo-container h2, .bkt-demo-container h3, .bkt-demo-container h4 {
-        font-family: Arial, sans-serif !important;
-      }
-      
-      .bkt-demo-container p {
-        font-family: Arial, sans-serif !important;
-        line-height: 1.5 !important;
-      }
-    </style>
 </head>
 <body>
     <div class="bkt-demo-container">
-      <div class="container">
-        <h1>🧠 BKT Algorithm Visual Demo</h1>
-        <p>This demo shows how Bayesian Knowledge Tracing works with a simple knowledge graph.
-           Students start with low mastery levels and improve through practice.</p>
-        
-        <div class="controls">
-          <button onclick="initializeDemo()" class="primary-btn">🚀 Initialize BKT System</button>
-          <button onclick="createStudent()" class="success-btn" id="createStudentBtn" disabled>👤 Create Student</button>
-          <button onclick="generateMCQ()" class="primary-btn" id="generateMCQBtn" disabled>❓ Generate MCQ</button>
-          <button onclick="showKnowledgeGraph()" class="primary-btn" id="showGraphBtn" disabled>📊 Show Knowledge Graph</button>
-          <button onclick="resetDemo()" class="danger-btn">🔄 Reset Demo</button>
+      <div class="main-layout">
+        <!-- Left side: BKT Demo -->
+        <div class="bkt-section">
+          <div class="container">
+            <h1>🧠 BKT Algorithm Visual Demo</h1>
+            <p class="subtitle">Experience how Bayesian Knowledge Tracing adapts to your learning in real-time</p>
+            
+
+            
+            <div id="status" class="status loading">
+              <div class="loading-spinner"></div>
+              Initializing BKT System...
+            </div>
+            
+            <div id="mcq-section" style="display: none;"></div>
+          </div>
         </div>
-        
-        <div id="status" class="status info">Click "Initialize BKT System" to start the demo...</div>
-        
-        <div id="mcq-section" style="display: none;"></div>
-        
-        <div id="output"></div>
+
+        <!-- Right side: Knowledge Graph -->
+        <div class="graph-section">
+          <div class="container">
+            <h1>📊 Knowledge Graph</h1>
+            <p>The graph colors reflect your current mastery levels. Practice questions to see the colors change!</p>
+            
+            <div class="mastery-legend">
+              <strong>Mastery Level Legend:</strong><br>
+              <div class="gradient-legend">
+                <div class="gradient-bar"></div>
+                <div class="gradient-labels">
+                  <span>0% (Red)</span>
+                  <span>50% (Orange)</span>
+                  <span>100% (Green)</span>
+                </div>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color legend-color-not-studied"></span>
+                <span>Not Yet Studied</span>
+              </div>
+            </div>
+            <div style="position: relative;">
+              <div id="graph-container"></div>
+              <div id="graph-loading" class="graph-loading">
+                <div class="graph-loading-spinner"></div>
+                <div class="graph-loading-text">Loading Knowledge Graph...</div>
+              </div>
+            </div>
+
+            <div id="controls">
+              <label for="strand-filter">Filter by Strand: </label>
+              <select id="strand-filter">
+                <option value="">All Strands</option>
+                <option value="Algebra">Algebra</option>
+                <option value="Geometry">Geometry</option>
+                <option value="Trigonometry">Trigonometry</option>
+                <option value="Calculus">Calculus</option>
+                <option value="Number">Number</option>
+                <option value="Statistics">Statistics</option>
+                <option value="Probability">Probability</option>
+                <option value="Coordinate Geometry">Coordinate Geometry</option>
+              </select>
+              
+              <button id="reset-view">Reset View</button>
+              <button id="toggle-physics">Toggle Physics</button>
+              <button id="load-simplified">Load Small Dense Graph</button>
+              <button id="load-full">Load Full</button>
+            </div>
+
+            <div id="node-info" style="display: none;">
+              <h4 id="node-title"></h4>
+              <p id="node-description"></p>
+              <p><strong>Strand:</strong> <span id="node-strand"></span></p>
+              <p><strong>Mastery Level:</strong> <span id="node-mastery"></span></p>
+            </div>
+
+            <div id="stats">
+              <strong>Graph Statistics:</strong> <span id="node-count">0</span> nodes, <span id="edge-count">0</span> edges
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
     <script type="text/javascript">
       let pyodideInstance = null;
       let currentStudent = null;
       let currentMCQ = null;
       let selectedOption = null;
+      let isInitialized = false;
+      let isInitialGraphLoad = false; // Flag to track initial graph load
+      
+      // Global variables for knowledge graph
+      let network;
+      let currentData = {nodes: [], edges: []};
+      let currentMasteryLevels = {};
+      let topicIndexToNodeId = {}; // Maps BKT topic indices to graph node IDs
       
       function updateStatus(message, type = 'info') {
         const statusDiv = document.getElementById('status');
         statusDiv.className = `status ${type}`;
-        statusDiv.textContent = message;
+        
+        if (type === 'loading') {
+          statusDiv.innerHTML = `<div class="loading-spinner"></div>${message}`;
+        } else {
+          statusDiv.textContent = message;
+        }
       }
-      
-      function updateOutput(message) {
-        const output = document.getElementById('output');
-        output.textContent += message + '\n';
-        output.scrollTop = output.scrollHeight;
+
+      // Function to get mastery-based color with smooth gradient
+      function getMasteryColor(masteryLevel) {
+        if (masteryLevel === null || masteryLevel === undefined) {
+          return '#6c757d'; // Gray for not studied
+        }
+        
+        // Ensure masteryLevel is between 0 and 1
+        const clampedMastery = Math.max(0, Math.min(1, masteryLevel));
+        
+        // Map mastery level (0-1) to hue (0-120 degrees)
+        // 0 = red (0°), 0.5 = orange/yellow (~40°), 1 = green (120°)
+        const hue = clampedMastery * 120;
+        
+        // Use full saturation and medium lightness for vibrant colors
+        return `hsl(${hue}, 80%, 50%)`;
       }
-      
-      async function initializeDemo() {
+
+      // Function to update graph colors based on mastery levels
+      async function updateGraphMasteryColors() {
+        if (!network || !currentStudent || !pyodideInstance) return;
+        
         try {
-          updateStatus('🔄 Loading Pyodide and packages...', 'info');
-          updateOutput('Initializing BKT demo...');
+          // Get current view position and scale to preserve user's zoom/pan
+          const currentView = network.getViewPosition();
+          
+          // Get current mastery levels from Python
+          const masteryResult = await pyodideInstance.runPythonAsync(`
+            student = student_manager.get_student(current_student_id)
+            mastery_data = {}
+            topic_mapping = {}
+            
+            # Get mastery levels and topic names
+            for topic_idx in student.mastery_levels:
+                topic_name = kg.get_topic_of_index(topic_idx)
+                mastery_level = student.get_mastery(topic_idx)
+                mastery_data[topic_name] = mastery_level
+                topic_mapping[topic_idx] = topic_name
+            
+            js_export({
+                "mastery_levels": mastery_data,
+                "topic_mapping": topic_mapping
+            })
+          `);
+          
+          const masteryData = JSON.parse(masteryResult);
+          currentMasteryLevels = masteryData.mastery_levels;
+          
+          // Get current node positions to preserve them
+          const positions = network.getPositions();
+          
+          // Update node colors based on mastery levels while preserving positions
+          const updatedNodes = currentData.nodes.map(node => {
+            const masteryLevel = currentMasteryLevels[node.label];
+            const color = getMasteryColor(masteryLevel);
+            
+            // Preserve current position if it exists
+            const currentPos = positions[node.id];
+            
+            return {
+              ...node,
+              // Keep current position
+              x: currentPos ? currentPos.x : node.x,
+              y: currentPos ? currentPos.y : node.y,
+              color: {
+                background: color,
+                border: '#2B7CE9',
+                borderWidth: 0,
+                highlight: {
+                  background: color,
+                  border: '#2B7CE9'
+                },
+                hover: {
+                  background: color,
+                  border: '#2B7CE9'
+                }
+              }
+            };
+          });
+          
+          // Update the network with new colors and preserved positions
+          network.setData({nodes: updatedNodes, edges: currentData.edges});
+          currentData.nodes = updatedNodes;
+          
+          // Only restore view if this is NOT the initial load
+          if (!isInitialGraphLoad) {
+            // Wait a bit longer for the network to process the data update
+            setTimeout(() => {
+              network.moveTo({
+                position: currentView.position,
+                scale: currentView.scale,
+                animation: false // Disable animation to make it instant
+              });
+            }, 150);
+          }
+          
+          console.log('Graph colors updated based on mastery levels (zoom and position preserved)');
+          
+        } catch (error) {
+          console.error('Error updating graph mastery colors:', error);
+        }
+      }
+      
+      // Automated initialization function
+      async function autoInitialize() {
+        try {
+          // Step 1: Initialize Pyodide and BKT System
+          updateStatus('Loading Pyodide and packages...', 'loading');
           
           if (!pyodideInstance) {
             pyodideInstance = await loadPyodide({
-              indexURL: "../../_static/",  // Local core files
+              indexURL: "../../_static/",
               packageCacheKey: "bkt-demo-v1",
               loadPackages: false
             });
             
-            updateOutput('✓ Pyodide loaded successfully');
-            updateOutput('Checking package cache...');
-            
-            // Override where packages come from AFTER initialization
             const originalIndexURL = pyodideInstance._api.config.indexURL;
             pyodideInstance._api.config.indexURL = "https://cdn.jsdelivr.net/pyodide/v0.27.7/full/";
             
@@ -281,76 +264,49 @@
               errorCallback: (err) => console.error(`Package error: ${err}`)
             });
             
-            // Restore original indexURL for any future core operations
             pyodideInstance._api.config.indexURL = originalIndexURL;
-            
-            updateOutput('✓ All packages loaded');
           }
           
-          // Fetch and load the BKT code
-          updateOutput('Fetching BKT algorithm code...');
+          // Step 2: Load BKT code and files
+          updateStatus('Loading BKT algorithm...', 'loading');
+          
           const pyResponse = await fetch("../../_static/mcq_algorithm_full_python2.py");
           if (!pyResponse.ok) {
             throw new Error(`Failed to fetch Python code: ${pyResponse.status}`);
           }
           const code = await pyResponse.text();
           pyodideInstance.FS.writeFile("bkt_system.py", code);
-          updateOutput('✓ BKT code loaded');
           
-          // Fetch and load JSON files
-          updateOutput('Fetching configuration files...');
+          // Load JSON files
+          const files = [
+            { name: "config.json", url: "../../_static/config.json" },
+            { name: "small-graph-kg.json", url: "../../_static/small-graph-kg.json" },
+            { name: "small-graph-mcqs.json", url: "../../_static/small-graph-mcqs.json" },
+            { name: "small-graph-computed_mcqs.json", url: "../../_static/small-graph-computed_mcqs.json" }
+          ];
           
-          // Fetch config.json
-          const configResponse = await fetch("../../_static/config.json");
-          if (!configResponse.ok) {
-            throw new Error(`Failed to fetch config.json: ${configResponse.status}`);
+          for (const file of files) {
+            const response = await fetch(file.url);
+            if (!response.ok) {
+              throw new Error(`Failed to fetch ${file.name}: ${response.status}`);
+            }
+            const data = await response.text();
+            pyodideInstance.FS.writeFile(file.name, data);
           }
-          const configData = await configResponse.text();
-          pyodideInstance.FS.writeFile("config.json", configData);
-          updateOutput('✓ config.json loaded');
           
-          // Fetch kg.json
-          const kgResponse = await fetch("../../_static/small-graph-kg.json");
-          if (!kgResponse.ok) {
-            throw new Error(`Failed to FETCH kg.json: ${kgResponse.status}`);
-          }
-          const kgData = await kgResponse.text();
-          pyodideInstance.FS.writeFile("small-graph-kg.json", kgData);
-          updateOutput('✓ kg.json loaded');
+          // Step 3: Initialize BKT System
+          updateStatus('Initializing BKT system...', 'loading');
           
-          // Fetch mcqs.json
-          const mcqsResponse = await fetch("../../_static/small-graph-mcqs.json");
-          if (!mcqsResponse.ok) {
-            throw new Error(`Failed to fetch mcqs.json: ${mcqsResponse.status}`);
-          }
-          const mcqsData = await mcqsResponse.text();
-          pyodideInstance.FS.writeFile("small-graph-mcqs.json", mcqsData);
-          updateOutput('✓ mcqs.json loaded');
-          
-          // Fetch computed_mcqs.json
-          const computedMcqsResponse = await fetch("../../_static/small-graph-computed_mcqs.json");
-          if (!computedMcqsResponse.ok) {
-            throw new Error(`Failed to fetch computed_mcqs.json: ${computedMcqsResponse.status}`);
-          }
-          const computedMcqsData = await computedMcqsResponse.text();
-          pyodideInstance.FS.writeFile("small-graph-computed_mcqs.json", computedMcqsData);
-          updateOutput('✓ computed_mcqs.json loaded');
-          
-          // Import and initialize the system
           await pyodideInstance.runPythonAsync(`
             import sys
             sys.path.append('.')
             import bkt_system
             import json
             
-            # Create a helper function for JavaScript data transfer
             def js_export(obj):
-                """Convert Python object to JSON string for JavaScript"""
                 return json.dumps(obj)
             
-            print("Initializing BKT system with configuration files...")
-            
-            # Initialize the system using Caoimhe's design
+            # Initialize the system
             kg = bkt_system.KnowledgeGraph()
             student_manager = bkt_system.StudentManager()
             mcq_scheduler = bkt_system.MCQScheduler(kg, student_manager)
@@ -360,262 +316,144 @@
             mcq_scheduler.set_bkt_system(bkt)
             student_manager.set_bkt_system(bkt)
             
-            # Store everything globally for access
+            # Store globally
             globals()['kg'] = kg
             globals()['student_manager'] = student_manager
             globals()['bkt'] = bkt
             globals()['mcq_scheduler'] = mcq_scheduler
-            
-            print("BKT system initialized successfully!")
           `);
           
-          updateStatus('✅ BKT System Ready! Create a student to begin.', 'success');
-          document.getElementById('createStudentBtn').disabled = false;
-          updateOutput('✓ BKT system initialised.');
-          
-        } catch (error) {
-          updateStatus('❌ Failed to initialize BKT system', 'error');
-          updateOutput(`Error: ${error.message}`);
-          console.error('Initialization error:', error);
-        }
-      }
-      
-      async function createStudent() {
-        try {
-          updateStatus('👤 Creating student profile...', 'info');
+          // Step 4: Create Student
+          updateStatus('Creating student profile...', 'loading');
           
           const result = await pyodideInstance.runPythonAsync(`
-            # Create a student with realistic mastery levels
+            import random
+            random.seed(42)
+            
             current_student_id = "demo_student"
             student = student_manager.create_student(current_student_id)
             
-            # Set initial mastery levels for demo topics
-            import random
-            random.seed(42)  # For consistent demo
-            
+            # Set initial mastery levels
             for topic_idx in kg.get_all_indexes():
-                mastery = random.uniform(0.1, 0.6)  # Start with low mastery
+                mastery = random.uniform(0.1, 0.6)
                 student.mastery_levels[topic_idx] = mastery
                 student.confidence_levels[topic_idx] = mastery * 0.8
-                student.studied_topics[topic_idx] = True  # Mark as studied
+                student.studied_topics[topic_idx] = True
             
-            # Show student status
-            status = f"Student created with {len(student.mastery_levels)} topics\\n"
-            status += f"Average mastery: {sum(student.mastery_levels.values()) / len(student.mastery_levels):.3f}\\n"
-            status += f"Topics studied: {len([t for t, studied in student.studied_topics.items() if studied])}"
-            
-            js_export({"success": True, "status": status, "student_id": current_student_id})
+            js_export({"success": True, "student_id": current_student_id})
           `);
           
           const data = JSON.parse(result);
           currentStudent = data.student_id;
           
-          updateStatus('✅ Student created! Generate an MCQ to start learning.', 'success');
-          document.getElementById('generateMCQBtn').disabled = false;
-          document.getElementById('showGraphBtn').disabled = false;
-          updateOutput(data.status);
+          // Step 5: Generate first MCQ
+          updateStatus('Generating your first question...', 'loading');
+          
+          await generateMCQ();
+          
+          // Step 6: Load knowledge graph after MCQ is ready
+          updateStatus('Loading knowledge graph...', 'loading');
+          loadGraphData('../../_static/small-graph.json');
+          
+          // Mark as initialized
+          isInitialized = true;
           
         } catch (error) {
-          updateStatus('❌ Failed to create student', 'error');
-          updateOutput(`Error: ${error.message}`);
-          console.error('Student creation error:', error);
+          updateStatus(`❌ Initialization failed: ${error.message}`, 'error');
+          console.error('Auto-initialization error:', error);
         }
       }
-
+      
       async function generateMCQ() {
         try {
-          updateStatus('❓ Generating MCQ based on student mastery...', 'info');
-          
           const result = await pyodideInstance.runPythonAsync(`
-      import json
+            import json
 
-      print("=== COMPREHENSIVE ELIGIBILITY DEBUG ===")
+            try:
+                student = student_manager.get_student(current_student_id)
+                
+                # Get eligible MCQs
+                greedy_eligible = mcq_scheduler.get_eligible_mcqs_for_greedy_selection(current_student_id)
+                
+                if len(greedy_eligible) > 0:
+                    mcq_id = greedy_eligible[0]
+                    mcq = kg.mcqs[mcq_id]
+                    topic_name = kg.get_topic_of_index(mcq.main_topic_index)
+                    current_mastery = student.get_mastery(mcq.main_topic_index)
+                    
+                    mcq_data = {
+                        "success": True,
+                        "mcq_id": mcq_id,
+                        "text": mcq.text,
+                        "options": mcq.options,
+                        "correct_index": mcq.correctindex,
+                        "explanations": mcq.option_explanations,
+                        "topic_name": topic_name,
+                        "current_mastery": current_mastery,
+                        "difficulty": getattr(mcq, 'difficulty', 0.5)
+                    }
+                    
+                    result_json = json.dumps(mcq_data)
+                else:
+                    result_json = json.dumps({
+                        "success": False,
+                        "error": "No eligible MCQs found"
+                    })
 
-      try:
-          # 1. Basic checks
-          print(f"Total MCQs loaded: {len(kg.mcqs)}")
-          print(f"MCQ IDs sample: {list(kg.mcqs.keys())[:3]}")
-          
-          student = student_manager.get_student(current_student_id)
-          print(f"Student found: {student is not None}")
-          print(f"Student mastery levels: {len(student.mastery_levels)}")
-          print(f"Student studied topics: {len(student.studied_topics)}")
-          
-          # 2. Check mastery threshold and due topics
-          mastery_threshold = mcq_scheduler.get_config_value('algorithm_config.mastery_threshold', 0.7)
-          print(f"Mastery threshold: {mastery_threshold}")
-          
-          due_topics = [idx for idx, mastery in student.mastery_levels.items() 
-                        if mastery < mastery_threshold]
-          print(f"Due topics (mastery < {mastery_threshold}): {len(due_topics)} out of {len(student.mastery_levels)}")
-          
-          # 3. Sample MCQ analysis
-          print(f"Total MCQs loaded: {len(kg.mcqs)}")
-          sample_mcq_id = list(kg.mcqs.keys())[0]
-          sample_mcq = kg.mcqs[sample_mcq_id]
-          print(f"\\nSample MCQ analysis:")
-          print(f"  MCQ ID: {sample_mcq_id}")
-          print(f"  Main topic index: {sample_mcq.main_topic_index}")
-          print(f"  Subtopic weights: {sample_mcq.subtopic_weights}")
-          
-          # Check if sample MCQ topics exist in student data
-          mcq_topics = list(sample_mcq.subtopic_weights.keys())
-          print(f"  MCQ covers topic indices: {mcq_topics}")
-          
-          student_topic_indices = list(student.studied_topics.keys())
-          print(f"  Student topic indices: {student_topic_indices[:10]}...")
-          
-          # Check overlap
-          mcq_topics_in_student = [t for t in mcq_topics if t in student_topic_indices]
-          print(f"  Overlapping indices: {mcq_topics_in_student}")
-          
-          # 4. Check if MCQ vectors are computed
-          print(f"\\nMCQ vectors computed: {len(mcq_scheduler.mcq_vectors)}")
-          if sample_mcq_id in mcq_scheduler.mcq_vectors:
-              vector = mcq_scheduler.mcq_vectors[sample_mcq_id]
-              print(f"  Sample vector subtopic weights: {vector.subtopic_weights}")
-          else:
-              print("  Sample MCQ vector not found - computing vectors...")
-              mcq_scheduler._ensure_vectors_computed()
-              print(f"  MCQ vectors after computation: {len(mcq_scheduler.mcq_vectors)}")
-          
-          # 5. Test eligibility step by step for sample MCQ
-          print(f"\\nStep-by-step eligibility check for sample MCQ:")
-          
-          # Check if all subtopics are studied
-          all_studied = True
-          for topic_idx in mcq_topics:
-              is_studied = student.is_topic_studied(topic_idx)
-              print(f"  Topic {topic_idx}: studied = {is_studied}")
-              if not is_studied:
-                  all_studied = False
-          
-          print(f"  All subtopics studied: {all_studied}")
-          
-          # Check if main topic is due
-          main_mastery = student.get_mastery(sample_mcq.main_topic_index)
-          is_due = main_mastery < mastery_threshold
-          print(f"  Main topic {sample_mcq.main_topic_index} mastery: {main_mastery:.3f}")
-          print(f"  Main topic is due: {is_due}")
-          
-          # Check if completed today
-          in_daily = sample_mcq_id in student.daily_completed
-          print(f"  Completed today: {in_daily}")
-          
-          # 6. Run actual eligibility methods
-          print(f"\\nRunning eligibility methods:")
-          all_eligible = mcq_scheduler.get_eligible_mcqs_for_student(current_student_id)
-          greedy_eligible = mcq_scheduler.get_eligible_mcqs_for_greedy_selection(current_student_id)
-          
-          print(f"  All eligible MCQs: {len(all_eligible)}")
-          print(f"  Greedy eligible MCQs: {len(greedy_eligible)}")
-          
-          if len(all_eligible) > 0:
-              print(f"  Sample eligible MCQ: {all_eligible[0]}")
-          
-          if len(greedy_eligible) > 0:
-              print(f"  Sample greedy eligible MCQ: {greedy_eligible[0]}")
-              
-              # SUCCESS - select an MCQ
-              mcq_id = greedy_eligible[0]
-              mcq = kg.mcqs[mcq_id]
-              topic_name = kg.get_topic_of_index(mcq.main_topic_index)
-              current_mastery = student.get_mastery(mcq.main_topic_index)
-              
-              mcq_data = {
-                  "success": True,
-                  "mcq_id": mcq_id,
-                  "text": mcq.text,
-                  "options": mcq.options,
-                  "correct_index": mcq.correctindex,
-                  "explanations": mcq.option_explanations,
-                  "topic_name": topic_name,
-                  "current_mastery": current_mastery,
-                  "difficulty": getattr(mcq, 'difficulty', 0.5)
-              }
-              
-              result_json = json.dumps(mcq_data)
-          else:
-              # FAILURE - no eligible MCQs
-              result_json = json.dumps({
-                  "success": False,
-                  "error": "No eligible MCQs found after detailed analysis",
-                  "debug_info": {
-                      "total_mcqs": len(kg.mcqs),
-                      "student_topics": len(student.studied_topics),
-                      "due_topics": len(due_topics),
-                      "mastery_threshold": mastery_threshold,
-                      "all_eligible": len(all_eligible),
-                      "greedy_eligible": len(greedy_eligible)
-                  }
-              })
+            except Exception as e:
+                result_json = json.dumps({"success": False, "error": f"Error: {str(e)}"})
 
-      except Exception as e:
-          print(f"ERROR in MCQ generation: {e}")
-          import traceback
-          traceback.print_exc()
-          result_json = json.dumps({"success": False, "error": f"Python error: {str(e)}"})
-
-      # Return the result
-      result_json
-      `);
-
-          // Debug: Show what we actually got back
-          console.log("Raw Python result:", result);
-          console.log("Type of result:", typeof result);
-          updateOutput(`Python returned: ${result ? result.substring(0, 200) : 'undefined result'}...`);
-          
-          if (!result) {
-            throw new Error("Python code returned undefined");
-          }
+            result_json
+          `);
           
           const data = JSON.parse(result);
           
           if (data.success) {
             currentMCQ = data;
             displayMCQ(data);
-            updateStatus('❓ Question ready! Select your answer.', 'info');
           } else {
             updateStatus(`❌ ${data.error}`, 'error');
-            if (data.debug) {
-              updateOutput(`Debug info: ${data.debug}`);
-            }
           }
           
         } catch (error) {
           updateStatus('❌ Failed to generate MCQ', 'error');
-          updateOutput(`Error: ${error.message}`);
-          updateOutput(`Raw result: ${typeof result !== 'undefined' ? result.substring(0, 500) : 'undefined'}`);
           console.error('MCQ generation error:', error);
         }
       }
       
       function displayMCQ(mcqData) {
-      const mcqSection = document.getElementById('mcq-section');
-      mcqSection.style.display = 'block';
-      
-      mcqSection.innerHTML = `
-        <div class="mcq-container">
-          <div class="mcq-question">${mcqData.text}</div>
-          <p><strong>Topic:</strong> ${mcqData.topic_name}</p>
-          <p><strong>Current Mastery:</strong> ${(mcqData.current_mastery * 100).toFixed(1)}% | <strong>Difficulty:</strong> ${(mcqData.difficulty * 100).toFixed(1)}%</p>
-          
-          <div class="mcq-options">
-            ${mcqData.options.map((option, index) => 
-              `<button class="mcq-option" onclick="selectOption(${index})">${option}</button>`
-            ).join('')}
+        const mcqSection = document.getElementById('mcq-section');
+        mcqSection.style.display = 'block';
+        
+        // Hide status div when question is displayed
+        document.getElementById('status').style.display = 'none';
+        
+        mcqSection.innerHTML = `
+          <div class="mcq-container">
+            <div class="mcq-question">${mcqData.text}</div>
+            <div class="mcq-meta">
+              <div><strong>📚 Topic:</strong> ${mcqData.topic_name}</div>
+              <div><strong>📊 Current Mastery:</strong> ${(mcqData.current_mastery * 100).toFixed(1)}%</div>
+              <div><strong>⚡ Difficulty:</strong> ${(mcqData.difficulty * 100).toFixed(1)}%</div>
+            </div>
+            
+            <div class="mcq-options">
+              ${mcqData.options.map((option, index) => 
+                `<button class="mcq-option" onclick="selectOption(${index})">${option}</button>`
+              ).join('')}
+            </div>
+            
+            <button onclick="submitAnswer()" class="submit-btn" disabled id="submitBtn">
+              ✅ Submit Answer
+            </button>
           </div>
-          
-          <button onclick="submitAnswer()" style="margin-top: 15px; padding: 10px 20px; background: #28a745; color: white; border: none; border-radius: 5px;" disabled id="submitBtn">Submit Answer</button>
-        </div>
-      `;
-      
-      // Re-render MathJax for the new content
-      if (window.MathJax) {
-        MathJax.typesetPromise([mcqSection]).catch((err) => console.log('MathJax render error:', err));
+        `;
+        
+        // Re-render MathJax for the new content
+        if (window.MathJax) {
+          MathJax.typesetPromise([mcqSection]).catch((err) => console.log('MathJax render error:', err));
+        }
       }
-    }
-
       
       function selectOption(index) {
         // Remove previous selection
@@ -632,10 +470,9 @@
         if (selectedOption === null || !currentMCQ) return;
         
         try {
-          updateStatus('🔄 Processing answer and updating knowledge...', 'info');
+          updateStatus('Processing your answer...', 'loading');
           
           const result = await pyodideInstance.runPythonAsync(`
-            # Process the student's answer using Caoimhe's BKT system
             mcq_id = "${currentMCQ.mcq_id}"
             selected_option = ${selectedOption}
             correct_index = ${currentMCQ.correct_index}
@@ -646,12 +483,11 @@
                 current_student_id, mcq_id, is_correct, 30.0, kg
             )
             
-            # Get the MCQ and student for response
+            # Get response data
             mcq = kg.mcqs[mcq_id]
             student = student_manager.get_student(current_student_id)
             topic_name = kg.get_topic_of_index(mcq.main_topic_index)
             
-            # Calculate mastery change
             mastery_before = None
             mastery_after = student.get_mastery(mcq.main_topic_index)
             mastery_change = 0
@@ -680,369 +516,291 @@
           const data = JSON.parse(result);
           displayResult(data);
           
+          // Update graph colors after answer is processed (preserving zoom level)
+          await updateGraphMasteryColors();
+          
           // Reset for next question
           selectedOption = null;
           currentMCQ = null;
           
         } catch (error) {
           updateStatus('❌ Failed to process answer', 'error');
-          updateOutput(`Error: ${error.message}`);
           console.error('Answer processing error:', error);
         }
       }
       
       function displayResult(result) {
-      const mcqSection = document.getElementById('mcq-section');
-      const isCorrect = result.is_correct;
-      const borderColor = isCorrect ? '#28a745' : '#dc3545';
-      const bgColor = isCorrect ? '#d4edda' : '#f8d7da';
-      const textColor = isCorrect ? '#155724' : '#721c24';
-      const icon = isCorrect ? '✅' : '❌';
-      const changeIcon = result.mastery_change > 0 ? '📈' : result.mastery_change < 0 ? '📉' : '➖';
-      
-      mcqSection.innerHTML = `
-        <div class="mcq-container" style="border-color: ${borderColor}; background-color: ${bgColor}; color: ${textColor};">
-          <h3>${icon} ${isCorrect ? 'Correct!' : 'Incorrect'}</h3>
-          <p><strong>Your Answer:</strong> ${result.selected_text}</p>
-          <p><strong>Correct Answer:</strong> ${result.correct_option}</p>
-          <p><strong>Explanation:</strong> ${result.explanation}</p>
-          
-          <div style="background: white; padding: 15px; margin: 10px 0; border-radius: 5px; color: black;">
-            <h4>🧠 BKT Mastery Update</h4>
-            <p><strong>Topic:</strong> ${result.main_topic}</p>
-            <p><strong>Before:</strong> ${(result.before_mastery * 100).toFixed(1)}%</p>
-            <p><strong>After:</strong> ${(result.after_mastery * 100).toFixed(1)}%</p>
-            <p><strong>Change:</strong> ${changeIcon} ${result.mastery_change > 0 ? '+' : ''}${(result.mastery_change * 100).toFixed(2)}%</p>
-            <p><strong>Total Topics Updated:</strong> ${result.total_changes}</p>
+        const mcqSection = document.getElementById('mcq-section');
+        const isCorrect = result.is_correct;
+        const resultClass = isCorrect ? 'mcq-result-success' : 'mcq-result-error';
+        const icon = isCorrect ? '✅' : '❌';
+        const changeIcon = result.mastery_change > 0 ? '📈' : result.mastery_change < 0 ? '📉' : '➖';
+        
+        mcqSection.innerHTML = `
+          <div class="mcq-container ${resultClass}">
+            <h3>${icon} ${isCorrect ? 'Excellent!' : 'Not quite right, but you\'re learning!'}</h3>
+            <p><strong>Your Answer:</strong> ${result.selected_text}</p>
+            <p><strong>Correct Answer:</strong> ${result.correct_option}</p>
+            <p><strong>Explanation:</strong> ${result.explanation}</p>
             
-            <div class="progress-bar" style="margin: 10px 0;">
-              <div class="progress-fill" style="width: ${result.after_mastery * 100}%; background-color: ${result.after_mastery > result.before_mastery ? '#28a745' : '#ffc107'};"></div>
+            <div class="mcq-result-inner">
+              <h4>🧠 BKT Mastery Update</h4>
+              <p><strong>📚 Topic:</strong> ${result.main_topic}</p>
+              <p><strong>📊 Before:</strong> ${(result.before_mastery * 100).toFixed(1)}%</p>
+              <p><strong>📊 After:</strong> ${(result.after_mastery * 100).toFixed(1)}%</p>
+              <p><strong>📈 Change:</strong> ${changeIcon} ${result.mastery_change > 0 ? '+' : ''}${(result.mastery_change * 100).toFixed(2)}%</p>
+              <p><strong>🔄 Total Topics Updated:</strong> ${result.total_changes}</p>
+              <p><em>💡 Check the knowledge graph below to see the color changes!</em></p>
+              
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: ${result.after_mastery * 100}%;"></div>
+              </div>
             </div>
+            
+            <button onclick="nextQuestion()" class="submit-btn">
+              🚀 Next Question
+            </button>
           </div>
-          
-          <button onclick="generateMCQ()" style="margin-top: 15px; padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px;">Next Question</button>
-        </div>
-      `;
-      
-      // Re-render MathJax for the new content
-      if (window.MathJax) {
-        MathJax.typesetPromise([mcqSection]).catch((err) => console.log('MathJax render error:', err));
-      }
-      
-      updateStatus(isCorrect ? '✅ Correct! Knowledge updated.' : '❌ Incorrect, but you still learned!', isCorrect ? 'success' : 'error');
-    }
-          
-      async function showKnowledgeGraph() {
-        try {
-          updateStatus('📊 Generating knowledge graph...', 'info');
-          
-          const result = await pyodideInstance.runPythonAsync(`
-            # Get current student mastery levels
-            student = student_manager.get_student(current_student_id)
-            
-            graph_info = "Knowledge Graph Summary:\\n"
-            graph_info += f"Total topics: {len(kg.nodes)}\\n"
-            graph_info += f"Total connections: {len(kg.graph.edges())}\\n\\n"
-            graph_info += "Topic Mastery Levels:\\n"
-            
-            for topic_idx in sorted(student.mastery_levels.keys()):
-                topic_name = kg.get_topic_of_index(topic_idx)
-                mastery = student.get_mastery(topic_idx)
-                level = "🟢" if mastery > 0.6 else "🟡" if mastery > 0.3 else "🔴"
-                graph_info += f"{level} {topic_name}: {mastery:.2f}\\n"
-            
-            js_export({"success": True, "info": graph_info})
-          `);
-          
-          const data = JSON.parse(result);
-          updateStatus('✅ Knowledge graph information displayed below.', 'success');
-          updateOutput(data.info);
-          
-        } catch (error) {
-          updateStatus('❌ Failed to show knowledge graph', 'error');
-          updateOutput(`Error: ${error.message}`);
-          console.error('Graph visualization error:', error);
+        `;
+        
+        // Re-render MathJax for the new content
+        if (window.MathJax) {
+          MathJax.typesetPromise([mcqSection]).catch((err) => console.log('MathJax render error:', err));
         }
       }
       
-      async function skipQuestion() {
-        updateStatus('⏭️ Question skipped. Generate a new one!', 'info');
-        document.getElementById('mcq-section').style.display = 'none';
-        selectedOption = null;
-        currentMCQ = null;
+      async function nextQuestion() {
+        updateStatus('Generating next question...', 'loading');
+        await generateMCQ();
       }
-      
-      function resetDemo() {
-        updateStatus('🔄 Demo reset. Click Initialize to start over.', 'info');
-        document.getElementById('output').textContent = '';
-        document.getElementById('mcq-section').style.display = 'none';
+
+      // Initialize the network
+      document.addEventListener('DOMContentLoaded', function() {
+        const container = document.getElementById('graph-container');
         
-        // Reset buttons
-        document.getElementById('createStudentBtn').disabled = true;
-        document.getElementById('generateMCQBtn').disabled = true;
-        document.getElementById('showGraphBtn').disabled = true;
-        
-        // Reset variables
-        currentStudent = null;
-        currentMCQ = null;
-        selectedOption = null;
-      }
-    </script>
-
-<div id="graph-container" style="width: 100%; height: 600px; border: 1px solid #ddd; border-radius: 4px;"></div>
-
-<div id="controls" style="margin-top: 20px;">
-  <label for="strand-filter">Filter by Strand: </label>
-  <select id="strand-filter">
-    <option value="">All Strands</option>
-    <option value="Algebra">Algebra</option>
-    <option value="Geometry">Geometry</option>
-    <option value="Trigonometry">Trigonometry</option>
-    <option value="Calculus">Calculus</option>
-    <option value="Number">Number</option>
-    <option value="Statistics">Statistics</option>
-    <option value="Probability">Probability</option>
-    <option value="Coordinate Geometry">Coordinate Geometry</option>
-  </select>
-  
-  <button id="reset-view" style="margin-left: 10px;">Reset View</button>
-  <button id="toggle-physics" style="margin-left: 10px;">Toggle Physics</button>
-  <button id="load-simplified" style="margin-left: 10px;">Load Small Dense Graph</button>
-  <button id="load-full" style="margin-left: 10px;">Load Full</button>
-</div>
-
-<div id="node-info" style="margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-radius: 4px; display: none;">
-  <h4 id="node-title"></h4>
-  <p id="node-description"></p>
-  <p><strong>Strand:</strong> <span id="node-strand"></span></p>
-</div>
-
-<div id="stats" style="margin-top: 20px; padding: 10px; background-color: #e9ecef; border-radius: 4px;">
-  <strong>Graph Statistics:</strong> <span id="node-count">0</span> nodes, <span id="edge-count">0</span> edges
-</div>
-
-<script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
-<script>
-// Global variables
-let network;
-let currentData = {nodes: [], edges: []};
-
-// Group color mapping
-function getGroupColor(group) {
-    const colors = {
-        'Algebra': '#ff7675',
-        'Geometry': '#74b9ff',
-        'Trigonometry': '#55a3ff',
-        'Calculus': '#fd79a8',
-        'Number': '#00b894',
-        'Statistics': '#fdcb6e',
-        'Probability': '#e17055',
-        'Coordinate Geometry': '#a29bfe',
-        'Functions': '#fd79a8',
-        'Sequences and Series': '#00cec9',
-        'Complex Numbers': '#6c5ce7',
-        'Measurement': '#fdcb6e',
-        'Synthetic geometry': '#74b9ff',
-        'Transformation geometry': '#55a3ff',
-        'Differential Calculus': '#fd79a8',
-        'Integral Calculus': '#e84393',
-        'Counting and Probability': '#e17055'
-    };
-    return colors[group] || '#636e72';
-}
-
-// Load and process the knowledge graph data
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize the network
-    const container = document.getElementById('graph-container');
-    
-    // Network options
-    const options = {
-        nodes: {
+        // Network options
+        const options = {
+          nodes: {
             shape: 'dot',
             size: 25,
             font: {
-                size: 12,
-                face: 'Arial'
+              size: 12,
+              face: 'Segoe UI'
             },
-            borderWidth: 2,
+            borderWidth: 0,
             shadow: true
-        },
-        edges: {
+          },
+          edges: {
             width: 1,
-            shadow: true,
             smooth: {
-                type: 'continuous'
+              type: 'continuous'
             },
             color: {
-                color: '#848484',
-                highlight: '#848484',
-                hover: '#848484'
+              color: '#848484',
+              highlight: '#848484',
+              hover: '#848484'
             }
-        },
-        physics: {
+          },
+          physics: {
             stabilization: false,
             barnesHut: {
-                gravitationalConstant: -50000,
-                springConstant: 0.002,
-                springLength: 150
+              gravitationalConstant: -50000,
+              springConstant: 0.002,
+              springLength: 150
             }
-        },
-        interaction: {
+          },
+          interaction: {
             navigationButtons: true,
             keyboard: true,
             hover: true
-        }
-    };
+          }
+        };
 
-    // Create network
-    network = new vis.Network(container, currentData, options);
+        // Create network
+        network = new vis.Network(container, currentData, options);
 
-    // Handle node selection
-    network.on('select', function(params) {
-        if (params.nodes.length > 0) {
+        // Handle node selection
+        network.on('select', function(params) {
+          if (params.nodes.length > 0) {
             const nodeId = params.nodes[0];
             const node = currentData.nodes.find(n => n.id === nodeId);
             if (node) {
-                document.getElementById('node-title').textContent = node.label;
-                document.getElementById('node-description').textContent = node.label || 'No description available';
-                document.getElementById('node-strand').textContent = node.group || 'Unknown';
-                document.getElementById('node-info').style.display = 'block';
+              document.getElementById('node-title').textContent = node.label;
+              document.getElementById('node-description').textContent = node.label || 'No description available';
+              document.getElementById('node-strand').textContent = node.group || 'Unknown';
+              
+              // Show mastery level
+              const masteryLevel = currentMasteryLevels[node.label];
+              const masteryText = masteryLevel !== undefined ? 
+                `${(masteryLevel * 100).toFixed(1)}%` : 'Not studied yet';
+              document.getElementById('node-mastery').textContent = masteryText;
+              
+              document.getElementById('node-info').style.display = 'block';
             }
-        }
-    });
+          }
+        });
 
-    // Handle deselection
-    network.on('deselectNode', function() {
-        document.getElementById('node-info').style.display = 'none';
-    });
+        // Handle deselection
+        network.on('deselectNode', function() {
+          document.getElementById('node-info').style.display = 'none';
+        });
 
-    // Filter by strand
-    document.getElementById('strand-filter').addEventListener('change', function() {
-        const selectedStrand = this.value;
-        const nodes = currentData.nodes.map(node => {
+        // Filter by strand
+        document.getElementById('strand-filter').addEventListener('change', function() {
+          const selectedStrand = this.value;
+          const nodes = currentData.nodes.map(node => {
             if (selectedStrand === '' || node.group === selectedStrand) {
-                node.hidden = false;
+              node.hidden = false;
             } else {
-                node.hidden = true;
+              node.hidden = true;
             }
             return node;
-        });
-        
-        const edges = currentData.edges.map(edge => {
+          });
+          
+          const edges = currentData.edges.map(edge => {
             const fromNode = currentData.nodes.find(n => n.id === edge.from);
             const toNode = currentData.nodes.find(n => n.id === edge.to);
             if (selectedStrand === '' || 
                 (fromNode && !fromNode.hidden && toNode && !toNode.hidden)) {
-                edge.hidden = false;
+              edge.hidden = false;
             } else {
-                edge.hidden = true;
+              edge.hidden = true;
             }
             return edge;
+          });
+          
+          network.setData({nodes: nodes, edges: edges});
+          updateStats(nodes.filter(n => !n.hidden).length, edges.filter(e => !e.hidden).length);
         });
+
+        // Reset view
+        document.getElementById('reset-view').addEventListener('click', function() {
+          network.fit();
+        });
+
+        // Toggle physics
+        let physicsEnabled = true;
+        document.getElementById('toggle-physics').addEventListener('click', function() {
+          physicsEnabled = !physicsEnabled;
+          network.setOptions({physics: {enabled: physicsEnabled}});
+          this.textContent = physicsEnabled ? 'Toggle Physics' : 'Toggle Physics';
+        });
+
+        // Load graph data
+        document.getElementById('load-simplified').addEventListener('click', function() {
+          loadGraphData('../../_static/small-graph.json');
+        });
+
+        document.getElementById('load-full').addEventListener('click', function() {
+          loadGraphData('../../_static/graph-data.json');
+        });
+
+        // Start auto-initialization
+        autoInitialize();
+      });
+
+      function loadGraphData(filename) {
+        // Set flag for initial load
+        isInitialGraphLoad = true;
         
-        network.setData({nodes: nodes, edges: edges});
-        updateStats(nodes.filter(n => !n.hidden).length, edges.filter(e => !e.hidden).length);
-    });
-
-    // Reset view
-    document.getElementById('reset-view').addEventListener('click', function() {
-        network.fit();
-    });
-
-    // Toggle physics
-    let physicsEnabled = true;
-    document.getElementById('toggle-physics').addEventListener('click', function() {
-        physicsEnabled = !physicsEnabled;
-        network.setOptions({physics: {enabled: physicsEnabled}});
-        this.textContent = physicsEnabled ? 'Disable Physics' : 'Enable Physics';
-    });
-
-    // Load simplified data
-    document.getElementById('load-simplified').addEventListener('click', function() {
-        loadGraphData('/_static/small-graph.json');
-    });
-
-    // Load full data
-    document.getElementById('load-full').addEventListener('click', function() {
-        loadGraphData('/_static/graph-data.json');
-    });
-
-    // Load full data by default
-    loadGraphData('/_static/small-graph.json');
-});
-
-function loadGraphData(filename) {
-    fetch(filename)
-        .then(response => response.json())
-        .then(data => {
+        fetch(filename)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+            return response.json();
+          })
+          .then(data => {
+            // Hide loading spinner
+            const loadingDiv = document.getElementById('graph-loading');
+            if (loadingDiv) {
+              loadingDiv.style.display = 'none';
+            }
+            
             // Add initial positioning based on groups
             const groupPositions = {
-                'Algebra': {x: -400, y: -200},
-                'Geometry': {x: 400, y: -200},
-                'Trigonometry': {x: 0, y: -400},
-                'Calculus': {x: 0, y: 400},
-                'Number': {x: -400, y: 200},
-                'Statistics': {x: 400, y: 200},
-                'Probability': {x: 400, y: 0},
-                'Coordinate Geometry': {x: 200, y: -300},
-                'Functions': {x: -200, y: 300},
-                'Sequences and Series': {x: -200, y: -300},
-                'Complex Numbers': {x: -300, y: 0},
-                'Measurement': {x: 300, y: -100},
-                'Synthetic geometry': {x: 300, y: -300},
-                'Transformation geometry': {x: 200, y: 300},
-                'Differential Calculus': {x: -100, y: 300},
-                'Integral Calculus': {x: 100, y: 300},
-                'Counting and Probability': {x: 300, y: 100}
+              'Algebra': {x: -400, y: -200},
+              'Geometry': {x: 400, y: -200},
+              'Trigonometry': {x: 0, y: -400},
+              'Calculus': {x: 0, y: 400},
+              'Number': {x: -400, y: 200},
+              'Statistics': {x: 400, y: 200},
+              'Probability': {x: 400, y: 0},
+              'Coordinate Geometry': {x: 200, y: -300},
+              'Functions': {x: -200, y: 300},
+              'Sequences and Series': {x: -200, y: -300},
+              'Complex Numbers': {x: -300, y: 0},
+              'Measurement': {x: 300, y: -100},
+              'Synthetic geometry': {x: 300, y: -300},
+              'Transformation geometry': {x: 200, y: 300},
+              'Differential Calculus': {x: -100, y: 300},
+              'Integral Calculus': {x: 100, y: 300},
+              'Counting and Probability': {x: 300, y: 100}
             };
             
-            // Apply group-based positioning and colors
+            // Apply group-based positioning and initial colors
             data.nodes.forEach(node => {
-                // Add color based on group
-                node.color = getGroupColor(node.group);
-                
-                // Add initial positioning with some randomness
-                if (groupPositions[node.group]) {
-                    node.x = groupPositions[node.group].x + (Math.random() - 0.5) * 150;
-                    node.y = groupPositions[node.group].y + (Math.random() - 0.5) * 150;
-                } else {
-                    // Random positioning for unknown groups
-                    node.x = (Math.random() - 0.5) * 800;
-                    node.y = (Math.random() - 0.5) * 800;
-                }
+              node.color = '#6c757d';
+              
+              if (groupPositions[node.group]) {
+                node.x = groupPositions[node.group].x + (Math.random() - 0.5) * 150;
+                node.y = groupPositions[node.group].y + (Math.random() - 0.5) * 150;
+              } else {
+                node.x = (Math.random() - 0.5) * 800;
+                node.y = (Math.random() - 0.5) * 800;
+              }
             });
             
             currentData = data;
             network.setData(data);
             updateStats(data.nodes.length, data.edges.length);
 
-            network.fit({scale: 0.05});
-            network.moveTo({scale: 0.075});
-            
-            // Update strand filter options based on available data
+            // Update strand filter options
             const strands = [...new Set(data.nodes.map(node => node.group))].sort();
             const filter = document.getElementById('strand-filter');
             filter.innerHTML = '<option value="">All Strands</option>';
             strands.forEach(strand => {
-                if (strand && strand !== 'Unknown') {
-                    filter.innerHTML += `<option value="${strand}">${strand}</option>`;
-                }
+              if (strand && strand !== 'Unknown') {
+                filter.innerHTML += `<option value="${strand}">${strand}</option>`;
+              }
             });
             
+            // Update colors if student exists
+            if (currentStudent) {
+              updateGraphMasteryColors();
+            }
+            
+            // Set default zoomed out view (after a longer delay to ensure everything is loaded)
+            setTimeout(() => {
+              network.moveTo({
+                scale: 0.05,
+                animation: false // Disable animation for instant zoom
+              });
+              // Clear the initial load flag after zoom is set
+              isInitialGraphLoad = false;
+            }, 300);
+            
             console.log(`Loaded ${data.nodes.length} nodes and ${data.edges.length} edges from ${filename}`);
-        })
-        .catch(error => {
+          })
+          .catch(error => {
             console.error('Error loading graph data:', error);
-            // Fallback to simplified data
             loadSimplifiedFallback();
-        });
-}
+          });
+      }
 
-function loadSimplifiedFallback() {
-    // Fallback data if JSON files can't be loaded
-    const fallbackData = {
-        nodes: [
+      function loadSimplifiedFallback() {
+        // Set flag for initial load
+        isInitialGraphLoad = true;
+        
+        // Hide loading spinner
+        const loadingDiv = document.getElementById('graph-loading');
+        if (loadingDiv) {
+          loadingDiv.style.display = 'none';
+        }
+        
+        // Fallback data if JSON files can't be loaded
+        const fallbackData = {
+          nodes: [
             {id: '1', label: 'Natural Numbers', group: 'Number', title: 'Counting numbers starting from 1'},
             {id: '2', label: 'Integers', group: 'Number', title: 'Whole numbers including negatives'},
             {id: '3', label: 'Rational Numbers', group: 'Number', title: 'Numbers expressible as fractions'},
@@ -1053,8 +811,8 @@ function loadSimplifiedFallback() {
             {id: '8', label: 'Derivatives', group: 'Calculus', title: 'Rate of change of functions'},
             {id: '9', label: 'Integration', group: 'Calculus', title: 'Antiderivatives and areas'},
             {id: '10', label: 'Probability', group: 'Probability', title: 'Likelihood of events'}
-        ],
-        edges: [
+          ],
+          edges: [
             {from: '1', to: '2', title: 'Natural numbers extend to integers'},
             {from: '2', to: '3', title: 'Integers extend to rational numbers'},
             {from: '3', to: '4', title: 'Rational numbers extend to complex numbers'},
@@ -1063,18 +821,38 @@ function loadSimplifiedFallback() {
             {from: '8', to: '9', title: 'Integration is the reverse of differentiation'},
             {from: '7', to: '8', title: 'Trigonometric functions can be differentiated'},
             {from: '7', to: '9', title: 'Trigonometric functions can be integrated'}
-        ]
-    };
-    
-    currentData = fallbackData;
-    network.setData(fallbackData);
-    updateStats(fallbackData.nodes.length, fallbackData.edges.length);
-}
+          ]
+        };
+        
+        // Apply initial gray colors
+        fallbackData.nodes.forEach(node => {
+          node.color = '#6c757d';
+        });
+        
+        currentData = fallbackData;
+        network.setData(fallbackData);
+        updateStats(fallbackData.nodes.length, fallbackData.edges.length);
+        
+        // Update colors if student exists
+        if (currentStudent) {
+          updateGraphMasteryColors();
+        }
+        
+        // Set default zoomed out view (after a delay to ensure everything is loaded)
+        setTimeout(() => {
+          network.moveTo({
+            scale: 0.05,
+            animation: false // Disable animation for instant zoom
+          });
+          // Clear the initial load flag after zoom is set
+          isInitialGraphLoad = false;
+        }, 300);
+      }
 
-function updateStats(nodeCount, edgeCount) {
-    document.getElementById('node-count').textContent = nodeCount;
-    document.getElementById('edge-count').textContent = edgeCount;
-}
-</script> 
+      function updateStats(nodeCount, edgeCount) {
+        document.getElementById('node-count').textContent = nodeCount;
+        document.getElementById('edge-count').textContent = edgeCount;
+      }
+    </script>
 </body>
 </html>

@@ -11,3 +11,5 @@ qiskit-aer
 pylatexenc
 jupyterlite-sphinx
 networkx
+# testing dependencies for navbar design
+sphinx-book-theme

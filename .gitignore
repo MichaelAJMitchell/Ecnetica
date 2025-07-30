@@ -7,4 +7,6 @@ Gemfile.lock
 _build/
 _build/*
 venv/
-venv/*
+
+# Ignore testing generated content
+content-testing/

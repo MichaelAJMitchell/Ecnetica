@@ -4,14 +4,11 @@ on:
   push:
     branches:
     - main
-
 env:
   BASE_URL: /${{ github.event.repository.name }}
-
 concurrency:
   group: "pages"
   cancel-in-progress: false
-
 # This job installs dependencies, builds the book, and pushes it to GitHub Pages
 jobs:
   deploy-book:
@@ -20,8 +17,11 @@ jobs:
     permissions:
       pages: write
       id-token: write
+      contents: read  # Add this for private repo access
     steps:
     - uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}  # Add this line for private repos
     
     # Install dependencies
     - name: Set up Python 3.12
@@ -32,8 +32,6 @@ jobs:
         
     - name: Install dependencies
       run: |
-        wget https://github.com/jgraph/drawio-desktop/releases/download/v23.1.5/drawio-amd64-23.1.5.deb
-        sudo apt -f install ./drawio-amd64-23.1.5.deb
         pip install -r requirements.txt
         
     # Build the book

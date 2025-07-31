@@ -1,0 +1,195 @@
+Topic,"Description of topic 
+ Students learn about","Learning outcomes 
+ Students should be able to"
+1.1 Counting,Listing outcomes of experiments in a systematic way.,"– list all possible outcomes of an experiment 
+ 
+  – apply the fundamental principle of 
+ counting"
+1.2 Concepts of probability,"The probability of an event occurring: students progress from informal to formal descriptions of probability.
+ Predicting and determining probabilities. Difference between experimental and theoretical probability.","– decide whether an everyday event is likely or unlikely to occur 
+ 
+  – recognise that probability is a measure on a scale of 0-1 of how likely an event is to occur 
+ 
+  – use the language of probability to discuss events, including those with equally likely outcomes 
+ 
+  – estimate probabilities from experimental data 
+ 
+  – recognise that, if an experiment is repeated, there will be different outcomes and that increasing the number of times an experiment is repeated generally leads to better estimates of probability 
+ 
+  – associate the probability of an event with its long-run, relative frequency"
+"1.3 Outcomes of simple random 
+ processes",Finding the probability of equally likely outcomes.,"– construct sample spaces for two independent events 
+ 
+  – apply the principle that, in the case of equally likely outcomes, the probability is given by the number of outcomes
+ of interest divided by the total number of outcomes (examples using coins, dice, spinners, containers with different coloured objects, playing cards, sports results, etc.)"
+"1.4 Statistical reasoning 
+ with an aim to becoming a statistically aware consumer","Situations where statistics are misused and learn to evaluate the reliability and quality of data and data sources. 
+ Different types of data.","– engage in discussions about the purpose of statistics and recognise misconceptions and misuses of statistics 
+ 
+  – discuss populations and samples 
+ 
+  – decide to what extent conclusions can be 
+ generalised 
+ 
+  – work with different types of data: 
+ • categorical: nominal or ordinal
+ • numerical: discrete or continuous in order to clarify the problem at hand"
+1.1 Counting,"– count the arrangements of n distinct objects (n!) 
+ 
+  – count the number of ways of arranging r objects from n distinct objects","– count the number of ways of selecting r objects from n distinct objects 
+ 
+  – compute binomial coefficients"
+1.2 Concepts of probability,"– use set theory to discuss experiments, outcomes, sample spaces 
+ 
+  – discuss basic rules of probability (AND/ OR, mutually exclusive) through the use of Venn diagrams 
+ 
+  – calculate expected value and understand that this does not need to be one of the outcomes 
+ 
+  – recognise the role of expected value in decision making and explore the issue of fair games","– extend their understanding of the basic rules of probability (AND/OR, mutually exclusive) through the use of formulae 
+ 
+  – Addition Rule:
+ P(A ∪ B) = P(A) + P(B) − P(A ∩ B) 
+ 
+  – Multiplication Rule (Independent Events): P(A ∩ B) = P(A) × P(B) 
+ 
+  – Multiplication Rule (General Case): P(A ∩ B) = P(A) × P(B | A) 
+ 
+  – solve problems involving sampling, with or without replacement 
+ 
+  – appreciate that in general P(A | B) ≠ P (B | A) 
+ 
+  – examine the implications of P(A | B) ≠ P (B | A) in context"
+1.3 Outcomes of random processes,"– find the probability that two independent events both occur 
+ 
+  – apply an understanding of Bernoulli trials∗ 
+ 
+  – solve problems involving up to 3 Bernoulli 
+ trials 
+ 
+  – calculate the probability that the 1st 
+ success occurs on the nth Bernoulli trial where n is specified","– solve problems involving calculating the probability of k successes in n repeated Bernoulli trials (normal approximation not required) 
+ 
+  – calculate the probability that the kth success occurs on the nth Bernoulli trial 
+ 
+  – use simulations to explore the variability of sample statistics from a known population, to construct sampling distributions and
+ to draw conclusions about the sampling distribution of the mean 
+ 
+  – solve problems involving reading probabilities from the normal distribution tables"
+"1.4 Statistical reasoning 
+ with an aim to becoming a statistically aware consumer","– discuss populations and samples 
+ 
+  – decide to what extent conclusions can be 
+ generalised 
+ 
+  – work with different types of bivariate 
+ data",
+"1.5 Finding, collecting and organising data","The use of statistics to gather information from a selection of the population with
+ the intention of making generalisations about the whole population. Formulating a statistics question based on data that vary, allowing for distinction between different types of data.","– clarify the problem at hand 
+ 
+  – formulate one (or more) questions that 
+ can be answered with data 
+ 
+  – explore different ways of collecting 
+ data 
+ 
+  – generate data, or source data from 
+ other sources including the internet 
+ 
+  – select a sample from a population 
+ (Simple Random Sample) 
+ 
+  – recognise the importance of 
+ representativeness so as to avoid 
+ biased samples 
+ 
+  – design a plan and collect data on the 
+ basis of above knowledge 
+ 
+  – summarise data in diagrammatic form, including data presented in 
+ spreadsheets"
+"1.6 Representing data graphically and 
+ numerically","Methods of representing data.
+ Students develop a sense that data can convey information and that organising data in different ways can help clarify what the data have to tell us. They see a data set as a whole and so are able to use proportions and measures of centre to describe the data.","Graphical 
+   – select appropriate methods to represent and describe the sample (univariate data only) 
+ 
+  – evaluate the effectiveness of different displays in representing the findings of a statistical investigation conducted by others 
+ 
+  – use pie charts, bar charts, line plots, histograms (equal intervals), stem and leaf plots to display data 
+ 
+  – use appropriate graphical displays to compare data sets 
+ Numerical 
+ 
+  – use a variety of summary statistics to describe the data:
+ • central tendency 
+ mean, median, mode • variability – range"
+"1.5 Finding, collecting and organising data","– select a sample (Simple Random Sample) 
+ 
+  – recognise the importance of representativeness so as to avoid biased samples 
+ 
+  – discuss different types of studies: sample surveys, observational studies and designed experiments 
+ 
+  – design a plan and collect data on the basis of above knowledge","– recognise the importance of randomisation and the role of the control group in studies 
+ 
+  – recognise biases, limitations and ethical issues of each type of study 
+ 
+  – select a sample (stratified, cluster, quota – no formulae required, just definitions of these) 
+ 
+  – design a plan and collect data on the basis of above knowledge"
+"1.6 Representing data graphically and 
+ numerically","Graphical 
+   – describe the sample (both univariate and bivariate data) by selecting appropriate graphical or numerical methods 
+ 
+  – explore the distribution of data, including concepts of symmetry and skewness 
+ 
+  – compare data sets using appropriate displays including back-to-back stem and leaf plots 
+ 
+  – determine the relationship between variables using scatterplots 
+ 
+  – recognise that correlation is a value from -1 to +1 and that it measures the extent of the linear relationship between two variables 
+ 
+  – match correlation coefficient values to appropriate scatterplots 
+ 
+  – understand that correlation does not imply causality 
+ Numerical 
+ 
+    – recognise standard deviation and interquartile range as measures of variability 
+ 
+  – use a calculator to calculate standard deviation 
+ 
+  – find quartiles and the interquartile range 
+ 
+  – use the interquartile range appropriately when analysing data 
+ 
+  – recognise the existence of outliers","Graphical 
+   – analyse plots of the data to explain differences in measures of centre and spread 
+ 
+  – draw the line of best fit by eye 
+ 
+  – make predictions based on the line of 
+ best fit 
+ 
+  – calculate the correlation coefficient by 
+ calculator 
+ 
+  
+ 
+   Numerical 
+   – recognise the effect of outliers 
+ 
+  – use percentiles to assign relative 
+ standing"
+"1.7 Analysing, interpreting and drawing 
+ conclusions from data",Drawing conclusions from data; limitations of conclusions.,"– interpret graphical summaries of data 
+ 
+  – relate the interpretation to the original 
+ question 
+ 
+  – recognise how sampling variability 
+ influences the use of sample information to make statements about the population 
+ 
+  – use appropriate tools to describe variability, drawing inferences about the population from the sample 
+ 
+  – interpret the analysis 
+ 
+  – relate the interpretation to the original 
+ question"

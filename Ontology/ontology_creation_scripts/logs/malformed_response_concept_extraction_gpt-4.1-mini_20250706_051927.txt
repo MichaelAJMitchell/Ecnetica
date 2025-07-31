@@ -1,0 +1,226 @@
+Model: gpt-4.1-mini
+Task: concept_extraction
+Timestamp: 2025-07-06T05:19:27.029763
+==================================================
+[
+    {
+        "name": "Irrational numbers",
+        "explanation": "Numbers that cannot be expressed as a ratio of two integers, having non-terminating and non-repeating decimal expansions.",
+        "broader_concept": "Real numbers",
+        "strand": "Number",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "Complex numbers",
+        "explanation": "Numbers composed of a real part and an imaginary part, expressed in the form a + bi where i is the imaginary unit.",
+        "broader_concept": "Number systems",
+        "strand": "Number",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "Division of complex numbers",
+        "explanation": "The process of dividing one complex number by another, often involving multiplying numerator and denominator by the conjugate of the denominator.",
+        "broader_concept": "Operations on complex numbers",
+        "strand": "Number",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "Equality of complex numbers",
+        "explanation": "Two complex numbers are equal if and only if their real parts are equal and their imaginary parts are equal.",
+        "broader_concept": "Properties of complex numbers",
+        "strand": "Number",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "Argand diagram representation of complex numbers",
+        "explanation": "A graphical representation of complex numbers on a plane with the horizontal axis representing the real part and the vertical axis representing the imaginary part.",
+        "broader_concept": "Geometric interpretation of complex numbers",
+        "strand": "Number",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "Modulus of a complex number",
+        "explanation": "The distance of a complex number from the origin in the Argand diagram, calculated as the square root of the sum of the squares of its real and imaginary parts.",
+        "broader_concept": "Properties of complex numbers",
+        "strand": "Number",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "Transformations of complex numbers",
+        "explanation": "Operations such as translation, rotation, and scaling applied to complex numbers represented on the Argand diagram.",
+        "broader_concept": "Geometric transformations",
+        "strand": "Number",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "Conjugate roots theorem",
+        "explanation": "A theorem stating that non-real roots of polynomials with real coefficients occur in conjugate pairs.",
+        "broader_concept": "Roots of polynomials",
+        "strand": "Algebra",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "Polar form of a complex number",
+        "explanation": "Representation of a complex number using its modulus and argument, expressed as r(cos θ + i sin θ).",
+        "broader_concept": "Complex number forms",
+        "strand": "Number",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "Product of complex numbers in polar form",
+        "explanation": "Multiplying two complex numbers by multiplying their moduli and adding their arguments.",
+        "broader_concept": "Operations on complex numbers",
+        "strand": "Number",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "Quotient of complex numbers in polar form",
+        "explanation": "Dividing two complex numbers by dividing their moduli and subtracting their arguments.",
+        "broader_concept": "Operations on complex numbers",
+        "strand": "Number",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "De Moivre’s theorem",
+        "explanation": "A formula that expresses powers of complex numbers in polar form as r^n (cos nθ + i sin nθ).",
+        "broader_concept": "Complex number powers",
+        "strand": "Number",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "Applications of de Moivre’s theorem",
+        "explanation": "Using De Moivre’s theorem to find roots and powers of complex numbers and solve trigonometric problems.",
+        "broader_concept": "Complex number powers",
+        "strand": "Number",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "Enlargements (scale transformations)",
+        "explanation": "Geometric transformations that increase or decrease the size of a figure by a scale factor from a fixed center point.",
+        "broader_concept": "Geometric transformations",
+        "strand": "Geometry",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "Geometric constructions",
+        "explanation": "The process of creating geometric figures using only a compass and straightedge following specific rules.",
+        "broader_concept": "Geometric constructions",
+        "strand": "Geometry",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "Antidifferentiation",
+        "explanation": "The process of finding a function whose derivative is the given function, also known as indefinite integration.",
+        "broader_concept": "Integration",
+        "strand": "Calculus",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "Integration of exponential functions",
+        "explanation": "Finding the integral of functions involving exponential expressions, typically involving the base e.",
+        "broader_concept": "Integration techniques",
+        "strand": "Calculus",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "Integration of trigonometric functions",
+        "explanation": "Finding the integral of functions involving sine, cosine, and other trigonometric functions.",
+        "broader_concept": "Integration techniques",
+        "strand": "Calculus",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "Applications of integration",
+        "explanation": "Using integration to solve practical problems such as finding areas, volumes, and accumulated quantities.",
+        "broader_concept": "Applications of calculus",
+        "strand": "Calculus",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "Definite integrals",
+        "explanation": "Integrals evaluated over a specific interval, representing the net area under a curve between two points.",
+        "broader_concept": "Integration",
+        "strand": "Calculus",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "Finding areas by integration",
+        "explanation": "Using definite integrals to calculate the area between a curve and the x-axis or between two curves.",
+        "broader_concept": "Applications of integration",
+        "strand": "Calculus",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "Average value of a function",
+        "explanation": "The mean value of a function over an interval, calculated using integration divided by the interval length.",
+        "broader_concept": "Applications of integration",
+        "strand": "Calculus",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "Tangents and increasing/decreasing functions",
+        "explanation": "Using derivatives to determine where a function is increasing or decreasing and to find the slope of tangents to curves.",
+        "broader_concept": "Differential calculus",
+        "strand": "Calculus",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "Stationary points",
+        "explanation": "Points on a graph where the derivative is zero, indicating potential maxima, minima, or points of inflection.",
+        "broader_concept": "Differential calculus",
+        "strand": "Calculus",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "Graphs of the derived (slope) function",
+        "explanation": "Plotting the derivative function to analyze the rate of change and behavior of the original function.",
+        "broader_concept": "Differential calculus",
+        "strand": "Calculus",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "Maximum and minimum problems",
+        "explanation": "Using derivatives to find the highest or lowest values of a function within a domain.",
+        "broader_concept": "Optimization",
+        "strand": "Calculus",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "Rates of change",
+        "explanation": "The derivative representing how one quantity changes with respect to another, often time.",
+        "broader_concept": "Differential calculus",
+        "strand": "Calculus",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "Related rates of change",
+        "explanation": "Problems involving two or more quantities changing with respect to time and their rates being related through an equation.",
+        "broader_concept": "Applications of derivatives",
+        "strand": "Calculus

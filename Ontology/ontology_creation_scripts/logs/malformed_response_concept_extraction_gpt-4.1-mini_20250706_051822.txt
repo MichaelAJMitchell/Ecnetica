@@ -1,0 +1,223 @@
+Model: gpt-4.1-mini
+Task: concept_extraction
+Timestamp: 2025-07-06T05:18:22.534911
+==================================================
+[
+    {
+        "name": "circle drawing with given radius",
+        "explanation": "Constructing a circle using a compass with a specified radius from a given center point.",
+        "broader_concept": "Geometric constructions",
+        "strand": "Synthetic geometry",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "use of straight edge in geometric constructions",
+        "explanation": "Employing a straight edge tool to draw precise straight lines in geometric diagrams.",
+        "broader_concept": "Geometric constructions",
+        "strand": "Synthetic geometry",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "use of compass in geometric constructions",
+        "explanation": "Using a compass to draw arcs and circles accurately in geometric constructions.",
+        "broader_concept": "Geometric constructions",
+        "strand": "Synthetic geometry",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "use of ruler in geometric constructions",
+        "explanation": "Applying a ruler to measure lengths and draw straight lines with precision.",
+        "broader_concept": "Geometric constructions",
+        "strand": "Synthetic geometry",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "use of protractor in geometric constructions",
+        "explanation": "Using a protractor to measure and construct specific angles accurately.",
+        "broader_concept": "Geometric constructions",
+        "strand": "Synthetic geometry",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "use of set square in geometric constructions",
+        "explanation": "Employing a set square to draw perpendicular and parallel lines and specific angles like 30°, 45°, and 60°.",
+        "broader_concept": "Geometric constructions",
+        "strand": "Synthetic geometry",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "coordinate plane plotting",
+        "explanation": "Assigning points on a two-dimensional plane using ordered pairs (x, y).",
+        "broader_concept": "Coordinate representation",
+        "strand": "Co-ordinate geometry",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "linear relationships in tabular form",
+        "explanation": "Representing linear relationships between variables using tables of values.",
+        "broader_concept": "Linear functions",
+        "strand": "Co-ordinate geometry",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "linear relationships in graphical form",
+        "explanation": "Representing linear relationships between variables by plotting points and drawing straight lines on a graph.",
+        "broader_concept": "Linear functions",
+        "strand": "Co-ordinate geometry",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "slope as rate of change",
+        "explanation": "Understanding the slope of a line as the rate at which the dependent variable changes with respect to the independent variable.",
+        "broader_concept": "Linear functions",
+        "strand": "Co-ordinate geometry",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "start value in linear relationships",
+        "explanation": "The initial value or y-intercept of a linear function representing the value when the independent variable is zero.",
+        "broader_concept": "Linear functions",
+        "strand": "Co-ordinate geometry",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "point of intersection of two linear relationships",
+        "explanation": "The coordinate point where two linear graphs meet, representing the solution to the system of equations.",
+        "broader_concept": "Systems of linear equations",
+        "strand": "Co-ordinate geometry",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "strategies for solving two linear relationships",
+        "explanation": "Using graphical, numerical, or mental methods to find solutions to problems involving up to two linear equations.",
+        "broader_concept": "Systems of linear equations",
+        "strand": "Co-ordinate geometry",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "application of Pythagorean theorem in right-angled triangles",
+        "explanation": "Using the relationship a² + b² = c² to solve problems involving the lengths of sides in right-angled triangles.",
+        "broader_concept": "Right-angled triangle properties",
+        "strand": "Trigonometry",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "use of trigonometric ratios in right-angled triangles",
+        "explanation": "Applying sine, cosine, and tangent ratios to find unknown sides or angles in right-angled triangles.",
+        "broader_concept": "Right-angled triangle properties",
+        "strand": "Trigonometry",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "identification of axes of symmetry in simple shapes",
+        "explanation": "Locating lines that divide shapes into mirror-image halves.",
+        "broader_concept": "Symmetry",
+        "strand": "Transformation geometry",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "recognition of images under translation",
+        "explanation": "Understanding how points and objects move uniformly in a given direction without rotation or reflection.",
+        "broader_concept": "Transformations",
+        "strand": "Transformation geometry",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "recognition of images under central symmetry",
+        "explanation": "Identifying points and shapes reflected through a center point to produce an image.",
+        "broader_concept": "Transformations",
+        "strand": "Transformation geometry",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "recognition of images under axial symmetry",
+        "explanation": "Recognizing reflections of points and shapes across a line (axis of symmetry).",
+        "broader_concept": "Transformations",
+        "strand": "Transformation geometry",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "recognition of images under rotation",
+        "explanation": "Understanding how points and shapes turn about a fixed point through a specified angle and direction.",
+        "broader_concept": "Transformations",
+        "strand": "Transformation geometry",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "enlargement with centre of enlargement and scale factor",
+        "explanation": "Transforming shapes by expanding or contracting them from a fixed point using a rational scale factor k, where k can be less than 1 or greater than 1.",
+        "broader_concept": "Enlargements and scale transformations",
+        "strand": "Transformation geometry",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "effect of enlargement on area",
+        "explanation": "Investigating how the area of a shape changes when it is enlarged by a scale factor k, noting that area changes by a factor of k².",
+        "broader_concept": "Enlargements and scale transformations",
+        "strand": "Transformation geometry",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "logic terms in geometry: theorem, proof, axiom, corollary, converse, implies",
+        "explanation": "Understanding foundational logical terms used in geometric reasoning and deductive proofs.",
+        "broader_concept": "Geometric reasoning and proof",
+        "strand": "Synthetic geometry",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "logic terms: is equivalent to, if and only if, proof by contradiction",
+        "explanation": "Using advanced logical expressions and proof techniques to establish geometric truths.",
+        "broader_concept": "Geometric reasoning and proof",
+        "strand": "Synthetic geometry",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "proof of theorems concerning ratios in geometry",
+        "explanation": "Demonstrating geometric theorems that involve ratios of line segments or areas, foundational for Pythagoras' theorem.",
+        "broader_concept": "Geometric reasoning and proof",
+        "strand": "Synthetic geometry",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "use of slope to determine parallelism of lines",
+        "explanation": "Showing that two lines are parallel if and only if their slopes are equal.",
+        "broader_concept": "Properties of lines",
+        "strand": "Co-ordinate geometry",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name": "use of slope to determine perpendicularity of lines",
+        "explanation": "Showing that two lines are perpendicular if the product of their slopes is -1.",
+        "broader_concept": "Properties of lines",
+        "strand": "Co-ordinate geometry",
+        "grade_level": "",
+        "difficulty": ""
+    },
+    {
+        "name

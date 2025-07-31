@@ -1,0 +1,20 @@
+EFFICIENT LOOP DETECTION RESULTS
+========================================
+
+Analysis Date: 2025-07-08 02:34:16
+Total Concepts: 850
+Total Relationships: 2579
+
+⚠️  CYCLES DETECTED!
+Found 214 cycles (showing first 50)
+
+Cycle 1 (Length 3): Double angle formula for cosine (cos 2A) → Cosine squared in terms of cosine double angle → Double angle formula for cosine (cos 2A)
+Cycle 2 (Length 4): Double angle formula for cosine (cos 2A) → Cosine squared in terms of cosine double angle → Sine squared in terms of cosine double angle → Double angle formula for cosine (cos 2A)
+Cycle 3 (Length 3): Cosine squared in terms of cosine double angle → Sine squared in terms of cosine double angle → Cosine squared in terms of cosine double angle
+Cycle 4 (Length 4): Cosine rule for triangle side lengths → solving trigonometric problems in three dimensions → use of trigonometric ratios in right-angled triangles → Cosine rule for triangle side lengths
+Cycle 5 (Length 3): solving trigonometric problems in three dimensions → use of trigonometric ratios in right-angled triangles → solving trigonometric problems in three dimensions
+Cycle 6 (Length 3): Cosine rule for triangle side lengths → investigation and proof of theorems related to ratios → Cosine rule for triangle side lengths
+Cycle 7 (Length 3): Principal value of the argument → Modulus and argument of a complex number → Principal value of the argument
+Cycle 8 (Length 2): De Moivre’s theorem → De Moivre’s theorem
+Cycle 9 (Length 3): Principal value of the argument → De Moivre’s theorem → Principal value of the argument
+Cycle 10 (Length 3): Principal value of the argument → Tangent of angle sum formula → Principal value of the argument

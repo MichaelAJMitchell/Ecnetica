@@ -1,0 +1,141 @@
+Topic,"Description of topic 
+ Students learn about","Learning outcomes 
+ Students should be able to"
+4.1 (a) Generating arithmetic expressions from repeating patterns,"Patterns and the rules that govern them; students construct an understanding
+ of a relationship as that which involves a set of inputs, a set of outputs and a correspondence from each input to each output.","– use tables to represent a repeating-pattern situation 
+ 
+  – generalise and explain patterns and relationships in words and numbers 
+ 
+  – write arithmetic expressions for particular terms in a sequence"
+"4.1 (b) Representing situations with tables, diagrams and graphs","Relations derived from some kind of context – familiar, everyday situations, imaginary contexts or arrangements of tiles or blocks. Students look at various patterns and make predictions about what comes next.","– use tables, diagrams and graphs as tools for representing and analysing linear patterns and relationships 
+ 
+  – develop and use their own generalising strategies and ideas and consider those of others 
+ 
+  – present and interpret solutions, explaining and justifying methods, inferences and reasoning"
+4.1 (c) Finding formulae,Ways to express a general relationship arising from a pattern or context.,– find the underlying formula written in words from which the data is derived (linear relationships)
+4.1 (d) Examining algebraic relationships,"Features of a linear relationship and how these features appear in the different representations. Constant rate of change. 
+ Proportional relationships.","– show that relations have features that can be represented in a variety of ways 
+ 
+  – distinguish those features that are especially useful to identify and point out how those features appear in different representations: in tables, graphs, physical models, and formulae expressed in words 
+ 
+  – use the representations to reason about the situation from which the relationship is derived and communicate their thinking to others 
+ 
+  – discuss rate of change and the y-intercept; consider how these relate to the context from which the relationship is derived, and identify how they can appear in a table, in a graph and in a formula 
+ 
+  – decide if two linear relationships have a common value 
+ 
+  – recognise problems involving direct proportion and identify the necessary information to solve them"
+4.1 (e) Relations without formulae,Using graphs to represent phenomena quantitatively.,"– explore graphs of motion 
+ 
+  – make sense of quantitative graphs and draw 
+ conclusions from them 
+ 
+  – make connections between the shape of a graph 
+ and the story of a phenomenon 
+ 
+  – describe both quantity and change of quantity on 
+ a graph"
+4.1 (f) Expressions,Evaluating expressions derived from real life contexts.,– evaluate expressions given the value of the variables
+4.1 Expressions,"– evaluate expressions given the value of the variables 
+ 
+  – expand and re-group expressions 
+ 
+  – factorise expressions of order 2 
+ 
+  – add and subtract expressions of the 
+ form
+ • (ax+by+c) ±...± (dx+ey+f) • (ax2+bx+c) ±...± (dx2+ex+f) 
+ where a,b,c,d,e,f ∈ Z •a±p 
+ bx + c qx + r 
+ where a,b,c,p,q,r ∈ Z 
+ 
+  – use the associative and distributive 
+ properties to simplify expressions of the form
+ • a(bx±cy±d) ±...± e(fx±gy±h) where a, b, c, d, e, f, g, h ∈ Z 
+ • (x±y)(w±z) 
+ 
+  – rearrange formulae","– perform the arithmetic operations of addition, subtraction, multiplication and division on polynomials and rational algebraic expressions paying attention to the use of brackets and surds 
+ 
+  – apply the binomial theorem"
+4.2 Solving equations,Solving linear equations set in context.,"– select and use suitable strategies (graphic, numeric, mental) for finding solutions to equations of the form:
+ f(x) = g(x), with f(x) = ax+b, g(x) = cx+d, where a, b, c, d ∈ Q 
+ and interpret the results"
+4.3 Inequalities,Solving linear inequalities set in context.,"– select and use suitable strategies (graphic, numeric, mental) for finding solutions to inequalities of the form:
+ • g(x)≤k, g(x)≥k, 
+ • g(x) < k, g(x) > k,
+ where g(x) = ax + b and a, b, k ∈ Q and interpret the results"
+4.2 Solving equations,"– select and use suitable strategies (graphic, numeric, algebraic, mental) for finding solutions to equations of the form:
+ • f(x) = g(x), with f(x) = ax+b, 
+ 
+ 
+   g(x) = cx+d 
+ where a, b, c, d ∈ Q • f(x) = g(x) 
+ with f(x) = a ± bx+c 
+ 
+  p ; qx+r 
+ 
+ 
+   g(x) = ef where a, b, c, e, f, p, q, r ∈ Z 
+ • f(x) = k with f(x) = ax2 + bx + c (and not necessarily factorisable) where a, b, c ∈ Q 
+ and interpret the results 
+   – select and use suitable strategies (graphic, 
+ numeric, algebraic, mental) for finding solutions to 
+   simultaneous linear equations with two 
+ unknowns and interpret the results 
+ 
+  one linear equation and one equation of 
+ order 2 with two unknowns (restricted to the case where either the coefficient of x or the coefficient of y is ± 1 in the linear equation) and interpret the results 
+ 
+  
+  – form quadratic equations given whole number roots","– select and use suitable strategies 
+ (graphic, numeric, algebraic, mental) 
+ for finding solutions to equations of the 
+ form: 
+ f(x) = g(x) 
+ with f(x) = ax+b ± cx+d ; g(x) = k ex+f qx+r 
+ where a, b, c, d, e, f, q, r ∈ Z 
+   – use the Factor Theorem for 
+ polynomials 
+ 
+  – select and use suitable strategies 
+ (graphic, numeric, algebraic and mental) for finding solutions to 
+   cubic equations with at least one 
+ integer root 
+ 
+  simultaneous linear equations with 
+ three unknowns 
+ 
+  one linear equation and one 
+ equation of order 2 with two 
+ unknowns
+ and interpret the results"
+4.3 Inequalities,"– select and use suitable strategies (graphic, numeric, algebraic, mental) for finding solutions to inequalities of the form:
+ • g(x)≤k, g(x)≥k, 
+ • g(x) < k, g(x) > k,
+ where g(x) = ax + b and a, b, k ∈ Q","– use notation | x | 
+ 
+  – select and use suitable strategies 
+ (graphic, numeric, algebraic, mental) for finding solutions to inequalities of the form:
+ • g(x)≤k, g(x)≥k; 
+ 
+  
+ 
+   • g(x) < k, g(x) > k,
+ with g(x) = ax2+bx+c or g(x) = ax+b 
+ 
+ 
+   cx+d and a, b, c, d, k ∈ Q, x ∈ R 
+ 
+ 
+   • | x – a | < b, | x – a | > b and combinations of these, with a,b,∈Q, x∈R"
+4.4 Complex Numbers,"See strand 3, section 3.1","– use the Conjugate Root Theorem to find the roots of polynomials 
+ 
+  – work with complex numbers in rectangular and polar form to solve quadratic and other equations including thoseintheformzn =a,wheren∈Z and z = r (Cos θ + iSin θ ) 
+ 
+  – use De Moivre’s Theorem 
+ 
+  – prove De Moivre’s Theorem by 
+ induction for n ∈ N 
+ 
+  – use applications such as nth roots of 
+ unity, n ∈ N, and identities such as Cos 3θ = 4 Cos3 θ – 3 Cos θ"

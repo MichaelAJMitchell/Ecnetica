@@ -1,0 +1,141 @@
+Model: gpt-4.1-mini
+Task: relationship_extraction
+Timestamp: 2025-07-06T05:17:14.949798
+==================================================
+[
+    {
+        "prerequisite": "Pythagorean trigonometric identity",
+        "dependent": "Cosine of difference of angles formula",
+        "explanation": "The cosine of difference formula uses cosine and sine functions whose squares relate through the Pythagorean identity, making it necessary to understand the identity first.",
+        "source": "7_Leaving Cert Maths-Trig_Formulae.pdf"
+    },
+    {
+        "prerequisite": "Pythagorean trigonometric identity",
+        "dependent": "Cosine of sum of angles formula",
+        "explanation": "The cosine of sum formula involves cosine and sine functions and their squares, which are connected by the Pythagorean identity, so understanding the identity is foundational.",
+        "source": "7_Leaving Cert Maths-Trig_Formulae.pdf"
+    },
+    {
+        "prerequisite": "Cosine of difference of angles formula",
+        "dependent": "Product-to-sum formula for 2 cos A cos B",
+        "explanation": "The product-to-sum formula for 2 cos A cos B is expressed as the sum of cos(A+B) and cos(A–B), requiring knowledge of the cosine sum and difference formulas.",
+        "source": "7_Leaving Cert Maths-Trig_Formulae.pdf"
+    },
+    {
+        "prerequisite": "Cosine of sum of angles formula",
+        "dependent": "Product-to-sum formula for 2 cos A cos B",
+        "explanation": "Since the product-to-sum formula uses cos(A+B), understanding the cosine sum formula is necessary.",
+        "source": "7_Leaving Cert Maths-Trig_Formulae.pdf"
+    },
+    {
+        "prerequisite": "Cosine of difference of angles formula",
+        "dependent": "Product-to-sum formula for 2 sin A sin B",
+        "explanation": "The product-to-sum formula for 2 sin A sin B involves cos(A–B) and cos(A+B), so the cosine sum and difference formulas must be understood first.",
+        "source": "7_Leaving Cert Maths-Trig_Formulae.pdf"
+    },
+    {
+        "prerequisite": "Cosine of sum of angles formula",
+        "dependent": "Product-to-sum formula for 2 sin A sin B",
+        "explanation": "The formula involves cos(A+B), requiring knowledge of the cosine sum formula.",
+        "source": "7_Leaving Cert Maths-Trig_Formulae.pdf"
+    },
+    {
+        "prerequisite": "Sine of sum of angles formula",
+        "dependent": "Product-to-sum formula for 2 sin A cos B",
+        "explanation": "The product-to-sum formula for 2 sin A cos B is expressed as the sum of sin(A+B) and sin(A–B), so understanding sine sum and difference formulas is prerequisite.",
+        "source": "7_Leaving Cert Maths-Trig_Formulae.pdf"
+    },
+    {
+        "prerequisite": "Sine of difference of angles formula",
+        "dependent": "Product-to-sum formula for 2 sin A cos B",
+        "explanation": "Since the formula involves sin(A–B), the sine difference formula must be known.",
+        "source": "7_Leaving Cert Maths-Trig_Formulae.pdf"
+    },
+    {
+        "prerequisite": "Sine of sum of angles formula",
+        "dependent": "Product-to-sum formula for 2 cos A sin B",
+        "explanation": "The product-to-sum formula for 2 cos A sin B is expressed as the difference of sin(A+B) and sin(A–B), requiring knowledge of sine sum and difference formulas.",
+        "source": "7_Leaving Cert Maths-Trig_Formulae.pdf"
+    },
+    {
+        "prerequisite": "Sine of difference of angles formula",
+        "dependent": "Product-to-sum formula for 2 cos A sin B",
+        "explanation": "Because the formula uses sin(A–B), understanding the sine difference formula is necessary.",
+        "source": "7_Leaving Cert Maths-Trig_Formulae.pdf"
+    },
+    {
+        "prerequisite": "Cosine of sum of angles formula",
+        "dependent": "Sum-to-product formula for cos A + cos B",
+        "explanation": "The sum-to-product formula for cos A + cos B is expressed in terms of cos((A+B)/2) and cos((A–B)/2), which are derived using cosine sum and difference formulas.",
+        "source": "7_Leaving Cert Maths-Trig_Formulae.pdf"
+    },
+    {
+        "prerequisite": "Cosine of difference of angles formula",
+        "dependent": "Sum-to-product formula for cos A + cos B",
+        "explanation": "The formula involves cos((A–B)/2), so knowledge of cosine difference formula is required.",
+        "source": "7_Leaving Cert Maths-Trig_Formulae.pdf"
+    },
+    {
+        "prerequisite": "Cosine of sum of angles formula",
+        "dependent": "Sum-to-product formula for cos A – cos B",
+        "explanation": "The sum-to-product formula for cos A – cos B uses sine functions of (A+B)/2 and (A–B)/2, which relate to cosine sum and difference formulas.",
+        "source": "7_Leaving Cert Maths-Trig_Formulae.pdf"
+    },
+    {
+        "prerequisite": "Cosine of difference of angles formula",
+        "dependent": "Sum-to-product formula for cos A – cos B",
+        "explanation": "The formula involves sin((A+B)/2) and sin((A–B)/2), which are connected to cosine sum and difference formulas.",
+        "source": "7_Leaving Cert Maths-Trig_Formulae.pdf"
+    },
+    {
+        "prerequisite": "Sine of sum of angles formula",
+        "dependent": "Sum-to-product formula for sin A + sin B",
+        "explanation": "The sum-to-product formula for sin A + sin B uses sine and cosine functions of (A+B)/2 and (A–B)/2, derived from sine sum and difference formulas.",
+        "source": "7_Leaving Cert Maths-Trig_Formulae.pdf"
+    },
+    {
+        "prerequisite": "Sine of difference of angles formula",
+        "dependent": "Sum-to-product formula for sin A + sin B",
+        "explanation": "The formula involves cos((A–B)/2), requiring understanding of sine difference formula.",
+        "source": "7_Leaving Cert Maths-Trig_Formulae.pdf"
+    },
+    {
+        "prerequisite": "Sine of sum of angles formula",
+        "dependent": "Sum-to-product formula for sin A – sin B",
+        "explanation": "The sum-to-product formula for sin A – sin B is expressed using cosine and sine of (A+B)/2 and (A–B)/2, which come from sine sum and difference formulas.",
+        "source": "7_Leaving Cert Maths-Trig_Formulae.pdf"
+    },
+    {
+        "prerequisite": "Sine of difference of angles formula",
+        "dependent": "Sum-to-product formula for sin A – sin B",
+        "explanation": "Because the formula uses sine of (A–B)/2, the sine difference formula must be understood.",
+        "source": "7_Leaving Cert Maths-Trig_Formulae.pdf"
+    },
+    {
+        "prerequisite": "Pythagorean trigonometric identity",
+        "dependent": "Double angle formula for cosine (cos 2A)",
+        "explanation": "The double angle formula for cosine (cos 2A = cos² A – sin² A) directly uses the squares of cosine and sine, which are related by the Pythagorean identity.",
+        "source": "7_Leaving Cert Maths-Trig_Formulae.pdf"
+    },
+    {
+        "prerequisite": "Double angle formula for cosine (cos 2A)",
+        "dependent": "Power-reduction formula for cosine squared",
+        "explanation": "The power-reduction formula for cosine squared expresses cos² A in terms of cos 2A, which is derived using the double angle formula.",
+        "source": "7_Leaving Cert Maths-Trig_Formulae.pdf"
+    },
+    {
+        "prerequisite": "Double angle formula for cosine (cos 2A)",
+        "dependent": "Power-reduction formula for sine squared",
+        "explanation": "The power-reduction formula for sine squared expresses sin² A in terms of cos 2A, relying on the double angle formula for cosine.",
+        "source": "7_Leaving Cert Maths-Trig_Formulae.pdf"
+    },
+    {
+        "prerequisite": "Pythagorean trigonometric identity",
+        "dependent": "Power-reduction formula for cosine squared",
+        "explanation": "The power-reduction formula for cosine squared depends on the Pythagorean identity to relate cos² A and sin² A.",
+        "source": "7_Leaving Cert Maths-Trig_Formulae.pdf"
+    },
+    {
+        "prerequisite": "Pythagorean trigonometric identity",
+        "dependent": "Power-reduction formula for sine squared",
+        "explanation": "Similarly, the power-reduction formula for sine squared relies on the Pythagorean identity to express sin² A

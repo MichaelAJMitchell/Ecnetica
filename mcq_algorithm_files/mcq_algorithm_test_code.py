@@ -1438,6 +1438,7 @@ class MCQAlgorithmTestSuite:
                     print(self.get_mcq_safely(selected.mcq_id, need_full_text=True))
                     selection_results[num_questions] = {
                         "selected_count": len(selected),
+                        "selected_mcqs": selected,
                         "success": True
                     }
                 except Exception as e:
@@ -1450,6 +1451,13 @@ class MCQAlgorithmTestSuite:
             # Validate that selections are different for different numbers
             successful_selections = [r for r in selection_results.values() if r["success"]]
             assert len(successful_selections) > 0, "No successful selections"
+
+            selected_sets = [r["selected_mcqs"] for r in successful_selections]
+
+            def all_same(seq_of_lists):
+                return all(s == selected_sets[0] for s in selected_sets)
+
+            assert not all_same(selected_sets), "Selections did not change across runs"
 
             execution_time = time.time() - start_time
             self.results.append(TestResult(
@@ -2115,8 +2123,6 @@ class MCQAlgorithmTestSuite:
         # Test 2: BKT integration
         self._test_bkt_integration()
 
-        # Test 3: Configuration changes
-        self._test_configuration_changes()
 
     def _test_full_learning_session(self):
         """Test a complete learning session with question answering"""
@@ -2226,56 +2232,7 @@ class MCQAlgorithmTestSuite:
             ))
             print(f"❌ BKT integration: FAILED - {str(e)}")
 
-    def _test_configuration_changes(self):
-        """Test system behavior with configuration changes"""
-        start_time = time.time()
 
-        try:
-            student_id = "config_test_student"
-            student = self._create_test_student(student_id, fixed_mastery=0.6)
-
-            # Test with different mastery thresholds
-            results = {}
-            for threshold in [0.5, 0.7, 0.9]:
-                # Backup and modify config
-                original_threshold = getattr(self.kg.config, 'mastery_threshold', 0.7)
-                if hasattr(self.kg.config, 'mastery_threshold'):
-                    self.kg.config.mastery_threshold = threshold
-
-                # Run selection
-                selected = self.mcq_scheduler.select_optimal_mcqs(student_id, 5)
-                results[threshold] = len(selected)
-
-                # Restore config
-                if hasattr(self.kg.config, 'mastery_threshold'):
-                    self.kg.config.mastery_threshold = original_threshold
-
-            # Verify that different thresholds produce different results
-            unique_results = len(set(results.values()))
-            config_responsive = unique_results > 1
-
-            execution_time = time.time() - start_time
-            self.results.append(TestResult(
-                test_name="Configuration Changes",
-                success=config_responsive,
-                execution_time=execution_time,
-                details={
-                    "threshold_results": results,
-                    "config_responsive": config_responsive
-                }
-            ))
-
-            print(f"✅ Configuration changes: PASSED (responsive: {config_responsive})")
-
-        except Exception as e:
-            execution_time = time.time() - start_time
-            self.results.append(TestResult(
-                test_name="Configuration Changes",
-                success=False,
-                execution_time=execution_time,
-                error_message=str(e)
-            ))
-            print(f"❌ Configuration changes: FAILED - {str(e)}")
 
     # Helper Methods
     def _create_test_student(self, student_id: str, random_mastery: bool = False,

@@ -271,7 +271,7 @@
     "question_expression": "y = a*x**2 + b*x + c",
     "generated_parameters": {
       "a": {"type": "int", "min": -5, "max": 5, "exclude": 0},
-      "axis_x": {"type": "fraction", "numerator_min": -12, "numerator_max": 12, "denominator_min": 2, "denominator_max": 6, "exclude_numerator": [0]},
+      "axis_x": {"type": "fraction", "numerator_min": -24, "numerator_max": 24, "denominator_min": 2, "denominator_max": 6, "exclude_numerator": [0]},
       "c": {"type": "int", "min": -15, "max": 15}
     },
     "calculated_parameters": {
@@ -380,8 +380,8 @@
     "question_expression": "a*x**2 + b*x + c = 0",
     "generated_parameters": {
       "a": {"type": "int", "min": 1, "max": 4},
-      "root1": {"type": "fraction", "numerator_min": -8, "numerator_max": 8, "denominator_min": 2, "denominator_max": 4, "exclude_numerator": [0]},
-      "root2": {"type": "fraction", "numerator_min": -8, "numerator_max": 8, "denominator_min": 2, "denominator_max": 4, "exclude_numerator": [0]}
+      "root1": {"type": "fraction", "numerator_min": -20, "numerator_max": 20, "denominator_min": 2, "denominator_max": 4, "exclude_numerator": [0]},
+      "root2": {"type": "fraction", "numerator_min": -20, "numerator_max": 20, "denominator_min": 2, "denominator_max": 4, "exclude_numerator": [0]}
     },
     "calculated_parameters": {
       "b": "-a*(root1 + root2)",

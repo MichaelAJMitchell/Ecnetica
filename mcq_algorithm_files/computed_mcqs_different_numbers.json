@@ -1,7 +1,7 @@
 {
   "mcqs": [
     {
-      "id": "24604d32-3b8b-49cf-8d12-00eb9eb645e2",
+      "id": "a0101156-2f21-40ec-83b7-7289f227ad0b",
       "text": "What is the discriminant of the quadratic equation ${question_expression}$?",
       "question_expression": "a*x**2 +b*x + c = 0",
       "generated_parameters": {
@@ -55,7 +55,7 @@
       }
     },
     {
-      "id": "cfebfa2c-1d34-4ace-b1b5-db30ac5f7777",
+      "id": "8892b855-049f-4527-a31c-cb79af5d5a8b",
       "text": "Factor the quadratic expression ${question_expression_expanded}$.",
       "question_expression": "(x-r_1)*(x-r_2)",
       "generated_parameters": {
@@ -121,7 +121,7 @@
       }
     },
     {
-      "id": "afd07926-39d3-45c9-ad66-daebc5ba0c34",
+      "id": "e24777a5-4933-43b4-a6b4-f8c51f32a4e2",
       "text": "Solve for x in the linear equation ${question_expression}$.",
       "question_expression": "a*x + b = c",
       "generated_parameters": {
@@ -179,7 +179,7 @@
       }
     },
     {
-      "id": "ee686107-ba98-49c4-9dfc-99e158362799",
+      "id": "36a07b3f-5fa4-4dad-9e69-0dfaed81ad63",
       "text": "What is the standard form of the linear equation ${question_expression}$?",
       "question_expression": "y - m*x = b",
       "generated_parameters": {
@@ -233,7 +233,7 @@
       }
     },
     {
-      "id": "f5fc552b-5df7-4260-b386-81c3c64243a9",
+      "id": "f7478000-aa59-42c6-9d96-9dbd2abadf1c",
       "text": "Expand the expression ${question_expression}$.",
       "question_expression": "(a*x + b)*(c*x + d)",
       "generated_parameters": {
@@ -295,7 +295,7 @@
       }
     },
     {
-      "id": "380390b3-2e17-422d-8b0d-323b1a82fb5e",
+      "id": "65e69219-9ff7-4bed-942a-7fa102ee2fb5",
       "text": "Find the distance between points ${question_expression}$.",
       "question_expression": "(x1, y1) and (x2, y2)",
       "generated_parameters": {
@@ -359,7 +359,7 @@
       }
     },
     {
-      "id": "11890374-0fec-4449-9072-e882fe74982b",
+      "id": "7ecf8ceb-79ca-41d8-940e-ea8247d036d5",
       "text": "Complete the square for ${question_expression}$.",
       "question_expression": "x**2 + b*x + c",
       "generated_parameters": {
@@ -411,7 +411,7 @@
       }
     },
     {
-      "id": "ca44b287-0f65-4046-8185-2779e81ee41c",
+      "id": "b59d4cb1-6886-4583-acfd-a28d1ae5450f",
       "text": "What is the axis of symmetry of the parabola ${question_expression}$?",
       "question_expression": "y = a*x**2 + b*x + c",
       "generated_parameters": {
@@ -474,7 +474,7 @@
       }
     },
     {
-      "id": "68ca4023-ebcf-411f-bfd8-32a541d4ddbc",
+      "id": "2cf5b774-ff13-452d-bead-94a4e38b7cdf",
       "text": "Find the vertex of the parabola ${question_expression}$.",
       "question_expression": "y = a*(x - h)**2 + k",
       "generated_parameters": {
@@ -526,7 +526,7 @@
       "prerequisites": {}
     },
     {
-      "id": "71646147-4668-4644-a37e-a09e03aafd2f",
+      "id": "63782405-08b4-407c-8f64-f85a3033f24a",
       "text": "Find the x-intercepts of ${question_expression_expanded}$.",
       "question_expression": "y = (x - r)*(x - s)",
       "generated_parameters": {
@@ -576,7 +576,7 @@
       }
     },
     {
-      "id": "62c4921b-1ee0-447b-a187-2892ed06123a",
+      "id": "c556a5e1-941c-4088-af27-bfd7dcc833fc",
       "text": "Use the quadratic formula to solve ${question_expression}$.",
       "question_expression": "a*x**2 + b*x + c = 0",
       "generated_parameters": {
@@ -587,8 +587,8 @@
         },
         "root1": {
           "type": "fraction",
-          "numerator_min": -8,
-          "numerator_max": 8,
+          "numerator_min": -20,
+          "numerator_max": 20,
           "denominator_min": 2,
           "denominator_max": 4,
           "exclude_numerator": [
@@ -597,8 +597,8 @@
         },
         "root2": {
           "type": "fraction",
-          "numerator_min": -8,
-          "numerator_max": 8,
+          "numerator_min": -20,
+          "numerator_max": 20,
           "denominator_min": 2,
           "denominator_max": 4,
           "exclude_numerator": [
@@ -643,7 +643,7 @@
       }
     },
     {
-      "id": "bdc3ac3b-5d70-49a3-b599-e6f8c7cfefe4",
+      "id": "a4facb35-1e6c-498d-91d4-f63b14f34010",
       "text": "What is the nature of the roots when the discriminant equals ${question_expression}$?",
       "question_expression": "discriminant_value",
       "generated_parameters": {
@@ -686,7 +686,7 @@
       "prerequisites": {}
     },
     {
-      "id": "129e2e58-99bf-4ebe-98cb-fe8f26814f97",
+      "id": "c0a2a0e6-35e1-436f-a7ef-4250b528e53c",
       "text": "Factor the quadratic polynomial ${question_expression}$ completely.",
       "question_expression": "poly",
       "generated_parameters": {
@@ -740,7 +740,7 @@
       }
     },
     {
-      "id": "70f32a44-410f-4d1a-960d-a9245e03ab51",
+      "id": "9a341f35-e31b-43e3-ad19-a787a551b51c",
       "text": "Find the vertex of the quadratic function ${question_expression}$.",
       "question_expression": "func",
       "generated_parameters": {
@@ -791,7 +791,7 @@
       "prerequisites": {}
     },
     {
-      "id": "b8a42599-da9d-4f31-b4cc-499edcaecf3c",
+      "id": "4544a2f6-1cd3-45ae-995a-ca3146327105",
       "text": "Simplify the expression ${question_expression_collected}$.",
       "question_expression": "a*x**2 + b*x + a*x**2 + c*x + d + e",
       "generated_parameters": {
@@ -876,7 +876,7 @@
       }
     },
     {
-      "id": "f686e19a-3675-4375-800b-9637498b896e",
+      "id": "c33d6452-fe93-4655-b29c-737a5ddc766f",
       "text": "To derive the quadratic formula from ${question_expression_simplified}$, what is the first step?",
       "question_expression": "a*x**2 + b*x + c",
       "generated_parameters": {
@@ -945,7 +945,7 @@
       }
     },
     {
-      "id": "6ece7aba-e102-4cdd-8013-0aa74c30523f",
+      "id": "84bcade2-8206-4011-9066-0fb7708526bb",
       "text": "The function ${question_expression}$ represents which type of mathematical relationship?",
       "question_expression": "func",
       "generated_parameters": {

@@ -380,6 +380,10 @@ class MCQ:
                     params[param_name] = value
 
                 elif config['type'] == 'choice':
+                    if not config.get('choices'):
+                        print(f"Warning: No choices provided for parameter {param_name}")
+                        success = False
+                        break
                     params[param_name] = random.choice(config['choices'])
 
                 elif config['type'] == 'fraction':
@@ -400,7 +404,7 @@ class MCQ:
                     params[f"{param_name}_unit"] = angle_data['unit']
 
                 elif config['type'] == 'polynomial':
-                    # NEW: Polynomial type - returns dict with expression components
+                    # Polynomial type - returns dict with expression components
                     poly_data = self._generate_polynomial_parameter(config)
                     value = poly_data['expression']  # Primary expression string
                     # Add components for use in calculations
@@ -409,7 +413,7 @@ class MCQ:
                     params[f"{param_name}_sympy"] = poly_data['sympy_expr']
 
                 elif config['type'] == 'function':
-                    # NEW: Function type - returns dict with function components
+                    # Function type - returns dict with function components
                     func_data = self._generate_function_parameter(config)
                     value = func_data['expression']  # Primary expression string
                     # Add function parameters for use in calculations
@@ -769,7 +773,17 @@ class MCQ:
         # Combine parameters and calculated values into local namespace
         all_params = params
         local_namespace = dict(all_params)
-
+        # Convert all parameters to appropriate types for SymPy
+        sympy_params = {}
+        for key, value in params.items():
+            try:
+                # Convert to SymPy expressions if needed
+                if isinstance(value, (int, float)):
+                    sympy_params[key] = sympify(value)
+                else:
+                    sympy_params[key] = value
+            except Exception:
+                sympy_params[key] = value
         # Define question expression placeholders and formats
         placeholders = [
             ('${question_expression_expanded}$', 'expanded'),
@@ -1801,10 +1815,10 @@ class MCQScheduler:
         greedy_max_mcqs_to_evaluate = self.get_config_value('greedy_algorithm.greedy_max_mcqs_to_evaluate', 50)
         greedy_early_stopping = self.get_config_value('greedy_algorithm.greedy_early_stopping', False)
         greedy_convergence_threshold = self.get_config_value('algorithm_config.greedy_convergence_threshold', 0.05)
-
+        self.mcq_scheduler._precompute_prerequisites()
         # Get MCQs eligible for selection
         eligible_mcqs = self.get_available_questions_for_student(student_id)
-
+        print(f"Eligible MCQs: {eligible_mcqs}")
         if not eligible_mcqs:
             print(f"No eligible MCQs found for greedy selection (no due main topics with all studied subtopics)")
             return []
@@ -1895,6 +1909,7 @@ class MCQScheduler:
                 print(f"No suitable MCQ found for remaining due topics in iteration {iteration + 1}")
                 break
 
+            print(f"Best MCQ selected: {best_mcq}, best score: {best_ratio}")
             # Select the best MCQ
             selected_mcqs.append(best_mcq)
 

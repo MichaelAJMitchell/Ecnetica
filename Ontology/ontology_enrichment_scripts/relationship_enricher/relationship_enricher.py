@@ -22,15 +22,61 @@ if not api_key:
 
 client = openai.OpenAI(api_key=api_key)
 
-# File paths
-CONCEPTS_FILE = "Input/concepts_06_07_better.csv"
-RELATIONSHIPS_FILE = "Input/relationships_06_06_better.csv"
-OUTPUT_FILE = "Output/relationships.csv"
+# File paths - Updated to use Ontology directory
+ONTOLOGY_DIR = "../../"  # Path to Ontology directory from relationship_enricher folder
+ARCHIVE_DIR = os.path.join(ONTOLOGY_DIR, "ontology_archive")
+
+# Input files from Ontology directory
+CONCEPTS_FILE = os.path.join(ONTOLOGY_DIR, "concepts.csv")
+RELATIONSHIPS_FILE = os.path.join(ONTOLOGY_DIR, "relationships.csv")
+
+# Output file to Ontology directory
+OUTPUT_FILE = os.path.join(ONTOLOGY_DIR, "relationships.csv")
+
+def archive_existing_files():
+    """Archive existing knowledge graph files before processing."""
+    try:
+        from archive_manager import archive_existing_files as archive_files, ensure_archive_directory
+        
+        # Ensure archive directory exists
+        ensure_archive_directory(ARCHIVE_DIR)
+        
+        # Archive existing files
+        archive_files(ONTOLOGY_DIR, ARCHIVE_DIR)
+        
+    except ImportError:
+        print("Warning: archive_manager not found, skipping archiving")
+    except Exception as e:
+        print(f"Warning: Error during archiving: {e}")
 
 def load_data():
     """Load concepts and existing relationships."""
-    concepts = pd.read_csv(CONCEPTS_FILE)
-    relationships = pd.read_csv(RELATIONSHIPS_FILE)
+    # Check if the expected files exist, if not try alternative names
+    concepts_file = CONCEPTS_FILE
+    relationships_file = RELATIONSHIPS_FILE
+    
+    if not os.path.exists(concepts_file):
+        # Try to find concept files with different names
+        import glob
+        concept_files = glob.glob(os.path.join(ONTOLOGY_DIR, "*concepts*.csv"))
+        if concept_files:
+            concepts_file = concept_files[0]
+            print(f"Using concept file: {os.path.basename(concepts_file)}")
+        else:
+            raise FileNotFoundError(f"No concept files found in {ONTOLOGY_DIR}")
+    
+    if not os.path.exists(relationships_file):
+        # Try to find relationship files with different names
+        import glob
+        relationship_files = glob.glob(os.path.join(ONTOLOGY_DIR, "*relationships*.csv"))
+        if relationship_files:
+            relationships_file = relationship_files[0]
+            print(f"Using relationship file: {os.path.basename(relationships_file)}")
+        else:
+            raise FileNotFoundError(f"No relationship files found in {ONTOLOGY_DIR}")
+    
+    concepts = pd.read_csv(concepts_file)
+    relationships = pd.read_csv(relationships_file)
     
     # Track existing pairs to avoid duplicates
     existing_pairs = set(zip(relationships['prerequisite_id'], relationships['dependent_id']))
@@ -167,11 +213,18 @@ def save_relationships(new_relationships, output_file, existing_relationships):
 
 def main():
     """Main function to run the node-by-node analysis."""
+    print("Starting Relationship Enricher...")
+    print("=" * 60)
+    
+    # Archive existing files before processing
+    print("Archiving existing knowledge graph files...")
+    archive_existing_files()
+    
     print("Loading data...")
     concepts, relationships, existing_pairs = load_data()
     
-    # Create output directory
-    os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
+    # Ensure Ontology directory exists for output
+    os.makedirs(ONTOLOGY_DIR, exist_ok=True)
     
     # Get examples for context
     existing_examples = relationships.head(5)
@@ -201,6 +254,7 @@ def main():
     print(f"\nAnalysis complete!")
     print(f"Total new relationships found: {total_new_relationships}")
     print(f"Output saved to: {OUTPUT_FILE}")
+    print(f"Files archived to: {ARCHIVE_DIR}")
 
 if __name__ == "__main__":
     main() 

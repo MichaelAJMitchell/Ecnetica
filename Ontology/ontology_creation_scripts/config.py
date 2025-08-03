@@ -19,9 +19,12 @@ CHUNK_SIZE = 1000000  # Characters per chunk for processing (increased to 1M for
 OVERLAP_SIZE = 200000  # Overlap between chunks (increased proportionally)
 
 # Output Configuration
-OUTPUT_DIR = "output"
+OUTPUT_DIR = "../"  # Changed to Ontology directory (parent of ontology_creation_scripts)
 CONCEPTS_FILE = os.path.join(OUTPUT_DIR, "concepts.csv")
 RELATIONSHIPS_FILE = os.path.join(OUTPUT_DIR, "relationships.csv")
+
+# Archive Configuration
+ARCHIVE_DIR = os.path.join(OUTPUT_DIR, "ontology_archive")
 
 # Supported file formats
 SUPPORTED_FORMATS = ['.csv', '.pdf', '.txt', '.tex', '.docx']

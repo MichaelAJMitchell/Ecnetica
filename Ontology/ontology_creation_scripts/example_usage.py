@@ -33,7 +33,7 @@ def example_directory():
     scraper = ConceptScraper()
     
     # Process all supported files in a directory
-    results = scraper.process_directory("./documents/")
+    results = scraper.process_directory("../ontology_source_materials/")
     
     successful = sum(1 for r in results if r['success'])
     total_concepts = sum(r['concepts_added'] for r in results if r['success'])
@@ -42,6 +42,7 @@ def example_directory():
     print(f"Processed {len(results)} files, {successful} successful")
     print(f"Total concepts added: {total_concepts}")
     print(f"Total relationships added: {total_relationships}")
+    print("Output files saved to: ../ (Ontology directory)")
 
 def example_statistics():
     """Example: Get and display statistics."""
@@ -90,9 +91,11 @@ def main():
     # example_statistics()
     
     print("To run actual examples:")
-    print("1. Make sure you have documents to process")
+    print("1. Make sure you have documents in ../ontology_source_materials/")
     print("2. Uncomment the function calls in this script")
-    print("3. Run: python example_usage.py")
+    print("3. Run: python3 example_usage.py")
+    print("4. Output files will be saved to ../ (Ontology directory)")
+    print("5. Existing files will be automatically archived to ../ontology_archive/")
 
 if __name__ == "__main__":
     main() 

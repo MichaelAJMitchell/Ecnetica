@@ -66,8 +66,8 @@ Examples:
     parser.add_argument(
         '--output-dir',
         type=str,
-        default='output',
-        help='Output directory for CSV files (default: output)'
+        default='../',
+        help='Output directory for CSV files (default: ../ - Ontology directory)'
     )
     
     args = parser.parse_args()

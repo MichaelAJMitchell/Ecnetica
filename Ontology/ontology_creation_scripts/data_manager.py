@@ -2,7 +2,8 @@ import os
 import pandas as pd
 import uuid
 from typing import List, Dict, Any, Optional, Tuple
-from config import OUTPUT_DIR, CONCEPTS_FILE, RELATIONSHIPS_FILE
+from config import OUTPUT_DIR, CONCEPTS_FILE, RELATIONSHIPS_FILE, ARCHIVE_DIR
+from archive_manager import archive_existing_files, ensure_archive_directory
 
 class DataManager:
     """Manages loading, saving, and deduplication of concepts and relationships data."""
@@ -13,11 +14,25 @@ class DataManager:
         self.concept_name_to_id = {}  # For quick lookup
         self.relationship_key_to_id = {}  # For deduplication
         
+        # Ensure archive directory exists
+        ensure_archive_directory(ARCHIVE_DIR)
+        
+        # Archive existing files before loading new data
+        self._archive_existing_files()
+        
         # Create output directory if it doesn't exist
         os.makedirs(OUTPUT_DIR, exist_ok=True)
         
         # Load existing data
         self.load_existing_data()
+    
+    def _archive_existing_files(self):
+        """Archive existing knowledge graph files before processing new data."""
+        ontology_dir = OUTPUT_DIR
+        archive_dir = ARCHIVE_DIR
+        
+        if os.path.exists(ontology_dir):
+            archive_existing_files(ontology_dir, archive_dir)
     
     def load_existing_data(self):
         """Load existing concepts and relationships from CSV files."""

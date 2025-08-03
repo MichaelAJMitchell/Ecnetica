@@ -81,7 +81,7 @@ scraper.print_statistics()
 
 ## Output Format
 
-The tool generates two CSV files in the `output/` directory:
+The tool generates two CSV files in the `Ontology/` directory:
 
 ### Concepts (`concepts.csv`)
 | Column | Description |
@@ -104,6 +104,10 @@ The tool generates two CSV files in the `output/` directory:
 | `explanation` | Explanation of why this prerequisite relationship exists |
 | `source` | Source document where the relationship was found |
 
+### Automatic Archiving
+
+Before creating new output files, the tool automatically archives any existing knowledge graph CSV files (containing 'concepts' or 'relationships' in their names) to a timestamped folder in `Ontology/ontology_archive/`. This ensures no data is lost when processing new documents.
+
 ## Configuration
 
 The tool's behavior can be customized by modifying `config.py`:
@@ -112,6 +116,8 @@ The tool's behavior can be customized by modifying `config.py`:
 - **Retry Settings**: Adjust retry attempts, delays, and backoff factors
 - **Chunking**: Modify text chunk size and overlap for processing
 - **Prompts**: Customize the prompts used for concept and relationship extraction
+- **Output Directory**: Change where output files are saved (default: Ontology directory)
+- **Archive Directory**: Configure where archived files are stored
 
 ## Supported File Formats
 

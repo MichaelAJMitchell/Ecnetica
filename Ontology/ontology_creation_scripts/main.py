@@ -26,7 +26,7 @@ def main():
 Examples:
   python main.py --file curriculum.pdf
   python main.py --directory ./documents/
-  python main.py --input-folder ./input_folder/
+  python main.py --input-folder ../ontology_source_materials/
   python main.py --files math1.pdf math2.txt curriculum.csv
   python main.py --stats
         """
@@ -47,7 +47,7 @@ Examples:
     parser.add_argument(
         '--input-folder', '-i',
         type=str,
-        help='Process all supported files in an input folder'
+        help='Process all supported files in an input folder (default: ../ontology_source_materials/)'
     )
     
     parser.add_argument(

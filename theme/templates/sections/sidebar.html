@@ -1,0 +1,52 @@
+<div class="sidebar-content">
+    
+    <!-- Sidebar header -->
+    <div class="sidebar-header">
+        {% if logo %}
+        <div class="sidebar-logo">
+            <img src="{{ pathto('_static/' + logo, 1) }}" alt="{{ project|e }} logo">
+        </div>
+        {% endif %}
+        <h2 class="sidebar-title">{{ project|e }}</h2>
+        {% if author %}
+        <p class="sidebar-author">by {{ author|e }}</p>
+        {% endif %}
+    </div>
+    
+    <!-- Table of Contents Navigation -->
+    <nav class="sidebar-nav" role="navigation" aria-label="Book navigation">
+        
+        <div class="toc-tree">
+            <!-- TOC will be populated by JavaScript or server-side logic -->
+            <div class="toc-placeholder">
+                <p>Navigation loading...</p>
+            </div>
+        </div>
+        
+    </nav>
+    
+    <!-- Sidebar footer -->
+    <div class="sidebar-footer">
+        {% if version %}
+        <p class="version-info">Version {{ version }}</p>
+        {% endif %}
+        
+        <!-- Quick links -->
+        <div class="quick-links">
+            {% if show_edit %}
+            <a href="{{ edit_page_url if edit_page_url else '#' }}" class="quick-link edit-link" target="_blank">
+                <span class="link-icon">✏️</span>
+                <span class="link-text">Edit</span>
+            </a>
+            {% endif %}
+            
+            {% if github_url %}
+            <a href="{{ github_url }}" class="quick-link github-link" target="_blank">
+                <span class="link-icon">🔗</span>
+                <span class="link-text">GitHub</span>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+    
+</div>

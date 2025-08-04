@@ -1,0 +1,99 @@
+<div class="footer-content">
+    
+    <!-- Main footer -->
+    <div class="footer-main">
+        
+        <!-- Project info -->
+        <div class="footer-section footer-left">
+            <div class="footer-brand">
+                {% if logo %}
+                <img src="{{ pathto('_static/' + logo, 1) }}" alt="{{ project|e }} logo" class="footer-logo">
+                {% endif %}
+                <div class="footer-info">
+                    <h3 class="footer-title">{{ project|e }}</h3>
+                    {% if author %}
+                    <p class="footer-author">{{ author|e }}</p>
+                    {% endif %}
+                    {% if version %}
+                    <p class="footer-version">Version {{ version }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <div class="footer-section footer-center">
+            <h4 class="footer-heading">Quick Navigation</h4>
+            <ul class="footer-nav">
+                <li><a href="{{ pathto(master_doc) }}" class="footer-link">Home</a></li>
+                <!-- Static navigation links instead of dynamic toctree -->
+                <li><a href="#" class="footer-link">About</a></li>
+                <li><a href="#" class="footer-link">Contact</a></li>
+            </ul>
+        </div>
+        
+        <!-- Links -->
+        <div class="footer-section footer-right">
+            <h4 class="footer-heading">Resources</h4>
+            <ul class="footer-links">
+                {% if theme_github_url or github_url %}
+                <li>
+                    <a href="{{ theme_github_url or github_url }}" class="footer-link external-link" target="_blank">
+                        <span class="link-icon">🔗</span>
+                        <span class="link-text">GitHub Repository</span>
+                    </a>
+                </li>
+                {% endif %}
+                
+                {% if theme_repository_url or repository_url %}
+                <li>
+                    <a href="{{ (theme_repository_url or repository_url) + '/issues' }}" class="footer-link external-link" target="_blank">
+                        <span class="link-icon">🐛</span>
+                        <span class="link-text">Report Issues</span>
+                    </a>
+                </li>
+                {% endif %}
+                
+                <li>
+                    <a href="#" class="footer-link scroll-top">
+                        <span class="link-icon">⬆️</span>
+                        <span class="link-text">Back to Top</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+    
+    <!-- Footer bottom -->
+    <div class="footer-bottom">
+        
+        <!-- Copyright -->
+        <div class="footer-copyright">
+            <p>
+                {% if copyright %}
+                © {{ copyright }}
+                {% else %}
+                © 2025 {{ author|e if author else project|e }}
+                {% endif %}
+            </p>
+            {% if extra_footer %}
+            <p class="extra-footer">{{ extra_footer }}</p>
+            {% endif %}
+        </div>
+        
+        <!-- Built with notice -->
+        <div class="footer-built">
+            <p>
+                Built with 
+                <a href="https://jupyterbook.org/" target="_blank" class="jb-link">Jupyter Book</a>
+                and custom theme
+            </p>
+            <p class="build-info">
+                <span class="build-date">Built with ❤️ for Irish students</span>
+            </p>
+        </div>
+        
+    </div>
+    
+</div>

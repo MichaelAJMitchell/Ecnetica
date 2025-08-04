@@ -1,0 +1,33 @@
+{% if parents %}
+<nav class="breadcrumbs" aria-label="Breadcrumb navigation">
+    <ol class="breadcrumb-list">
+        
+        <!-- Home link -->
+        <li class="breadcrumb-item">
+            <a href="{{ pathto(master_doc) }}" class="breadcrumb-link home-link">
+                <span class="breadcrumb-icon">🏠</span>
+                <span class="breadcrumb-text">Home</span>
+            </a>
+        </li>
+        
+        <!-- Parent pages -->
+        {% for parent in parents %}
+        <li class="breadcrumb-item">
+            <span class="breadcrumb-separator">›</span>
+            <a href="{{ parent.link|e }}" class="breadcrumb-link">
+                <span class="breadcrumb-text">{{ parent.title|e }}</span>
+            </a>
+        </li>
+        {% endfor %}
+        
+        <!-- Current page -->
+        <li class="breadcrumb-item current">
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">
+                <span class="breadcrumb-text">{{ title|e if title else pagename|e }}</span>
+            </span>
+        </li>
+        
+    </ol>
+</nav>
+{% endif %}

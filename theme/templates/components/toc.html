@@ -1,0 +1,30 @@
+{% if toc %}
+<div class="page-toc">
+    
+    <!-- TOC Header -->
+    <div class="toc-header">
+        <h3 class="toc-title">On this page</h3>
+        <button class="toc-toggle" aria-label="Toggle table of contents">
+            <span class="toggle-icon">▼</span>
+        </button>
+    </div>
+    
+    <!-- TOC Content -->
+    <div class="toc-content">
+        <nav class="toc-nav" role="navigation" aria-label="Page table of contents">
+            {{ toc }}
+        </nav>
+    </div>
+    
+    <!-- Reading progress -->
+    <div class="reading-progress">
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+        <p class="progress-text">
+            <span class="progress-current">0</span>%
+        </p>
+    </div>
+    
+</div>
+{% endif %}

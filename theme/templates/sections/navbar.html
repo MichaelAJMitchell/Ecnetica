@@ -1,0 +1,64 @@
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar-container">
+        
+        <!-- Mobile menu toggle -->
+        <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span class="toggle-line"></span>
+            <span class="toggle-line"></span>
+            <span class="toggle-line"></span>
+        </button>
+        
+        <!-- Logo and brand -->
+        <div class="navbar-brand">
+            {% if logo %}
+            <a href="{{ pathto(master_doc) }}" class="brand-link">
+                <img src="{{ pathto('_static/' + logo, 1) }}" alt="{{ project|e }} logo" class="brand-logo">
+                <span class="brand-text">{{ project|e }}</span>
+            </a>
+            {% else %}
+            <a href="{{ pathto(master_doc) }}" class="brand-link">
+                <span class="brand-text">{{ project|e }}</span>
+            </a>
+            {% endif %}
+        </div>
+        
+        <!-- Main navigation menu -->
+        <div class="navbar-menu">
+            <ul class="navbar-nav">
+                <!-- Simple static navigation for now -->
+                <li class="nav-item">
+                    <a href="{{ pathto(master_doc) }}" class="nav-link">Home</a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Right side utilities -->
+        <div class="navbar-utilities">
+            
+            <!-- Search box -->
+            <div class="navbar-search">
+                <form class="search-form" role="search">
+                    <input type="search" class="search-input" placeholder="Search..." aria-label="Search">
+                    <button type="submit" class="search-button" aria-label="Submit search">
+                        <span class="search-icon">🔍</span>
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Theme toggle -->
+            <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
+                <span class="theme-icon light-icon">☀️</span>
+                <span class="theme-icon dark-icon">🌙</span>
+            </button>
+            
+            <!-- External links -->
+            {% if theme_github_url or github_url %}
+            <a href="{{ theme_github_url or github_url }}" class="external-link github-link" target="_blank" aria-label="View on GitHub">
+                <span class="link-icon">🔗</span>
+            </a>
+            {% endif %}
+            
+        </div>
+        
+    </div>
+</nav>

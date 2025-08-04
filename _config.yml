@@ -1,53 +1,54 @@
-# Book settings
-# Learn more at https://jupyterbook.org/customize/config.html
+# Book settings - ROLLBACK to working version
 title: Premium Leaving Certificate Higher Level Maths Notes from TPSA
 author: The Problem Solving Association C.L.G.
 logo: logo.png
 
-# Force re-execution of notebooks on each build.
-# See https://jupyterbook.org/content/execute.html
+# Execution settings
 execute:
   execute_notebooks: force
   hide_input: true
 
-# Define the name of the latex output file for PDF builds
+# LaTeX settings
 latex:
   latex_documents:
     targetname: book.tex
 
-# Add a bibtex file so that we can create citations
+# Bibliography
 bibtex_bibfiles:
   - references.bib
 
-# Information about where the book exists on the web
+# Repository information
 repository:
-  url: https://github.com/MichaelAJMitchell/Ecnetica  # Online location of your book
-  path_to_book: ./  # Optional path to your book, relative to the repository root
-  branch: jb  # Which branch of the repository should be used when creating links (optional)
+  url: https://github.com/MichaelAJMitchell/Ecnetica
+  path_to_book: ./
+  branch: jb
 
-# Add GitHub buttons to your book
-# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+# HTML settings
 html:
   use_issues_button: true
   use_repository_button: true
   use_edit_page_button: true
   baseurl: ""
   extra_footer: "Copyright-info"
-  extra_css:
-    - "_static/style.css"
-    - "_static/jsxgraph.css"
   sidebar:
-    maxdepth: 1  # Try adding this
+    maxdepth: 1
 
+# Sphinx configuration
 sphinx:
   config:
-    #html_theme: pydata_sphinx_theme
+    html_theme: theme
+    html_theme_path: ["."]
+    
     html_theme_options:
       navigation_depth: 4
-      show_navbar_depth: 2
       collapse_navigation: true
-      sidebar_hide_name: false
+    
+    html_static_path: ["_static", "theme/static"]
+    html_title: "Premium Leaving Certificate Higher Level Maths Notes from TPSA"
+    html_short_title: "TPSA Maths Notes"
+    templates_path: ["theme/templates"]
 
+# MyST parser settings
 parse:
   myst_enable_extensions:
     - amsmath

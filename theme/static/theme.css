@@ -1,0 +1,252 @@
+/*====================================================================*\
+CUSTOM JUPYTER BOOK THEME - WORKING VERSION (ROLLBACK)
+\*====================================================================*/
+
+/* Basic structure that works */
+.theme-body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    color: #2c3e50;
+}
+
+.theme-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.theme-container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    grid-template-areas: "sidebar main";
+    flex: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 20px;
+    padding: 0 15px;
+}
+
+.theme-sidebar {
+    grid-area: sidebar;
+    background: #f8f9fa;
+    border-right: 1px solid #dee2e6;
+    height: calc(100vh - 60px);
+    position: sticky;
+    top: 60px;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.theme-main {
+    grid-area: main;
+    min-width: 0;
+    padding: 20px 0;
+}
+
+.theme-article {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    max-width: none;
+    margin: 0;
+}
+
+.article-title {
+    color: #2c3e50;
+    font-size: 2.5em;
+    font-weight: 700;
+    margin: 0 0 30px 0;
+    text-align: center;
+}
+
+/* Let user CSS take complete control */
+.user-content {
+    color: initial;
+    font-family: initial;
+    line-height: initial;
+}
+
+.user-content * {
+    color: inherit;
+    font-family: inherit;
+    line-height: inherit;
+}
+
+/* Header */
+.theme-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.navbar {
+    height: 60px;
+    padding: 0 20px;
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.navbar-brand .brand-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.brand-logo {
+    height: 32px;
+    width: auto;
+}
+
+.sidebar-title {
+    font-size: 1.2em;
+    margin: 0 0 10px 0;
+    font-weight: 600;
+    text-align: center;
+}
+
+.sidebar-author {
+    font-size: 0.9em;
+    margin: 0;
+    font-style: italic;
+    text-align: center;
+    color: #6c757d;
+}
+
+/* Footer */
+.theme-footer {
+    background: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+    margin-top: auto;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #6c757d;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+}
+
+.breadcrumb-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-separator {
+    margin: 0 10px;
+    color: #adb5bd;
+}
+
+.breadcrumb-link {
+    color: #6c757d;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.breadcrumb-link:hover {
+    background: #ffffff;
+    color: #007bff;
+}
+
+.breadcrumb-current {
+    color: #adb5bd;
+    font-weight: 500;
+}
+
+/* Theme toggle */
+.theme-toggle {
+    background: none;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 8px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+
+.theme-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.navbar-utilities {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .theme-container {
+        grid-template-columns: 1fr;
+        grid-template-areas: "main";
+    }
+    
+    .theme-sidebar {
+        display: none;
+    }
+}
+
+/* Utilities */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #007bff;
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 1200;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}

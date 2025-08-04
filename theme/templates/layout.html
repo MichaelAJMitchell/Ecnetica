@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if title %}{{ title }} - {% endif %}{{ project }}</title>
+    
+    <!-- CSS Loading Order -->
+    <link rel="stylesheet" type="text/css" href="{{ pathto('_static/theme.css', 1) }}" />
+    <link rel="stylesheet" type="text/css" href="{{ pathto('_static/style.css', 1) }}" />
+    <link rel="stylesheet" type="text/css" href="{{ pathto('_static/jsxgraph.css', 1) }}" />
+    
+    <!-- MathJax -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    {% block extrahead %}{% endblock %}
+</head>
+
+<body class="theme-body">
+    <div class="theme-wrapper">
+        
+        <!-- Skip link -->
+        <a class="skip-link" href="#main-content">Skip to main content</a>
+        
+        <!-- Header -->
+        <header class="theme-header">
+            {% include "sections/navbar.html" %}
+        </header>
+        
+        <!-- Main container -->
+        <div class="theme-container">
+            
+            <!-- Sidebar -->
+            <aside class="theme-sidebar">
+                {% include "sections/sidebar.html" %}
+            </aside>
+            
+            <!-- Main content -->
+            <main class="theme-main" id="main-content">
+                
+                <!-- Breadcrumbs -->
+                <nav class="theme-breadcrumbs">
+                    {% include "components/breadcrumbs.html" %}
+                </nav>
+                
+                <!-- Article -->
+                <article class="theme-article">
+                    
+                    {% if title %}
+                    <header class="article-header">
+                        <h1 class="article-title">{{ title }}</h1>
+                    </header>
+                    {% endif %}
+                    
+                    <div class="article-content user-content">
+                        {% block body %}{% endblock %}
+                    </div>
+                    
+                </article>
+                
+            </main>
+            
+        </div>
+        
+        <!-- Footer -->
+        <footer class="theme-footer">
+            {% include "sections/footer.html" %}
+        </footer>
+        
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="{{ pathto('_static/js/theme.js', 1) }}"></script>
+    
+    {% block scripts %}{% endblock %}
+    
+</body>
+</html>

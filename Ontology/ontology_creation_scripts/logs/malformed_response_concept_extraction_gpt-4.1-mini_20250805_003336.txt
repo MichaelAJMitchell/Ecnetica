@@ -1,0 +1,878 @@
+Model: gpt-4.1-mini
+Task: concept_extraction
+Timestamp: 2025-08-05T00:33:36.465295
+==================================================
+[
+  {
+    "name": "line passing through a given point",
+    "explanation": "A line that contains a specific point in the plane, defined as the set of points including that point and extending infinitely in both directions.",
+    "broader_concept": "line",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "undeﬁned geometric terms",
+    "explanation": "Basic geometric terms such as angle, degree, length, line, plane, point, ray, real number, and set, which are accepted without formal definition as foundational concepts.",
+    "broader_concept": "geometric terminology",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "defined geometric terms",
+    "explanation": "Geometric terms that are explicitly defined, including area, parallel lines, parallelogram, right angle, triangle, congruent triangles, similar triangles, tangent to a circle, and others.",
+    "broader_concept": "geometric terminology",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "collinear points",
+    "explanation": "Three or more points that lie on the same straight line.",
+    "broader_concept": "points and lines",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "line segment",
+    "explanation": "The part of a line between two points, including the endpoints.",
+    "broader_concept": "line",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "ray (half-line)",
+    "explanation": "A part of a line that starts at a point and extends infinitely in one direction.",
+    "broader_concept": "line",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "distance between two points",
+    "explanation": "The non-negative length of the line segment connecting two points, denoted |AB|.",
+    "broader_concept": "length and measurement",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "midpoint of a segment",
+    "explanation": "The point on a segment that divides it into two equal parts.",
+    "broader_concept": "line segment properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "convex set",
+    "explanation": "A subset of the plane where, for any two points in the set, the entire segment connecting them lies within the set.",
+    "broader_concept": "set properties in geometry",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "angle vertex and arms",
+    "explanation": "An angle consists of a vertex point and two rays (arms) starting at the vertex, defining the angle's opening.",
+    "broader_concept": "angle components",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "null angle",
+    "explanation": "An angle whose two arms coincide and whose interior is empty, measuring 0 degrees.",
+    "broader_concept": "angle types",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "ordinary angle",
+    "explanation": "An angle with arms not on the same line and whose interior is a convex set, measuring between 0 and 180 degrees.",
+    "broader_concept": "angle types",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "straight angle",
+    "explanation": "An angle whose arms are opposite rays forming a straight line, measuring exactly 180 degrees.",
+    "broader_concept": "angle types",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "reflex angle",
+    "explanation": "An angle with arms not on the same line and whose interior is not convex, measuring between 180 and 360 degrees.",
+    "broader_concept": "angle types",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "full angle",
+    "explanation": "An angle whose arms coincide and whose interior is the entire plane except the arms, measuring 360 degrees.",
+    "broader_concept": "angle types",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "angle notation with three points",
+    "explanation": "Notation \BAC or \CAB denotes the angle with vertex A and arms passing through points B and C.",
+    "broader_concept": "angle representation",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "degree measure of an angle",
+    "explanation": "The numerical measure of an angle in degrees, ranging from 0° to 360°, denoted |\BAC| or |\alpha|.",
+    "broader_concept": "angle measurement",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "protractor axiom",
+    "explanation": "The axiom stating that angles have degree measures between 0° and 360°, with properties including existence and uniqueness of rays forming given angles.",
+    "broader_concept": "angle measurement axioms",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "angle bisector",
+    "explanation": "A ray starting at the vertex of an angle that divides the angle into two equal angles.",
+    "broader_concept": "angle division",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "right angle",
+    "explanation": "An angle measuring exactly 90 degrees.",
+    "broader_concept": "angle types",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "acute angle",
+    "explanation": "An angle measuring less than 90 degrees.",
+    "broader_concept": "angle types",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "obtuse angle",
+    "explanation": "An angle measuring more than 90 degrees but less than 180 degrees.",
+    "broader_concept": "angle types",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "supplementary angles",
+    "explanation": "Two angles whose measures add up to 180 degrees.",
+    "broader_concept": "angle relationships",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "perpendicular lines",
+    "explanation": "Two lines intersecting to form a right angle (90 degrees).",
+    "broader_concept": "line relationships",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "vertically opposite angles",
+    "explanation": "Pairs of angles opposite each other when two lines intersect, which are equal in measure.",
+    "broader_concept": "angle relationships",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "triangle definition",
+    "explanation": "A polygon formed by three non-collinear points connected by three line segments called sides, with vertices at the points.",
+    "broader_concept": "polygons",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "triangle side length notation",
+    "explanation": "Sides of a triangle are denoted by lowercase letters a, b, c, opposite vertices A, B, C respectively.",
+    "broader_concept": "triangle properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "triangle congruence criteria (SAS, ASA, SSS)",
+    "explanation": "Conditions under which two triangles are congruent: Side-Angle-Side (SAS), Angle-Side-Angle (ASA), and Side-Side-Side (SSS).",
+    "broader_concept": "triangle congruence",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "right-angled triangle",
+    "explanation": "A triangle with one angle measuring exactly 90 degrees; the side opposite this angle is called the hypotenuse.",
+    "broader_concept": "triangle types",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "isosceles triangle",
+    "explanation": "A triangle with at least two sides equal in length, and consequently two equal angles opposite those sides.",
+    "broader_concept": "triangle types",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "equilateral triangle",
+    "explanation": "A triangle with all three sides equal in length and all three angles equal.",
+    "broader_concept": "triangle types",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "scalene triangle",
+    "explanation": "A triangle with no two sides equal in length.",
+    "broader_concept": "triangle types",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "parallel lines",
+    "explanation": "Two lines in a plane that are either identical or have no points in common and never intersect.",
+    "broader_concept": "line relationships",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "transversal line",
+    "explanation": "A line that intersects two or more other lines at distinct points.",
+    "broader_concept": "line relationships",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "alternate angles",
+    "explanation": "Pairs of angles on opposite sides of a transversal but inside the two lines it intersects, equal if the lines are parallel.",
+    "broader_concept": "angle relationships",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "corresponding angles",
+    "explanation": "Pairs of angles in matching corners when a transversal crosses two lines; equal if the lines are parallel.",
+    "broader_concept": "angle relationships",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "angle sum of triangle",
+    "explanation": "The sum of the interior angles of any triangle is always 180 degrees.",
+    "broader_concept": "triangle properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "exterior angle of a triangle",
+    "explanation": "An angle formed outside a triangle when one side is extended; equal to the sum of the two interior opposite angles.",
+    "broader_concept": "triangle angle properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "triangle inequality",
+    "explanation": "The sum of the lengths of any two sides of a triangle is greater than the length of the third side.",
+    "broader_concept": "triangle properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "perpendicular bisector of a segment",
+    "explanation": "A line that passes through the midpoint of a segment and is perpendicular to it.",
+    "broader_concept": "line segment properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "polygon definition",
+    "explanation": "A closed chain of line segments laid end-to-end, not crossing and not making straight angles at endpoints, enclosing a region of the plane.",
+    "broader_concept": "polygons",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "quadrilateral",
+    "explanation": "A polygon with exactly four vertices and four sides.",
+    "broader_concept": "polygons",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "opposite sides and angles of quadrilateral",
+    "explanation": "Pairs of sides or angles in a quadrilateral that are not adjacent to each other.",
+    "broader_concept": "quadrilateral properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "rectangle",
+    "explanation": "A quadrilateral with all four interior angles equal to 90 degrees.",
+    "broader_concept": "quadrilateral types",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "rhombus",
+    "explanation": "A quadrilateral with all four sides equal in length.",
+    "broader_concept": "quadrilateral types",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "square",
+    "explanation": "A quadrilateral that is both a rectangle and a rhombus, having equal sides and all right angles.",
+    "broader_concept": "quadrilateral types",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "parallelogram",
+    "explanation": "A quadrilateral where both pairs of opposite sides are parallel.",
+    "broader_concept": "quadrilateral types",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "diagonals of parallelogram bisect each other",
+    "explanation": "The diagonals of a parallelogram intersect at their midpoints, dividing each other into equal parts.",
+    "broader_concept": "parallelogram properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "similar triangles",
+    "explanation": "Triangles with corresponding angles equal and corresponding sides in proportion.",
+    "broader_concept": "triangle similarity",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "ratio division of a segment",
+    "explanation": "A point divides a segment into two parts whose lengths are in a given ratio s:t.",
+    "broader_concept": "segment division",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "parallel line cutting sides of triangle in same ratio",
+    "explanation": "A line parallel to one side of a triangle divides the other two sides proportionally.",
+    "broader_concept": "triangle similarity",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "Pythagorean theorem",
+    "explanation": "In a right-angled triangle, the square of the hypotenuse equals the sum of the squares of the other two sides.",
+    "broader_concept": "triangle properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "converse of Pythagorean theorem",
+    "explanation": "If the square of one side of a triangle equals the sum of the squares of the other two sides, then the triangle has a right angle opposite that side.",
+    "broader_concept": "triangle properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "RHS congruence criterion",
+    "explanation": "Two right-angled triangles are congruent if their hypotenuses and one other side are equal in length.",
+    "broader_concept": "triangle congruence",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "altitude of a triangle",
+    "explanation": "A perpendicular segment from a vertex to the line containing the opposite side, representing the height relative to that base.",
+    "broader_concept": "triangle properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "area of a triangle",
+    "explanation": "Half the product of a chosen base length and its corresponding height (altitude).",
+    "broader_concept": "area calculation",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "area addition property for triangles",
+    "explanation": "The area of a triangle split by a segment into two smaller triangles equals the sum of the areas of the two smaller triangles.",
+    "broader_concept": "area calculation",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "area of rectangle",
+    "explanation": "The product of the lengths of its two adjacent sides.",
+    "broader_concept": "area calculation",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "area of parallelogram",
+    "explanation": "The product of the base length and the corresponding height (altitude).",
+    "broader_concept": "area calculation",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "circle definition",
+    "explanation": "The set of all points in a plane at a fixed distance (radius) from a fixed point (centre).",
+    "broader_concept": "circle properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "radius of a circle",
+    "explanation": "A line segment from the centre of a circle to any point on the circle.",
+    "broader_concept": "circle properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "diameter of a circle",
+    "explanation": "A chord passing through the centre of the circle; its length is twice the radius.",
+    "broader_concept": "circle properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "chord of a circle",
+    "explanation": "A line segment with both endpoints on the circle.",
+    "broader_concept": "circle properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "arc of a circle",
+    "explanation": "A continuous portion of the circumference of a circle between two points.",
+    "broader_concept": "circle properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "sector of a circle",
+    "explanation": "The region enclosed by two radii and the arc between their endpoints.",
+    "broader_concept": "circle properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "circumference of a circle",
+    "explanation": "The total length of the circle's boundary.",
+    "broader_concept": "circle properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "pi (π) constant",
+    "explanation": "The ratio of the circumference of any circle to its diameter, approximately 3.14159.",
+    "broader_concept": "circle properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "semicircle",
+    "explanation": "An arc of a circle whose endpoints are the endpoints of a diameter.",
+    "broader_concept": "circle properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "disc",
+    "explanation": "The region inside a circle, including the boundary.",
+    "broader_concept": "circle properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "angle standing on an arc",
+    "explanation": "An angle formed at a point outside the arc, with its arms passing through the endpoints of the arc.",
+    "broader_concept": "circle angle properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "angle at centre standing on arc",
+    "explanation": "The angle formed at the centre of a circle by two radii to the endpoints of an arc; it is twice the angle at any point on the circle standing on the same arc.",
+    "broader_concept": "circle angle properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "angles standing on same arc are equal",
+    "explanation": "All angles at points on the circle standing on the same arc are equal in measure.",
+    "broader_concept": "circle angle properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "angle in a semicircle is right angle",
+    "explanation": "An angle standing on a diameter of a circle is a right angle (90 degrees).",
+    "broader_concept": "circle angle properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "cyclic quadrilateral",
+    "explanation": "A quadrilateral whose vertices all lie on the circumference of a circle.",
+    "broader_concept": "circle and polygon properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "opposite angles of cyclic quadrilateral sum to 180 degrees",
+    "explanation": "In a cyclic quadrilateral, each pair of opposite angles add up to 180 degrees.",
+    "broader_concept": "circle and polygon properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "tangent to a circle",
+    "explanation": "A line that touches the circle at exactly one point, called the point of contact.",
+    "broader_concept": "circle line relationships",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "tangent perpendicular to radius",
+    "explanation": "A tangent line to a circle is perpendicular to the radius drawn to the point of contact.",
+    "broader_concept": "circle line relationships",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "point on perpendicular bisector equidistant from segment endpoints",
+    "explanation": "Any point on the perpendicular bisector of a segment is equidistant from the segment's endpoints.",
+    "broader_concept": "line segment properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "perpendicular bisector passes through circle centre",
+    "explanation": "The perpendicular bisector of a chord passes through the centre of the circle.",
+    "broader_concept": "circle chord properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "circumcircle of a triangle",
+    "explanation": "The unique circle passing through all three vertices of a triangle.",
+    "broader_concept": "circle and triangle properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "circumcentre of a triangle",
+    "explanation": "The centre of the circumcircle of a triangle, located at the intersection of the perpendicular bisectors of the sides.",
+    "broader_concept": "triangle special points",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "incircle of a triangle",
+    "explanation": "The circle inside a triangle tangent to each of its sides.",
+    "broader_concept": "circle and triangle properties",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "incentre of a triangle",
+    "explanation": "The centre of the incircle of a triangle, located at the intersection of the angle bisectors.",
+    "broader_concept": "triangle special points",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "median of a triangle",
+    "explanation": "A line segment joining a vertex of a triangle to the midpoint of the opposite side.",
+    "broader_concept": "triangle special lines",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "centroid of a triangle",
+    "explanation": "The point where the three medians of a triangle intersect.",
+    "broader_concept": "triangle special points",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "altitudes of a triangle",
+    "explanation": "Perpendicular segments from each vertex to the opposite side or its extension.",
+    "broader_concept": "triangle special lines",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "orthocentre of a triangle",
+    "explanation": "The point where the three altitudes of a triangle intersect.",
+    "broader_concept": "triangle special points",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "geometric construction with compass and straight-edge",
+    "explanation": "Methods to create geometric figures such as lines, angles, and circles using only a compass and straight-edge.",
+    "broader_concept": "geometric constructions",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "angle bisector construction",
+    "explanation": "Constructing the ray that divides a given angle into two equal angles using compass and straight-edge.",
+    "broader_concept": "geometric constructions",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "perpendicular bisector construction",
+    "explanation": "Constructing the line perpendicular to a segment at its midpoint using compass and straight-edge.",
+    "broader_concept": "geometric constructions",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "line perpendicular to given line through external point",
+    "explanation": "Constructing a line perpendicular to a given line passing through a point not on the line.",
+    "broader_concept": "geometric constructions",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "line perpendicular to given line through point on line",
+    "explanation": "Constructing a line perpendicular to a given line passing through a point on the line.",
+    "broader_concept": "geometric constructions",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "parallel line construction through given point",
+    "explanation": "Constructing a line parallel to a given line passing through a specified point.",
+    "broader_concept": "geometric constructions",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "division of segment into equal parts without measurement",
+    "explanation": "Constructing points dividing a segment into equal segments using geometric methods without measuring lengths.",
+    "broader_concept": "geometric constructions",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "constructing segment of given length on ray",
+    "explanation": "Marking a point on a ray such that the segment from the vertex to that point has a specified length.",
+    "broader_concept": "geometric constructions",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "constructing angle of given degree measure",
+    "explanation": "Creating an angle with a specified number of degrees using geometric tools.",
+    "broader_concept": "geometric constructions",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "triangle construction given three sides",
+    "explanation": "Constructing a triangle when the lengths of all three sides are known.",
+    "broader_concept": "geometric constructions",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "triangle construction given SAS data",
+    "explanation": "Constructing a triangle given two sides and the included angle.",
+    "broader_concept": "geometric constructions",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "triangle construction given ASA data",
+    "explanation": "Constructing a triangle given two angles and the included side.",
+    "broader_concept": "geometric constructions",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "right-angled triangle construction given hypotenuse and side",
+    "explanation": "Constructing a right-angled triangle when the hypotenuse and one other side length are known.",
+    "broader_concept": "geometric constructions",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "right-angled triangle construction given side and acute angle",
+    "explanation": "Constructing a right-angled triangle given one side length and one acute angle.",
+    "broader_concept": "geometric constructions",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "rectangle construction given side lengths",
+    "explanation": "Constructing a rectangle when the lengths of two adjacent sides are specified.",
+    "broader_concept": "geometric constructions",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "circumcentre and circumcircle construction",
+    "explanation": "Constructing the circumcentre and circumcircle of a triangle using compass and straight-edge.",
+    "broader_concept": "geometric constructions",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "incentre and incircle construction",
+    "explanation": "Constructing the incentre and incircle of a triangle using compass and straight-edge.",
+    "broader_concept": "geometric constructions",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "constructing 60 degree angle without protractor",
+    "explanation": "Constructing a 60° angle using only compass and straight-edge, without measuring tools.",
+    "broader_concept": "geometric constructions",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "tangent to circle at given point construction",
+    "explanation": "Constructing the tangent line to a circle at a specified point on the circle.",
+    "broader_concept": "geometric constructions",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "parallelogram construction given sides and angles",
+    "explanation": "Constructing a parallelogram when the lengths of the sides and measures of the angles are given.",
+    "broader_concept": "geometric constructions",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "centroid construction of a triangle",
+    "explanation": "Constructing the centroid by drawing medians and locating their intersection point.",
+    "broader_concept": "geometric constructions",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "orthocentre construction of a triangle",
+    "explanation": "Constructing the orthocentre by drawing altitudes and locating their intersection point.",
+    "broader_concept": "geometric constructions",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  }
+]

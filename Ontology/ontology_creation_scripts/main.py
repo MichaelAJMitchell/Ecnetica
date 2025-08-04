@@ -27,7 +27,7 @@ Examples:
   python main.py --file curriculum.pdf
   python main.py --directory ./documents/
   python main.py --input-folder ../ontology_source_materials/
-  python main.py --files math1.pdf math2.txt curriculum.csv
+  python main.py --files math1.pdf math2.txt curriculum.csv textbook.md
   python main.py --stats
         """
     )

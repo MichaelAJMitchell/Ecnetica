@@ -27,7 +27,7 @@ RELATIONSHIPS_FILE = os.path.join(OUTPUT_DIR, "relationships.csv")
 ARCHIVE_DIR = os.path.join(OUTPUT_DIR, "ontology_archive")
 
 # Supported file formats
-SUPPORTED_FORMATS = ['.csv', '.pdf', '.txt', '.tex', '.docx']
+SUPPORTED_FORMATS = ['.csv', '.pdf', '.txt', '.tex', '.docx', '.md']
 
 # Prompts
 CONCEPT_EXTRACTION_PROMPT = """You are a mathematical education expert tasked with extracting very granular micro-concepts from mathematics curriculum documents and textbooks.

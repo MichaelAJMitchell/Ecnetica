@@ -1,0 +1,27 @@
+id,name,explanation,broader_concept,strand,source
+12acbf1b-b658-4b98-a39b-80770712117d,single-digit addition,Adding two numbers each consisting of a single digit to find their sum.,addition,Number,sample_mathematics.md
+19ae2b47-ac58-41d3-81f2-821af09ccef3,multi-digit addition,Adding numbers with two or more digits to find their sum.,addition,Number,sample_mathematics.md
+d7b19898-403c-41d1-b792-c66f885fbec6,single-digit subtraction,Subtracting one single-digit number from another to find the difference.,subtraction,Number,sample_mathematics.md
+6b3a9130-a795-4c20-bc3c-b2963f048c26,multi-digit subtraction,Subtracting numbers with two or more digits to find the difference.,subtraction,Number,sample_mathematics.md
+4e48ae0a-4867-4717-9ca5-660ba2f6a546,multiplication as repeated addition,Understanding multiplication as adding the same number multiple times.,multiplication,Number,sample_mathematics.md
+5d30e04b-c8af-4de1-96e1-a553ee27191b,division as inverse of multiplication,Understanding division as the operation that reverses multiplication.,division,Number,sample_mathematics.md
+adba9b1c-9548-4d3a-bf68-8f8c2e7b6f50,fraction numerator,The top number in a fraction representing how many parts are considered.,fraction components,Number,sample_mathematics.md
+45e1e315-359b-4828-ae13-fbf03f665a8e,fraction denominator,The bottom number in a fraction representing the total number of equal parts.,fraction components,Number,sample_mathematics.md
+f66b51cf-a727-4243-a7e5-2cf31c677c50,addition of fractions with common denominators,Adding fractions that have the same denominator by adding their numerators.,fraction addition,Number,sample_mathematics.md
+a69a9b92-8e78-42c5-b867-65bf2520fd71,multiplication of fractions,Multiplying two fractions by multiplying their numerators and denominators respectively.,fraction multiplication,Number,sample_mathematics.md
+fcb5bd91-4a04-4c9f-9ece-46796146205b,variable as unknown symbol,Using a letter or symbol to represent an unknown value in mathematical expressions or equations.,variables and expressions,Algebra,sample_mathematics.md
+80cef1a9-ecfd-4ebb-9ddd-2c9305ceabe5,linear algebraic expressions,Algebraic expressions where variables are raised to the first power and combined with constants.,variables and expressions,Algebra,sample_mathematics.md
+38e6b132-c3bf-4530-a9a9-63c66a9562e3,solving one-step linear equations,Finding the value of a variable by performing one operation to isolate the variable.,solving equations,Algebra,sample_mathematics.md
+e305e091-f643-4726-9c41-3cbd49a7b281,function as input-output relationship,A relationship where each input value corresponds to exactly one output value.,functions,Algebra,sample_mathematics.md
+4a124e17-6761-44db-a91b-8d535ed56ea4,linear function,"A function defined by an equation of the form f(x) = mx + b, representing a straight line.",functions,Algebra,sample_mathematics.md
+0ed4398d-9af8-45a1-b4c3-64f0521d15ab,slope of a linear function,The coefficient m in a linear function representing the rate of change or steepness of the line.,linear function components,Algebra,sample_mathematics.md
+ab4b0ef5-c6dd-405d-b7b6-147132fe0535,y-intercept of a linear function,The constant b in a linear function representing the point where the line crosses the y-axis.,linear function components,Algebra,sample_mathematics.md
+9b9c16c2-9d3f-4e20-898f-316fed90b8f1,equilateral triangle properties,A triangle with all three sides equal in length and all angles equal.,triangle types,Geometry,sample_mathematics.md
+0b8e7305-8879-4eab-ac57-a478237fba50,isosceles triangle properties,A triangle with exactly two sides equal in length and two equal angles.,triangle types,Geometry,sample_mathematics.md
+f2c1fb13-473f-4bea-b848-71810dc1d869,scalene triangle properties,A triangle with all sides and angles of different lengths and measures.,triangle types,Geometry,sample_mathematics.md
+e83cdcc1-6ecc-41af-9b59-abe5de671852,circle radius,The distance from the center of a circle to any point on its circumference.,circle components,Geometry,sample_mathematics.md
+08b78a2e-1d96-44fe-a69b-a38daa9eeeee,circle center,The fixed point equidistant from all points on the circumference of a circle.,circle components,Geometry,sample_mathematics.md
+ad6e338c-6111-424b-9a9a-cede3af125e5,area of a circle,"The measure of the space enclosed by a circle, calculated as π times the radius squared.",circle measurements,Geometry,sample_mathematics.md
+8d39243b-bf4b-4c28-8297-06fbe6f86add,circumference of a circle,"The distance around the edge of a circle, calculated as 2 times π times the radius.",circle measurements,Geometry,sample_mathematics.md
+dd15a440-04f3-484e-842f-a6378e2174c1,Pythagorean theorem,A formula in right triangles stating that the square of the hypotenuse equals the sum of the squares of the other two sides.,right triangle properties,Geometry,sample_mathematics.md
+fc61c817-7f05-4613-ac23-1459daa0bedc,hypotenuse of right triangle,"The longest side of a right triangle, opposite the right angle.",right triangle properties,Geometry,sample_mathematics.md

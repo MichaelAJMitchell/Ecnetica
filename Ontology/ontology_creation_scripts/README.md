@@ -50,7 +50,7 @@ python main.py --directory path/to/documents/
 
 #### Process multiple specific files:
 ```bash
-python main.py --files file1.pdf file2.txt file3.csv
+python main.py --files math1.pdf math2.txt curriculum.csv textbook.md
 ```
 
 #### Show current knowledge graph statistics:
@@ -126,6 +126,7 @@ The tool's behavior can be customized by modifying `config.py`:
 - **TXT**: Plain text files with UTF-8 encoding support
 - **TEX**: LaTeX files with command removal
 - **DOCX**: Microsoft Word documents
+- **MD**: Markdown files with formatting removal
 
 ## Error Handling
 

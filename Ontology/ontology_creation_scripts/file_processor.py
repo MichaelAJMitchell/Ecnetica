@@ -115,6 +115,64 @@ class FileProcessor:
             raise Exception(f"Error processing TEX file {file_path}: {str(e)}")
     
     @staticmethod
+    def process_md(file_path: str) -> str:
+        """Extract text content from Markdown files, removing markdown formatting."""
+        try:
+            with open(file_path, 'r', encoding='utf-8') as file:
+                content = file.read()
+            
+            # Remove markdown formatting while preserving text content
+            
+            # Remove headers (lines starting with #)
+            content = re.sub(r'^#{1,6}\s+', '', content, flags=re.MULTILINE)
+            
+            # Remove bold formatting (**text** or __text__)
+            content = re.sub(r'\*\*(.*?)\*\*', r'\1', content)
+            content = re.sub(r'__(.*?)__', r'\1', content)
+            
+            # Remove italic formatting (*text* or _text_)
+            content = re.sub(r'\*(.*?)\*', r'\1', content)
+            content = re.sub(r'_(.*?)_', r'\1', content)
+            
+            # Remove code formatting (`text`)
+            content = re.sub(r'`([^`]*)`', r'\1', content)
+            
+            # Remove code blocks (```...```)
+            content = re.sub(r'```.*?```', '', content, flags=re.DOTALL)
+            
+            # Remove inline code blocks (```...```)
+            content = re.sub(r'`{3,}.*?`{3,}', '', content, flags=re.DOTALL)
+            
+            # Remove links ([text](url))
+            content = re.sub(r'\[([^\]]*)\]\([^)]*\)', r'\1', content)
+            
+            # Remove images (![alt](url))
+            content = re.sub(r'!\[([^\]]*)\]\([^)]*\)', r'\1', content)
+            
+            # Remove horizontal rules (---, ***, ___)
+            content = re.sub(r'^[-*_]{3,}$', '', content, flags=re.MULTILINE)
+            
+            # Remove blockquotes (> text)
+            content = re.sub(r'^>\s*', '', content, flags=re.MULTILINE)
+            
+            # Remove list markers (-, *, +, 1., 2., etc.)
+            content = re.sub(r'^[\s]*[-*+]\s+', '', content, flags=re.MULTILINE)
+            content = re.sub(r'^[\s]*\d+\.\s+', '', content, flags=re.MULTILINE)
+            
+            # Remove table formatting (| and -)
+            content = re.sub(r'^\|.*\|$', '', content, flags=re.MULTILINE)
+            content = re.sub(r'^[\s]*[-|]+\s*$', '', content, flags=re.MULTILINE)
+            
+            # Clean up extra whitespace and empty lines
+            content = re.sub(r'\n\s*\n', '\n\n', content)
+            content = re.sub(r'^\s+$', '', content, flags=re.MULTILINE)
+            content = content.strip()
+            
+            return content
+        except Exception as e:
+            raise Exception(f"Error processing Markdown file {file_path}: {str(e)}")
+    
+    @staticmethod
     def process_docx(file_path: str) -> str:
         """Extract text content from DOCX files."""
         try:
@@ -145,7 +203,8 @@ class FileProcessor:
             '.pdf': FileProcessor.process_pdf,
             '.txt': FileProcessor.process_txt,
             '.tex': FileProcessor.process_tex,
-            '.docx': FileProcessor.process_docx
+            '.docx': FileProcessor.process_docx,
+            '.md': FileProcessor.process_md
         }
         
         return processors[extension](file_path)

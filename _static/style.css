@@ -66,7 +66,7 @@ ECNETICA PROJECT - CONSOLIDATED STYLESHEET
   --category-financial: #2ecc71;
   --category-creative: #9b59b6;
 
-/* Visualization-specific colors */
+  /* Visualization-specific colors */
   --viz-bg-light: #ffffff;
   --viz-bg-dark: rgba(30, 39, 46, 0.85);
   --viz-text-light: #2d3748;
@@ -87,19 +87,27 @@ ECNETICA PROJECT - CONSOLIDATED STYLESHEET
 
 
 html[data-theme="light"] {
-  /* Explicit light theme - same as root */
+  /* Background colors */
   --background-primary: #ffffff;
   --background-secondary: #f8f9fa;
   --background-tertiary: #e9ecef;
+  
+  /* Primary brand colors */
   --primary: #3498db;
   --primary-hover: #2980b9;
   --primary-light: #d6eaf8;
+  
+  /* Secondary colors */
   --secondary: #95a5a6;
   --secondary-hover: #7f8c8d;
+  
+  /* Text colors */
   --text-primary: #2c3e50;
   --text-secondary: #6c757d;
   --text-muted: #adb5bd;
   --text-inverse: #ffffff;
+  
+  /* State colors */
   --success: #27ae60;
   --success-bg: #e8f8f5;
   --error: #c0392b;
@@ -108,25 +116,32 @@ html[data-theme="light"] {
   --warning-bg: #fef9e7;
   --info: #3498db;
   --info-bg: #e8f4fc;
+  
+  /* Border colors */
   --border-primary: #dee2e6;
   --border-secondary: #999999;
   --border-light: #e9ecef;
+  
+  /* Shadows */
   --shadow-light: 0 1px 3px rgba(0,0,0,0.1);
   --shadow-medium: 0 2px 10px rgba(0,0,0,0.1);
   --shadow-heavy: 0 4px 20px rgba(0,0,0,0.15);
 
+  /* specific colours*/
   --category-scientific: #3498db;
   --category-engineering: #e67e22;
   --category-financial: #2ecc71;
   --category-creative: #9b59b6;
 
-  /* Visualization colors */
+  /* Visualization-specific colors */
   --viz-bg-light: #ffffff;
   --viz-bg-dark: rgba(30, 39, 46, 0.85);
   --viz-text-light: #2d3748;
   --viz-text-dark: #ecf0f1;
   --viz-ui-bg-light: rgba(255, 255, 255, 0.9);
   --viz-ui-bg-dark: rgba(30, 39, 46, 0.85);
+  
+  /* Button-specific colors (different from container) */
   --viz-btn-bg-light: #e2e8f0;
   --viz-btn-bg-light-hover: #cbd5e1;
   --viz-btn-bg-dark: #475569;
@@ -219,7 +234,6 @@ h1, h2 {
   max-width: 1200px;
   margin: 0 auto;
 }
-
 /*--------------------------------------------------------------------*\
 3. VISUALIZATION CONTAINERS (CORE MATH CONTENT)
 \*--------------------------------------------------------------------*/
@@ -314,6 +328,16 @@ h1, h2 {
 .math-question-module .question-container {
   width: 100%;
   box-sizing: border-box;
+}
+
+/* Question Container - should match SSQ question-content */
+.question-container {
+  background-color: var(--background-secondary);  /* Match SSQ question areas */
+  color: var(--text-primary);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-light);
+  margin-bottom: var(--spacing-lg);
 }
 
 .math-question-module .topic-intro {
@@ -483,10 +507,13 @@ h1, h2 {
 /* === MCQ QUIZ STYLES === */
 
 /* MCQ Container */
+.math-question-module,
+.quiz-container,
 .mcq-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: var(--spacing-lg);
+  background-color: var(--background-primary);  /* Match SSQ container background */
 }
 
 /* MCQ Module */
@@ -495,7 +522,7 @@ h1, h2 {
   max-width: 900px;
   margin: 0 auto;
   padding: var(--spacing-lg);
-  background-color: var(--background-secondary);
+  background-color: var(--background-primary);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-medium);
 }
@@ -534,7 +561,7 @@ h1, h2 {
 
 /* Question Container */
 .question-container {
-  background-color: var(--background-primary);
+  background-color: var(--background-secondary);
   color: var(--text-primary);
   padding: var(--spacing-lg);
   border-radius: var(--border-radius-md);
@@ -561,7 +588,7 @@ h1, h2 {
   border-radius: var(--border-radius-sm);
   cursor: pointer;
   transition: all 0.2s ease;
-  background-color: var(--background-secondary);
+  background-color: var(--background-primary);  /* Match SSQ answer areas */
   color: var(--text-primary);
 }
 

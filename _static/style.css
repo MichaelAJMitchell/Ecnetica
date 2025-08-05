@@ -512,6 +512,7 @@ h1, h2 {
   margin-bottom: var(--spacing-lg);
 }
 
+
 .progress-info {
   display: flex;
   justify-content: space-between;

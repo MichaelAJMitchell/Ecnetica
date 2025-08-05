@@ -36,17 +36,51 @@ html:
   extra_css:
     - "_static/style.css"
     - "_static/jsxgraph.css"
+  extra_js:
+    - "_static/theme.js"
   sidebar:
     maxdepth: 1  # Try adding this
 
+
 sphinx:
   config:
-    #html_theme: pydata_sphinx_theme
+    html_theme: pydata_sphinx_theme
     html_theme_options:
+      navbar_start: ["navbar-logo"]
+      navbar_center: []
+      navbar_end: ["search-button"]
+      navbar_persistent: []
+
+      
+      # Navigation depth
       navigation_depth: 4
       show_navbar_depth: 2
       collapse_navigation: true
+      show_toc_level: 2
+      
+      # Logo and branding - appears in navbar AND sidebar
+      logo:
+        image_light: "logo.png"
+        image_dark: "logo.png"
+        text: "Ecnetica"
+      
+      # Sidebar configuration - show logo and project title
       sidebar_hide_name: false
+      primary_sidebar_end: ["sidebar-ethical-ads"]
+      secondary_sidebar_items: ["page-toc", "edit-this-page"]
+      
+      # Search
+      search_bar_text: "Search the docs..."
+      
+      # Navigation
+      show_prev_next: true
+      
+      # Disable ALL GitHub/source options
+      use_edit_page_button: false
+      use_repository_button: false
+      use_issues_button: false
+      use_download_button: false
+      show_version_warning_banner: false
 
 parse:
   myst_enable_extensions:

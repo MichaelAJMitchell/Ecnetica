@@ -1418,3 +1418,50 @@ iframe {
   }
 }
 
+/*========================
+theme
+========================*/
+/* Force navbar end items to the far right */
+.navbar-header-items__end {
+  margin-left: auto !important;
+}
+
+/* Alternative selector in case the above doesn't work */
+.navbar-end {
+  margin-left: auto !important;
+}
+
+/* Ensure the navbar uses full width */
+.navbar-brand {
+  margin-right: auto !important;
+}
+
+.navbar .container-fluid {
+  justify-content: space-between !important;
+}
+
+
+/* Custom theme toggle button */
+.theme-toggle-custom {
+    background: none;
+    border: 1px solid var(--pst-color-border);
+    border-radius: 0.375rem;
+    padding: 0.375rem;
+    margin-left: 0.5rem;
+    color: var(--pst-color-text-base);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.theme-toggle-custom:hover {
+    background-color: var(--pst-color-surface);
+    transform: scale(1.05);
+}
+
+.theme-toggle-custom i {
+    font-size: 1rem;
+}
+

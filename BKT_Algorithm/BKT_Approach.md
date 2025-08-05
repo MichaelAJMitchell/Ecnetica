@@ -193,9 +193,9 @@ def prerequisite_load(topic_index, kg):
 There are three main types of memory we can consider: working memory, hippocampal memory, and neocortal memory. Working memory relies on temporary, active maintenance of information, while long-term memory involves the gradual consolidation and storage of memories in the hippocampus and neocortex. Generally episodic memories are maintained in the hippocampus, while generalized memories are stored in the neocortex. If we want to analytically represent memory, we can average together exponential decays in all of these areas.
 
 
-## 4 Knowledge Spread
+# 4 Knowledge Spread
 
-### 2.4.1 Area of Effect Approach ###
+### 4.1 Area of Effect Approach ###
 
 When a certain topic is practised, similar topics on the knowledge graph should also recieve a mastery update. A kind of dispersion approach from the centre node is a simple way to compute this knowledge spread. This updates the surrounding topics in a given radius, i.e path length on the knowledge graph. The algorithm finds the node and then temporarily makes the kg undirected. Then, it looks at all paths sprouting from that node and keeps note of the distance traveled. The mastery in the surrounding nodes is updated as,
 
@@ -205,3 +205,85 @@ The "path weight" is the weights of all the connections in a given path multiple
 
 Something we may want to consider about this method is some nodes may end up getting updated far too much, without ever actually being learned, leading to much higher initial masteries. This is a problem I'm still looking at, but an idea might be to but a cap or control on how many updates an unlearned topic can actually recieve.
 
+# 5 Parameter Tuning
+
+What we want to accomplish for our model is, 
+
+- We want to create realtistic pre built data sets, pre lit knowledge graphs
+- We want to match a student to a data set
+- We want to give them their appropriate initial parameters
+
+
+## 5.1 Personalised Clustering 
+
+The next problem we face is choosing appropriate parameters for our system. We've discussed personalised clustering as a theoretical approach in [1.5], so now we aim to actually use this in practice.
+
+### 5.1.1 Dimensionality Reduction
+
+Firstly, we have a dimensionality issue. The approach in personalised clustering is to create an nxm capability matrix C, where n the number of students and m is the number of skills. We have a wealth of skills so we may not want to be working with a matrix this big, we get around this using Singular Value Decomposition (SVD).
+
+$C \approx U \Sigma V^T$
+
+where, 
+
+$U ∈ \R^{N×r}$: Left singular vectors (how much student exhibits patterns)
+
+$\Sigma ∈ \R^{r×r}$: Diagonal matrix of singular values (pattern strengths)
+
+$V ∈ \R^{M×r}$: Right singular vectors (how much skill exhibits patterns)
+
+r = rank(C) ≤ min(N, M)
+
+We choose to keep patterns that explain 95% of the variance, these are patterns with high strengths. Instead of clustering in M-dimensional skill space, we cluster in k-dimensional pattern space. What this is doing, roughly, is it's clustering skills into groups with some meaning and using those groups rather than individual skills, eg. Algebra group = {Factorisation, Algebraic Divison, ...}. We don't have any way to verify what these groups mean directly, but we know they are intrinsically related.
+
+### 5.1.2 Cluster Creation
+
+Now that we've found the fundamental topic patterns we can project students onto them, and then cluster those students into groups. What we're doing here is identifying "types" of students, eg. fast learners, trig enthusiasts, etc.
+
+We can use either K-means or K-medoid for this. Although k-medoid is often more accurate it's also more computaionally expensive, and isn't a great option for large datasets. We use K-means clustering, which is a simple clustering algorithm generally employed in PCBKT work. K-means clustering finds k=n groups by:
+- Placing n random "cluster centres" in capability space
+- Assigning each student to nearest center
+- Moving centres to average of assigned students
+- Repeating until centres stop moving
+
+Upon the creation of clusters we can verify their validity using the simplified Silhouette scores $S_i$, this is how we can decide an appropriate n. The silhouette scorce S of a given cluster with i=k data points is given by,
+
+$S_i = \frac{b_i-a_i}{max(a_i,b_i)}$
+
+$S = \frac{\sum_{i=0}^{k} S_i}{k}$
+
+Where $a_i$ is the average distance to all other points within its cluster, and $b_i$ is the average distance to all points in the nearest neighboring cluster. 
+
+
+
+SVD: Discovers patterns in the variables (skills)
+Clustering: Discovers patterns in the observations (students)
+SVD looks at your capability matrix and asks: "What underlying factors explain why some skills tend to go together?"
+Clustering looks at students and asks: "What natural groups of students exist?"
+
+
+
+### 5.1.2 Student Assignment
+
+Now that we have the clusters, we can define the average student for a cluster. We find this average student, and then use their capabilities to determine a rough guess for their BKT parameters. These are functions we can change later, according to what we find in section [5.2]. At this point in time we're just using a placeholder function until we have some data for expected results.
+
+When a new student joins our platform, we ask them diagnostic questions to determine their capabilities in topics. Their skill capabilities project onto their pattern capabilities in SVD. After we do this, we can determine what cluster this student belongs most closely to by comparing them with an average student in that cluster. We then take that average value as that student's capabilities, giving us our BKT paramter guesses. 
+
+## 5.2 Parameter Assessment
+
+Now we want to make PCBKT useful, we want our clusters to assign to accurate BKT parameters by tracking the "average student" and our predictions of how they should be performing.
+
+### 5.2.1 Expectation-Maximization (EM) Algorithm
+PyBKT is a library that emplys an Expectation-Maximization (EM) Algorithm. It does this by treating student knowledge as a hidden variable that changes over time. Then, it uses a two-step iterative process to estimate both the hidden knowledge states and the parameters.
+- The E step - Given my current parameter guesses, estimate the hidden knowledge states.
+- The M step - Given those knowledge estimates, what parameters would best explain the responses?
+
+We start with a guess that is iteratively improved til the two steps are consistent with each other.
+### 5.2.2 Direct Parameter Testing
+
+Due to issues with the pyBKT system this is our current approach. The algorithm we employ is simple, and mostly via brute force.
+
+- Start with a student response sequence eg. [0, 0, 1, 1, 1]
+- Try different parameter combinations. Then we simulate and ask eg. "With these parameters, how likely is [0,0,1,1,1]?"
+- Test thousands of parameter combinations using scipy's smart search
+- Return the parameters that make the observed responses most likely

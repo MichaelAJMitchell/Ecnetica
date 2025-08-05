@@ -26,7 +26,7 @@ import math
 import json
 import random
 import sympy as sp
-from sympy import symbols, sympify, latex, pi, simplify, factor, expand, sin, cos, sqrt, tan, Poly, collect
+from sympy import symbols, sympify, latex, pi, simplify, factor, expand, sin, cos, sqrt, tan, Poly, collect, Rational
 from sympy.abc import x
 
 x, a, b, c, d, r_1, r_2 = symbols('x a b c d r_1 r_2')
@@ -369,59 +369,73 @@ class MCQ:
 
             # Simple approach: generate all parameters, then check constraints
             for param_name, config in self.generated_parameters.items():
-                if config['type'] == 'int':
-                    # VALIDATE: Check for invalid range
-                    if config['min'] > config['max']:
-                        print(f"Warning: Invalid range for {param_name}: min={config['min']} > max={config['max']}")
+                try:
+                    if config['type'] == 'int':
+                        # VALIDATE: Check for invalid range
+                        if config['min'] > config['max']:
+
+                            print(f"Warning: Invalid range for {param_name}: min={config['min']} > max={config['max']}")
+                            success = False
+                            break
+                        # Generate random value in range
+                        value = random.randint(config['min'], config['max'])
+                        params[param_name] = value
+
+                    elif config['type'] == 'choice':
+                        if not config.get('choices'):
+                            print(f"Warning: No choices provided for parameter {param_name}")
+                            success = False
+                            break
+                        params[param_name] = random.choice(config['choices'])
+
+                    elif config['type'] == 'fraction':
+                        # Fraction type
+                        fraction_value = self._generate_fraction_parameter(config)
+                        params[param_name] = fraction_value
+
+                        # Store components for easier access
+                        params[f"{param_name}_num"] = fraction_value.numerator
+                        params[f"{param_name}_den"] = fraction_value.denominator
+                        params[f"{param_name}_float"] = float(fraction_value)
+
+                    elif config['type'] == 'decimal':
+                        # Decimal type
+                        value = self._generate_decimal_parameter(config)
+                        params[param_name] = value
+
+                    elif config['type'] == 'angle':
+                        # Angle type - returns dict with multiple representations
+                        angle_data = self._generate_angle_parameter(config)
+                        params[param_name] = angle_data['value'] # Primary value
+                        # Add conversion parameters for use in expressions
+                        params[f"{param_name}_degrees"] = angle_data['degrees']
+                        params[f"{param_name}_radians"] = angle_data['radians']
+                        params[f"{param_name}_unit"] = angle_data['unit']
+
+                    elif config['type'] == 'polynomial':
+                        # FIXED: Store only numerical data, not SymPy objects
+                        poly_data = self._generate_polynomial_parameter(config)
+                        params[param_name] = poly_data['expression']  # String expression
+                        params[f"{param_name}_coeffs"] = poly_data['coefficients']  # List of numbers
+                        params[f"{param_name}_degree"] = poly_data['degree']  # Integer
+                        # DON'T store sympy_expr - it causes the 'subs' error
+
+                    elif config['type'] == 'function':
+                        # Function type - returns dict with function components
+                        func_data = self._generate_function_parameter(config)
+                        value = func_data['expression']  # Primary expression string
+                        params[param_name] = func_data['expression']
+                        # Add function parameters for use in calculations
+                        for key, val in func_data['parameters'].items():
+                            params[f"{param_name}_{key}"] = val
+                        params[f"{param_name}_type"] = func_data['function_type']
+                        params[f"{param_name}_sympy"] = func_data['sympy_expr']
+                    else:
+                        print(f"Warning: Unknown parameter type '{config['type']}' for {param_name}")
                         success = False
                         break
-                    # Generate random value in range
-                    value = random.randint(config['min'], config['max'])
-                    params[param_name] = value
-
-                elif config['type'] == 'choice':
-                    if not config.get('choices'):
-                        print(f"Warning: No choices provided for parameter {param_name}")
-                        success = False
-                        break
-                    params[param_name] = random.choice(config['choices'])
-
-                elif config['type'] == 'fraction':
-                    # NEW: Fraction type
-                    value = self._generate_fraction_parameter(config)
-
-                elif config['type'] == 'decimal':
-                    # NEW: Decimal type
-                    value = self._generate_decimal_parameter(config)
-
-                elif config['type'] == 'angle':
-                    # NEW: Angle type - returns dict with multiple representations
-                    angle_data = self._generate_angle_parameter(config)
-                    value = angle_data['value']  # Primary value
-                    # Add conversion parameters for use in expressions
-                    params[f"{param_name}_degrees"] = angle_data['degrees']
-                    params[f"{param_name}_radians"] = angle_data['radians']
-                    params[f"{param_name}_unit"] = angle_data['unit']
-
-                elif config['type'] == 'polynomial':
-                    # Polynomial type - returns dict with expression components
-                    poly_data = self._generate_polynomial_parameter(config)
-                    value = poly_data['expression']  # Primary expression string
-                    # Add components for use in calculations
-                    params[f"{param_name}_coeffs"] = poly_data['coefficients']
-                    params[f"{param_name}_degree"] = poly_data['degree']
-                    params[f"{param_name}_sympy"] = poly_data['sympy_expr']
-
-                elif config['type'] == 'function':
-                    # Function type - returns dict with function components
-                    func_data = self._generate_function_parameter(config)
-                    value = func_data['expression']  # Primary expression string
-                    # Add function parameters for use in calculations
-                    for key, val in func_data['parameters'].items():
-                        params[f"{param_name}_{key}"] = val
-                    params[f"{param_name}_type"] = func_data['function_type']
-                    params[f"{param_name}_sympy"] = func_data['sympy_expr']
-                else:
+                except Exception as e:
+                    print(f"Warning: Error generating parameter {param_name}: {e}")
                     success = False
                     break
 
@@ -455,12 +469,64 @@ class MCQ:
 
             # Calculate derived parameters
             try:
-                for calc_name, calc_expr in self.calculated_parameters.items():
-                    expr = sympify(calc_expr, locals=local_namespace)
-                    result = expr.subs(params)
-                    params[calc_name] = float(result)
+                if self.calculated_parameters:
+                    for calc_name, calc_expr in self.calculated_parameters.items():
+                        try:
+                            # Check for self-referential calculated parameters (common bug)
+                            if calc_name == calc_expr:
+                                print(f"Warning: Self-referential calculated parameter: {calc_name} = {calc_expr}")
+                                continue
 
-                return params  # Success!
+                            # Create safe evaluation environment
+                            local_namespace = {'__builtins__': {}}
+
+                            # Convert parameters to SymPy-compatible format
+                            sympy_params = {}
+                            for key, value in params.items():
+                                try:
+                                    if isinstance(value, (int, float)):
+                                        sympy_params[key] = value
+                                    elif hasattr(value, 'numerator') and hasattr(value, 'denominator'):
+                                        # Handle Fraction objects properly
+                                        sympy_params[key] = Rational(value.numerator, value.denominator)
+                                    elif isinstance(value, list) and all(isinstance(x, (int, float)) for x in value):
+                                        # Handle coefficient lists properly - store as list, not SymPy
+                                        sympy_params[key] = value
+                                    # Skip complex objects that cause 'subs' errors
+                                except Exception:
+                                    continue
+
+                            # Parse and evaluate the calculated parameter
+                            expr = sympify(calc_expr, locals=local_namespace)
+                            result = expr.subs(sympy_params)
+
+                            # FIXED: Convert result to proper Python types
+                            if hasattr(result, 'is_number') and result.is_number:
+                                if result.is_integer:
+                                    params[calc_name] = int(result)
+                                elif hasattr(result, 'p') and hasattr(result, 'q'):  # SymPy Rational
+                                    # Convert SymPy Rational to Python Fraction
+                                    params[calc_name] = Fraction(int(result.p), int(result.q))
+                                else:
+                                    # Keep as SymPy Rational if it's a clean fraction
+                                    if isinstance(result, Rational):
+                                        params[calc_name] = Fraction(int(result.p), int(result.q))
+                                    else:
+                                        params[calc_name] = float(result)
+                            else:
+                                params[calc_name] = str(result)
+
+
+
+                        except Exception as e:
+                            print(f"Warning: Error calculating parameter {calc_name} with expression '{calc_expr}': {e}")
+                            # For debugging: show available parameters
+                            if attempt == 0:  # Only show on first attempt to avoid spam
+                                print(f"Available parameters: {list(params.keys())}")
+                            # Skip this calculated parameter rather than failing entirely
+                            continue
+
+                return params
 
             except Exception as e:
                 continue  # Try again if calculation fails
@@ -692,22 +758,88 @@ class MCQ:
         }
 
     def _generate_fallback_parameters(self) -> Dict:
-        """Safe fallback when parameter generation fails"""
+        """Enhanced fallback parameter generation with fraction support"""
+        print(f"Generating fallback parameters for question ID: {getattr(self, 'id', 'unknown')}")
         params = {}
+
         for name, rule in self.generated_parameters.items():
-            if rule['type'] == 'int':
-                params[name] = rule['min']
-            elif rule['type'] == 'choice':
-                params[name] = rule['choices'][0]
+            try:
+                if rule['type'] == 'int':
+                    # Use minimum value as safe fallback
+                    params[name] = rule.get('min', 1)
+
+                elif rule['type'] == 'choice':
+                    # Use first choice as fallback
+                    choices = rule.get('choices', ['default'])
+                    params[name] = choices[0]
+
+                elif rule['type'] == 'fraction':
+                    # Create safe fraction fallback
+                    from fractions import Fraction
+                    fallback_fraction = Fraction(1, 1)  # Default to 1/1
+                    params[name] = fallback_fraction
+                    params[f"{name}_num"] = fallback_fraction.numerator
+                    params[f"{name}_den"] = fallback_fraction.denominator
+                    params[f"{name}_float"] = float(fallback_fraction)
+
+                elif rule['type'] == 'decimal':
+                    params[name] = rule.get('min', 1.0)
+
+                elif rule['type'] == 'angle':
+                    params[name] = 0
+                    params[f"{name}_degrees"] = 0
+                    params[f"{name}_radians"] = 0
+                    params[f"{name}_unit"] = 'degrees'
+
+                elif rule['type'] == 'polynomial':
+                    params[name] = 'x'
+                    params[f"{name}_coeffs"] = [1, 0]  # x + 0
+                    params[f"{name}_degree"] = 1
+
+                elif rule['type'] == 'function':
+                    params[name] = 'x'
+                    params[f"{name}_type"] = 'linear'
+
+                else:
+                    params[name] = 1  # Generic fallback
+
+            except Exception as e:
+                print(f"Warning: Error in fallback for parameter {name}: {e}")
+                params[name] = 1
 
         # Calculate derived parameters for fallback
-        for calc_name, calc_expr in self.calculated_parameters.items():
+        for calc_name, calc_expr in (self.calculated_parameters or {}).items():
             try:
+                # Check if this is a literal string
+                if self._is_literal_string(calc_expr):
+                    params[calc_name] = calc_expr
+                    continue
+
+                # Try mathematical evaluation
+                local_namespace = {'__builtins__': {}}
+
+                # Convert to SymPy-compatible parameters
+                sympy_params = {}
+                for key, value in params.items():
+                    if isinstance(value, (int, float)):
+                        sympy_params[key] = sympify(value)
+                    elif hasattr(value, 'numerator') and hasattr(value, 'denominator'):  # Fraction
+                        sympy_params[key] = sympify(f"{value.numerator}/{value.denominator}")
+
                 expr = sympify(calc_expr, locals=local_namespace)
-                result = expr.subs(params)
-                params[calc_name] = float(result)
-            except:
-                params[calc_name] = 1
+                result = expr.subs(sympy_params)
+
+                # Convert result to appropriate type
+                if hasattr(result, 'is_number') and result.is_number:
+                    if result.is_integer:
+                        params[calc_name] = int(result)
+                    else:
+                        params[calc_name] = float(result)
+
+            except Exception as e:
+                print(f"Warning: Error in fallback calculation for {calc_name}: {e}")
+                # Store as literal string if mathematical evaluation fails
+                params[calc_name] = calc_expr
         return params
 
     '''
@@ -753,6 +885,60 @@ class MCQ:
             'params': params
         }
         '''
+    @staticmethod
+    def smart_format_number(value):
+        """
+        Smart number formatting that prefers clean representations
+        """
+        if isinstance(value, int):
+            return str(value)
+
+        elif isinstance(value, float):
+            # Check if it's actually a whole number
+            if abs(value - round(value)) < 1e-10:
+                return str(int(round(value)))
+
+            # Check if it's a simple fraction
+            # FIXED: Better fraction detection and formatting
+            from fractions import Fraction
+            frac = Fraction(value).limit_denominator(100)  # Max denominator 100
+
+            # Use fraction if it's exact and has a reasonable denominator
+            if abs(float(frac) - value) < 1e-10 and frac.denominator <= 50:
+                if frac.denominator == 1:
+                    return str(frac.numerator)
+                else:
+                    return f"\\frac{{{frac.numerator}}}{{{frac.denominator}}}"
+
+            # For unavoidable decimals, limit precision
+            if abs(value) < 1e-6:
+                return "0"  # Very small values become 0
+            elif abs(value - round(value, 1)) < 1e-10:
+                return str(round(value, 1))  # 1 decimal place if exact
+            elif abs(value - round(value, 2)) < 1e-10:
+                return str(round(value, 2))  # 2 decimal places if exact
+            else:
+                return str(round(value, 3))  # Max 3 decimal places
+
+        elif hasattr(value, 'numerator') and hasattr(value, 'denominator'):
+            # Already a fraction
+            num, den = value.numerator, value.denominator
+            if den == 1:
+                return str(num)
+            else:
+                return f"\\frac{{{num}}}{{{den}}}"
+
+        elif hasattr(value, 'p') and hasattr(value, 'q'):  # SymPy Rational
+            # Convert SymPy Rational to proper fraction format
+            if value.q == 1:
+                return str(value.p)
+            else:
+                return f"\\frac{{{value.p}}}{{{value.q}}}"
+
+        else:
+            return str(value)
+
+
     def generate_question_text(self, text: str, params: Dict) -> str:
         """
         Generate the final question text by substituting parameters and
@@ -769,7 +955,7 @@ class MCQ:
 
         # Start with text to modify
         result_text = text
-
+        '''
         # Combine parameters and calculated values into local namespace
         all_params = params
         local_namespace = dict(all_params)
@@ -784,6 +970,7 @@ class MCQ:
                     sympy_params[key] = value
             except Exception:
                 sympy_params[key] = value
+        '''
         # Define question expression placeholders and formats
         placeholders = [
             ('${question_expression_expanded}$', 'expanded'),
@@ -794,10 +981,50 @@ class MCQ:
         ]
 
         # If question_expression is defined and not empty
-        if self.question_expression and self.question_expression.strip() != "":
+        #if self.question_expression and self.question_expression.strip() != "":
+        if self.question_expression and self.question_expression.strip():
             for placeholder, format_type in placeholders:
                 if placeholder in result_text:
                     try:
+                        local_namespace = {'__builtins__': {}}
+
+                        # Create SymPy-safe parameter dictionary
+                        # Only include numeric parameters - this prevents all the .subs() errors
+                        sympy_safe_params = {}
+                        for key, value in params.items():
+                            try:
+                                if isinstance(value, (int, float)):
+                                    sympy_safe_params[key] = value
+                                elif hasattr(value, 'numerator') and hasattr(value, 'denominator'):  # Fraction
+                                    sympy_safe_params[key] = Rational(value.numerator, value.denominator)
+                                # Skip strings, complex objects, etc.
+                                elif isinstance(value, list) and all(isinstance(x, (int, float)) for x in value):
+                                    # Handle coefficient lists - keep as list for indexing
+                                    sympy_safe_params[key] = value
+                                # FIXED: Skip problematic types that cause 'subs' errors
+                                elif isinstance(value, str) and ('\\frac' in value or '\\' in value):
+                                    continue  # Skip LaTeX formatted strings
+                                elif hasattr(value, 'subs') or callable(value):
+                                    continue  # Skip SymPy objects and functions
+                                elif isinstance(value, (list, dict, tuple)) and not all(isinstance(x, (int, float)) for x in value):
+                                    continue
+                                else:
+                                    # Try to convert unknown types to float
+                                    try:
+                                        sympy_safe_params[key] = float(value)
+                                    except (ValueError, TypeError):
+                                        # Skip if can't convert
+                                        continue
+
+                            except Exception:
+                                # Skip any parameter that causes issues during type checking
+                                continue
+
+                        # Debug output to see what's being used
+                        if len(sympy_safe_params) != len(params):
+                            filtered_out = set(params.keys()) - set(sympy_safe_params.keys())
+                            print(f"   Filtered out parameters: {filtered_out}")
+                            print(f"   Using safe parameters: {list(sympy_safe_params.keys())}")
                         latex_expr = ""
                         # Handle equations separately
                         if '=' in self.question_expression:
@@ -805,8 +1032,8 @@ class MCQ:
                             left_expr = sympify(left_side.strip(), locals=local_namespace)
                             right_expr = sympify(right_side.strip(), locals=local_namespace)
 
-                            left_sub = left_expr.subs(all_params)
-                            right_sub = right_expr.subs(all_params)
+                            left_sub = left_expr.subs(sympy_safe_params)
+                            right_sub = right_expr.subs(sympy_safe_params)
 
                             # Apply format
                             if format_type == 'expanded':
@@ -837,7 +1064,7 @@ class MCQ:
                         else:
                             # Single expression
                             expr = sympify(self.question_expression, locals=local_namespace)
-                            substituted = expr.subs(all_params)
+                            substituted = expr.subs(sympy_safe_params)
 
                             if format_type == 'expanded':
                                 processed = expand(substituted)
@@ -860,18 +1087,23 @@ class MCQ:
                         print(f"⚠️ Error processing question_expression: {e}")
                         # Fallback: do naive substitution of parameters
                         fallback_expr = self.question_expression
-                        for pname, pvalue in all_params.items():
-                            fallback_expr = fallback_expr.replace(str(pname), str(pvalue))
+                        for pname, pvalue in sympy_safe_params.items():
+                            if not pname.endswith('_sympy'):  # Skip SymPy objects
+                                # Use smart formatting for parameter values
+                                formatted_pvalue = MCQ.smart_format_number(pvalue)
+                                fallback_expr = fallback_expr.replace(str(pname), formatted_pvalue)
                         fallback_expr = fallback_expr.replace('+ -', '- ').replace('- -', '+ ')
                         result_text = result_text.replace(placeholder, f"${fallback_expr}$")
 
-        # Finally: replace individual parameters like ${a}$, ${b}$
-        for pname, pvalue in all_params.items():
-            simple_placeholder = f'${{{pname}}}$'
-            if simple_placeholder in result_text:
-                result_text = result_text.replace(simple_placeholder, str(pvalue))
+        # Handle individual parameter substitutions like ${a}$, ${b}$
+        for param_name, param_value in params.items():
+            placeholder = f'${{{param_name}}}$'
+            if placeholder in result_text:
+                formatted_value = MCQ.smart_format_number(param_value)
+                result_text = result_text.replace(placeholder, formatted_value)
 
         return result_text
+
 
         '''
                         # Create SymPy expression
@@ -958,43 +1190,89 @@ class MCQ:
 
 
 
-    def render_options(self, params: Dict[str, Union[int, float]]) -> List[str]:
-        """Render options with robust error handling"""
+    def render_options(self, params: Dict) -> List[str]:
+        """FIXED: Render options with proper parameter handling and fraction formatting"""
+        if not self.options:
+            return []
+
         try:
-            local_namespace = {'__builtins__': {}}
-
-            # Calculate derived parameters
+            # Calculate derived parameters first
             calc = {}
-            for name, expr in self.calculated_parameters.items():
-                try:
-                    calc_expr = sympify(expr, locals=local_namespace)
-                    calc[name] = calc_expr.subs(params)
-                except:
-                    calc[name] = 0
+            if self.calculated_parameters:
+                for calc_name, calc_expr in self.calculated_parameters.items():
+                    try:
+                        # Skip self-referential parameters
+                        if calc_name == calc_expr:
+                            continue
 
+                        local_namespace = {'__builtins__': {}}
+
+                        # FIXED: Prepare parameters for calculation
+                        calc_params = {}
+                        for key, value in params.items():
+                            if isinstance(value, (int, float)):
+                                calc_params[key] = value
+                            elif hasattr(value, 'numerator') and hasattr(value, 'denominator'):
+                                calc_params[key] = Rational(value.numerator, value.denominator)
+                            elif isinstance(value, list) and all(isinstance(x, (int, float)) for x in value):
+                                # Keep lists as lists for indexing
+                                calc_params[key] = value
+
+                        expr = sympify(calc_expr, locals=local_namespace)
+                        result = expr.subs(calc_params)
+
+                        # Convert result to proper type
+                        if hasattr(result, 'is_number') and result.is_number:
+                            if result.is_integer:
+                                calc[calc_name] = int(result)
+                            elif isinstance(result, Rational):
+                                calc[calc_name] = Fraction(int(result.p), int(result.q))
+                            else:
+                                calc[calc_name] = float(result)
+                        else:
+                            calc[calc_name] = str(result)
+
+                    except Exception as e:
+                        print(f"Warning: Error calculating {calc_name}: {e}")
+                        continue
+
+            # Render each option
             rendered_options = []
-            source_options = self.options
+            all_params = {**params, **calc}
 
-            for option in source_options:
+            for option in self.options:
                 try:
-                    if option in calc:
-                        # Pre-calculated value
-                        val = calc[option]
-                    else:
-                        # Parse and evaluate expression
-                        val = sympify(option, locals=local_namespace).subs({**params, **calc})
+                    local_namespace = {'__builtins__': {}, 'x': symbols('x')}
 
-                    # Simplify and convert to LaTeX
-                    simplified = simplify(val)
-                    latex_result = latex(simplified)
-                    rendered_options.append(f"\\({latex_result}\\)")
+                    # FIXED: Create evaluation-safe parameters
+                    eval_params = {}
+                    for key, value in all_params.items():
+                        if isinstance(value, (int, float)):
+                            eval_params[key] = value
+                        elif hasattr(value, 'numerator') and hasattr(value, 'denominator'):
+                            eval_params[key] = Rational(value.numerator, value.denominator)
+                        elif isinstance(value, list) and all(isinstance(x, (int, float)) for x in value):
+                            eval_params[key] = value  # Keep as list for indexing
+
+                    expr = sympify(option, locals=local_namespace)
+                    result = expr.subs(eval_params)
+
+                    # FIXED: Use smart formatting for clean output
+                    if hasattr(result, 'is_number') and result.is_number:
+                        formatted_result = MCQ.smart_format_number(result)
+                        rendered_options.append(formatted_result)
+                    else:
+                        # For non-numeric results, convert to LaTeX
+                        latex_result = latex(simplify(result))
+                        rendered_options.append(latex_result)
 
                 except Exception as e:
                     print(f"Error rendering option '{option}': {e}")
-                    # Fallback to simple substitution
+                    # Fallback: simple string substitution with smart formatting
                     fallback_option = option
-                    for name, value in {**params, **calc}.items():
-                        fallback_option = fallback_option.replace(name, str(value))
+                    for name, value in all_params.items():
+                        formatted_value = MCQ.smart_format_number(value)
+                        fallback_option = fallback_option.replace(name, formatted_value)
                     rendered_options.append(fallback_option)
 
             return rendered_options
@@ -1002,6 +1280,7 @@ class MCQ:
         except Exception as e:
             print(f"Error rendering options: {e}")
             return self.options  # Return original options as fallback
+
 
     @property
     def question_text(self) -> str:
@@ -1680,6 +1959,114 @@ class KnowledgeGraph:
                     matrix[source_index, dest_index] = weight
         return matrix
 
+    def get_prerequisite_chain_length(self, topic_index: int, max_depth: int = 6, max_nodes: int = 50) -> int:
+        """Calculate prerequisite chain length using BFS with depth tracking"""
+        visited = set()
+        queue = [(topic_index, 0)]  # (node_id, depth)
+        max_depth_reached = 0
+        nodes_explored = 0
+
+        while queue and nodes_explored < max_nodes:
+            current, depth = queue.pop(0)
+            if current in visited or depth >= max_depth:
+                continue
+
+            visited.add(current)
+            nodes_explored += 1
+            max_depth_reached = max(max_depth_reached, depth)
+
+            node = self.get_node_by_index(current)
+            if node:
+                for prereq_id, weight in node.dependencies:
+                    if prereq_id not in visited and weight > 0.1:
+                        queue.append((prereq_id, depth + 1))
+
+        return max_depth_reached
+
+    def _get_transitive_prerequisites_bfs_limited(self, node_id: int,
+                                                 max_depth: int = 4,
+                                                 max_nodes: int = 100) -> List[int]:
+        """
+        BFS traversal with computational limits.
+        Stops at max_depth levels or max_nodes explored.
+        """
+        visited = set()
+        queue = [(node_id, 0)]  # (node_id, depth)
+        prerequisites = []
+        nodes_explored = 0
+
+        while queue and nodes_explored < max_nodes:
+            current, depth = queue.pop(0)
+
+            if current in visited or depth >= max_depth:
+                continue
+
+            visited.add(current)
+            nodes_explored += 1
+
+            # Get direct prerequisites from node dependencies
+            node = self.kg.get_node_by_index(current)
+            if node:
+                for prereq_id, weight in node.dependencies:
+                    if prereq_id not in visited and weight > 0.1:  # Only significant dependencies
+                        queue.append((prereq_id, depth + 1))
+                        prerequisites.append(prereq_id)
+
+        return prerequisites
+
+    def _get_prerequisite_chains_batch(self, target_nodes: List[int],
+                                     max_depth: int = 4,
+                                     max_nodes: int = 100) -> Dict[int, List[int]]:
+        """
+        Batch prerequisite calculation to reduce graph traversals and improve performance.
+        Processes multiple target nodes in a single operation to minimize redundant work.
+        """
+
+
+        results = {}
+        global_visited = set()  # Track globally visited nodes to avoid redundant work
+
+        for target_node in target_nodes:
+            if target_node not in results:
+                # BFS for this target, reusing global visited state where possible
+                prerequisites = self._bfs_single_target_optimized(
+                    target_node, max_depth, max_nodes, global_visited
+                )
+                results[target_node] = prerequisites
+
+
+        return results
+    def _bfs_single_target_optimized(self, target_node: int, max_depth: int,
+                                max_nodes: int, global_visited: Set[int]) -> List[int]:
+        """
+        Optimized BFS for single target that leverages global visited state.
+        Helper method for get_prerequisite_chains_batch.
+        """
+        local_visited = set()
+        queue = [(target_node, 0)]  # (node_id, depth)
+        prerequisites = []
+        nodes_explored = 0
+
+        while queue and nodes_explored < max_nodes:
+            current, depth = queue.pop(0)
+
+            if current in local_visited or depth >= max_depth:
+                continue
+
+            local_visited.add(current)
+            global_visited.add(current)  # Update global state
+            nodes_explored += 1
+
+            # Get direct prerequisites from node dependencies
+            node = self.get_node_by_index(current)
+            if node:
+                for prereq_id, weight in node.dependencies:
+                    if prereq_id not in local_visited and weight > 0.1:
+                        queue.append((prereq_id, depth + 1))
+                        prerequisites.append(prereq_id)
+
+        return prerequisites
+
 
 
 @dataclass
@@ -1727,6 +2114,19 @@ class MCQScheduler:
         self.config = config_manager or knowledge_graph.config
         self.mcq_vectors = {}  # {mcq_id: MCQVector}
         self.bkt_system = None  # Will be set after BKT system is created
+        self._pedagogy_cache = {
+            'chain_lengths': {},      # {topic_index: chain_length}
+            'breakdown_scores': {},   # {mcq_id: score}
+            'topic_orderings': {}     # {frozenset(topics): sorted_list}
+        }
+        self._cache_dirty = False  # Track when to invalidate caches
+
+
+    def _invalidate_pedagogy_caches(self):
+        """Invalidate caches when graph or MCQ data changes"""
+        self._pedagogy_cache['chain_lengths'].clear()
+        self._pedagogy_cache['topic_orderings'].clear()
+        # Don't clear breakdown_scores - they're based on MCQ data, not graph structure
 
     def get_config_value(self, path: str, default=None):
         """Get configuration value using dot notation"""
@@ -1815,7 +2215,7 @@ class MCQScheduler:
         greedy_max_mcqs_to_evaluate = self.get_config_value('greedy_algorithm.greedy_max_mcqs_to_evaluate', 50)
         greedy_early_stopping = self.get_config_value('greedy_algorithm.greedy_early_stopping', False)
         greedy_convergence_threshold = self.get_config_value('algorithm_config.greedy_convergence_threshold', 0.05)
-        self.mcq_scheduler._precompute_prerequisites()
+
         # Get MCQs eligible for selection
         eligible_mcqs = self.get_available_questions_for_student(student_id)
         print(f"Eligible MCQs: {eligible_mcqs}")
@@ -1939,7 +2339,13 @@ class MCQScheduler:
 
             last_total_coverage = total_topic_coverage_score
 
-        return selected_mcqs
+        print(f"🎯 Greedy selection complete: {selected_mcqs}")
+
+        # apply reordering for better learning outcomes
+        pedagogically_ordered_mcqs = self._reorder_mcqs_pedagogically(selected_mcqs)
+
+        print(f"📚 Final pedagogical order: {pedagogically_ordered_mcqs}")
+        return pedagogically_ordered_mcqs
 
 
     def _calculate_quick_priority_score(self, mcq_id: str, student: StudentProfile) -> float:
@@ -2546,6 +2952,208 @@ class MCQScheduler:
                 importance_bonus += topic_importance
 
         return importance_bonus
+
+    def _reorder_mcqs_pedagogically(self, selected_mcqs: List[str]) -> List[str]:
+        """
+        Reorder selected MCQs for optimal pedagogical sequence.
+        Groups by main topic, orders topics by prerequisite chain length,
+        then uses round-robin with difficulty breakdown ordering within topics.
+        Always applied for better learning outcomes.
+        """
+        if not selected_mcqs:
+            return selected_mcqs
+
+        print(f"🎓 Reordering {len(selected_mcqs)} MCQs pedagogically...")
+
+        # Step 1: Group MCQs by main topic
+        topic_to_mcqs = self._group_mcqs_by_main_topic(selected_mcqs)
+
+        # Step 2: Calculate prerequisite chain lengths for each topic (with caching)
+        topic_chain_lengths = self._get_cached_topic_chain_lengths(topic_to_mcqs.keys())
+
+        # Step 3: Sort topics by prerequisite chain length (fundamental topics first)
+        sorted_topics = sorted(topic_to_mcqs.keys(),
+                            key=lambda t: topic_chain_lengths[t])
+
+        print(f"📚 Topic ordering by prerequisite chain length:")
+        for topic in sorted_topics:
+            topic_name = self.kg.get_topic_of_index(topic)
+            print(f"   {topic_name} (chain length: {topic_chain_lengths[topic]})")
+
+        # Step 4: Sort MCQs within each topic by difficulty breakdown priority
+        for topic in topic_to_mcqs:
+            topic_to_mcqs[topic] = self._sort_mcqs_by_difficulty_breakdown(topic_to_mcqs[topic])
+
+        # Step 5: Round-robin through topics (handles unequal distribution)
+        reordered_mcqs = self._round_robin_mcq_selection(topic_to_mcqs, sorted_topics)
+
+        print(f"✅ Pedagogical reordering complete: {len(reordered_mcqs)} MCQs")
+        return reordered_mcqs
+
+
+    def _group_mcqs_by_main_topic(self, mcq_ids: List[str]) -> Dict[int, List[str]]:
+        """Group MCQ IDs by their main topic index"""
+        topic_to_mcqs = {}
+
+        for mcq_id in mcq_ids:
+            # Get main topic index from minimal data
+            mcq_data = self.kg.ultra_loader.get_minimal_mcq_data(mcq_id)
+            if mcq_data:
+                main_topic = mcq_data.main_topic_index
+                if main_topic not in topic_to_mcqs:
+                    topic_to_mcqs[main_topic] = []
+                topic_to_mcqs[main_topic].append(mcq_id)
+
+        return topic_to_mcqs
+
+
+    def _get_cached_topic_chain_lengths(self, topic_indices: Set[int]) -> Dict[int, int]:
+        """
+        Get prerequisite chain lengths with caching.
+        Uses KnowledgeGraph methods and caches results in MCQScheduler.
+        """
+        # Check if cache needs invalidation based on graph changes
+        if self.kg._matrix_dirty:
+            self._invalidate_pedagogy_caches()
+
+        chain_lengths = {}
+        uncached_topics = []
+
+        # Get cached values first
+        for topic_index in topic_indices:
+            if topic_index in self._pedagogy_cache['chain_lengths']:
+                chain_lengths[topic_index] = self._pedagogy_cache['chain_lengths'][topic_index]
+            else:
+                uncached_topics.append(topic_index)
+
+        # Calculate missing chain lengths using KnowledgeGraph methods
+        if uncached_topics:
+            max_depth = self.get_config_value('greedy_algorithm.pedagogy_ordering.max_prereq_depth', 6)
+            max_nodes = self.get_config_value('greedy_algorithm.pedagogy_ordering.max_prereq_nodes', 50)
+
+            for topic_index in uncached_topics:
+                try:
+                    chain_length = self.kg.get_prerequisite_chain_length(topic_index, max_depth, max_nodes)
+                    chain_lengths[topic_index] = chain_length
+                    self._pedagogy_cache['chain_lengths'][topic_index] = chain_length
+                except Exception as e:
+                    print(f"⚠️ Error calculating chain length for topic {topic_index}: {e}")
+                    chain_lengths[topic_index] = 0
+                    self._pedagogy_cache['chain_lengths'][topic_index] = 0
+
+        return chain_lengths
+
+
+    def _sort_mcqs_by_difficulty_breakdown(self, mcq_ids: List[str]) -> List[str]:
+        """
+        Sort MCQs within a topic by difficulty breakdown priority.
+        Order: memory/conceptual → procedural → communication → problem_solving/spatial
+        Uses the skill progression weights from config.
+        """
+        # Get skill weights from config once
+        skill_weights = self.get_config_value('greedy_algorithm.pedagogy_ordering.skill_progression_weights', {
+            'memory': 1.0,
+            'conceptual_understanding': 1.1,
+            'procedural_fluency': 2.0,
+            'mathematical_communication': 3.0,
+            'problem_solving': 4.0,
+            'spatial_reasoning': 4.1
+        })
+
+        # Batch get all vectors to avoid repeated calls
+        vectors = {}
+        for mcq_id in mcq_ids:
+            vector = self._get_or_create_optimized_mcq_vector(mcq_id)
+            if vector:
+                vectors[mcq_id] = vector
+
+        # Pre-calculate all scores with caching
+        scores = {}
+        for mcq_id in mcq_ids:
+            if mcq_id in self._pedagogy_cache['breakdown_scores']:
+                scores[mcq_id] = self._pedagogy_cache['breakdown_scores'][mcq_id]
+            else:
+                if mcq_id in vectors:
+                    score = self._get_breakdown_priority_score(vectors[mcq_id], skill_weights)
+                    scores[mcq_id] = score
+                    self._pedagogy_cache['breakdown_scores'][mcq_id] = score
+                else:
+                    scores[mcq_id] = 999.0  # Put at end if no vector available
+
+        # Sort by priority score (lower score = higher priority = appears first)
+        return sorted(mcq_ids, key=lambda mid: scores[mid])
+
+
+    def _get_breakdown_priority_score(self, mcq_vector: OptimizedMCQVector, skill_weights: Dict[str, float]) -> float:
+        """
+        Calculate priority score based on difficulty breakdown.
+        Extracted as private method for better testability and reusability.
+        """
+        if not mcq_vector.difficulty_breakdown:
+            return 999.0  # Put at end if no breakdown available
+
+        breakdown = mcq_vector.difficulty_breakdown
+
+        # Calculate weighted average of skill difficulties
+        total_weighted_difficulty = 0.0
+        total_weight = 0.0
+
+        for skill, weight in skill_weights.items():
+            if hasattr(breakdown, skill):
+                skill_difficulty = getattr(breakdown, skill, 0.0)
+                total_weighted_difficulty += skill_difficulty * weight
+                total_weight += weight
+
+        if total_weight > 0:
+            return total_weighted_difficulty / total_weight
+        else:
+            # Fallback to overall difficulty if breakdown not available
+            return mcq_vector.difficulty
+
+
+    def _round_robin_mcq_selection(self, topic_to_mcqs: Dict[int, List[str]],
+                                sorted_topics: List[int]) -> List[str]:
+        """
+        Use round-robin to distribute MCQs across topics.
+        Handles topics with different numbers of questions gracefully.
+        Takes one MCQ from each topic in turn until all are assigned.
+        """
+        reordered_mcqs = []
+        topic_positions = {topic: 0 for topic in sorted_topics}  # Track position in each topic's list
+
+        # Continue until all MCQs are assigned
+        total_remaining = sum(len(topic_to_mcqs.get(topic, [])) for topic in sorted_topics)
+
+        while total_remaining > 0:
+            round_assigned = 0
+
+            # Go through topics in prerequisite order
+            for topic in sorted_topics:
+                if topic not in topic_to_mcqs:
+                    continue
+
+                # If this topic still has MCQs to assign
+                if topic_positions[topic] < len(topic_to_mcqs[topic]):
+                    mcq_id = topic_to_mcqs[topic][topic_positions[topic]]
+                    reordered_mcqs.append(mcq_id)
+                    topic_positions[topic] += 1
+                    round_assigned += 1
+
+                    # Debug output
+                    topic_name = self.kg.get_topic_of_index(topic)
+                    vector = self._get_or_create_optimized_mcq_vector(mcq_id)
+                    difficulty = vector.difficulty if vector else 0.0
+                    print(f"   Round-robin: Added {mcq_id} from {topic_name} (difficulty: {difficulty:.3f})")
+
+            # Update remaining count
+            total_remaining -= round_assigned
+
+            # Safety check to prevent infinite loops
+            if round_assigned == 0:
+                print("⚠️ No questions assigned in round - breaking to prevent infinite loop")
+                break
+
+        return reordered_mcqs
 
 
 @dataclass
@@ -3729,7 +4337,7 @@ def test():
     print("\n🎉 Fix verification complete!")
 
 
+
 if __name__ == "__main__":
     test()
-
 

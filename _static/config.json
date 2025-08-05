@@ -82,7 +82,19 @@
     "greedy_max_mcqs_to_evaluate": 50,
     "skills_breakdown_weight": 2.0,
     "overall_difficulty_weight": 1.0,
-    "enable_virtual_area_effects": true
+    "enable_virtual_area_effects": true,
+    "pedagogy_ordering": {
+    "max_prereq_depth": 6,
+    "max_prereq_nodes": 50,
+    "skill_progression_weights": {
+      "memory": 1.0,
+      "conceptual_understanding": 1.1,
+      "procedural_fluency": 2.0,
+      "mathematical_communication": 3.0,
+      "problem_solving": 4.0,
+      "spatial_reasoning": 4.1
+  }
+}
   },
   "ui_settings": {
     "default_questions_per_session": 5,

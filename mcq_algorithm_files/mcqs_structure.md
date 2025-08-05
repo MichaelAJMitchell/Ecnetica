@@ -113,39 +113,8 @@ if you take the mcq document and run them through the process mcqs python file, 
     }
 ```
 Questions can be generated in either form, depending on the question.
-# python
-## mcqs structure (old but explanations still the same)
 
-
-```
-class MCQ:
-    text: str  # Question text (may include LaTeX math)
-    options: List[str]  # Answer choices
-    correctindex: int  # Index of correct answer (0-based)
-    option_explanations: List[str]  # Why each option is correct/incorrect
-    main_topic_index: int  # Primary topic being tested
-    chapter: str  # Course chapter
-    subtopic_weights: Dict[int, float]  # Topics tested: {topic_index: importance_weight}
-    difficulty_breakdown: DifficultyBreakdown  # Cognitive skill requirements
-    id: str  # Unique identifier
-
-    overall_difficulty: float  # Store directly from JSON
-    prerequisites: Dict[int, float]
-
-    # optional fields for parameterization
-    question_expression: Optional[str] = None
-    generated_parameters: Optional[Dict[str, Dict]] = None
-    calculated_parameters: Optional[Dict[str, str]] = None
-
-    # Cache for generated parameters (not saved to JSON)
-    _current_params: Optional[Dict] = field(default=None, init=False)
-    _is_parameterized: Optional[bool] = field(default=None, init=False)
-```
-
-
-
-
-
+## mcqs structure
 
 
 ## mcqs explicit content
@@ -192,7 +161,7 @@ each question has a difficulty breakdown which measures how difficult the questi
 in the code they are called conceptual, procedural, problem_solving, communication, memory, spatial
 ## If the question has randomly generated parameters
 This used sympy to do the substitutions.
-Where the question should be in the question text is replaced with ${question_expression}$, ${question_expression_factored}$, ${question_expression_simplified}$, ${question_expression_collected}$, depending on the question
+Where the question should be in the question text is replaced with ${question_expression}$, ${question_expression_factored}$, ${question_expression_simplified}$, ${question_expression_collected}$, depending on the question. It must be one of these options
 
 The actual expression is under question_expression. This can be multiplied out to facilitate working backward, if that is what is needed to make variables which are easy to generate.
 ## parameters
@@ -212,7 +181,8 @@ There is fields for the min and max of the parameter, and also what values shoul
 If the parameter generation fails, it falls back to the min value.
 ### calculated_parameters
 These are formatted as "parameter_name":"rule to calculate it by". The calculations should use the python math conventions.
-Don't have anything using random in calculated parameters, it won't work
+Don't have anything using random in calculated parameters, it won't work. there should be on logic such as "'ax^2 + bx + c = 0' if form_type == 'standard' else ('y = a(x-h)^2 + k' if form_type == 'vertex' else ('y = a(x-p)(x-q)' if form_type == 'factored' else 'y = mx + b'))". these should instead be different questions. calculated parameers should also not just contain the correct answer, this can just be calcualted in the render options. Only parameters actually needed for the question should be calculated.
+
 
 
 

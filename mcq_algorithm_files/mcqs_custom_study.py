@@ -58,7 +58,6 @@ class CustomStudyScheduler(MCQScheduler):
     def __init__(self, knowledge_graph: KnowledgeGraph, student_manager: StudentManager, bkt_system=None):
         super().__init__(knowledge_graph, student_manager)
         self._centrality_cache = {}  # Cache expensive centrality calculations
-        self._prerequisite_chains_cache = {}  # Cache BFS results
         self.bkt_system = bkt_system
         # Precompute expensive graph metrics once
         print("🔄 Precomputing graph metrics for custom study...")
@@ -244,7 +243,7 @@ class CustomStudyScheduler(MCQScheduler):
         """
 
         # Batch prerequisite chain calculation for better performance
-        prerequisite_chains = self._get_prerequisite_chains_batch(
+        prerequisite_chains = self.kg._get_prerequisite_chains_batch(
             target_nodes,
             max_depth=request.max_prerequisite_depth,
             max_nodes=request.max_prerequisite_nodes
@@ -272,92 +271,11 @@ class CustomStudyScheduler(MCQScheduler):
                     weak_prerequisite_chains.append(prereq_id)
 
         return list(set(weak_prerequisite_chains))
-    def _get_transitive_prerequisites_bfs_limited(self, node_id: int,
-                                                 max_depth: int = 4,
-                                                 max_nodes: int = 100) -> List[int]:
-        """
-        BFS traversal with computational limits.
-        Stops at max_depth levels or max_nodes explored.
-        """
-        visited = set()
-        queue = [(node_id, 0)]  # (node_id, depth)
-        prerequisites = []
-        nodes_explored = 0
 
-        while queue and nodes_explored < max_nodes:
-            current, depth = queue.pop(0)
 
-            if current in visited or depth >= max_depth:
-                continue
 
-            visited.add(current)
-            nodes_explored += 1
 
-            # Get direct prerequisites from node dependencies
-            node = self.kg.get_node_by_index(current)
-            if node:
-                for prereq_id, weight in node.dependencies:
-                    if prereq_id not in visited and weight > 0.1:  # Only significant dependencies
-                        queue.append((prereq_id, depth + 1))
-                        prerequisites.append(prereq_id)
 
-        return prerequisites
-
-    def _get_prerequisite_chains_batch(self, target_nodes: List[int],
-                                     max_depth: int = 4,
-                                     max_nodes: int = 100) -> Dict[int, List[int]]:
-        """
-        Batch prerequisite calculation to reduce graph traversals and improve performance.
-        Processes multiple target nodes in a single operation to minimize redundant work.
-        """
-        cache_key = (tuple(sorted(target_nodes)), max_depth, max_nodes)
-        if cache_key in self._prerequisite_chains_cache:
-            return self._prerequisite_chains_cache[cache_key]
-
-        results = {}
-        global_visited = set()  # Track globally visited nodes to avoid redundant work
-
-        for target_node in target_nodes:
-            if target_node not in results:
-                # BFS for this target, reusing global visited state where possible
-                prerequisites = self._bfs_single_target_optimized(
-                    target_node, max_depth, max_nodes, global_visited
-                )
-                results[target_node] = prerequisites
-
-        # Cache the batch result
-        self._prerequisite_chains_cache[cache_key] = results
-        return results
-
-    def _bfs_single_target_optimized(self, target_node: int, max_depth: int,
-                                   max_nodes: int, global_visited: Set[int]) -> List[int]:
-        """
-        Optimized BFS for single target that leverages global visited state.
-        """
-        local_visited = set()
-        queue = [(target_node, 0)]  # (node_id, depth)
-        prerequisites = []
-        nodes_explored = 0
-
-        while queue and nodes_explored < max_nodes:
-            current, depth = queue.pop(0)
-
-            if current in local_visited or depth >= max_depth:
-                continue
-
-            local_visited.add(current)
-            global_visited.add(current)  # Update global state
-            nodes_explored += 1
-
-            # Get direct prerequisites from node dependencies
-            node = self.kg.get_node_by_index(current)
-            if node:
-                for prereq_id, weight in node.dependencies:
-                    if prereq_id not in local_visited and weight > 0.1:
-                        queue.append((prereq_id, depth + 1))
-                        prerequisites.append(prereq_id)
-
-        return prerequisites
 
 
     def _select_optimal_nodes_custom(self, eligible_nodes: List[int],
@@ -1010,7 +928,7 @@ for topic_idx in kg.get_all_indexes():
 # Test the new system
 selected_mcqs = create_custom_study_session(
     kg, student_manager, "test_student", bkt_system,
-    selected_chapters=["algebra"], difficulty_preference= "simple", num_questions=10
+    selected_chapters=["algebra"], difficulty_preference= "simple", num_questions=18
 )
 print(f"Selected: {selected_mcqs}")
 for mcq_id in selected_mcqs:

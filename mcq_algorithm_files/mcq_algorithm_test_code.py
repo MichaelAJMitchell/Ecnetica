@@ -6,7 +6,6 @@ This module provides extensive testing for the mcq_algorithm_current system,
 including functionality tests, weight parameter optimization tests, performance
 tests, and integration tests. Designed to replace existing test code.
 
-Author: Algorithm Testing Framework
 """
 
 import numpy as np
@@ -106,7 +105,7 @@ class MCQAlgorithmTestSuite:
         self.mcq_scheduler = None
         self.bkt_system = None
         # Add test data for the different numbers system
-        self.different_numbers_test_data = self._create_different_numbers_test_data()
+        self.different_numbers_test_data = self._create_different_numbers_test_data
 
     def _create_different_numbers_test_data(self) -> List[Dict[str, Any]]:
         """Create test data matching your mcq_algorithm_different_numbers format"""
@@ -2475,6 +2474,174 @@ def weight_optimization_test() -> Dict[str, Any]:
     results = test_suite.run_all_tests()
 
     return results["weight_details"]
+def debug_mcq_selection_issues(kg, student_manager, student_id):
+    """Standalone debug function - no self parameter"""
+    print("\n" + "="*60)
+    print("🔍 DEBUGGING MCQ SELECTION ISSUES")
+    print("="*60)
+
+    # 1. Check knowledge graph MCQ loading
+    print(f"\n📚 Knowledge Graph MCQ Status:")
+    if hasattr(kg, 'mcqs'):
+        print(f"   Total MCQs loaded: {len(kg.mcqs)}")
+        if kg.mcqs:
+            sample_mcq = list(kg.mcqs.values())[0]
+            print(f"   Sample MCQ ID: {sample_mcq.id}")
+            print(f"   Sample main topic: {sample_mcq.main_topic_index}")
+    else:
+        print("   ❌ No 'mcqs' attribute found")
+
+    # 2. Check ultra_loader
+    if hasattr(kg, 'ultra_loader'):
+        try:
+            stats = kg.ultra_loader.get_stats()
+            print(f"\n📊 Ultra Loader Stats:")
+            for key, value in stats.items():
+                print(f"   {key}: {value}")
+        except Exception as e:
+            print(f"   ❌ Error getting ultra_loader stats: {e}")
+    else:
+        print("   ❌ No 'ultra_loader' found")
+
+    # 3. Check topic-to-MCQ mapping
+    print(f"\n🗺️ Topic-to-MCQ Mapping:")
+    if hasattr(kg, 'topic_to_mcq_ids'):
+        mapping = kg.topic_to_mcq_ids
+        print(f"   Total topics with MCQs: {len(mapping)}")
+        print(f"   Topics: {sorted(mapping.keys())[:10]}..." if mapping else "   No topics found")
+
+        # Check first few topics
+        if mapping:
+            for topic_idx in sorted(mapping.keys())[:5]:
+                mcq_count = len(mapping[topic_idx])
+                print(f"   Topic {topic_idx}: {mcq_count} MCQs")
+    else:
+        print("   ❌ No 'topic_to_mcq_ids' found")
+
+    # 4. Check student status
+    student = student_manager.get_student(student_id)
+    if student:
+        print(f"\n👤 Student Status:")
+        print(f"   Studied topics: {len(student.studied_topics)}")
+        print(f"   Topics list: {sorted(student.studied_topics.keys())[:10]}...")
+        print(f"   Mastery levels: {len(student.mastery_levels)}")
+        print(f"   Daily completed: {len(student.daily_completed)}")
+
+        # Check mastery for first few topics
+        mastery_threshold = 0.7
+        due_topics = []
+        for topic_idx in sorted(student.mastery_levels.keys())[:5]:
+            mastery = student.mastery_levels[topic_idx]
+            is_studied = student.is_topic_studied(topic_idx)
+            is_due = is_studied and mastery < mastery_threshold
+            print(f"   Topic {topic_idx}: mastery={mastery:.2f}, studied={is_studied}, due={is_due}")
+            if is_due:
+                due_topics.append(topic_idx)
+
+        print(f"   Due topics (first 5): {due_topics}")
+    else:
+        print(f"   ❌ Student {student_id} not found")
+
+    # 5. Check file system
+    print(f"\n📁 File System Check:")
+    try:
+        import os
+        files_to_check = [
+            'mcq_algorithm_files\\kg.json',
+            'mcq_algorithm_files\\computed_mcqs_different_numbers.json',
+            '_static\\config.json'
+        ]
+
+        for filepath in files_to_check:
+            exists = os.path.exists(filepath)
+            size = os.path.getsize(filepath) if exists else 0
+            print(f"   {filepath}: {'✅' if exists else '❌'} exists, {size} bytes")
+
+            if exists and filepath.endswith('.json'):
+                try:
+                    import json
+                    with open(filepath, 'r') as f:
+                        data = json.load(f)
+                    if 'mcqs' in str(filepath).lower():
+                        mcq_count = len(data.get('mcqs', data)) if isinstance(data, dict) else len(data)
+                        print(f"      Contains {mcq_count} MCQs")
+                except Exception as e:
+                    print(f"      Error reading JSON: {e}")
+    except Exception as e:
+        print(f"   Error checking files: {e}")
+
+    print("\n" + "="*60)
+
+
+def quick_debug():
+    """Quick debugging function - call this once to diagnose the problem"""
+    print("🚀 Starting Quick Debug Session...")
+
+    try:
+        # Import your classes
+        from mcq_algorithm_different_numbers import (
+            KnowledgeGraph, StudentManager, MCQScheduler,
+            BayesianKnowledgeTracing
+        )
+
+        # Initialize your system
+        print("📂 Loading knowledge graph...")
+        kg = KnowledgeGraph(
+            nodes_file='mcq_algorithm_files\\kg.json',
+            mcqs_file='mcq_algorithm_files\\computed_mcqs_different_numbers.json',
+            config_file='_static\\config.json'
+        )
+
+        print("👥 Creating student manager...")
+        student_manager = StudentManager(kg.config)
+
+        print("🎯 Creating MCQ scheduler...")
+        mcq_scheduler = MCQScheduler(kg, student_manager)
+
+        # Create test student
+        print("👤 Creating test student...")
+        student_id = "debug_student"
+        student = student_manager.create_student(student_id)
+
+        # Set some mastery levels
+        print("📊 Setting up student mastery...")
+        import random
+        for topic_idx in range(1, 19):  # Assuming you have topics 1-18
+            mastery = random.uniform(0.1, 0.6)  # Low mastery so topics are "due"
+            student.mastery_levels[topic_idx] = mastery
+            student.studied_topics[topic_idx] = True
+            student.confidence_levels[topic_idx] = mastery * 0.8
+
+        print(f"✅ Created student with {len(student.studied_topics)} studied topics")
+
+        # Run debugging
+        debug_mcq_selection_issues(kg, student_manager, student_id)
+
+        # Test MCQ selection
+        print("\n🧪 Testing MCQ Selection:")
+        try:
+            eligible_mcqs = mcq_scheduler.get_available_questions_for_student(student_id)
+            print(f"   Eligible MCQs found: {len(eligible_mcqs)}")
+
+            if eligible_mcqs:
+                print(f"   Sample MCQ IDs: {eligible_mcqs[:5]}")
+
+                # Try to select some questions
+                selected = mcq_scheduler.select_optimal_mcqs(student_id, 3)
+                print(f"   Selected MCQs: {len(selected)}")
+                print(f"   ✅ MCQ selection is working!")
+            else:
+                print(f"   ❌ No eligible MCQs found - this is the core problem!")
+
+        except Exception as e:
+            print(f"   ❌ Error in MCQ selection: {e}")
+            import traceback
+            traceback.print_exc()
+
+    except Exception as e:
+        print(f"❌ Error in quick debug setup: {e}")
+        import traceback
+        traceback.print_exc()
 
 def debug_mcq_loading_issues(config_file: str = 'config.json') -> Dict[str, Any]:
     """
@@ -2640,6 +2807,7 @@ if __name__ == "__main__":
     print("2. Debug MCQ loading issues")
     print("3. Full comprehensive test suite")
     print("4. Weight optimization only")
+    #quick_debug()
 
     try:
         choice = input("Enter choice (1-4, or press Enter for full suite): ").strip()
@@ -2679,6 +2847,7 @@ if __name__ == "__main__":
             print(f"📁 Test results saved to: {results_file}")
         except Exception as e:
             print(f"⚠️ Could not save results file: {e}")
+
 
 
 

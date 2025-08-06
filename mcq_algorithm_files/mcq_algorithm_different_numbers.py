@@ -419,6 +419,9 @@ class MCQ:
                         params[f"{param_name}_coeffs"] = poly_data['coefficients']  # List of numbers
                         params[f"{param_name}_degree"] = poly_data['degree']  # Integer
                         # DON'T store sympy_expr - it causes the 'subs' error
+                        coeffs = poly_data['coefficients']
+                        for i, coeff in enumerate(coeffs):
+                            params[f"{param_name}_coeff_{i}"] = coeff
 
                     elif config['type'] == 'function':
                         # Function type - returns dict with function components
@@ -429,7 +432,6 @@ class MCQ:
                         for key, val in func_data['parameters'].items():
                             params[f"{param_name}_{key}"] = val
                         params[f"{param_name}_type"] = func_data['function_type']
-                        params[f"{param_name}_sympy"] = func_data['sympy_expr']
                     else:
                         print(f"Warning: Unknown parameter type '{config['type']}' for {param_name}")
                         success = False
@@ -656,12 +658,16 @@ class MCQ:
                     coeff = random.randint(coeff_min, coeff_max)
                 else:
                     coeff = random.uniform(coeff_min, coeff_max)
+            if hasattr(coeff, 'evalf'):  # If it's a SymPy object
+                coeff = float(coeff.evalf())
+            elif not isinstance(coeff, (int, float)):
+                coeff = float(coeff)
 
             coefficients.append(coeff)
 
         # Build sympy expression
-        sympy_expr = sum(coeff * var_symbol**(degree - i) for i, coeff in enumerate(coefficients))
-        sympy_expr = expand(sympy_expr)
+        #sympy_expr = sum(coeff * var_symbol**(degree - i) for i, coeff in enumerate(coefficients))
+        #sympy_expr = expand(sympy_expr)
 
         # Create string representation
         terms = []
@@ -689,12 +695,12 @@ class MCQ:
                 else:
                     terms.append(f"{coeff}*{variable}**{power}")
 
+
         expression = " + ".join(terms).replace("+ -", "- ")
 
         return {
             'expression': expression,
             'coefficients': coefficients,
-            'sympy_expr': sympy_expr,
             'degree': degree,
             'variable': variable
         }
@@ -750,7 +756,7 @@ class MCQ:
 
         return {
             'expression': expression,
-            'sympy_expr': sympy_expr,
+            #'sympy_expr': sympy_expr,
             'function_type': func_type,
             'parameters': parameters,
             'domain_min': domain_min,
@@ -795,6 +801,10 @@ class MCQ:
                     params[name] = 'x'
                     params[f"{name}_coeffs"] = [1, 0]  # x + 0
                     params[f"{name}_degree"] = 1
+
+                    coeffs = [1, 0]  # Default fallback coefficients
+                    for i, coeff in enumerate(coeffs):
+                        params[f"{name}_coeff_{i}"] = coeff
 
                 elif rule['type'] == 'function':
                     params[name] = 'x'
@@ -1001,19 +1011,29 @@ class MCQ:
                                 elif isinstance(value, list) and all(isinstance(x, (int, float)) for x in value):
                                     # Handle coefficient lists - keep as list for indexing
                                     sympy_safe_params[key] = value
-                                # FIXED: Skip problematic types that cause 'subs' errors
-                                elif isinstance(value, str) and ('\\frac' in value or '\\' in value):
-                                    continue  # Skip LaTeX formatted strings
+                                elif isinstance(value, str) and not ('\\' in value or callable(value)):  # ✅ ALLOW clean strings but skip LaTeX and function-like strings
+                                    sympy_safe_params[key] = value  # Keep string parameters for substitution
+                                # Skip problematic types that cause 'subs' errors
                                 elif hasattr(value, 'subs') or callable(value):
                                     continue  # Skip SymPy objects and functions
+                                elif callable(value):  # Function objects
+                                    continue
+                                elif hasattr(value, '__call__'):  # More function detection
+                                    continue
+                                elif str(type(value)).startswith('<function'):  # Function type detection
+                                    continue
                                 elif isinstance(value, (list, dict, tuple)) and not all(isinstance(x, (int, float)) for x in value):
                                     continue
                                 else:
                                     # Try to convert unknown types to float
                                     try:
-                                        sympy_safe_params[key] = float(value)
-                                    except (ValueError, TypeError):
-                                        # Skip if can't convert
+                                        # Check if it's a numeric type we can safely convert
+                                        if hasattr(value, '__float__') and not callable(value):
+                                            sympy_safe_params[key] = float(value)
+                                        elif hasattr(value, '__int__') and not callable(value):
+                                            sympy_safe_params[key] = int(value)
+                                    except (ValueError, TypeError, AttributeError):
+                                        # Skip if can't convert safely
                                         continue
 
                             except Exception:
@@ -1062,10 +1082,35 @@ class MCQ:
                             latex_expr = f"{left_latex} = {right_latex}"
 
                         else:
+                            '''
+                            # DEBUG: Print all parameter types to find the function object
+                            print(f"\n🔍 DEBUG for question_expression '{self.question_expression}':")
+                            print(f"Total params: {len(params)}")
+                            for key, value in params.items():
+                                value_type = type(value).__name__
+                                value_str = str(value)[:50] + "..." if len(str(value)) > 50 else str(value)
+                                is_callable = callable(value)
+                                has_subs = hasattr(value, 'subs')
+                                print(f"  {key}: {value_type} = {value_str} (callable: {is_callable}, has_subs: {has_subs})")
+
+                            print(f"\nSymPy-safe params: {len(sympy_safe_params)}")
+                            for key, value in sympy_safe_params.items():
+                                value_type = type(value).__name__
+                                is_callable = callable(value)
+                                has_subs = hasattr(value, 'subs')
+                                print(f"  {key}: {value_type} (callable: {is_callable}, has_subs: {has_subs})")
                             # Single expression
                             expr = sympify(self.question_expression, locals=local_namespace)
-                            substituted = expr.subs(sympy_safe_params)
 
+                            substituted = expr.subs(sympy_safe_params)
+                            '''
+                            if self.question_expression in params:
+                                # This is a parameter name that should be substituted
+                                expr = symbols(self.question_expression)
+                            else:
+                                # This is a mathematical expression to be parsed
+                                expr = sympify(self.question_expression, locals=local_namespace)
+                            substituted = expr.subs(sympy_safe_params)
                             if format_type == 'expanded':
                                 processed = expand(substituted)
                             elif format_type == 'factored':
@@ -1260,12 +1305,17 @@ class MCQ:
                     # FIXED: Use smart formatting for clean output
                     if hasattr(result, 'is_number') and result.is_number:
                         formatted_result = MCQ.smart_format_number(result)
-                        rendered_options.append(formatted_result)
+                        # Check if the original option contained mathematical symbols
+                        if any(char in str(option) for char in ['*', '+', '-', '/', '^', '(', ')', 'x', 'sqrt']):
+                            # Wrap mathematical results in LaTeX delimiters
+                            rendered_options.append(f"\\({formatted_result}\\)")
+                        else:
+                            # Keep plain numbers unwrapped for simple parameter names
+                            rendered_options.append(formatted_result)
                     else:
-                        # For non-numeric results, convert to LaTeX
+                        # For non-numeric results, convert to LaTeX and wrap in delimiters
                         latex_result = latex(simplify(result))
-                        rendered_options.append(latex_result)
-
+                        rendered_options.append(f"\\({latex_result}\\)")
                 except Exception as e:
                     print(f"Error rendering option '{option}': {e}")
                     # Fallback: simple string substitution with smart formatting
@@ -1273,7 +1323,11 @@ class MCQ:
                     for name, value in all_params.items():
                         formatted_value = MCQ.smart_format_number(value)
                         fallback_option = fallback_option.replace(name, formatted_value)
-                    rendered_options.append(fallback_option)
+                    # Apply LaTeX wrapping to fallback if needed
+                    if any(char in str(option) for char in ['*', '+', '-', '/', '^', '(', ')', 'x', 'sqrt']):
+                        rendered_options.append(f"\\({fallback_option}\\)")
+                    else:
+                        rendered_options.append(fallback_option)
 
             return rendered_options
 

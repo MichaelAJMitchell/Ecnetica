@@ -105,7 +105,7 @@ class MCQAlgorithmTestSuite:
         self.mcq_scheduler = None
         self.bkt_system = None
         # Add test data for the different numbers system
-        self.different_numbers_test_data = self._create_different_numbers_test_data
+        self.different_numbers_test_data = self._create_different_numbers_test_data()
 
     def _create_different_numbers_test_data(self) -> List[Dict[str, Any]]:
         """Create test data matching your mcq_algorithm_different_numbers format"""
@@ -2835,7 +2835,7 @@ if __name__ == "__main__":
     else:  # choice == "3" or default
         print("\n🚀 Starting comprehensive MCQ algorithm test suite...")
         results = run_comprehensive_tests()
-
+        '''
         # Optionally save results to file
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
@@ -2847,6 +2847,7 @@ if __name__ == "__main__":
             print(f"📁 Test results saved to: {results_file}")
         except Exception as e:
             print(f"⚠️ Could not save results file: {e}")
+        '''
 
 
 

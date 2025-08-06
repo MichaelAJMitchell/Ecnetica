@@ -1,7 +1,7 @@
 {
   "mcqs": [
     {
-      "id": "f96189b6-c9b3-4c44-a60b-b6694c3d27f3",
+      "id": "16ba13a9-538a-4448-9139-ce8970d5b414",
       "text": "What is the discriminant of the quadratic equation ${question_expression}$?",
       "question_expression": "a*x**2 +b*x + c = 0",
       "generated_parameters": {
@@ -55,7 +55,7 @@
       }
     },
     {
-      "id": "b0f7592d-6786-4ae3-8403-663290c04be4",
+      "id": "7b809690-423f-40df-b1d7-5a5569a3f903",
       "text": "Factor the quadratic expression ${question_expression_expanded}$.",
       "question_expression": "(x-r_1)*(x-r_2)",
       "generated_parameters": {
@@ -121,7 +121,7 @@
       }
     },
     {
-      "id": "05bd5ae1-255d-4449-8e8f-80829bc27bfd",
+      "id": "a15a8925-0c6b-4516-bf50-81b5818e1ca2",
       "text": "Solve for x in the linear equation ${question_expression}$.",
       "question_expression": "a*x + b = c",
       "generated_parameters": {
@@ -179,7 +179,7 @@
       }
     },
     {
-      "id": "14f9c24b-1a6e-4072-b3bc-a0be5a0cadce",
+      "id": "99d3c889-4538-4301-a083-c43cde871ae0",
       "text": "What is the standard form of the linear equation ${question_expression}$?",
       "question_expression": "y - m*x = b",
       "generated_parameters": {
@@ -233,7 +233,7 @@
       }
     },
     {
-      "id": "74264169-d683-42c9-a7d2-0a3ca2220d00",
+      "id": "a42eb7bb-81ba-4272-a184-f1fc496bd23c",
       "text": "Expand the expression ${question_expression}$.",
       "question_expression": "(a*x + b)*(c*x + d)",
       "generated_parameters": {
@@ -295,7 +295,7 @@
       }
     },
     {
-      "id": "00a70deb-dd9a-4874-b7d4-decc8551cf4f",
+      "id": "2ea4b9cf-8583-4089-89b1-365452e75bf5",
       "text": "Find the distance between points ${question_expression}$.",
       "question_expression": "(x1, y1) and (x2, y2)",
       "generated_parameters": {
@@ -359,7 +359,7 @@
       }
     },
     {
-      "id": "8d68c6e9-0df0-4714-8695-801f36efe0d9",
+      "id": "c7ecb879-711c-40e1-84a7-59aa35e3d0a7",
       "text": "Complete the square for ${question_expression}$.",
       "question_expression": "x**2 + b*x + c",
       "generated_parameters": {
@@ -411,7 +411,7 @@
       }
     },
     {
-      "id": "d4a3967e-484f-4a3c-960a-b0c175ac6159",
+      "id": "737bf97b-4338-4955-b7ca-a06821bd5d01",
       "text": "What is the axis of symmetry of the parabola ${question_expression}$?",
       "question_expression": "y = a*x**2 + b*x + c",
       "generated_parameters": {
@@ -474,7 +474,7 @@
       }
     },
     {
-      "id": "69ac443d-47c5-47da-b76e-f6ef90c8c0a2",
+      "id": "34b6c62b-8940-4ef8-a731-9a4967f2d811",
       "text": "Find the vertex of the parabola ${question_expression}$.",
       "question_expression": "y = a*(x - h)**2 + k",
       "generated_parameters": {
@@ -526,7 +526,7 @@
       "prerequisites": {}
     },
     {
-      "id": "ed74659d-1505-4024-8ad1-8259d13961b8",
+      "id": "a48ef4cc-e0fc-4455-b8b6-abe8d6494478",
       "text": "Find the x-intercepts of ${question_expression_expanded}$.",
       "question_expression": "y = (x - r)*(x - s)",
       "generated_parameters": {
@@ -576,7 +576,7 @@
       }
     },
     {
-      "id": "705d9f68-cb09-40c4-998b-71846e951538",
+      "id": "8cf314f9-f588-4660-8795-d8322ff5e919",
       "text": "Use the quadratic formula to solve ${question_expression}$.",
       "question_expression": "a*x**2 + b*x + c = 0",
       "generated_parameters": {
@@ -643,7 +643,7 @@
       }
     },
     {
-      "id": "61a0be7a-05e6-4ef6-9a77-f9b128f5fe97",
+      "id": "983199bb-d0d8-4858-b913-35e36d2c3446",
       "text": "Simplify the expression ${question_expression_collected}$.",
       "question_expression": "a*x**2 + b*x + a*x**2 + c*x + d + e",
       "generated_parameters": {
@@ -728,7 +728,7 @@
       }
     },
     {
-      "id": "6387f6cf-d667-4521-a797-dde285589393",
+      "id": "6073126a-bd15-4a13-a3fb-a3ca63be5c89",
       "text": "Find the x-intercepts of ${question_expression}$.",
       "question_expression": "y = (x - root1)*(x - root2)",
       "generated_parameters": {
@@ -791,7 +791,7 @@
       }
     },
     {
-      "id": "2cc0eae4-b100-4d78-af5d-c99c5d8fcb06",
+      "id": "f4360b73-1b10-452f-ab5b-4741b338c4cf",
       "text": "What is the vertex of the parabola ${question_expression}$?",
       "question_expression": "y = a*(x - h)**2 + k",
       "generated_parameters": {
@@ -849,7 +849,7 @@
       }
     },
     {
-      "id": "45a8c869-e6aa-4447-9661-3b88113e2629",
+      "id": "8f9fc62a-458a-4e48-80c9-4a563e8cb08c",
       "text": "Solve the equation ${question_expression}$ by substitution, where $u = x^2$.",
       "question_expression": "x**4 + coeff*x**2 + constant = 0",
       "generated_parameters": {
@@ -909,7 +909,7 @@
       }
     },
     {
-      "id": "e6254e03-26e7-4f92-97b4-b49e40559e78",
+      "id": "0f3ac2a5-1d5c-49db-a38b-f6d622e05397",
       "text": "Factor the quadratic expression ${question_expression}$.",
       "question_expression": "x**2 + (r1 + r2)*x + r1*r2",
       "generated_parameters": {
@@ -966,7 +966,7 @@
       }
     },
     {
-      "id": "e68dcd4a-15d4-411b-a987-06bc80e09bb5",
+      "id": "6c3b8ec5-bac8-4309-b579-13facc83917d",
       "text": "Factor the expression ${question_expression}$ where the leading coefficient is not 1.",
       "question_expression": "leading_coeff*x**2 + middle_coeff*x + constant_term",
       "generated_parameters": {
@@ -1036,7 +1036,7 @@
       }
     },
     {
-      "id": "78d2d3a4-2776-4f41-b180-952c48147445",
+      "id": "6732317c-c995-471d-a5aa-ea5a9b16abb8",
       "text": "Find the distance between points ${question_expression}$.",
       "question_expression": "(x1, y1) and (x2, y2)",
       "generated_parameters": {
@@ -1100,7 +1100,7 @@
       }
     },
     {
-      "id": "a26914dc-2dc9-4c23-9f22-8bf9071d6ca7",
+      "id": "91edd941-5db5-4942-815e-ea73a81a1cdf",
       "text": "Complete the square for ${question_expression}$.",
       "question_expression": "x**2 + b_coeff*x + c_coeff",
       "generated_parameters": {
@@ -1156,7 +1156,7 @@
       }
     },
     {
-      "id": "ee914522-64a6-444c-8d26-0643d1ae2715",
+      "id": "a7436af5-5072-4aa4-8481-1e6cd81e1b67",
       "text": "Solve the linear equation ${question_expression}$ for x.",
       "question_expression": "a*x + b = c*x + d",
       "generated_parameters": {
@@ -1219,7 +1219,7 @@
       }
     },
     {
-      "id": "fe681c37-8e2a-4e71-a332-95f6d9b231a9",
+      "id": "9a1cc202-2f7d-436e-8a8b-1c00b693654c",
       "text": "What is the degree of the polynomial ${question_expression}$?",
       "question_expression": "poly",
       "generated_parameters": {
@@ -1241,7 +1241,7 @@
         "poly_degree",
         "poly_degree + 1",
         "poly_degree - 1",
-        "len(poly_coeffs)"
+        "poly_degree * 2"
       ],
       "correctindex": 0,
       "option_explanations": [
@@ -1276,7 +1276,7 @@
       }
     },
     {
-      "id": "a1693f50-d009-40ac-a555-e23b20286257",
+      "id": "90f1ce33-2c0a-40a0-9db4-431783d0512d",
       "text": "Factor the monic quadratic polynomial ${question_expression}$.",
       "question_expression": "monic_poly",
       "generated_parameters": {
@@ -1324,7 +1324,7 @@
       }
     },
     {
-      "id": "14b09e76-fe89-448f-b8f1-8b402819be07",
+      "id": "b2678875-9af4-415e-9cc2-6246004c5b56",
       "text": "Expand the polynomial product ${question_expression}$.",
       "question_expression": "poly1 * poly2",
       "generated_parameters": {
@@ -1386,7 +1386,7 @@
       }
     },
     {
-      "id": "a0f0d87c-7551-475f-8dc6-7b24a3afde79",
+      "id": "a8eb908e-ab5c-4c34-b8f5-00d711317b02",
       "text": "What is the slope of the linear function ${question_expression}$?",
       "question_expression": "linear_func",
       "generated_parameters": {
@@ -1442,7 +1442,7 @@
       }
     },
     {
-      "id": "0c9e00a4-9fa7-43c6-af9e-e80806694e9e",
+      "id": "70cc1795-1cf3-4c9b-9d73-f99769715758",
       "text": "Write the quadratic function ${question_expression}$ in standard form.",
       "question_expression": "quad_func",
       "generated_parameters": {
@@ -1499,7 +1499,7 @@
       }
     },
     {
-      "id": "fe92c2ba-d684-4814-a9be-c58a8757e9c6",
+      "id": "6e3c8d9b-4cc4-481f-9c6d-a2d8a8b8b1be",
       "text": "The exponential function ${question_expression}$ has which characteristic?",
       "question_expression": "exp_func",
       "generated_parameters": {
@@ -1560,7 +1560,7 @@
       }
     },
     {
-      "id": "ce97199d-619c-4e95-a778-8fd7487f3eb1",
+      "id": "4372c7ef-9c28-41af-9c8d-5011e690f957",
       "text": "Factor the non-monic polynomial ${question_expression}$ by first factoring out the leading coefficient.",
       "question_expression": "non_monic_poly",
       "generated_parameters": {
@@ -1580,9 +1580,9 @@
         }
       },
       "calculated_parameters": {
-        "leading_coeff": "non_monic_poly_coeffs[0]",
-        "factored_linear": "non_monic_poly_coeffs[1] / non_monic_poly_coeffs[0]",
-        "factored_constant": "non_monic_poly_coeffs[2] / non_monic_poly_coeffs[0]"
+        "leading_coeff": "non_monic_poly_coeff_0",
+        "factored_linear": "non_monic_poly_coeff_1 / non_monic_poly_coeff_0",
+        "factored_constant": "non_monic_poly_coeff_2 / non_monic_poly_coeff_0"
       },
       "options": [
         "leading_coeff*(x**2 + factored_linear*x + factored_constant)",
@@ -1618,7 +1618,7 @@
       }
     },
     {
-      "id": "c6fd286a-9d9e-4a49-9edc-7d10544e5635",
+      "id": "94740ae8-af8e-47f8-a9d9-8598cf4b69ca",
       "text": "What is the vertex of the parabola represented by the quadratic function ${question_expression}$?",
       "question_expression": "parabola_func",
       "generated_parameters": {
@@ -1671,7 +1671,7 @@
       }
     },
     {
-      "id": "9bf2379c-b3ce-4a53-a822-4d049c5129f1",
+      "id": "16554837-cf94-4590-8331-8531dbd881e7",
       "text": "Determine the leading coefficient of the polynomial ${question_expression}$.",
       "question_expression": "general_poly",
       "generated_parameters": {

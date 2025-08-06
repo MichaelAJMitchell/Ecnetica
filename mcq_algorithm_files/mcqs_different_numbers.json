@@ -775,7 +775,7 @@
         "poly_degree",
         "poly_degree + 1",
         "poly_degree - 1",
-        "len(poly_coeffs)"
+        "poly_degree * 2"
       ],
       "correctindex": 0,
       "option_explanations": [
@@ -972,10 +972,10 @@
         "non_monic_poly": {"type": "polynomial", "degree": 2, "variable": "x", "coefficient_min": -5, "coefficient_max": 5, "leading_coefficient_exclude": [0, 1, -1], "monic": false, "integer_coefficients": true}
       },
       "calculated_parameters": {
-        "leading_coeff": "non_monic_poly_coeffs[0]",
-        "factored_linear": "non_monic_poly_coeffs[1] / non_monic_poly_coeffs[0]",
-        "factored_constant": "non_monic_poly_coeffs[2] / non_monic_poly_coeffs[0]"
-      },
+      "leading_coeff": "non_monic_poly_coeff_0",
+      "factored_linear": "non_monic_poly_coeff_1 / non_monic_poly_coeff_0",
+      "factored_constant": "non_monic_poly_coeff_2 / non_monic_poly_coeff_0"
+    },
       "options": [
         "leading_coeff*(x**2 + factored_linear*x + factored_constant)",
         "leading_coeff + (x**2 + factored_linear*x + factored_constant)",

@@ -161,9 +161,9 @@ each question has a difficulty breakdown which measures how difficult the questi
 in the code they are called conceptual, procedural, problem_solving, communication, memory, spatial
 ## If the question has randomly generated parameters
 This used sympy to do the substitutions.
-Where the question should be in the question text is replaced with ${question_expression}$, ${question_expression_factored}$, ${question_expression_simplified}$, ${question_expression_collected}$, depending on the question. It must be one of these options
+Where the question should be in the question text is replaced with ${question_expression}$, ${question_expression_factored}$, ${question_expression_simplified}$, ${question_expression_collected}$, depending on the question. It must be one of these options, or else be a parameter defined in generated or calculated parameters as ${parameter}$
 
-The actual expression is under question_expression. This can be multiplied out to facilitate working backward, if that is what is needed to make variables which are easy to generate.
+The actual expression is under question_expression. This can be multiplied out to facilitate working backward, if that is what is needed to make variables which are easy to generate. The question expression should use python notation. Don't call question expressions or parameters things that are already on Python's namespace, such as poly, func, angle.
 ## parameters
 There is two types of parameters, generated and calculated. The generated ones are the ones which are randomly generated. But it isn't always easiest to generate the actual parameters in the question. Sometimes to get the answers to be nice numbers/ question factorisable/solvable etc, its easiest to generate numbers to base the parameters in the question of off. A lot of the time this might mean randomly generating the answers and then working back to calculate what the corresponding question should be. The calculated_parameters field if for any parameters based on the generated, or other calculated ones.
 ### generated_parameters
@@ -174,18 +174,61 @@ There is different types of parameters that will follow different rules when the
 - decimal gives a decimal to a specified number of decimal places. It has options min, max, decimal_places, step and exclude. It is calculated by value = min_val + step_number * randomly generated step, then rounded.
 - angle, which has degrees or radians. It has options type: degrees or radians, special_angles_only: true/ false, and quadrant: 1-4.
 - polynomial which has options degree, variable, coefficient_min, coefficient_max, leading_coefficient_exclude, monic:true/ false, integer_coeffs: true/false.
-- function which has func_type: linear/ quadratic/ exponential,  domain_min, domain_max, param_ranges
+- function which has func_type: linear/ quadratic/ exponential,  domain_min, domain_max, param_ranges. Linear functions also has "parameter_ranges": {
+  "slope_min": -5,
+  "slope_max": 5,
+  "intercept_min": -10,
+  "intercept_max": 10,
+  "allow_zero_slope": false
+}
+Quadratic functions also have "parameter_ranges": {
+  "a_min": -3,
+  "a_max": 3,
+  "b_min": -5,
+  "b_max": 5,
+  "c_min": -10,
+  "c_max": 10
+}
+Exponential functions have "parameter_ranges": {
+  "coefficient_min": 1,
+  "coefficient_max": 5,
+  "bases": [2, 3, 5, 10]
+}
 
 There is fields for the min and max of the parameter, and also what values should be excluded, eg 0 or another parameter.
 
 If the parameter generation fails, it falls back to the min value.
 ### calculated_parameters
 These are formatted as "parameter_name":"rule to calculate it by". The calculations should use the python math conventions.
-Don't have anything using random in calculated parameters, it won't work. there should be on logic such as "'ax^2 + bx + c = 0' if form_type == 'standard' else ('y = a(x-h)^2 + k' if form_type == 'vertex' else ('y = a(x-p)(x-q)' if form_type == 'factored' else 'y = mx + b'))". these should instead be different questions. calculated parameers should also not just contain the correct answer, this can just be calcualted in the render options. Only parameters actually needed for the question should be calculated.
+Don't have anything using random in calculated parameters, it won't work. there should be on logic such as "'ax^2 + bx + c = 0' if form_type == 'standard' else ('y = a(x-h)^2 + k' if form_type == 'vertex' else ('y = a(x-p)(x-q)' if form_type == 'factored' else 'y = mx + b'))". these should instead be different questions. calculated parameers should also not just contain the correct answer, this can just be calcualted in the render options. Only parameters actually needed for the question should be calculated. DOn't use len()
 
 
-
-
+There is options that can be used in the question text and options that give more information. They can be used in calculated parameters or question expression whichout the $$ and {}.
+For polynomials: ${param_name}_coeffs$[0] → Leading coefficient (highest degree)
+${param_name}_coeffs$[1] → Second coefficient
+${param_name}_coeffs$[2] → Third coefficient (etc.)
+${param_name}_degree$ → Degree of polynomial (integer)
+For linear functions
+${param_name}_slope$ → Slope value (m)
+${param_name}_y_intercept$ → Y-intercept value (b)
+${param_name}_type$ → "linear"
+For quadratic functions:
+${param_name}_a$ → Coefficient of x²
+${param_name}_b$ → Coefficient of x
+${param_name}_c$ → Constant term
+${param_name}_type$ → "quadratic"
+For exponential functions:
+${param_name}_coefficient$ → Multiplier (a in a*b^x)
+${param_name}_base$ → Base (b in a*b^x)
+${param_name}_type$ → "exponential"
+For fractions:
+${param_name}_num$ → Numerator value
+${param_name}_den$ → Denominator value
+${param_name}_float$ → Decimal equivalent
+For angles:
+${param_name}_degrees$ → Angle in degrees
+${param_name}_radians$ → Angle in radians
+${param_name}_unit$ → Unit string ("degrees" or "radians")
 
 ## calculated content
 ### id

@@ -1671,15 +1671,22 @@ iframe {
 .nav-item-link:hover {
     background-color: var(--background-tertiary, #f0f0f0);
     text-decoration: none;
+    color: var(--text-primary, #333);
 }
 
+/* Remove browser's visited link styling */
+.nav-item-link:visited {
+    color: var(--text-primary, #333);
+}
+
+/* Current page highlighting - MUCH better contrast */
 .nav-item-link.current-page {
-    background-color: var(--primary-light, #e3f2fd);
-    color: var(--primary, #1976d2);
+    background-color: var(--primary, #3498db);
+    color: #ffffff;
     font-weight: bold;
 }
 
-/* Navigation Section Toggles */
+/* Navigation Section Toggles - Better visibility */
 .nav-section-toggle {
     padding: 8px 12px;
     cursor: pointer;
@@ -1705,29 +1712,31 @@ iframe {
     }
 }
 
-/* ========== DARK THEME COMPATIBILITY ========== */
-
-html[data-theme="dark"] #course-nav-panel {
-    background: var(--background-primary) !important;
-    border-left-color: var(--border-primary) !important;
+/* Dark theme navigation items */
+html[data-theme="dark"] .nav-item-link {
     color: var(--text-primary) !important;
 }
 
-html[data-theme="dark"] .nav-search-input {
-    background: var(--background-secondary) !important;
-    border-color: var(--border-primary) !important;
+html[data-theme="dark"] .nav-item-link:hover {
+    background-color: var(--background-tertiary) !important;
     color: var(--text-primary) !important;
 }
 
-html[data-theme="dark"] .nav-search-input::placeholder {
-    color: var(--text-muted) !important;
+/* Dark theme current page - High contrast */
+html[data-theme="dark"] .nav-item-link.current-page {
+    background-color: var(--primary, #60a5fa) !important;
+    color: #000000 !important;
+    font-weight: bold !important;
 }
 
-html[data-theme="dark"] .nav-panel-header {
-    background: var(--background-secondary) !important;
-    border-bottom-color: var(--border-primary) !important;
+/* Dark theme section toggles */
+html[data-theme="dark"] .nav-section-toggle {
+    color: var(--text-primary) !important;
 }
 
+html[data-theme="dark"] .nav-section-toggle:hover {
+    background-color: var(--background-tertiary) !important;
+}
 /* ========== SCROLLBAR STYLING ========== */
 
 #course-nav-panel::-webkit-scrollbar {

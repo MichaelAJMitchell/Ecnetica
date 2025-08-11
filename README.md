@@ -76,6 +76,13 @@ This project uses Jupyter Book to build the site.
 
 To build this project you need to set up a python virtual environment using the standard `venv` module.
 
+Run the script `venv-setup.sh` from `~/${path-to}/Ecnetica/`
+```
+bash venv-setup.sh
+```
+This will set up our virtual enviornmnet with our required packages.
+
+### _Manual Method for building venv_
 First we need to set this up with this command, run this from `~/${path-to}/Ecnetica/`:
 ```bash
 python3 -m venv venv

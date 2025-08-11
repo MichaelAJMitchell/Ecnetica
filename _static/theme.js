@@ -545,10 +545,21 @@ function createNavigatorPanel(courseStructure) {
     setupNavigatorSearch();
 }
 
-// Replace your buildNavigationTree function in _static/theme.js with this smart version:
+
+
+// Replace ALL the duplicate buildNavigationTree functions in your theme.js with this SINGLE correct version:
 
 function buildNavigationTree(structure, level = 0) {
     const container = document.createElement('div');
+    
+    // Arrow icon functions
+    const getExpandedArrow = () => `<svg class="nav-arrow-icon" viewBox="0 0 24 24">
+        <path d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+    </svg>`;
+    
+    const getCollapsedArrow = () => `<svg class="nav-arrow-icon" viewBox="0 0 24 24">
+        <path d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+    </svg>`;
     
     for (const [key, value] of Object.entries(structure)) {
         const item = document.createElement('div');
@@ -576,7 +587,8 @@ function buildNavigationTree(structure, level = 0) {
             const containsCurrentPage = checkIfSectionContainsCurrentPage(value);
             const isExpanded = containsCurrentPage; // Expand if contains current page
             
-            toggle.innerHTML = `${isExpanded ? '▼' : '▶'} ${key}`;
+            // Use SVG arrows instead of emoji
+            toggle.innerHTML = `${isExpanded ? getExpandedArrow() : getCollapsedArrow()}${key}`;
             
             const subsection = buildNavigationTree(value, level + 1);
             subsection.style.display = isExpanded ? 'block' : 'none';
@@ -584,7 +596,8 @@ function buildNavigationTree(structure, level = 0) {
             toggle.addEventListener('click', () => {
                 const isVisible = subsection.style.display !== 'none';
                 subsection.style.display = isVisible ? 'none' : 'block';
-                toggle.innerHTML = `${isVisible ? '▶' : '▼'} ${key}`;
+                // Update arrow icon with SVG
+                toggle.innerHTML = `${isVisible ? getCollapsedArrow() : getExpandedArrow()}${key}`;
             });
             
             item.appendChild(toggle);
@@ -597,7 +610,7 @@ function buildNavigationTree(structure, level = 0) {
     return container;
 }
 
-// Helper function to check if a section contains the current page
+// Keep only ONE copy of this helper function:
 function checkIfSectionContainsCurrentPage(sectionData) {
     const currentPath = window.location.pathname;
     
@@ -618,202 +631,6 @@ function checkIfSectionContainsCurrentPage(sectionData) {
     }
     
     return searchSection(sectionData);
-}// Replace your buildNavigationTree function in _static/theme.js with this smart version:
-
-function buildNavigationTree(structure, level = 0) {
-    const container = document.createElement('div');
-    
-    for (const [key, value] of Object.entries(structure)) {
-        const item = document.createElement('div');
-        item.style.marginLeft = `${level * 15}px`;
-        
-        if (typeof value === 'string') {
-            // It's a link
-            const link = document.createElement('a');
-            link.href = value;
-            link.textContent = key;
-            link.className = 'nav-item-link';
-            
-            // Highlight current page
-            if (window.location.pathname.includes(value)) {
-                link.classList.add('current-page');
-            }
-            
-            item.appendChild(link);
-        } else {
-            // It's a section with subsections
-            const toggle = document.createElement('div');
-            toggle.className = 'nav-section-toggle';
-            
-            // Check if this section contains the current page
-            const containsCurrentPage = checkIfSectionContainsCurrentPage(value);
-            const isExpanded = containsCurrentPage; // Expand if contains current page
-            
-            toggle.innerHTML = `${isExpanded ? '▼' : '▶'} ${key}`;
-            
-            const subsection = buildNavigationTree(value, level + 1);
-            subsection.style.display = isExpanded ? 'block' : 'none';
-            
-            toggle.addEventListener('click', () => {
-                const isVisible = subsection.style.display !== 'none';
-                subsection.style.display = isVisible ? 'none' : 'block';
-                toggle.innerHTML = `${isVisible ? '▶' : '▼'} ${key}`;
-            });
-            
-            item.appendChild(toggle);
-            item.appendChild(subsection);
-        }
-        
-        container.appendChild(item);
-    }
-    
-    return container;
-}
-
-// Helper function to check if a section contains the current page
-function checkIfSectionContainsCurrentPage(sectionData) {
-    const currentPath = window.location.pathname;
-    
-    // Recursively check all values in the section
-    function searchSection(data) {
-        if (typeof data === 'string') {
-            // It's a URL - check if it matches current page
-            return currentPath.includes(data);
-        } else if (typeof data === 'object') {
-            // It's a nested section - check all its children
-            for (const value of Object.values(data)) {
-                if (searchSection(value)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-    
-    return searchSection(sectionData);
-}// Replace your buildNavigationTree function in _static/theme.js with this smart version:
-
-function buildNavigationTree(structure, level = 0) {
-    const container = document.createElement('div');
-    
-    for (const [key, value] of Object.entries(structure)) {
-        const item = document.createElement('div');
-        item.style.marginLeft = `${level * 15}px`;
-        
-        if (typeof value === 'string') {
-            // It's a link
-            const link = document.createElement('a');
-            link.href = value;
-            link.textContent = key;
-            link.className = 'nav-item-link';
-            
-            // Highlight current page
-            if (window.location.pathname.includes(value)) {
-                link.classList.add('current-page');
-            }
-            
-            item.appendChild(link);
-        } else {
-            // It's a section with subsections
-            const toggle = document.createElement('div');
-            toggle.className = 'nav-section-toggle';
-            
-            // Check if this section contains the current page
-            const containsCurrentPage = checkIfSectionContainsCurrentPage(value);
-            const isExpanded = containsCurrentPage; // Expand if contains current page
-            
-            toggle.innerHTML = `${isExpanded ? '▼' : '▶'} ${key}`;
-            
-            const subsection = buildNavigationTree(value, level + 1);
-            subsection.style.display = isExpanded ? 'block' : 'none';
-            
-            toggle.addEventListener('click', () => {
-                const isVisible = subsection.style.display !== 'none';
-                subsection.style.display = isVisible ? 'none' : 'block';
-                toggle.innerHTML = `${isVisible ? '▶' : '▼'} ${key}`;
-            });
-            
-            item.appendChild(toggle);
-            item.appendChild(subsection);
-        }
-        
-        container.appendChild(item);
-    }
-    
-    return container;
-}
-
-// Helper function to check if a section contains the current page
-function checkIfSectionContainsCurrentPage(sectionData) {
-    const currentPath = window.location.pathname;
-    
-    // Recursively check all values in the section
-    function searchSection(data) {
-        if (typeof data === 'string') {
-            // It's a URL - check if it matches current page
-            return currentPath.includes(data);
-        } else if (typeof data === 'object') {
-            // It's a nested section - check all its children
-            for (const value of Object.values(data)) {
-                if (searchSection(value)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-    
-    return searchSection(sectionData);
-}
-
-function buildNavigationTree(structure, level = 0) {
-    const container = document.createElement('div');
-    
-    for (const [key, value] of Object.entries(structure)) {
-        const item = document.createElement('div');
-        item.style.marginLeft = `${level * 15}px`;
-        
-        if (typeof value === 'string') {
-            // It's a link
-            const link = document.createElement('a');
-            link.href = value;
-            link.textContent = key;
-            link.className = 'nav-item-link';
-            
-            // Highlight current page
-            if (window.location.pathname.includes(value)) {
-                link.classList.add('current-page');
-            }
-            
-            item.appendChild(link);
-        } else {
-            // It's a section with subsections
-            const toggle = document.createElement('div');
-            toggle.className = 'nav-section-toggle';
-            
-            // Check if this section contains the current page
-            const containsCurrentPage = checkIfSectionContainsCurrentPage(value);
-            const isExpanded = containsCurrentPage; // Expand if contains current page
-            
-            toggle.innerHTML = `${isExpanded ? '▼' : '▶'} ${key}`;
-            
-            const subsection = buildNavigationTree(value, level + 1);
-            subsection.style.display = isExpanded ? 'block' : 'none';
-            
-            toggle.addEventListener('click', () => {
-                const isVisible = subsection.style.display !== 'none';
-                subsection.style.display = isVisible ? 'none' : 'block';
-                toggle.innerHTML = `${isVisible ? '▶' : '▼'} ${key}`;
-            });
-            
-            item.appendChild(toggle);
-            item.appendChild(subsection);
-        }
-        
-        container.appendChild(item);
-    }
-    
-    return container;
 }
 
 // Helper function to check if a section contains the current page

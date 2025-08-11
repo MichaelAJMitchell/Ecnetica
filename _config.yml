@@ -25,12 +25,8 @@ repository:
   path_to_book: ./  # Optional path to your book, relative to the repository root
   branch: jb  # Which branch of the repository should be used when creating links (optional)
 
-# Add GitHub buttons to your book
-# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+# HTML settings - NO GitHub buttons
 html:
-  use_issues_button: true
-  use_repository_button: true
-  use_edit_page_button: true
   baseurl: ""
   extra_footer: "Copyright-info"
   extra_css:
@@ -38,9 +34,7 @@ html:
     - "_static/jsxgraph.css"
   extra_js:
     - "_static/theme.js"
-  sidebar:
-    maxdepth: 1  # Try adding this
-
+  # REMOVE conflicting sidebar maxdepth setting
 
 sphinx:
   config:
@@ -51,11 +45,16 @@ sphinx:
       navbar_end: ["search-button"]
       navbar_persistent: []
 
-      
-      # Navigation depth
-      navigation_depth: 4
-      show_navbar_depth: 2
+      # CONSISTENT NAVIGATION DEPTH SETTINGS
+      # Build navigation tree up to 3 levels (Parts > Chapters > Sections)
+      navigation_depth: 3
+      # Show ALL 3 levels in left sidebar (Parts + Chapters + Sections)
+      show_navbar_depth: 3
+      # Allow navigation to collapse/expand - users can click to open/close sections
       collapse_navigation: true
+      # Alternative: Set to false if you want everything always expanded
+      # collapse_navigation: false
+      # Show 2 levels in page table of contents
       show_toc_level: 2
       
       # Logo and branding - appears in navbar AND sidebar
@@ -66,8 +65,8 @@ sphinx:
       
       # Sidebar configuration - show logo and project title
       sidebar_hide_name: false
-      primary_sidebar_end: ["sidebar-ethical-ads"]
-      secondary_sidebar_items: ["page-toc", "edit-this-page"]
+      primary_sidebar_end: []
+      secondary_sidebar_items: ["page-toc"]
       
       # Search
       search_bar_text: "Search the docs..."
@@ -75,7 +74,7 @@ sphinx:
       # Navigation
       show_prev_next: true
       
-      # Disable ALL GitHub/source options
+      # ALL GitHub/source options disabled
       use_edit_page_button: false
       use_repository_button: false
       use_issues_button: false

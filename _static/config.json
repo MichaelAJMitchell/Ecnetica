@@ -96,6 +96,11 @@
   }
 }
   },
+    "breakdown_config": {
+      "prerequisite_skip_threshold": 0.8,
+      "step_mastery_weight": 0.3,
+      "enable_breakdown_system": true
+  },
   "ui_settings": {
     "default_questions_per_session": 5,
     "max_questions_per_session": 20,

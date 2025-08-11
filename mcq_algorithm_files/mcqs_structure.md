@@ -161,12 +161,13 @@ each question has a difficulty breakdown which measures how difficult the questi
 in the code they are called conceptual, procedural, problem_solving, communication, memory, spatial
 ## If the question has randomly generated parameters
 This used sympy to do the substitutions.
-Where the question should be in the question text is replaced with ${question_expression}$, ${question_expression_factored}$, ${question_expression_simplified}$, ${question_expression_collected}$, depending on the question. It must be one of these options, or else be a parameter defined in generated or calculated parameters as ${parameter}$
+Where the question should be in the question text is replaced with ${question_expression}, ${question_expression_factored}, ${question_expression_simplified}, ${question_expression_collected}, depending on the question. It must be one of these options, or else be a parameter defined in generated or calculated parameters as ${parameter}. (one $ for substuting parametes)
 
 The actual expression is under question_expression. This can be multiplied out to facilitate working backward, if that is what is needed to make variables which are easy to generate. The question expression should use python notation. Don't call question expressions or parameters things that are already on Python's namespace, such as poly, func, angle.
 ## parameters
 There is two types of parameters, generated and calculated. The generated ones are the ones which are randomly generated. But it isn't always easiest to generate the actual parameters in the question. Sometimes to get the answers to be nice numbers/ question factorisable/solvable etc, its easiest to generate numbers to base the parameters in the question of off. A lot of the time this might mean randomly generating the answers and then working back to calculate what the corresponding question should be. The calculated_parameters field if for any parameters based on the generated, or other calculated ones.
 ### generated_parameters
+For randomized parameters
 There is different types of parameters that will follow different rules when they are being randomised.
 - int is just a random integer between the min and the max
 - choice randomly chooses from a list of choices you give it as "choices":
@@ -199,11 +200,12 @@ There is fields for the min and max of the parameter, and also what values shoul
 
 If the parameter generation fails, it falls back to the min value.
 ### calculated_parameters
+For anything that needs to be calculated, eg for question_expression, options, options explanations
 These are formatted as "parameter_name":"rule to calculate it by". The calculations should use the python math conventions.
-Don't have anything using random in calculated parameters, it won't work. there should be on logic such as "'ax^2 + bx + c = 0' if form_type == 'standard' else ('y = a(x-h)^2 + k' if form_type == 'vertex' else ('y = a(x-p)(x-q)' if form_type == 'factored' else 'y = mx + b'))". these should instead be different questions. calculated parameers should also not just contain the correct answer, this can just be calcualted in the render options. Only parameters actually needed for the question should be calculated. DOn't use len()
+Don't have anything using random in calculated parameters, it won't work. there should be on logic such as "'ax^2 + bx + c = 0' if form_type == 'standard' else ('y = a(x-h)^2 + k' if form_type == 'vertex' else ('y = a(x-p)(x-q)' if form_type == 'factored' else 'y = mx + b'))".  Don't use len(). Things should not use $$ or latex syntax.
 
 
-There is options that can be used in the question text and options that give more information. They can be used in calculated parameters or question expression whichout the $$ and {}.
+There is options that can be used in the question text and options that give more information. They can be used in calculated parameters or question expression without the $$ and {}.
 For polynomials: ${param_name}_coeffs$[0] → Leading coefficient (highest degree)
 ${param_name}_coeffs$[1] → Second coefficient
 ${param_name}_coeffs$[2] → Third coefficient (etc.)
@@ -230,6 +232,8 @@ ${param_name}_degrees$ → Angle in degrees
 ${param_name}_radians$ → Angle in radians
 ${param_name}_unit$ → Unit string ("degrees" or "radians")
 
+### options
+This can subsitute parameters and render them for display. Any caluations than need to be done should be in calulated parameters. options should use latex formating, with an estra backslash as the mcqs are stored in json. They do not need to start and end wth $$, the code adds this. Use ```\\text{}``` for any text in the options.
 ## calculated content
 ### id
 each mcq has an id, which is what's used to refer to it in most of the code. It is a random string of letters and numbers: mcq_id = str(uuid.uuid4()). it is generated when the mcqs are created.

@@ -144,22 +144,122 @@ def _process_single_mcq(mcq_input: Dict, knowledge_graph) -> Dict:
         "overall_difficulty": float(overall_difficulty),
         'prerequisites': {str(k): v for k, v in prerequisites.items()}
     }
+    if 'breakdown' in mcq_input:
+        # Validate and process breakdown structure
+        validated_breakdown = _validate_breakdown_structure(mcq_input['breakdown'])
+        complete_mcq['breakdown'] = validated_breakdown
+
     return complete_mcq
 
 
+def _validate_breakdown_structure(breakdown: Dict) -> Dict:
+    """Validate breakdown structure including answer_mapping"""
+    if not isinstance(breakdown, dict):
+        raise ValueError("breakdown must be a dictionary")
+
+    validated_breakdown = {}
+
+    for route_id, route_data in breakdown.items():
+        if not isinstance(route_data, dict):
+            raise ValueError(f"Breakdown route {route_id} must be a dictionary")
+
+        if 'steps' not in route_data:
+            raise ValueError(f"Breakdown route {route_id} missing 'steps' field")
+
+        # VALIDATE ANSWER_MAPPING
+        if 'answer_mapping' in route_data:
+            answer_mapping = route_data['answer_mapping']
+            if not isinstance(answer_mapping, list):
+                raise ValueError(f"Breakdown route {route_id}: answer_mapping must be a list")
+
+            for answer_idx in answer_mapping:
+                if not isinstance(answer_idx, int):
+                    raise ValueError(f"Breakdown route {route_id}: answer_mapping must contain integers, got {type(answer_idx)}")
+                if answer_idx < 0:
+                    raise ValueError(f"Breakdown route {route_id}: answer_mapping contains negative index {answer_idx}")
+
+        validated_steps = []
+        for i, step_data in enumerate(route_data['steps']):
+            validated_step = _validate_breakdown_step(step_data, route_id, i)
+            validated_steps.append(validated_step)
+
+        # Preserve answer_mapping in validated structure
+        validated_route = {'steps': validated_steps}
+        if 'answer_mapping' in route_data:
+            validated_route['answer_mapping'] = route_data['answer_mapping']
+
+        validated_breakdown[route_id] = validated_route
+
+    return validated_breakdown
+
+
+def _validate_breakdown_step(step_data: Dict, route_id: str, step_index: int) -> Dict:
+    """
+    Validate a single breakdown step.
+
+    Args:
+        step_data: Dictionary containing step information
+        route_id: ID of the route this step belongs to
+        step_index: Index of this step in the route
+
+    Returns:
+        Validated step data
+    """
+    required_fields = ['step_no', 'step_type', 'text', 'options', 'correctindex', 'option_explanations']
+
+    for field in required_fields:
+        if field not in step_data:
+            raise ValueError(f"Breakdown route {route_id}, step {step_index} missing required field '{field}'")
+
+    # Validate step number
+    if not isinstance(step_data['step_no'], int) or step_data['step_no'] < 1:
+        raise ValueError(f"Breakdown route {route_id}, step {step_index}: step_no must be a positive integer")
+
+    # Validate step type
+    valid_step_types = [
+        'conceptual_understanding', 'procedural_fluency', 'problem_solving',
+        'mathematical_communication', 'memory', 'spatial_reasoning'
+    ]
+    if step_data['step_type'] not in valid_step_types:
+        raise ValueError(f"Breakdown route {route_id}, step {step_index}: invalid step_type '{step_data['step_type']}'. Valid types: {valid_step_types}")
+
+    # Validate options and explanations match
+    if len(step_data['options']) != len(step_data['option_explanations']):
+        raise ValueError(f"Breakdown route {route_id}, step {step_index}: options and option_explanations must have same length")
+
+    # Validate correct index
+    if not (0 <= step_data['correctindex'] < len(step_data['options'])):
+        raise ValueError(f"Breakdown route {route_id}, step {step_index}: correctindex out of range")
+
+    # Validate optional fields
+    validated_step = dict(step_data)  # Copy all fields
+
+    # Validate prerequisite topics if present
+    if 'prereq_topics' in step_data:
+        if not isinstance(step_data['prereq_topics'], list):
+            raise ValueError(f"Breakdown route {route_id}, step {step_index}: prereq_topics must be a list")
+
+        for topic_id in step_data['prereq_topics']:
+            if not isinstance(topic_id, int):
+                raise ValueError(f"Breakdown route {route_id}, step {step_index}: prereq_topics must contain integers")
+
+
+    return validated_step
 
 
 
 
 
-def example_usage():
+
+
+def usage():
     kg = KnowledgeGraph()
-    mcq_document = 'mcq_algorithm_files\mcqs_different_numbers.json'
+    mcq_document = '_static\mcqs_breakdown.json'
     print("\n" + "="*50)
     # Process all MCQs
     processed_mcqs = process_mcq_document(mcq_document, kg)
-    with open('mcq_algorithm_files\computed_mcqs_different_numbers.json', 'w') as f:
+    with open('_static\computed_mcqs_breakdown.json', 'w') as f:
         json.dump({"mcqs": processed_mcqs}, f, indent=2)
 
 if __name__ == "__main__":
-    example_usage()
+    usage()

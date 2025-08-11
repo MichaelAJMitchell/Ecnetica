@@ -1,0 +1,452 @@
+{
+  "mcqs": [
+    {
+      "id": "e2f64bc1-21fd-49f2-a3d0-67b1e1f2ec74",
+      "text": "What is the discriminant of the quadratic equation ${question_expression}?",
+      "question_expression": "a*x**2 +b*x + c = 0",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": -9,
+          "max": 9,
+          "exclude": 0
+        },
+        "b": {
+          "type": "int",
+          "min": -9,
+          "max": 9
+        },
+        "c": {
+          "type": "int",
+          "min": -50,
+          "max": 50
+        }
+      },
+      "calculated_parameters": {},
+      "options": [
+        "b**2-4*a*c",
+        "b**2+4*a*c",
+        "sqrt(b**2-4*a*c)",
+        "(-b+sqrt(b**2-4*a*c))/(2*a)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct!The discriminant is $b^2 - 4ac$",
+        "Incorrect. You may have calculated $b^2 + 4ac$ instead of $b^2 - 4ac$.",
+        "Incorrect. Remember the formula is $b^2 - 4ac$, not $sqrt{b^2-4ac}$.",
+        "Incorrect. The discriminnant is just the part under square root of the quadratic question."
+      ],
+      "main_topic_index": 17,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "17": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.3,
+        "procedural_fluency": 0.7,
+        "problem_solving": 0.2,
+        "mathematical_communication": 0.1,
+        "memory": 0.4,
+        "spatial_reasoning": 0.0
+      },
+      "overall_difficulty": 0.2833333333333334,
+      "prerequisites": {
+        "16": 0.7
+      },
+      "breakdown": {
+        "sign_error": {
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [
+                14
+              ],
+              "step_type": "memory",
+              "text": "what is the formula for solving quadratic equations?",
+              "options": [
+                "x=\\frac{-b+\\sqrt{b^2-4ac}}{2a}",
+                "\\sqrt{b^2-4ac}",
+                "\\frac{-b\\pm \\sqrt{b^2-4ac}}{2a}",
+                "ax^2+bx+c"
+              ],
+              "correctindex": 2,
+              "option_explanations": [
+                "not quite, there is a plus",
+                "this is more like the formula for the discriminant, the question is asking for the whole formula",
+                "yes! this is the formula you use when you are solving quadratic equations",
+                "this is actually the form of an actual quadratic equation. we want the formula you can use to solve for x. "
+              ]
+            },
+            {
+              "step_no": 2,
+              "step_type": "memory",
+              "text": "the discriminant is part of the quadratic formula, which bit?",
+              "options": [
+                "$\\sqrt{b^2 - 4ac}$",
+                "$b^2 - 4ac$",
+                "2a",
+                "-b \\pm \\sqrt{b^2-4ac}"
+              ],
+              "correctindex": 1,
+              "option_explanations": [
+                "the discriminant is the bit under the square root, but it doesn't actually include the square root itself",
+                "yep its the bit under the square root",
+                "remember we only want the bit under the square root, not the whole top of the fraction",
+                "no"
+              ]
+            },
+            {
+              "step_no": 3,
+              "step_type": "procedural_fluency",
+              "text": "now we have the formula $b^2-4ac$, we want to substitute our numbers into it. remember our quadratic is ${question_expression}. our formula has a, b and c. what should each of these numbers be?",
+              "options": [
+                "a = the number by itself, b = the number in fron of the x, c = the number in front of the $x^2$",
+                "$a = ${a} \\cdot x^2, b = ${b} \\cdot x, c = ${c}",
+                "a=1,b=2,c=3",
+                "a= the number in front of the $x^2$, b = the number in front of the $x$, c = the term by itself"
+              ],
+              "correctindex": 3,
+              "option_explanations": [
+                "almost you just have it the wrong way around",
+                "you actually just want the numbers in front of xs, don't actually include the x",
+                "no",
+                "yes yay"
+              ]
+            },
+            {
+              "step_no": 4,
+              "step_type": "procedural_fluency",
+              "text": " we now have our foumula, ${subquestion_expression_subbed}. time to do the math. when you calculate this sum, what do you get?",
+              "subquestion_expression": "b**2-4*a*c",
+              "calculated_parameters": {
+                "opt1": "b**2-4*a*c",
+                "opt2": "b**2+4*a*c",
+                "opt3": "sqrt(b**2-4*a*c)",
+                "opt4": "(-b+sqrt(b**2-4*a*c))/(2*a)"
+              },
+              "options": [
+                "${opt1}",
+                "${opt2}",
+                "${opt3}",
+                "${opt4}"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "yes",
+                "no",
+                "no",
+                "no"
+              ]
+            }
+          ],
+          "answer_mapping": [
+            1
+          ]
+        },
+        "formula_confusion": {
+          "steps": [
+            {
+              "step_no": 1,
+              "step_type": "memory",
+              "text": "the discriminant is part of the quadratic formula, which bit?",
+              "options": [
+                "\\sqrt{b^2 - 4ac}",
+                "b^2 - 4ac",
+                "2a",
+                "-b \\pm \\sqrt{b^2-4ac}"
+              ],
+              "correctindex": 1,
+              "option_explanations": [
+                "the discriminant is the bit under the square root, but it doesn't actually include the square root itself",
+                "yep its the bit under the square root",
+                "remember we only want the bit under the square root, not the whole top of the fraction",
+                "no"
+              ]
+            },
+            {
+              "step_no": 2,
+              "step_type": "procedural_fluency",
+              "text": "now we have the formula $b^2-4ac$, we want to substitute our numbers into it. remember our quadratic is ${question_expression}. our formula has a, b and c. what should each of these numbers be?",
+              "options": [
+                "a = the number by itself, b = the number in fron of the x, c = the number in front of the $x^2$",
+                "$a = ${a} \\cdot x^2, b = ${b} \\cdot x, c = ${c}",
+                "a=1,b=2,c=3",
+                "a= the number in front of the $x^2$, b = the number in front of the $x$, c = the term by itself"
+              ],
+              "correctindex": 3,
+              "option_explanations": [
+                "almost you just have it the wrong way around",
+                "you actually just want the numbers in front of xs, don't actually include the x",
+                "no",
+                "yes yay"
+              ]
+            },
+            {
+              "step_no": 3,
+              "step_type": "procedural_fluency",
+              "text": " we now have our foumula, ${subquestion_expression_subbed}. time to do the math. when you calculate this sum, what do you get?",
+              "subquestion_expression": "b**2-4*a*c",
+              "calculated_parameters": {
+                "opt1": "b**2-4*a*c",
+                "opt2": "b**2+4*a*c",
+                "opt3": "sqrt(b**2-4*a*c)",
+                "opt4": "(-b+sqrt(b**2-4*a*c))/(2*a)"
+              },
+              "options": [
+                "${opt1}",
+                "${opt2}",
+                "${opt3}",
+                "${opt4}"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "yes",
+                "no",
+                "no",
+                "no"
+              ]
+            }
+          ],
+          "answer_mapping": [
+            2,
+            3
+          ]
+        }
+      }
+    },
+    {
+      "id": "75f7fa5e-8e6e-4723-973f-030a35c3b0e4",
+      "text": "Complete the square for the expression ${question_expression}.",
+      "question_expression": "x**2 + b_coeff*x + c_coeff",
+      "generated_parameters": {
+        "b_coeff": {
+          "type": "int",
+          "min": 2,
+          "max": 12,
+          "exclude": [
+            1
+          ]
+        },
+        "additional_constant": {
+          "type": "int",
+          "min": -5,
+          "max": 5,
+          "exclude": [
+            0
+          ]
+        }
+      },
+      "calculated_parameters": {
+        "h": "b_coeff / 2",
+        "k": "additional_constant - (b_coeff / 2)**2",
+        "c_coeff": "additional_constant"
+      },
+      "options": [
+        "(x + ${h})^2 + ${k}",
+        "(x - ${h})^2 + ${k}",
+        "(x + ${h})^2 - ${k}",
+        "(x - ${h})^2 - ${k}"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! Completing the square: $x^2 + ${b_coeff}x + ${c_coeff} = (x + \\frac{ ${b_coeff} }{2})^2 + (${c_coeff} - \\frac{${b_coeff}^2}{4}) = (x + ${h})^2 + ${k}$",
+        "Incorrect. The sign inside the parentheses should be positive when the coefficient of $x$ is positive.",
+        "Incorrect. Check the sign of the constant term: $k = c - \\frac{b^2}{4}$.",
+        "Incorrect. Both the sign inside the parentheses and the constant term are wrong."
+      ],
+      "main_topic_index": 9,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "9": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.7,
+        "procedural_fluency": 0.8,
+        "problem_solving": 0.6,
+        "mathematical_communication": 0.4,
+        "memory": 0.6,
+        "spatial_reasoning": 0.2
+      },
+      "overall_difficulty": 0.55,
+      "prerequisites": {
+        "11": 0.9,
+        "13": 0.8
+      },
+      "breakdown": {
+        "completing_square_steps": {
+          "steps": [
+            {
+              "step_no": 1,
+              "step_type": "memory",
+              "text": "To complete the square for $x^2 + bx + c$, what value do we add and subtract?",
+              "options": [
+                "b",
+                "\\frac{b}{2}",
+                "b^2",
+                "\\left(\\frac{b}{2}\\right)^2"
+              ],
+              "correctindex": 3,
+              "option_explanations": [
+                "Incorrect. We need to consider half of $b$, then square it.",
+                "Incorrect. We need to square this value.",
+                "Incorrect. We need half of $b$, then square it.",
+                "Correct! We add and subtract $\\left(\\frac{b}{2}\\right)^2$ to complete the square."
+              ]
+            },
+            {
+              "step_no": 2,
+              "step_type": "procedural_fluency",
+              "text": "When we have $x^2 + bx + \\left(\\frac{b}{2}\\right)^2$, this factors as:",
+              "options": [
+                "\\left(x + \\frac{b}{2}\\right)^2",
+                "\\left(x - \\frac{b}{2}\\right)^2",
+                "x^2 + b^2",
+                "\\left(x + b\\right)^2"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "Correct! $x^2 + bx + \\left(\\frac{b}{2}\\right)^2 = \\left(x + \\frac{b}{2}\\right)^2$",
+                "Incorrect. The sign should match the sign of the $bx$ term.",
+                "Incorrect. This is not a perfect square trinomial.",
+                "Incorrect. The constant term in the binomial should be $\\frac{b}{2}$, not $b$."
+              ]
+            }
+          ],
+          "answer_mapping": [
+            1,
+            2,
+            3
+          ]
+        }
+      }
+    },
+    {
+      "id": "86ba4da9-1df8-4708-8b90-00538ba447ca",
+      "text": "Solve the equation ${question_expression} for $x$.",
+      "question_expression": "a*x + b = c*x + d",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": 2,
+          "max": 8
+        },
+        "b": {
+          "type": "int",
+          "min": -15,
+          "max": 15
+        },
+        "c": {
+          "type": "int",
+          "min": 1,
+          "max": 6
+        },
+        "d": {
+          "type": "int",
+          "min": -12,
+          "max": 12
+        }
+      },
+      "calculated_parameters": {
+        "solution": "(d - b) / (a - c)"
+      },
+      "options": [
+        "x = ${solution}",
+        "x = \\frac{${b} - ${d}}{${a} - ${c}}",
+        "x = \\frac{${d} - ${b}}{${c} - ${a}}",
+        "x = \\frac{${a} - ${c}}{${d} - ${b}}"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! Rearranging: $${a}x + ${b} = ${c}x + ${d} \\Rightarrow ${a}x - ${c}x = ${d} - ${b} \\Rightarrow x(${a} - ${c}) = ${d} - ${b} \\Rightarrow x = \\frac{${d} - ${b}}{${a} - ${c}} = ${solution}$",
+        "Incorrect. You have the terms in the numerator reversed. It should be $d - b$, not $b - d$.",
+        "Incorrect. You have the terms in the denominator reversed. It should be $a - c$, not $c - a$.",
+        "Incorrect. You have inverted the fraction completely."
+      ],
+      "main_topic_index": 0,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "0": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.4,
+        "procedural_fluency": 0.8,
+        "problem_solving": 0.5,
+        "mathematical_communication": 0.3,
+        "memory": 0.4,
+        "spatial_reasoning": 0.0
+      },
+      "overall_difficulty": 0.39999999999999997,
+      "prerequisites": {
+        "6": 0.5,
+        "14": 0.8,
+        "15": 0.6
+      }
+    },
+    {
+      "id": "c9cb448f-aa8d-4591-8079-8d0f53e98fa7",
+      "text": "Factor the quadratic expression ${question_expression_expanded}.",
+      "question_expression": "(x-r_1)*(x-r_2)",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": -24,
+          "max": 24,
+          "exclude": 0
+        },
+        "b": {
+          "type": "int",
+          "min": -12,
+          "max": 12,
+          "exclude": 0
+        },
+        "c": {
+          "type": "int",
+          "min": -24,
+          "max": 24,
+          "exclude": 0
+        },
+        "d": {
+          "type": "int",
+          "min": -12,
+          "max": 12,
+          "exclude": 0
+        }
+      },
+      "calculated_parameters": {
+        "r_1": "a/b",
+        "r_2": "c/d"
+      },
+      "options": [
+        "(${b}x - ${c})(${d}x - ${a})",
+        "(${b}x - ${a})(${d}x - ${c})",
+        "(27x + 1)(2x - 12)",
+        "(${d}x + ${c})(${b}x - ${a})"
+      ],
+      "correctindex": 1,
+      "option_explanations": [
+        "Incorrect. You may have switched the constants in the factors.",
+        "Correct! When factoring $(x - r_1)(x - r_2)$ where $r_1 = \\frac{${a}}{${b}}$ and $r_2 = \\frac{${c}}{${d}}$, we get $(${b}x - ${a})(${d}x - ${c})$.",
+        "Incorrect. This is a specific example that doesn't match your expression.",
+        "Incorrect. Check the signs in your factors."
+      ],
+      "main_topic_index": 6,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "6": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.4,
+        "procedural_fluency": 0.8,
+        "problem_solving": 0.6,
+        "mathematical_communication": 0.2,
+        "memory": 0.3,
+        "spatial_reasoning": 0.0
+      },
+      "overall_difficulty": 0.38333333333333336,
+      "prerequisites": {
+        "7": 0.8,
+        "12": 0.9
+      }
+    }
+  ]
+}

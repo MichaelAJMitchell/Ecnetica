@@ -15,7 +15,7 @@ from typing import Dict, List, Set, Tuple, Optional, Union, Any
 from dataclasses import dataclass, field
 from datetime import datetime
 import random
-from mcq_algorithm_different_numbers import (
+from mcq_algorithm_current import (
     MCQScheduler, OptimizedMCQVector, BayesianKnowledgeTracing,
     StudentProfile, KnowledgeGraph, StudentManager
 )
@@ -912,7 +912,7 @@ def create_custom_study_session(knowledge_graph: KnowledgeGraph,
     return scheduler.select_custom_mcqs(student_id, custom_request)
 
 
-kg = KnowledgeGraph('mcq_algorithm_files/kg.json', 'mcq_algorithm_files/computed_mcqs_different_numbers.json', 'config.json')
+kg = KnowledgeGraph('_static/kg_new.json', '_static/computed_mcqs_breakdown.json', '_static/config.json')
 student_manager = StudentManager(kg.config)
 bkt_system = BayesianKnowledgeTracing(kg, student_manager)
 # Create test student with some mastery levels
@@ -933,4 +933,4 @@ selected_mcqs = create_custom_study_session(
 print(f"Selected: {selected_mcqs}")
 for mcq_id in selected_mcqs:
     mcq = kg.get_mcq_safely(mcq_id, need_full_text=True)
-    print(mcq.question_text)
+    print(mcq.question_text,)

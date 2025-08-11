@@ -281,9 +281,9 @@ html_theme.sidebar_secondary.remove: true
           // Load JSON files
           const files = [
             { name: "config.json", url: "../../_static/config.json" },
-            { name: "small-graph-kg.json", url: "../../_static/small-graph-kg.json" },
-            { name: "small-graph-mcqs.json", url: "../../_static/small-graph-mcqs.json" },
-            { name: "small-graph-computed_mcqs.json", url: "../../_static/small-graph-computed_mcqs.json" }
+            { name: "kg_new.json", url: "../../_static/kg_new.json" },
+            { name: "mcqs_breakdown.json", url: "../../_static/mcqs_breakdown.json" },
+            { name: "computed_mcqs_breakdown.json", url: "../../_static/computed_mcqs_breakdown.json" }
           ];
 
           for (const file of files) {
@@ -308,10 +308,7 @@ html_theme.sidebar_secondary.remove: true
                 return json.dumps(obj)
 
             # Initialize the system
-            kg = bkt_system.KnowledgeGraph(
-                  nodes_file='small-graph-kg.json',
-                  mcqs_file='small-graph-computed_mcqs.json',
-                  config_file='config.json')
+            kg = bkt_system.KnowledgeGraph()
             student_manager = bkt_system.StudentManager()
             mcq_scheduler = bkt_system.MCQScheduler(kg, student_manager)
             bkt = bkt_system.BayesianKnowledgeTracing(kg, student_manager)

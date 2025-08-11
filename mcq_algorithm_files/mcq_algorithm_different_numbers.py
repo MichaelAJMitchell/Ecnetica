@@ -25,9 +25,7 @@ from datetime import datetime
 import math
 import json
 import random
-import sympy as sp
 from sympy import symbols, sympify, latex, pi, simplify, factor, expand, sin, cos, sqrt, tan, Poly, collect, Rational
-from sympy.abc import x
 
 x, a, b, c, d, r_1, r_2 = symbols('x a b c d r_1 r_2')
 local_namespace = {'x': x,'a':a,'b':b,'c':c, 'r_1': r_1, 'r_2': r_2,'sin': sin, 'cos': cos, 'pi': pi,'sqrt': sqrt}
@@ -1819,7 +1817,7 @@ class KnowledgeGraph:
     Uses a directed graph where edges represent prerequisite relationships.
     This class stores a lot of things
     """
-    def __init__(self, nodes_file: str = 'mcq_algorithm_files\kg.json',
+    def __init__(self, nodes_file: str = '_static\kg_new.json',
                  mcqs_file: str = 'mcq_algorithm_files\kg_mcq_code_system\computed_mcqs.json',
                  config_file: str = 'config.json'):
 

@@ -1,8 +1,8 @@
 {
   "mcqs": [
     {
-      "id": "16ba13a9-538a-4448-9139-ce8970d5b414",
-      "text": "What is the discriminant of the quadratic equation ${question_expression}$?",
+      "id": "a9010a37-3124-4669-8d43-de9f36cdcaf6",
+      "text": "What is the discriminant of the quadratic equation ${question_expression}?",
       "question_expression": "a*x**2 +b*x + c = 0",
       "generated_parameters": {
         "a": {
@@ -27,11 +27,11 @@
         "b**2-4*a*c",
         "b**2+4*a*c",
         "sqrt(b**2-4*a*c)",
-        "(-b+sqrt(b**2-4*a*c))/(2*a))"
+        "(-b+sqrt(b**2-4*a*c))/(2*a)"
       ],
       "correctindex": 0,
       "option_explanations": [
-        "Correct! $\\Delta = b^2 - 4ac = (-5)^2 - 4(2)(3) = 25 - 24 = 1$",
+        "Correct!The discriminant is $b^2 - 4ac$",
         "Incorrect. You may have calculated $b^2 + 4ac$ instead of $b^2 - 4ac$.",
         "Incorrect. Remember the formula is $b^2 - 4ac$, not $sqrt{b^2-4ac}$.",
         "Incorrect. The discriminnant is just the part under square root of the quadratic question."
@@ -52,11 +52,164 @@
       "overall_difficulty": 0.2833333333333334,
       "prerequisites": {
         "16": 0.7
+      },
+      "breakdown": {
+        "sign_error": {
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [
+                14
+              ],
+              "step_type": "memory",
+              "text": "what is the formula for solving quadratic equations?",
+              "options": [
+                "x=\\frac{-b+\\sqrt{b^2-4ac}}{2a}",
+                "\\sqrt{b^2-4ac}",
+                "\\frac{-b\\pm \\sqrt{b^2-4ac}}{2a}",
+                "ax^2+bx+c"
+              ],
+              "correctindex": 2,
+              "option_explanations": [
+                "not quite, there is a plus",
+                "this is more like the formula for the discriminant, the question is asking for the whole formula",
+                "yes! this is the formula you use when you are solving quadratic equations",
+                "this is actually the form of an actual quadratic equation. we want the formula you can use to solve for x. "
+              ]
+            },
+            {
+              "step_no": 2,
+              "step_type": "memory",
+              "text": "the discriminant is part of the quadratic formula, which bit?",
+              "options": [
+                "$\\sqrt{b^2 - 4ac}$",
+                "$b^2 - 4ac$",
+                "2a",
+                "-b \\pm \\sqrt{b^2-4ac}"
+              ],
+              "correctindex": 1,
+              "option_explanations": [
+                "the discriminant is the bit under the square root, but it doesn't actually include the square root itself",
+                "yep its the bit under the square root",
+                "remember we only want the bit under the square root, not the whole top of the fraction",
+                "no"
+              ]
+            },
+            {
+              "step_no": 3,
+              "step_type": "procedural_fluency",
+              "text": "now we have the formula $b^2-4ac$, we want to substitute our numbers into it. remember our quadratic is ${question_expression}. our formula has a, b and c. what should each of these numbers be?",
+              "options": [
+                "a = the number by itself, b = the number in fron of the x, c = the number in front of the $x^2$",
+                "$a = ${a} \\cdot x^2, b = ${b} \\cdot x, c = ${c}",
+                "a=1,b=2,c=3",
+                "a= the number in front of the $x^2$, b = the number in front of the $x$, c = the term by itself"
+              ],
+              "correctindex": 3,
+              "option_explanations": [
+                "almost you just have it the wrong way around",
+                "you actually just want the numbers in front of xs, don't actually include the x",
+                "no",
+                "yes yay"
+              ]
+            },
+            {
+              "step_no": 4,
+              "step_type": "procedural_fluency",
+              "text": " we now have our foumula, ${subquestion_expression_subbed}. time to do the math. when you calculate this sum, what do you get?",
+              "subquestion_expression": "b**2-4*a*c",
+              "calculated_parameters": {
+                "opt1": "b**2-4*a*c",
+                "opt2": "b**2+4*a*c",
+                "opt3": "sqrt(b**2-4*a*c)",
+                "opt4": "(-b+sqrt(b**2-4*a*c))/(2*a)"
+              },
+              "options": [
+                "${opt1}",
+                "${opt2}",
+                "${opt3}",
+                "${opt4}"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "yes",
+                "no",
+                "no",
+                "no"
+              ]
+            }
+          ]
+        },
+        "formula_confusion": {
+          "steps": [
+            {
+              "step_no": 1,
+              "step_type": "memory",
+              "text": "the discriminant is part of the quadratic formula, which bit?",
+              "options": [
+                "$\\sqrt{b^2 - 4ac}$",
+                "$b^2 - 4ac$",
+                "2a",
+                "-b \\pm \\sqrt{b^2-4ac}"
+              ],
+              "correctindex": 1,
+              "option_explanations": [
+                "the discriminant is the bit under the square root, but it doesn't actually include the square root itself",
+                "yep its the bit under the square root",
+                "remember we only want the bit under the square root, not the whole top of the fraction",
+                "no"
+              ]
+            },
+            {
+              "step_no": 2,
+              "step_type": "procedural_fluency",
+              "text": "now we have the formula $b^2-4ac$, we want to substitute our numbers into it. remember our quadratic is ${question_expression}. our formula has a, b and c. what should each of these numbers be?",
+              "options": [
+                "a = the number by itself, b = the number in fron of the x, c = the number in front of the $x^2$",
+                "$a = ${a} \\cdot x^2, b = ${b} \\cdot x, c = ${c}",
+                "a=1,b=2,c=3",
+                "a= the number in front of the $x^2$, b = the number in front of the $x$, c = the term by itself"
+              ],
+              "correctindex": 3,
+              "option_explanations": [
+                "almost you just have it the wrong way around",
+                "you actually just want the numbers in front of xs, don't actually include the x",
+                "no",
+                "yes yay"
+              ]
+            },
+            {
+              "step_no": 3,
+              "step_type": "procedural_fluency",
+              "text": " we now have our foumula, ${subquestion_expression_subbed}. time to do the math. when you calculate this sum, what do you get?",
+              "subquestion_expression": "b**2-4*a*c",
+              "calculated_parameters": {
+                "opt1": "b**2-4*a*c",
+                "opt2": "b**2+4*a*c",
+                "opt3": "sqrt(b**2-4*a*c)",
+                "opt4": "(-b+sqrt(b**2-4*a*c))/(2*a)"
+              },
+              "options": [
+                "${opt1}",
+                "${opt2}",
+                "${opt3}",
+                "${opt4}"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "yes",
+                "no",
+                "no",
+                "no"
+              ]
+            }
+          ]
+        }
       }
     },
     {
-      "id": "7b809690-423f-40df-b1d7-5a5569a3f903",
-      "text": "Factor the quadratic expression ${question_expression_expanded}$.",
+      "id": "534fd299-ba8d-4166-bce8-6a6d0ab45994",
+      "text": "Factor the quadratic expression ${question_expression_expanded}.",
       "question_expression": "(x-r_1)*(x-r_2)",
       "generated_parameters": {
         "a": {
@@ -121,8 +274,8 @@
       }
     },
     {
-      "id": "a15a8925-0c6b-4516-bf50-81b5818e1ca2",
-      "text": "Solve for x in the linear equation ${question_expression}$.",
+      "id": "8285bb39-4314-450f-ad55-68a38869106a",
+      "text": "Solve for x in the linear equation ${question_expression}.",
       "question_expression": "a*x + b = c",
       "generated_parameters": {
         "a": {
@@ -179,8 +332,8 @@
       }
     },
     {
-      "id": "99d3c889-4538-4301-a083-c43cde871ae0",
-      "text": "What is the standard form of the linear equation ${question_expression}$?",
+      "id": "f8493fe9-6714-41e3-aa99-0ad767b4812d",
+      "text": "What is the standard form of the linear equation ${question_expression}?",
       "question_expression": "y - m*x = b",
       "generated_parameters": {
         "m": {
@@ -233,8 +386,8 @@
       }
     },
     {
-      "id": "a42eb7bb-81ba-4272-a184-f1fc496bd23c",
-      "text": "Expand the expression ${question_expression}$.",
+      "id": "356ba2e0-fa2a-48e5-8470-0fd0afdb312a",
+      "text": "Expand the expression ${question_expression}.",
       "question_expression": "(a*x + b)*(c*x + d)",
       "generated_parameters": {
         "a": {
@@ -295,8 +448,8 @@
       }
     },
     {
-      "id": "2ea4b9cf-8583-4089-89b1-365452e75bf5",
-      "text": "Find the distance between points ${question_expression}$.",
+      "id": "6e357e84-b281-481f-8ec8-eb855e89b54d",
+      "text": "Find the distance between points ${question_expression}.",
       "question_expression": "(x1, y1) and (x2, y2)",
       "generated_parameters": {
         "x1": {
@@ -359,8 +512,8 @@
       }
     },
     {
-      "id": "c7ecb879-711c-40e1-84a7-59aa35e3d0a7",
-      "text": "Complete the square for ${question_expression}$.",
+      "id": "7d1a926a-a8a5-4280-910b-caddae94f903",
+      "text": "Complete the square for ${question_expression}.",
       "question_expression": "x**2 + b*x + c",
       "generated_parameters": {
         "h": {
@@ -411,8 +564,8 @@
       }
     },
     {
-      "id": "737bf97b-4338-4955-b7ca-a06821bd5d01",
-      "text": "What is the axis of symmetry of the parabola ${question_expression}$?",
+      "id": "86bb858e-46a4-4353-b9c4-201bc5274112",
+      "text": "What is the axis of symmetry of the parabola ${question_expression}?",
       "question_expression": "y = a*x**2 + b*x + c",
       "generated_parameters": {
         "a": {
@@ -474,8 +627,8 @@
       }
     },
     {
-      "id": "34b6c62b-8940-4ef8-a731-9a4967f2d811",
-      "text": "Find the vertex of the parabola ${question_expression}$.",
+      "id": "713f7200-0559-47bf-98ad-e7586c085dcf",
+      "text": "Find the vertex of the parabola ${question_expression}.",
       "question_expression": "y = a*(x - h)**2 + k",
       "generated_parameters": {
         "a": {
@@ -526,8 +679,8 @@
       "prerequisites": {}
     },
     {
-      "id": "a48ef4cc-e0fc-4455-b8b6-abe8d6494478",
-      "text": "Find the x-intercepts of ${question_expression_expanded}$.",
+      "id": "385153ea-8ec1-44f3-a560-f6583a93af7c",
+      "text": "Find the x-intercepts of ${question_expression_expanded}.",
       "question_expression": "y = (x - r)*(x - s)",
       "generated_parameters": {
         "r": {
@@ -576,8 +729,8 @@
       }
     },
     {
-      "id": "8cf314f9-f588-4660-8795-d8322ff5e919",
-      "text": "Use the quadratic formula to solve ${question_expression}$.",
+      "id": "69bc5e76-1061-4567-b1bf-0244b269195f",
+      "text": "Use the quadratic formula to solve ${question_expression}.",
       "question_expression": "a*x**2 + b*x + c = 0",
       "generated_parameters": {
         "a": {
@@ -643,8 +796,8 @@
       }
     },
     {
-      "id": "983199bb-d0d8-4858-b913-35e36d2c3446",
-      "text": "Simplify the expression ${question_expression_collected}$.",
+      "id": "25efd912-1f45-43a9-8aa7-0df61ca0458f",
+      "text": "Simplify the expression ${question_expression_collected}.",
       "question_expression": "a*x**2 + b*x + a*x**2 + c*x + d + e",
       "generated_parameters": {
         "a": {
@@ -728,8 +881,8 @@
       }
     },
     {
-      "id": "6073126a-bd15-4a13-a3fb-a3ca63be5c89",
-      "text": "Find the x-intercepts of ${question_expression}$.",
+      "id": "5c8d90a4-aa13-4a51-aa85-24b44c9b10ad",
+      "text": "Find the x-intercepts of ${question_expression}.",
       "question_expression": "y = (x - root1)*(x - root2)",
       "generated_parameters": {
         "root1": {
@@ -791,8 +944,8 @@
       }
     },
     {
-      "id": "f4360b73-1b10-452f-ab5b-4741b338c4cf",
-      "text": "What is the vertex of the parabola ${question_expression}$?",
+      "id": "35f63a5d-f345-4ba7-a02e-0720f705d835",
+      "text": "What is the vertex of the parabola ${question_expression}?",
       "question_expression": "y = a*(x - h)**2 + k",
       "generated_parameters": {
         "a": {
@@ -849,8 +1002,8 @@
       }
     },
     {
-      "id": "8f9fc62a-458a-4e48-80c9-4a563e8cb08c",
-      "text": "Solve the equation ${question_expression}$ by substitution, where $u = x^2$.",
+      "id": "8d22910a-a407-47e1-b911-c318803be45e",
+      "text": "Solve the equation ${question_expression} by substitution, where $u = x^2$.",
       "question_expression": "x**4 + coeff*x**2 + constant = 0",
       "generated_parameters": {
         "u1": {
@@ -909,8 +1062,8 @@
       }
     },
     {
-      "id": "0f3ac2a5-1d5c-49db-a38b-f6d622e05397",
-      "text": "Factor the quadratic expression ${question_expression}$.",
+      "id": "474882c0-ef4e-4a2d-8711-78fecf1d590c",
+      "text": "Factor the quadratic expression ${question_expression}.",
       "question_expression": "x**2 + (r1 + r2)*x + r1*r2",
       "generated_parameters": {
         "r1": {
@@ -966,8 +1119,8 @@
       }
     },
     {
-      "id": "6c3b8ec5-bac8-4309-b579-13facc83917d",
-      "text": "Factor the expression ${question_expression}$ where the leading coefficient is not 1.",
+      "id": "abbe4aa2-3ce1-4809-9cf7-112d975fd63e",
+      "text": "Factor the expression ${question_expression} where the leading coefficient is not 1.",
       "question_expression": "leading_coeff*x**2 + middle_coeff*x + constant_term",
       "generated_parameters": {
         "leading_coeff": {
@@ -1036,8 +1189,8 @@
       }
     },
     {
-      "id": "6732317c-c995-471d-a5aa-ea5a9b16abb8",
-      "text": "Find the distance between points ${question_expression}$.",
+      "id": "c9e9f34d-428d-40f1-a82e-245a5c71c356",
+      "text": "Find the distance between points ${question_expression}.",
       "question_expression": "(x1, y1) and (x2, y2)",
       "generated_parameters": {
         "x1": {
@@ -1100,8 +1253,8 @@
       }
     },
     {
-      "id": "91edd941-5db5-4942-815e-ea73a81a1cdf",
-      "text": "Complete the square for ${question_expression}$.",
+      "id": "f69b6f8e-2a5b-4e91-a965-dfbc889cd888",
+      "text": "Complete the square for ${question_expression}.",
       "question_expression": "x**2 + b_coeff*x + c_coeff",
       "generated_parameters": {
         "b_coeff": {
@@ -1156,8 +1309,8 @@
       }
     },
     {
-      "id": "a7436af5-5072-4aa4-8481-1e6cd81e1b67",
-      "text": "Solve the linear equation ${question_expression}$ for x.",
+      "id": "aa186660-af02-4dae-9e34-44011d11538a",
+      "text": "Solve the linear equation ${question_expression} for x.",
       "question_expression": "a*x + b = c*x + d",
       "generated_parameters": {
         "a": {
@@ -1219,8 +1372,8 @@
       }
     },
     {
-      "id": "9a1cc202-2f7d-436e-8a8b-1c00b693654c",
-      "text": "What is the degree of the polynomial ${question_expression}$?",
+      "id": "554d3a54-2516-4522-a1cc-5c2c3c4c4212",
+      "text": "What is the degree of the polynomial ${question_expression}?",
       "question_expression": "poly",
       "generated_parameters": {
         "poly": {
@@ -1276,8 +1429,8 @@
       }
     },
     {
-      "id": "90f1ce33-2c0a-40a0-9db4-431783d0512d",
-      "text": "Factor the monic quadratic polynomial ${question_expression}$.",
+      "id": "104adb57-010c-43ef-bc6f-52f1a07e9cf5",
+      "text": "Factor the monic quadratic polynomial ${question_expression}.",
       "question_expression": "monic_poly",
       "generated_parameters": {
         "monic_poly": {
@@ -1324,8 +1477,8 @@
       }
     },
     {
-      "id": "b2678875-9af4-415e-9cc2-6246004c5b56",
-      "text": "Expand the polynomial product ${question_expression}$.",
+      "id": "e4dff5c2-207c-43c1-bf9d-adfc8ccae2c3",
+      "text": "Expand the polynomial product ${question_expression}.",
       "question_expression": "poly1 * poly2",
       "generated_parameters": {
         "poly1": {
@@ -1386,8 +1539,8 @@
       }
     },
     {
-      "id": "a8eb908e-ab5c-4c34-b8f5-00d711317b02",
-      "text": "What is the slope of the linear function ${question_expression}$?",
+      "id": "e5a69fe7-da54-4faf-9a56-83b00aa11c9a",
+      "text": "What is the slope of the linear function ${question_expression}?",
       "question_expression": "linear_func",
       "generated_parameters": {
         "linear_func": {
@@ -1442,8 +1595,8 @@
       }
     },
     {
-      "id": "70cc1795-1cf3-4c9b-9d73-f99769715758",
-      "text": "Write the quadratic function ${question_expression}$ in standard form.",
+      "id": "4993f26b-2cb0-4828-b733-82da5043c7d8",
+      "text": "Write the quadratic function ${question_expression} in standard form.",
       "question_expression": "quad_func",
       "generated_parameters": {
         "quad_func": {
@@ -1499,8 +1652,8 @@
       }
     },
     {
-      "id": "6e3c8d9b-4cc4-481f-9c6d-a2d8a8b8b1be",
-      "text": "The exponential function ${question_expression}$ has which characteristic?",
+      "id": "23d66929-6ed5-4783-8e87-0b2d257811b4",
+      "text": "The exponential function ${question_expression} has which characteristic?",
       "question_expression": "exp_func",
       "generated_parameters": {
         "exp_func": {
@@ -1560,8 +1713,8 @@
       }
     },
     {
-      "id": "4372c7ef-9c28-41af-9c8d-5011e690f957",
-      "text": "Factor the non-monic polynomial ${question_expression}$ by first factoring out the leading coefficient.",
+      "id": "169821a4-a09c-4d1f-87d2-0eaf97bf53e5",
+      "text": "Factor the non-monic polynomial ${question_expression} by first factoring out the leading coefficient.",
       "question_expression": "non_monic_poly",
       "generated_parameters": {
         "non_monic_poly": {
@@ -1618,8 +1771,8 @@
       }
     },
     {
-      "id": "94740ae8-af8e-47f8-a9d9-8598cf4b69ca",
-      "text": "What is the vertex of the parabola represented by the quadratic function ${question_expression}$?",
+      "id": "048bcd50-5675-4ff6-99f2-849073a8f490",
+      "text": "What is the vertex of the parabola represented by the quadratic function ${question_expression}?",
       "question_expression": "parabola_func",
       "generated_parameters": {
         "parabola_func": {
@@ -1671,8 +1824,8 @@
       }
     },
     {
-      "id": "16554837-cf94-4590-8331-8531dbd881e7",
-      "text": "Determine the leading coefficient of the polynomial ${question_expression}$.",
+      "id": "020aaa91-504d-4a9c-ac09-61369ba7999a",
+      "text": "Determine the leading coefficient of the polynomial ${question_expression}.",
       "question_expression": "general_poly",
       "generated_parameters": {
         "general_poly": {

@@ -1,4 +1,12 @@
+// dark mode and light mode theme toggle
+// with a listener for system theme changes
+
 document.addEventListener('DOMContentLoaded', function() {
+    createEnhancedThemeToggle();
+    createCourseNavigator();
+});
+
+function createEnhancedThemeToggle() {
     // Find the navbar end section
     const navbarEnd = document.querySelector('.navbar-nav.navbar-end') || 
                      document.querySelector('.navbar-header-items__end') ||
@@ -11,13 +19,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Detect browser's preferred theme
     const getPreferredTheme = () => {
-        // Check if user has a saved preference
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
             return savedTheme;
         }
-        
-        // Otherwise, use browser's preference
         return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     };
     
@@ -28,41 +33,53 @@ document.addEventListener('DOMContentLoaded', function() {
     // Create toggle button
     const themeToggle = document.createElement('button');
     themeToggle.className = 'btn theme-toggle-custom';
-    themeToggle.innerHTML = initialTheme === 'dark' ? '☀️' : '🌙';
     themeToggle.setAttribute('aria-label', 'Toggle theme');
+    themeToggle.setAttribute('title', 'Toggle light/dark theme');
+    
+    // Icon functions using navbar-icon class
+    const getSunIcon = () => `<svg class="navbar-icon" viewBox="0 0 24 24">
+        <path d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+    </svg>`;
+    
+    const getMoonIcon = () => `<svg class="navbar-icon" viewBox="0 0 24 24">
+        <path d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+    </svg>`;
+    
+    // Set initial icon (sun for dark theme, moon for light theme)
+    themeToggle.innerHTML = initialTheme === 'dark' ? getSunIcon() : getMoonIcon();
     
     // Add to navbar
     navbarEnd.appendChild(themeToggle);
     
-    // Toggle functionality
+    // Toggle functionality with icon update
     themeToggle.addEventListener('click', function() {
         const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
         
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
-        themeToggle.innerHTML = newTheme === 'dark' ? '☀️' : '🌙';
+        
+        // Update icon with smooth transition
+        themeToggle.style.transform = 'scale(0.8)';
+        setTimeout(() => {
+            themeToggle.innerHTML = newTheme === 'dark' ? getSunIcon() : getMoonIcon();
+            themeToggle.style.transform = 'scale(1)';
+        }, 100);
     });
     
     // Listen for system theme changes
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
-        // Only update if user hasn't manually set a preference
         if (!localStorage.getItem('theme')) {
             const newTheme = e.matches ? 'dark' : 'light';
             document.documentElement.setAttribute('data-theme', newTheme);
-            themeToggle.innerHTML = newTheme === 'dark' ? '☀️' : '🌙';
+            themeToggle.innerHTML = newTheme === 'dark' ? getSunIcon() : getMoonIcon();
         }
     });
-});
+}
 
-// Add this to your _static/theme.js file (after your existing theme toggle code)
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Your existing theme toggle code stays here...
-    
-    // Add Course Navigator
-    createCourseNavigator();
-});
+// course navigator creation
+// This function creates a course navigator panel with a structured course outline
+// It includes a toggle button, collapsible sections, and search functionality.
 
 function createCourseNavigator() {
     // Course structure - matches your actual _toc.yml
@@ -144,36 +161,13 @@ function createNavigatorButton() {
     const navButton = document.createElement('button');
     navButton.id = 'course-nav-toggle';
     navButton.className = 'btn course-nav-toggle';
-    navButton.innerHTML = '📋';
+    
+    navButton.innerHTML = `<svg class="navbar-icon" viewBox="0 0 24 24">
+        <path d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+    </svg>`;
+    
     navButton.setAttribute('aria-label', 'Open Course Navigator');
     navButton.setAttribute('title', 'Course Navigator (Ctrl+M)');
-    
-    // Style the button
-    navButton.style.cssText = `
-        background: none;
-        border: 1px solid var(--pst-color-border, #dee2e6);
-        border-radius: 0.375rem;
-        padding: 0.375rem;
-        margin-left: 0.5rem;
-        color: var(--pst-color-text-base, #333);
-        cursor: pointer;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.2s ease;
-        font-size: 1rem;
-    `;
-    
-    // Add hover effect
-    navButton.addEventListener('mouseenter', () => {
-        navButton.style.backgroundColor = 'var(--pst-color-surface, #f8f9fa)';
-        navButton.style.transform = 'scale(1.05)';
-    });
-    
-    navButton.addEventListener('mouseleave', () => {
-        navButton.style.backgroundColor = 'transparent';
-        navButton.style.transform = 'scale(1)';
-    });
     
     // Add click handler
     navButton.addEventListener('click', toggleNavigator);
@@ -194,82 +188,27 @@ function createNavigatorPanel(courseStructure) {
     // Create overlay
     const overlay = document.createElement('div');
     overlay.id = 'course-nav-overlay';
-    overlay.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 9998;
-        display: none;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    `;
     
     // Create panel
     const panel = document.createElement('div');
     panel.id = 'course-nav-panel';
-    panel.style.cssText = `
-        position: fixed;
-        top: 0;
-        right: -400px;
-        width: 400px;
-        height: 100%;
-        background: var(--background-primary, #fff);
-        border-left: 1px solid var(--border-primary, #dee2e6);
-        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-        z-index: 9999;
-        transition: right 0.3s ease;
-        overflow-y: auto;
-        display: flex;
-        flex-direction: column;
-    `;
     
     // Create panel header
     const header = document.createElement('div');
-    header.style.cssText = `
-        padding: 20px;
-        border-bottom: 1px solid var(--border-light, #e9ecef);
-        background: var(--background-secondary, #f8f9fa);
-        position: sticky;
-        top: 0;
-        z-index: 10;
-    `;
+    header.className = 'nav-panel-header';
     
     header.innerHTML = `
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-            <h3 style="margin: 0; color: var(--text-primary, #333); font-size: 1.2rem;">📚 Course Navigator</h3>
-            <button id="close-nav-panel" style="
-                background: none;
-                border: none;
-                font-size: 1.5rem;
-                cursor: pointer;
-                color: var(--text-muted, #666);
-                padding: 5px;
-                border-radius: 4px;
-                transition: background-color 0.2s;
-            " title="Close (Esc)">×</button>
+        <div class="nav-panel-title-row">
+            <h3 class="nav-panel-title">Course Navigator</h3>
+            <button id="close-nav-panel" class="nav-panel-close" title="Close (Esc)">×</button>
         </div>
-        <input type="text" id="nav-search" placeholder="Search topics..." style="
-            width: 100%;
-            padding: 8px 12px;
-            margin-top: 15px;
-            border: 1px solid var(--border-primary, #dee2e6);
-            border-radius: 4px;
-            background: var(--background-primary, #fff);
-            color: var(--text-primary, #333);
-            font-size: 14px;
-        ">
+        <input type="text" id="nav-search" class="nav-search-input" placeholder="Search topics...">
     `;
     
     // Create navigation content
     const content = document.createElement('div');
     content.id = 'nav-content';
-    content.style.cssText = `
-        padding: 20px;
-        flex: 1;
-    `;
+    content.className = 'nav-content';
     
     // Build navigation tree
     content.appendChild(buildNavigationTree(courseStructure));
@@ -302,52 +241,17 @@ function buildNavigationTree(structure, level = 0) {
             link.href = value;
             link.textContent = key;
             link.className = 'nav-item-link';
-            link.style.cssText = `
-                display: block;
-                padding: 8px 12px;
-                color: var(--text-primary, #333);
-                text-decoration: none;
-                border-radius: 4px;
-                margin: 2px 0;
-                transition: all 0.2s ease;
-                font-size: 14px;
-            `;
             
             // Highlight current page
             if (window.location.pathname.includes(value)) {
-                link.style.backgroundColor = 'var(--primary-light, #e3f2fd)';
-                link.style.color = 'var(--primary, #1976d2)';
-                link.style.fontWeight = 'bold';
+                link.classList.add('current-page');
             }
-            
-            link.addEventListener('mouseenter', () => {
-                if (!window.location.pathname.includes(value)) {
-                    link.style.backgroundColor = 'var(--background-tertiary, #f0f0f0)';
-                }
-            });
-            
-            link.addEventListener('mouseleave', () => {
-                if (!window.location.pathname.includes(value)) {
-                    link.style.backgroundColor = 'transparent';
-                }
-            });
             
             item.appendChild(link);
         } else {
             // It's a section with subsections
             const toggle = document.createElement('div');
             toggle.className = 'nav-section-toggle';
-            toggle.style.cssText = `
-                padding: 8px 12px;
-                cursor: pointer;
-                color: var(--text-primary, #333);
-                font-weight: 600;
-                border-radius: 4px;
-                margin: 2px 0;
-                transition: background-color 0.2s;
-                font-size: 14px;
-                user-select: none;
-            `;
             
             const isExpanded = level < 2; // Auto-expand first two levels
             toggle.innerHTML = `${isExpanded ? '▼' : '▶'} ${key}`;
@@ -359,14 +263,6 @@ function buildNavigationTree(structure, level = 0) {
                 const isVisible = subsection.style.display !== 'none';
                 subsection.style.display = isVisible ? 'none' : 'block';
                 toggle.innerHTML = `${isVisible ? '▶' : '▼'} ${key}`;
-            });
-            
-            toggle.addEventListener('mouseenter', () => {
-                toggle.style.backgroundColor = 'var(--background-tertiary, #f0f0f0)';
-            });
-            
-            toggle.addEventListener('mouseleave', () => {
-                toggle.style.backgroundColor = 'transparent';
             });
             
             item.appendChild(toggle);

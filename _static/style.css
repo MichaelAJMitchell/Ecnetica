@@ -1446,8 +1446,9 @@ iframe {
 }
 
 /*========================
-theme
+8. THEME STYLES (includes navbar)
 ========================*/
+
 /* Force navbar end items to the far right */
 .navbar-header-items__end {
   margin-left: auto !important;
@@ -1467,36 +1468,82 @@ theme
   justify-content: space-between !important;
 }
 
+/* ========== NAVBAR ICONS ========== */
 
-/* Custom theme toggle button */
-.theme-toggle-custom {
-    background: none;
-    border: 1px solid var(--pst-color-border);
-    border-radius: 0.375rem;
-    padding: 0.375rem;
-    margin-left: 0.5rem;
-    color: var(--pst-color-text-base);
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+/* Base icon styling */
+.navbar-icon {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
     transition: all 0.2s ease;
 }
 
+/* Icon size variants 
+.navbar-icon--small {
+    width: 16px;
+    height: 16px;
+}
+
+.navbar-icon--medium {
+    width: 20px;
+    height: 20px;
+}
+
+.navbar-icon--large {
+    width: 24px;
+    height: 24px;
+}
+*/
+/* Icon style variants 
+.navbar-icon--filled {
+    fill: currentColor;
+    stroke: none;
+}
+
+.navbar-icon--outline {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+}
+
+.navbar-icon--bold {
+    stroke-width: 2;
+}
+*/
+/* Hover effects */
+.navbar-icon:hover {
+    transform: scale(1.5);
+}
+
+/* ========== THEME TOGGLE BUTTON ========== */
+
+.theme-toggle-custom {
+    background: none !important;
+    border: 1px solid var(--pst-color-border) !important;
+    border-radius: 0.375rem !important;
+    padding: 0.375rem !important;
+    margin-left: 0.5rem !important;
+    color: var(--pst-color-text-base) !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s ease !important;
+    font-size: 1rem !important;
+}
+
 .theme-toggle-custom:hover {
-    background-color: var(--pst-color-surface);
-    transform: scale(1.05);
+    background-color: var(--pst-color-surface) !important;
+    transform: scale(1.05) !important;
 }
 
-.theme-toggle-custom i {
-    font-size: 1rem;
-}
+/* ========== COURSE NAVIGATOR ========== */
 
-
-
-/* Add this to your _static/style.css file */
-
-/* Course Navigator Styles */
+/* Course navigator button */
 .course-nav-toggle {
     background: none !important;
     border: 1px solid var(--pst-color-border) !important;
@@ -1517,7 +1564,140 @@ theme
     transform: scale(1.05) !important;
 }
 
-/* Navigator Panel Responsive Design */
+/* Navigator Panel Overlay */
+#course-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(2px);
+}
+
+/* Navigator Panel */
+#course-nav-panel {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100%;
+    background: var(--background-primary, #fff);
+    border-left: 1px solid var(--border-primary, #dee2e6);
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+}
+
+/* Navigator Panel Header */
+.nav-panel-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-light, #e9ecef);
+    background: var(--background-secondary, #f8f9fa);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.nav-panel-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-panel-title {
+    margin: 0;
+    color: var(--text-primary, #333);
+    font-size: 1.2rem;
+}
+
+.nav-panel-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-muted, #666);
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.nav-panel-close:hover {
+    background-color: var(--background-tertiary, #f0f0f0);
+}
+
+.nav-search-input {
+    width: 100%;
+    padding: 8px 12px;
+    margin-top: 15px;
+    border: 1px solid var(--border-primary, #dee2e6);
+    border-radius: 4px;
+    background: var(--background-primary, #fff);
+    color: var(--text-primary, #333);
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.nav-search-input::placeholder {
+    color: var(--text-muted, #999);
+}
+
+/* Navigator Content */
+.nav-content {
+    padding: 20px;
+    flex: 1;
+}
+
+/* Navigation Items */
+.nav-item-link {
+    display: block;
+    padding: 8px 12px;
+    color: var(--text-primary, #333);
+    text-decoration: none;
+    border-radius: 4px;
+    margin: 2px 0;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+.nav-item-link:hover {
+    background-color: var(--background-tertiary, #f0f0f0);
+    text-decoration: none;
+}
+
+.nav-item-link.current-page {
+    background-color: var(--primary-light, #e3f2fd);
+    color: var(--primary, #1976d2);
+    font-weight: bold;
+}
+
+/* Navigation Section Toggles */
+.nav-section-toggle {
+    padding: 8px 12px;
+    cursor: pointer;
+    color: var(--text-primary, #333);
+    font-weight: 600;
+    border-radius: 4px;
+    margin: 2px 0;
+    transition: background-color 0.2s;
+    font-size: 14px;
+    user-select: none;
+}
+
+.nav-section-toggle:hover {
+    background-color: var(--background-tertiary, #f0f0f0);
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+
 @media (max-width: 768px) {
     #course-nav-panel {
         width: 90% !important;
@@ -1525,55 +1705,31 @@ theme
     }
 }
 
-/* Dark theme compatibility */
+/* ========== DARK THEME COMPATIBILITY ========== */
+
 html[data-theme="dark"] #course-nav-panel {
     background: var(--background-primary) !important;
     border-left-color: var(--border-primary) !important;
     color: var(--text-primary) !important;
 }
 
-html[data-theme="dark"] #nav-search {
+html[data-theme="dark"] .nav-search-input {
     background: var(--background-secondary) !important;
     border-color: var(--border-primary) !important;
     color: var(--text-primary) !important;
 }
 
-html[data-theme="dark"] #nav-search::placeholder {
+html[data-theme="dark"] .nav-search-input::placeholder {
     color: var(--text-muted) !important;
 }
 
-/* Smooth animations */
-#course-nav-panel {
-    backdrop-filter: blur(10px);
+html[data-theme="dark"] .nav-panel-header {
+    background: var(--background-secondary) !important;
+    border-bottom-color: var(--border-primary) !important;
 }
 
-#course-nav-overlay {
-    backdrop-filter: blur(2px);
-}
+/* ========== SCROLLBAR STYLING ========== */
 
-/* Search highlighting */
-.nav-search-highlight {
-    background-color: var(--warning-bg, #fff3cd) !important;
-    color: var(--warning, #856404) !important;
-    padding: 2px 4px !important;
-    border-radius: 2px !important;
-}
-
-/* Current page indicator */
-.nav-current-page {
-    background-color: var(--primary-light, #e3f2fd) !important;
-    color: var(--primary, #1976d2) !important;
-    font-weight: bold !important;
-    position: relative;
-}
-
-.nav-current-page::before {
-    content: "📍";
-    margin-right: 8px;
-    font-size: 12px;
-}
-
-/* Scrollbar styling for the panel */
 #course-nav-panel::-webkit-scrollbar {
     width: 6px;
 }

@@ -1,0 +1,156 @@
+{
+  "bkt_parameters": {
+    "default": {
+      "prior_knowledge": 0.1,
+      "learning_rate": 0.28187889259159477,
+      "slip_rate": 0.8252120494531313,
+      "guess_rate": 0.31665115530985466
+    },
+    "topic_specific": {
+      "17": {
+        "prior_knowledge": 0.05,
+        "learning_rate": 0.02,
+        "slip_rate": 0.05,
+        "guess_rate": 0.4,
+        "description": "Discriminant - requires more foundational knowledge"
+      },
+      "15": {
+        "prior_knowledge": 0.08,
+        "learning_rate": 0.02,
+        "slip_rate": 0.05,
+        "guess_rate": 0.4,
+        "description": "Quadratic formula - procedural skill"
+      },
+      "0": {
+        "prior_knowledge": 0.1,
+        "learning_rate": 0.1,
+        "slip_rate": 0.8799141086729267,
+        "guess_rate": 0.22942105839113067,
+        "description": "Optimized for Understanding variables as unknowns",
+        "n_attempts": 136,
+        "likelihood": -52.788487780761955
+      },
+      "1": {
+        "prior_knowledge": 0.1,
+        "learning_rate": 0.8947585596987291,
+        "slip_rate": 0.8148376969430615,
+        "guess_rate": 0.1,
+        "description": "Optimized for Understanding coefficients",
+        "n_attempts": 136,
+        "likelihood": -64.79728395586396
+      },
+      "2": {
+        "prior_knowledge": 0.1,
+        "learning_rate": 0.1575977094068332,
+        "slip_rate": 0.7871763654657917,
+        "guess_rate": 0.1,
+        "description": "Optimized for Understanding constant terms",
+        "n_attempts": 136,
+        "likelihood": -68.7333093834367
+      },
+      "4": {
+        "prior_knowledge": 0.1,
+        "learning_rate": 0.15703819385241138,
+        "slip_rate": 0.7942943880897775,
+        "guess_rate": 0.8383734811125857,
+        "description": "Optimized for Recognizing like terms",
+        "n_attempts": 136,
+        "likelihood": -70.10494856854231
+      },
+      "6": {
+        "prior_knowledge": 0.1,
+        "learning_rate": 0.1,
+        "slip_rate": 0.8498376880940997,
+        "guess_rate": 0.3154612370455572,
+        "description": "Optimized for Understanding distributive property",
+        "n_attempts": 136,
+        "likelihood": -62.84529657741132
+      }
+    }
+  },
+  "bkt_config": {
+    "enable_forgetting": true,
+    "enable_difficulty_adaptation": true,
+    "enable_time_decay": true,
+    "time_decay_lambda": 0.1,
+    "forgetting_halflife_days": 30.0,
+    "difficulty_learning_scaling": true,
+    "prerequisite_propagation": true,
+    "propagation_decay": 0.3,
+    "area_effect_enabled": true,
+    "area_effect_max_distance": 2,
+    "area_effect_decay_rate": 0.6,
+    "area_effect_min_effect": 0.01,
+    "enable_fsrs_forgetting": true,
+    "fsrs_stability_power": -0.5,
+    "fsrs_difficulty_power": 0.3,
+    "fsrs_retrievability_power": -0.8,
+    "fsrs_stability_weight": 0.4,
+    "fsrs_difficulty_weight": 0.3,
+    "fsrs_retrievability_weight": 0.3,
+    "fsrs_success_stability_boost": 1.2,
+    "fsrs_failure_stability_penalty": 0.8,
+    "fsrs_difficulty_adaptation_rate": 0.1,
+    "fsrs_base_forgetting_time": 1.0,
+    "fsrs_max_stability": 365.0,
+    "fsrs_min_stability": 0.1,
+    "fsrs_retrievability_threshold": 0.9,
+    "fsrs_min_retrievability": 0.1
+  },
+  "algorithm_config": {
+    "difficulty_range": 0.5,
+    "mastery_threshold": 0.7,
+    "chapter_mastery_threshold": 0.9,
+    "confidence_tolerance_factor": 0.5,
+    "learning_rate": 0.1,
+    "incorrect_penalty": 0.3,
+    "min_confidence": 0.1,
+    "max_confidence": 0.95,
+    "confidence_growth_rate": 0.02,
+    "attempts_for_full_confidence": 10,
+    "confidence_question_weight": 0.3,
+    "confidence_time_weight": 0.3,
+    "confidence_consistency_weight": 0.2,
+    "questions_for_full_factor": 100,
+    "hours_for_full_factor": 20.0,
+    "sessions_for_full_factor": 50,
+    "topic_attempt_weight": 0.7,
+    "topic_decay_weight": 0.3,
+    "confidence_decay_halflife": 30.0
+  },
+  "greedy_algorithm": {
+    "greedy_priority_weight": 2.0,
+    "greedy_subtopic_weight": 0.7,
+    "greedy_prereq_weight": 0.5,
+    "greedy_mastery_update_rate": 0.8,
+    "greedy_early_stopping": false,
+    "greedy_max_mcqs_to_evaluate": 50,
+    "skills_breakdown_weight": 2.0,
+    "overall_difficulty_weight": 1.0,
+    "enable_virtual_area_effects": true
+  },
+  "ui_settings": {
+    "default_questions_per_session": 5,
+    "max_questions_per_session": 20,
+    "enable_explanations": true,
+    "show_difficulty": false,
+    "enable_confidence_display": true
+  },
+  "skills_config": {
+    "problem_solving_penalty": 2.5,
+    "procedural_penalty": 2.0,
+    "conceptual_penalty": 2.0,
+    "memory_penalty": 1.5,
+    "communication_penalty": 1.8,
+    "spatial_penalty": 1.5,
+    "student_offset": 2.0
+  },
+  "metadata": {
+    "config_version": "2.0_optimized",
+    "created_date": "2025-01-01",
+    "description": "Integrated BKT-FSRS configuration with optimized parameters",
+    "optimization_timestamp": "2025-08-12T08:44:52.118369",
+    "bkt_topics_optimized": 5,
+    "fsrs_optimized": false
+  }
+}

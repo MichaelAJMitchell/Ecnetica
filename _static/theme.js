@@ -1,10 +1,6 @@
 // dark mode and light mode theme toggle
 // with a listener for system theme changes
 
-document.addEventListener('DOMContentLoaded', function() {
-    createEnhancedThemeToggle();
-    createCourseNavigator();
-});
 
 function createEnhancedThemeToggle() {
     // Find the navbar end section
@@ -736,3 +732,191 @@ function closeNavigator() {
         overlay.style.display = 'none';
     }, 300);
 }
+
+// Interactive Tools Finder
+// Creates a simplified finder specifically for interactive tools with a streamlined layout
+
+function createInteractiveToolsFinder() {
+    // Interactive tools structure - simplified since there are only a few tools
+    const interactiveTools = {
+        'Python Playground': {
+            url: '/content/interactive/python_playground.html',
+            description: 'Interactive Python coding environment',
+            icon: '🐍'
+        },
+        'BKT Simple Demo': {
+            url: '/content/interactive/BKT_Simple_Demo.html',
+            description: 'Bayesian Knowledge Tracing demonstration',
+            icon: '🧠'
+        },
+    };
+
+    // Create the toggle button
+    createToolsFinderButton();
+    
+    // Create the tools finder panel
+    createToolsFinderPanel(interactiveTools);
+}
+
+function createToolsFinderButton() {
+    // Find the navbar end section
+    const navbarEnd = document.querySelector('.navbar-nav.navbar-end') || 
+                     document.querySelector('.navbar-header-items__end') ||
+                     document.querySelector('nav .navbar-nav:last-child');
+    
+    if (!navbarEnd) return;
+    
+    // Create interactive tools button
+    const toolsButton = document.createElement('button');
+    toolsButton.id = 'tools-finder-toggle';
+    toolsButton.className = 'btn tools-finder-toggle';
+    
+    toolsButton.innerHTML = `<svg class="navbar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+    </svg>`;
+    
+    toolsButton.setAttribute('aria-label', 'Open Revision Area');
+    toolsButton.setAttribute('title', 'Revision Area');
+    
+    // Add click handler
+    toolsButton.addEventListener('click', toggleToolsFinder);
+    
+    // Add to navbar (before course navigator if it exists)
+    const courseNavButton = document.getElementById('course-nav-toggle');
+    if (courseNavButton) {
+        navbarEnd.insertBefore(toolsButton, courseNavButton);
+    } else {
+        navbarEnd.appendChild(toolsButton);
+    }
+}
+
+function createToolsFinderPanel(tools) {
+    // Create overlay
+    const overlay = document.createElement('div');
+    overlay.id = 'tools-finder-overlay';
+    overlay.className = 'tools-overlay';
+    
+    // Create panel
+    const panel = document.createElement('div');
+    panel.id = 'tools-finder-panel';
+    panel.className = 'tools-panel';
+    
+    // Create panel header
+    const header = document.createElement('div');
+    header.className = 'tools-panel-header';
+    
+    header.innerHTML = `
+        <div class="tools-panel-title-row">
+            <h3 class="tools-panel-title">📚 Revision Area</h3>
+            <button id="close-tools-panel" class="tools-panel-close" title="Close (Esc)">×</button>
+        </div>
+        <p class="tools-panel-subtitle">Quick access to revision and practice tools</p>
+    `;
+    
+    // Create tools grid
+    const toolsGrid = document.createElement('div');
+    toolsGrid.className = 'tools-grid';
+    
+    // Build tools cards
+    for (const [name, tool] of Object.entries(tools)) {
+        const toolCard = document.createElement('a');
+        toolCard.href = tool.url;
+        toolCard.className = 'tool-card';
+        
+        // Highlight current page
+        if (window.location.pathname.includes(tool.url)) {
+            toolCard.classList.add('current-tool');
+        }
+        
+        toolCard.innerHTML = `
+            <div class="tool-icon">${tool.icon}</div>
+            <div class="tool-content">
+                <div class="tool-name">${name}</div>
+                <div class="tool-description">${tool.description}</div>
+            </div>
+            <div class="tool-arrow">→</div>
+        `;
+        
+        toolsGrid.appendChild(toolCard);
+    }
+    
+    // Assemble panel
+    panel.appendChild(header);
+    panel.appendChild(toolsGrid);
+    
+    // Add to page
+    document.body.appendChild(overlay);
+    document.body.appendChild(panel);
+    
+    // Add event handlers
+    setupToolsFinderHandlers(overlay, panel);
+}
+
+function setupToolsFinderHandlers(overlay, panel) {
+    // Close button
+    document.getElementById('close-tools-panel').addEventListener('click', closeToolsFinder);
+    
+    // Overlay click to close
+    overlay.addEventListener('click', closeToolsFinder);
+    
+    // Escape key to close
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && panel.style.display !== 'none') {
+            closeToolsFinder();
+        }
+    });
+    
+    // Prevent panel clicks from closing
+    panel.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+}
+
+function toggleToolsFinder() {
+    const panel = document.getElementById('tools-finder-panel');
+    const overlay = document.getElementById('tools-finder-overlay');
+    
+    if (panel.style.display === 'block') {
+        closeToolsFinder();
+    } else {
+        openToolsFinder();
+    }
+}
+
+function openToolsFinder() {
+    const panel = document.getElementById('tools-finder-panel');
+    const overlay = document.getElementById('tools-finder-overlay');
+    
+    overlay.style.display = 'block';
+    panel.style.display = 'block';
+    
+    setTimeout(() => {
+        overlay.style.opacity = '1';
+        panel.style.transform = 'translate(-50%, -50%) scale(1)';
+        panel.style.opacity = '1';
+    }, 10);
+}
+
+function closeToolsFinder() {
+    const panel = document.getElementById('tools-finder-panel');
+    const overlay = document.getElementById('tools-finder-overlay');
+    
+    panel.style.transform = 'translate(-50%, -50%) scale(0.95)';
+    panel.style.opacity = '0';
+    overlay.style.opacity = '0';
+    
+    setTimeout(() => {
+        panel.style.display = 'none';
+        overlay.style.display = 'none';
+    }, 200);
+}
+
+
+
+
+// The DOMContentLoaded event listener 
+document.addEventListener('DOMContentLoaded', function() {
+    createEnhancedThemeToggle();
+    createCourseNavigator();
+    createInteractiveToolsFinder(); 
+});

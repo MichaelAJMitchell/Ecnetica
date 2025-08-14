@@ -1773,3 +1773,344 @@ html[data-theme="dark"] .nav-section-toggle:hover {
 #course-nav-panel::-webkit-scrollbar-thumb:hover {
     background: var(--border-secondary, #a8a8a8);
 }
+
+/* ========== INTERACTIVE TOOLS FINDER STYLES ========== */
+
+/* Tools finder button - matches navbar style */
+.tools-finder-toggle {
+    background: none;
+    border: 1px solid var(--border-primary, rgba(255, 255, 255, 0.1));
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 6px;
+    margin: 0 2px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-width: 40px;
+    height: 40px;
+}
+
+.tools-finder-toggle:hover {
+    background-color: var(--background-tertiary, rgba(255, 255, 255, 0.1));
+}
+
+.tools-finder-toggle:active {
+    transform: scale(0.95);
+}
+
+/* Ensure icon matches navbar style */
+.tools-finder-toggle .navbar-icon {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Tools overlay */
+.tools-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    backdrop-filter: blur(2px);
+}
+
+/* Tools panel */
+.tools-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    background: var(--background-primary, #ffffff);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 8px 24px rgba(0, 0, 0, 0.08);
+    z-index: 9999;
+    width: 90%;
+    max-width: 600px;
+    max-height: 70vh;
+    overflow: hidden;
+    display: none;
+    opacity: 0;
+    transition: all 0.2s ease;
+    border: 1px solid var(--border-primary, #e1e4e8);
+}
+
+/* Panel header */
+.tools-panel-header {
+    padding: 24px 24px 16px 24px;
+    border-bottom: 1px solid var(--border-primary, #e1e4e8);
+    background: var(--background-secondary, #f8f9fa);
+}
+
+.tools-panel-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.tools-panel-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tools-panel-subtitle {
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-secondary);
+    opacity: 0.8;
+}
+
+.tools-panel-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    line-height: 1;
+}
+
+.tools-panel-close:hover {
+    background-color: var(--background-tertiary, #f0f0f0);
+    color: var(--text-primary);
+    transform: scale(1.1);
+}
+
+/* Tools grid */
+.tools-grid {
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+@media (min-width: 500px) {
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Tool card */
+.tool-card {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: var(--background-primary, #ffffff);
+    border: 2px solid var(--border-primary, #e1e4e8);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.tool-card:hover {
+    border-color: var(--primary, #60a5fa);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.tool-card:active {
+    transform: translateY(0);
+}
+
+/* Current tool highlight */
+.tool-card.current-tool {
+    border-color: var(--primary, #60a5fa);
+    background: linear-gradient(135deg, var(--primary, #60a5fa)10, transparent 50%);
+    box-shadow: 0 4px 12px rgba(96, 165, 250, 0.2);
+}
+
+.tool-card.current-tool .tool-name {
+    color: var(--primary, #60a5fa);
+    font-weight: 600;
+}
+
+/* Tool icon */
+.tool-icon {
+    font-size: 28px;
+    margin-right: 16px;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--background-secondary, #f8f9fa);
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.tool-card:hover .tool-icon {
+    transform: scale(1.1);
+    background: var(--primary, #60a5fa)20;
+}
+
+/* Tool content */
+.tool-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.tool-name {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    line-height: 1.3;
+}
+
+.tool-description {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    opacity: 0.8;
+}
+
+/* Tool arrow */
+.tool-arrow {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-left: 12px;
+    opacity: 0.6;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.tool-card:hover .tool-arrow {
+    opacity: 1;
+    transform: translateX(4px);
+    color: var(--primary, #60a5fa);
+}
+
+/* Dark theme support */
+html[data-theme="dark"] .tools-panel {
+    background: var(--background-primary);
+    border-color: var(--border-primary);
+}
+
+html[data-theme="dark"] .tools-panel-header {
+    background: var(--background-secondary);
+    border-color: var(--border-primary);
+}
+
+html[data-theme="dark"] .tool-card {
+    background: var(--background-primary);
+    border-color: var(--border-primary);
+}
+
+html[data-theme="dark"] .tool-card:hover {
+    border-color: var(--primary);
+}
+
+html[data-theme="dark"] .tool-icon {
+    background: var(--background-tertiary);
+}
+
+html[data-theme="dark"] .tool-card:hover .tool-icon {
+    background: var(--primary)30;
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+    .tools-panel {
+        width: 95%;
+        max-width: none;
+        margin: 20px;
+    }
+    
+    .tools-grid {
+        grid-template-columns: 1fr;
+        padding: 16px;
+        gap: 12px;
+    }
+    
+    .tools-panel-header {
+        padding: 20px 16px 12px 16px;
+    }
+    
+    .tool-card {
+        padding: 16px;
+    }
+    
+    .tool-icon {
+        font-size: 24px;
+        width: 40px;
+        height: 40px;
+        margin-right: 12px;
+    }
+    
+    .tool-name {
+        font-size: 15px;
+    }
+    
+    .tool-description {
+        font-size: 12px;
+    }
+}
+
+/* Smooth scrolling for tools grid */
+.tools-grid::-webkit-scrollbar {
+    width: 6px;
+}
+
+.tools-grid::-webkit-scrollbar-track {
+    background: var(--background-secondary, #f1f1f1);
+    border-radius: 3px;
+}
+
+.tools-grid::-webkit-scrollbar-thumb {
+    background: var(--border-primary, #c1c1c1);
+    border-radius: 3px;
+}
+
+.tools-grid::-webkit-scrollbar-thumb:hover {
+    background: var(--border-secondary, #a8a8a8);
+}
+
+/* Animation for panel appearance */
+@keyframes toolsPanelFadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Accessible focus styles */
+.tools-finder-toggle:focus-visible,
+.tool-card:focus-visible,
+.tools-panel-close:focus-visible {
+    outline: 2px solid var(--primary, #60a5fa);
+    outline-offset: 2px;
+}

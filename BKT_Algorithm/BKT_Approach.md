@@ -236,6 +236,41 @@ r = rank(C) ≤ min(N, M)
 
 We choose to keep patterns that explain 95% of the variance, these are patterns with high strengths. Instead of clustering in M-dimensional skill space, we cluster in k-dimensional pattern space. What this is doing, roughly, is it's clustering skills into groups with some meaning and using those groups rather than individual skills, eg. Algebra group = {Factorisation, Algebraic Divison, ...}. We don't have any way to verify what these groups mean directly, but we know they are intrinsically related.
 
+The main issue with SVD is that is doesn't take into account the inherent topic connections present in our directed knowledge graph. Then, the problem statement becomes to reduce dimensionality with respect to the built in structure of our graph.
+
+Traditional SVD only cares about statistical variance in student performance data. It finds the directions where students differ the most, but completely ignores the educational relationships between topics in our knowledge graph.
+
+The **graph Laplacian** comes from spectral graph theory and helps us measure how "smooth" or consistent patterns are across connected nodes.
+For adjacency matrix A, the Laplacian is:
+$$L = D - A$$
+
+where D is the degree matrix (diagonal matrix containing each node's connection count).
+The Laplacian measures whether student capabilities "make educational sense" - do students have similar performance on topics that should be related?
+
+
+Standard SVD Optimization
+- **Maximize:** $||X v||^2$ (find directions with highest variance)
+- **Subject to:** $||v|| = 1$ (unit length constraint)
+
+Finds projection directions v that capture the most variance in student capabilities X, regardless of educational structure.
+
+Graph-Regularized Approach:
+- **Maximize:** $||X v||^2 - \alpha v^T L v$ (high variance BUT educationally smooth)
+- **Subject to:** $||v|| = 1$ (unit length constraint)
+
+ The term $v^T L v$ is the graph Laplacian quadratic form, it measures how much the projection v varies across connected topics. When this is large, it means v assigns very different weights to connected skills, which violates educational intuition. Large values mean v gives very different importance to topics that should be educationally related. Eg. if v assigns high weight to "Quadratic Equations" but low weight to "Linear Equations" (its prerequisite), then $v^T L v$ will be large, and we penalize this projection for being educationally inconsistent.
+
+This optimization problem becomes a **generalized eigenvalue problem**:
+$$X^T X v = \lambda (X^T X + \alpha L) v$$
+
+- **$X^T X$**: Student capability covariance matrix (captures how students vary)
+- **$\alpha L$**: Graph structure penalty (enforces educational smoothness)  
+- **$\alpha$**: Balance parameter - how much do we care about graph structure vs. raw variance?
+
+The algorithm finds Projection directions v that capture student differences while respecting the prerequisite structure of the knowledge graph.
+
+With graph regularization Students are clustered by learning pathway patterns, those who master related topics together, follow similar prerequisite progressions, and show educationally coherent skill development. This leads to more meaningful student groups and better personalized BKT parameters that respect how mathematical knowledge actually builds upon itself. We're not just looking for statistical patterns in the data, we're looking for patterns that make educational sense.
+
 ### 5.1.2 Cluster Creation
 
 Now that we've found the fundamental topic patterns we can project students onto them, and then cluster those students into groups. What we're doing here is identifying "types" of students, eg. fast learners, trig enthusiasts, etc.
@@ -256,10 +291,7 @@ Where $a_i$ is the average distance to all other points within its cluster, and 
 
 
 
-SVD: Discovers patterns in the variables (skills)
-Clustering: Discovers patterns in the observations (students)
-SVD looks at your capability matrix and asks: "What underlying factors explain why some skills tend to go together?"
-Clustering looks at students and asks: "What natural groups of students exist?"
+
 
 
 
@@ -287,3 +319,4 @@ Due to issues with the pyBKT system this is our current approach. The algorithm 
 - Try different parameter combinations. Then we simulate and ask eg. "With these parameters, how likely is [0,0,1,1,1]?"
 - Test thousands of parameter combinations using scipy's smart search
 - Return the parameters that make the observed responses most likely
+

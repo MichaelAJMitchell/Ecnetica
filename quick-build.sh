@@ -7,9 +7,9 @@ if [ "$1" == "testing" ]; then
     # Remove old test structure if it exists
     rm -rf content-testing/
     
-    # Create minimal content directory
-    mkdir -p content-testing/functions
-    mkdir -p content-testing/interactive
+    # Create content directory structure to match normal build
+    mkdir -p content-testing/content/functions
+    mkdir -p content-testing/content/interactive
     
     # Copy config and TOC
     cp _config.yml content-testing/
@@ -22,17 +22,17 @@ if [ "$1" == "testing" ]; then
     cp references.bib content-testing/ ||
         echo "references.bib not found, skipping"
     
-    # Copy only what we need
-    cp content/index.md content-testing/
-    cp content/functions/quadratic_functions_gen.md content-testing/functions/ ||
+    # Copy files maintaining the content/ directory structure
+    cp content/index.md content-testing/content/
+    cp content/functions/quadratic_functions_gen.md content-testing/content/functions/ ||
         echo "quadratic_functions_gen.md not found, skipping"
-    cp content/functions/types_and_graphs.md content-testing/functions/ ||
+    cp content/functions/types_and_graphs.md content-testing/content/functions/ ||
         echo "types_and_graphs.md not found, skipping"
     
     # Copy interactive tools
-    cp content/interactive/python_playground.md content-testing/interactive/ ||
+    cp content/interactive/python_playground.md content-testing/content/interactive/ ||
         echo "python_playground.md not found, skipping"
-    cp content/interactive/BKT_Simple_Demo.md content-testing/interactive/ ||
+    cp content/interactive/BKT_Simple_Demo.md content-testing/content/interactive/ ||
         echo "BKT_Simple_Demo.md not found, skipping"
     
     # Copy static assets if they exist

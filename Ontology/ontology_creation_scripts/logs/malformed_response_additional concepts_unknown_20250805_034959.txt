@@ -1,0 +1,208 @@
+Model: unknown
+Task: additional concepts
+Timestamp: 2025-08-05T03:49:59.384195
+==================================================
+[
+    {
+        "name": "perfect square trinomial",
+        "explanation": "A quadratic expression that can be written as the square of a binomial, e.g., x^2 - 4x + 4 = (x - 2)^2.",
+        "broader_concept": "quadratic expressions",
+        "strand": "Algebra",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "completing the square",
+        "explanation": "A method to rewrite a quadratic expression in the form (x + a)^2 + b to find turning points and solve equations.",
+        "broader_concept": "quadratic expressions",
+        "strand": "Algebra",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "axis of symmetry of a parabola",
+        "explanation": "A vertical line through the turning point of a parabola that divides it into two mirror-image halves.",
+        "broader_concept": "quadratic functions",
+        "strand": "Functions and Graphs",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "double root",
+        "explanation": "A root of a polynomial where the graph touches but does not cross the x-axis, corresponding to a repeated factor.",
+        "broader_concept": "polynomial roots",
+        "strand": "Algebra",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "binomial coefficient",
+        "explanation": "The number of ways to choose r objects from n distinct objects, denoted as C(n, r) or n choose r.",
+        "broader_concept": "combinatorics",
+        "strand": "Probability and Statistics",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "Bernoulli trial",
+        "explanation": "A random experiment with exactly two possible outcomes, success or failure, with fixed probabilities.",
+        "broader_concept": "probability models",
+        "strand": "Probability and Statistics",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "binomial distribution",
+        "explanation": "The probability distribution of the number of successes in a fixed number of independent Bernoulli trials.",
+        "broader_concept": "discrete probability distributions",
+        "strand": "Probability and Statistics",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "critical region",
+        "explanation": "The set of values of a test statistic for which the null hypothesis is rejected in hypothesis testing.",
+        "broader_concept": "hypothesis testing",
+        "strand": "Inferential Statistics",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "critical value",
+        "explanation": "The boundary value(s) of the critical region in hypothesis testing, often corresponding to significance levels.",
+        "broader_concept": "hypothesis testing",
+        "strand": "Inferential Statistics",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "p-value",
+        "explanation": "The probability of obtaining a test statistic as extreme as the observed one, used to decide whether to reject the null hypothesis.",
+        "broader_concept": "hypothesis testing",
+        "strand": "Inferential Statistics",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "standard error of the mean",
+        "explanation": "The standard deviation of the sampling distribution of the sample mean, equal to population standard deviation divided by sqrt(sample size).",
+        "broader_concept": "sampling distributions",
+        "strand": "Inferential Statistics",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "sampling distribution of the mean",
+        "explanation": "The probability distribution of sample means obtained from all possible samples of a fixed size from a population.",
+        "broader_concept": "sampling distributions",
+        "strand": "Inferential Statistics",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "Central Limit Theorem",
+        "explanation": "The theorem stating that the sampling distribution of the sample mean approaches a normal distribution as sample size increases, regardless of the population distribution.",
+        "broader_concept": "sampling distributions",
+        "strand": "Inferential Statistics",
+        "grade_level": "Senior Cycle",
+        "difficulty": "High"
+    },
+    {
+        "name": "standard normal distribution",
+        "explanation": "A normal distribution with mean 0 and standard deviation 1, used as a reference distribution for calculating probabilities.",
+        "broader_concept": "normal distribution",
+        "strand": "Probability and Statistics",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "vertical line test",
+        "explanation": "A graphical method to determine if a relation is a function by checking if any vertical line intersects the graph more than once.",
+        "broader_concept": "functions",
+        "strand": "Functions and Graphs",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Basic"
+    },
+    {
+        "name": "horizontal line test",
+        "explanation": "A graphical method to determine if a function is injective by checking if any horizontal line intersects the graph more than once.",
+        "broader_concept": "functions",
+        "strand": "Functions and Graphs",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Basic"
+    },
+    {
+        "name": "injective function (one-to-one)",
+        "explanation": "A function where each element of the codomain is mapped to by at most one element of the domain.",
+        "broader_concept": "functions",
+        "strand": "Functions and Graphs",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "surjective function (onto)",
+        "explanation": "A function where every element of the codomain is mapped to by at least one element of the domain.",
+        "broader_concept": "functions",
+        "strand": "Functions and Graphs",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "bijective function",
+        "explanation": "A function that is both injective and surjective, establishing a one-to-one correspondence between domain and codomain.",
+        "broader_concept": "functions",
+        "strand": "Functions and Graphs",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "inverse function",
+        "explanation": "A function that reverses the effect of the original function, existing only if the original function is bijective.",
+        "broader_concept": "functions",
+        "strand": "Functions and Graphs",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "domain restriction",
+        "explanation": "Limiting the domain of a function to make it injective and hence invertible.",
+        "broader_concept": "functions",
+        "strand": "Functions and Graphs",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "line of best fit",
+        "explanation": "A straight line drawn through a scatter plot that best represents the trend of the data points.",
+        "broader_concept": "correlation and regression",
+        "strand": "Statistics",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "correlation coefficient (Pearson's r)",
+        "explanation": "A numerical measure of the strength and direction of a linear relationship between two variables, ranging from -1 to 1.",
+        "broader_concept": "correlation and regression",
+        "strand": "Statistics",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "causal relationship",
+        "explanation": "A relationship where a change in one variable directly causes a change in another variable.",
+        "broader_concept": "correlation and regression",
+        "strand": "Statistics",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Conceptual"
+    },
+    {
+        "name": "empirical rule",
+        "explanation": "The rule that approximately 68% of data lie within 1 standard deviation, 95% within 2, and 99.7% within 3 standard deviations of the mean in a normal distribution.",
+        "broader_concept": "normal distribution",
+        "strand": "Probability and Statistics",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Basic"
+    },
+    {
+        "name": "standard score (z-score)",
+        "explanation": "The number

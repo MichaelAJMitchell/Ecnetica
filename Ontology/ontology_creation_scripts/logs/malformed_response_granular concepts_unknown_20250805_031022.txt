@@ -1,0 +1,312 @@
+Model: unknown
+Task: granular concepts
+Timestamp: 2025-08-05T03:10:22.550285
+==================================================
+[
+  {
+    "name": "polynomial expression",
+    "explanation": "An algebraic expression formed by the addition of terms with variables raised to non-negative integer powers and coefficients.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Polynomials",
+    "grade_level": "Secondary",
+    "difficulty": "Basic"
+  },
+  {
+    "name": "binomial expression",
+    "explanation": "A polynomial expression containing exactly two terms.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Polynomials",
+    "grade_level": "Secondary",
+    "difficulty": "Basic"
+  },
+  {
+    "name": "trinomial expression",
+    "explanation": "A polynomial expression containing exactly three terms.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Polynomials",
+    "grade_level": "Secondary",
+    "difficulty": "Basic"
+  },
+  {
+    "name": "degree of a polynomial",
+    "explanation": "The highest power of the variable in a polynomial expression.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Polynomials",
+    "grade_level": "Secondary",
+    "difficulty": "Basic"
+  },
+  {
+    "name": "coefficient of a term in a polynomial",
+    "explanation": "The numerical factor multiplying the variable term in a polynomial expression.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Polynomials",
+    "grade_level": "Secondary",
+    "difficulty": "Basic"
+  },
+  {
+    "name": "like terms in polynomial expressions",
+    "explanation": "Terms in a polynomial that have the same variable raised to the same power and can be combined by addition or subtraction.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Polynomials",
+    "grade_level": "Secondary",
+    "difficulty": "Basic"
+  },
+  {
+    "name": "expanding polynomial expressions",
+    "explanation": "Multiplying out brackets in polynomial expressions using distributive law to write as a sum of terms.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Polynomials",
+    "grade_level": "Secondary",
+    "difficulty": "Basic"
+  },
+  {
+    "name": "perfect square polynomial",
+    "explanation": "A polynomial that can be expressed as the square of a binomial, e.g., (x + a)^2 = x^2 + 2ax + a^2.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Polynomials",
+    "grade_level": "Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "difference of two squares",
+    "explanation": "An expression of the form a^2 - b^2 which factorizes as (a - b)(a + b).",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Polynomials",
+    "grade_level": "Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "dividing polynomial expressions by monomials",
+    "explanation": "Simplifying algebraic fractions where the denominator is a monomial dividing each term of the numerator.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Polynomials",
+    "grade_level": "Secondary",
+    "difficulty": "Basic"
+  },
+  {
+    "name": "polynomial long division",
+    "explanation": "A method to divide one polynomial by another polynomial of lower degree, yielding a quotient and possibly a remainder.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Polynomials",
+    "grade_level": "Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "polynomial function",
+    "explanation": "A function defined by a polynomial expression where the output depends on the input variable.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Functions",
+    "grade_level": "Secondary",
+    "difficulty": "Basic"
+  },
+  {
+    "name": "evaluating polynomial functions",
+    "explanation": "Calculating the value of a polynomial function by substituting a specific value for the variable and simplifying.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Functions",
+    "grade_level": "Secondary",
+    "difficulty": "Basic"
+  },
+  {
+    "name": "forming expressions for geometric quantities using polynomial functions",
+    "explanation": "Expressing geometric measures such as area, volume, or perimeter as polynomial functions of a variable.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Functions",
+    "grade_level": "Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "factoring algebraic expressions by highest common factor",
+    "explanation": "Extracting the greatest common monomial factor from all terms of an algebraic expression.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Factorisation",
+    "grade_level": "Secondary",
+    "difficulty": "Basic"
+  },
+  {
+    "name": "factoring by grouping",
+    "explanation": "A method of factorisation where terms are grouped in pairs or sets to extract common factors and factorise the expression.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Factorisation",
+    "grade_level": "Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "factoring difference of two squares",
+    "explanation": "Expressing a^2 - b^2 as the product of (a - b)(a + b).",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Factorisation",
+    "grade_level": "Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "factoring quadratic expressions by trial and error",
+    "explanation": "Finding factors of a quadratic expression by testing pairs of factors of the constant term to match the middle term.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Factorisation",
+    "grade_level": "Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "factoring quadratic expressions using the quadratic formula",
+    "explanation": "Using the roots found by the quadratic formula to express a quadratic as a product of linear factors.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Factorisation",
+    "grade_level": "Secondary",
+    "difficulty": "Advanced"
+  },
+  {
+    "name": "factoring sum and difference of cubes",
+    "explanation": "Expressing a^3 ± b^3 as (a ± b)(a^2 ∓ ab + b^2).",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Factorisation",
+    "grade_level": "Secondary",
+    "difficulty": "Advanced"
+  },
+  {
+    "name": "simplifying algebraic fractions",
+    "explanation": "Reducing algebraic fractions by factoring numerator and denominator and cancelling common factors.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Algebraic Fractions",
+    "grade_level": "Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "adding and subtracting algebraic fractions",
+    "explanation": "Combining algebraic fractions by finding a common denominator and adding or subtracting numerators accordingly.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Algebraic Fractions",
+    "grade_level": "Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "multiplying and dividing algebraic fractions",
+    "explanation": "Multiplying numerators and denominators separately; dividing by multiplying by the reciprocal of the divisor fraction.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Algebraic Fractions",
+    "grade_level": "Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "binomial expansion using Pascal's triangle",
+    "explanation": "Expanding (a + b)^n using coefficients from Pascal's triangle corresponding to the nth row.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Binomial Theorem",
+    "grade_level": "Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "binomial expansion using combinations",
+    "explanation": "Expanding (a + b)^n using binomial coefficients expressed as combinations nCr.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Binomial Theorem",
+    "grade_level": "Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "binomial theorem general term",
+    "explanation": "The rth term in the expansion of (a + b)^n is given by nCr * a^(n-r) * b^r.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Binomial Theorem",
+    "grade_level": "Secondary",
+    "difficulty": "Advanced"
+  },
+  {
+    "name": "algebraic identity",
+    "explanation": "An equation that holds true for all values of the variable(s), with coefficients of like powers equal on both sides.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Identities",
+    "grade_level": "Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "partial fraction decomposition using algebraic identities",
+    "explanation": "Expressing a rational function as a sum of simpler fractions using algebraic identities and solving for unknown coefficients.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Identities",
+    "grade_level": "Secondary",
+    "difficulty": "Advanced"
+  },
+  {
+    "name": "manipulating formulae to make a variable the subject",
+    "explanation": "Rearranging an equation to express one variable explicitly in terms of others.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Manipulating Formulae",
+    "grade_level": "Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "solving simultaneous linear equations",
+    "explanation": "Finding values of variables that satisfy two or more linear equations simultaneously using substitution, elimination, or graphical methods.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Simultaneous Equations",
+    "grade_level": "Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "solving simultaneous equations with three variables",
+    "explanation": "Solving three linear equations in three variables by eliminating variables stepwise and back-substitution.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Simultaneous Equations",
+    "grade_level": "Secondary",
+    "difficulty": "Advanced"
+  },
+  {
+    "name": "forming quadratic equations from roots",
+    "explanation": "Constructing a quadratic equation given its roots using the relation x^2 - (sum of roots)x + product of roots = 0.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Quadratics",
+    "grade_level": "Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "completing the square",
+    "explanation": "Rewriting a quadratic expression in the form a(x - p)^2 + q to identify vertex and analyze properties.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Quadratics",
+    "grade_level": "Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "solving quadratic equations by substitution",
+    "explanation": "Using substitution to transform complex equations into quadratic form for easier solving.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Quadratics",
+    "grade_level": "Secondary",
+    "difficulty": "Advanced"
+  },
+  {
+    "name": "reducing surds to simplest form",
+    "explanation": "Expressing surds by factoring out perfect squares to simplify the radical expression.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Surds",
+    "grade_level": "Secondary",
+    "difficulty": "Basic"
+  },
+  {
+    "name": "rationalising the denominator",
+    "explanation": "Eliminating surds from the denominator of a fraction by multiplying numerator and denominator by a suitable conjugate or radical.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Surds",
+    "grade_level": "Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "solving algebraic surd equations",
+    "explanation": "Solving equations involving surds by isolating the surd and squaring both sides, checking for extraneous solutions.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Surds",
+    "grade_level": "Secondary",
+    "difficulty": "Advanced"
+  },
+  {
+    "name": "factor theorem",
+    "explanation": "A polynomial f(x) has (x - k) as a factor if and only if f(k) = 0.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Polynomials",
+    "grade_level": "Secondary",
+    "difficulty": "Advanced"
+  },
+  {
+    "name": "factorising cubic polynomials using factor theorem",
+    "explanation": "Finding integer roots by trial and error

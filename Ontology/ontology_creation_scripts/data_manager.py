@@ -189,6 +189,14 @@ Respond with only the number or "NONE"."""
         existing_concepts = []
         
         for concept in new_concepts:
+            # Ensure concept has all required fields
+            if 'source' not in concept:
+                concept['source'] = 'unknown'
+            if 'grade_level' not in concept:
+                concept['grade_level'] = ''
+            if 'difficulty' not in concept:
+                concept['difficulty'] = ''
+            
             # Check for duplicates
             existing_id = self._is_duplicate_concept(concept)
             
@@ -215,6 +223,12 @@ Respond with only the number or "NONE"."""
         existing_relationships = []
         
         for rel in new_relationships:
+            # Ensure relationship has all required fields
+            if 'source' not in rel:
+                rel['source'] = 'unknown'
+            if 'strength' not in rel:
+                rel['strength'] = 'moderate'
+            
             # Check for duplicates
             existing_id = self._is_duplicate_relationship(rel)
             
@@ -282,6 +296,17 @@ Respond with only the number or "NONE"."""
         """Save concepts to CSV file."""
         if self.concepts:
             df = pd.DataFrame(self.concepts)
+            # Ensure all concepts have required fields
+            for concept in self.concepts:
+                if 'source' not in concept:
+                    concept['source'] = 'unknown'
+                if 'grade_level' not in concept:
+                    concept['grade_level'] = ''
+                if 'difficulty' not in concept:
+                    concept['difficulty'] = ''
+            
+            # Recreate DataFrame with ensured fields
+            df = pd.DataFrame(self.concepts)
             df = df[['id', 'name', 'explanation', 'broader_concept', 'strand', 'source']]
             df.to_csv(CONCEPTS_FILE, index=False)
             print(f"Saved {len(self.concepts)} concepts to {CONCEPTS_FILE}")
@@ -289,6 +314,15 @@ Respond with only the number or "NONE"."""
     def save_relationships(self):
         """Save relationships to CSV file."""
         if self.relationships:
+            df = pd.DataFrame(self.relationships)
+            # Ensure all relationships have required fields
+            for rel in self.relationships:
+                if 'source' not in rel:
+                    rel['source'] = 'unknown'
+                if 'strength' not in rel:
+                    rel['strength'] = 'moderate'
+            
+            # Recreate DataFrame with ensured fields
             df = pd.DataFrame(self.relationships)
             df = df[['id', 'prerequisite_id', 'dependent_id', 'prerequisite_name', 'dependent_name', 'explanation', 'source']]
             df.to_csv(RELATIONSHIPS_FILE, index=False)
@@ -308,8 +342,14 @@ Respond with only the number or "NONE"."""
     
     def get_statistics(self) -> Dict[str, int]:
         """Get statistics about the current data."""
+        # Ensure all concepts have source field for statistics
+        sources = set()
+        for concept in self.concepts:
+            source = concept.get('source', 'unknown')
+            sources.add(source)
+        
         return {
             'total_concepts': len(self.concepts),
             'total_relationships': len(self.relationships),
-            'unique_sources': len(set(c['source'] for c in self.concepts))
+            'unique_sources': len(sources)
         } 

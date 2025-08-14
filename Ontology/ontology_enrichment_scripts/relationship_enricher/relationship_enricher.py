@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Mathematics Knowledge Graph Relationship Enricher - Node by Node Approach
+Relationship Enricher for Mathematical Concepts
 
-This script analyzes each concept against all other concepts to find prerequisite relationships
-using OpenAI's GPT-4.1-mini model with its large context window.
+This script enriches the knowledge graph by identifying additional prerequisite relationships
+using OpenAI's GPT-5-mini model with its large context window.
 """
 
 import pandas as pd
@@ -181,7 +181,7 @@ def analyze_concept_node(target_concept, all_concepts, existing_pairs, existing_
         prompt = create_node_analysis_prompt(target_concept, all_concepts, existing_examples)
         
         response = client.chat.completions.create(
-            model="gpt-4o-mini",
+            model="gpt-5-mini",
             messages=[
                 {"role": "system", "content": "You are a mathematics education expert specializing in prerequisite relationships between mathematical concepts."},
                 {"role": "user", "content": prompt}

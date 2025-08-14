@@ -1,0 +1,328 @@
+Model: unknown
+Task: granular concepts
+Timestamp: 2025-08-05T03:03:56.084404
+==================================================
+[
+  {
+    "name": "drawing a circle of given radius",
+    "explanation": "Constructing a circle using a compass with a specified radius length from a given center point.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Synthetic geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "using straight edge for geometric constructions",
+    "explanation": "Employing a straight edge tool to draw precise straight lines in geometric diagrams.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Synthetic geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "using compass for geometric constructions",
+    "explanation": "Using a compass to draw arcs and circles with precision in geometric constructions.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Synthetic geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "using ruler for geometric constructions",
+    "explanation": "Applying a ruler to measure lengths and draw straight lines accurately in geometric diagrams.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Synthetic geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "using protractor for angle measurement",
+    "explanation": "Utilizing a protractor to measure and construct angles with precision in geometric figures.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Synthetic geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "using set square for perpendicular and parallel lines",
+    "explanation": "Employing a set square to draw perpendicular and parallel lines accurately in geometric constructions.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Synthetic geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "performing geometric constructions 4,5,10,13,15",
+    "explanation": "Executing specific geometric constructions numbered 4, 5, 10, 13, and 15 as per curriculum guidelines.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Synthetic geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "performing geometric constructions 16-21",
+    "explanation": "Carrying out geometric constructions numbered 16 through 21 following prescribed methods.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Synthetic geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "performing geometric construction 22",
+    "explanation": "Completing the specific geometric construction labeled as number 22 in the curriculum.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Synthetic geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "logic terms in geometry: theorem",
+    "explanation": "A statement that has been proven on the basis of previously established statements and axioms.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Synthetic geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "logic terms in geometry: proof",
+    "explanation": "A logical argument demonstrating the truth of a geometric statement based on axioms and previously proven theorems.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Synthetic geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "logic terms in geometry: axiom",
+    "explanation": "A fundamental geometric statement accepted without proof as a basis for reasoning.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Synthetic geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "logic terms in geometry: corollary",
+    "explanation": "A proposition that follows with little or no proof from an already proven theorem.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Synthetic geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "logic terms in geometry: converse",
+    "explanation": "A statement formed by reversing the hypothesis and conclusion of a conditional statement.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Synthetic geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "logic terms in geometry: implies",
+    "explanation": "A logical connective indicating that one statement leads to the truth of another.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Synthetic geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "logic terms in geometry: is equivalent to",
+    "explanation": "A logical relation where two statements are both true or both false under the same conditions.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Synthetic geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "logic terms in geometry: if and only if",
+    "explanation": "A biconditional logical connective indicating that both statements imply each other.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Synthetic geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "proof by contradiction",
+    "explanation": "A method of proving a statement by assuming the opposite is true and showing this leads to a contradiction.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Synthetic geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "using slope to determine parallel lines",
+    "explanation": "Identifying that two lines are parallel if their slopes are equal.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Co-ordinate geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "using slope to determine perpendicular lines",
+    "explanation": "Identifying that two lines are perpendicular if the product of their slopes is -1.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Co-ordinate geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "recognising linear equation ax + by + c = 0",
+    "explanation": "Understanding that the equation ax + by + c = 0 represents a straight line in the coordinate plane.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Co-ordinate geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "calculating area of a triangle using coordinates",
+    "explanation": "Finding the area of a triangle given the coordinates of its vertices using coordinate geometry formulas.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Co-ordinate geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "equation of a circle with center (h,k) and radius r",
+    "explanation": "The equation (x - h)² + (y - k)² = r² represents all points at distance r from center (h,k).",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Co-ordinate geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "equation of a circle in general form x² + y² + 2gx + 2fy + c = 0",
+    "explanation": "A general quadratic equation representing a circle with center (-g, -f) and radius r = √(g² + f² - c).",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Co-ordinate geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "finding perpendicular distance from a point to a line",
+    "explanation": "Calculating the shortest distance between a given point and a specified line in the coordinate plane.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Co-ordinate geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "finding angle between two lines",
+    "explanation": "Determining the measure of the angle formed at the intersection of two lines using their slopes.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Co-ordinate geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "dividing a line segment internally in ratio m:n",
+    "explanation": "Locating a point on a line segment that divides it into parts proportional to m and n.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Co-ordinate geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "applying Pythagoras theorem in 2D",
+    "explanation": "Using the relationship a² + b² = c² to find lengths in right-angled triangles on a plane.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "using trigonometric ratios to solve right-angled triangle problems",
+    "explanation": "Applying sine, cosine, and tangent ratios to find unknown sides or angles in right-angled triangles.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "using sine rule to solve triangle problems",
+    "explanation": "Applying the Law of Sines to find unknown sides or angles in any triangle.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "using cosine rule to solve triangle problems",
+    "explanation": "Applying the Law of Cosines to calculate unknown sides or angles in any triangle.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "defining sine and cosine for all angle values",
+    "explanation": "Extending the definitions of sine and cosine functions beyond acute angles to all real angles.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "defining tangent function",
+    "explanation": "Defining tangent as the ratio of sine to cosine for all angles where cosine is not zero.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "calculating area of a sector of a circle",
+    "explanation": "Finding the area of a portion of a circle bounded by two radii and the included arc.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "calculating length of an arc",
+    "explanation": "Determining the length of a curved segment of a circle between two points on its circumference.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "working with trigonometric ratios in surd form",
+    "explanation": "Expressing sine, cosine, and tangent values using irrational square root expressions.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "using trigonometry to solve 3D problems",
+    "explanation": "Applying trigonometric principles to find lengths and angles in three-dimensional geometric contexts.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "graphing sine, cosine, and tangent functions",
+    "explanation": "Plotting the periodic waveforms of sine, cosine, and tangent functions over a range of angles.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "graphing functions of the form f(θ) = a + b sin cθ",
+    "explanation": "Plotting sinusoidal functions with amplitude, vertical shift, and frequency parameters.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "graphing functions of the form g(θ) = a + b cos cθ",
+    "explanation": "Plotting cosine-based sinusoidal functions with amplitude, vertical shift, and frequency parameters.",
+    "broader_concept": "Geometric Concepts",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "solving trigonometric equations sin nθ = 0",
+    "explanation": "Finding all angle solutions θ for

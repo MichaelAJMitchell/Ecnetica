@@ -1,0 +1,207 @@
+Model: unknown
+Task: additional concepts
+Timestamp: 2025-08-05T03:40:31.721595
+==================================================
+[
+    {
+        "name": "equation of a tangent to a circle",
+        "explanation": "The linear equation of the tangent line to a circle at a given point on the circle, found using the slope of the radius and point-slope form.",
+        "broader_concept": "circle geometry",
+        "strand": "coordinate geometry",
+        "grade_level": "senior secondary",
+        "difficulty": "medium"
+    },
+    {
+        "name": "perpendicular bisector of a chord",
+        "explanation": "The line perpendicular to a chord of a circle that passes through the midpoint of the chord and contains the centre of the circle.",
+        "broader_concept": "circle geometry",
+        "strand": "coordinate geometry",
+        "grade_level": "senior secondary",
+        "difficulty": "medium"
+    },
+    {
+        "name": "common chord of two circles",
+        "explanation": "The line segment joining the two points of intersection of two circles, found by subtracting their equations.",
+        "broader_concept": "circle geometry",
+        "strand": "coordinate geometry",
+        "grade_level": "senior secondary",
+        "difficulty": "medium"
+    },
+    {
+        "name": "common tangent of two circles",
+        "explanation": "A line that touches two circles at exactly one point each, either externally or internally.",
+        "broader_concept": "circle geometry",
+        "strand": "coordinate geometry",
+        "grade_level": "senior secondary",
+        "difficulty": "medium"
+    },
+    {
+        "name": "modulus (absolute value) function",
+        "explanation": "A function that returns the non-negative value of a number or expression, denoted by |x|.",
+        "broader_concept": "functions and equations",
+        "strand": "algebra",
+        "grade_level": "senior secondary",
+        "difficulty": "medium"
+    },
+    {
+        "name": "modular equations and inequalities",
+        "explanation": "Equations and inequalities involving modulus expressions, solved by considering positive and negative cases or squaring.",
+        "broader_concept": "equations and inequalities",
+        "strand": "algebra",
+        "grade_level": "senior secondary",
+        "difficulty": "medium"
+    },
+    {
+        "name": "proof by contradiction",
+        "explanation": "A method of mathematical proof where assuming the negation of a statement leads to a contradiction, proving the original statement true.",
+        "broader_concept": "mathematical reasoning",
+        "strand": "algebra",
+        "grade_level": "senior secondary",
+        "difficulty": "high"
+    },
+    {
+        "name": "proof by induction",
+        "explanation": "A method of proof for statements involving natural numbers, proving the base case and then the inductive step to establish truth for all natural numbers.",
+        "broader_concept": "mathematical reasoning",
+        "strand": "algebra",
+        "grade_level": "senior secondary",
+        "difficulty": "high"
+    },
+    {
+        "name": "direct proof",
+        "explanation": "A method of proof using axioms, definitions, and previously proven theorems to establish the truth of a statement.",
+        "broader_concept": "mathematical reasoning",
+        "strand": "algebra",
+        "grade_level": "senior secondary",
+        "difficulty": "medium"
+    },
+    {
+        "name": "abstract inequalities",
+        "explanation": "Inequalities involving algebraic expressions with variables, proven using algebraic manipulation and properties of squares.",
+        "broader_concept": "inequalities",
+        "strand": "algebra",
+        "grade_level": "senior secondary",
+        "difficulty": "high"
+    },
+    {
+        "name": "proofs of divisibility",
+        "explanation": "Mathematical proofs showing that expressions are divisible by a given number for all natural numbers, often using induction.",
+        "broader_concept": "number theory",
+        "strand": "algebra",
+        "grade_level": "senior secondary",
+        "difficulty": "high"
+    },
+    {
+        "name": "exponential growth and decay models",
+        "explanation": "Mathematical models describing quantities that increase or decrease exponentially over time, using functions of the form A·a^x or A·e^{bx}.",
+        "broader_concept": "functions and modelling",
+        "strand": "algebra",
+        "grade_level": "senior secondary",
+        "difficulty": "medium"
+    },
+    {
+        "name": "doubling time",
+        "explanation": "The time required for an exponentially growing quantity to double in size, calculated using logarithms and growth constants.",
+        "broader_concept": "functions and modelling",
+        "strand": "algebra",
+        "grade_level": "senior secondary",
+        "difficulty": "medium"
+    },
+    {
+        "name": "logarithmic equations",
+        "explanation": "Equations involving logarithms, solved by applying log laws, changing bases, and converting to exponential form.",
+        "broader_concept": "functions and equations",
+        "strand": "algebra",
+        "grade_level": "senior secondary",
+        "difficulty": "medium"
+    },
+    {
+        "name": "laws of logarithms",
+        "explanation": "Fundamental properties of logarithms including product, quotient, power, and change of base rules.",
+        "broader_concept": "functions and equations",
+        "strand": "algebra",
+        "grade_level": "senior secondary",
+        "difficulty": "medium"
+    },
+    {
+        "name": "inverse trigonometric functions",
+        "explanation": "Functions that give the angle whose sine, cosine, or tangent is a given value, denoted sin^{-1}, cos^{-1}, tan^{-1}.",
+        "broader_concept": "trigonometry",
+        "strand": "trigonometry",
+        "grade_level": "senior secondary",
+        "difficulty": "medium"
+    },
+    {
+        "name": "sum to infinity of a geometric series",
+        "explanation": "The limit of the sum of an infinite geometric series with common ratio |r|<1, given by S_infinity = a/(1-r).",
+        "broader_concept": "sequences and series",
+        "strand": "algebra",
+        "grade_level": "senior secondary",
+        "difficulty": "medium"
+    },
+    {
+        "name": "recurrence relations",
+        "explanation": "Definitions of sequences where each term is defined as a function of previous terms.",
+        "broader_concept": "sequences and series",
+        "strand": "algebra",
+        "grade_level": "senior secondary",
+        "difficulty": "medium"
+    },
+    {
+        "name": "finite difference method",
+        "explanation": "A method to identify the degree of a polynomial sequence by examining successive differences of terms.",
+        "broader_concept": "sequences and series",
+        "strand": "algebra",
+        "grade_level": "senior secondary",
+        "difficulty": "medium"
+    },
+    {
+        "name": "sigma notation for series",
+        "explanation": "A concise notation using the summation symbol Σ to represent the sum of terms in a sequence.",
+        "broader_concept": "sequences and series",
+        "strand": "algebra",
+        "grade_level": "senior secondary",
+        "difficulty": "medium"
+    },
+    {
+        "name": "back-to-back stem and leaf diagram",
+        "explanation": "A comparative graphical display where two stem and leaf diagrams share the same stem with leaves on opposite sides.",
+        "broader_concept": "data representation",
+        "strand": "statistics",
+        "grade_level": "senior secondary",
+        "difficulty": "medium"
+    },
+    {
+        "name": "percentiles",
+        "explanation": "Values dividing a data set into 100 equal parts, indicating the relative standing of a data point.",
+        "broader_concept": "data analysis",
+        "strand": "statistics",
+        "grade_level": "senior secondary",
+        "difficulty": "medium"
+    },
+    {
+        "name": "outliers",
+        "explanation": "Data points that are significantly different from other observations, affecting measures like mean and standard deviation.",
+        "broader_concept": "data analysis",
+        "strand": "statistics",
+        "grade_level": "senior secondary",
+        "difficulty": "medium"
+    },
+    {
+        "name": "explanatory and response variables",
+        "explanation": "In experiments, the explanatory variable is controlled or manipulated, and the response variable is observed for changes.",
+        "broader_concept": "statistical experiments",
+        "strand": "statistics",
+        "grade_level": "senior secondary",
+        "difficulty": "medium"
+    },
+    {
+        "name": "sampling methods",
+        "explanation": "Techniques for selecting representative samples from populations, including simple random, stratified, systematic, quota, cluster, and convenience sampling.",
+        "broader_concept": "data collection",
+        "strand": "statistics",
+        "grade_level": "senior secondary",
+        "difficulty": "medium"
+    },
+    {
+        "name": "bias

@@ -1,0 +1,292 @@
+Model: unknown
+Task: granular concepts
+Timestamp: 2025-08-05T03:28:53.821326
+==================================================
+[
+  {
+    "name": "Natural numbers (N)",
+    "explanation": "The set of positive integers starting from 1, i.e., {1, 2, 3, 4, ...}, used for counting and ordering.",
+    "broader_concept": "Number Systems",
+    "strand": "Number Sets"
+  },
+  {
+    "name": "Integers (Z)",
+    "explanation": "The set of whole numbers including positive numbers, zero, and negative numbers, i.e., {..., -3, -2, -1, 0, 1, 2, 3, ...}.",
+    "broader_concept": "Number Systems",
+    "strand": "Number Sets"
+  },
+  {
+    "name": "Rational numbers (Q)",
+    "explanation": "Numbers that can be expressed as the quotient of two integers, where the denominator is not zero, including fractions and decimals with finite or repeating decimal expansions.",
+    "broader_concept": "Number Systems",
+    "strand": "Number Sets"
+  },
+  {
+    "name": "Representation of rational numbers as fractions, decimals, and percentages",
+    "explanation": "Understanding that fractions, decimals (finite or repeating), and percentages are different forms representing the same rational number.",
+    "broader_concept": "Number Systems",
+    "strand": "Number Representations"
+  },
+  {
+    "name": "Addition of natural numbers",
+    "explanation": "Combining two natural numbers to get their sum, with the result also a natural number.",
+    "broader_concept": "Number Systems",
+    "strand": "Arithmetic Operations"
+  },
+  {
+    "name": "Subtraction of natural numbers",
+    "explanation": "Finding the difference between two natural numbers, where the result remains a natural number if the minuend is larger or equal to the subtrahend.",
+    "broader_concept": "Number Systems",
+    "strand": "Arithmetic Operations"
+  },
+  {
+    "name": "Multiplication of natural numbers",
+    "explanation": "Repeated addition of a natural number a specified number of times, resulting in another natural number.",
+    "broader_concept": "Number Systems",
+    "strand": "Arithmetic Operations"
+  },
+  {
+    "name": "Division of natural numbers",
+    "explanation": "Splitting a natural number into equal parts or groups, resulting in a quotient that may or may not be a natural number.",
+    "broader_concept": "Number Systems",
+    "strand": "Arithmetic Operations"
+  },
+  {
+    "name": "Extension of arithmetic operations to rational numbers",
+    "explanation": "Performing addition, subtraction, multiplication, and division on rational numbers while maintaining arithmetic properties.",
+    "broader_concept": "Number Systems",
+    "strand": "Arithmetic Operations"
+  },
+  {
+    "name": "Addition of integers including negative numbers",
+    "explanation": "Combining integers, including negative values, following rules that maintain arithmetic properties and real-world interpretations.",
+    "broader_concept": "Number Systems",
+    "strand": "Arithmetic Operations"
+  },
+  {
+    "name": "Subtraction of integers including negative numbers",
+    "explanation": "Finding the difference between integers, including negative values, applying arithmetic properties and contextual understanding.",
+    "broader_concept": "Number Systems",
+    "strand": "Arithmetic Operations"
+  },
+  {
+    "name": "Multiplication of integers including negative numbers",
+    "explanation": "Multiplying integers, including negative values, following rules such as the product of two negatives is positive.",
+    "broader_concept": "Number Systems",
+    "strand": "Arithmetic Operations"
+  },
+  {
+    "name": "Division of integers including negative numbers",
+    "explanation": "Dividing integers, including negative values, applying rules consistent with multiplication and division properties.",
+    "broader_concept": "Number Systems",
+    "strand": "Arithmetic Operations"
+  },
+  {
+    "name": "Properties of arithmetic operations: commutative law",
+    "explanation": "The property that states the order of addition or multiplication does not affect the result (e.g., a + b = b + a).",
+    "broader_concept": "Number Systems",
+    "strand": "Arithmetic Properties"
+  },
+  {
+    "name": "Properties of arithmetic operations: associative law",
+    "explanation": "The property that states the grouping of numbers in addition or multiplication does not affect the result (e.g., (a + b) + c = a + (b + c)).",
+    "broader_concept": "Number Systems",
+    "strand": "Arithmetic Properties"
+  },
+  {
+    "name": "Properties of arithmetic operations: distributive law",
+    "explanation": "The property that multiplication distributes over addition or subtraction (e.g., a × (b + c) = a × b + a × c).",
+    "broader_concept": "Number Systems",
+    "strand": "Arithmetic Properties"
+  },
+  {
+    "name": "Order of operations including brackets",
+    "explanation": "Rules that define the sequence in which arithmetic operations are performed to correctly evaluate expressions.",
+    "broader_concept": "Number Systems",
+    "strand": "Arithmetic Properties"
+  },
+  {
+    "name": "Number line representation of natural numbers",
+    "explanation": "Visual representation of natural numbers as points on a line in increasing order from left to right.",
+    "broader_concept": "Number Systems",
+    "strand": "Number Representations"
+  },
+  {
+    "name": "Number line representation of integers",
+    "explanation": "Visual representation of integers including negative numbers, zero, and positive numbers on a line with equal spacing.",
+    "broader_concept": "Number Systems",
+    "strand": "Number Representations"
+  },
+  {
+    "name": "Number line representation of rational numbers",
+    "explanation": "Visual placement of rational numbers, including fractions and decimals, on a continuous number line.",
+    "broader_concept": "Number Systems",
+    "strand": "Number Representations"
+  },
+  {
+    "name": "Recognition of irrational numbers",
+    "explanation": "Understanding numbers that cannot be expressed as a ratio of integers and have non-repeating, non-terminating decimal expansions.",
+    "broader_concept": "Number Systems",
+    "strand": "Number Sets"
+  },
+  {
+    "name": "Geometric construction of √2 and √3",
+    "explanation": "Using geometric methods (e.g., right triangles) to construct lengths representing the square roots of 2 and 3.",
+    "broader_concept": "Number Systems",
+    "strand": "Irrational Numbers"
+  },
+  {
+    "name": "Proof that √2 is irrational",
+    "explanation": "A mathematical proof demonstrating that the square root of 2 cannot be expressed as a ratio of two integers.",
+    "broader_concept": "Number Systems",
+    "strand": "Irrational Numbers"
+  },
+  {
+    "name": "Real numbers (R)",
+    "explanation": "The set of all rational and irrational numbers, representing all points on the continuous number line.",
+    "broader_concept": "Number Systems",
+    "strand": "Number Sets"
+  },
+  {
+    "name": "Complex numbers (C) in rectangular form",
+    "explanation": "Numbers expressed as a + ib, where a and b are real numbers and i is the imaginary unit with i² = -1.",
+    "broader_concept": "Number Systems",
+    "strand": "Number Sets"
+  },
+  {
+    "name": "Addition of complex numbers",
+    "explanation": "Adding complex numbers by separately adding their real parts and imaginary parts.",
+    "broader_concept": "Number Systems",
+    "strand": "Arithmetic Operations"
+  },
+  {
+    "name": "Multiplication of complex numbers",
+    "explanation": "Multiplying complex numbers using distributive property and the fact that i² = -1.",
+    "broader_concept": "Number Systems",
+    "strand": "Arithmetic Operations"
+  },
+  {
+    "name": "Complex conjugate",
+    "explanation": "For a complex number a + ib, its conjugate is a - ib, reflecting the number across the real axis in the complex plane.",
+    "broader_concept": "Number Systems",
+    "strand": "Complex Numbers"
+  },
+  {
+    "name": "Calculation of complex conjugates of sums and products",
+    "explanation": "Finding the conjugate of sums and products of complex numbers by applying conjugation to each term.",
+    "broader_concept": "Number Systems",
+    "strand": "Complex Numbers"
+  },
+  {
+    "name": "Argand diagram representation of complex numbers",
+    "explanation": "Graphical representation of complex numbers as points or vectors in a plane with real and imaginary axes.",
+    "broader_concept": "Number Systems",
+    "strand": "Complex Numbers"
+  },
+  {
+    "name": "Modulus of a complex number",
+    "explanation": "The distance of a complex number from the origin in the Argand diagram, calculated as √(a² + b²) for a + ib.",
+    "broader_concept": "Number Systems",
+    "strand": "Complex Numbers"
+  },
+  {
+    "name": "Decimal representation as special equivalent fractions",
+    "explanation": "Understanding decimals as fractions with denominators that are powers of 10, strengthening place-value and fraction connections.",
+    "broader_concept": "Number Systems",
+    "strand": "Number Representations"
+  },
+  {
+    "name": "Factors and multiples in natural numbers",
+    "explanation": "Factors are numbers that divide another number exactly; multiples are products of a number and an integer.",
+    "broader_concept": "Number Systems",
+    "strand": "Number Properties"
+  },
+  {
+    "name": "Prime numbers in natural numbers",
+    "explanation": "Natural numbers greater than 1 that have no positive divisors other than 1 and themselves.",
+    "broader_concept": "Number Systems",
+    "strand": "Number Properties"
+  },
+  {
+    "name": "Prime factorization",
+    "explanation": "Expressing a natural number as a product of its prime factors.",
+    "broader_concept": "Number Systems",
+    "strand": "Number Properties"
+  },
+  {
+    "name": "Scientific notation for positive rational numbers",
+    "explanation": "Expressing numbers in the form a × 10^n where 1 ≤ a < 10 and n is an integer, to simplify representation and calculations.",
+    "broader_concept": "Number Systems",
+    "strand": "Number Representations"
+  },
+  {
+    "name": "Arithmetic operations on numbers in scientific notation",
+    "explanation": "Performing addition, subtraction, multiplication, and division on numbers expressed in scientific notation.",
+    "broader_concept": "Number Systems",
+    "strand": "Arithmetic Operations"
+  },
+  {
+    "name": "Sequences generated by processes",
+    "explanation": "Understanding that sequences of numbers or objects can be produced by applying a rule or process repeatedly.",
+    "broader_concept": "Number Systems",
+    "strand": "Sequences and Patterns"
+  },
+  {
+    "name": "Arithmetic sequences",
+    "explanation": "Sequences where each term is obtained by adding a constant difference to the previous term.",
+    "broader_concept": "Number Systems",
+    "strand": "Sequences and Patterns"
+  },
+  {
+    "name": "Geometric sequences",
+    "explanation": "Sequences where each term is obtained by multiplying the previous term by a constant ratio.",
+    "broader_concept": "Number Systems",
+    "strand": "Sequences and Patterns"
+  },
+  {
+    "name": "Sum to n terms of an arithmetic series",
+    "explanation": "Calculating the sum of the first n terms of an arithmetic sequence using a formula.",
+    "broader_concept": "Number Systems",
+    "strand": "Sequences and Patterns"
+  },
+  {
+    "name": "Equality as a relationship between expressions",
+    "explanation": "Understanding that equality means two mathematical expressions represent the same value.",
+    "broader_concept": "Number Systems",
+    "strand": "Number Properties"
+  },
+  {
+    "name": "Equivalence of fractions, decimals, and percentages",
+    "explanation": "Recognizing that fractions, decimals, and percentages can represent the same proportion or value.",
+    "broader_concept": "Number Systems",
+    "strand": "Number Representations"
+  },
+  {
+    "name": "Order of magnitude estimation",
+    "explanation": "Approximating the scale or size of a number to check the plausibility of results.",
+    "broader_concept": "Number Systems",
+    "strand": "Estimation and Approximation"
+  },
+  {
+    "name": "Rounding off results",
+    "explanation": "Reducing the digits of a number to a specified degree of accuracy for simplicity or clarity.",
+    "broader_concept": "Number Systems",
+    "strand": "Estimation and Approximation"
+  },
+  {
+    "name": "Making and justifying estimates and approximations",
+    "explanation": "Using reasoning to approximate values and explain the rationale behind the estimate.",
+    "broader_concept": "Number Systems",
+    "strand": "Estimation and Approximation"
+  },
+  {
+    "name": "Presenting numerical answers to specified accuracy",
+    "explanation": "Expressing numerical results rounded or truncated to a required number of decimal places or significant figures.",
+    "broader_concept": "Number Systems",
+    "strand": "Estimation and Approximation"
+  },
+  {
+    "name": "Calculating percentages",
+    "explanation": "Finding a part per hundred of a quantity, used to express proportions and comparisons.",
+    "broader_concept": "Number Systems",
+    "strand": "Number Representations

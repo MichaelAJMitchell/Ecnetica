@@ -35,9 +35,12 @@ class ConceptScraper:
                 'relationships_added': 0
             }
         
-        # Chunk the text
-        chunks = self.file_processor.chunk_text(text_content, CHUNK_SIZE, OVERLAP_SIZE)
-        print(f"Split into {len(chunks)} chunks for processing")
+        # Create semantic chunks with context awareness
+        print("Creating semantic chunks with context awareness...")
+        context_aware_chunks = self.file_processor.create_context_aware_chunks(
+            text_content, CHUNK_SIZE, OVERLAP_SIZE
+        )
+        print(f"Split into {len(context_aware_chunks)} semantic chunks for processing")
         
         # Get existing data for context
         existing_concepts = self.data_manager.get_concepts_for_context()
@@ -47,14 +50,17 @@ class ConceptScraper:
         total_relationships_added = 0
         source = os.path.basename(file_path)
         
-        # Process each chunk
-        for i, chunk in enumerate(tqdm(chunks, desc="Processing chunks")):
-            print(f"\nProcessing chunk {i+1}/{len(chunks)}")
+        # Process each chunk with multi-stage extraction
+        for i, chunk_info in enumerate(tqdm(context_aware_chunks, desc="Processing chunks")):
+            print(f"\nProcessing chunk {i+1}/{len(context_aware_chunks)}")
+            print(f"Context: {chunk_info['document_context']}")
             
-            # Extract concepts from chunk
+            chunk_content = chunk_info['chunk_content']
+            
+            # Extract concepts using multi-stage approach
             try:
-                new_concepts = self.openai_client.extract_concepts(
-                    chunk, existing_concepts, source
+                new_concepts = self.openai_client.extract_concepts_multi_stage(
+                    chunk_content, existing_concepts, source, chunk_info
                 )
                 
                 if new_concepts:
@@ -76,10 +82,10 @@ class ConceptScraper:
                 print(f"Error extracting concepts from chunk {i+1}: {str(e)}")
                 continue
             
-            # Extract relationships from chunk
+            # Extract relationships using enhanced approach
             try:
-                new_relationships = self.openai_client.extract_relationships(
-                    chunk, existing_concepts, existing_relationships, source
+                new_relationships = self.openai_client.extract_relationships_enhanced(
+                    chunk_content, existing_concepts, existing_relationships, source, chunk_info
                 )
                 
                 if new_relationships:
@@ -89,7 +95,8 @@ class ConceptScraper:
                     if added_relationships:
                         print(f"Added {len(added_relationships)} new relationships from chunk {i+1}")
                         for rel in added_relationships:
-                            print(f"  - {rel['prerequisite_name']} → {rel['dependent_name']}")
+                            strength = rel.get('strength', 'unknown')
+                            print(f"  - {rel['prerequisite_name']} → {rel['dependent_name']} (strength: {strength})")
                     
                     if existing_relationships_found:
                         print(f"Found {len(existing_relationships_found)} existing relationships in chunk {i+1}")

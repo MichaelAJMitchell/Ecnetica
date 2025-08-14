@@ -42,7 +42,7 @@ The script is configured with conservative defaults:
 - **Batch Size**: 3 pairs per API call (to start small)
 - **Max Pairs**: 50 pairs total (for initial testing)
 - **Delay**: 2 seconds between batches
-- **Model**: gpt-4o-mini
+- **Model**: gpt-5-mini
 
 ### Output
 
@@ -95,7 +95,7 @@ To manage OpenAI API costs:
 - Start with small `max_pairs` values for testing
 - Use conservative `delay_between_batches` to avoid rate limits
 - Monitor the `api_calls_made` statistic
-- The script uses `gpt-4o-mini` which is cost-effective
+- The script uses `gpt-5-mini` which is cost-effective
 
 ## Troubleshooting
 

@@ -39,10 +39,10 @@ def create_env_file():
             f.write("# OpenAI API Configuration\n")
             f.write("# Get your API key from: https://platform.openai.com/api-keys\n")
             f.write("OPENAI_API_KEY=your_openai_api_key_here\n\n")
-            f.write("# Optional: Override default model (default: gpt-4o-mini)\n")
-            f.write("# DEFAULT_MODEL=gpt-4o-mini\n\n")
+            f.write("# Optional: Override default model (default: gpt-5-mini)\n")
+            f.write("# DEFAULT_MODEL=gpt-5-mini\n\n")
             f.write("# Optional: Override fallback models (comma-separated)\n")
-            f.write("# FALLBACK_MODELS=gpt-3.5-turbo,gpt-4-turbo-preview\n")
+            f.write("# FALLBACK_MODELS=gpt-4o-mini,gpt-4.1-mini,gpt-3.5-turbo,gpt-4-turbo-preview\n")
         
         print("✓ .env file created!")
         print("⚠️  Please edit .env file and add your OpenAI API key")

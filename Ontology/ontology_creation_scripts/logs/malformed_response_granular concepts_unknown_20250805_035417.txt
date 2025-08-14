@@ -1,0 +1,331 @@
+Model: unknown
+Task: granular concepts
+Timestamp: 2025-08-05T03:54:17.693687
+==================================================
+[
+  {
+    "name": "function as a unique output assignment",
+    "explanation": "Understanding that a function assigns exactly one output value for each input value.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Functions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "graphing linear functions of the form ax + b with rational coefficients",
+    "explanation": "Plotting the graph of linear functions where coefficients a and b are rational numbers and x is a real number.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Functions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "forming composite functions",
+    "explanation": "Creating a new function by applying one function to the result of another function.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Functions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "graphing quadratic functions of the form ax² + bx + c with integer coefficients",
+    "explanation": "Plotting graphs of quadratic functions where a, b, and c are integers and x is a real number.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Functions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "graphing cubic functions of the form ax³ + bx² + cx + d with integer coefficients",
+    "explanation": "Plotting graphs of cubic functions where a, b, c, and d are integers and x is a real number.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Functions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "graphing exponential functions of the form ab^x with natural a and real b, x",
+    "explanation": "Plotting graphs of exponential functions where a is a natural number and b and x are real numbers.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Functions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "interpreting equations of the form f(x) = g(x) as function comparisons",
+    "explanation": "Understanding that equations equating two functions represent points where their outputs are equal.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Functions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "using graphical methods to find approximate solutions to f(x) = 0",
+    "explanation": "Employing graphs to estimate the roots or zeros of a function.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Functions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "using graphical methods to find approximate solutions to f(x) = k",
+    "explanation": "Using graphs to estimate input values where the function output equals a constant k.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Functions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "using graphical methods to find approximate solutions to f(x) = g(x)",
+    "explanation": "Using graphs to estimate points where two functions have equal outputs.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Functions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "investigating the concept of the limit of a function",
+    "explanation": "Exploring how function values approach a particular value as the input approaches some point.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Functions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "recognising surjective functions",
+    "explanation": "Identifying functions where every possible output value is mapped by at least one input value.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Functions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "recognising injective functions",
+    "explanation": "Identifying functions where each output value corresponds to at most one input value (one-to-one).",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Functions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "recognising bijective functions",
+    "explanation": "Identifying functions that are both injective and surjective, establishing a one-to-one correspondence between inputs and outputs.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Functions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "finding the inverse of a bijective function",
+    "explanation": "Determining a function that reverses the effect of a bijective function, swapping inputs and outputs.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Functions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "sketching the graph of the inverse function given the original function's graph",
+    "explanation": "Drawing the graph of a function's inverse by reflecting the original graph across the line y = x.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Functions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "expressing quadratic functions in complete square form",
+    "explanation": "Rewriting quadratic functions as a perfect square trinomial plus or minus a constant to reveal vertex form.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Functions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "using complete square form to find roots of quadratic functions",
+    "explanation": "Applying the vertex form of a quadratic to determine the values of x where the function equals zero.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Functions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "using complete square form to find turning points of quadratic functions",
+    "explanation": "Using the vertex form to identify the maximum or minimum point of a quadratic function.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Functions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "graphing quadratic functions with rational coefficients",
+    "explanation": "Plotting quadratic functions where coefficients a, b, and c are rational numbers and x is real.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Functions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "graphing exponential functions with real coefficients",
+    "explanation": "Plotting exponential functions where coefficients a and b are real numbers and x is real.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Functions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "graphing logarithmic functions",
+    "explanation": "Plotting functions that are the inverses of exponential functions, mapping multiplication into addition.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Functions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "graphing trigonometric functions",
+    "explanation": "Plotting sine, cosine, and other trigonometric functions over real inputs.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Functions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "informal exploration of limits and continuity of functions",
+    "explanation": "Investigating how functions behave near points and whether they have breaks or jumps without formal epsilon-delta definitions.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Functions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "finding first derivatives of linear functions by rule",
+    "explanation": "Calculating the rate of change or slope of linear functions using differentiation rules.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "finding first derivatives of quadratic functions by rule",
+    "explanation": "Calculating the derivative of quadratic functions using differentiation rules.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "finding first derivatives of cubic functions by rule",
+    "explanation": "Calculating the derivative of cubic functions using differentiation rules.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "finding second derivatives of linear, quadratic, and cubic functions",
+    "explanation": "Calculating the derivative of the first derivative to analyze concavity and acceleration.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "associating derivatives with slopes and tangent lines",
+    "explanation": "Understanding that the derivative at a point gives the slope of the tangent line to the function's graph at that point.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "applying differentiation to rates of change",
+    "explanation": "Using derivatives to calculate how quantities change with respect to one another.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "applying differentiation to find maxima and minima",
+    "explanation": "Using derivatives to locate points where functions reach local maximum or minimum values.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "applying differentiation to curve sketching",
+    "explanation": "Using derivatives to analyze function behavior such as increasing/decreasing intervals and concavity to sketch graphs.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "differentiating polynomial functions",
+    "explanation": "Applying differentiation rules to functions expressed as sums of powers of x with coefficients.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "differentiating exponential functions",
+    "explanation": "Calculating derivatives of functions where the variable is in the exponent.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "differentiating trigonometric functions",
+    "explanation": "Calculating derivatives of sine, cosine, and related functions.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "differentiating functions with rational powers",
+    "explanation": "Applying differentiation to functions where variables are raised to fractional exponents.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "differentiating inverse functions",
+    "explanation": "Finding derivatives of functions that reverse other functions.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "differentiating logarithmic functions",
+    "explanation": "Calculating derivatives of logarithm functions.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "differentiating sums, differences, products, quotients, and compositions of functions",
+    "explanation": "Applying differentiation rules to combined functions using sum, difference, product, quotient, and chain rules.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "using differentiation to find the slope of a tangent to a circle",
+    "explanation": "Applying derivative concepts to determine the slope of tangent lines to circular curves.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "recognising integration as the reverse process of differentiation",
+    "explanation": "Understanding that integration undoes differentiation, recovering the original function from its derivative.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Calculus",
+    "grade_level": "",

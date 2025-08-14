@@ -1,0 +1,266 @@
+Model: unknown
+Task: granular concepts
+Timestamp: 2025-08-05T03:45:40.012307
+==================================================
+[
+  {
+    "name": "irrational number",
+    "explanation": "A real number that cannot be expressed as a ratio of two integers, characterized by non-terminating, non-repeating decimal expansions.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Number Systems"
+  },
+  {
+    "name": "simplifying surds by factorization",
+    "explanation": "The process of expressing a surd in simplest form by factoring out perfect squares from under the radical sign.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Radicals and Surds"
+  },
+  {
+    "name": "construction of line segment of length sqrt(2) using compass and straightedge",
+    "explanation": "A geometric construction method to create a line segment of length √2 on the number line using perpendicular bisectors and arcs.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Geometric Constructions"
+  },
+  {
+    "name": "imaginary unit i",
+    "explanation": "The imaginary unit defined as the square root of -1, used to extend the real number system to complex numbers.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Complex Numbers"
+  },
+  {
+    "name": "addition of complex numbers",
+    "explanation": "The operation of adding two complex numbers by separately adding their real parts and their imaginary parts.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Complex Numbers"
+  },
+  {
+    "name": "multiplication of complex numbers in rectangular form",
+    "explanation": "Multiplying two complex numbers expressed as a + bi by expanding and simplifying using i^2 = -1.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Complex Numbers"
+  },
+  {
+    "name": "complex conjugate",
+    "explanation": "For a complex number a + bi, its conjugate is a - bi; used to rationalize denominators and find moduli.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Complex Numbers"
+  },
+  {
+    "name": "division of complex numbers using conjugates",
+    "explanation": "Dividing complex numbers by multiplying numerator and denominator by the conjugate of the denominator to obtain a real denominator.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Complex Numbers"
+  },
+  {
+    "name": "equality of complex numbers",
+    "explanation": "Two complex numbers are equal if and only if their real parts are equal and their imaginary parts are equal.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Complex Numbers"
+  },
+  {
+    "name": "square root of a complex number in rectangular form",
+    "explanation": "Expressing the square root of a complex number as a + bi by solving simultaneous equations derived from squaring a + bi.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Complex Numbers"
+  },
+  {
+    "name": "Argand diagram representation of complex numbers",
+    "explanation": "Plotting complex numbers as points in the plane with the real part on the x-axis and the imaginary part on the y-axis.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Complex Numbers"
+  },
+  {
+    "name": "modulus of a complex number",
+    "explanation": "The distance from the origin to the point representing the complex number in the Argand plane, calculated as sqrt(a^2 + b^2).",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Complex Numbers"
+  },
+  {
+    "name": "geometric interpretation of complex number addition",
+    "explanation": "Adding complex numbers corresponds to vector addition in the Argand plane, resulting in translation.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Complex Numbers"
+  },
+  {
+    "name": "geometric interpretation of complex number multiplication by a real scalar",
+    "explanation": "Multiplying a complex number by a real number scales its modulus, resulting in stretching or contraction from the origin.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Complex Numbers"
+  },
+  {
+    "name": "geometric interpretation of complex number multiplication by i",
+    "explanation": "Multiplying a complex number by i corresponds to a rotation of 90 degrees counterclockwise about the origin in the Argand plane.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Complex Numbers"
+  },
+  {
+    "name": "polar form of a complex number",
+    "explanation": "Expressing a complex number as r(cos θ + i sin θ), where r is the modulus and θ is the argument (angle) of the number.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Complex Numbers"
+  },
+  {
+    "name": "argument of a complex number",
+    "explanation": "The angle θ between the positive real axis and the line representing the complex number in the Argand plane.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Complex Numbers"
+  },
+  {
+    "name": "conversion between rectangular and polar forms of complex numbers",
+    "explanation": "Using trigonometric relations to convert between x + iy and r(cos θ + i sin θ) forms.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Complex Numbers"
+  },
+  {
+    "name": "multiplication of complex numbers in polar form",
+    "explanation": "Multiplying moduli and adding arguments: z1*z2 = r1*r2 [cos(θ1+θ2) + i sin(θ1+θ2)].",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Complex Numbers"
+  },
+  {
+    "name": "division of complex numbers in polar form",
+    "explanation": "Dividing moduli and subtracting arguments: z1/z2 = (r1/r2) [cos(θ1−θ2) + i sin(θ1−θ2)].",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Complex Numbers"
+  },
+  {
+    "name": "de Moivre's theorem",
+    "explanation": "For integer n, (cos θ + i sin θ)^n = cos nθ + i sin nθ, used to compute powers and roots of complex numbers.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Complex Numbers"
+  },
+  {
+    "name": "nth roots of complex numbers using de Moivre's theorem",
+    "explanation": "Finding all nth roots of a complex number by expressing it in polar form and applying de Moivre's theorem with arguments θ + 2πk.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Complex Numbers"
+  },
+  {
+    "name": "conjugate roots theorem",
+    "explanation": "If a polynomial with real coefficients has a complex root z, then its conjugate \u0305z is also a root.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Complex Numbers"
+  },
+  {
+    "name": "antidifferentiation (indefinite integration) of power functions",
+    "explanation": "Finding the general antiderivative of x^n as x^{n+1}/(n+1) + c, reversing differentiation.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Calculus - Integration"
+  },
+  {
+    "name": "constant of integration",
+    "explanation": "An arbitrary constant added to the indefinite integral representing the family of antiderivatives.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Calculus - Integration"
+  },
+  {
+    "name": "integration of exponential functions",
+    "explanation": "Integrating e^{ax} as (1/a) e^{ax} + c and a^{x} as a^{x}/ln a + c.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Calculus - Integration"
+  },
+  {
+    "name": "integration of trigonometric functions",
+    "explanation": "Integrals of sin(ax) and cos(ax) as -cos(ax)/a + c and sin(ax)/a + c respectively.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Calculus - Integration"
+  },
+  {
+    "name": "application of integration to kinematics",
+    "explanation": "Using integration to find velocity from acceleration and displacement from velocity functions.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Calculus - Applications"
+  },
+  {
+    "name": "definite integral as area under a curve",
+    "explanation": "Calculating the exact area between a curve and the x-axis over an interval using definite integrals.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Calculus - Integration"
+  },
+  {
+    "name": "area between two curves",
+    "explanation": "Finding the area enclosed between two curves by integrating the difference of their functions over the interval.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Calculus - Integration"
+  },
+  {
+    "name": "average value of a function over an interval",
+    "explanation": "The average value of f(x) over [a,b] is (1/(b−a)) ∫_a^b f(x) dx, representing the height of a rectangle with equal area.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Calculus - Applications"
+  },
+  {
+    "name": "rate of change",
+    "explanation": "The derivative representing the instantaneous rate of change of one quantity with respect to another, often time.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Calculus - Differential Calculus"
+  },
+  {
+    "name": "related rates of change",
+    "explanation": "Using the chain rule to relate rates of change of related variables with respect to time.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Calculus - Applications"
+  },
+  {
+    "name": "compound interest formula",
+    "explanation": "Calculating the final amount F = P(1 + i)^t for principal P invested at interest rate i for t periods.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Financial Mathematics"
+  },
+  {
+    "name": "present value formula",
+    "explanation": "Calculating the present value as PV = F / (1 + i)^t for future amount F discounted at rate i over t periods.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Financial Mathematics"
+  },
+  {
+    "name": "reducing balance depreciation",
+    "explanation": "Depreciation method where the asset value decreases by a fixed percentage each period: F = P(1 - i)^t.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Financial Mathematics"
+  },
+  {
+    "name": "instalment savings (annuities) final value formula",
+    "explanation": "Sum of geometric series representing accumulated value of regular payments: F = P(1+i)[(1+i)^t - 1]/i.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Financial Mathematics"
+  },
+  {
+    "name": "pension present value formula",
+    "explanation": "Present value of a series of future payments: PV = P/(1+i) * [1 - (1/(1+i))^t] / [1 - 1/(1+i)].",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Financial Mathematics"
+  },
+  {
+    "name": "loan repayment formula",
+    "explanation": "Monthly repayment A = P * [i(1+i)^t] / [(1+i)^t - 1] for loan amount P, interest rate i, and t payments.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Financial Mathematics"
+  },
+  {
+    "name": "tree diagram for probability",
+    "explanation": "A branching diagram representing all possible outcomes of sequential events with associated probabilities.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Probability"
+  },
+  {
+    "name": "probability distribution of a discrete random variable",
+    "explanation": "A table or function listing possible values of a discrete random variable and their associated probabilities.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Probability"
+  },
+  {
+    "name": "expected value of a discrete random variable",
+    "explanation": "The weighted average of all possible values of the variable, calculated as sum of x * P(x).",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Probability"
+  },
+  {
+    "name": "binomial distribution probability formula",
+    "explanation": "Probability of r successes in n independent Bernoulli trials: P(r) = C(n,r) p^r q^{n-r}.",
+    "broader_concept": "Algebraic Concepts",
+    "strand": "Probability"
+  },
+  {
+    "name": "independent events multiplication rule",
+    "explanation": "

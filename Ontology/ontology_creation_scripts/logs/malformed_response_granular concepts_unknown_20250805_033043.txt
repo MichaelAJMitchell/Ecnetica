@@ -1,0 +1,344 @@
+Model: unknown
+Task: granular concepts
+Timestamp: 2025-08-05T03:30:43.984486
+==================================================
+[
+  {
+    "name": "addition of natural numbers",
+    "explanation": "The arithmetic operation of combining two or more natural numbers to find their total or sum.",
+    "broader_concept": "Operations",
+    "strand": "Number systems",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "subtraction of natural numbers",
+    "explanation": "The arithmetic operation of finding the difference between two natural numbers by removing the value of one from another.",
+    "broader_concept": "Operations",
+    "strand": "Number systems",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "multiplication of natural numbers",
+    "explanation": "The arithmetic operation of repeated addition of a natural number a specified number of times.",
+    "broader_concept": "Operations",
+    "strand": "Number systems",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "division of natural numbers",
+    "explanation": "The arithmetic operation of splitting a natural number into equal parts or groups.",
+    "broader_concept": "Operations",
+    "strand": "Number systems",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "addition of integers",
+    "explanation": "The arithmetic operation of combining two or more integers, including positive, negative, and zero values, to find their sum.",
+    "broader_concept": "Operations",
+    "strand": "Number systems",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "subtraction of integers",
+    "explanation": "The arithmetic operation of finding the difference between two integers, considering their signs.",
+    "broader_concept": "Operations",
+    "strand": "Number systems",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "multiplication of integers",
+    "explanation": "The arithmetic operation of multiplying two integers, including rules for sign determination.",
+    "broader_concept": "Operations",
+    "strand": "Number systems",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "division of integers",
+    "explanation": "The arithmetic operation of dividing one integer by another, including sign rules and handling division by zero.",
+    "broader_concept": "Operations",
+    "strand": "Number systems",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "addition of rational numbers",
+    "explanation": "The arithmetic operation of combining two or more rational numbers (fractions or decimals) to find their sum.",
+    "broader_concept": "Operations",
+    "strand": "Number systems",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "subtraction of rational numbers",
+    "explanation": "The arithmetic operation of finding the difference between two rational numbers.",
+    "broader_concept": "Operations",
+    "strand": "Number systems",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "multiplication of rational numbers",
+    "explanation": "The arithmetic operation of multiplying two rational numbers, including fractions and decimals.",
+    "broader_concept": "Operations",
+    "strand": "Number systems",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "division of rational numbers",
+    "explanation": "The arithmetic operation of dividing one rational number by another, including finding reciprocals.",
+    "broader_concept": "Operations",
+    "strand": "Number systems",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "addition of real numbers",
+    "explanation": "The arithmetic operation of combining two or more real numbers, including rational and irrational numbers.",
+    "broader_concept": "Operations",
+    "strand": "Number systems",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "subtraction of real numbers",
+    "explanation": "The arithmetic operation of finding the difference between two real numbers.",
+    "broader_concept": "Operations",
+    "strand": "Number systems",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "multiplication of real numbers",
+    "explanation": "The arithmetic operation of multiplying two real numbers, including irrational numbers.",
+    "broader_concept": "Operations",
+    "strand": "Number systems",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "division of real numbers",
+    "explanation": "The arithmetic operation of dividing one real number by another, excluding division by zero.",
+    "broader_concept": "Operations",
+    "strand": "Number systems",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "addition of complex numbers in rectangular form",
+    "explanation": "The operation of adding two complex numbers expressed as a + ib by adding their real parts and imaginary parts separately.",
+    "broader_concept": "Operations",
+    "strand": "Number systems",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "multiplication of complex numbers in rectangular form",
+    "explanation": "The operation of multiplying two complex numbers expressed as a + ib using distributive property and i² = -1.",
+    "broader_concept": "Operations",
+    "strand": "Number systems",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "calculation of complex conjugate",
+    "explanation": "Finding the conjugate of a complex number a + ib, which is a - ib, used in division and modulus calculations.",
+    "broader_concept": "Operations",
+    "strand": "Number systems",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "order of operations including brackets",
+    "explanation": "The set of rules that determine the sequence in which arithmetic operations are performed, including the use of parentheses to group operations.",
+    "broader_concept": "Operations",
+    "strand": "Number systems",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "commutative property of addition",
+    "explanation": "The property that states changing the order of addends does not change the sum: a + b = b + a.",
+    "broader_concept": "Operations",
+    "strand": "Number systems",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "commutative property of multiplication",
+    "explanation": "The property that states changing the order of factors does not change the product: ab = ba.",
+    "broader_concept": "Operations",
+    "strand": "Number systems",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "associative property of addition",
+    "explanation": "The property that states the way addends are grouped does not change the sum: (a + b) + c = a + (b + c).",
+    "broader_concept": "Operations",
+    "strand": "Number systems",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "associative property of multiplication",
+    "explanation": "The property that states the way factors are grouped does not change the product: (ab)c = a(bc).",
+    "broader_concept": "Operations",
+    "strand": "Number systems",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "distributive property of multiplication over addition",
+    "explanation": "The property that states a(b + c) = ab + ac, distributing multiplication across addition.",
+    "broader_concept": "Operations",
+    "strand": "Number systems",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "representing numbers in scientific notation",
+    "explanation": "Expressing non-zero positive rational numbers in the form a × 10^n where 1 ≤ a < 10 and n is an integer.",
+    "broader_concept": "Operations",
+    "strand": "Number systems",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "calculating powers with integer exponents",
+    "explanation": "Raising a base number to an integer exponent, including positive, zero, and negative exponents.",
+    "broader_concept": "Operations",
+    "strand": "Indices",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "multiplication rule for indices",
+    "explanation": "The rule that states a^p × a^q = a^(p+q) for the same base a and exponents p, q.",
+    "broader_concept": "Operations",
+    "strand": "Indices",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "division rule for indices",
+    "explanation": "The rule that states a^p ÷ a^q = a^(p−q) for the same base a and exponents p, q.",
+    "broader_concept": "Operations",
+    "strand": "Indices",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "power of a power rule",
+    "explanation": "The rule that states (a^p)^q = a^(pq) for base a and exponents p, q.",
+    "broader_concept": "Operations",
+    "strand": "Indices",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "zero exponent rule",
+    "explanation": "The rule that states a^0 = 1 for any non-zero base a.",
+    "broader_concept": "Operations",
+    "strand": "Indices",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "negative exponent rule",
+    "explanation": "The rule that states a^(-p) = 1 / a^p for non-zero base a and positive integer p.",
+    "broader_concept": "Operations",
+    "strand": "Indices",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "power of a product rule",
+    "explanation": "The rule that states (ab)^p = a^p × b^p for bases a, b and exponent p.",
+    "broader_concept": "Operations",
+    "strand": "Indices",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "power of a quotient rule",
+    "explanation": "The rule that states (a/b)^p = a^p / b^p for bases a, b and exponent p.",
+    "broader_concept": "Operations",
+    "strand": "Indices",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "solving problems using index laws",
+    "explanation": "Applying the rules of indices to simplify expressions and solve equations involving powers.",
+    "broader_concept": "Operations",
+    "strand": "Indices",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "logarithm product rule",
+    "explanation": "The logarithmic identity log_a(xy) = log_a x + log_a y, expressing the log of a product as a sum.",
+    "broader_concept": "Operations",
+    "strand": "Logarithms",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "logarithm quotient rule",
+    "explanation": "The logarithmic identity log_a(x/y) = log_a x − log_a y, expressing the log of a quotient as a difference.",
+    "broader_concept": "Operations",
+    "strand": "Logarithms",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "logarithm power rule",
+    "explanation": "The logarithmic identity log_a(x^q) = q log_a x, expressing the log of a power as a product.",
+    "broader_concept": "Operations",
+    "strand": "Logarithms",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "logarithm of base and one",
+    "explanation": "The identities log_a a = 1 and log_a 1 = 0 for any positive base a ≠ 1.",
+    "broader_concept": "Operations",
+    "strand": "Logarithms",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "change of base formula for logarithms",
+    "explanation": "The formula log_a x = log_b x / log_b a allowing logarithms to be converted between bases.",
+    "broader_concept": "Operations",
+    "strand": "Logarithms",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "calculating square roots",
+    "explanation": "Finding the number which, when squared, gives the original number, including geometric constructions of √2 and √3.",
+    "broader_concept": "Operations",
+    "strand": "Indices",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "calculating cube roots",
+    "explanation": "Finding the number which, when cubed, gives the original number.",
+    "broader_concept": "Operations",
+    "strand": "Indices",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "representing decimals as fractions",
+    "explanation": "Express

@@ -1,0 +1,304 @@
+Model: unknown
+Task: granular concepts
+Timestamp: 2025-08-05T03:48:41.728769
+==================================================
+[
+  {
+    "name": "sample proportion",
+    "explanation": "The fraction or percentage of a sample that has a particular attribute or characteristic, used as an estimate of the population proportion.",
+    "broader_concept": "Data Analysis",
+    "strand": "Inferential Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "population proportion",
+    "explanation": "The true proportion of a population that has a particular attribute or characteristic, often unknown and estimated by the sample proportion.",
+    "broader_concept": "Data Analysis",
+    "strand": "Inferential Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "margin of error approximation for proportion",
+    "explanation": "An approximate formula for the margin of error at 95% confidence level given by E = 1/√n, where n is the sample size.",
+    "broader_concept": "Data Analysis",
+    "strand": "Inferential Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "confidence interval for population proportion using margin of error approximation",
+    "explanation": "An interval estimate for the population proportion p given by sample proportion ± 1/√n at 95% confidence level.",
+    "broader_concept": "Data Analysis",
+    "strand": "Inferential Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "standard error of sample proportion",
+    "explanation": "The standard deviation of the sampling distribution of the sample proportion, estimated by sqrt(p(1-p)/n), where p is the population proportion and n is the sample size.",
+    "broader_concept": "Data Analysis",
+    "strand": "Inferential Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Advanced"
+  },
+  {
+    "name": "confidence interval for population proportion using standard error",
+    "explanation": "A more accurate 95% confidence interval for population proportion p given by sample proportion ± 1.96 × sqrt(p(1-p)/n).",
+    "broader_concept": "Data Analysis",
+    "strand": "Inferential Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Advanced"
+  },
+  {
+    "name": "hypothesis testing for population proportion",
+    "explanation": "A statistical method to test a claim about a population proportion by comparing the sample proportion and confidence interval or p-value at a given significance level.",
+    "broader_concept": "Data Analysis",
+    "strand": "Inferential Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Advanced"
+  },
+  {
+    "name": "null hypothesis for population proportion",
+    "explanation": "The default assumption that the population proportion equals a specified value, tested against an alternative hypothesis.",
+    "broader_concept": "Data Analysis",
+    "strand": "Inferential Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "alternative hypothesis for population proportion",
+    "explanation": "The hypothesis that the population proportion differs from the value stated in the null hypothesis.",
+    "broader_concept": "Data Analysis",
+    "strand": "Inferential Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "level of significance",
+    "explanation": "The probability threshold (commonly 5%) below which the null hypothesis is rejected in hypothesis testing.",
+    "broader_concept": "Data Analysis",
+    "strand": "Inferential Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "critical region and critical values",
+    "explanation": "The set of values of the test statistic for which the null hypothesis is rejected; boundaries of this region are called critical values.",
+    "broader_concept": "Data Analysis",
+    "strand": "Inferential Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "p-value in hypothesis testing",
+    "explanation": "The probability of obtaining a test statistic as extreme as the observed one, used to decide whether to reject the null hypothesis.",
+    "broader_concept": "Data Analysis",
+    "strand": "Inferential Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Advanced"
+  },
+  {
+    "name": "sampling distribution of the mean",
+    "explanation": "The probability distribution of sample means obtained from all possible samples of a fixed size from a population.",
+    "broader_concept": "Data Analysis",
+    "strand": "Inferential Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Advanced"
+  },
+  {
+    "name": "central limit theorem",
+    "explanation": "The theorem stating that the sampling distribution of the sample mean approaches a normal distribution as sample size increases, regardless of the population distribution.",
+    "broader_concept": "Data Analysis",
+    "strand": "Inferential Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Advanced"
+  },
+  {
+    "name": "standard error of the mean",
+    "explanation": "The standard deviation of the sampling distribution of the sample mean, given by population standard deviation divided by the square root of sample size.",
+    "broader_concept": "Data Analysis",
+    "strand": "Inferential Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Advanced"
+  },
+  {
+    "name": "z-score for sample mean",
+    "explanation": "The number of standard errors that a sample mean is from the population mean, calculated as (sample mean - population mean) divided by standard error.",
+    "broader_concept": "Data Analysis",
+    "strand": "Inferential Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Advanced"
+  },
+  {
+    "name": "confidence interval for population mean with known standard deviation",
+    "explanation": "An interval estimate for the population mean given by sample mean ± 1.96 × (population standard deviation / sqrt(sample size)) at 95% confidence level.",
+    "broader_concept": "Data Analysis",
+    "strand": "Inferential Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Advanced"
+  },
+  {
+    "name": "hypothesis testing for population mean",
+    "explanation": "A statistical procedure to test a claim about a population mean using sample mean, population standard deviation, sample size, and significance level.",
+    "broader_concept": "Data Analysis",
+    "strand": "Inferential Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Advanced"
+  },
+  {
+    "name": "critical region for population mean test",
+    "explanation": "The range of z-values beyond ±1.96 for which the null hypothesis about a population mean is rejected at the 5% significance level.",
+    "broader_concept": "Data Analysis",
+    "strand": "Inferential Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "line of best fit",
+    "explanation": "A straight line drawn through a scatter plot that best represents the trend of the data points.",
+    "broader_concept": "Data Analysis",
+    "strand": "Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "correlation coefficient (Pearson's r)",
+    "explanation": "A numerical measure of the strength and direction of a linear relationship between two variables, ranging from -1 to 1.",
+    "broader_concept": "Data Analysis",
+    "strand": "Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "positive correlation",
+    "explanation": "A relationship between two variables where as one increases, the other tends to increase.",
+    "broader_concept": "Data Analysis",
+    "strand": "Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Basic"
+  },
+  {
+    "name": "negative correlation",
+    "explanation": "A relationship between two variables where as one increases, the other tends to decrease.",
+    "broader_concept": "Data Analysis",
+    "strand": "Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Basic"
+  },
+  {
+    "name": "no correlation",
+    "explanation": "A situation where there is no apparent linear relationship between two variables.",
+    "broader_concept": "Data Analysis",
+    "strand": "Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Basic"
+  },
+  {
+    "name": "causal relationship",
+    "explanation": "A relationship where a change in one variable directly causes a change in another variable.",
+    "broader_concept": "Data Analysis",
+    "strand": "Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "normal distribution",
+    "explanation": "A continuous probability distribution characterized by a symmetric bell-shaped curve defined by its mean and standard deviation.",
+    "broader_concept": "Data Analysis",
+    "strand": "Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "empirical rule for normal distribution",
+    "explanation": "The rule that approximately 68% of data lie within 1 standard deviation, 95% within 2, and 99.7% within 3 standard deviations of the mean.",
+    "broader_concept": "Data Analysis",
+    "strand": "Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "standard score (z-score)",
+    "explanation": "The number of standard deviations a data point is from the mean, calculated as (x - mean) / standard deviation.",
+    "broader_concept": "Data Analysis",
+    "strand": "Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "standard normal distribution",
+    "explanation": "A normal distribution with mean 0 and standard deviation 1, used as a reference for calculating probabilities.",
+    "broader_concept": "Data Analysis",
+    "strand": "Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "normal probability distribution",
+    "explanation": "A probability distribution for a continuous random variable that follows a normal distribution curve.",
+    "broader_concept": "Data Analysis",
+    "strand": "Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "conversion from normal variable to standard normal variable",
+    "explanation": "The process of converting a value x from a normal distribution with mean μ and standard deviation σ to a z-score using z = (x - μ) / σ.",
+    "broader_concept": "Data Analysis",
+    "strand": "Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "probability from standard normal tables",
+    "explanation": "Using standard normal distribution tables to find the probability that a standard normal variable Z is less than or equal to a given value.",
+    "broader_concept": "Data Analysis",
+    "strand": "Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "probability between two z-scores",
+    "explanation": "The probability that a standard normal variable lies between two values z1 and z2, found by subtracting cumulative probabilities.",
+    "broader_concept": "Data Analysis",
+    "strand": "Statistics",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "exponential function",
+    "explanation": "A function of the form f(x) = a^x where a > 0 and a ≠ 1, characterized by rapid growth or decay.",
+    "broader_concept": "Data Analysis",
+    "strand": "Functions and Graphs",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "logarithmic function",
+    "explanation": "The inverse function of an exponential function, defined as the logarithm base a of x, where a > 0 and a ≠ 1.",
+    "broader_concept": "Data Analysis",
+    "strand": "Functions and Graphs",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "composition of functions",
+    "explanation": "The operation of applying one function to the results of another function, denoted as (g ∘ f)(x) = g(f(x)).",
+    "broader_concept": "Data Analysis",
+    "strand": "Functions and Graphs",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "inverse function",
+    "explanation": "A function that reverses the effect of the original function, such that f⁻¹(f(x)) = x.",
+    "broader_concept": "Data Analysis",
+    "strand": "Functions and Graphs",
+    "grade_level": "Upper Secondary",
+    "difficulty": "Intermediate"
+  },
+  {
+    "name": "injective function (one-to-one)",
+    "explanation":

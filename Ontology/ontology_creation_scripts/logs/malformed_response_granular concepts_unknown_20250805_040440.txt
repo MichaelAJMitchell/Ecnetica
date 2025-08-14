@@ -1,0 +1,320 @@
+Model: unknown
+Task: granular concepts
+Timestamp: 2025-08-05T04:04:40.889205
+==================================================
+[
+  {
+    "name": "line segment length measurement",
+    "explanation": "Measuring the distance between two points on a line segment, denoted |AB|, representing the length of segment [AB].",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Measurement",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "midpoint of a line segment",
+    "explanation": "The point M on segment [AB] such that |AM| = |MB| = 1/2 |AB|, dividing the segment into two equal parts.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Measurement",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "angle degree measurement",
+    "explanation": "Assigning a numerical value in degrees (0° to 360°) to an angle, representing its size or measure.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Measurement",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "angle bisector length equality",
+    "explanation": "The property that the perpendiculars from a point on an angle bisector to the arms of the angle have equal length.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Measurement",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "angle bisector division of angle measure",
+    "explanation": "A ray [AD] bisects angle \BAC if it divides the angle into two equal angles, each measuring half of |\BAC|.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Measurement",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "supplementary angle addition",
+    "explanation": "Two angles are supplementary if their measures add up to 180°, e.g., angles \BAD and \DAC when \BAC is a straight angle.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Measurement",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "vertically opposite angle equality",
+    "explanation": "When two lines intersect, the pairs of vertically opposite angles formed are equal in measure.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Measurement",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "triangle side length notation and operations",
+    "explanation": "Labeling triangle side lengths as a, b, c corresponding to sides opposite vertices A, B, C respectively, and performing operations on these lengths.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Measurement",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "triangle angle sum calculation",
+    "explanation": "Calculating the sum of the interior angles of a triangle, which always equals 180°.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Measurement",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "triangle area calculation using base and height",
+    "explanation": "Computing the area of a triangle as half the product of a chosen base length and its corresponding height (altitude).",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Measurement",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "parallelogram area calculation",
+    "explanation": "Calculating the area of a parallelogram as the product of its base length and corresponding height.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Measurement",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "ratio division of a segment",
+    "explanation": "Dividing a segment [AB] by a point C such that the lengths |AC| and |CB| are in a given ratio s:t.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Measurement",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "proportional segment division by parallel lines",
+    "explanation": "If three parallel lines cut equal segments on one transversal, they cut equal segments on any other transversal, preserving ratios.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Measurement",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "similar triangle side length proportionality",
+    "explanation": "In similar triangles, corresponding sides are proportional, i.e., the ratios of corresponding side lengths are equal.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Measurement",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "Pythagorean theorem arithmetic operation",
+    "explanation": "Calculating the square of the hypotenuse as the sum of the squares of the other two sides in a right-angled triangle.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Measurement",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "converse of Pythagorean theorem verification",
+    "explanation": "Determining if a triangle is right-angled by verifying if the square of one side equals the sum of the squares of the other two sides.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Measurement",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "circle circumference to diameter ratio calculation",
+    "explanation": "Calculating the constant ratio π of the circumference of a circle to its diameter.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Measurement",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "circle arc angle measure relation",
+    "explanation": "The angle at the center of a circle standing on an arc is twice the angle at any point on the circle standing on the same arc.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Measurement",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "area calculation of rectangle using multiplication",
+    "explanation": "Calculating the area of a rectangle as the product of the lengths of two adjacent sides.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Measurement",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "perpendicular bisector construction and length equality",
+    "explanation": "Constructing the perpendicular bisector of a segment, which passes through the midpoint and is perpendicular to the segment, equidistant from endpoints.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Measurement",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "tangent line perpendicularity to radius",
+    "explanation": "A tangent to a circle at a point is perpendicular to the radius drawn to that point.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Measurement",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "angle sum of quadrilateral calculation",
+    "explanation": "Calculating the sum of interior angles of a quadrilateral, which equals 360°.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Measurement",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "division of segment into equal parts without measurement",
+    "explanation": "Dividing a segment into a specified number of equal parts using geometric constructions without measuring lengths.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Constructions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "construction of angle bisector using compass and straightedge",
+    "explanation": "Constructing the bisector of a given angle using only a compass and straightedge.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Constructions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "construction of perpendicular bisector of a segment",
+    "explanation": "Constructing the line perpendicular to a segment at its midpoint using compass and straightedge.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Constructions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "construction of line perpendicular to given line through external point",
+    "explanation": "Constructing a line perpendicular to a given line passing through a point not on the line using compass and straightedge.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Constructions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "construction of line perpendicular to given line through point on line",
+    "explanation": "Constructing a line perpendicular to a given line passing through a point on the line using compass and straightedge.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Constructions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "construction of line parallel to given line through given point",
+    "explanation": "Constructing a line parallel to a given line passing through a specified point using compass and straightedge.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Constructions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "construction of triangle given three side lengths",
+    "explanation": "Constructing a triangle when the lengths of all three sides are given, using compass and straightedge.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Constructions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "construction of triangle given SAS data",
+    "explanation": "Constructing a triangle when two sides and the included angle are given, using compass and straightedge.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Constructions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "construction of triangle given ASA data",
+    "explanation": "Constructing a triangle when two angles and the included side are given, using compass and straightedge.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Constructions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "construction of right-angled triangle given hypotenuse and one side",
+    "explanation": "Constructing a right-angled triangle when the length of the hypotenuse and one other side are given.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Constructions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "construction of right-angled triangle given one side and one acute angle",
+    "explanation": "Constructing a right-angled triangle when one side length and one acute angle are given.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Constructions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "construction of rectangle given side lengths",
+    "explanation": "Constructing a rectangle when the lengths of two adjacent sides are given.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Constructions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "construction of circumcentre and circumcircle of triangle",
+    "explanation": "Constructing the circumcentre (intersection of perpendicular bisectors) and circumcircle of a given triangle using compass and straightedge.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Constructions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "construction of incentre and incircle of triangle",
+    "explanation": "Constructing the incentre (intersection of angle bisectors) and incircle of a given triangle using compass and straightedge.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Constructions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "construction of 60 degree angle without protractor",
+    "explanation": "Constructing a 60° angle using only compass and straightedge, without a protractor or set square.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Constructions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "construction of tangent to circle at given point",
+    "explanation": "Constructing a line tangent to a given circle at a specified point on the circle using compass and straightedge.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Constructions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "construction of parallelogram given side lengths and angle measures",
+    "explanation": "Constructing a parallelogram when the lengths of sides and the measures of angles are given.",
+    "broader_concept": "Operations",
+    "strand": "Geometry - Constructions",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "construction of centroid of triangle",
+    "explanation": "Constructing the centroid of

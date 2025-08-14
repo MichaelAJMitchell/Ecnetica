@@ -247,4 +247,111 @@ class FileProcessor:
             if start >= len(text):
                 break
         
-        return chunks 
+        return chunks
+    
+    @staticmethod
+    def semantic_chunk_text(text: str, chunk_size: int = 2000, overlap: int = 200) -> List[str]:
+        """Split text into semantic chunks at logical boundaries (chapters, sections, etc.)."""
+        if len(text) <= chunk_size:
+            return [text]
+        
+        # Define semantic boundary patterns
+        semantic_patterns = [
+            r'^#+\s+',  # Markdown headers
+            r'^Chapter\s+\d+',  # Chapter headers
+            r'^Section\s+\d+',  # Section headers
+            r'^\d+\.\s+[A-Z]',  # Numbered sections
+            r'^[A-Z][A-Z\s]+\n[-=]+\n',  # Underlined headers
+            r'^\n\s*\n',  # Double line breaks (paragraph boundaries)
+        ]
+        
+        # Find semantic boundaries
+        boundaries = []
+        for pattern in semantic_patterns:
+            import re
+            matches = list(re.finditer(pattern, text, re.MULTILINE))
+            boundaries.extend([match.start() for match in matches])
+        
+        # Sort boundaries and remove duplicates
+        boundaries = sorted(list(set(boundaries)))
+        
+        # If no semantic boundaries found, fall back to regular chunking
+        if not boundaries:
+            return FileProcessor.chunk_text(text, chunk_size, overlap)
+        
+        chunks = []
+        start = 0
+        
+        for boundary in boundaries:
+            # If we've reached the chunk size, create a chunk
+            if boundary - start >= chunk_size:
+                # Find the best break point near the chunk size
+                best_break = start + chunk_size
+                
+                # Look for semantic boundaries near the ideal break point
+                for b in boundaries:
+                    if start < b <= start + chunk_size + 200:  # Allow some flexibility
+                        if abs(b - (start + chunk_size)) < abs(best_break - (start + chunk_size)):
+                            best_break = b
+                
+                chunk = text[start:best_break].strip()
+                if chunk:
+                    chunks.append(chunk)
+                
+                # Start next chunk with overlap
+                start = max(best_break - overlap, start + 1)
+            
+            # If we've found a good boundary and we're past minimum chunk size
+            elif boundary - start >= chunk_size // 2:
+                chunk = text[start:boundary].strip()
+                if chunk:
+                    chunks.append(chunk)
+                start = boundary
+        
+        # Add the final chunk
+        if start < len(text):
+            final_chunk = text[start:].strip()
+            if final_chunk:
+                chunks.append(final_chunk)
+        
+        # If we still have chunks that are too large, split them further
+        final_chunks = []
+        for chunk in chunks:
+            if len(chunk) > chunk_size * 1.5:  # If chunk is significantly larger
+                sub_chunks = FileProcessor.chunk_text(chunk, chunk_size, overlap)
+                final_chunks.extend(sub_chunks)
+            else:
+                final_chunks.append(chunk)
+        
+        return final_chunks
+    
+    @staticmethod
+    def create_context_aware_chunks(text: str, chunk_size: int = 2000, overlap: int = 200) -> List[Dict[str, Any]]:
+        """Create chunks with context information for better processing."""
+        chunks = FileProcessor.semantic_chunk_text(text, chunk_size, overlap)
+        
+        context_aware_chunks = []
+        for i, chunk in enumerate(chunks):
+            # Create context information
+            context_info = {
+                'chunk_id': i,
+                'total_chunks': len(chunks),
+                'chunk_content': chunk,
+                'previous_context': '',
+                'next_context': '',
+                'document_context': f"Chunk {i+1} of {len(chunks)}"
+            }
+            
+            # Add previous chunk context (overlap)
+            if i > 0:
+                prev_chunk = chunks[i-1]
+                context_info['previous_context'] = prev_chunk[-overlap:] if len(prev_chunk) > overlap else prev_chunk
+            
+            # Add next chunk context (overlap)
+            if i < len(chunks) - 1:
+                next_chunk = chunks[i+1]
+                context_info['next_context'] = next_chunk[:overlap] if len(next_chunk) > overlap else next_chunk
+            
+            context_aware_chunks.append(context_info)
+        
+        return context_aware_chunks 

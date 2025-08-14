@@ -1,0 +1,208 @@
+Model: unknown
+Task: additional concepts
+Timestamp: 2025-08-05T03:16:59.132936
+==================================================
+[
+    {
+        "name": "equation of a tangent to a circle",
+        "explanation": "The linear equation of a line tangent to a circle at a given point on the circle, found using the perpendicularity of radius and tangent.",
+        "broader_concept": "circle geometry",
+        "strand": "Coordinate Geometry: The Circle",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "perpendicular bisector of a chord",
+        "explanation": "The line perpendicular to a chord of a circle that passes through the midpoint of the chord and contains the centre of the circle.",
+        "broader_concept": "circle geometry",
+        "strand": "Coordinate Geometry: The Circle",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "common chord of two circles",
+        "explanation": "The line passing through the intersection points of two circles, found by subtracting their equations.",
+        "broader_concept": "circle geometry",
+        "strand": "Coordinate Geometry: The Circle",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "common tangent of two circles",
+        "explanation": "A line that touches two circles at exactly one point each, either externally or internally tangent.",
+        "broader_concept": "circle geometry",
+        "strand": "Coordinate Geometry: The Circle",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "perpendicular distance from a point to a line",
+        "explanation": "The shortest distance from a point to a line, calculated using the formula involving the line's coefficients and the point's coordinates.",
+        "broader_concept": "coordinate geometry",
+        "strand": "Coordinate Geometry: The Line",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "angle between two lines",
+        "explanation": "The acute or obtuse angle formed where two lines intersect, calculated using the slopes of the lines and the tangent formula.",
+        "broader_concept": "coordinate geometry",
+        "strand": "Coordinate Geometry: The Line",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "median of a triangle",
+        "explanation": "A line segment joining a vertex of a triangle to the midpoint of the opposite side.",
+        "broader_concept": "triangle geometry",
+        "strand": "Coordinate Geometry: The Line",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "centroid of a triangle",
+        "explanation": "The point of concurrency of the three medians of a triangle; coordinates are the average of the vertices' coordinates.",
+        "broader_concept": "triangle geometry",
+        "strand": "Coordinate Geometry: The Line",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "orthocentre of a triangle",
+        "explanation": "The point of concurrency of the altitudes of a triangle.",
+        "broader_concept": "triangle geometry",
+        "strand": "Coordinate Geometry: The Line",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "circumcentre of a triangle",
+        "explanation": "The point of concurrency of the perpendicular bisectors of the sides of a triangle; center of the circumscribed circle.",
+        "broader_concept": "triangle geometry",
+        "strand": "Coordinate Geometry: The Line",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "factor theorem",
+        "explanation": "A polynomial f(x) has (x - k) as a factor if and only if f(k) = 0.",
+        "broader_concept": "polynomial factorisation",
+        "strand": "Algebra",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "polynomial long division",
+        "explanation": "A method to divide one polynomial by another polynomial of lower degree, yielding a quotient and possibly a remainder.",
+        "broader_concept": "polynomial division",
+        "strand": "Algebra",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "binomial theorem",
+        "explanation": "A formula to expand powers of binomials using binomial coefficients, expressed via combinations or Pascal's triangle.",
+        "broader_concept": "polynomial expansion",
+        "strand": "Algebra",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "completing the square",
+        "explanation": "Rewriting a quadratic expression in the form a(x - p)^2 + q to identify vertex and analyze properties.",
+        "broader_concept": "quadratic functions",
+        "strand": "Algebra",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "discriminant of a quadratic",
+        "explanation": "The expression b^2 - 4ac used to determine the nature of roots of a quadratic equation.",
+        "broader_concept": "quadratic equations",
+        "strand": "Algebra",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "solving quadratic equations by substitution",
+        "explanation": "Transforming complex equations into quadratic form by substitution to facilitate solving.",
+        "broader_concept": "quadratic equations",
+        "strand": "Algebra",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "solving simultaneous linear equations",
+        "explanation": "Finding values of variables that satisfy two or more linear equations simultaneously using substitution, elimination, or graphical methods.",
+        "broader_concept": "linear algebra",
+        "strand": "Algebra",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "solving simultaneous equations with three variables",
+        "explanation": "Solving three linear equations in three variables by eliminating variables stepwise and back-substitution.",
+        "broader_concept": "linear algebra",
+        "strand": "Algebra",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "partial fraction decomposition",
+        "explanation": "Expressing a rational function as a sum of simpler fractions using algebraic identities and solving for unknown coefficients.",
+        "broader_concept": "algebraic fractions",
+        "strand": "Algebra",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "modulus (absolute value) function",
+        "explanation": "A function that returns the non-negative value of a number, reflecting negative inputs about the x-axis.",
+        "broader_concept": "functions and graphs",
+        "strand": "Algebra",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "solving modular equations and inequalities",
+        "explanation": "Solving equations and inequalities involving absolute values by splitting into cases or compound inequalities.",
+        "broader_concept": "equations and inequalities",
+        "strand": "Algebra",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "proof by contradiction",
+        "explanation": "A method of proof where assuming the negation of a statement leads to a contradiction, proving the original statement true.",
+        "broader_concept": "mathematical proof",
+        "strand": "Algebra",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "proof by induction",
+        "explanation": "A method of proof establishing a base case and then proving that if the statement holds for n=k, it holds for n=k+1, thus for all n.",
+        "broader_concept": "mathematical proof",
+        "strand": "Algebra",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "direct proof",
+        "explanation": "A method of proof using axioms, definitions and previously proven theorems to verify a statement directly.",
+        "broader_concept": "mathematical proof",
+        "strand": "Algebra",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "abstract inequalities",
+        "explanation": "Inequalities involving algebraic expressions and variables, proven using algebraic manipulation and properties of squares.",
+        "broader_concept": "inequalities",
+        "strand": "Algebra",
+        "grade_level": "Senior Cycle",
+        "difficulty": "Medium"
+    },
+    {
+        "name": "product rule for differentiation",
+        "explanation": "A rule to

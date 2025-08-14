@@ -323,15 +323,15 @@ class BreakdownStep:
 
 
     def _generate_step_text_with_substitution(self, text: str, params: Dict) -> str:
-        """Enhanced version with full expression support"""
+        """Generate step text using the SAME logic as generate_question_text"""
         if not params or not text:
             return text
 
         result_text = text
 
-        #  Handle parent question_expression variants
+        # Handle question_expression variants (SAME as generate_question_text)
         if hasattr(self, 'parent_question_expression') and self.parent_question_expression:
-            question_placeholders = [
+            placeholders = [
                 ('${question_expression_expanded}', 'expanded'),
                 ('${question_expression_factored}', 'factored'),
                 ('${question_expression_simplified}', 'simplified'),
@@ -339,48 +339,295 @@ class BreakdownStep:
                 ('${question_expression}', 'as_is')
             ]
 
-            for placeholder, format_type in question_placeholders:
+            for placeholder, format_type in placeholders:
                 if placeholder in result_text:
                     try:
-                        processed = self._process_expression_with_sympy(
-                            self.parent_question_expression, format_type, params
-                        )
-                        result_text = result_text.replace(placeholder, f"${processed}$")
+                        local_namespace = {'__builtins__': {}}
+
+                        # Create SymPy-safe parameter dictionary
+                        # Only include numeric parameters
+                        sympy_safe_params = {}
+                        for key, value in params.items():
+                            try:
+                                if isinstance(value, (int, float)):
+                                    sympy_safe_params[key] = value
+                                elif hasattr(value, 'numerator') and hasattr(value, 'denominator'):  # Fraction
+                                    sympy_safe_params[key] = Rational(value.numerator, value.denominator)
+                                # Skip strings, complex objects, etc.
+                                elif isinstance(value, list) and all(isinstance(x, (int, float)) for x in value):
+                                    # Handle coefficient lists - keep as list for indexing
+                                    sympy_safe_params[key] = value
+                                elif isinstance(value, str) and not ('\\' in value or callable(value)):  # ✅ ALLOW clean strings but skip LaTeX and function-like strings
+                                    sympy_safe_params[key] = value  # Keep string parameters for substitution
+                                # Skip problematic types that cause 'subs' errors
+                                elif hasattr(value, 'subs') or callable(value):
+                                    continue  # Skip SymPy objects and functions
+                                elif callable(value):  # Function objects
+                                    continue
+                                elif hasattr(value, '__call__'):  # More function detection
+                                    continue
+                                elif str(type(value)).startswith('<function'):  # Function type detection
+                                    continue
+                                elif isinstance(value, (list, dict, tuple)) and not all(isinstance(x, (int, float)) for x in value):
+                                    continue
+                                else:
+                                    # Try to convert unknown types to float
+                                    try:
+                                        # Check if it's a numeric type we can safely convert
+                                        if hasattr(value, '__float__') and not callable(value):
+                                            sympy_safe_params[key] = float(value)
+                                        elif hasattr(value, '__int__') and not callable(value):
+                                            sympy_safe_params[key] = int(value)
+                                    except (ValueError, TypeError, AttributeError):
+                                        # Skip if can't convert safely
+                                        continue
+
+                            except Exception:
+                                # Skip any parameter that causes issues during type checking
+                                continue
+
+                        # Debug output to see what's being used
+                        if len(sympy_safe_params) != len(params):
+                            filtered_out = set(params.keys()) - set(sympy_safe_params.keys())
+                            print(f"   Filtered out parameters: {filtered_out}")
+                            print(f"   Using safe parameters: {list(sympy_safe_params.keys())}")
+                        latex_expr = ""
+                        # Handle equations separately
+                        if '=' in self.parent_question_expression:
+                            left_side, right_side = self.parent_question_expression.split('=', 1)
+                            left_expr = sympify(left_side.strip(), locals=local_namespace)
+                            right_expr = sympify(right_side.strip(), locals=local_namespace)
+
+                            left_sub = left_expr.subs(sympy_safe_params)
+                            right_sub = right_expr.subs(sympy_safe_params)
+
+                            # Apply format
+                            if format_type == 'expanded':
+                                left_proc = expand(left_sub)
+                                right_proc = expand(right_sub)
+                            elif format_type == 'factored':
+                                left_proc = factor(left_sub)
+                                right_proc = factor(right_sub)
+                            elif format_type == 'simplified':
+                                left_proc = simplify(left_sub)
+                                right_proc = simplify(right_sub)
+                            elif format_type == 'collected':
+                                left_proc = collect(left_sub, symbols('x'))
+                                right_proc = collect(right_sub, symbols('x'))
+                            else:
+                                left_proc = left_sub
+                                right_proc = right_sub
+
+                            # Convert both sides to LaTeX
+                            left_latex = latex(left_proc)
+                            right_latex = latex(right_proc)
+                            # Clean signs
+                            left_latex = left_latex.replace('+ -', '- ').replace('- -', '+ ')
+                            right_latex = right_latex.replace('+ -', '- ').replace('- -', '+ ')
+
+                            latex_expr = f"{left_latex} = {right_latex}"
+
+                        else:
+                            if self.parent_question_expression in params:
+                                # This is a parameter name that should be substituted
+                                expr = symbols(self.parent_question_expression)
+                            else:
+                                # This is a mathematical expression to be parsed
+                                expr = sympify(self.parent_question_expression, locals=local_namespace)
+                            substituted = expr.subs(sympy_safe_params)
+                            if format_type == 'expanded':
+                                processed = expand(substituted)
+                            elif format_type == 'factored':
+                                processed = factor(substituted)
+                            elif format_type == 'simplified':
+                                processed = simplify(substituted)
+                            elif format_type == 'collected':
+                                processed = collect(substituted, symbols('x'))
+                            else:
+                                processed = substituted
+
+                            latex_expr = latex(processed)
+                            latex_expr = latex_expr.replace('+ -', '- ').replace('- -', '+ ')
+
+                        # Replace placeholder with formatted expression wrapped in $...$
+                        result_text = result_text.replace(placeholder, f"\\({latex_expr}\\)")
+
                     except Exception as e:
                         print(f"⚠️ Error processing question_expression: {e}")
-                        fallback = self._simple_parameter_substitution(self.parent_question_expression, params)
-                        result_text = result_text.replace(placeholder, f"${fallback}$")
+                        # Fallback: do naive substitution of parameters
+                        fallback_expr = self.parent_question_expression
+                        for pname, pvalue in sympy_safe_params.items():
+                            if not pname.endswith('_sympy'):  # Skip SymPy objects
+                                # Use smart formatting for parameter values
+                                formatted_pvalue = MCQ.smart_format_number(pvalue)
+                                fallback_expr = fallback_expr.replace(str(pname), formatted_pvalue)
+                        fallback_expr = fallback_expr.replace('+ -', '- ').replace('- -', '+ ')
+                        result_text = result_text.replace(placeholder, f"\\({fallback_expr}\\)")
 
-        #Add more subquestion_expression variants
-        if self.subquestion_expression and self.subquestion_expression.strip():
+            for placeholder, format_type in placeholders:
+                if placeholder in result_text:
+                    try:
+                        # FIXED: Use the same parameter vs expression logic
+                        if self.parent_question_expression in params:
+                            # This is a parameter name that should be substituted
+                            processed = MCQ.smart_format_number(params[self.parent_question_expression])
+                        else:
+                            # This is a mathematical expression to be processed
+                            processed = self._process_expression_with_sympy(
+                                self.parent_question_expression, format_type, params
+                            )
+
+                        result_text = result_text.replace(placeholder, f"\\({processed}\\)")
+
+                    except Exception as e:
+                        print(f"⚠️ Error processing question_expression: {e}")
+                        # Use the same fallback as generate_question_text
+                        fallback_expr = self.parent_question_expression
+                        for pname, pvalue in params.items():
+                            if isinstance(pvalue, (int, float)):
+                                formatted_pvalue = MCQ.smart_format_number(pvalue)
+                                fallback_expr = fallback_expr.replace(str(pname), formatted_pvalue)
+                        result_text = result_text.replace(placeholder, f"${fallback_expr}$")
+
+        # Handle subquestion_expression variants (SAME pattern)
+        if hasattr(self, 'subquestion_expression') and self.subquestion_expression and self.subquestion_expression.strip():
             subq_placeholders = [
                 ('${subquestion_expression_expanded}', 'expanded'),
                 ('${subquestion_expression_factored}', 'factored'),
                 ('${subquestion_expression_simplified}', 'simplified'),
                 ('${subquestion_expression_collected}', 'collected'),
-                ('${subquestion_expression_subbed}', 'substituted'),
                 ('${subquestion_expression}', 'as_is')
-            ]
+                ]
 
-            for placeholder, format_type in subq_placeholders:
+            for placeholder, format_type in placeholders:
                 if placeholder in result_text:
                     try:
-                        if format_type == 'substituted':
-                            # Simple substitution
-                            processed = self._simple_parameter_substitution(self.subquestion_expression, params)
+                        local_namespace = {'__builtins__': {}}
+
+                        # Create SymPy-safe parameter dictionary
+                        # Only include numeric parameters
+                        sympy_safe_params = {}
+                        for key, value in params.items():
+                            try:
+                                if isinstance(value, (int, float)):
+                                    sympy_safe_params[key] = value
+                                elif hasattr(value, 'numerator') and hasattr(value, 'denominator'):  # Fraction
+                                    sympy_safe_params[key] = Rational(value.numerator, value.denominator)
+                                # Skip strings, complex objects, etc.
+                                elif isinstance(value, list) and all(isinstance(x, (int, float)) for x in value):
+                                    # Handle coefficient lists - keep as list for indexing
+                                    sympy_safe_params[key] = value
+                                elif isinstance(value, str) and not ('\\' in value or callable(value)):  # ✅ ALLOW clean strings but skip LaTeX and function-like strings
+                                    sympy_safe_params[key] = value  # Keep string parameters for substitution
+                                # Skip problematic types that cause 'subs' errors
+                                elif hasattr(value, 'subs') or callable(value):
+                                    continue  # Skip SymPy objects and functions
+                                elif callable(value):  # Function objects
+                                    continue
+                                elif hasattr(value, '__call__'):  # More function detection
+                                    continue
+                                elif str(type(value)).startswith('<function'):  # Function type detection
+                                    continue
+                                elif isinstance(value, (list, dict, tuple)) and not all(isinstance(x, (int, float)) for x in value):
+                                    continue
+                                else:
+                                    # Try to convert unknown types to float
+                                    try:
+                                        # Check if it's a numeric type we can safely convert
+                                        if hasattr(value, '__float__') and not callable(value):
+                                            sympy_safe_params[key] = float(value)
+                                        elif hasattr(value, '__int__') and not callable(value):
+                                            sympy_safe_params[key] = int(value)
+                                    except (ValueError, TypeError, AttributeError):
+                                        # Skip if can't convert safely
+                                        continue
+
+                            except Exception:
+                                # Skip any parameter that causes issues during type checking
+                                continue
+
+                        # Debug output to see what's being used
+                        if len(sympy_safe_params) != len(params):
+                            filtered_out = set(params.keys()) - set(sympy_safe_params.keys())
+                            print(f"   Filtered out parameters: {filtered_out}")
+                            print(f"   Using safe parameters: {list(sympy_safe_params.keys())}")
+                        latex_expr = ""
+                        # Handle equations separately
+                        if '=' in self.subquestion_expression:
+                            left_side, right_side = self.subquestion_expression.split('=', 1)
+                            left_expr = sympify(left_side.strip(), locals=local_namespace)
+                            right_expr = sympify(right_side.strip(), locals=local_namespace)
+
+                            left_sub = left_expr.subs(sympy_safe_params)
+                            right_sub = right_expr.subs(sympy_safe_params)
+
+                            # Apply format
+                            if format_type == 'expanded':
+                                left_proc = expand(left_sub)
+                                right_proc = expand(right_sub)
+                            elif format_type == 'factored':
+                                left_proc = factor(left_sub)
+                                right_proc = factor(right_sub)
+                            elif format_type == 'simplified':
+                                left_proc = simplify(left_sub)
+                                right_proc = simplify(right_sub)
+                            elif format_type == 'collected':
+                                left_proc = collect(left_sub, symbols('x'))
+                                right_proc = collect(right_sub, symbols('x'))
+                            else:
+                                left_proc = left_sub
+                                right_proc = right_sub
+
+                            # Convert both sides to LaTeX
+                            left_latex = latex(left_proc)
+                            right_latex = latex(right_proc)
+                            # Clean signs
+                            left_latex = left_latex.replace('+ -', '- ').replace('- -', '+ ')
+                            right_latex = right_latex.replace('+ -', '- ').replace('- -', '+ ')
+
+                            latex_expr = f"{left_latex} = {right_latex}"
+
                         else:
-                            # SymPy processing for transformations
-                            processed = self._process_expression_with_sympy(
-                                self.subquestion_expression, format_type, params
-                            )
+                            if self.subquestion_expression in params:
+                                # This is a parameter name that should be substituted
+                                expr = symbols(self.subquestion_expression)
+                            else:
+                                # This is a mathematical expression to be parsed
+                                expr = sympify(self.subquestion_expression, locals=local_namespace)
+                            substituted = expr.subs(sympy_safe_params)
+                            if format_type == 'expanded':
+                                processed = expand(substituted)
+                            elif format_type == 'factored':
+                                processed = factor(substituted)
+                            elif format_type == 'simplified':
+                                processed = simplify(substituted)
+                            elif format_type == 'collected':
+                                processed = collect(substituted, symbols('x'))
+                            else:
+                                processed = substituted
 
-                        result_text = result_text.replace(placeholder, f"${processed}$")
+                            latex_expr = latex(processed)
+                            latex_expr = latex_expr.replace('+ -', '- ').replace('- -', '+ ')
+
+                        # Replace placeholder with formatted expression wrapped in $...$
+                        result_text = result_text.replace(placeholder, f"\\({latex_expr}\\)")
+
                     except Exception as e:
-                        print(f"⚠️ Error processing subquestion_expression: {e}")
-                        fallback = self._simple_parameter_substitution(self.subquestion_expression, params)
-                        result_text = result_text.replace(placeholder, f"${fallback}$")
+                        print(f"⚠️ Error processing question_expression: {e}")
+                        # Fallback: do naive substitution of parameters
+                        fallback_expr = self.question_expression
+                        for pname, pvalue in sympy_safe_params.items():
+                            if not pname.endswith('_sympy'):  # Skip SymPy objects
+                                # Use smart formatting for parameter values
+                                formatted_pvalue = MCQ.smart_format_number(pvalue)
+                                fallback_expr = fallback_expr.replace(str(pname), formatted_pvalue)
+                        fallback_expr = fallback_expr.replace('+ -', '- ').replace('- -', '+ ')
+                        result_text = result_text.replace(placeholder, f"\\({fallback_expr}\\)")
 
-        # Individual parameter substitutions
+
+
+
+        # Individual parameter substitutions (SAME as existing code)
         for param_name, param_value in params.items():
             placeholder = f'${{{param_name}}}'
             if placeholder in result_text:
@@ -390,25 +637,39 @@ class BreakdownStep:
         return result_text
 
     def _process_expression_with_sympy(self, expression: str, format_type: str, params: Dict) -> str:
-        """Process mathematical expressions using SymPy"""
+        """Process mathematical expressions using SymPy - USING EXISTING LOGIC from generate_question_text"""
         from sympy import sympify, expand, factor, simplify, collect, symbols, latex, Rational
 
         try:
             local_namespace = {'__builtins__': {}}
 
-            # Create SymPy-safe parameters
+            # FIXED: Use the SAME logic as generate_question_text
+            # Create SymPy-safe parameters (same as existing code)
             sympy_safe_params = {}
             for key, value in params.items():
-                if isinstance(value, (int, float)):
-                    sympy_safe_params[key] = value
-                elif hasattr(value, 'numerator') and hasattr(value, 'denominator'):
-                    sympy_safe_params[key] = Rational(value.numerator, value.denominator)
+                try:
+                    if isinstance(value, (int, float)):
+                        sympy_safe_params[key] = value
+                    elif hasattr(value, 'numerator') and hasattr(value, 'denominator'):  # Fraction
+                        sympy_safe_params[key] = Rational(value.numerator, value.denominator)
+                    # Skip strings, complex objects, etc.
+                except Exception:
+                    continue
 
-            # Process expression
-            expr = sympify(expression, locals=local_namespace)
+            # CRITICAL FIX: Use the same parameter vs expression check as generate_question_text
+            if expression in params:
+                # This is a parameter name that should be substituted
+                print(f"🔧 Treating '{expression}' as parameter name")
+                expr = symbols(expression)
+            else:
+                # This is a mathematical expression to be parsed
+                print(f"🔧 Parsing '{expression}' as mathematical expression")
+                expr = sympify(expression, locals=local_namespace)
+
+            # Apply parameter substitution
             substituted = expr.subs(sympy_safe_params)
 
-            # Apply transformation
+            # Apply format transformation (same as existing code)
             if format_type == 'expanded':
                 processed = expand(substituted)
             elif format_type == 'factored':
@@ -420,13 +681,22 @@ class BreakdownStep:
             else:  # 'as_is'
                 processed = substituted
 
-            # Convert to LaTeX
+            # Convert to LaTeX (same as existing code)
             latex_expr = latex(processed)
-            return latex_expr.replace('+ -', '- ').replace('- -', '+ ')
+            latex_expr = latex_expr.replace('+ -', '- ').replace('- -', '+ ')
+            return latex_expr
 
         except Exception as e:
             print(f"⚠️ SymPy processing failed: {e}")
-            return self._simple_parameter_substitution(expression, params)
+            # FIXED: Use the same fallback as generate_question_text
+            fallback_expr = expression
+            for pname, pvalue in sympy_safe_params.items():
+                if not pname.endswith('_sympy'):  # Skip SymPy objects
+                    # Use smart formatting for parameter values
+                    formatted_pvalue = MCQ.smart_format_number(pvalue)
+                    fallback_expr = fallback_expr.replace(str(pname), formatted_pvalue)
+            fallback_expr = fallback_expr.replace('+ -', '- ').replace('- -', '+ ')
+            return fallback_expr
 
     def _simple_parameter_substitution(self, expression: str, params: Dict) -> str:
         """Simple parameter substitution without SymPy"""
@@ -475,11 +745,9 @@ class BreakdownStep:
     def _evaluate_step_mathematical_expression(self, expr: str, params: Dict) -> Optional[str]:
         """Safely evaluate mathematical expressions for steps"""
         try:
-            safe_namespace = {
-                '__builtins__': {},
-                'sqrt': lambda x: x**0.5,
+            safe_namespace = MCQ.create_safe_math_namespace({
                 **params
-            }
+            })
 
             result = eval(expr, safe_namespace)
             return MCQ.smart_format_number(result)
@@ -497,12 +765,10 @@ class BreakdownStep:
                     continue
 
                 # Create safe namespace with parent parameters
-                safe_namespace = {
-                    '__builtins__': {},
-                    'sqrt': lambda x: x**0.5,  # ADD THIS LINE
+                safe_namespace = MCQ.create_safe_math_namespace({
                     **self.parent_params,
                     **calc_params
-                }
+                })
                 calc_result = eval(calc_expr, safe_namespace)
                 calc_params[calc_name] = calc_result
 
@@ -572,6 +838,27 @@ class MCQ:
 
     breakdown: Optional[Dict[str, Dict]] = None
 
+    @staticmethod
+    def create_safe_math_namespace(base_params: Dict = None) -> Dict:
+        """Create a standardized safe namespace with common math functions"""
+        safe_namespace = {
+            '__builtins__': {},
+            # Math functions
+            'sqrt': lambda x: x**0.5,
+            'abs': abs,
+            'min': min,
+            'max': max,
+            'round': round,
+            'int': int,
+            'float': float,
+            'pow': pow,
+            'sum': sum,
+            'len': len,
+        }
+        if base_params:
+            safe_namespace.update(base_params)
+
+        return safe_namespace
 
     @classmethod
     def from_dict(cls, data: Dict):
@@ -816,7 +1103,7 @@ class MCQ:
                                 params[calc_name] = str(result)
                             '''
 
-                            safe_namespace = {**params}
+                            safe_namespace = MCQ.create_safe_math_namespace({**params})
                             calc_result = eval(calc_expr, {"__builtins__": {}}, safe_namespace)
                             params[calc_name] = calc_result
                         except Exception as e:
@@ -1217,6 +1504,14 @@ class MCQ:
         else:
             return str(value)
 
+    def ensure_parameters_cached(self) -> None:
+        """Ensure parameters are generated and cached for consistent use"""
+        if self.is_parameterized and self._current_params is None:
+            print(f"🔧 Pre-caching parameters for MCQ {self.id}")
+            self._current_params = self._generate_parameters()
+            print(f"✅ Cached {len(self._current_params)} parameters")
+        else:
+            print(f"⚡ Parameters already cached for MCQ {self.id}")
 
     def generate_question_text(self, text: str, params: Dict) -> str:
         """
@@ -1256,7 +1551,7 @@ class MCQ:
                         for key, value in params.items():
                             try:
                                 if isinstance(value, (int, float)):
-                                    sympy_safe_params[key] = value
+                                    sympy_safe_params[key] = MCQ.smart_format_number(value)
                                 elif hasattr(value, 'numerator') and hasattr(value, 'denominator'):  # Fraction
                                     sympy_safe_params[key] = Rational(value.numerator, value.denominator)
                                 # Skip strings, complex objects, etc.
@@ -1355,8 +1650,8 @@ class MCQ:
                             latex_expr = latex(processed)
                             latex_expr = latex_expr.replace('+ -', '- ').replace('- -', '+ ')
 
-                        # Replace placeholder with formatted expression wrapped in $...$
-                        result_text = result_text.replace(placeholder, f"${latex_expr}$")
+                        # Replace placeholder with formatted expression wrapped in \( \)
+                        result_text = result_text.replace(placeholder, f"\\({latex_expr}\\)")
 
                     except Exception as e:
                         print(f"⚠️ Error processing question_expression: {e}")
@@ -1368,7 +1663,7 @@ class MCQ:
                                 formatted_pvalue = MCQ.smart_format_number(pvalue)
                                 fallback_expr = fallback_expr.replace(str(pname), formatted_pvalue)
                         fallback_expr = fallback_expr.replace('+ -', '- ').replace('- -', '+ ')
-                        result_text = result_text.replace(placeholder, f"${fallback_expr}$")
+                        result_text = result_text.replace(placeholder, f"\\({fallback_expr}\\)")
 
         # Handle individual parameter substitutions like ${a}$, ${b}$
         for param_name, param_value in params.items():
@@ -1396,12 +1691,10 @@ class MCQ:
                         if calc_name == calc_expr:
                             continue
 
-                        safe_namespace = {
-                            '__builtins__': {},
-                            'sqrt': lambda x: x**0.5,
+                        safe_namespace =MCQ.create_safe_math_namespace({
                             **params,
                             **calc
-                        }
+                        })
                         calc_result = eval(calc_expr, safe_namespace)
                         calc[calc_name] = calc_result
                         print(f"✅ Calculated {calc_name} = {calc_result}")
@@ -1461,11 +1754,9 @@ class MCQ:
         """Safely evaluate mathematical expressions and format the result"""
         try:
             # Create safe namespace
-            safe_namespace = {
-                '__builtins__': {},
-                'sqrt': lambda x: x**0.5,
+            safe_namespace = MCQ.create_safe_math_namespace({
                 **params
-            }
+            })
 
             # Try to evaluate
             result = eval(expr, safe_namespace)

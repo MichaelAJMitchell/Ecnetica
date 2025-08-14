@@ -122,11 +122,17 @@ Questions can be generated in either form, depending on the question.
 the question stores the information the student will see when they are asked a question. Questions should range in content from simple definitions and applications designed to test if the students have a basic understanding of the core concept, to questions testing more tricky or complex aspects of the topic, including incorporating other topics.
     variations of the questions can be made by taking a basic questions and making it more difficult using one or more of the difficulty breakdown parameters. for example, using different functions/ numbers so the algebra is more tricky, using a word problem where the first step is not clear to require more problem solving, having the question give less information or 'hints', such as say 'solve' instead of 'solve using the quadratic formula. a question can use notation or mathematical terminology instead of saying something in a way students might be more familiar with.
 
+Any math in the question should be wrapped in \\( \\) for latex, using latex notation.
+
+Where the question should be in the question text is replaced with ${question_expression}, ${question_expression_factored}, ${question_expression_simplified}, ${question_expression_collected}, depending on the question. It must be one of these options, or else be a parameter defined in generated or calculated parameters as ${parameter}. (one $ for substituting parameters). If the question is part of a breakdown, it can call on parameters from the parent mcq. Question expression always refers to the parent mcq, subquestion_expression and its variations is used for expressions defined in the subquestion.
 
 format: string
-### options
-currently four options, including the correct option. the other options should, if possible, be common mistakes a student could make on the question. Examples of mistakes include sign/ calculation errors, mixing the question up with a similar concept, an option that looks similar but is not the same. The correct answer should be roughly evenly distributed across the indexes
 
+### question/subquestion_expression
+The actual expression is under question_expression. This can be multiplied out to facilitate working backward, if that is what is needed to make variables which are easy to generate. The question expression should use python notation. Don't call question expressions or parameters things that are already on Python's namespace, such as poly, func, angle.
+### options
+currently four options, including the correct option. the other options should, if possible, be common mistakes a student could make on the question. Examples of mistakes include sign/ calculation errors, mixing the question up with a similar concept, an option that looks similar but is not the same. The correct answer should be roughly evenly distributed across the indexes, it should not always be the first option.
+This can substitute parameters and render them for display. Any calculations than need to be done should be in calulated parameters, with that parameter called in the options to be substituted. options should use latex formatting, with an extra backslash as the mcqs are stored in json. \\(option\\) should be the format. . Use ```\\text{}``` for any text in the options.
 
 Formatted as an array(list) with each option.
 ### correct index
@@ -161,9 +167,9 @@ each question has a difficulty breakdown which measures how difficult the questi
 in the code they are called conceptual, procedural, problem_solving, communication, memory, spatial
 ## If the question has randomly generated parameters
 This used sympy to do the substitutions.
-Where the question should be in the question text is replaced with ${question_expression}, ${question_expression_factored}, ${question_expression_simplified}, ${question_expression_collected}, depending on the question. It must be one of these options, or else be a parameter defined in generated or calculated parameters as ${parameter}. (one $ for substuting parametes)
 
-The actual expression is under question_expression. This can be multiplied out to facilitate working backward, if that is what is needed to make variables which are easy to generate. The question expression should use python notation. Don't call question expressions or parameters things that are already on Python's namespace, such as poly, func, angle.
+
+
 ## parameters
 There is two types of parameters, generated and calculated. The generated ones are the ones which are randomly generated. But it isn't always easiest to generate the actual parameters in the question. Sometimes to get the answers to be nice numbers/ question factorisable/solvable etc, its easiest to generate numbers to base the parameters in the question of off. A lot of the time this might mean randomly generating the answers and then working back to calculate what the corresponding question should be. The calculated_parameters field if for any parameters based on the generated, or other calculated ones.
 ### generated_parameters
@@ -233,7 +239,7 @@ ${param_name}_radians$ → Angle in radians
 ${param_name}_unit$ → Unit string ("degrees" or "radians")
 
 ### options
-This can subsitute parameters and render them for display. Any caluations than need to be done should be in calulated parameters. options should use latex formating, with an estra backslash as the mcqs are stored in json. They do not need to start and end wth $$, the code adds this. Use ```\\text{}``` for any text in the options.
+
 ## calculated content
 ### id
 each mcq has an id, which is what's used to refer to it in most of the code. It is a random string of letters and numbers: mcq_id = str(uuid.uuid4()). it is generated when the mcqs are created.

@@ -1,14 +1,14 @@
 ---
 html_theme.sidebar_secondary.remove: true
 ---
-# Bayesian Knowledge Tracing X Knowledge Graph Framework
+# MCQs with Random Parameter Generation and Breakdowns
 
 ```{raw} html
 
 <!doctype html>
 <html>
 <head>
-    <title>Bayesian Knowledge Tracing Algorithm Visual Demo</title>
+    <title>MCQs with Random Parameter Generation and Breakdownso</title>
     <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
 
     <!-- MathJax configuration -->
@@ -29,105 +29,179 @@ html_theme.sidebar_secondary.remove: true
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+    <!-- Include existing stylesheet -->
+    <link rel="stylesheet" href="../../_static/style.css">
+
+    <!-- Additional breakdown-specific styles -->
+    <style>
+      /* Breakdown section styling */
+      .breakdown-section {
+        margin-top: 20px;
+        padding: 20px;
+        background: rgba(255, 248, 220, 0.95);
+        border: 2px solid #f39c12;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      }
+
+      .breakdown-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #f39c12;
+      }
+
+      .breakdown-title {
+        color: #e67e22;
+        font-size: 18px;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      .step-progress {
+        background: #f39c12;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      .breakdown-step {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        margin-bottom: 15px;
+      }
+
+      .step-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .step-title {
+        color: #2c3e50;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      .step-type-badge {
+        background: #3498db;
+        color: white;
+        padding: 3px 10px;
+        border-radius: 15px;
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+
+      .step-completed {
+        opacity: 0.8;
+        background: #f8f9fa;
+      }
+
+      .step-completed .step-title {
+        color: #6c757d;
+      }
+
+      .step-explanation {
+        background: #e8f4fd;
+        border: 1px solid #bee5eb;
+        border-radius: 5px;
+        padding: 15px;
+        margin-top: 15px;
+      }
+
+      .step-explanation.correct {
+        background: #d4edda;
+        border-color: #c3e6cb;
+      }
+
+      .step-explanation.incorrect {
+        background: #f8d7da;
+        border-color: #f5c6cb;
+      }
+
+      .continue-btn {
+        background: #28a745;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 10px;
+      }
+
+      .continue-btn:hover {
+        background: #218838;
+      }
+
+      .breakdown-complete {
+        background: #d4edda;
+        border-color: #c3e6cb;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .breakdown-complete h4 {
+        color: #155724;
+        margin-bottom: 10px;
+      }
+    </style>
 </head>
 <body>
-    <div class="bkt-demo-container">
-      <div class="main-layout">
-        <!-- Left side: BKT Demo -->
-        <div class="bkt-section">
-          <div class="container">
-            <h1>🧠 BKT Algorithm Visual Demo</h1>
-            <p class="subtitle">Experience how Bayesian Knowledge Tracing adapts to your learning in real-time</p>
+  <div class="bkt-demo-container">
+    <div class="container">
+      <h1>MCQs Demo</h1>
+      <p class="subtitle">See the randomly generated parameters work with the question breakdowns</p>
 
-
-
-            <div id="status" class="status loading">
-              <div class="loading-spinner"></div>
-              Initializing BKT System...
-            </div>
-
-            <div id="mcq-section" style="display: none;"></div>
-          </div>
-        </div>
-
-        <!-- Right side: Knowledge Graph -->
-        <div class="graph-section">
-          <div class="container">
-            <h1>📊 Knowledge Graph</h1>
-            <p>The graph colors reflect your current mastery levels. Practice questions to see the colors change!</p>
-
-            <div class="mastery-legend">
-              <strong>Mastery Level Legend:</strong><br>
-              <div class="gradient-legend">
-                <div class="gradient-bar"></div>
-                <div class="gradient-labels">
-                  <span>0% (Red)</span>
-                  <span>50% (Orange)</span>
-                  <span>100% (Green)</span>
-                </div>
-              </div>
-              <div class="legend-item">
-                <span class="legend-color legend-color-not-studied"></span>
-                <span>Not Yet Studied</span>
-              </div>
-            </div>
-            <div style="position: relative;">
-              <div id="graph-container"></div>
-              <div id="graph-loading" class="graph-loading">
-                <div class="graph-loading-spinner"></div>
-                <div class="graph-loading-text">Loading Knowledge Graph...</div>
-              </div>
-            </div>
-
-            <div id="controls">
-              <label for="strand-filter">Filter by Strand: </label>
-              <select id="strand-filter">
-                <option value="">All Strands</option>
-                <option value="Algebra">Algebra</option>
-                <option value="Geometry">Geometry</option>
-                <option value="Trigonometry">Trigonometry</option>
-                <option value="Calculus">Calculus</option>
-                <option value="Number">Number</option>
-                <option value="Statistics">Statistics</option>
-                <option value="Probability">Probability</option>
-                <option value="Coordinate Geometry">Coordinate Geometry</option>
-              </select>
-
-              <button id="reset-view">Reset View</button>
-              <button id="toggle-physics">Toggle Physics</button>
-              <button id="load-simplified">Load Small Dense Graph</button>
-              <button id="load-full">Load Full</button>
-            </div>
-
-            <div id="node-info" style="display: none;">
-              <h4 id="node-title"></h4>
-              <p id="node-description"></p>
-              <p><strong>Strand:</strong> <span id="node-strand"></span></p>
-              <p><strong>Mastery Level:</strong> <span id="node-mastery"></span></p>
-            </div>
-
-            <div id="stats">
-              <strong>Graph Statistics:</strong> <span id="node-count">0</span> nodes, <span id="edge-count">0</span> edges
-            </div>
-          </div>
-        </div>
+      <div id="status" class="status loading">
+        <div class="loading-spinner"></div>
+        Initializing BKT System...
       </div>
-    </div>
 
-    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+      <div id="mcq-section" style="display: none;"></div>
+    </div>  <!-- Close container div -->
+  </div>
+
     <script type="text/javascript">
       let pyodideInstance = null;
       let currentStudent = null;
       let currentMCQ = null;
       let selectedOption = null;
       let isInitialized = false;
-      let isInitialGraphLoad = false; // Flag to track initial graph load
 
-      // Global variables for knowledge graph
-      let network;
-      let currentData = {nodes: [], edges: []};
-      let currentMasteryLevels = {};
-      let topicIndexToNodeId = {}; // Maps BKT topic indices to graph node IDs
+      // Breakdown state management
+      let isInBreakdown = false;
+      let currentBreakdown = null; // {steps: [], currentStep: 0, totalSteps: N, completedSteps: []}
+      let mcqParameters = null;
+      let originalMCQData = null;
+
+      // Improved MathJax rendering with retry logic
+      function renderMathJax(element = document) {
+        if (window.MathJax) {
+          // Small delay to ensure DOM is updated
+          setTimeout(() => {
+            MathJax.typesetPromise([element]).then(() => {
+              console.log('MathJax rendered successfully');
+            }).catch((err) => {
+              console.log('MathJax render error:', err);
+              // Retry once after another delay
+              setTimeout(() => {
+                MathJax.typesetPromise([element]).catch((err2) =>
+                  console.log('MathJax retry failed:', err2)
+                );
+              }, 100);
+            });
+          }, 50);
+        }
+      }
 
       function updateStatus(message, type = 'info') {
         const statusDiv = document.getElementById('status');
@@ -136,117 +210,17 @@ html_theme.sidebar_secondary.remove: true
         if (type === 'loading') {
           statusDiv.innerHTML = `<div class="loading-spinner"></div>${message}`;
         } else {
-          statusDiv.textContent = message;
-        }
-      }
-
-      // Function to get mastery-based color with smooth gradient
-      function getMasteryColor(masteryLevel) {
-        if (masteryLevel === null || masteryLevel === undefined) {
-          return '#6c757d'; // Gray for not studied
+          statusDiv.innerHTML = message;
         }
 
-        // Ensure masteryLevel is between 0 and 1
-        const clampedMastery = Math.max(0, Math.min(1, masteryLevel));
-
-        // Map mastery level (0-1) to hue (0-120 degrees)
-        // 0 = red (0°), 0.5 = orange/yellow (~40°), 1 = green (120°)
-        const hue = clampedMastery * 120;
-
-        // Use full saturation and medium lightness for vibrant colors
-        return `hsl(${hue}, 80%, 50%)`;
+        statusDiv.style.display = 'block';
       }
 
-      // Function to update graph colors based on mastery levels
-      async function updateGraphMasteryColors() {
-        if (!network || !currentStudent || !pyodideInstance) return;
-
-        try {
-          // Get current view position and scale to preserve user's zoom/pan
-          const currentView = network.getViewPosition();
-
-          // Get current mastery levels from Python
-          const masteryResult = await pyodideInstance.runPythonAsync(`
-            student = student_manager.get_student(current_student_id)
-            mastery_data = {}
-            topic_mapping = {}
-
-            # Get mastery levels and topic names
-            for topic_idx in student.mastery_levels:
-                topic_name = kg.get_topic_of_index(topic_idx)
-                mastery_level = student.get_mastery(topic_idx)
-                mastery_data[topic_name] = mastery_level
-                topic_mapping[topic_idx] = topic_name
-
-            js_export({
-                "mastery_levels": mastery_data,
-                "topic_mapping": topic_mapping
-            })
-          `);
-
-          const masteryData = JSON.parse(masteryResult);
-          currentMasteryLevels = masteryData.mastery_levels;
-
-          // Get current node positions to preserve them
-          const positions = network.getPositions();
-
-          // Update node colors based on mastery levels while preserving positions
-          const updatedNodes = currentData.nodes.map(node => {
-            const masteryLevel = currentMasteryLevels[node.label];
-            const color = getMasteryColor(masteryLevel);
-
-            // Preserve current position if it exists
-            const currentPos = positions[node.id];
-
-            return {
-              ...node,
-              // Keep current position
-              x: currentPos ? currentPos.x : node.x,
-              y: currentPos ? currentPos.y : node.y,
-              color: {
-                background: color,
-                border: '#2B7CE9',
-                borderWidth: 0,
-                highlight: {
-                  background: color,
-                  border: '#2B7CE9'
-                },
-                hover: {
-                  background: color,
-                  border: '#2B7CE9'
-                }
-              }
-            };
-          });
-
-          // Update the network with new colors and preserved positions
-          network.setData({nodes: updatedNodes, edges: currentData.edges});
-          currentData.nodes = updatedNodes;
-
-          // Only restore view if this is NOT the initial load
-          if (!isInitialGraphLoad) {
-            // Wait a bit longer for the network to process the data update
-            setTimeout(() => {
-              network.moveTo({
-                position: currentView.position,
-                scale: currentView.scale,
-                animation: false // Disable animation to make it instant
-              });
-            }, 150);
-          }
-
-          console.log('Graph colors updated based on mastery levels (zoom and position preserved)');
-
-        } catch (error) {
-          console.error('Error updating graph mastery colors:', error);
-        }
-      }
 
       // Automated initialization function
       async function autoInitialize() {
         try {
           console.log("🔧 Starting auto-initialization...");
-          // Step 1: Initialize Pyodide and BKT System
           updateStatus('Loading Pyodide and packages...', 'loading');
 
           if (!pyodideInstance) {
@@ -282,7 +256,7 @@ html_theme.sidebar_secondary.remove: true
           const files = [
             { name: "config.json", url: "../../_static/config.json" },
             { name: "kg_new.json", url: "../../_static/kg_new.json" },
-            { name: "mcqs_breakdown.json", url: "../../_static/mcqs_breakdown.json" },
+            { name: "mcqs_breakdown_fixed.json", url: "../../_static/mcqs_breakdown_fixed.json" },
             { name: "computed_mcqs_breakdown.json", url: "../../_static/computed_mcqs_breakdown.json" }
           ];
 
@@ -308,8 +282,12 @@ html_theme.sidebar_secondary.remove: true
                 return json.dumps(obj)
 
             # Initialize the system
-            kg = bkt_system.KnowledgeGraph()
-            student_manager = bkt_system.StudentManager()
+            kg = bkt_system.KnowledgeGraph(
+                nodes_file='kg_new.json',
+                mcqs_file='computed_mcqs_breakdown.json',
+                config_file='config.json'
+            )
+            student_manager = bkt_system.StudentManager(kg.config)
             mcq_scheduler = bkt_system.MCQScheduler(kg, student_manager)
             bkt = bkt_system.BayesianKnowledgeTracing(kg, student_manager)
 
@@ -345,19 +323,15 @@ html_theme.sidebar_secondary.remove: true
           `);
 
           const data = JSON.parse(result);
-          currentStudent = data.student_id;
+          if (data.success) {
+            currentStudent = data.student_id;
 
-          // Step 5: Generate first MCQ
-          updateStatus('Generating your first question...', 'loading');
+            // Step 5: Generate first MCQ
+            updateStatus('Generating your first question...', 'loading');
+            await generateMCQ();
 
-          await generateMCQ();
-
-          // Step 6: Load knowledge graph after MCQ is ready
-          updateStatus('Loading knowledge graph...', 'loading');
-          loadGraphData('../../_static/small-graph.json');
-
-          // Mark as initialized
-          isInitialized = true;
+            isInitialized = true;
+          }
 
         } catch (error) {
           updateStatus(`❌ Initialization failed: ${error.message}`, 'error');
@@ -367,22 +341,26 @@ html_theme.sidebar_secondary.remove: true
 
       async function generateMCQ() {
         try {
+          updateStatus('Generating personalized question...', 'loading');
+
           const result = await pyodideInstance.runPythonAsync(`
-            import json
-
             try:
-                student = student_manager.get_student(current_student_id)
+                # Generate MCQ only once per session, store parameters
+                selected_mcqs = mcq_scheduler.select_optimal_mcqs("${currentStudent}", num_questions=1)
 
-                # Get eligible MCQs
-                selected_mcqs = mcq_scheduler.select_optimal_mcqs(current_student_id)
-                #Initialize result variable
-                result = None
-
-                if len(selected_mcqs) > 0:
+                if selected_mcqs:
                     mcq_id = selected_mcqs[0]
                     mcq = kg.get_mcq_safely(mcq_id, need_full_text=True)
 
                     if mcq:
+                        # Generate parameters once and store them
+                        if mcq.is_parameterized:
+                            mcq.ensure_parameters_cached()  # ✅ This ensures consistent parameters
+                            stored_parameters = mcq.get_current_parameters()
+                        else:
+                            stored_parameters = {}
+
+                        student = student_manager.get_student("${currentStudent}")
                         topic_name = kg.get_topic_of_index(mcq.main_topic_index)
                         current_mastery = student.get_mastery(mcq.main_topic_index)
 
@@ -395,37 +373,38 @@ html_theme.sidebar_secondary.remove: true
                             "explanations": mcq.option_explanations,
                             "topic_name": topic_name,
                             "current_mastery": current_mastery,
-                            "difficulty": getattr(mcq, 'difficulty', 0.5)
+                            "difficulty": getattr(mcq, 'difficulty', 0.5),
+                            "has_breakdown": mcq.has_breakdown,
+                            "parameters": stored_parameters
                         }
-                        result = json.dumps(mcq_data)
+                        result_json = json.dumps(mcq_data)
                     else:
-                        # MCQ not found
-                        error_data = {
+                        result_json = json.dumps({
                             "success": False,
                             "error": f"MCQ {mcq_id} not found"
-                        }
-                        result = json.dumps(error_data)
+                        })
                 else:
-                    result = json.dumps({
+                    result_json = json.dumps({
                         "success": False,
                         "error": "No eligible MCQs found"
                     })
 
             except Exception as e:
-                resul = json.dumps({"success": False, "error": f"Error: {str(e)}"})
+                result_json = json.dumps({"success": False, "error": f"Error: {str(e)}"})
 
-            result
+            result_json
           `);
 
           const data = JSON.parse(result);
 
           if (data.success) {
             currentMCQ = data;
+            mcqParameters = data.parameters;
+            originalMCQData = data;
             displayMCQ(data);
             updateStatus('Question ready! 🎯', 'success');
           } else {
             updateStatus(`❌ ${data.error}`, 'error');
-            console.error('MCQ generation error details:', data);
           }
 
         } catch (error) {
@@ -441,31 +420,43 @@ html_theme.sidebar_secondary.remove: true
         // Hide status div when question is displayed
         document.getElementById('status').style.display = 'none';
 
+
+        // Create structure for breakdown support
         mcqSection.innerHTML = `
           <div class="mcq-container">
-            <div class="mcq-question">${mcqData.text}</div>
-            <div class="mcq-meta">
-              <div><strong>📚 Topic:</strong> ${mcqData.topic_name}</div>
-              <div><strong>📊 Current Mastery:</strong> ${(mcqData.current_mastery * 100).toFixed(1)}%</div>
-              <div><strong>⚡ Difficulty:</strong> ${(mcqData.difficulty * 100).toFixed(1)}%</div>
+            <!-- Original question (always visible) -->
+            <div class="original-question">
+              <div class="mcq-question">${mcqData.text}</div>
+              <div class="mcq-meta">
+                <div><strong>📚 Topic:</strong> ${mcqData.topic_name}</div>
+                <div><strong>📊 Current Mastery:</strong> ${(mcqData.current_mastery * 100).toFixed(1)}%</div>
+                <div><strong>⚡ Difficulty:</strong> ${(mcqData.difficulty * 100).toFixed(1)}%</div>
+              </div>
+
+              <div class="mcq-options" id="original-options">
+                ${mcqData.options.map((option, index) =>
+                  `<button class="mcq-option" onclick="selectOption(${index})">${option}</button>`
+                ).join('')}
+              </div>
+
+              <button onclick="submitAnswer()" class="submit-btn" disabled id="submitBtn">
+                ✅ Submit Answer
+              </button>
             </div>
 
-            <div class="mcq-options">
-              ${mcqData.options.map((option, index) =>
-                `<button class="mcq-option" onclick="selectOption(${index})">${option}</button>`
-              ).join('')}
+            <!-- Breakdown section (hidden initially) -->
+            <div class="breakdown-section" id="breakdown-section" style="display: none;">
+              <div class="breakdown-header">
+                <h4 class="breakdown-title">Not quite! Time to break the question in steps</h4>
+                <div class="step-progress" id="step-progress"></div>
+              </div>
+              <div id="breakdown-steps-container"></div>
             </div>
-
-            <button onclick="submitAnswer()" class="submit-btn" disabled id="submitBtn">
-              ✅ Submit Answer
-            </button>
           </div>
         `;
 
         // Re-render MathJax for the new content
-        if (window.MathJax) {
-          MathJax.typesetPromise([mcqSection]).catch((err) => console.log('MathJax render error:', err));
-        }
+        renderMathJax(mcqSection);
       }
 
       function selectOption(index) {
@@ -479,6 +470,7 @@ html_theme.sidebar_secondary.remove: true
         document.getElementById('submitBtn').disabled = false;
       }
 
+      // Enhanced answer submission with breakdown support
       async function submitAnswer() {
         if (selectedOption === null || !currentMCQ) return;
 
@@ -493,12 +485,12 @@ html_theme.sidebar_secondary.remove: true
 
             # Record the attempt and get BKT updates
             bkt_updates = student_manager.record_attempt(
-                current_student_id, mcq_id, is_correct, 30.0, kg
+                "${currentStudent}", mcq_id, is_correct, 30.0, kg
             )
 
             # Get response data
             mcq = kg.get_mcq_safely(mcq_id, need_full_text=True)
-            student = student_manager.get_student(current_student_id)
+            student = student_manager.get_student("${currentStudent}")
             topic_name = kg.get_topic_of_index(mcq.main_topic_index)
 
             mastery_before = None
@@ -511,6 +503,36 @@ html_theme.sidebar_secondary.remove: true
                     mastery_before = primary_update['mastery_before']
                     mastery_change = primary_update['mastery_change']
 
+            # Check for breakdown trigger
+            breakdown_data = None
+            if not is_correct and mcq.has_breakdown:
+                print(f"Triggering breakdown for wrong answer {selected_option}")
+                breakdown_steps = mcq.execute_breakdown_for_student(
+                    selected_option, student.mastery_levels, kg.config.config
+                )
+                if breakdown_steps:
+                    print(f"Generated {len(breakdown_steps)} breakdown steps")
+                    # Console log for prerequisite skipping
+                    for i, step in enumerate(breakdown_steps):
+                        print(f"Step {i+1}: {step.step_type}")
+
+                    breakdown_data = {
+                        "steps": [],
+                        "total_steps": len(breakdown_steps)
+                    }
+
+                    # Convert breakdown steps to JSON-serializable format
+                    for step in breakdown_steps:
+                        step_dict = {
+                            "step_no": step.step_no,
+                            "step_type": step.step_type,
+                            "text": step.render_step_text(),
+                            "options": step.render_step_options(),
+                            "correctindex": step.correctindex,
+                            "option_explanations": step.option_explanations
+                        }
+                        breakdown_data["steps"].append(step_dict)
+
             response_data = {
                 "is_correct": is_correct,
                 "selected_text": mcq.options[selected_option],
@@ -520,21 +542,32 @@ html_theme.sidebar_secondary.remove: true
                 "before_mastery": mastery_before or mastery_after,
                 "after_mastery": mastery_after,
                 "mastery_change": mastery_change,
-                "total_changes": len(bkt_updates)
+                "total_changes": len(bkt_updates),
+                "has_breakdown": breakdown_data is not None,
+                "breakdown": breakdown_data
             }
 
             js_export(response_data)
           `);
 
           const data = JSON.parse(result);
-          displayResult(data);
 
-          // Update graph colors after answer is processed (preserving zoom level)
-          await updateGraphMasteryColors();
+          // Check if breakdown should be triggered
+          if (!data.is_correct && data.has_breakdown) {
+            await startBreakdown(data);
+          } else {
+            displayResult(data);
+          }
+
+
 
           // Reset for next question
           selectedOption = null;
-          currentMCQ = null;
+          // Only reset currentMCQ if we're NOT starting a breakdown
+          const startingBreakdown = !data.is_correct && data.has_breakdown;
+          if (!startingBreakdown) {
+            currentMCQ = null;
+          }
 
         } catch (error) {
           updateStatus('❌ Failed to process answer', 'error');
@@ -542,334 +575,279 @@ html_theme.sidebar_secondary.remove: true
         }
       }
 
+      // Start breakdown sequence
+      async function startBreakdown(resultData) {
+        isInBreakdown = true;
+        currentBreakdown = {
+          steps: resultData.breakdown.steps,
+          currentStep: 0,
+          totalSteps: resultData.breakdown.total_steps,
+          completedSteps: []
+        };
+
+        // Show breakdown section
+        document.getElementById('breakdown-section').style.display = 'block';
+        document.getElementById('status').style.display = 'none';
+
+        // Disable original question options
+        document.querySelectorAll('#original-options .mcq-option').forEach(btn => {
+          btn.disabled = true;
+          btn.style.opacity = '0.6';
+        });
+        document.getElementById('submitBtn').disabled = true;
+        document.getElementById('submitBtn').style.opacity = '0.6';
+
+        // Display first breakdown step
+        displayBreakdownStep(0);
+
+        // Re-render MathJax
+        renderMathJax(document.getElementById('breakdown-section'));
+      }
+
+      // Display breakdown step
+      function displayBreakdownStep(stepIndex) {
+        const step = currentBreakdown.steps[stepIndex];
+        const container = document.getElementById('breakdown-steps-container');
+
+        // Update progress
+        document.getElementById('step-progress').textContent =
+          `Step ${stepIndex + 1} of ${currentBreakdown.totalSteps}`;
+
+        // Build steps HTML - show completed steps and current step
+        let stepsHTML = '';
+
+        // Show all completed steps
+        for (let i = 0; i < stepIndex; i++) {
+          const completedStep = currentBreakdown.completedSteps[i];
+          const stepData = currentBreakdown.steps[i];
+
+          stepsHTML += `
+            <div class="breakdown-step step-completed">
+              <div class="step-header">
+                <h4 class="step-title">Step ${i + 1}: ${stepData.step_type}</h4>
+                <span class="step-type-badge">${stepData.step_type}</span>
+              </div>
+              <div class="step-question">${stepData.text}</div>
+              <div class="step-options">
+                ${stepData.options.map((option, idx) => {
+                  const isSelected = idx === completedStep.selectedAnswer;
+                  const isCorrect = idx === stepData.correctindex;
+                  let className = 'mcq-option';
+                  if (isSelected) className += ' selected';
+                  if (isCorrect) className += ' correct';
+                  return `<div class="${className}">${option}</div>`;
+                }).join('')}
+              </div>
+              <div class="step-explanation ${completedStep.wasCorrect ? 'correct' : 'incorrect'}">
+                <strong>Explanation:</strong> ${stepData.option_explanations[completedStep.selectedAnswer]}
+              </div>
+            </div>
+          `;
+        }
+
+        // Show current active step
+        if (stepIndex < currentBreakdown.totalSteps) {
+          stepsHTML += `
+            <div class="breakdown-step" id="current-step">
+              <div class="step-header">
+                <h4 class="step-title">Step ${stepIndex + 1}: ${step.step_type}</h4>
+                <span class="step-type-badge">${step.step_type}</span>
+              </div>
+              <div class="step-question">${step.text}</div>
+              <div class="step-options">
+                ${step.options.map((option, index) =>
+                  `<button class="mcq-option" onclick="selectBreakdownOption(${index})">${option}</button>`
+                ).join('')}
+              </div>
+
+              <button onclick="submitBreakdownAnswer(${stepIndex})" class="submit-btn" disabled id="breakdownSubmitBtn">
+                ✅ Submit Answer
+              </button>
+
+              <div id="breakdown-explanation-${stepIndex}" style="display: none;"></div>
+            </div>
+          `;
+        }
+
+        container.innerHTML = stepsHTML;
+        // ✅ CRITICAL: Re-render MathJax for the new content
+        if (window.MathJax) {
+          MathJax.typesetPromise([container]).catch((err) => console.log('MathJax render error:', err));
+        }
+
+        // Reset selection
+        selectedOption = null;
+      }
+
+      // Select option in breakdown step
+      function selectBreakdownOption(index) {
+        // Remove previous selection
+        document.querySelectorAll('#current-step .mcq-option').forEach(btn => btn.classList.remove('selected'));
+
+        // Add selection to clicked option
+        document.querySelectorAll('#current-step .mcq-option')[index].classList.add('selected');
+
+        selectedOption = index;
+        document.getElementById('breakdownSubmitBtn').disabled = false;
+      }
+
+      // Submit breakdown answer
+      async function submitBreakdownAnswer(stepIndex) {
+        if (selectedOption === null) return;
+
+        const step = currentBreakdown.steps[stepIndex];
+        const isCorrect = selectedOption === step.correctindex;
+
+        try {
+          // Record breakdown step attempt (treat as normal question for BKT)
+          await pyodideInstance.runPythonAsync(`
+            # Record breakdown step as normal attempt for BKT updates
+            import json
+            student_manager.record_attempt(
+                "${currentStudent}", "${currentMCQ.mcq_id}_step_${stepIndex}", ${isCorrect ? 'True' : 'False'}, 15.0, kg
+            )
+            print(f"Recorded breakdown step ${stepIndex}: {'correct' if ${isCorrect ? 'True' : 'False'} else 'incorrect'}")
+          `);
+
+          // Store completion data
+          currentBreakdown.completedSteps[stepIndex] = {
+            selectedAnswer: selectedOption,
+            wasCorrect: isCorrect
+          };
+
+          // Show explanation
+          const explanationDiv = document.getElementById(`breakdown-explanation-${stepIndex}`);
+          explanationDiv.style.display = 'block';
+          explanationDiv.className = `step-explanation ${isCorrect ? 'correct' : 'incorrect'}`;
+          explanationDiv.innerHTML = `
+            <strong>Explanation:</strong> ${step.option_explanations[selectedOption]}
+            <button class="continue-btn" onclick="continueBreakdown(${stepIndex})">
+              ${stepIndex + 1 < currentBreakdown.totalSteps ? 'Continue to Next Step' : 'Complete Breakdown'}
+            </button>
+          `;
+
+          // Disable step options
+          document.querySelectorAll('#current-step .mcq-option').forEach(btn => {
+            btn.disabled = true;
+            btn.style.opacity = '0.6';
+          });
+          document.getElementById('breakdownSubmitBtn').disabled = true;
+          document.getElementById('breakdownSubmitBtn').style.opacity = '0.6';
+
+          // Re-render MathJax for explanation
+          if (window.MathJax) {
+            MathJax.typesetPromise([explanationDiv]).catch((err) => console.log('MathJax render error:', err));
+          }
+
+        } catch (error) {
+          console.error('Error recording breakdown step:', error);
+        }
+      }
+
+      // Continue to next breakdown step or complete
+      function continueBreakdown(currentStepIndex) {
+        const nextStepIndex = currentStepIndex + 1;
+
+        if (nextStepIndex < currentBreakdown.totalSteps) {
+          // Move to next step
+          currentBreakdown.currentStep = nextStepIndex;
+          selectedOption = null;
+          displayBreakdownStep(nextStepIndex);
+        } else {
+          // Complete breakdown
+          completeBreakdown();
+        }
+      }
+
+      // Complete breakdown sequence
+      function completeBreakdown() {
+        const container = document.getElementById('breakdown-steps-container');
+
+        // Show completion message
+        container.innerHTML = `
+          <div class="breakdown-complete">
+            <h4>🎉 Breakdown Complete!</h4>
+            <p>You've worked through all the steps. Now you should understand the concept better!</p>
+            <button class="continue-btn" onclick="startNewQuestion()">Try Another Question</button>
+          </div>
+        `;
+
+        // Update progress
+        document.getElementById('step-progress').textContent = 'Complete!';
+
+        // Reset breakdown state
+        isInBreakdown = false;
+        currentBreakdown = null;
+        selectedOption = null;
+
+        // Re-render MathJax
+        renderMathJax(container);
+      }
+
+      // Start new question
+      function startNewQuestion() {
+        // Reset all state
+        currentMCQ = null;
+        originalMCQData = null;
+        mcqParameters = null;
+        selectedOption = null;
+
+        // Hide breakdown section
+        document.getElementById('breakdown-section').style.display = 'none';
+
+        // Generate new question
+        generateMCQ();
+      }
+
+
       function displayResult(result) {
         const mcqSection = document.getElementById('mcq-section');
         const isCorrect = result.is_correct;
-        const resultClass = isCorrect ? 'mcq-result-success' : 'mcq-result-error';
+        const borderColor = isCorrect ? '#27ae60' : '#e74c3c';
+        const bgColor = isCorrect ? 'rgba(212, 237, 218, 0.9)' : 'rgba(248, 215, 218, 0.9)';
+        const textColor = isCorrect ? '#155724' : '#721c24';
         const icon = isCorrect ? '✅' : '❌';
         const changeIcon = result.mastery_change > 0 ? '📈' : result.mastery_change < 0 ? '📉' : '➖';
 
+
         mcqSection.innerHTML = `
-          <div class="mcq-container ${resultClass}">
+          <div class="mcq-container" style="border-color: ${borderColor}; background-color: ${bgColor}; color: ${textColor};">
             <h3>${icon} ${isCorrect ? 'Excellent!' : 'Not quite right, but you\'re learning!'}</h3>
-            <p><strong>Your Answer:</strong> ${result.selected_text}</p>
-            <p><strong>Correct Answer:</strong> ${result.correct_option}</p>
-            <p><strong>Explanation:</strong> ${result.explanation}</p>
 
-            <div class="mcq-result-inner">
-              <h4>🧠 BKT Mastery Update</h4>
-              <p><strong>📚 Topic:</strong> ${result.main_topic}</p>
-              <p><strong>📊 Before:</strong> ${(result.before_mastery * 100).toFixed(1)}%</p>
-              <p><strong>📊 After:</strong> ${(result.after_mastery * 100).toFixed(1)}%</p>
-              <p><strong>📈 Change:</strong> ${changeIcon} ${result.mastery_change > 0 ? '+' : ''}${(result.mastery_change * 100).toFixed(2)}%</p>
-              <p><strong>🔄 Total Topics Updated:</strong> ${result.total_changes}</p>
-              <p><em>💡 Check the knowledge graph below to see the color changes!</em></p>
-
-              <div class="progress-bar">
-                <div class="progress-fill" style="width: ${result.after_mastery * 100}%;"></div>
-              </div>
+            <div class="result-details">
+              <p><strong>Your answer:</strong> ${result.selected_text}</p>
+              <p><strong>Correct answer:</strong> ${result.correct_option}</p>
+              <p><strong>Explanation:</strong> ${result.explanation}</p>
             </div>
 
-            <button onclick="nextQuestion()" class="submit-btn">
-              🚀 Next Question
+            <div class="mastery-update">
+              <h4>📊 Learning Progress</h4>
+              <p><strong>Topic:</strong> ${result.main_topic}</p>
+              <p><strong>Mastery Change:</strong> ${changeIcon} ${(result.mastery_change * 100).toFixed(1)}%</p>
+              <p><strong>New Mastery Level:</strong> ${(result.after_mastery * 100).toFixed(1)}%</p>
+              <p><em>Updated ${result.total_changes} topic(s) based on your performance</em></p>
+            </div>
+
+            <button onclick="generateMCQ()" class="primary-btn" style="margin-top: 20px;">
+              🎯 Next Question
             </button>
           </div>
         `;
 
-        // Re-render MathJax for the new content
-        if (window.MathJax) {
-          MathJax.typesetPromise([mcqSection]).catch((err) => console.log('MathJax render error:', err));
-        }
+        // Reset for next question
+        selectedOption = null;
+        currentMCQ = null;
+
+        // Re-render MathJax
+        renderMathJax(mcqSection);
       }
 
-      async function nextQuestion() {
-        updateStatus('Generating next question...', 'loading');
-        await generateMCQ();
-      }
-
-      // Initialize the network
-      document.addEventListener('DOMContentLoaded', function() {
-        const container = document.getElementById('graph-container');
-
-        // Network options
-        const options = {
-          nodes: {
-            shape: 'dot',
-            size: 25,
-            font: {
-              size: 12,
-              face: 'Segoe UI'
-            },
-            borderWidth: 0,
-            shadow: true
-          },
-          edges: {
-            width: 1,
-            smooth: {
-              type: 'continuous'
-            },
-            color: {
-              color: '#848484',
-              highlight: '#848484',
-              hover: '#848484'
-            }
-          },
-          physics: {
-            stabilization: false,
-            barnesHut: {
-              gravitationalConstant: -50000,
-              springConstant: 0.002,
-              springLength: 150
-            }
-          },
-          interaction: {
-            navigationButtons: true,
-            keyboard: true,
-            hover: true
-          }
-        };
-
-        // Create network
-        network = new vis.Network(container, currentData, options);
-
-        // Handle node selection
-        network.on('select', function(params) {
-          if (params.nodes.length > 0) {
-            const nodeId = params.nodes[0];
-            const node = currentData.nodes.find(n => n.id === nodeId);
-            if (node) {
-              document.getElementById('node-title').textContent = node.label;
-              document.getElementById('node-description').textContent = node.label || 'No description available';
-              document.getElementById('node-strand').textContent = node.group || 'Unknown';
-
-              // Show mastery level
-              const masteryLevel = currentMasteryLevels[node.label];
-              const masteryText = masteryLevel !== undefined ?
-                `${(masteryLevel * 100).toFixed(1)}%` : 'Not studied yet';
-              document.getElementById('node-mastery').textContent = masteryText;
-
-              document.getElementById('node-info').style.display = 'block';
-            }
-          }
-        });
-
-        // Handle deselection
-        network.on('deselectNode', function() {
-          document.getElementById('node-info').style.display = 'none';
-        });
-
-        // Filter by strand
-        document.getElementById('strand-filter').addEventListener('change', function() {
-          const selectedStrand = this.value;
-          const nodes = currentData.nodes.map(node => {
-            if (selectedStrand === '' || node.group === selectedStrand) {
-              node.hidden = false;
-            } else {
-              node.hidden = true;
-            }
-            return node;
-          });
-
-          const edges = currentData.edges.map(edge => {
-            const fromNode = currentData.nodes.find(n => n.id === edge.from);
-            const toNode = currentData.nodes.find(n => n.id === edge.to);
-            if (selectedStrand === '' ||
-                (fromNode && !fromNode.hidden && toNode && !toNode.hidden)) {
-              edge.hidden = false;
-            } else {
-              edge.hidden = true;
-            }
-            return edge;
-          });
-
-          network.setData({nodes: nodes, edges: edges});
-          updateStats(nodes.filter(n => !n.hidden).length, edges.filter(e => !e.hidden).length);
-        });
-
-        // Reset view
-        document.getElementById('reset-view').addEventListener('click', function() {
-          network.fit();
-        });
-
-        // Toggle physics
-        let physicsEnabled = true;
-        document.getElementById('toggle-physics').addEventListener('click', function() {
-          physicsEnabled = !physicsEnabled;
-          network.setOptions({physics: {enabled: physicsEnabled}});
-          this.textContent = physicsEnabled ? 'Toggle Physics' : 'Toggle Physics';
-        });
-
-        // Load graph data
-        document.getElementById('load-simplified').addEventListener('click', function() {
-          loadGraphData('../../_static/small-graph.json');
-        });
-
-        document.getElementById('load-full').addEventListener('click', function() {
-          loadGraphData('../../_static/graph-data.json');
-        });
-
-        // Start auto-initialization
-        autoInitialize();
-      });
-
-      function loadGraphData(filename) {
-        // Set flag for initial load
-        isInitialGraphLoad = true;
-
-        fetch(filename)
-          .then(response => {
-            if (!response.ok) {
-              throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-            }
-            return response.json();
-          })
-          .then(data => {
-            // Hide loading spinner
-            const loadingDiv = document.getElementById('graph-loading');
-            if (loadingDiv) {
-              loadingDiv.style.display = 'none';
-            }
-
-            // Add initial positioning based on groups
-            const groupPositions = {
-              'Algebra': {x: -400, y: -200},
-              'Geometry': {x: 400, y: -200},
-              'Trigonometry': {x: 0, y: -400},
-              'Calculus': {x: 0, y: 400},
-              'Number': {x: -400, y: 200},
-              'Statistics': {x: 400, y: 200},
-              'Probability': {x: 400, y: 0},
-              'Coordinate Geometry': {x: 200, y: -300},
-              'Functions': {x: -200, y: 300},
-              'Sequences and Series': {x: -200, y: -300},
-              'Complex Numbers': {x: -300, y: 0},
-              'Measurement': {x: 300, y: -100},
-              'Synthetic geometry': {x: 300, y: -300},
-              'Transformation geometry': {x: 200, y: 300},
-              'Differential Calculus': {x: -100, y: 300},
-              'Integral Calculus': {x: 100, y: 300},
-              'Counting and Probability': {x: 300, y: 100}
-            };
-
-            // Apply group-based positioning and initial colors
-            data.nodes.forEach(node => {
-              node.color = '#6c757d';
-
-              if (groupPositions[node.group]) {
-                node.x = groupPositions[node.group].x + (Math.random() - 0.5) * 150;
-                node.y = groupPositions[node.group].y + (Math.random() - 0.5) * 150;
-              } else {
-                node.x = (Math.random() - 0.5) * 800;
-                node.y = (Math.random() - 0.5) * 800;
-              }
-            });
-
-            currentData = data;
-            network.setData(data);
-            updateStats(data.nodes.length, data.edges.length);
-
-            // Update strand filter options
-            const strands = [...new Set(data.nodes.map(node => node.group))].sort();
-            const filter = document.getElementById('strand-filter');
-            filter.innerHTML = '<option value="">All Strands</option>';
-            strands.forEach(strand => {
-              if (strand && strand !== 'Unknown') {
-                filter.innerHTML += `<option value="${strand}">${strand}</option>`;
-              }
-            });
-
-            // Update colors if student exists
-            if (currentStudent) {
-              updateGraphMasteryColors();
-            }
-
-            // Set default zoomed out view (after a longer delay to ensure everything is loaded)
-            setTimeout(() => {
-              network.moveTo({
-                scale: 0.05,
-                animation: false // Disable animation for instant zoom
-              });
-              // Clear the initial load flag after zoom is set
-              isInitialGraphLoad = false;
-            }, 300);
-
-            console.log(`Loaded ${data.nodes.length} nodes and ${data.edges.length} edges from ${filename}`);
-            if (isInitialGraphLoad) {
-              updateStatus('🎉 System ready! Answer questions to see your progress.', 'success');
-            }
-            isInitialGraphLoad = false;
-          })
-          .catch(error => {
-            console.error('Error loading graph data:', error);
-            loadSimplifiedFallback();
-          });
-      }
-
-      function loadSimplifiedFallback() {
-        // Set flag for initial load
-        isInitialGraphLoad = true;
-
-        // Hide loading spinner
-        const loadingDiv = document.getElementById('graph-loading');
-        if (loadingDiv) {
-          loadingDiv.style.display = 'none';
-        }
-
-        // Fallback data if JSON files can't be loaded
-        const fallbackData = {
-          nodes: [
-            {id: '1', label: 'Natural Numbers', group: 'Number', title: 'Counting numbers starting from 1'},
-            {id: '2', label: 'Integers', group: 'Number', title: 'Whole numbers including negatives'},
-            {id: '3', label: 'Rational Numbers', group: 'Number', title: 'Numbers expressible as fractions'},
-            {id: '4', label: 'Complex Numbers', group: 'Number', title: 'Numbers with real and imaginary parts'},
-            {id: '5', label: 'Linear Equations', group: 'Algebra', title: 'First-degree equations'},
-            {id: '6', label: 'Quadratic Equations', group: 'Algebra', title: 'Second-degree equations'},
-            {id: '7', label: 'Trigonometric Functions', group: 'Trigonometry', title: 'Sine, cosine, tangent functions'},
-            {id: '8', label: 'Derivatives', group: 'Calculus', title: 'Rate of change of functions'},
-            {id: '9', label: 'Integration', group: 'Calculus', title: 'Antiderivatives and areas'},
-            {id: '10', label: 'Probability', group: 'Probability', title: 'Likelihood of events'}
-          ],
-          edges: [
-            {from: '1', to: '2', title: 'Natural numbers extend to integers'},
-            {from: '2', to: '3', title: 'Integers extend to rational numbers'},
-            {from: '3', to: '4', title: 'Rational numbers extend to complex numbers'},
-            {from: '5', to: '6', title: 'Linear equations are prerequisite for quadratics'},
-            {from: '6', to: '8', title: 'Quadratic functions can be differentiated'},
-            {from: '8', to: '9', title: 'Integration is the reverse of differentiation'},
-            {from: '7', to: '8', title: 'Trigonometric functions can be differentiated'},
-            {from: '7', to: '9', title: 'Trigonometric functions can be integrated'}
-          ]
-        };
-
-        // Apply initial gray colors
-        fallbackData.nodes.forEach(node => {
-          node.color = '#6c757d';
-        });
-
-        currentData = fallbackData;
-        network.setData(fallbackData);
-        updateStats(fallbackData.nodes.length, fallbackData.edges.length);
-
-        // Update colors if student exists
-        if (currentStudent) {
-          updateGraphMasteryColors();
-        }
-
-        // Set default zoomed out view (after a delay to ensure everything is loaded)
-        setTimeout(() => {
-          network.moveTo({
-            scale: 0.05,
-            animation: false // Disable animation for instant zoom
-          });
-          // Clear the initial load flag after zoom is set
-          isInitialGraphLoad = false;
-        }, 300);
-      }
-
-      function updateStats(nodeCount, edgeCount) {
-        document.getElementById('node-count').textContent = nodeCount;
-        document.getElementById('edge-count').textContent = edgeCount;
-      }
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', autoInitialize);
+    } else {
+      autoInitialize();
+    }
     </script>
 </body>
 </html>

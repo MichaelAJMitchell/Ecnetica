@@ -34,6 +34,8 @@ if [ "$1" == "testing" ]; then
         echo "python_playground.md not found, skipping"
     cp content/interactive/BKT_Simple_Demo.md content-testing/interactive/ ||
         echo "BKT_Simple_Demo.md not found, skipping"
+    cp content/interactive/mcqs_breakdown_demo.md content-testing/interactive/ ||
+        echo "mcqs_breakdown_demo.md not found, skipping"
 
     # Copy static assets if they exist
     if [ -d "_static" ]; then

@@ -254,7 +254,7 @@ def _validate_breakdown_step(step_data: Dict, route_id: str, step_index: int) ->
 
 def usage():
     kg = KnowledgeGraph()
-    mcq_document = '_static\mcqs_breakdown.json'
+    mcq_document = '_static\mcqs_breakdown_fixed.json'
     print("\n" + "="*50)
     # Process all MCQs
     processed_mcqs = process_mcq_document(mcq_document, kg)

@@ -33,7 +33,7 @@ class DifficultyBreakdown:
     spatial_reasoning: float = 0.0
 
     def calculate_overall(self) -> float:
-        """Calculate average difficulty across all cognitive skills, 
+        """Calculate average difficulty across all cognitive skills,
         as this is what we take as difficulty for each mcq
         """
         return (self.conceptual_understanding +
@@ -54,7 +54,7 @@ class DifficultyBreakdown:
             memory=data.get('memory', 0.0),
             spatial_reasoning=data.get('spatial_reasoning', 0.0)
         )
-    
+
     @classmethod
     def create(cls, conceptual=0.0, procedural=0.0, problem_solving=0.0,
                communication=0.0, memory=0.0, spatial=0.0):
@@ -90,47 +90,47 @@ class MCQ:
         if self._prerequisites is None:
             self._prerequisites = self._calculate_prerequisites(kg)
         return self._prerequisites
-    
+
 
 
     @classmethod
     def from_dict(cls, data: Dict):
         """Create MCQ from JSON dictionary"""
-        # Validate core required fields 
-        required_fields = ['text', 'options', 'correctindex', 'option_explanations', 
+        # Validate core required fields
+        required_fields = ['text', 'options', 'correctindex', 'option_explanations',
                           'main_topic_index', 'subtopic_weights']
-        
+
         for field in required_fields:
             if field not in data:
                 raise ValueError(f"Missing required field '{field}' in MCQ data")
-        
+
         mcq_id = data.get('id')
 
         # Validate options and explanations match
         if len(data['options']) != len(data['option_explanations']):
             raise ValueError("Number of options must match number of option explanations")
-        
+
         # Validate correct index
         if not (0 <= data['correctindex'] < len(data['options'])):
             raise ValueError(f"correctindex {data['correctindex']} is out of range for {len(data['options'])} options")
-        
+
         # Convert string keys in subtopic_weights to integers
         try:
             subtopic_weights = {int(k): v for k, v in data['subtopic_weights'].items()}
         except ValueError as e:
             raise ValueError(f"Invalid subtopic_weights format - keys must be convertible to integers: {e}")
-        
+
         # Validate subtopic weights sum to 1.0 (with tolerance)
         weight_sum = sum(subtopic_weights.values())
         if abs(weight_sum - 1.0) > 0.001:
             raise ValueError(f"Subtopic weights must sum to 1.0, got {weight_sum}")
-        
+
         # Handle chapter - use provided or default
         chapter = data.get('chapter', 'unknown')
-        
+
         difficulty_breakdown = DifficultyBreakdown.from_dict(data['difficulty_breakdown'])
 
-        
+
         return cls(
             text=data['text'],
             options=data['options'],
@@ -189,11 +189,11 @@ class StudentAttempt:
 
 class ConfigurationManager:
     """Simple configuration manager that uses JSON values directly"""
-    
+
     def __init__(self, config_file: str = 'config.json'):
         self.config_file = config_file
         self.config = self._load_config_file()
-        
+
     def _load_config_file(self) -> Dict:
         """Load configuration from JSON file"""
         try:
@@ -203,7 +203,7 @@ class ConfigurationManager:
             raise FileNotFoundError(f"Configuration file '{self.config_file}' not found")
         except json.JSONDecodeError as e:
             raise ValueError(f"Invalid JSON in configuration file '{self.config_file}': {e}")
-    
+
     def get(self, path: str, default=None):
         """
         Get configuration value using dot notation path
@@ -211,14 +211,14 @@ class ConfigurationManager:
         """
         keys = path.split('.')
         value = self.config
-        
+
         try:
             for key in keys:
                 value = value[key]
             return value
         except (KeyError, TypeError):
             return default
-    
+
     def get_bkt_parameters(self, topic_index: int = None):
         """Get BKT parameters for topic, with fallback to default"""
         if topic_index is not None:
@@ -226,10 +226,10 @@ class ConfigurationManager:
             topic_params = self.get(f'bkt_parameters.topic_specific.{topic_index}')
             if topic_params:
                 return topic_params
-        
+
         # Fallback to default
         return self.get('bkt_parameters.default')
-    
+
     def reload(self):
         """Reload configuration from file"""
         self.config = self._load_config_file()
@@ -394,16 +394,16 @@ class StudentProfile:
         """Set ability level for a specific skill (between 0.0 and 1.0)"""
         if not 0.0 <= level <= 1.0:
             raise ValueError(f"Ability level must be between 0.0 and 1.0, got {level}")
-        
+
         # Updated valid ability names to match your config structure
         valid_abilities = [
             'conceptual_understanding', 'procedural_fluency', 'problem_solving',
             'mathematical_communication', 'memory', 'spatial_reasoning'
         ]
-        
+
         if ability_name not in valid_abilities:
             raise ValueError(f"Invalid ability name: {ability_name}. Valid names: {valid_abilities}")
-        
+
         self.ability_levels[ability_name] = level
 
     def get_all_ability_levels(self) -> Dict[str, float]:
@@ -434,12 +434,12 @@ class StudentManager:
     def get_mastery_threshold(self):
         """Get mastery threshold from config"""
         return self.config.get('algorithm_config.mastery_threshold', 0.7) if self.config else 0.7
-    
+
     def get_confidence_params(self):
         """Get confidence calculation parameters"""
         if not self.config:
             return {'min_confidence': 0.1, 'max_confidence': 0.95, 'growth_rate': 0.02}
-        
+
         return {
             'min_confidence': self.config.get('algorithm_config.min_confidence', 0.1),
             'max_confidence': self.config.get('algorithm_config.max_confidence', 0.95),
@@ -448,7 +448,7 @@ class StudentManager:
             'time_weight': self.config.get('algorithm_config.confidence_time_weight', 0.3),
             'consistency_weight': self.config.get('algorithm_config.confidence_consistency_weight', 0.2)
         }
-    
+
     def create_student(self, student_id: str) -> StudentProfile:
         """Create a new student profile"""
         if student_id in self.students:
@@ -563,7 +563,7 @@ class StudentManager:
         }
 
 
-    
+
 class KnowledgeGraph:
     """
     Core knowledge structure representing relationships between learning topics.
@@ -577,7 +577,7 @@ class KnowledgeGraph:
         self.topic_to_index = {}  # Maps topic names to indexes: {topic_name: index} for quick lookup
         self.mcqs = {}
         self.graph = nx.DiGraph()
-        self._next_index = 0  # Auto-incrementing index counter for making new topics 
+        self._next_index = 0  # Auto-incrementing index counter for making new topics
         self._adjacency_matrix = None  # Cache the matrix
         self._matrix_dirty = False     # Track if matrix needs recalculation
 
@@ -601,14 +601,14 @@ class KnowledgeGraph:
             raise FileNotFoundError(f"Required nodes file '{nodes_file}' not found. Please ensure the knowledge graph JSON file exists.")
         except json.JSONDecodeError as e:
             raise ValueError(f"Invalid JSON in nodes file '{nodes_file}': {e}")
-        
+
         # Validate JSON structure
         if 'nodes' not in data:
             raise ValueError(f"Invalid JSON structure in '{nodes_file}': missing 'nodes' key")
-        
+
         # Clear existing nodes
         self.nodes.clear()
-        
+
         # Load each node
         for node_data in data['nodes']:
             # Validate required fields
@@ -616,25 +616,25 @@ class KnowledgeGraph:
             for field in required_fields:
                 if field not in node_data:
                     raise ValueError(f"Missing required field '{field}' in node data: {node_data}")
-            
+
             node_id = node_data['id']
             topic = node_data['topic']
             chapter = node_data['chapter']
-            
+
             # Convert dependencies format
             dependencies = []
             for dep in node_data['dependencies']:
                 if 'target' not in dep or 'weight' not in dep:
                     raise ValueError(f"Invalid dependency format in node {node_id}: {dep}")
                 dependencies.append((dep['target'], dep['weight']))
-            
+
             # Create and store node
             node = Node(topic, chapter, dependencies)
             self.nodes[node_id] = node
-            
+
             # Update next index
             self._next_index = max(self._next_index, node_id + 1)
-        
+
         print(f"✅ Successfully loaded {len(self.nodes)} nodes from {nodes_file}")
 
     def _initialize_nodes(self):
@@ -672,28 +672,28 @@ class KnowledgeGraph:
             raise FileNotFoundError(f"Required MCQs file '{mcqs_file}' not found. Please ensure the MCQs JSON file exists.")
         except json.JSONDecodeError as e:
             raise ValueError(f"Invalid JSON in MCQs file '{mcqs_file}': {e}")
-        
+
         # Validate JSON structure
         if 'mcqs' not in data:
             raise ValueError(f"Invalid JSON structure in '{mcqs_file}': missing 'mcqs' key")
-        
-        # Clear existing MCQs  
+
+        # Clear existing MCQs
         self.mcqs.clear()
-        
+
         # Load each MCQ
         for i, mcq_data in enumerate(data['mcqs']):
             try:
                 mcq = MCQ.from_dict(mcq_data)
-                
+
                 # Check for duplicate IDs
                 if mcq.id in self.mcqs:
                     raise ValueError(f"Duplicate MCQ ID '{mcq.id}' found. IDs must be unique.")
-                
+
             except Exception as e:
                 raise ValueError(f"Error creating MCQ #{i+1} from data: {e}")
-        
+
         print(f"✅ Successfully loaded {len(self.mcqs)} MCQs from {mcqs_file}")
-        
+
         # Print ID generation summary
         auto_generated_count = sum(1 for mcq_id in self.mcqs.keys() if mcq_id.startswith('mcq_') and len(mcq_id.split('_')) == 3)
         if auto_generated_count > 0:
@@ -708,41 +708,41 @@ class KnowledgeGraph:
             raise FileNotFoundError(f"Required MCQs file '{mcqs_file}' not found. Please ensure the MCQs JSON file exists.")
         except json.JSONDecodeError as e:
             raise ValueError(f"Invalid JSON in MCQs file '{mcqs_file}': {e}")
-        
+
         # Validate JSON structure
         if 'mcqs' not in data:
             raise ValueError(f"Invalid JSON structure in '{mcqs_file}': missing 'mcqs' key")
-        
-        
-        # Clear existing MCQs  
+
+
+        # Clear existing MCQs
         self.mcqs.clear()
-        
+
         # Load each MCQ with detailed error reporting
         successfully_loaded = 0
-        
+
         for i, mcq_data in enumerate(data['mcqs']):
-            
+
             try:
-                
+
                 # Check for required fields
-                required_fields = ['text', 'options', 'correctindex', 'option_explanations', 
+                required_fields = ['text', 'options', 'correctindex', 'option_explanations',
                                 'main_topic_index', 'subtopic_weights']
-                
+
                 missing_fields = []
                 for field in required_fields:
                     if field not in mcq_data:
                         missing_fields.append(field)
-                
+
                 if missing_fields:
                     print(f"   ❌ Missing required fields: {missing_fields}")
                     continue
-             
+
                 mcq = MCQ.from_dict(mcq_data)
-                
+
                 # Check for duplicate IDs
                 if mcq.id in self.mcqs:
                     raise ValueError(f"Duplicate MCQ ID '{mcq.id}' found. IDs must be unique.")
-                
+
                 # Store the MCQ
                 self.mcqs[mcq.id] = mcq
                 successfully_loaded += 1
@@ -765,7 +765,7 @@ class KnowledgeGraph:
 
     def export_to_json(self, nodes_file: str = None, mcqs_file: str = None):
         """Export current state back to JSON files"""
-        
+
         if nodes_file:
             # Export nodes
             nodes_data = {
@@ -776,23 +776,23 @@ class KnowledgeGraph:
                     "description": "Knowledge graph for adaptive learning system"
                 }
             }
-            
+
             for node_id, node in self.nodes.items():
                 node_data = {
                     "id": node_id,
                     "topic": node.topic,
                     "chapter": node.chapter,
                     "dependencies": [
-                        {"target": target, "weight": weight} 
+                        {"target": target, "weight": weight}
                         for target, weight in node.dependencies
                     ]
                 }
                 nodes_data["nodes"].append(node_data)
-            
+
             with open(nodes_file, 'w') as f:
                 json.dump(nodes_data, f, indent=2)
             print(f"Exported {len(self.nodes)} nodes to {nodes_file}")
-        
+
         if mcqs_file:
             # Export MCQs
             mcqs_data = {
@@ -804,7 +804,7 @@ class KnowledgeGraph:
                     "description": "MCQ bank for adaptive learning system"
                 }
             }
-            
+
             for mcq in self.mcqs.values():
                 mcq_data = {
                     "id": mcq.id,
@@ -825,7 +825,7 @@ class KnowledgeGraph:
                     }
                 }
                 mcqs_data["mcqs"].append(mcq_data)
-            
+
             with open(mcqs_file, 'w') as f:
                 json.dump(mcqs_data, f, indent=2)
             print(f"Exported {len(self.mcqs)} MCQs to {mcqs_file}")
@@ -888,8 +888,8 @@ class KnowledgeGraph:
         Validates all referenced topics exist and weights sum to 1.0.
         """
 
-        # Validate ALL topics in subtopic_weights 
-        
+        # Validate ALL topics in subtopic_weights
+
         for topic_idx in subtopic_weights.keys():
             if topic_idx not in self.nodes:
                 raise ValueError(f"Topic index {topic_idx} not found in knowledge graph")
@@ -1033,7 +1033,7 @@ class MCQScheduler:
     def get_config_value(self, path: str, default=None):
         """Get configuration value using dot notation"""
         return self.config.get(path, default)
-    
+
     def set_bkt_system(self, bkt_system):
         """Set reference to BKT system after initialization"""
         self.bkt_system = bkt_system
@@ -1116,7 +1116,7 @@ class MCQScheduler:
 
         return eligible_mcqs
 
-   
+
     def get_eligible_mcqs_for_student(self, student_id: str) -> List[str]:
         """
         Get MCQ IDs that contain only studied topics for the student.
@@ -1155,7 +1155,7 @@ class MCQScheduler:
         greedy_max_mcqs_to_evaluate = self.get_config_value('greedy_algorithm.greedy_max_mcqs_to_evaluate', 50)
         greedy_early_stopping = self.get_config_value('greedy_algorithm.greedy_early_stopping', False)
         greedy_convergence_threshold = self.get_config_value('algorithm_config.greedy_convergence_threshold', 0.05)
-        
+
         # Get MCQs eligible for selection
         eligible_mcqs = self.get_eligible_mcqs_for_greedy_selection(student_id)
 
@@ -1258,12 +1258,12 @@ class MCQScheduler:
                                             virtual_mastery: Dict[int, float]) -> Dict[int, float]:
         """
         Calculate continuous priority scores for topics below mastery threshold.
-        Lower mastery = higher priority 
+        Lower mastery = higher priority
         """
         # Get config values
         mastery_threshold = self.get_config_value('algorithm_config.mastery_threshold', 0.7)
         greedy_priority_weight = self.get_config_value('greedy_algorithm.greedy_priority_weight', 2.0)
-        
+
         topic_priorities = {}
 
         for main_topic_index in student.studied_topics:
@@ -1286,13 +1286,13 @@ class MCQScheduler:
         # Get config values
         greedy_subtopic_weight = self.get_config_value('greedy_algorithm.greedy_subtopic_weight', 0.7)
         greedy_prereq_weight = self.get_config_value('greedy_algorithm.greedy_prereq_weight', 0.5)
-        
+
         total_coverage = 0.0
         coverage_details = {'main_topic_coverage': 0.0,'subtopic_coverage': 0.0,'prereq_coverage': 0.0}
 
         # Main topic and subtopic coverage - for due topics
         for main_topic_index, mcq_weight in mcq_vector.subtopic_weights.items():
-            if main_topic_index in topic_priorities: 
+            if main_topic_index in topic_priorities:
                 topic_priority = topic_priorities[main_topic_index]
 
                 # Coverage = MCQ weight × topic priority × type weight factor
@@ -1307,7 +1307,7 @@ class MCQScheduler:
 
         # Prerequisite coverage - for due prerequisites
         for prereq_index, prereq_weight in mcq_vector.prerequisites.items():
-            if prereq_index in topic_priorities: 
+            if prereq_index in topic_priorities:
                 topic_priority = topic_priorities[prereq_index]
                 coverage = prereq_weight * topic_priority * greedy_prereq_weight
                 coverage_details['prereq_coverage'] += coverage
@@ -1329,7 +1329,7 @@ class MCQScheduler:
         mastery_threshold = self.get_config_value('algorithm_config.mastery_threshold', 0.7)
         greedy_mastery_update_rate = self.get_config_value('greedy_algorithm.greedy_mastery_update_rate', 0.8)
         greedy_priority_weight = self.get_config_value('greedy_algorithm.greedy_priority_weight', 2.0)
-        
+
         mcq = self.kg.mcqs.get(mcq_id)
         mcq_vector = self.mcq_vectors.get(mcq_id)
 
@@ -1390,7 +1390,7 @@ class MCQScheduler:
         return total_coverage
     def _calculate_coverage_to_cost_ratio(self, mcq_id: str, topic_priorities: Dict[int, float],virtual_mastery: Dict[int, float],student: StudentProfile) -> Tuple[float, Dict]:
         """
-        Calculate coverage-to-cost ratio 
+        Calculate coverage-to-cost ratio
         Higher ratio = better choice (more benefit, less cost)
         Coverage is weighted by topic priorities and question weights.
         """
@@ -1429,7 +1429,7 @@ class MCQScheduler:
         # Get penalty values from config
         greedy_difficulty_penalty = self.get_config_value('greedy_algorithm.greedy_difficulty_penalty', 1.5)
         greedy_too_easy_penalty = self.get_config_value('greedy_algorithm.greedy_too_easy_penalty', 1.5)
-        
+
         # Calculate weighted student ability for this MCQ
         weighted_mastery = 0.0
         total_weight = 0.0
@@ -1462,7 +1462,7 @@ class MCQScheduler:
         """
         # Get importance weight from config
         greedy_importance_weight = self.get_config_value('greedy_algorithm.greedy_importance_weight', 0.3)
-        
+
         importance_bonus = 0.0
 
         # Check importance of all topics in the MCQ
@@ -1502,7 +1502,7 @@ class BayesianKnowledgeTracing:
     def get_topic_parameters(self, main_topic_index: int):
         """Get BKT parameters for a topic using direct config values"""
         params = self.config.get_bkt_parameters(main_topic_index)
-        
+
         # Return a simple dict instead of a complex object
         return {
             'prior_knowledge': params.get('prior_knowledge', 0.1),
@@ -1513,7 +1513,7 @@ class BayesianKnowledgeTracing:
     def is_area_effect_enabled(self):
         """Check if area effect is enabled"""
         return self.config.get('bkt_config.area_effect_enabled', True)
-    
+
     def get_area_effect_config(self):
         """Get area effect configuration"""
         return {
@@ -1897,7 +1897,7 @@ class BayesianKnowledgeTracing:
             'slip_rate': max(0.01, min(0.3, adjusted_slip)),
             'guess_rate': current_params['guess_rate']
         }
-    
+
 
 
 def create_realistic_student(student_manager, kg, bkt_system, student_name: str) -> str:
@@ -2116,7 +2116,7 @@ def test_greedy_algorithm_functionality():
 
         kg = KnowledgeGraph(
             nodes_file='small-graph-kg.json',
-            mcqs_file='small-graph-computed_mcqs.json', 
+            mcqs_file='small-graph-computed_mcqs.json',
             config_file='config.json'
         )
         student_manager = StudentManager(kg.config)
@@ -2423,7 +2423,7 @@ def run_knowledge_graph_test():
         # Initialize system
         kg = KnowledgeGraph(
             nodes_file='small-graph-kg.json',
-            mcqs_file='small-graph-computed_mcqs.json', 
+            mcqs_file='small-graph-computed_mcqs.json',
             config_file='config.json'
         )
         student_manager = StudentManager(kg.config)

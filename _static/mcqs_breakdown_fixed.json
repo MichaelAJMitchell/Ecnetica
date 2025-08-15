@@ -1,0 +1,943 @@
+{
+  "mcqs": [
+    {
+      "text": "What is the discriminant of the quadratic equation ${question_expression}?",
+      "question_expression": "a*x**2 +b*x + c = 0",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": -9,
+          "max": 9,
+          "exclude": 0
+        },
+        "b": {
+          "type": "int",
+          "min": -9,
+          "max": 9
+        },
+        "c": {
+          "type": "int",
+          "min": -50,
+          "max": 50
+        }
+      },
+        "calculated_parameters": {
+          "opt1": "b**2-4*a*c",
+          "opt2": "b**2+4*a*c",
+          "opt3": "sqrt(b**2-4*a*c)",
+          "opt4": "(-b+sqrt(b**2-4*a*c))/(2*a)"
+        },
+        "options": [
+          "${opt1}",
+          "${opt2}",
+          "${opt3}",
+          "${opt4}"
+        ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct!The discriminant is $b^2 - 4ac$",
+        "Incorrect. You may have calculated $b^2 + 4ac$ instead of $b^2 - 4ac$.",
+        "Incorrect. Remember the formula is $b^2 - 4ac$, not $sqrt{b^2-4ac}$.",
+        "Incorrect. The discriminnant is just the part under square root of the quadratic question."
+      ],
+      "main_topic_index": 17,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "17": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.3,
+        "procedural_fluency": 0.7,
+        "problem_solving": 0.2,
+        "mathematical_communication": 0.1,
+        "memory": 0.4,
+        "spatial_reasoning": 0.0
+      },
+      "breakdown": {
+        "sign_error": {
+          "answer_mapping": [
+            1
+          ],
+      "steps": [
+        {
+          "step_no": 1,
+          "prereq_topics": [14],
+          "step_type": "memory",
+          "text": "what is the formula for solving quadratic equations?",
+          "options": [
+            "\\(x=\\frac{-b+\\sqrt{b^2-4ac}}{2a}\\)",
+            "\\(\\sqrt{b^2-4ac}\\)",
+            "\\(\\frac{-b\\pm \\sqrt{b^2-4ac}}{2a}\\)",
+            "\\(ax^2+bx+c\\)"
+          ],
+          "correctindex": 2,
+          "option_explanations": [
+            "not quite, there is a plus",
+            "this is more like the formula for the discriminant, the question is asking for the whole formula",
+            "yes! this is the formula you use when you are solving quadratic equations",
+            "this is actually the form of an actual quadratic equation. we want the formula you can use to solve for x."
+          ]
+        },
+        {
+          "step_no": 2,
+          "step_type": "memory",
+          "text": "the discriminant is part of the quadratic formula, which bit?",
+          "options": [
+            "\\(\\sqrt{b^2 - 4ac}\\)",
+            "\\(b^2 - 4ac\\)",
+            "\\(2a\\)",
+            "\\(-b \\pm \\sqrt{b^2-4ac}\\)"
+          ],
+          "correctindex": 1,
+          "option_explanations": [
+            "the discriminant is the bit under the square root, but it doesn't actually include the square root itself",
+            "yep its the bit under the square root",
+            "remember we only want the bit under the square root, not the whole top of the fraction",
+            "no"
+          ]
+        },
+        {
+          "step_no": 3,
+          "step_type": "procedural_fluency",
+          "text": "now we have the formula \\(b^2-4ac\\), we want to substitute our numbers into it. remember our quadratic is ${question_expression}. our formula has a, b and c. what should each of these numbers be?",
+          "options": [
+            "\\(a = \\text{the number by itself}, b = \\text{the number in front of the } x, c = \\text{the number in front of the } x^2\\)",
+            "\\(a = ${a}, b = ${b}, c = ${c}\\)",
+            "\\(a=1,b=2,c=3\\)",
+            "\\(a= \\text{the number in front of the } x^2, b = \\text{the number in front of the } x, c = \\text{the term by itself}\\)"
+          ],
+          "correctindex": 3,
+          "option_explanations": [
+            "almost you just have it the wrong way around",
+            "you actually just want the numbers in front of xs, don't actually include the x",
+            "no",
+            "yes yay"
+          ]
+        },
+        {
+          "step_no": 4,
+          "step_type": "procedural_fluency",
+          "text": "we now have our formula, \\(${b}^2-4(${a})(${c})\\). time to do the math. when you calculate this sum, what do you get?",
+          "calculated_parameters": {
+            "opt1": "b**2-4*a*c",
+            "opt2": "b**2+4*a*c",
+            "opt3": "sqrt(b**2-4*a*c)",
+            "opt4": "(-b+sqrt(b**2-4*a*c))/(2*a)"
+          },
+          "options": [
+            "${opt1}",
+            "${opt2}",
+            "${opt3}",
+            "${opt4}"
+          ],
+          "correctindex": 0,
+          "option_explanations": [
+            "yes",
+            "no",
+            "no",
+            "no"
+          ]
+        }
+      ]
+    },
+    "formula_confusion": {
+      "answer_mapping": [2, 3],
+      "steps": [
+        {
+          "step_no": 1,
+          "step_type": "memory",
+          "text": "the discriminant is part of the quadratic formula, which bit?",
+          "options": [
+            "\\(\\sqrt{b^2 - 4ac}\\)",
+            "\\(b^2 - 4ac\\)",
+            "\\(2a\\)",
+            "\\(-b \\pm \\sqrt{b^2-4ac}\\)"
+          ],
+          "correctindex": 1,
+          "option_explanations": [
+            "the discriminant is the bit under the square root, but it doesn't actually include the square root itself",
+            "yep its the bit under the square root",
+            "remember we only want the bit under the square root, not the whole top of the fraction",
+            "no"
+          ]
+        },
+        {
+          "step_no": 2,
+          "step_type": "procedural_fluency",
+          "text": "now we have the formula \\(b^2-4ac\\), we want to substitute our numbers into it. remember our quadratic is ${question_expression}. our formula has a, b and c. what should each of these numbers be?",
+          "options": [
+            "\\(a = \\text{the number by itself}, b = \\text{the number in front of the } x, c = \\text{the number in front of the } x^2\\)",
+            "\\(a = ${a}, b = ${b}, c = ${c}\\)",
+            "\\(a=1,b=2,c=3\\)",
+            "\\(a= \\text{the number in front of the } x^2, b = \\text{the number in front of the } x, c = \\text{the term by itself}\\)"
+          ],
+          "correctindex": 3,
+          "option_explanations": [
+            "almost you just have it the wrong way around",
+            "you actually just want the numbers in front of xs, don't actually include the x",
+            "no",
+            "yes yay"
+          ]
+        },
+        {
+          "step_no": 3,
+          "step_type": "procedural_fluency",
+          "text": "we now have our formula, ${subquestion_expression}. time to do the math. when you calculate this sum, what do you get?",
+          "subquestion_expression": "b**2-4*a*c",
+          "calculated_parameters": {
+            "opt1": "b**2-4*a*c",
+            "opt2": "b**2+4*a*c",
+            "opt3": "sqrt(b**2-4*a*c)",
+            "opt4": "(-b+sqrt(b**2-4*a*c))/(2*a)"
+          },
+          "options": [
+            "${opt1}",
+            "${opt2}",
+            "${opt3}",
+            "${opt4}"
+          ],
+          "correctindex": 0,
+          "option_explanations": [
+            "yes",
+            "no",
+            "no",
+            "no"
+          ]
+        }
+      ]
+    }
+  }
+    },
+    {
+      "text": "Solve the equation \\(${a}x + ${b} = ${c}x + ${d}\\) for x.",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": 2,
+          "max": 8
+        },
+        "b": {
+          "type": "int",
+          "min": -15,
+          "max": 15
+        },
+        "c": {
+          "type": "int",
+          "min": 1,
+          "max": 6
+        },
+        "d": {
+          "type": "int",
+          "min": -12,
+          "max": 12
+        }
+      },
+      "calculated_parameters": {
+        "solution": "(d - b) / (a - c)"
+      },
+      "options": [
+        "x = ${solution}",
+        "x = \\frac{${b} - ${d}}{${a} - ${c}}",
+        "x = \\frac{${d} - ${b}}{${c} - ${a}}",
+        "x = \\frac{${a} - ${c}}{${d} - ${b}}"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! Rearranging: $${a}x + ${b} = ${c}x + ${d} \\Rightarrow ${a}x - ${c}x = ${d} - ${b} \\Rightarrow x(${a} - ${c}) = ${d} - ${b} \\Rightarrow x = \\frac{${d} - ${b}}{${a} - ${c}} = ${solution}$",
+        "Incorrect. You have the terms in the numerator reversed. It should be $d - b$, not $b - d$.",
+        "Incorrect. You have the terms in the denominator reversed. It should be $a - c$, not $c - a$.",
+        "Incorrect. You have inverted the fraction completely."
+      ],
+      "main_topic_index": 0,
+      "subtopic_weights": {
+        "0": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.4,
+        "procedural_fluency": 0.8,
+        "problem_solving": 0.5,
+        "mathematical_communication": 0.3,
+        "memory": 0.4,
+        "spatial_reasoning": 0.0
+      }
+    },
+    {
+      "text": "Factor the quadratic expression ${question_expression_expanded}.",
+      "question_expression": "(x-r_1)*(x-r_2)",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": -24,
+          "max": 24,
+          "exclude": 0
+        },
+        "b": {
+          "type": "int",
+          "min": -12,
+          "max": 12,
+          "exclude": 0
+        },
+        "c": {
+          "type": "int",
+          "min": -24,
+          "max": 24,
+          "exclude": 0
+        },
+        "d": {
+          "type": "int",
+          "min": -12,
+          "max": 12,
+          "exclude": 0
+        }
+      },
+      "calculated_parameters": {
+        "r_1": "a/b",
+        "r_2": "c/d"
+      },
+      "options": [
+        "(${b}x - ${c})(${d}x - ${a})",
+        "(${b}x - ${a})(${d}x - ${c})",
+        "(27x + 1)(2x - 12)",
+        "(${d}x + ${c})(${b}x - ${a})"
+      ],
+      "correctindex": 1,
+      "option_explanations": [
+        "Incorrect. You may have switched the constants in the factors.",
+        "Correct! When factoring $(x - r_1)(x - r_2)$ where $r_1 = \\frac{${a}}{${b}}$ and $r_2 = \\frac{${c}}{${d}}$, we get $(${b}x - ${a})(${d}x - ${c})$.",
+        "Incorrect. This is a specific example that doesn't match your expression.",
+        "Incorrect. Check the signs in your factors."
+      ],
+      "main_topic_index": 6,
+      "subtopic_weights": {
+        "6": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.4,
+        "procedural_fluency": 0.8,
+        "problem_solving": 0.6,
+        "mathematical_communication": 0.2,
+        "memory": 0.3,
+        "spatial_reasoning": 0.0
+      }
+    },
+    {
+      "text": "Solve the linear equation ${question_expression} for x.",
+      "question_expression": "a*x + b = c",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": 2,
+          "max": 8,
+          "exclude": 0
+        },
+        "b": {
+          "type": "int",
+          "min": -15,
+          "max": 15
+        },
+        "c": {
+          "type": "int",
+          "min": -20,
+          "max": 20
+        }
+      },
+      "calculated_parameters": {
+        "solution": "(c - b) / a",
+        "opt1":"(${c} - ${b})/(${a})",
+        "opt2":"(${b} - ${b})/(${a})",
+        "opt3":"(${c} + ${b})/(${a})",
+        "opt4":"${a} * ${c} - ${b}"
+      },
+      "options": [
+        "x = ${opt1}",
+        "x = ${opt2}",
+        "x = ${opt3}",
+        "x = ${opt4}"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! To solve ${a}x + ${b} = ${c}, subtract ${b} from both sides then divide by ${a}.",
+        "Incorrect. You may have switched the order in the numerator. Remember to subtract ${b} from ${c}, not the other way around.",
+        "Incorrect. When moving ${b} to the right side, its sign changes, so ${c} - ${b}, not ${c} + ${b}.",
+        "Incorrect. This doesn't follow the correct algebraic steps to isolate x."
+      ],
+      "main_topic_index": 0,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "0": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.2,
+        "procedural_fluency": 0.8,
+        "problem_solving": 0.1,
+        "mathematical_communication": 0.1,
+        "memory": 0.3,
+        "spatial_reasoning": 0.0
+      },
+      "breakdown": {
+        "sign_error": {
+          "answer_mapping": [
+            1,
+            2
+          ],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [],
+              "step_type": "memory",
+              "text": "To solve a linear equation like ${question_expression}, what is the first step?",
+              "options": [
+                "Multiply both sides by the coefficient of x",
+                "Subtract the constant term from both sides",
+                "Divide both sides by the coefficient of x",
+                "Add the constant term to both sides"
+              ],
+              "correctindex": 1,
+              "option_explanations": [
+                "Not yet - first we need to isolate the x term",
+                "Correct! First subtract ${b} from both sides",
+                "This comes after isolating the x term",
+                "This would make the equation more complex"
+              ]
+            },
+            {
+              "step_no": 2,
+              "step_type": "procedural_fluency",
+              "text": "After subtracting ${b} from both sides of ${question_expression}, what do we get?",
+              "options": [
+                "${a}x = ${c} - ${b}",
+                "${a}x = ${c} + ${b}",
+                "${a}x = ${b} - ${c}",
+                "x = ${c} - ${b}"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "Correct! Subtracting ${b} from both sides gives us ${a}x = ${c} - ${b}",
+                "Incorrect. When we move ${b} to the right side, it becomes negative",
+                "Incorrect. You've switched the order in the subtraction",
+                "Incorrect. We still need to divide by ${a}"
+              ]
+            },
+            {
+              "step_no": 3,
+              "step_type": "procedural_fluency",
+              "text": "Finally, divide both sides by ${a} to get x = ?",
+              "subquestion_expression": "(c - b) / a",
+              "calculated_parameters": {
+                "opt1": "(c - b) / a",
+                "opt2": "(b - c) / a",
+                "opt3": "(c + b) / a",
+                "opt4": "a * (c - b)"
+              },
+              "options": [
+                "${opt1}","${opt2}","${opt3}","${opt4}"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "Correct! x = \\frac{${c} - ${b}}{${a}}",
+                "Incorrect order in numerator",
+                "Incorrect sign in numerator",
+                "You multiplied instead of divided"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "Which of the following is the standard form of a quadratic equation?",
+      "question_expression": "ax^2 + bx + c = 0",
+      "generated_parameters": {},
+      "calculated_parameters": {},
+      "options": [
+        "\\(ax^2 + bx + c = 0\\)",
+        "\\(y = ax^2 + bx + c\\)",
+        "\\(x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+        "\\((x - h)^2 + k = 0\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! The standard form of a quadratic equation sets the quadratic expression equal to zero.",
+        "This is the function form, not the equation form we solve for roots.",
+        "This is the quadratic formula, not the standard form of the equation.",
+        "This is closer to vertex form, not standard form."
+      ],
+      "main_topic_index": 2,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "2": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.7,
+        "procedural_fluency": 0.2,
+        "problem_solving": 0.1,
+        "mathematical_communication": 0.4,
+        "memory": 0.8,
+        "spatial_reasoning": 0.0
+      },
+      "breakdown": {
+        "form_confusion": {
+          "answer_mapping": [
+            1,
+            2,
+            3
+          ],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [],
+              "step_type": "memory",
+              "text": "What makes an expression a 'quadratic'?",
+              "options": [
+                "It has an x term",
+                "\text{It has an} x^2 \\text{term as the highest power}",
+                "It equals zero",
+                "It has three terms"
+              ],
+              "correctindex": 1,
+              "option_explanations": [
+                "Linear expressions have x terms, but quadratics need more",
+                "Correct! The x^2 term makes it quadratic",
+                "Setting equal to zero makes it an equation, not just quadratic",
+                "Not all quadratics have three terms"
+              ]
+            },
+            {
+              "step_no": 2,
+              "step_type": "memory",
+              "text": "What is the difference between a quadratic function and a quadratic equation?",
+              "options": [
+                "Functions use y, equations set equal to zero",
+                "Functions are harder to solve",
+                "Equations use different variables",
+                "There is no difference"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "Correct! Functions show y = expression, equations set expression = 0 to find roots",
+                "Both can be equally challenging",
+                "Both typically use x as the variable",
+                "There is an important difference in form and purpose"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "Factor the quadratic expression ${question_expression}.",
+      "question_expression": "x^2 + b*x + c",
+      "generated_parameters": {
+        "p": {
+          "type": "int",
+          "min": 1,
+          "max": 6
+        },
+        "q": {
+          "type": "int",
+          "min": 1,
+          "max": 6
+        }
+      },
+      "calculated_parameters": {
+        "b": "p + q",
+        "c": "p * q"
+      },
+      "options": [
+        "(x + ${p})(x + ${q})",
+        "(x - ${p})(x - ${q})",
+        "(x + ${p})(x - ${q})",
+        "x(x + ${b}) + ${c}"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! Since both factors are positive and we need +${b}x and +${c}, we use (x + ${p})(x + ${q}).",
+        "Incorrect. This would give +${b}x but -${c}, not +${c}.",
+        "Incorrect. This would give a different middle term and negative constant.",
+        "Incorrect. This is not fully factored."
+      ],
+      "main_topic_index": 6,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "6": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.4,
+        "procedural_fluency": 0.7,
+        "problem_solving": 0.6,
+        "mathematical_communication": 0.2,
+        "memory": 0.5,
+        "spatial_reasoning": 0.1
+      },
+      "breakdown": {
+        "sign_error": {
+          "answer_mapping": [
+            1,
+            2
+          ],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [
+                3
+              ],
+              "step_type": "memory",
+              "text": "When factoring \\(x^2 + bx + c\\), we look for two numbers that multiply to give c and add to give b. For our expression \\(x^2 + ${b}x + ${c}\\), what should the two numbers multiply to give?",
+              "options": [
+                "${b}",
+                "${c}",
+                "1",
+                "${p} \\text{ and } ${q}"
+              ],
+              "correctindex": 1,
+              "option_explanations": [
+                "This is what they should add to, not multiply to",
+                "Correct! The two numbers must multiply to give the constant term ${c}",
+                "No, we need the product to be ${c}",
+                "These are the actual numbers, but the question asks what they multiply to give"
+              ]
+            },
+            {
+              "step_no": 2,
+              "step_type": "procedural_fluency",
+              "text": "The two numbers that multiply to ${c} and add to ${b} are ${p} and ${q}. What signs should they have in the factored form?",
+              "options": [
+                "Both positive",
+                "Both negative",
+                "One positive, one negative",
+                "It doesn't matter"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "Correct! Since both the sum (${b}) and product (${c}) are positive, both numbers are positive",
+                "If both were negative, the sum would be negative",
+                "If signs differed, the product would be negative",
+                "The signs are determined by the original expression"
+              ]
+            },
+            {
+              "step_no": 3,
+              "step_type": "procedural_fluency",
+              "text": "So the factored form is:",
+              "subquestion_expression": "(x + p)(x + q)",
+              "calculated_parameters": {
+                "opt1": "(x + p)(x + q)",
+                "opt2": "(x - p)(x - q)",
+                "opt3": "(x + p)(x - q)",
+                "opt4": "x(x + b) + c"
+              },
+              "options": [
+                "(x + ${p})(x + ${q})",
+                "(x - ${p})(x - ${q})",
+                "(x + ${p})(x - ${q})",
+                "x(x + ${b}) + ${c}"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "Correct!",
+                "Wrong signs",
+                "Mixed signs give wrong result",
+                "Not fully factored"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "Complete the square for the quadratic expression ${question_expression}.",
+      "question_expression": "x^2 + b*x + c",
+      "generated_parameters": {
+        "b": {
+          "type": "int",
+          "min": 2,
+          "max": 12,
+          "step": 2
+        },
+        "c": {
+          "type": "int",
+          "min": 1,
+          "max": 20
+        }
+      },
+      "calculated_parameters": {
+        "half_b": "b / 2",
+        "half_b_squared": "(b / 2) ** 2",
+        "k": "c - (b / 2) ** 2"
+      },
+      "options": [
+        "(x + \\frac{${b}}{2})^2 + ${k}",
+        "(x + \\frac{${b}}{2})^2 - ${k}",
+        "(x + ${b})^2 + ${c}",
+        "x^2 + ${b}x + \\frac{${b}^2}{4} + ${c}"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! Completing the square gives us (x + \\frac{${b}}{2})^2 + ${k} where ${k} = ${c} - \\frac{${b}^2}{4}.",
+        "Incorrect sign. When we subtract \\frac{b^2}{4}, we need to add it back to maintain equality.",
+        "Incorrect. We need \\frac{b}{2}, not b, and the constant term changes.",
+        "Incorrect. This shows the process but isn't the completed square form."
+      ],
+      "main_topic_index": 9,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "9": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.6,
+        "procedural_fluency": 0.8,
+        "problem_solving": 0.7,
+        "mathematical_communication": 0.3,
+        "memory": 0.6,
+        "spatial_reasoning": 0.2
+      },
+      "breakdown": {
+        "completing_square_error": {
+          "answer_mapping": [
+            1,
+            2,
+            3
+          ],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [
+                3
+              ],
+              "step_type": "memory",
+              "text": "To complete the square for \\(x^2 + bx + c\\), what do we need to add and subtract?",
+              "options": [
+                "b^2",
+                "\\frac{b^2}{4}",
+                "\\frac{b}{2}",
+                "2b"
+              ],
+              "correctindex": 1,
+              "option_explanations": [
+                "This is too large - we need (b/2)^2",
+                "Correct! We add and subtract (\\frac{b}{2})^2 = \\frac{b^2}{4}",
+                "This is just half of b, not squared",
+                "This is twice b, not what we need"
+              ]
+            },
+            {
+              "step_no": 2,
+              "step_type": "procedural_fluency",
+              "text": "For \\(x^2 + ${b}x + ${c}\\), we add and subtract \\(\\frac{${b}^2}{4} = ${half_b_squared}\\). This gives us:",
+              "options": [
+                "x^2 + ${b}x + ${half_b_squared} + ${c} - ${half_b_squared}",
+                "x^2 + ${b}x + ${c} + ${half_b_squared}",
+                "(x + \\frac{${b}}{2})^2 + ${c}",
+                "x^2 + ${b}x + ${half_b_squared}"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "Correct! We group the perfect square and combine the constants",
+                "We need to subtract what we added to maintain equality",
+                "You forgot to adjust the constant term",
+                "You're missing the original constant term"
+              ]
+            },
+            {
+              "step_no": 3,
+              "step_type": "procedural_fluency",
+              "text": "The first three terms \\(x^2 + ${b}x + ${half_b_squared} \\) form a perfect square. What is it?",
+              "options": [
+                "(x + \\frac{${b}}{2})^2",
+                "(x + ${b})^2",
+                "(x + ${half_b_squared})^2",
+                "x^2 + ${b}x"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "Correct! x^2 + ${b}x + ${half_b_squared} = (x + \\frac{${b}}{2})^2",
+                "This would expand to x^2 + ${b}*2x + ${b}^2, which is different",
+                "The constant in the binomial is half the coefficient of x",
+                "This is not a perfect square"
+              ]
+            },
+            {
+              "step_no": 4,
+              "step_type": "procedural_fluency",
+              "text": "So our final answer is \\((x + \\frac{${b}}{2})^2 \\) plus what constant?",
+              "subquestion_expression": "c - half_b_squared",
+              "calculated_parameters": {
+                "opt1": "c - half_b_squared",
+                "opt2": "c + half_b_squared",
+                "opt3": "c",
+                "opt4": "half_b_squared"
+              },
+              "options": [
+                "${k}",
+                "${c} + ${half_b_squared}",
+                "${c}",
+                "${half_b_squared}"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "Correct! ${c} - ${half_b_squared} = ${k}",
+                "Wrong sign - we subtract, not add",
+                "You forgot to adjust for the added term",
+                "This is just the term we added and subtracted"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "Use the quadratic formula to solve ${question_expression}.",
+      "question_expression": "a*x^2 + b*x + c = 0",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": 1,
+          "max": 3
+        },
+        "b": {
+          "type": "int",
+          "min": -8,
+          "max": 8,
+          "exclude": 0
+        },
+        "c": {
+          "type": "int",
+          "min": -6,
+          "max": 6
+        }
+      },
+      "calculated_parameters": {
+        "discriminant": "b**2 - 4*a*c",
+        "sqrt_discriminant": "sqrt(abs(b**2 - 4*a*c))",
+        "solution1": "(-b + sqrt(abs(b**2 - 4*a*c))) / (2*a)",
+        "solution2": "(-b - sqrt(abs(b**2 - 4*a*c))) / (2*a)"
+      },
+      "options": [
+        "x = \\frac{-${b} \\pm \\sqrt{${discriminant}}}{2*${a}}",
+        "x = \\frac{${b} \\pm \\sqrt{${discriminant}}}{2*${a}}",
+        "x = \\frac{-${b} \\pm \\sqrt{${discriminant}}}{${a}}",
+        "x = \\frac{-${b} \\pm ${sqrt_discriminant}}{2*${a}}"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! Using the quadratic formula x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a} with a=${a}, b=${b}, c=${c}.",
+        "Incorrect. The formula uses -b, not +b in the numerator.",
+        "Incorrect. The denominator should be 2a, not just a.",
+        "Incorrect. The discriminant should remain under the square root symbol."
+      ],
+      "main_topic_index": 15,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "15": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.3,
+        "procedural_fluency": 0.8,
+        "problem_solving": 0.4,
+        "mathematical_communication": 0.2,
+        "memory": 0.7,
+        "spatial_reasoning": 0.0
+      },
+      "breakdown": {
+        "formula_error": {
+          "answer_mapping": [
+            1,
+            2,
+            3
+          ],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [
+                17
+              ],
+              "step_type": "memory",
+              "text": "What is the quadratic formula?",
+              "options": [
+                "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}",
+                "x = \\frac{b \\pm \\sqrt{b^2-4ac}}{2a}",
+                "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{a}",
+                "x = \\frac{-b \\pm \\sqrt{b^2+4ac}}{2a}"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "Correct! This is the standard quadratic formula",
+                "Missing the negative sign before b",
+                "Missing the 2 in the denominator",
+                "Wrong sign in the discriminant"
+              ]
+            },
+            {
+              "step_no": 2,
+              "step_type": "procedural_fluency",
+              "text": "For the equation \\(${a}x^2 + ${b}x + ${c} = 0\\), identify the values of a, b, and c.",
+              "options": [
+                "a = ${a}, b = ${b}, c = ${c}",
+                "a = ${c}, b = ${b}, c = ${a}",
+                "a = 1, b = ${b}, c = ${c}",
+                "a = ${a}, b = ${b}, c = ${c}"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "Correct! a is the coefficient of \\(x^2\\), b is the coefficient of x, c is the constant",
+                "You've mixed up the positions",
+                "a is not always 1 - it's the coefficient of \\(x^2\\)",
+                "b is just the number, not including the x"
+              ]
+            },
+            {
+              "step_no": 3,
+              "step_type": "procedural_fluency",
+              "text": "Calculate the discriminant \\(b^2 - 4ac\\):",
+              "subquestion_expression": "b**2 - 4*a*c",
+              "calculated_parameters": {
+                "opt1": "b**2 - 4*a*c",
+                "opt2": "b**2 + 4*a*c",
+                "opt3": "b - 4*a*c",
+                "opt4": "2*b**2 - 4*a*c"
+              },
+              "options": [
+                "${discriminant}",
+                "${opt2}",
+                "${opt3}",
+                "${opt4}"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "Correct! ${b}^2 - 4(${a})(${c}) = ${discriminant}",
+                "Wrong sign - should be minus, not plus",
+                "Forgot to square b",
+                "Don't multiply b^2 by 2"
+              ]
+            },
+            {
+              "step_no": 4,
+              "step_type": "procedural_fluency",
+              "text": "Substitute into the quadratic formula, what answer do you get?",
+              "subquestion_expression": "(-b \u00c2\u00b1 sqrt(discriminant)) / (2*a)",
+              "calculated_parameters": {
+                "opt1": "(-b + sqrt(discriminant)) / (2*a)",
+                "opt2": "(b + sqrt(discriminant)) / (2*a)",
+                "opt3": "(-b + sqrt(discriminant)) / a",
+                "opt4": "(-b + discriminant) / (2*a)"
+              },
+              "options": [
+                "x = ${opt1}",
+                "x = ${opt2}",
+                "x = ${opt3}",
+                "x = ${opt4}"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "Correct!",
+                "Missing negative sign",
+                "Missing 2 in denominator",
+                "Missing square root"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

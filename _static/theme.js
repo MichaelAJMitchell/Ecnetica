@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     createEnhancedThemeToggle();
     createCourseNavigator();
     createInteractiveToolsFinder(); 
+    autoHideSidebarForInteractive();
 });
 
 // dark mode and light mode theme toggle
@@ -887,4 +888,88 @@ function closeToolsFinder() {
         panel.style.display = 'none';
         overlay.style.display = 'none';
     }, 200);
+}
+
+// AUTO-HIDE SIDEBAR FOR INTERACTIVE PAGES
+function autoHideSidebarForInteractive() {
+    const currentPath = window.location.pathname;
+    
+    if (currentPath.includes('/interactive/')) {
+        // Add CSS classes
+        document.body.classList.add('no-sidebar');
+        document.documentElement.classList.add('no-sidebar');
+        
+        // More aggressive sidebar hiding
+        setTimeout(() => {
+            // Target all possible sidebar selectors
+            const sidebarSelectors = [
+                '.bd-sidebar-primary',
+                '.bd-sidebar',
+                '.pst-primary-sidebar',
+                '.sidebar-primary-items__start',
+                '.sidebar-primary-items__end',
+                '.sidebar-primary-items',
+                '[data-bs-target="#pst-primary-sidebar"]',
+                'aside[class*="sidebar"]',
+                'nav[class*="sidebar"]',
+                'div[class*="sidebar-primary"]',
+                '.sphinx-sidebar',
+                '.documentwrapper .sphinxsidebar'
+            ];
+            
+            // Hide all sidebar elements
+            sidebarSelectors.forEach(selector => {
+                const elements = document.querySelectorAll(selector);
+                elements.forEach(el => {
+                    el.style.display = 'none';
+                    el.style.visibility = 'hidden';
+                    el.style.width = '0';
+                    el.style.minWidth = '0';
+                    el.style.maxWidth = '0';
+                    el.style.opacity = '0';
+                });
+            });
+            
+            // Expand main content
+            const mainSelectors = [
+                '.bd-main',
+                '.bd-page',
+                '.bd-content',
+                '.bd-article',
+                '.bd-article-container',
+                '.bd-container',
+                'main',
+                '.main-content',
+                '.content-wrapper'
+            ];
+            
+            mainSelectors.forEach(selector => {
+                const elements = document.querySelectorAll(selector);
+                elements.forEach(el => {
+                    el.style.marginLeft = '0';
+                    el.style.width = '100%';
+                    el.style.maxWidth = '100%';
+                    el.style.gridColumn = '1 / -1';
+                });
+            });
+            
+            // Update grid layouts
+            const pageElements = document.querySelectorAll('.bd-page');
+            pageElements.forEach(el => {
+                el.style.gridTemplateColumns = '1fr';
+                el.style.gridTemplateAreas = '"main"';
+            });
+            
+        }, 50);
+        
+        // Additional check after a longer delay to catch any dynamically loaded content
+        setTimeout(() => {
+            const visibleSidebars = document.querySelectorAll('.bd-sidebar-primary:not([style*="display: none"]), .bd-sidebar:not([style*="display: none"])');
+            visibleSidebars.forEach(sidebar => {
+                sidebar.style.display = 'none !important';
+                sidebar.style.visibility = 'hidden !important';
+                sidebar.style.width = '0 !important';
+            });
+        }, 500);
+    }
 }

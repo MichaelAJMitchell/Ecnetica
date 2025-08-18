@@ -7,7 +7,7 @@
 <head>
     <title>Bayesian Knowledge Tracing Algorithm Visual Demo</title>
     <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
-    
+
     <!-- MathJax configuration -->
     <script>
       window.MathJax = {
@@ -25,7 +25,7 @@
     </script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
+
 </head>
 <body>
     <div class="bkt-demo-container">
@@ -35,14 +35,14 @@
           <div class="container">
             <h1>🧠 BKT Algorithm Visual Demo</h1>
             <p class="subtitle">Experience how Bayesian Knowledge Tracing adapts to your learning in real-time</p>
-            
 
-            
+
+
             <div id="status" class="status loading">
               <div class="loading-spinner"></div>
               Initializing BKT System...
             </div>
-            
+
             <div id="mcq-section" style="display: none;"></div>
           </div>
         </div>
@@ -52,7 +52,7 @@
           <div class="container">
             <h1>📊 Knowledge Graph</h1>
             <p>The graph colors reflect your current mastery levels. Practice questions to see the colors change!</p>
-            
+
             <div class="mastery-legend">
               <strong>Mastery Level Legend:</strong><br>
               <div class="gradient-legend">
@@ -89,7 +89,7 @@
                 <option value="Probability">Probability</option>
                 <option value="Coordinate Geometry">Coordinate Geometry</option>
               </select>
-              
+
               <button id="reset-view">Reset View</button>
               <button id="toggle-physics">Toggle Physics</button>
               <button id="load-simplified">Load Small Dense Graph</button>
@@ -119,17 +119,17 @@
       let selectedOption = null;
       let isInitialized = false;
       let isInitialGraphLoad = false; // Flag to track initial graph load
-      
+
       // Global variables for knowledge graph
       let network;
       let currentData = {nodes: [], edges: []};
       let currentMasteryLevels = {};
       let topicIndexToNodeId = {}; // Maps BKT topic indices to graph node IDs
-      
+
       function updateStatus(message, type = 'info') {
         const statusDiv = document.getElementById('status');
         statusDiv.className = `status ${type}`;
-        
+
         if (type === 'loading') {
           statusDiv.innerHTML = `<div class="loading-spinner"></div>${message}`;
         } else {
@@ -142,14 +142,14 @@
         if (masteryLevel === null || masteryLevel === undefined) {
           return '#6c757d'; // Gray for not studied
         }
-        
+
         // Ensure masteryLevel is between 0 and 1
         const clampedMastery = Math.max(0, Math.min(1, masteryLevel));
-        
+
         // Map mastery level (0-1) to hue (0-120 degrees)
         // 0 = red (0°), 0.5 = orange/yellow (~40°), 1 = green (120°)
         const hue = clampedMastery * 120;
-        
+
         // Use full saturation and medium lightness for vibrant colors
         return `hsl(${hue}, 80%, 50%)`;
       }
@@ -157,44 +157,44 @@
       // Function to update graph colors based on mastery levels
       async function updateGraphMasteryColors() {
         if (!network || !currentStudent || !pyodideInstance) return;
-        
+
         try {
           // Get current view position and scale to preserve user's zoom/pan
           const currentView = network.getViewPosition();
-          
+
           // Get current mastery levels from Python
           const masteryResult = await pyodideInstance.runPythonAsync(`
             student = student_manager.get_student(current_student_id)
             mastery_data = {}
             topic_mapping = {}
-            
+
             # Get mastery levels and topic names
             for topic_idx in student.mastery_levels:
                 topic_name = kg.get_topic_of_index(topic_idx)
                 mastery_level = student.get_mastery(topic_idx)
                 mastery_data[topic_name] = mastery_level
                 topic_mapping[topic_idx] = topic_name
-            
+
             js_export({
                 "mastery_levels": mastery_data,
                 "topic_mapping": topic_mapping
             })
           `);
-          
+
           const masteryData = JSON.parse(masteryResult);
           currentMasteryLevels = masteryData.mastery_levels;
-          
+
           // Get current node positions to preserve them
           const positions = network.getPositions();
-          
+
           // Update node colors based on mastery levels while preserving positions
           const updatedNodes = currentData.nodes.map(node => {
             const masteryLevel = currentMasteryLevels[node.label];
             const color = getMasteryColor(masteryLevel);
-            
+
             // Preserve current position if it exists
             const currentPos = positions[node.id];
-            
+
             return {
               ...node,
               // Keep current position
@@ -215,11 +215,11 @@
               }
             };
           });
-          
+
           // Update the network with new colors and preserved positions
           network.setData({nodes: updatedNodes, edges: currentData.edges});
           currentData.nodes = updatedNodes;
-          
+
           // Only restore view if this is NOT the initial load
           if (!isInitialGraphLoad) {
             // Wait a bit longer for the network to process the data update
@@ -231,49 +231,50 @@
               });
             }, 150);
           }
-          
+
           console.log('Graph colors updated based on mastery levels (zoom and position preserved)');
-          
+
         } catch (error) {
           console.error('Error updating graph mastery colors:', error);
         }
       }
-      
+
       // Automated initialization function
       async function autoInitialize() {
         try {
+          console.log("🔧 Starting auto-initialization...");
           // Step 1: Initialize Pyodide and BKT System
           updateStatus('Loading Pyodide and packages...', 'loading');
-          
+
           if (!pyodideInstance) {
             pyodideInstance = await loadPyodide({
               indexURL: "../../_static/",
               packageCacheKey: "bkt-demo-v1",
               loadPackages: false
             });
-            
+
             const originalIndexURL = pyodideInstance._api.config.indexURL;
             pyodideInstance._api.config.indexURL = "https://cdn.jsdelivr.net/pyodide/v0.27.7/full/";
-            
-            const packages = ["numpy", "networkx", "matplotlib"];
+
+            const packages = ["numpy", "networkx", "matplotlib", "sympy"];
             await pyodideInstance.loadPackage(packages, {
               messageCallback: (msg) => console.log(`Package loading: ${msg}`),
               errorCallback: (err) => console.error(`Package error: ${err}`)
             });
-            
+
             pyodideInstance._api.config.indexURL = originalIndexURL;
           }
-          
+
           // Step 2: Load BKT code and files
           updateStatus('Loading BKT algorithm...', 'loading');
-          
-          const pyResponse = await fetch("../../_static/mcq_algorithm_full_python2.py");
+
+          const pyResponse = await fetch("../../_static/mcq_algorithm_current.py");
           if (!pyResponse.ok) {
             throw new Error(`Failed to fetch Python code: ${pyResponse.status}`);
           }
           const code = await pyResponse.text();
           pyodideInstance.FS.writeFile("bkt_system.py", code);
-          
+
           // Load JSON files
           const files = [
             { name: "config.json", url: "../../_static/config.json" },
@@ -281,7 +282,7 @@
             { name: "small-graph-mcqs.json", url: "../../_static/small-graph-mcqs.json" },
             { name: "small-graph-computed_mcqs.json", url: "../../_static/small-graph-computed_mcqs.json" }
           ];
-          
+
           for (const file of files) {
             const response = await fetch(file.url);
             if (!response.ok) {
@@ -290,77 +291,80 @@
             const data = await response.text();
             pyodideInstance.FS.writeFile(file.name, data);
           }
-          
+
           // Step 3: Initialize BKT System
           updateStatus('Initializing BKT system...', 'loading');
-          
+
           await pyodideInstance.runPythonAsync(`
             import sys
             sys.path.append('.')
             import bkt_system
             import json
-            
+
             def js_export(obj):
                 return json.dumps(obj)
-            
+
             # Initialize the system
-            kg = bkt_system.KnowledgeGraph()
+            kg = bkt_system.KnowledgeGraph(
+                  nodes_file='small-graph-kg.json',
+                  mcqs_file='small-graph-computed_mcqs.json',
+                  config_file='config.json')
             student_manager = bkt_system.StudentManager()
             mcq_scheduler = bkt_system.MCQScheduler(kg, student_manager)
             bkt = bkt_system.BayesianKnowledgeTracing(kg, student_manager)
-            
+
             # Connect systems
             mcq_scheduler.set_bkt_system(bkt)
             student_manager.set_bkt_system(bkt)
-            
+
             # Store globally
             globals()['kg'] = kg
             globals()['student_manager'] = student_manager
             globals()['bkt'] = bkt
             globals()['mcq_scheduler'] = mcq_scheduler
           `);
-          
+
           // Step 4: Create Student
           updateStatus('Creating student profile...', 'loading');
-          
+
           const result = await pyodideInstance.runPythonAsync(`
             import random
             random.seed(42)
-            
+
             current_student_id = "demo_student"
             student = student_manager.create_student(current_student_id)
-            
+
             # Set initial mastery levels
             for topic_idx in kg.get_all_indexes():
                 mastery = random.uniform(0.1, 0.6)
                 student.mastery_levels[topic_idx] = mastery
                 student.confidence_levels[topic_idx] = mastery * 0.8
                 student.studied_topics[topic_idx] = True
-            
+
             js_export({"success": True, "student_id": current_student_id})
           `);
-          
+
           const data = JSON.parse(result);
           currentStudent = data.student_id;
-          
+
           // Step 5: Generate first MCQ
           updateStatus('Generating your first question...', 'loading');
-          
+
           await generateMCQ();
-          
+
           // Step 6: Load knowledge graph after MCQ is ready
           updateStatus('Loading knowledge graph...', 'loading');
           loadGraphData('../../_static/small-graph.json');
-          
+
           // Mark as initialized
           isInitialized = true;
-          
+
         } catch (error) {
           updateStatus(`❌ Initialization failed: ${error.message}`, 'error');
           console.error('Auto-initialization error:', error);
         }
       }
-      
+
       async function generateMCQ() {
         try {
           const result = await pyodideInstance.runPythonAsync(`
@@ -368,63 +372,75 @@
 
             try:
                 student = student_manager.get_student(current_student_id)
-                
+
                 # Get eligible MCQs
-                greedy_eligible = mcq_scheduler.get_eligible_mcqs_for_greedy_selection(current_student_id)
-                
-                if len(greedy_eligible) > 0:
-                    mcq_id = greedy_eligible[0]
-                    mcq = kg.mcqs[mcq_id]
-                    topic_name = kg.get_topic_of_index(mcq.main_topic_index)
-                    current_mastery = student.get_mastery(mcq.main_topic_index)
-                    
-                    mcq_data = {
-                        "success": True,
-                        "mcq_id": mcq_id,
-                        "text": mcq.text,
-                        "options": mcq.options,
-                        "correct_index": mcq.correctindex,
-                        "explanations": mcq.option_explanations,
-                        "topic_name": topic_name,
-                        "current_mastery": current_mastery,
-                        "difficulty": getattr(mcq, 'difficulty', 0.5)
-                    }
-                    
-                    result_json = json.dumps(mcq_data)
+                selected_mcqs = mcq_scheduler.select_optimal_mcqs(current_student_id)
+                #Initialize result variable
+                result = None
+
+                if len(selected_mcqs) > 0:
+                    mcq_id = selected_mcqs[0]
+                    mcq = kg.get_mcq_safely(mcq_id, need_full_text=True)
+
+                    if mcq:
+                        topic_name = kg.get_topic_of_index(mcq.main_topic_index)
+                        current_mastery = student.get_mastery(mcq.main_topic_index)
+
+                        mcq_data = {
+                            "success": True,
+                            "mcq_id": mcq_id,
+                            "text": mcq.question_text,
+                            "options": mcq.question_options,
+                            "correct_index": mcq.correctindex,
+                            "explanations": mcq.option_explanations,
+                            "topic_name": topic_name,
+                            "current_mastery": current_mastery,
+                            "difficulty": getattr(mcq, 'difficulty', 0.5)
+                        }
+                        result = json.dumps(mcq_data)
+                    else:
+                        # MCQ not found
+                        error_data = {
+                            "success": False,
+                            "error": f"MCQ {mcq_id} not found"
+                        }
+                        result = json.dumps(error_data)
                 else:
-                    result_json = json.dumps({
+                    result = json.dumps({
                         "success": False,
                         "error": "No eligible MCQs found"
                     })
 
             except Exception as e:
-                result_json = json.dumps({"success": False, "error": f"Error: {str(e)}"})
+                resul = json.dumps({"success": False, "error": f"Error: {str(e)}"})
 
-            result_json
+            result
           `);
-          
+
           const data = JSON.parse(result);
-          
+
           if (data.success) {
             currentMCQ = data;
             displayMCQ(data);
+            updateStatus('Question ready! 🎯', 'success');
           } else {
             updateStatus(`❌ ${data.error}`, 'error');
+            console.error('MCQ generation error details:', data);
           }
-          
+
         } catch (error) {
           updateStatus('❌ Failed to generate MCQ', 'error');
           console.error('MCQ generation error:', error);
         }
       }
-      
+
       function displayMCQ(mcqData) {
         const mcqSection = document.getElementById('mcq-section');
         mcqSection.style.display = 'block';
-        
+
         // Hide status div when question is displayed
         document.getElementById('status').style.display = 'none';
-        
+
         mcqSection.innerHTML = `
           <div class="mcq-container">
             <div class="mcq-question">${mcqData.text}</div>
@@ -433,68 +449,68 @@
               <div><strong>📊 Current Mastery:</strong> ${(mcqData.current_mastery * 100).toFixed(1)}%</div>
               <div><strong>⚡ Difficulty:</strong> ${(mcqData.difficulty * 100).toFixed(1)}%</div>
             </div>
-            
+
             <div class="mcq-options">
-              ${mcqData.options.map((option, index) => 
+              ${mcqData.options.map((option, index) =>
                 `<button class="mcq-option" onclick="selectOption(${index})">${option}</button>`
               ).join('')}
             </div>
-            
+
             <button onclick="submitAnswer()" class="submit-btn" disabled id="submitBtn">
               ✅ Submit Answer
             </button>
           </div>
         `;
-        
+
         // Re-render MathJax for the new content
         if (window.MathJax) {
           MathJax.typesetPromise([mcqSection]).catch((err) => console.log('MathJax render error:', err));
         }
       }
-      
+
       function selectOption(index) {
         // Remove previous selection
         document.querySelectorAll('.mcq-option').forEach(btn => btn.classList.remove('selected'));
-        
+
         // Add selection to clicked option
         document.querySelectorAll('.mcq-option')[index].classList.add('selected');
-        
+
         selectedOption = index;
         document.getElementById('submitBtn').disabled = false;
       }
-      
+
       async function submitAnswer() {
         if (selectedOption === null || !currentMCQ) return;
-        
+
         try {
           updateStatus('Processing your answer...', 'loading');
-          
+
           const result = await pyodideInstance.runPythonAsync(`
             mcq_id = "${currentMCQ.mcq_id}"
             selected_option = ${selectedOption}
             correct_index = ${currentMCQ.correct_index}
             is_correct = selected_option == correct_index
-            
+
             # Record the attempt and get BKT updates
             bkt_updates = student_manager.record_attempt(
                 current_student_id, mcq_id, is_correct, 30.0, kg
             )
-            
+
             # Get response data
-            mcq = kg.mcqs[mcq_id]
+            mcq = kg.get_mcq_safely(mcq_id, need_full_text=True)
             student = student_manager.get_student(current_student_id)
             topic_name = kg.get_topic_of_index(mcq.main_topic_index)
-            
+
             mastery_before = None
             mastery_after = student.get_mastery(mcq.main_topic_index)
             mastery_change = 0
-            
+
             if bkt_updates:
                 primary_update = next((u for u in bkt_updates if u.get('is_primary_topic', False)), None)
                 if primary_update:
                     mastery_before = primary_update['mastery_before']
                     mastery_change = primary_update['mastery_change']
-            
+
             response_data = {
                 "is_correct": is_correct,
                 "selected_text": mcq.options[selected_option],
@@ -506,40 +522,40 @@
                 "mastery_change": mastery_change,
                 "total_changes": len(bkt_updates)
             }
-            
+
             js_export(response_data)
           `);
-          
+
           const data = JSON.parse(result);
           displayResult(data);
-          
+
           // Update graph colors after answer is processed (preserving zoom level)
           await updateGraphMasteryColors();
-          
+
           // Reset for next question
           selectedOption = null;
           currentMCQ = null;
-          
+
         } catch (error) {
           updateStatus('❌ Failed to process answer', 'error');
           console.error('Answer processing error:', error);
         }
       }
-      
+
       function displayResult(result) {
         const mcqSection = document.getElementById('mcq-section');
         const isCorrect = result.is_correct;
         const resultClass = isCorrect ? 'mcq-result-success' : 'mcq-result-error';
         const icon = isCorrect ? '✅' : '❌';
         const changeIcon = result.mastery_change > 0 ? '📈' : result.mastery_change < 0 ? '📉' : '➖';
-        
+
         mcqSection.innerHTML = `
           <div class="mcq-container ${resultClass}">
             <h3>${icon} ${isCorrect ? 'Excellent!' : 'Not quite right, but you\'re learning!'}</h3>
             <p><strong>Your Answer:</strong> ${result.selected_text}</p>
             <p><strong>Correct Answer:</strong> ${result.correct_option}</p>
             <p><strong>Explanation:</strong> ${result.explanation}</p>
-            
+
             <div class="mcq-result-inner">
               <h4>🧠 BKT Mastery Update</h4>
               <p><strong>📚 Topic:</strong> ${result.main_topic}</p>
@@ -548,24 +564,24 @@
               <p><strong>📈 Change:</strong> ${changeIcon} ${result.mastery_change > 0 ? '+' : ''}${(result.mastery_change * 100).toFixed(2)}%</p>
               <p><strong>🔄 Total Topics Updated:</strong> ${result.total_changes}</p>
               <p><em>💡 Check the knowledge graph below to see the color changes!</em></p>
-              
+
               <div class="progress-bar">
                 <div class="progress-fill" style="width: ${result.after_mastery * 100}%;"></div>
               </div>
             </div>
-            
+
             <button onclick="nextQuestion()" class="submit-btn">
               🚀 Next Question
             </button>
           </div>
         `;
-        
+
         // Re-render MathJax for the new content
         if (window.MathJax) {
           MathJax.typesetPromise([mcqSection]).catch((err) => console.log('MathJax render error:', err));
         }
       }
-      
+
       async function nextQuestion() {
         updateStatus('Generating next question...', 'loading');
         await generateMCQ();
@@ -574,7 +590,7 @@
       // Initialize the network
       document.addEventListener('DOMContentLoaded', function() {
         const container = document.getElementById('graph-container');
-        
+
         // Network options
         const options = {
           nodes: {
@@ -625,13 +641,13 @@
               document.getElementById('node-title').textContent = node.label;
               document.getElementById('node-description').textContent = node.label || 'No description available';
               document.getElementById('node-strand').textContent = node.group || 'Unknown';
-              
+
               // Show mastery level
               const masteryLevel = currentMasteryLevels[node.label];
-              const masteryText = masteryLevel !== undefined ? 
+              const masteryText = masteryLevel !== undefined ?
                 `${(masteryLevel * 100).toFixed(1)}%` : 'Not studied yet';
               document.getElementById('node-mastery').textContent = masteryText;
-              
+
               document.getElementById('node-info').style.display = 'block';
             }
           }
@@ -653,11 +669,11 @@
             }
             return node;
           });
-          
+
           const edges = currentData.edges.map(edge => {
             const fromNode = currentData.nodes.find(n => n.id === edge.from);
             const toNode = currentData.nodes.find(n => n.id === edge.to);
-            if (selectedStrand === '' || 
+            if (selectedStrand === '' ||
                 (fromNode && !fromNode.hidden && toNode && !toNode.hidden)) {
               edge.hidden = false;
             } else {
@@ -665,7 +681,7 @@
             }
             return edge;
           });
-          
+
           network.setData({nodes: nodes, edges: edges});
           updateStats(nodes.filter(n => !n.hidden).length, edges.filter(e => !e.hidden).length);
         });
@@ -699,7 +715,7 @@
       function loadGraphData(filename) {
         // Set flag for initial load
         isInitialGraphLoad = true;
-        
+
         fetch(filename)
           .then(response => {
             if (!response.ok) {
@@ -713,7 +729,7 @@
             if (loadingDiv) {
               loadingDiv.style.display = 'none';
             }
-            
+
             // Add initial positioning based on groups
             const groupPositions = {
               'Algebra': {x: -400, y: -200},
@@ -734,11 +750,11 @@
               'Integral Calculus': {x: 100, y: 300},
               'Counting and Probability': {x: 300, y: 100}
             };
-            
+
             // Apply group-based positioning and initial colors
             data.nodes.forEach(node => {
               node.color = '#6c757d';
-              
+
               if (groupPositions[node.group]) {
                 node.x = groupPositions[node.group].x + (Math.random() - 0.5) * 150;
                 node.y = groupPositions[node.group].y + (Math.random() - 0.5) * 150;
@@ -747,7 +763,7 @@
                 node.y = (Math.random() - 0.5) * 800;
               }
             });
-            
+
             currentData = data;
             network.setData(data);
             updateStats(data.nodes.length, data.edges.length);
@@ -761,12 +777,12 @@
                 filter.innerHTML += `<option value="${strand}">${strand}</option>`;
               }
             });
-            
+
             // Update colors if student exists
             if (currentStudent) {
               updateGraphMasteryColors();
             }
-            
+
             // Set default zoomed out view (after a longer delay to ensure everything is loaded)
             setTimeout(() => {
               network.moveTo({
@@ -776,8 +792,12 @@
               // Clear the initial load flag after zoom is set
               isInitialGraphLoad = false;
             }, 300);
-            
+
             console.log(`Loaded ${data.nodes.length} nodes and ${data.edges.length} edges from ${filename}`);
+            if (isInitialGraphLoad) {
+              updateStatus('🎉 System ready! Answer questions to see your progress.', 'success');
+            }
+            isInitialGraphLoad = false;
           })
           .catch(error => {
             console.error('Error loading graph data:', error);
@@ -788,13 +808,13 @@
       function loadSimplifiedFallback() {
         // Set flag for initial load
         isInitialGraphLoad = true;
-        
+
         // Hide loading spinner
         const loadingDiv = document.getElementById('graph-loading');
         if (loadingDiv) {
           loadingDiv.style.display = 'none';
         }
-        
+
         // Fallback data if JSON files can't be loaded
         const fallbackData = {
           nodes: [
@@ -820,21 +840,21 @@
             {from: '7', to: '9', title: 'Trigonometric functions can be integrated'}
           ]
         };
-        
+
         // Apply initial gray colors
         fallbackData.nodes.forEach(node => {
           node.color = '#6c757d';
         });
-        
+
         currentData = fallbackData;
         network.setData(fallbackData);
         updateStats(fallbackData.nodes.length, fallbackData.edges.length);
-        
+
         // Update colors if student exists
         if (currentStudent) {
           updateGraphMasteryColors();
         }
-        
+
         // Set default zoomed out view (after a delay to ensure everything is loaded)
         setTimeout(() => {
           network.moveTo({

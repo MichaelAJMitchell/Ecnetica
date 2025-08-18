@@ -214,10 +214,7 @@ html {
   --pst-font-family-monospace: Courier, var(--pst-font-family-monospace-system);
 }
 
-/* Content width adjustment */
-.bd-main .bd-content .bd-article-container {
-  max-width: 81em;
-}
+
 
 /* Import Computer Modern font for math expressions */
 @import url('https://cdn.jsdelivr.net/npm/computer-modern@0.1.2/fonts/Sans/cmun-sans.css');
@@ -784,7 +781,7 @@ h1, h2 {
 
 /* Main demo container */
 .bkt-demo-container {
-  max-width: 1400px;
+  /*max-width: 1400px;*/
   margin: 0 auto;
   padding: var(--spacing-lg);
   background: var(--background-primary);
@@ -800,6 +797,8 @@ h1, h2 {
   gap: var(--spacing-lg);
   align-items: flex-start;
 }
+
+/* NEEDS TO BE FIXED: Flexbox container for BKT demo */
 
 /* BKT section (left side) */
 .bkt-demo-container .bkt-section {
@@ -1828,7 +1827,7 @@ html[data-theme="dark"] .nav-section-toggle:hover {
     backdrop-filter: blur(2px);
 }
 
-/* Tools panel */
+/* Revison Area pannel */
 .tools-panel {
     position: fixed;
     top: 50%;
@@ -2113,4 +2112,83 @@ html[data-theme="dark"] .tool-card:hover .tool-icon {
 .tools-panel-close:focus-visible {
     outline: 2px solid var(--primary, #60a5fa);
     outline-offset: 2px;
+}
+
+
+
+/*--------------------------------------------------------------------*\
+THEME WIDTH ADJUSTMENTS 
+WORKING ON 
+Based on: https://pydata-sphinx-theme.readthedocs.io/en/stable/user_guide/layout.html
+\*--------------------------------------------------------------------*/
+
+/* Article content width - official method */
+.bd-main .bd-content .bd-article-container {
+  max-width: 100%; /* default is 60em */
+}
+
+/* Page width for full screen usage - official method */
+.bd-page-width {
+  max-width: 100%; /* default is 88rem */
+}
+
+/* PRIMARY SIDEBAR WIDTH ADJUSTMENTS */
+/* Direct CSS targeting for sidebar width (backup approach) */
+.bd-sidebar-primary {
+  width: 15rem !important;
+  max-width: 15rem !important;
+  flex: 0 0 15rem !important;
+}
+
+/* Adjust navigation link padding for tighter spacing */
+.bd-sidebar-primary .nav-link {
+  padding: 0.25rem 0.75rem; /* Tighter vertical padding */
+}
+
+/* Ensure the main content area takes advantage of extra space */
+.bd-main {
+  flex-grow: 1;
+}
+
+.bd-content {
+  flex-grow: 1;
+  max-width: none;
+}
+
+/* Update your container classes to match */
+.container {
+  width: 95%;
+  max-width: none;
+  margin: 0 auto;
+}
+
+.bkt-demo-container {
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+  background: var(--background-primary);
+  min-height: 100vh;
+  font-family: inherit;
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Responsive sidebar adjustments */
+@media (max-width: 1200px) {
+  .bd-sidebar-primary {
+    width: 10rem !important;
+    max-width: 10rem !important;
+    flex: 0 0 10rem !important;
+  }
+}
+
+/* On tablets, make it even smaller */
+@media (max-width: 992px) {
+  .bd-sidebar-primary {
+    width: 8rem !important;
+    max-width: 8rem !important;
+    flex: 0 0 8rem !important;
+    font-size: 0.8rem;
+  }
 }

@@ -1,6 +1,3 @@
----
-html_theme.sidebar_secondary.remove: true
----
 # Bayesian Knowledge Tracing FSRS Demo
 
 ```{raw} html

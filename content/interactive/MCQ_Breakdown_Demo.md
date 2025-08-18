@@ -1,6 +1,3 @@
----
-html_theme.sidebar_secondary.remove: true
----
 # MCQs with Random Parameter Generation and Breakdowns
 
 ```{raw} html

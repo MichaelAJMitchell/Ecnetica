@@ -94,10 +94,6 @@ function createCourseNavigator() {
             },
             'Knowledge Graph': '/content/knowledge-graph.html'
         },
-        'Interactive Tools': {
-            'Python Playground': '/content/interactive/python_playground.html',
-            'BKT Simple Demo': '/content/interactive/BKT_Simple_Demo.html'
-        },
         'Number Systems': {
             'Overview': {
                 'Natural Numbers and Integers': '/content/number_systems/natural_integers.html',
@@ -727,6 +723,16 @@ function createInteractiveToolsFinder() {
             url: '/content/interactive/BKT_Simple_Demo.html',
             description: 'Bayesian Knowledge Tracing demonstration',
             icon: '🧠'
+        },
+        'BKT FSRS Demo': {
+            url: '/content/interactive/BKT_FSRS_Demo.html',
+            description: 'FSRS-based spaced repetition demo',
+            icon: '⏳'
+        },
+        'MCQ Breakdown Demo': {
+            url: '/content/interactive/MCQ_Breakdown_Demo.html',
+            description: 'Multiple Choice Question breakdown tool',
+            icon: '❓'
         },
     };
 

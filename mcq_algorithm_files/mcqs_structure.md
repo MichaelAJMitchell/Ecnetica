@@ -1,8 +1,12 @@
-
+# Workflow
 if you take the mcq document and run them through the process_mcqs python file, it automatically calculates the id, prerequisites and difficulty and them saves them in another json file, which is the one actually used for the mcq algorithm. it also calculates the chapter from the topic for the main node.
 
-# mcqs structure
+Ensure the correct files are imported into the knowledge graph.
 
+# MCQs Structure
+The bottom of this document has full examples for both the precomputed form for generation and the computed form for the algorithm.
+
+Questions can have breakdowns which break the question into steps when a student gets it wrong. There can be different breakdowns for each answer. They can also have randomly generated parameters which change every time a student does the question.
 ## parameters
 The code can generate parameters for questions, so that the numbers are different every time a student sees the question. There is two types of parameters, generated and calculated. The generated ones are the ones which are randomly generated. But it isn't always easiest to generate the actual parameters in the question. Sometimes to get the answers to be nice numbers/ question factorisable/solvable etc, its easiest to generate numbers to base the parameters in the question of off. A lot of the time this might mean randomly generating the answers and then working back to calculate what the corresponding question should be. The calculated_parameters field if for any parameters based on the generated, or other calculated ones. This used sympy to do the substitutions.
 ## mcqs explicit content
@@ -89,7 +93,7 @@ ${param_name}_type$ → "exponential"
 
 ### options
 currently four options, including the correct option. the other options should, if possible, be common mistakes a student could make on the question. Examples of mistakes include sign/ calculation errors, mixing the question up with a similar concept, an option that looks similar but is not the same. The correct answer should be roughly evenly distributed across the indexes, it should not always be the first option.
-This can substitute parameters and render them for display. Any calculations than need to be done should be in calulated parameters, with that parameter called in the options to be substituted. options should use latex formatting, with an extra backslash as the mcqs are stored in json. ```\\(option\\)``` should be the format. . Use ```\\text{}``` for any text in the options.
+This can substitute parameters and render them for display. Any calculations than need to be done should be in calculated parameters, with that parameter called in the options to be substituted. options should use latex formatting, with an extra backslash as the mcqs are stored in json. ```\\(option\\)``` should be the format. . Use ```\\text{}``` for any text in the options.
 
 Formatted as an array(list) with each option.
 ### correct index
@@ -125,7 +129,7 @@ each question has a difficulty breakdown which measures how difficult the questi
 in the code they are called conceptual, procedural, problem_solving, communication, memory, spatial
 
 #### breakdown
-This properlty should be present if the question has steps which the question can be broken down into when a student gets the question wrong. For simple questions such as definitions or questions which only contain one step, the question does not need to contain a breakdown and this propery should not be present.
+This property should be present if the question has steps which the question can be broken down into when a student gets the question wrong. For simple questions such as definitions or questions which only contain one step, the question does not need to contain a breakdown and this property should not be present.
 
 For questions which can be broken down into steps, eg questions with multiple steps of calculations, which involving multiple skills such as recalling information and then applying it, or exam-style question, breakdown should be formatted as follows:
 The breakdown should aim to teach the content, as it will appear when students get a question wrong. The question should be broken into approximately 2-5 steps, maybe more if it is a very complex exam-style question. The questions should first address memory of key definitions, formulas, notation, methods etc used in the question. An understanding of the topic could also be tested here too. The next questions should then target procedural fluency, eg subbing in numbers, doing algebra/ calculations, following the logic which the student should use. The questions should then move to more complex problem solving, critical thinking, and interpretation of answer, if these are applicable.
@@ -156,10 +160,10 @@ the options should follow the same structure as for the options for the parent q
 #### correctindex
 
 #### option_explanations
-As in the parent question, this contains an explanation corresponding to each option. Where correct, they should reinforce undersstning. For incorrect options, they should working though all the steps a student should have done, allowing them to see exactly why they are wrong.
+As in the parent question, this contains an explanation corresponding to each option. Where correct, they should reinforce understanding. For incorrect options, they should working though all the steps a student should have done, allowing them to see exactly why they are wrong.
 
 
-These feilds are then repeated for every step in the breakdown.
+These fields are then repeated for every step in the breakdown.
 
 ## calculated content
 This content will be calculated after and does not need to be generated.
@@ -178,7 +182,7 @@ the prerequisites for each mcq are stored, to save calculating them every time f
 ### difficulty
 the overall difficulty score for a question is the average of the skills in the difficulty breakdown. it is calculated automatically based on the difficulty breakdown values. There could be a better way of calculating this.
 
-# structure thst questions should be generated in
+# structure that questions should be generated in
 Don't need to contain breakdown or parameter generation fields
 ```
     {
@@ -219,7 +223,7 @@ Don't need to contain breakdown or parameter generation fields
         "Correct!The discriminant is $b^2 - 4ac$",
         "Incorrect. You may have calculated $b^2 + 4ac$ instead of $b^2 - 4ac$.",
         "Incorrect. Remember the formula is $b^2 - 4ac$, not $sqrt{b^2-4ac}$.",
-        "Incorrect. The discriminnant is just the part under square root of the quadratic question."
+        "Incorrect. The discriminant is just the part under square root of the quadratic question."
       ],
       "main_topic_index": 17,
       "chapter": "algebra",
@@ -430,7 +434,7 @@ Don't need to contain breakdown or parameter generation fields
         "Correct!The discriminant is $b^2 - 4ac$",
         "Incorrect. You may have calculated $b^2 + 4ac$ instead of $b^2 - 4ac$.",
         "Incorrect. Remember the formula is $b^2 - 4ac$, not $sqrt{b^2-4ac}$.",
-        "Incorrect. The discriminnant is just the part under square root of the quadratic question."
+        "Incorrect. The discriminant is just the part under square root of the quadratic question."
       ],
       "main_topic_index": 17,
       "chapter": "algebra",

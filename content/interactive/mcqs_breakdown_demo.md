@@ -365,7 +365,6 @@ html_theme.sidebar_secondary.remove: true
                         global current_mcq_instance
                         current_mcq_instance = mcq
 
-                        print(f" AFTER CACHING - MCQ params: {mcq.get_current_parameters_safe()}")
 
                         student = student_manager.get_student("${currentStudent}")
                         topic_name = kg.get_topic_of_index(mcq.main_topic_index)
@@ -397,7 +396,6 @@ html_theme.sidebar_secondary.remove: true
 
             result_json
           `);
-          console.log("🔍 DEBUG: Python result:", result);
 
           const data = JSON.parse(result);
 
@@ -511,14 +509,12 @@ html_theme.sidebar_secondary.remove: true
                         mastery_change = primary_update['mastery_change']
 
                 # Check for breakdown trigger
-                print(f"🔍 BEFORE BREAKDOWN - MCQ params: {mcq.get_current_parameters_safe()}")
                 breakdown_data = None
                 if not is_correct and mcq.has_breakdown:
                     print(f"Triggering breakdown for wrong answer {selected_option}")
                     breakdown_steps = mcq.execute_breakdown_for_student(
                         selected_option, student.mastery_levels, kg.config.config
                     )
-                    print(f"🔍 AFTER BREAKDOWN - MCQ params: {mcq.get_current_parameters_safe()}")
                     if breakdown_steps:
                         print(f"Generated {len(breakdown_steps)} breakdown steps")
                         # Console log for prerequisite skipping
@@ -567,7 +563,6 @@ html_theme.sidebar_secondary.remove: true
             result_json
           `);
 
-          console.log("🔍 DEBUG: Submit result:", result);
 
           const data = JSON.parse(result);
 
@@ -736,10 +731,6 @@ html_theme.sidebar_secondary.remove: true
           )
           print(f"Recorded breakdown step ${stepIndex} against parent MCQ {mcq.id}: {'correct' if ${isCorrect ? 'True' : 'False'} else 'incorrect'}")
 
-          # Optional: Verify parameters are still consistent
-          if mcq.is_parameterized:
-              current_params = mcq.get_current_parameters_safe()
-              print(f" BREAKDOWN STEP ${stepIndex} - MCQ params still: {current_params}")
         `);
 
         // Store completion data

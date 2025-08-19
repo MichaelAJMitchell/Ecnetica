@@ -734,7 +734,7 @@ class BreakdownStep:
     def _render_step_option_sophisticated(self, option: str, all_params: Dict) -> str:
         """Render single step option with sophisticated formatting"""
         # Step 1: Parameter substitution
-        substituted = self._substitute_parameters_new_format(option, all_params)
+        substituted = self._substitute_parameters(option, all_params)
 
         # Step 2: Try mathematical evaluation
         try:
@@ -788,7 +788,7 @@ class BreakdownStep:
 
         return calc_params
 
-    def _substitute_parameters_new_format(self, text: str, params: Dict) -> str:
+    def _substitute_parameters(self, text: str, params: Dict) -> str:
         """Substitute parameters using new ${param} format (no double $)"""
         result = text
 
@@ -807,7 +807,7 @@ class BreakdownStep:
     def _substitute_and_render_option(self, option: str, all_params: Dict) -> str:
         """Substitute parameters and render option for LaTeX display"""
         # Step 1: Parameter substitution
-        substituted = self._substitute_parameters_new_format(option, all_params)
+        substituted = self._substitute_parameters(option, all_params)
 
         # Step 2: LaTeX formatting (assuming options are already in LaTeX format)
         # Just wrap in LaTeX delimiters if not already wrapped
@@ -1074,44 +1074,6 @@ class MCQ:
 
                             # Create safe evaluation environment
                             local_namespace = {'__builtins__': {}}
-                            '''
-                            # Convert parameters to SymPy-compatible format
-                            sympy_params = {}
-                            for key, value in params.items():
-                                try:
-                                    if isinstance(value, (int, float)):
-                                        sympy_params[key] = value
-                                    elif hasattr(value, 'numerator') and hasattr(value, 'denominator'):
-                                        # Handle Fraction objects properly
-                                        sympy_params[key] = Rational(value.numerator, value.denominator)
-                                    elif isinstance(value, list) and all(isinstance(x, (int, float)) for x in value):
-                                        # Handle coefficient lists properly - store as list, not SymPy
-                                        sympy_params[key] = value
-                                    # Skip complex objects that cause 'subs' errors
-                                except Exception:
-                                    continue
-
-
-                            # Parse and evaluate the calculated parameter
-                            expr = sympify(calc_expr, locals=local_namespace)
-                            result = expr.subs(sympy_params)
-
-                            #Convert result to proper Python types
-                            if hasattr(result, 'is_number') and result.is_number:
-                                if result.is_integer:
-                                    params[calc_name] = int(result)
-                                elif hasattr(result, 'p') and hasattr(result, 'q'):  # SymPy Rational
-                                    # Convert SymPy Rational to Python Fraction
-                                    params[calc_name] = Fraction(int(result.p), int(result.q))
-                                else:
-                                    # Keep as SymPy Rational if it's a clean fraction
-                                    if isinstance(result, Rational):
-                                        params[calc_name] = Fraction(int(result.p), int(result.q))
-                                    else:
-                                        params[calc_name] = float(result)
-                            else:
-                                params[calc_name] = str(result)
-                            '''
 
                             safe_namespace = MCQ.create_safe_math_namespace({**params})
                             calc_result = eval(calc_expr, {"__builtins__": {}}, safe_namespace)
@@ -1494,7 +1456,7 @@ class MCQ:
             elif abs(value - round(value, 2)) < 1e-10:
                 return str(round(value, 2))  # 2 decimal places if exact
             else:
-                return str(round(value, 4))  # Max 3 decimal places
+                return str(round(value, 4))  # Max 4 decimal places
 
         elif hasattr(value, 'numerator') and hasattr(value, 'denominator'):
             # Already a fraction
@@ -1738,7 +1700,7 @@ class MCQ:
     def _render_option_sophisticated(self, option: str, all_params: Dict) -> str:
         """Render single option with sophisticated parameter substitution and LaTeX formatting"""
         # Step 1: Parameter substitution using new format
-        substituted = self._substitute_parameters_new_format(option, all_params)
+        substituted = self._substitute_parameters(option, all_params)
 
         # Step 2: Evaluate any remaining mathematical expressions
         try:
@@ -1831,7 +1793,7 @@ class MCQ:
             return int(numbers[0]) if numbers else 0
 
 
-    def _substitute_parameters_new_format(self, text: str, params: Dict) -> str:
+    def _substitute_parameters(self, text: str, params: Dict) -> str:
         """Substitute parameters using new ${param} format"""
         result = text
 
@@ -4984,125 +4946,224 @@ def simple_breakdown_test():
 
     # Example MCQ data with breakdown (discriminant question)
     example_mcq_data = {
-        "text": "What is the discriminant of the quadratic equation ${question_expression}?",
-        "question_expression": "a*x**2 + b*x + c = 0",
-        "generated_parameters": {
-            "a": {"type": "int", "min": -9, "max": 9, "exclude": 0},
-            "b": {"type": "int", "min": -9, "max": 9},
-            "c": {"type": "int", "min": -50, "max": 50}
+      "id": "5fd2fa18-963c-4473-ad47-b7ce48a44a85",
+      "text": "What is the discriminant of the quadratic equation ${question_expression}?",
+      "question_expression": "a*x**2 +b*x + c = 0",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": -9,
+          "max": 9,
+          "exclude": 0
         },
-        "calculated_parameters": {
-            "discriminant": "b**2 - 4*a*c"
+        "b": {
+          "type": "int",
+          "min": -9,
+          "max": 9
         },
-        "options": [
-            "b**2-4*a*c",
-            "b**2+4*a*c",
-            "sqrt(b**2-4*a*c)",
-            "(-b+sqrt(b**2-4*a*c))/(2*a)"
-        ],
-        "correctindex": 0,
-        "option_explanations": [
-            "Correct! The discriminant is $b^2 - 4ac$",
-            "Incorrect. You may have calculated $b^2 + 4ac$ instead of $b^2 - 4ac$.",
-            "Incorrect. Remember the formula is $b^2 - 4ac$, not $\\sqrt{b^2-4ac}$.",
-            "Incorrect. The discriminant is just the part under square root of the quadratic formula."
-        ],
-        "main_topic_index": 17,
-        "chapter": "algebra",
-        "subtopic_weights": {"17": 1.0},
-        "difficulty_breakdown": {
-            "conceptual_understanding": 0.3,
-            "procedural_fluency": 0.7,
-            "problem_solving": 0.2,
-            "mathematical_communication": 0.1,
-            "memory": 0.4,
-            "spatial_reasoning": 0.0
-        },
-        "overall_difficulty": 0.53,
-        "prerequisites": {},
-        "breakdown": {
-            "1": {
-                "steps": [
-                    {
-                        "step_no": 1,
-                        "prereq_topics": [14],
-                        "step_type": "memory",
-                        "text": "What is the formula for solving quadratic equations?",
-                        "options": [
-                            "x=\\frac{-b+\\sqrt{b^2-4ac}}{2a}",
-                            "\\sqrt{b^2-4ac}",
-                            "\\frac{-b\\pm \\sqrt{b^2-4ac}}{2a}",
-                            "ax^2+bx+c"
-                        ],
-                        "correctindex": 2,
-                        "option_explanations": [
-                            "Not quite, there is a plus/minus",
-                            "This is more like the formula for the discriminant",
-                            "Yes! This is the quadratic formula",
-                            "This is the form of a quadratic equation, not the solution formula"
-                        ]
-                    },
-                    {
-                        "step_no": 2,
-                        "step_type": "memory",
-                        "text": "The discriminant is part of the quadratic formula, which bit?",
-                        "options": [
-                            "$\\sqrt{b^2 - 4ac}$",
-                            "$b^2 - 4ac$",
-                            "2a",
-                            "-b \\pm \\sqrt{b^2-4ac}"
-                        ],
-                        "correctindex": 1,
-                        "option_explanations": [
-                            "The discriminant is the bit under the square root, but doesn't include the square root itself",
-                            "Yes, it's the bit under the square root",
-                            "Remember we only want the bit under the square root",
-                            "No, that's too much of the formula"
-                        ]
-                    },
-                    {
-                        "step_no": 3,
-                        "step_type": "procedural_fluency",
-                        "text": "Now we have the formula $b^2-4ac$, we want to substitute our numbers into it. Remember our quadratic is ${question_expression}. Our formula has a, b and c. What should each of these numbers be?",
-                        "options": [
-                            "a = the number by itself, b = the number in front of the x, c = the number in front of the $x^2$",
-                            "a = ${a} ⋅ x^2, b = ${b} ⋅ x, c = ${c}",
-                            "a=1, b=2, c=3",
-                            "a = the number in front of the $x^2$, b = the number in front of the $x$, c = the term by itself"
-                        ],
-                        "correctindex": 3,
-                        "option_explanations": [
-                            "Almost, you just have it the wrong way around",
-                            "You actually just want the numbers in front of x's, don't include the x",
-                            "No, these are not the right values",
-                            "Yes! That's correct"
-                        ]
-                    },
-                    {
-                        "step_no": 4,
-                        "step_type": "procedural_fluency",
-                        "text": "We now have our formula, ${subquestion_expression_subbed}. Time to do the math. When you calculate this sum, what do you get?",
-                        "subquestion_expression": "b**2-4*a*c",
-                        "calculated_parameters": {
-                            "opt1": "b**2-4*a*c",
-                            "opt2": "b**2+4*a*c",
-                            "opt3": "sqrt(b**2-4*a*c)",
-                            "opt4": "(-b+sqrt(b**2-4*a*c))/(2*a)",
-                            "subquestion_expression_subbed": "b**2-4*a*c"
-                        },
-                        "options": [
-                            "${opt1}",
-                            "${opt2}",
-                            "${opt3}",
-                            "${opt4}"
-                        ],
-                        "correctindex": 0,
-                        "option_explanations": ["Yes, that's correct", "No", "No", "No"]
-                    }
-                ]
-            }
+        "c": {
+          "type": "int",
+          "min": -50,
+          "max": 50
         }
+      },
+      "calculated_parameters": {
+        "opt1": "b**2-4*a*c",
+        "opt2": "b**2+4*a*c",
+        "opt3": "sqrt(b**2-4*a*c)",
+        "opt4": "(-b+sqrt(b**2-4*a*c))/(2*a)"
+      },
+      "options": [
+        "${opt1}",
+        "${opt2}",
+        "${opt3}",
+        "${opt4}"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct!The discriminant is $b^2 - 4ac$",
+        "Incorrect. You may have calculated $b^2 + 4ac$ instead of $b^2 - 4ac$.",
+        "Incorrect. Remember the formula is $b^2 - 4ac$, not $sqrt{b^2-4ac}$.",
+        "Incorrect. The discriminant is just the part under square root of the quadratic question."
+      ],
+      "main_topic_index": 17,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "17": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.3,
+        "procedural_fluency": 0.7,
+        "problem_solving": 0.2,
+        "mathematical_communication": 0.1,
+        "memory": 0.4,
+        "spatial_reasoning": 0.0
+      },
+      "overall_difficulty": 0.2833333333333334,
+      "prerequisites": {
+        "16": 0.7
+      },
+      "breakdown": {
+        "sign_error": {
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [
+                14
+              ],
+              "step_type": "memory",
+              "text": "what is the formula for solving quadratic equations?",
+              "options": [
+                "\\(x=\\frac{-b+\\sqrt{b^2-4ac}}{2a}\\)",
+                "\\(\\sqrt{b^2-4ac}\\)",
+                "\\(\\frac{-b\\pm \\sqrt{b^2-4ac}}{2a}\\)",
+                "\\(ax^2+bx+c\\)"
+              ],
+              "correctindex": 2,
+              "option_explanations": [
+                "not quite, there is a plus",
+                "this is more like the formula for the discriminant, the question is asking for the whole formula",
+                "yes! this is the formula you use when you are solving quadratic equations",
+                "this is actually the form of an actual quadratic equation. we want the formula you can use to solve for x."
+              ]
+            },
+            {
+              "step_no": 2,
+              "step_type": "memory",
+              "text": "the discriminant is part of the quadratic formula, which bit?",
+              "options": [
+                "\\(\\sqrt{b^2 - 4ac}\\)",
+                "\\(b^2 - 4ac\\)",
+                "\\(2a\\)",
+                "\\(-b \\pm \\sqrt{b^2-4ac}\\)"
+              ],
+              "correctindex": 1,
+              "option_explanations": [
+                "the discriminant is the bit under the square root, but it doesn't actually include the square root itself",
+                "yep its the bit under the square root",
+                "remember we only want the bit under the square root, not the whole top of the fraction",
+                "no"
+              ]
+            },
+            {
+              "step_no": 3,
+              "step_type": "procedural_fluency",
+              "text": "now we have the formula \\(b^2-4ac\\), we want to substitute our numbers into it. remember our quadratic is ${question_expression}. our formula has a, b and c. what should each of these numbers be?",
+              "options": [
+                "\\(a = \\text{the number by itself}, b = \\text{the number in front of the } x, c = \\text{the number in front of the } x^2\\)",
+                "\\(a = ${a}, b = ${b}, c = ${c}\\)",
+                "\\(a=1,b=2,c=3\\)",
+                "\\(a= \\text{the number in front of the } x^2, b = \\text{the number in front of the } x, c = \\text{the term by itself}\\)"
+              ],
+              "correctindex": 3,
+              "option_explanations": [
+                "almost you just have it the wrong way around",
+                "you actually just want the numbers in front of xs, don't actually include the x",
+                "no",
+                "yes yay"
+              ]
+            },
+            {
+              "step_no": 4,
+              "step_type": "procedural_fluency",
+              "text": "we now have our formula, \\(${b}^2-4(${a})(${c})\\). time to do the math. when you calculate this sum, what do you get?",
+              "calculated_parameters": {
+                "opt1": "b**2-4*a*c",
+                "opt2": "b**2+4*a*c",
+                "opt3": "sqrt(b**2-4*a*c)",
+                "opt4": "(-b+sqrt(b**2-4*a*c))/(2*a)"
+              },
+              "options": [
+                "${opt1}",
+                "${opt2}",
+                "${opt3}",
+                "${opt4}"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "yes",
+                "no",
+                "no",
+                "no"
+              ]
+            }
+          ],
+          "answer_mapping": [
+            1
+          ]
+        },
+        "formula_confusion": {
+          "steps": [
+            {
+              "step_no": 1,
+              "step_type": "memory",
+              "text": "the discriminant is part of the quadratic formula, which bit?",
+              "options": [
+                "\\(\\sqrt{b^2 - 4ac}\\)",
+                "\\(b^2 - 4ac\\)",
+                "\\(2a\\)",
+                "\\(-b \\pm \\sqrt{b^2-4ac}\\)"
+              ],
+              "correctindex": 1,
+              "option_explanations": [
+                "the discriminant is the bit under the square root, but it doesn't actually include the square root itself",
+                "yep its the bit under the square root",
+                "remember we only want the bit under the square root, not the whole top of the fraction",
+                "no"
+              ]
+            },
+            {
+              "step_no": 2,
+              "step_type": "procedural_fluency",
+              "text": "now we have the formula \\(b^2-4ac\\), we want to substitute our numbers into it. remember our quadratic is ${question_expression}. our formula has a, b and c. what should each of these numbers be?",
+              "options": [
+                "\\(a = \\text{the number by itself}, b = \\text{the number in front of the } x, c = \\text{the number in front of the } x^2\\)",
+                "\\(a = ${a}, b = ${b}, c = ${c}\\)",
+                "\\(a=1,b=2,c=3\\)",
+                "\\(a= \\text{the number in front of the } x^2, b = \\text{the number in front of the } x, c = \\text{the term by itself}\\)"
+              ],
+              "correctindex": 3,
+              "option_explanations": [
+                "almost you just have it the wrong way around",
+                "you actually just want the numbers in front of xs, don't actually include the x",
+                "no",
+                "yes yay"
+              ]
+            },
+            {
+              "step_no": 3,
+              "step_type": "procedural_fluency",
+              "text": "we now have our formula, ${subquestion_expression}. time to do the math. when you calculate this sum, what do you get?",
+              "subquestion_expression": "b**2-4*a*c",
+              "calculated_parameters": {
+                "opt1": "b**2-4*a*c",
+                "opt2": "b**2+4*a*c",
+                "opt3": "sqrt(b**2-4*a*c)",
+                "opt4": "(-b+sqrt(b**2-4*a*c))/(2*a)"
+              },
+              "options": [
+                "${opt1}",
+                "${opt2}",
+                "${opt3}",
+                "${opt4}"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "yes",
+                "no",
+                "no",
+                "no"
+              ]
+            }
+          ],
+          "answer_mapping": [
+            2,
+            3
+          ]
+        }
+      }
     }
+
 
     print("="*60)
     print("MCQ BREAKDOWN SYSTEM DEMONSTRATION")

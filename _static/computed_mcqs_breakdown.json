@@ -1,7 +1,7 @@
 {
   "mcqs": [
     {
-      "id": "5fd2fa18-963c-4473-ad47-b7ce48a44a85",
+      "id": "3de6b6a4-fc02-46f9-8cf6-4e64485ebe6f",
       "text": "What is the discriminant of the quadratic equation ${question_expression}?",
       "question_expression": "a*x**2 +b*x + c = 0",
       "generated_parameters": {
@@ -219,7 +219,7 @@
       }
     },
     {
-      "id": "5356bf8b-770f-4fed-abd4-8ef76aa6522f",
+      "id": "2b81e744-3f05-44ab-b9db-557853babaff",
       "text": "Solve the equation \\(${a}x + ${b} = ${c}x + ${d}\\) for x.",
       "question_expression": null,
       "generated_parameters": {
@@ -281,7 +281,7 @@
       }
     },
     {
-      "id": "0ce3f747-e741-47bd-9451-f5146b9cd8cb",
+      "id": "2afa3674-3bef-458f-82a9-4ebf31b8c3f8",
       "text": "Factor the quadratic expression ${question_expression_expanded}.",
       "question_expression": "(x-r_1)*(x-r_2)",
       "generated_parameters": {
@@ -347,7 +347,7 @@
       }
     },
     {
-      "id": "a4635396-0c31-4cc6-9c34-29d18a27578e",
+      "id": "a915af19-abaa-40aa-a2a8-a6329042a04b",
       "text": "Solve the linear equation ${question_expression} for x.",
       "question_expression": "a*x + b = c",
       "generated_parameters": {
@@ -370,10 +370,10 @@
       },
       "calculated_parameters": {
         "solution": "(c - b) / a",
-        "opt1": "(${c} - ${b})/(${a})",
-        "opt2": "(${b} - ${b})/(${a})",
-        "opt3": "(${c} + ${b})/(${a})",
-        "opt4": "${a} * ${c} - ${b}"
+        "opt1": "(c - b)/(a)",
+        "opt2": "(b - c)/(a)",
+        "opt3": "(c + b)/(a)",
+        "opt4": "a * c - b"
       },
       "options": [
         "x = ${opt1}",
@@ -481,7 +481,7 @@
       }
     },
     {
-      "id": "8f1b8624-96bc-4dcc-a1f7-d43c85baa271",
+      "id": "043b8d81-ed7b-47b9-b00b-5a249a6e9bd8",
       "text": "Which of the following is the standard form of a quadratic equation?",
       "question_expression": "ax^2 + bx + c = 0",
       "generated_parameters": {},
@@ -533,7 +533,7 @@
               "text": "What makes an expression a 'quadratic'?",
               "options": [
                 "It has an x term",
-                "\text{It has an} x^2 \\text{term as the highest power}",
+                "\\text{It has an} x^2 \\text{term as the highest power}",
                 "It equals zero",
                 "It has three terms"
               ],
@@ -573,7 +573,7 @@
       }
     },
     {
-      "id": "c63ee5a9-0ba5-443e-82a0-440c4cae326b",
+      "id": "f24ffa12-b3b4-4171-bc22-a7c28ceb6d8e",
       "text": "Factor the quadratic expression ${question_expression}.",
       "question_expression": "x^2 + b*x + c",
       "generated_parameters": {
@@ -699,7 +699,7 @@
       }
     },
     {
-      "id": "12833b79-7dc1-49ac-9ea8-5747dd6c5ad0",
+      "id": "310e04b4-2019-44a5-8c8f-65da4bbce7a1",
       "text": "Complete the square for the quadratic expression ${question_expression}.",
       "question_expression": "x^2 + b*x + c",
       "generated_parameters": {
@@ -846,7 +846,7 @@
       }
     },
     {
-      "id": "1399f9cb-b8ab-4b60-ad88-dc6a26926bc2",
+      "id": "d1f81121-0f81-4460-a1cc-20c42156beff",
       "text": "Use the quadratic formula to solve ${question_expression}.",
       "question_expression": "a*x^2 + b*x + c = 0",
       "generated_parameters": {

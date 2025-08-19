@@ -8,9 +8,16 @@ the algorithm now has the option to only load in minimal data on mcqs, as things
 ## defining classes
 MinimalMCqData, node just define stuff. Difficulty breakdown should already be in the json, this just makes sure its the right format and calculates the overall difficulty is something is missing. StudentAttempt just is format of attempt.
 
+
+## BreakdownStep
+This includes the functions for managing the breakdown steps, including calculating the generated parameters needed for the steps. Th breakdown questions inherit all the parameters frim the parent mcq, as well as calutaing new ones.
+
+
 ## MCQ- loading from json
 the from_dict function loads in all the information in an mcq from the json file, makes sure its in the right format, has some functions to call stuff.
-This also has the bit for generating the random parameters. Has mcq.regenerate_parameters(), mcq.get_current_parameters(). mcq.question_text and mcq.options actually gets the text and options with calculated parameters of they are available.
+This also has the bit for generating the random parameters. Has mcq.regenerate_parameters(), mcq.get_current_parameters_safe(). mcq.question_text and mcq.options actually gets the text and options with calculated parameters of they are available.
+
+
 ## ConfigurationManager
 This deals with the fact that the variables are stored in the config file. Called with . Theres a function to get the bkt parameters.
 

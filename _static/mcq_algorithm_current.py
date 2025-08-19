@@ -265,6 +265,7 @@ class BreakdownStep:
     calculated_parameters: Optional[Dict[str, str]] = field(default_factory=dict)
 
     # Inherited from parent MCQ
+    parent_mcq: 'MCQ' = None
     parent_generated_parameters: Dict[str, Dict] = field(default_factory=dict)
     parent_calculated_parameters: Dict[str, str] = field(default_factory=dict)
     parent_params: Dict[str, Union[int, float]] = field(default_factory=dict)
@@ -293,8 +294,9 @@ class BreakdownStep:
             calculated_parameters=step_data.get('calculated_parameters', {}),
             parent_generated_parameters=parent_mcq.generated_parameters or {},
             parent_calculated_parameters=parent_mcq.calculated_parameters or {},
-            parent_params=parent_mcq.get_current_parameters(),
-            parent_question_expression=parent_mcq.question_expression
+            parent_params=parent_mcq.get_current_parameters_safe(),
+            parent_question_expression=parent_mcq.question_expression,
+            parent_mcq=parent_mcq
         )
 
     def should_skip(self, student_mastery: Dict[int, float], config: Dict) -> bool:
@@ -312,14 +314,16 @@ class BreakdownStep:
 
     def render_step_text(self) -> str:
         """Render step text with parameter substitution using parent MCQ's method"""
-        # Create a temporary MCQ-like object to use the sophisticated text generation
-        temp_mcq = type('TempMCQ', (), {
-            'question_expression': self.subquestion_expression,
-            'smart_format_number': staticmethod(MCQ.smart_format_number)
-        })()
+        # Get fresh parameters from parent MCQ to ensure consistency
+        if self.parent_mcq:
+            fresh_parent_params = self.parent_mcq.get_current_parameters_safe()
+            print(f"🔄 Using fresh parent params: {fresh_parent_params}")
+        else:
+            fresh_parent_params = self.parent_params  # Fallback to stored params
+            print(f"📦 Using stored params: {fresh_parent_params}")
 
-        # Use the parent MCQ's generate_question_text method logic
-        return self._generate_step_text_with_substitution(self.text, self.parent_params)
+        return self._generate_step_text_with_substitution(self.text, fresh_parent_params)
+
 
 
     def _generate_step_text_with_substitution(self, text: str, params: Dict) -> str:
@@ -499,7 +503,7 @@ class BreakdownStep:
                 ('${subquestion_expression}', 'as_is')
                 ]
 
-            for placeholder, format_type in placeholders:
+            for placeholder, format_type in subq_placeholders:
                 if placeholder in result_text:
                     try:
                         local_namespace = {'__builtins__': {}}
@@ -712,7 +716,13 @@ class BreakdownStep:
         """Render step options with parameter substitution and calculations"""
         # Calculate step-specific parameters
         calc_params = self._calculate_step_parameters()
-        all_params = {**self.parent_params, **calc_params}
+        # Use fresh parameters if parent MCQ is available
+        if self.parent_mcq:
+            fresh_parent_params = self.parent_mcq.get_current_parameters_safe()
+        else:
+            fresh_parent_params = self.parent_params  # Fallback
+
+        all_params = {**fresh_parent_params, **calc_params}
 
         rendered_options = []
         for option in self.options:
@@ -1506,12 +1516,15 @@ class MCQ:
 
     def ensure_parameters_cached(self) -> None:
         """Ensure parameters are generated and cached for consistent use"""
-        if self.is_parameterized and self._current_params is None:
-            print(f"🔧 Pre-caching parameters for MCQ {self.id}")
-            self._current_params = self._generate_parameters()
-            print(f"✅ Cached {len(self._current_params)} parameters")
+        if self.is_parameterized:
+            if self._current_params is None:
+                print(f"🔧 Pre-caching parameters for MCQ {self.id}")
+                self._current_params = self._generate_parameters()
+                print(f"✅ Cached {len(self._current_params)} parameters: {self._current_params}")
+            else:
+                print(f"⚡ Parameters already cached for MCQ {self.id}: {self._current_params}")
         else:
-            print(f"⚡ Parameters already cached for MCQ {self.id}")
+            print(f"📝 MCQ {self.id} is not parameterized")
 
     def generate_question_text(self, text: str, params: Dict) -> str:
         """
@@ -1999,11 +2012,15 @@ class MCQ:
         """Force regeneration of parameters"""
         self._current_params = None
 
-    def get_current_parameters(self) -> Dict[str, Union[int, float]]:
-        """Get current parameter values"""
-        if self.is_parameterized and self._current_params is None:
-            self._current_params = self._generate_parameters()
-        return self._current_params or {}
+    def get_current_parameters_safe(self) -> Dict[str, Union[int, float]]:
+        """Get current parameter values with guaranteed consistency"""
+        if self.is_parameterized:
+            if self._current_params is None:
+                print(f"⚠️ WARNING: Parameters were None when they should be cached! Regenerating...")
+                self._current_params = self._generate_parameters()
+                print(f"🔄 Regenerated parameters: {self._current_params}")
+            return self._current_params.copy()  # Return copy to prevent modification
+        return {}
 
     def get_correct_answer_value(self) -> Optional[Union[int, float, str]]:
         """Get the numerical value of the correct answer"""
@@ -2116,6 +2133,7 @@ class StudentProfile:
     studied_topics: Dict[int, bool]  #  {node_index: is_studied} this is to take into account topics they havent covered yet
     completed_questions: Set[str]  # set of completed MCQ IDs (this might be something to remove)
     daily_completed: Set[str]  # questions completed today
+
 
 
     ability_levels: Dict[str, float] = field(default_factory=lambda: {
@@ -5113,7 +5131,7 @@ def simple_breakdown_test():
     print(f"\n✅ CORRECT ANSWER: Option {mcq.correctindex + 1}")
 
     # Show generated parameters
-    params = mcq.get_current_parameters()
+    params = mcq.get_current_parameters_safe()
     print(f"\n🎲 GENERATED PARAMETERS:")
     for param_name, param_value in params.items():
         if not param_name.endswith('_num') and not param_name.endswith('_den') and not param_name.endswith('_float'):

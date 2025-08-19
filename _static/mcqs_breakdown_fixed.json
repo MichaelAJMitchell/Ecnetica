@@ -343,10 +343,10 @@
       },
       "calculated_parameters": {
         "solution": "(c - b) / a",
-        "opt1":"(${c} - ${b})/(${a})",
-        "opt2":"(${b} - ${b})/(${a})",
-        "opt3":"(${c} + ${b})/(${a})",
-        "opt4":"${a} * ${c} - ${b}"
+        "opt1":"(c - b)/(a)",
+        "opt2":"(b - c)/(a)",
+        "opt3":"(c + b)/(a)",
+        "opt4":"a * c - b"
       },
       "options": [
         "x = ${opt1}",
@@ -490,7 +490,7 @@
               "text": "What makes an expression a 'quadratic'?",
               "options": [
                 "It has an x term",
-                "\text{It has an} x^2 \\text{term as the highest power}",
+                "\\text{It has an} x^2 \\text{term as the highest power}",
                 "It equals zero",
                 "It has three terms"
               ],
@@ -787,7 +787,7 @@
     },
     {
       "text": "Use the quadratic formula to solve ${question_expression}.",
-      "question_expression": "a*x^2 + b*x + c = 0",
+      "question_expression": "ax^2 + bx + c = 0",
       "generated_parameters": {
         "a": {
           "type": "int",

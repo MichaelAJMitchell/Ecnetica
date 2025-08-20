@@ -507,16 +507,16 @@ h1, h2 {
 .math-question-module,
 .quiz-container,
 .mcq-container {
-  max-width: 1200px;
+  max-width: 95%;
   margin: 0 auto;
   padding: var(--spacing-lg);
-  background-color: var(--background-primary);  /* Match SSQ container background */
+  background-color: var(--background-primary);
 }
 
 /* MCQ Module */
 .mcq-module {
   font-family: 'Arial', sans-serif;
-  max-width: 900px;
+  max-width: 85%;
   margin: 0 auto;
   padding: var(--spacing-lg);
   background-color: var(--background-primary);
@@ -557,19 +557,29 @@ h1, h2 {
 }
 
 /* Question Container */
-.question-container {
+.question-container,
+.math-question-module .question-content {
   background-color: var(--background-secondary);
   color: var(--text-primary);
   padding: var(--spacing-lg);
   border-radius: var(--border-radius-md);
   box-shadow: var(--shadow-light);
   margin-bottom: var(--spacing-lg);
+  border-left: 4px solid var(--primary);
 }
 
-.question-text {
+.question-text,
+.math-question-module .question-title {
   font-size: 18px;
   color: var(--text-primary);
   margin-bottom: var(--spacing-lg);
+  font-weight: bold;
+}
+
+/* Content area inside question */
+.math-question-module .question-content > div:not(.question-title):not(.answer-button):not(.answer-content) {
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.6;
 }
 
 /* Options */
@@ -585,7 +595,7 @@ h1, h2 {
   border-radius: var(--border-radius-sm);
   cursor: pointer;
   transition: all 0.2s ease;
-  background-color: var(--background-primary);  /* Match SSQ answer areas */
+  background-color: var(--background-primary);
   color: var(--text-primary);
 }
 
@@ -597,6 +607,7 @@ h1, h2 {
 .option.selected {
   background-color: var(--primary-light);
   border-color: var(--primary);
+  color: var(--text-primary);
 }
 
 .option-label {
@@ -605,6 +616,98 @@ h1, h2 {
   gap: var(--spacing-sm);
   cursor: pointer;
   width: 100%;
+  color: var(--text-primary);
+}
+
+/* ===== FSR (FREE RESPONSE) STYLES ===== */
+
+/* Answer buttons */
+.math-question-module .answer-button {
+  background-color: var(--primary);
+  color: var(--text-inverse);
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 14px;
+  margin: var(--spacing-md) 0;
+  display: inline-block;
+}
+
+.math-question-module .answer-button:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Answer content */
+.math-question-module .answer-content {
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  border-left: 4px solid var(--primary);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-sm);
+  margin-top: var(--spacing-md);
+  box-shadow: var(--shadow-light);
+  line-height: 1.6;
+}
+
+/* Category boxes */
+.math-question-module .scientific {
+  background-color: var(--category-scientific);
+  color: var(--text-inverse);
+}
+
+.math-question-module .engineering {
+  background-color: var(--category-engineering);
+  color: var(--text-inverse);
+}
+
+.math-question-module .financial {
+  background-color: var(--category-financial);
+  color: var(--text-inverse);
+}
+
+.math-question-module .creative {
+  background-color: var(--category-creative);
+  color: var(--text-inverse);
+}
+
+/* Answer content by category */
+.math-question-module .scientific-answer {
+  border-left-color: var(--category-scientific);
+}
+
+.math-question-module .engineering-answer {
+  border-left-color: var(--category-engineering);
+}
+
+.math-question-module .financial-answer {
+  border-left-color: var(--category-financial);
+}
+
+.math-question-module .creative-answer {
+  border-left-color: var(--category-creative);
+}
+
+/* Pre elements */
+.math-question-module pre {
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  margin: var(--spacing-sm) 0;
+}
+
+/* Active state for category boxes */
+.math-question-module .category-box.active {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+  border: 2px solid var(--text-inverse);
+}
+
+/* Ensure proper spacing for mathematical expressions */
+.math-question-module .MathJax {
+  margin: var(--spacing-xs) 0;
 }
 
 /* Explanations */
@@ -613,18 +716,21 @@ h1, h2 {
   padding: var(--spacing-md);
   border-radius: var(--border-radius-md);
   margin-bottom: var(--spacing-lg);
-  background-color: var(--info-bg);
+  background-color: var(--background-secondary);
   color: var(--text-primary);
+  border-left-color: var(--info);
 }
 
 .explanation-container.correct {
   background-color: var(--success-bg);
-  color: var(--text-primary);
+  border-left-color: var(--success);
+  color: var(--success);
 }
 
 .explanation-container.incorrect {
   background-color: var(--error-bg);
-  color: var(--text-primary);
+  border-left-color: var(--error);
+  color: var(--error);
 }
 
 .explanation-title {
@@ -647,6 +753,380 @@ h1, h2 {
 
 .breakdown-container {
   display: none;
+  margin-top: var(--spacing-md);
+}
+
+/* Breakdown Section Styling */
+.breakdown-section {
+  background-color: var(--background-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--border-radius-md);
+  margin: var(--spacing-lg) 0;
+  overflow: hidden;
+  box-shadow: var(--shadow-light);
+}
+
+.breakdown-header {
+  background-color: var(--background-tertiary);
+  color: var(--text-primary);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-bottom: 1px solid var(--border-primary);
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.breakdown-header:hover {
+  background-color: var(--primary);
+  color: var(--text-inverse);
+}
+
+.breakdown-header.active {
+  background-color: var(--primary);
+  color: var(--text-inverse);
+}
+
+#breakdown-steps-container {
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  padding: var(--spacing-lg);
+}
+
+/* Additional Breakdown Classes from HTML */
+.breakdown-step {
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  padding: var(--spacing-lg);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.step-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.step-title {
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.step-type-badge {
+  background: var(--primary);
+  color: var(--text-inverse);
+  padding: 3px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.step-completed {
+  opacity: 0.8;
+  background: var(--background-tertiary);
+}
+
+.step-completed .step-title {
+  color: var(--text-secondary);
+}
+
+.step-question {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+  font-size: 16px;
+}
+
+.step-options {
+  margin: var(--spacing-md) 0;
+}
+
+.step-explanation {
+  background: var(--info-bg);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--border-radius-sm);
+  padding: var(--spacing-md);
+  margin-top: var(--spacing-md);
+  color: var(--text-primary);
+}
+
+.step-explanation.correct {
+  background: var(--success-bg);
+  border-color: var(--success);
+  color: var(--success);
+}
+
+.step-explanation.incorrect {
+  background: var(--error-bg);
+  border-color: var(--error);
+  color: var(--error);
+}
+
+.continue-btn {
+  background: var(--success);
+  color: var(--text-inverse);
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: var(--spacing-sm);
+  transition: background-color 0.2s ease;
+}
+
+.continue-btn:hover {
+  background: var(--success);
+  filter: brightness(0.9);
+}
+
+.breakdown-complete {
+  background: var(--success-bg);
+  border: 1px solid var(--success);
+  text-align: center;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  color: var(--success);
+}
+
+.breakdown-complete h4 {
+  color: var(--success);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* MCQ Result Details */
+.result-details {
+  background: var(--background-secondary);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  margin: var(--spacing-md) 0;
+  border: 1px solid var(--border-primary);
+}
+
+.result-details p {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.mastery-update {
+  background: var(--background-secondary);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  margin: var(--spacing-md) 0;
+  border: 1px solid var(--border-primary);
+}
+
+.mastery-update h4 {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.mastery-update p {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.mastery-update em {
+  color: var(--text-secondary);
+}
+
+/* Original Question Section */
+.original-question {
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Step Progress Indicator */
+.step-progress {
+  background: var(--primary);
+  color: var(--text-inverse);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Current Step Highlighting */
+#current-step {
+  border: 2px solid var(--primary);
+  background: var(--background-primary);
+}
+
+/* Breakdown Submit Button */
+#breakdownSubmitBtn {
+  background: var(--success);
+  color: var(--text-inverse);
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#breakdownSubmitBtn:hover:not(:disabled) {
+  background: var(--success);
+  filter: brightness(0.9);
+}
+
+#breakdownSubmitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Override inline styles in breakdown sections */
+.bkt-demo-container [style*="color: #721c24"] {
+  color: var(--error) !important;
+}
+
+/* === NEW CLASSES FOR REWRITTEN MCQ === */
+
+/* Section visibility states */
+.mcq-section-hidden {
+  display: none;
+}
+
+.mcq-section-visible {
+  display: block;
+}
+
+.status-hidden {
+  display: none;
+}
+
+.breakdown-section-hidden {
+  display: none;
+}
+
+.breakdown-section-visible {
+  display: block;
+}
+
+.breakdown-explanation-hidden {
+  display: none;
+}
+
+.breakdown-explanation-visible {
+  display: block;
+}
+
+/* Button states */
+.submit-btn-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: var(--secondary) !important;
+}
+
+.submit-btn-enabled {
+  opacity: 1;
+  cursor: pointer;
+  background: var(--success) !important;
+}
+
+/* MCQ Option states */
+.mcq-option-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.mcq-option-completed {
+  cursor: default;
+  pointer-events: none;
+}
+
+.mcq-option.correct {
+  background: var(--success-bg) !important;
+  border-color: var(--success) !important;
+  color: var(--success) !important;
+}
+
+/* Current step highlighting */
+.breakdown-step-current {
+  border: 2px solid var(--primary) !important;
+  background: var(--background-primary);
+  box-shadow: var(--shadow-medium);
+}
+
+/* MCQ Result containers using classes instead of inline styles */
+.mcq-result-success {
+  border: 3px solid var(--success) !important;
+  background: var(--success-bg) !important;
+  color: var(--success) !important;
+}
+
+.mcq-result-error {
+  border: 3px solid var(--error) !important;
+  background: var(--error-bg) !important;
+  color: var(--error) !important;
+}
+
+/* Ensure text in result containers is readable */
+.mcq-result-success h3,
+.mcq-result-success p,
+.mcq-result-success strong {
+  color: var(--success) !important;
+}
+
+.mcq-result-error h3,
+.mcq-result-error p,
+.mcq-result-error strong {
+  color: var(--error) !important;
+}
+
+.mcq-result-success .result-details,
+.mcq-result-success .mastery-update {
+  background: var(--background-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--success);
+}
+
+.mcq-result-error .result-details,
+.mcq-result-error .mastery-update {
+  background: var(--background-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--error);
+}
+
+.mcq-result-success .result-details p,
+.mcq-result-success .mastery-update p,
+.mcq-result-success .result-details strong,
+.mcq-result-success .mastery-update strong {
+  color: var(--text-primary) !important;
+}
+
+.mcq-result-error .result-details p,
+.mcq-result-error .mastery-update p,
+.mcq-result-error .result-details strong,
+.mcq-result-error .mastery-update strong {
+  color: var(--text-primary) !important;
+}
+
+.mcq-result-success .mastery-update h4,
+.mcq-result-error .mastery-update h4 {
+  color: var(--text-primary) !important;
+}
+
+/* Decay summary container styles - replace inline styles */
+.decay-summary-container {
+  border: 3px solid var(--error);
+  background: var(--error-bg);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  margin: var(--spacing-lg) 0;
+  color: var(--error);
+}
+
+.decay-summary-container h3 {
+  color: var(--error);
+  margin-top: 0;
+}
+
+.decay-summary-container button {
   margin-top: var(--spacing-md);
 }
 
@@ -726,18 +1206,18 @@ h1, h2 {
 .result-container {
   display: none;
   text-align: center;
-  background-color: var(--success-bg);
+  background-color: var(--background-secondary);
   color: var(--text-primary);
   padding: var(--spacing-lg);
   border-radius: var(--border-radius-md);
   margin-bottom: var(--spacing-lg);
+  box-shadow: var(--shadow-light);
 }
 
 .result-title {
   margin-top: 0;
   color: var(--success);
 }
-
 
 /* === NAVIGATION BUTTONS === */
 
@@ -777,11 +1257,37 @@ h1, h2 {
   cursor: not-allowed;
 }
 
+/* === FORM ELEMENTS === */
+
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  border-color: var(--border-primary);
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(var(--primary), 0.2);
+}
+
+/* === TOPIC INTRO === */
+
+.topic-intro {
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+  border-left-color: var(--primary);
+}
+
 /* === BKT DEMO STYLES === */
 
 /* Main demo container */
 .bkt-demo-container {
-  /*max-width: 1400px;*/
   margin: 0 auto;
   padding: var(--spacing-lg);
   background: var(--background-primary);
@@ -798,20 +1304,18 @@ h1, h2 {
   align-items: flex-start;
 }
 
-/* NEEDS TO BE FIXED: Flexbox container for BKT demo */
-
 /* BKT section (left side) */
 .bkt-demo-container .bkt-section {
   flex: 1;
   min-width: 0;
-  max-width: 600px;
+  max-width: 45%;
 }
 
 /* Graph section (right side) */
 .bkt-demo-container .graph-section {
   flex: 1;
   min-width: 0;
-  max-width: 700px;
+  max-width: 50%;
 }
 
 /* Content containers */
@@ -841,6 +1345,16 @@ h1, h2 {
   font-size: 1.1em;
   margin-bottom: var(--spacing-xl);
   font-style: italic;
+}
+
+/* BKT specific layout sections */
+.bkt-section,
+.graph-section {
+  color: var(--text-primary);
+}
+
+.main-layout {
+  color: var(--text-primary);
 }
 
 /* Enhanced button styling */
@@ -971,11 +1485,12 @@ h1, h2 {
   margin: var(--spacing-lg) 0 !important;
 }
 
+/* BKT Demo MCQ options */
 .bkt-demo-container .mcq-option {
   display: block !important;
   margin: var(--spacing-sm) 0 !important;
   padding: var(--spacing-md) var(--spacing-lg) !important;
-  background: var(--background-secondary) !important;
+  background: var(--background-primary) !important;
   border: 2px solid var(--border-primary) !important;
   border-radius: var(--border-radius-md) !important;
   cursor: pointer !important;
@@ -989,6 +1504,7 @@ h1, h2 {
 .bkt-demo-container .mcq-option:hover {
   background: var(--background-tertiary) !important;
   border-color: var(--primary) !important;
+  color: var(--text-primary) !important;
   transform: translateY(-1px);
   box-shadow: var(--shadow-medium);
 }
@@ -1000,6 +1516,7 @@ h1, h2 {
   box-shadow: var(--shadow-medium);
 }
 
+/* BKT Demo submit button */
 .bkt-demo-container .submit-btn {
   background: linear-gradient(45deg, var(--success), #2ecc71) !important;
   color: var(--text-inverse) !important;
@@ -1020,13 +1537,14 @@ h1, h2 {
 }
 
 .bkt-demo-container .submit-btn:disabled {
-  background: var(--border-secondary) !important;
+  background: var(--secondary) !important;
+  color: var(--text-muted) !important;
   cursor: not-allowed !important;
   transform: none !important;
   box-shadow: none !important;
 }
 
-/* Enhanced progress bar styling */
+/* BKT Demo progress bar */
 .bkt-demo-container .progress-bar {
   width: 100% !important;
   height: 25px !important;
@@ -1043,6 +1561,21 @@ h1, h2 {
   transition: width 0.5s ease !important;
   border-radius: var(--border-radius-lg);
   box-shadow: 0 2px 10px rgba(39, 174, 96, 0.3);
+}
+
+/* BKT Demo graph container */
+.bkt-demo-container #graph-container {
+  width: 100%;
+  height: 500px;
+  border: 1px solid var(--border-primary);
+  border-radius: var(--border-radius-md);
+  background-color: var(--background-secondary);
+}
+
+/* Node and edge stats displays */
+#node-count,
+#edge-count {
+  color: var(--text-primary);
 }
 
 /* Legend styling */
@@ -1106,7 +1639,8 @@ h1, h2 {
 }
 
 /* Loading spinners */
-.bkt-demo-container .loading-spinner {
+.bkt-demo-container .loading-spinner,
+.loading-spinner {
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -1122,7 +1656,7 @@ h1, h2 {
   100% { transform: rotate(360deg); }
 }
 
-/* Graph loading spinner */
+/* BKT Demo loading elements */
 .bkt-demo-container .graph-loading {
   position: absolute;
   top: 1px;
@@ -1154,15 +1688,7 @@ h1, h2 {
   font-weight: 500;
 }
 
-/* Graph container styling */
-.bkt-demo-container #graph-container {
-  width: 100%;
-  height: 500px;
-  border: 1px solid var(--border-primary);
-  border-radius: var(--border-radius-md);
-}
-
-/* Vis.js network navigation buttons dark mode fix - try different selectors */
+/* Vis.js network navigation buttons fix */
 .bkt-demo-container #graph-container .vis-navigation .vis-button,
 .bkt-demo-container #graph-container .vis-network-navigation .vis-button,
 .bkt-demo-container #graph-container div[style*="background"] button {
@@ -1171,7 +1697,7 @@ h1, h2 {
   border: 1px solid var(--border-primary) !important;
 }
 
-/* MCQ result containers */
+/* BKT Demo result containers */
 .bkt-demo-container .mcq-result-success {
   border-color: var(--success) !important;
   background-color: var(--success-bg) !important;
@@ -1193,6 +1719,7 @@ h1, h2 {
   box-shadow: var(--shadow-medium);
 }
 
+/* BKT Demo controls */
 .bkt-demo-container #controls {
   margin-top: var(--spacing-md);
 }
@@ -1246,7 +1773,254 @@ h1, h2 {
   color: var(--text-primary);
 }
 
-/* Responsive design */
+/* ===== FSRS FORGETTING CURVES SPECIFIC STYLES ===== */
+
+/* Time controls container - replace inline styles */
+.time-controls-container {
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  background: var(--background-secondary);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-heavy);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-light);
+}
+
+#time-controls {
+  background: var(--background-secondary) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-primary) !important;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  margin-top: var(--spacing-lg);
+  box-shadow: var(--shadow-heavy);
+}
+
+#time-controls h3,
+#time-controls h4 {
+  color: var(--text-primary) !important;
+  margin-top: 0;
+}
+
+/* Time controls button container */
+.time-controls-buttons {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin: var(--spacing-md) 0;
+  flex-wrap: wrap;
+}
+
+/* Time status display */
+#time-status {
+  color: var(--text-secondary) !important;
+  font-size: 14px;
+  margin-top: var(--spacing-sm);
+}
+
+/* Time manipulation status indicators */
+.time-manipulation-active {
+  color: var(--error) !important;
+}
+
+.time-manipulation-inactive {
+  color: var(--success) !important;
+}
+
+/* Custom input fields for time controls */
+.custom-time-container {
+  margin-top: var(--spacing-md);
+}
+
+.custom-time-inputs {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: var(--spacing-xs);
+}
+
+#custom-days,
+#custom-hours {
+  background-color: var(--background-primary) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-primary) !important;
+  border-radius: var(--border-radius-sm);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  width: 80px;
+}
+
+#custom-days:focus,
+#custom-hours:focus {
+  border-color: var(--primary) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(var(--primary), 0.2) !important;
+}
+
+/* Time controls action buttons container */
+.time-controls-actions {
+  margin-top: var(--spacing-md);
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+/* Override hardcoded decay summary container styles */
+.bkt-demo-container .container[style*="border: 3px solid #e74c3c"] {
+  border-color: var(--error) !important;
+  background: var(--error-bg) !important;
+  color: var(--error) !important;
+}
+
+.bkt-demo-container .container[style*="rgba(248, 215, 218, 0.9)"] {
+  background: var(--error-bg) !important;
+  color: var(--error) !important;
+}
+.bkt-demo-container .submit-btn.primary {
+  background: linear-gradient(45deg, var(--primary), var(--primary-hover)) !important;
+}
+/* FSRS specific info displays */
+.fsrs-info,
+.memory-components {
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md);
+}
+
+/* Override any hardcoded color values in forgetting curves */
+.bkt-demo-container [style*="color: #666"],
+.bkt-demo-container [style*="color:#666"] {
+  color: var(--text-secondary) !important;
+}
+
+.bkt-demo-container [style*="color: #e74c3c"],
+.bkt-demo-container [style*="color:#e74c3c"] {
+  color: var(--error) !important;
+}
+
+.bkt-demo-container [style*="color: #27ae60"],
+.bkt-demo-container [style*="color:#27ae60"] {
+  color: var(--success) !important;
+}
+
+/* Decay analysis lists and content */
+.bkt-demo-container ul,
+.bkt-demo-container li {
+  color: var(--text-primary);
+}
+
+.bkt-demo-container strong {
+  color: var(--text-primary);
+}
+
+/* === PLACEHOLDER INTERACTIVE CONTENT === */
+
+.visualization-container {
+  background-color: var(--background-secondary);
+  border-color: var(--border-primary);
+  color: var(--text-secondary);
+}
+
+/* Make sure inline styles don't override our theme variables */
+.visualization-container[style*="background-color"] {
+  background-color: var(--background-secondary) !important;
+  border-color: var(--border-primary) !important;
+  color: var(--text-secondary) !important;
+}
+
+/* === RESPONSIVE DESIGN === */
+
+/* MCQ Responsive Styles */
+@media (max-width: 768px) {
+  .mcq-module {
+    padding: var(--spacing-md);
+  }
+  
+  .progress-info {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+  
+  .button-container {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  .nav-button {
+    width: 100%;
+  }
+  
+  .prev-button {
+    order: 2;
+  }
+  
+  .next-button {
+    order: 1;
+  }
+  
+  .container {
+    padding: var(--spacing-sm);
+  }
+  
+  .topic-intro,
+  .question-content,
+  .answer-content {
+    padding: var(--spacing-md);
+  }
+  
+  /* Responsive adjustments for Math Question Module */
+  .math-question-module .question-content {
+    padding: var(--spacing-md);
+  }
+  
+  .math-question-module .answer-content {
+    padding: var(--spacing-md);
+  }
+  
+  .math-question-module .category-box {
+    min-width: 150px;
+  }
+  
+  /* FSRS responsive adjustments */
+  #time-controls {
+    background: var(--background-secondary) !important;
+    color: var(--text-primary) !important;
+    padding: var(--spacing-md);
+  }
+  
+  .time-controls-buttons {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  .time-controls-buttons button {
+    width: 100%;
+  }
+  
+  .custom-time-inputs {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  #custom-days,
+  #custom-hours {
+    width: 100%;
+    background-color: var(--background-primary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-primary) !important;
+  }
+  
+  .time-controls-actions {
+    flex-direction: column;
+  }
+  
+  .time-controls-actions button {
+    width: 100%;
+  }
+}
+
+/* BKT Demo Responsive Design */
 @media (max-width: 1024px) {
   .bkt-demo-container .main-layout {
     flex-direction: column;
@@ -1317,7 +2091,6 @@ h1, h2 {
     margin: 0;
   }
 }
-
 /*--------------------------------------------------------------------*\
 6. SUPPORTING CONTENT
 \*--------------------------------------------------------------------*/

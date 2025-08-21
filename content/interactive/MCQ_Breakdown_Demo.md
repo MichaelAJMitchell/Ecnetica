@@ -29,128 +29,6 @@
     <!-- Include existing stylesheet -->
     <link rel="stylesheet" href="../../_static/style.css">
 
-    <!-- Additional breakdown-specific styles -->
-    <style>
-      /* Breakdown section styling */
-      .breakdown-section {
-        margin-top: 20px;
-        padding: 20px;
-        background: rgba(255, 248, 220, 0.95);
-        border: 2px solid #f39c12;
-        border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      }
-
-      .breakdown-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #f39c12;
-      }
-
-      .breakdown-title {
-        color: #e67e22;
-        font-size: 18px;
-        font-weight: bold;
-        margin: 0;
-      }
-
-      .step-progress {
-        background: #f39c12;
-        color: white;
-        padding: 5px 15px;
-        border-radius: 20px;
-        font-weight: bold;
-        font-size: 14px;
-      }
-
-      .breakdown-step {
-        background: white;
-        padding: 20px;
-        border-radius: 8px;
-        border: 1px solid #ddd;
-        margin-bottom: 15px;
-      }
-
-      .step-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 15px;
-      }
-
-      .step-title {
-        color: #2c3e50;
-        font-size: 16px;
-        font-weight: bold;
-        margin: 0;
-      }
-
-      .step-type-badge {
-        background: #3498db;
-        color: white;
-        padding: 3px 10px;
-        border-radius: 15px;
-        font-size: 12px;
-        text-transform: uppercase;
-      }
-
-      .step-completed {
-        opacity: 0.8;
-        background: #f8f9fa;
-      }
-
-      .step-completed .step-title {
-        color: #6c757d;
-      }
-
-      .step-explanation {
-        background: #e8f4fd;
-        border: 1px solid #bee5eb;
-        border-radius: 5px;
-        padding: 15px;
-        margin-top: 15px;
-      }
-
-      .step-explanation.correct {
-        background: #d4edda;
-        border-color: #c3e6cb;
-      }
-
-      .step-explanation.incorrect {
-        background: #f8d7da;
-        border-color: #f5c6cb;
-      }
-
-      .continue-btn {
-        background: #28a745;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 14px;
-        margin-top: 10px;
-      }
-
-      .continue-btn:hover {
-        background: #218838;
-      }
-
-      .breakdown-complete {
-        background: #d4edda;
-        border-color: #c3e6cb;
-        text-align: center;
-        padding: 20px;
-      }
-
-      .breakdown-complete h4 {
-        color: #155724;
-        margin-bottom: 10px;
-      }
-    </style>
 </head>
 <body>
   <div class="bkt-demo-container">
@@ -800,9 +678,7 @@
       function displayResult(result) {
         const mcqSection = document.getElementById('mcq-section');
         const isCorrect = result.is_correct;
-        const borderColor = isCorrect ? '#27ae60' : '#e74c3c';
-        const bgColor = isCorrect ? 'rgba(212, 237, 218, 0.9)' : 'rgba(248, 215, 218, 0.9)';
-        const textColor = isCorrect ? '#155724' : '#721c24';
+        const resultClass = isCorrect ? 'mcq-result-success' : 'mcq-result-error';
         const icon = isCorrect ? '✅' : '❌';
         const changeIcon = result.mastery_change > 0 ? '📈' : result.mastery_change < 0 ? '📉' : '➖';
 
@@ -825,7 +701,7 @@
               <p><em>Updated ${result.total_changes} topic(s) based on your performance</em></p>
             </div>
 
-            <button onclick="generateMCQ()" class="primary-btn" style="margin-top: 20px;">
+            <button onclick="generateMCQ()" class="primary-btn continue-btn">
               🎯 Next Question
             </button>
           </div>

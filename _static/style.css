@@ -1537,8 +1537,9 @@ select:focus {
 }
 
 .bkt-demo-container .submit-btn:disabled {
+  font-weight: bold !important;
   background: var(--secondary) !important;
-  color: var(--text-muted) !important;
+  color: var(--text-primary) !important;
   cursor: not-allowed !important;
   transform: none !important;
   box-shadow: none !important;

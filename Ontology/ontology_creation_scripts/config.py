@@ -155,7 +155,7 @@ Focus on:
 - Cross-references between different sections
 - Concepts that span multiple broad topics
 
-Respond with a JSON array of any additional concepts found:
+It is ESSENTIAL to provide the response as a JSON array of additional concepts with the following structure:
 [
     {{
         "name": "concept name",

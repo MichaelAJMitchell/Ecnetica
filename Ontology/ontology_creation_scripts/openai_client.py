@@ -51,7 +51,8 @@ class OpenAIClient:
             else:
                 # Use default temperature for models that don't support custom values
                 api_params["temperature"] = model_config["default_temperature"]
-                print(f"Note: {model} doesn't support custom temperature, using default: {model_config['default_temperature']}")
+                
+                #print(f"Note: {model} doesn't support custom temperature, using default: {model_config['default_temperature']}")
         
         # Handle max tokens parameter
         if "max_tokens" in kwargs:
@@ -59,7 +60,8 @@ class OpenAIClient:
                 api_params["max_tokens"] = kwargs["max_tokens"]
             elif model_config["uses_max_completion_tokens"]:
                 api_params["max_completion_tokens"] = kwargs["max_tokens"]
-                print(f"Note: {model} uses max_completion_tokens instead of max_tokens")
+                #commented out - excessive printing
+                #print(f"Note: {model} uses max_completion_tokens instead of max_tokens")
             else:
                 # Use default for models that don't support either
                 api_params["max_tokens"] = model_config["default_max_tokens"]

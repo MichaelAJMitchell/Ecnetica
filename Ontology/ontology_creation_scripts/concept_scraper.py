@@ -5,6 +5,8 @@ from tqdm import tqdm
 from file_processor import FileProcessor
 from openai_client import OpenAIClient
 from data_manager import DataManager
+from quality_assessor import QualityAssessor
+from adaptive_prompt_manager import AdaptivePromptManager
 from config import CHUNK_SIZE, OVERLAP_SIZE
 
 class ConceptScraper:
@@ -14,6 +16,13 @@ class ConceptScraper:
         self.file_processor = FileProcessor()
         self.openai_client = OpenAIClient()
         self.data_manager = DataManager()
+        
+        # Initialize meta-prompting components
+        self.quality_assessor = QualityAssessor()
+        self.prompt_manager = AdaptivePromptManager(self.quality_assessor, None)  # Will be set up later
+        
+        # Track quality metrics for this session
+        self.session_quality_metrics = []
     
     def process_single_file(self, file_path: str) -> Dict[str, Any]:
         """Process a single file and extract concepts and relationships."""
@@ -50,7 +59,7 @@ class ConceptScraper:
         total_relationships_added = 0
         source = os.path.basename(file_path)
         
-        # Process each chunk with multi-stage extraction
+        # Process each chunk with multi-stage extraction and quality assessment
         for i, chunk_info in enumerate(tqdm(context_aware_chunks, desc="Processing chunks")):
             print(f"\nProcessing chunk {i+1}/{len(context_aware_chunks)}")
             print(f"Context: {chunk_info['document_context']}")
@@ -108,27 +117,181 @@ class ConceptScraper:
                 print(f"Error extracting relationships from chunk {i+1}: {str(e)}")
                 continue
             
-            # Small delay to avoid overwhelming the API
-            time.sleep(0.5)
+            # Quality Assessment and Meta-Prompting
+            self._assess_chunk_quality(
+                chunk_content, 
+                new_concepts, 
+                new_relationships, 
+                source, 
+                chunk_info,
+                i + 1
+            )
         
-        # Print summary
-        stats = self.data_manager.get_statistics()
-        print(f"\n{'='*60}")
-        print(f"Processing complete for {file_path}")
-        print(f"Concepts added: {total_concepts_added}")
-        print(f"Relationships added: {total_relationships_added}")
-        print(f"Total concepts in database: {stats['total_concepts']}")
-        print(f"Total relationships in database: {stats['total_relationships']}")
-        print(f"{'='*60}")
+        # Final quality summary for the file
+        file_quality_summary = self._generate_file_quality_summary(source)
         
         return {
             'file': file_path,
             'success': True,
             'concepts_added': total_concepts_added,
             'relationships_added': total_relationships_added,
-            'total_concepts': stats['total_concepts'],
-            'total_relationships': stats['total_relationships']
+            'quality_summary': file_quality_summary
         }
+    
+    def _assess_chunk_quality(self, 
+                             chunk_content: str, 
+                             concepts: List[Dict], 
+                             relationships: List[Dict], 
+                             source: str, 
+                             chunk_info: Dict[str, Any],
+                             chunk_number: int):
+        """Assess the quality of extraction for a chunk and trigger meta-prompting if needed."""
+        
+        if not concepts and not relationships:
+            print(f"  No concepts or relationships extracted from chunk {chunk_number} - skipping quality assessment")
+            return
+        
+        print(f"  Assessing quality of chunk {chunk_number} extraction...")
+        
+        # Assess quality using AI
+        quality_assessment = self.quality_assessor.assess_extraction_quality(
+            concepts, relationships, chunk_content, source
+        )
+        
+        # Store quality metrics
+        chunk_quality_record = {
+            'chunk_number': chunk_number,
+            'source_file': source,
+            'chunk_context': chunk_info.get('document_context', ''),
+            'quality_assessment': quality_assessment,
+            'concepts_count': len(concepts),
+            'relationships_count': len(relationships)
+        }
+        
+        self.session_quality_metrics.append(chunk_quality_record)
+        
+        # Display quality summary
+        self._display_quality_summary(quality_assessment, chunk_number)
+        
+        # Record performance for prompt management
+        extraction_metadata = {
+            'source_file': source,
+            'chunk_number': chunk_number,
+            'concepts_count': len(concepts),
+            'relationships_count': len(relationships),
+            'chunk_context': chunk_info.get('document_context', '')
+        }
+        
+        # Record performance for each prompt type used
+        if concepts:
+            self.prompt_manager.record_extraction_performance(
+                'stage1_broad_concept', quality_assessment, extraction_metadata
+            )
+            self.prompt_manager.record_extraction_performance(
+                'stage2_granular_concept', quality_assessment, extraction_metadata
+            )
+            self.prompt_manager.record_extraction_performance(
+                'stage3_cross_reference', quality_assessment, extraction_metadata
+            )
+        
+        if relationships:
+            self.prompt_manager.record_extraction_performance(
+                'relationship_extraction', quality_assessment, extraction_metadata
+            )
+    
+    def _display_quality_summary(self, quality_assessment: Dict[str, Any], chunk_number: int):
+        """Display a summary of quality assessment results."""
+        print(f"    Quality Assessment for Chunk {chunk_number}:")
+        
+        metrics = ['concept_granularity', 'concept_completeness', 'relationship_accuracy', 
+                  'relationship_completeness', 'overall_quality']
+        
+        for metric in metrics:
+            if metric in quality_assessment:
+                metric_data = quality_assessment[metric]
+                if isinstance(metric_data, dict) and 'score' in metric_data:
+                    score = metric_data['score']
+                    feedback = metric_data.get('feedback', 'No feedback')
+                    
+                    # Color code the score
+                    if score >= 8:
+                        score_display = f"✅ {score}/10"
+                    elif score >= 6:
+                        score_display = f"⚠️  {score}/10"
+                    else:
+                        score_display = f"❌ {score}/10"
+                    
+                    print(f"      {metric.replace('_', ' ').title()}: {score_display}")
+                    if len(feedback) < 100:  # Only show short feedback
+                        print(f"        Feedback: {feedback}")
+        
+        # Show improvement suggestions
+        if 'improvement_suggestions' in quality_assessment:
+            suggestions = quality_assessment['improvement_suggestions']
+            if suggestions:
+                print(f"      Improvement Suggestions:")
+                for suggestion in suggestions[:2]:  # Show first 2 suggestions
+                    print(f"        - {suggestion}")
+    
+    def _generate_file_quality_summary(self, source: str) -> Dict[str, Any]:
+        """Generate a quality summary for the entire file."""
+        if not self.session_quality_metrics:
+            return {"message": "No quality metrics available"}
+        
+        # Filter metrics for this source file
+        file_metrics = [m for m in self.session_quality_metrics if m['source_file'] == source]
+        
+        if not file_metrics:
+            return {"message": f"No quality metrics found for {source}"}
+        
+        # Calculate summary statistics
+        total_chunks = len(file_metrics)
+        total_concepts = sum(m['concepts_count'] for m in file_metrics)
+        total_relationships = sum(m['relationships_count'] for m in file_metrics)
+        
+        # Calculate average quality scores
+        quality_scores = {}
+        metrics = ['concept_granularity', 'concept_completeness', 'relationship_accuracy', 
+                  'relationship_completeness', 'overall_quality']
+        
+        for metric in metrics:
+            scores = []
+            for record in file_metrics:
+                if 'quality_assessment' in record and metric in record['quality_assessment']:
+                    metric_data = record['quality_assessment'][metric]
+                    if isinstance(metric_data, dict) and 'score' in metric_data:
+                        scores.append(metric_data['score'])
+            
+            if scores:
+                quality_scores[metric] = {
+                    'average': sum(scores) / len(scores),
+                    'min': min(scores),
+                    'max': max(scores)
+                }
+        
+        summary = {
+            'source_file': source,
+            'total_chunks_processed': total_chunks,
+            'total_concepts_extracted': total_concepts,
+            'total_relationships_extracted': total_relationships,
+            'quality_scores': quality_scores,
+            'chunks_with_issues': len([m for m in file_metrics 
+                                     if m['quality_assessment'].get('overall_quality', {}).get('score', 0) < 6])
+        }
+        
+        return summary
+    
+    def get_session_quality_summary(self) -> Dict[str, Any]:
+        """Get a summary of quality metrics for the entire session."""
+        return self.quality_assessor.get_quality_summary()
+    
+    def save_quality_metrics(self, filepath: str):
+        """Save quality metrics from this session."""
+        self.quality_assessor.save_quality_metrics(filepath)
+    
+    def save_prompt_performance(self, filepath: str):
+        """Save prompt performance data."""
+        self.prompt_manager.save_prompt_registry(filepath)
     
     def process_directory(self, directory_path: str) -> List[Dict[str, Any]]:
         """Process all supported files in a directory."""

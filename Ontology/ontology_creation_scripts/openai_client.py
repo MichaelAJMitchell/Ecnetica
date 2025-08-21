@@ -7,7 +7,7 @@ from datetime import datetime
 from typing import List, Dict, Any, Optional
 from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
 from config import (
-    OPENAI_API_KEY, DEFAULT_MODEL, FALLBACK_MODELS,
+    OPENAI_API_KEY, DEFAULT_MODEL, FALLBACK_MODELS, MODEL_CONFIGS,
     MAX_RETRIES, BASE_DELAY, MAX_DELAY, BACKOFF_FACTOR
 )
 
@@ -33,14 +33,45 @@ class OpenAIClient:
         wait=wait_exponential(multiplier=BASE_DELAY, max=MAX_DELAY),
         retry=retry_if_exception_type((openai.RateLimitError, openai.APITimeoutError, openai.APIConnectionError))
     )
-    def _make_api_call(self, model: str, messages: List[Dict[str, str]], **kwargs) -> Dict[str, Any]:
-        """Make an API call with retry logic."""
+    def _make_api_call(self, model: str, messages: List[Dict[str, str]], **kwargs) -> Any:
+        """Make an API call with model-specific parameter handling."""
+        # Get model configuration
+        model_config = MODEL_CONFIGS.get(model, MODEL_CONFIGS["gpt-4o-mini"])
+        
+        # Prepare parameters based on model capabilities
+        api_params = {
+            "model": model,
+            "messages": messages
+        }
+        
+        # Handle temperature parameter
+        if "temperature" in kwargs:
+            if model_config["supports_temperature"]:
+                api_params["temperature"] = kwargs["temperature"]
+            else:
+                # Use default temperature for models that don't support custom values
+                api_params["temperature"] = model_config["default_temperature"]
+                print(f"Note: {model} doesn't support custom temperature, using default: {model_config['default_temperature']}")
+        
+        # Handle max tokens parameter
+        if "max_tokens" in kwargs:
+            if model_config["supports_max_tokens"]:
+                api_params["max_tokens"] = kwargs["max_tokens"]
+            elif model_config["uses_max_completion_tokens"]:
+                api_params["max_completion_tokens"] = kwargs["max_tokens"]
+                print(f"Note: {model} uses max_completion_tokens instead of max_tokens")
+            else:
+                # Use default for models that don't support either
+                api_params["max_tokens"] = model_config["default_max_tokens"]
+                print(f"Note: {model} doesn't support max_tokens, using default: {model_config['default_max_tokens']}")
+        
+        # Add any other parameters that don't need special handling
+        for key, value in kwargs.items():
+            if key not in ["temperature", "max_tokens"]:
+                api_params[key] = value
+        
         try:
-            response = self.client.chat.completions.create(
-                model=model,
-                messages=messages,
-                **kwargs
-            )
+            response = self.client.chat.completions.create(**api_params)
             return response
         except openai.RateLimitError as e:
             print(f"Rate limit hit for model {model}, retrying...")
@@ -56,7 +87,7 @@ class OpenAIClient:
             raise
         except Exception as e:
             print(f"Unexpected error with model {model}: {str(e)}")
-            raise
+            raise e
     
     def _log_malformed_response(self, model: str, content: str, task_type: str):
         """Log malformed responses to a file for debugging."""

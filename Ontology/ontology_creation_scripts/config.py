@@ -8,6 +8,45 @@ OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 DEFAULT_MODEL = "gpt-5-mini"
 FALLBACK_MODELS = ["gpt-4o-mini", "gpt-4.1-mini", "gpt-3.5-turbo", "gpt-4-turbo-preview"]
 
+# Model-specific configurations
+MODEL_CONFIGS = {
+    "gpt-5-mini": {
+        "supports_temperature": False,
+        "supports_max_tokens": False,
+        "uses_max_completion_tokens": True,
+        "default_temperature": 1.0,
+        "default_max_tokens": 4000
+    },
+    "gpt-4o-mini": {
+        "supports_temperature": True,
+        "supports_max_tokens": True,
+        "uses_max_completion_tokens": False,
+        "default_temperature": 0.3,
+        "default_max_tokens": 4000
+    },
+    "gpt-4.1-mini": {
+        "supports_temperature": True,
+        "supports_max_tokens": True,
+        "uses_max_completion_tokens": False,
+        "default_temperature": 0.3,
+        "default_max_tokens": 4000
+    },
+    "gpt-3.5-turbo": {
+        "supports_temperature": True,
+        "supports_max_tokens": True,
+        "uses_max_completion_tokens": False,
+        "default_temperature": 0.3,
+        "default_max_tokens": 4000
+    },
+    "gpt-4-turbo-preview": {
+        "supports_temperature": True,
+        "supports_max_tokens": True,
+        "uses_max_completion_tokens": False,
+        "default_temperature": 0.3,
+        "default_max_tokens": 4000
+    }
+}
+
 # Retry Configuration
 MAX_RETRIES = 5
 BASE_DELAY = 1.0

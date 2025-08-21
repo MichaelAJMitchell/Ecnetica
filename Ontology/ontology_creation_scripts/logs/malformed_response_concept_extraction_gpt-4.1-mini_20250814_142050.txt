@@ -1,0 +1,838 @@
+Model: gpt-4.1-mini
+Task: concept_extraction
+Timestamp: 2025-08-14T14:20:50.881318
+==================================================
+[
+  {
+    "name": "polynomial expression with positive integer powers",
+    "explanation": "An algebraic expression consisting of terms with variables raised to positive integer powers and combined using addition or subtraction.",
+    "broader_concept": "polynomial expressions",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "binomial expression",
+    "explanation": "A polynomial expression containing exactly two terms.",
+    "broader_concept": "polynomial expressions",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "trinomial expression",
+    "explanation": "A polynomial expression containing exactly three terms.",
+    "broader_concept": "polynomial expressions",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "degree of polynomial",
+    "explanation": "The highest power of the variable in a polynomial expression.",
+    "broader_concept": "polynomial expressions",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "linear polynomial expression",
+    "explanation": "A polynomial expression of degree 1, where the highest power of the variable is 1.",
+    "broader_concept": "polynomial expressions",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "quadratic polynomial expression",
+    "explanation": "A polynomial expression of degree 2, where the highest power of the variable is 2.",
+    "broader_concept": "polynomial expressions",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "cubic polynomial expression",
+    "explanation": "A polynomial expression of degree 3, where the highest power of the variable is 3.",
+    "broader_concept": "polynomial expressions",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "coefficient of a term in polynomial",
+    "explanation": "The numerical factor multiplying the variable part of a term in a polynomial expression.",
+    "broader_concept": "polynomial expressions",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "constant term in polynomial",
+    "explanation": "The term in a polynomial expression that does not contain any variable.",
+    "broader_concept": "polynomial expressions",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "addition and subtraction of polynomial expressions",
+    "explanation": "Combining polynomial expressions by adding or subtracting like terms to simplify the expression.",
+    "broader_concept": "polynomial operations",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "multiplying polynomial expressions (expanding)",
+    "explanation": "Using distributive law to multiply polynomials, resulting in an expanded polynomial expression.",
+    "broader_concept": "polynomial operations",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "perfect square polynomial expression",
+    "explanation": "A polynomial expression that can be written as the square of a binomial, e.g., $(x+a)^2$.",
+    "broader_concept": "special polynomial forms",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "difference of two squares",
+    "explanation": "A binomial expression of the form $a^2 - b^2$ which factors as $(a-b)(a+b)$.",
+    "broader_concept": "special polynomial forms",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "dividing algebraic expressions by a monomial factor",
+    "explanation": "Simplifying algebraic fractions where the denominator is a factor of each term in the numerator.",
+    "broader_concept": "algebraic division",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "dividing algebraic expressions by a polynomial factor",
+    "explanation": "Simplifying algebraic fractions where the denominator is a polynomial factor of the numerator, possibly using long division.",
+    "broader_concept": "algebraic division",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "long division of polynomials",
+    "explanation": "A method for dividing one polynomial by another, yielding a quotient polynomial and possibly a remainder.",
+    "broader_concept": "algebraic division",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "polynomial function",
+    "explanation": "A function defined by a polynomial expression, mapping input values to polynomial outputs.",
+    "broader_concept": "functions",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "evaluating polynomial functions",
+    "explanation": "Finding the value of a polynomial function at a given input by substituting the input into the polynomial and simplifying.",
+    "broader_concept": "functions",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "forming algebraic factors by highest common factor (HCF)",
+    "explanation": "Finding the greatest common factor of terms in an expression to factorise it.",
+    "broader_concept": "factorisation",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "factorising by grouping",
+    "explanation": "A factorisation technique where terms are grouped and common factors are factored out from each group.",
+    "broader_concept": "factorisation",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "factorising difference of two squares",
+    "explanation": "Expressing $a^2 - b^2$ as $(a-b)(a+b)$ to factorise the expression.",
+    "broader_concept": "factorisation",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "factorising quadratic expressions by trial and error",
+    "explanation": "Finding factors of a quadratic $ax^2 + bx + c$ by trial of factor pairs of $ac$ that sum to $b$.",
+    "broader_concept": "factorisation",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "factorising quadratic expressions using quadratic formula",
+    "explanation": "Using the quadratic formula to find roots and then expressing the quadratic as a product of linear factors.",
+    "broader_concept": "factorisation",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "factorising sum and difference of cubes",
+    "explanation": "Expressing $a^3 \pm b^3$ as $(a \pm b)(a^2 \mp ab + b^2)$ to factorise cubic expressions.",
+    "broader_concept": "factorisation",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "simplifying algebraic fractions",
+    "explanation": "Performing addition, subtraction, multiplication, and division on fractions with algebraic expressions, including finding common denominators and reducing.",
+    "broader_concept": "algebraic fractions",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "rationalising the denominator of surds",
+    "explanation": "Removing surds from the denominator of a fraction by multiplying numerator and denominator by a suitable conjugate or surd.",
+    "broader_concept": "surds",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "binomial expansion using Pascal's triangle and combinations",
+    "explanation": "Expanding $(a+b)^n$ using binomial coefficients from Pascal's triangle or combinations $\binom{n}{r}$.",
+    "broader_concept": "binomial expansions",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "algebraic identities",
+    "explanation": "Equations true for all values of variables, used to find unknown coefficients or to rewrite expressions.",
+    "broader_concept": "algebraic identities",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "partial fractions decomposition using algebraic identities",
+    "explanation": "Expressing a rational function as a sum of simpler fractions with unknown coefficients determined by algebraic identities.",
+    "broader_concept": "algebraic identities",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "manipulating formulae to make a variable the subject",
+    "explanation": "Rearranging equations to express one variable explicitly in terms of others.",
+    "broader_concept": "formula manipulation",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "linear number patterns",
+    "explanation": "Sequences where the difference between consecutive terms is constant, represented by $T_n = an + b$.",
+    "broader_concept": "number patterns",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "quadratic number patterns",
+    "explanation": "Sequences where the second difference between terms is constant, represented by $T_n = an^2 + bn + c$.",
+    "broader_concept": "number patterns",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "solving linear equations",
+    "explanation": "Finding values of variables that satisfy equations of the form $ax + b = c$.",
+    "broader_concept": "equations",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "solving simultaneous linear equations with two variables",
+    "explanation": "Finding values of two variables satisfying two linear equations simultaneously using substitution, elimination, or graphical methods.",
+    "broader_concept": "equations",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "solving simultaneous linear equations with three variables",
+    "explanation": "Finding values of three variables satisfying three linear equations simultaneously by reducing to two-variable systems.",
+    "broader_concept": "equations",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "solving simultaneous equations in context",
+    "explanation": "Applying simultaneous equations to real-world problems involving two or three variables.",
+    "broader_concept": "equations",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "quadratic equations",
+    "explanation": "Equations of the form $ax^2 + bx + c = 0$ where $a \neq 0$.",
+    "broader_concept": "equations",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "solving quadratic equations by factorisation",
+    "explanation": "Finding roots of quadratic equations by expressing them as products of linear factors.",
+    "broader_concept": "quadratic equations",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "solving quadratic equations by quadratic formula",
+    "explanation": "Using the formula $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$ to find roots of quadratic equations.",
+    "broader_concept": "quadratic equations",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "solving quadratic equations graphically",
+    "explanation": "Finding approximate roots of quadratic equations by identifying $x$-intercepts of their graphs.",
+    "broader_concept": "quadratic equations",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "solving quadratic equations by substitution",
+    "explanation": "Transforming complex equations into quadratic form by substituting expressions with a new variable.",
+    "broader_concept": "quadratic equations",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "discriminant of quadratic equation",
+    "explanation": "The expression $b^2 - 4ac$ determining the nature of roots of $ax^2 + bx + c = 0$.",
+    "broader_concept": "quadratic equations",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "nature of quadratic roots",
+    "explanation": "Classification of roots as real distinct, real equal, or imaginary based on the discriminant.",
+    "broader_concept": "quadratic equations",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "forming quadratic equations from roots",
+    "explanation": "Constructing quadratic equations given the sum and product of roots.",
+    "broader_concept": "quadratic equations",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "completing the square",
+    "explanation": "Rewriting a quadratic expression in the form $a(x-p)^2 + q$ to analyze its properties.",
+    "broader_concept": "quadratic equations",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "surds and their simplification",
+    "explanation": "Irrational square roots that cannot be simplified to rational numbers, and methods to simplify expressions involving them.",
+    "broader_concept": "surds",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "solving algebraic surd equations",
+    "explanation": "Solving equations involving square roots by isolating the surd and squaring both sides, checking for extraneous solutions.",
+    "broader_concept": "surds",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "factor theorem",
+    "explanation": "A polynomial $f(x)$ has a factor $(x-k)$ if and only if $f(k) = 0$.",
+    "broader_concept": "polynomial factorisation",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "factorising cubic polynomials using factor theorem",
+    "explanation": "Finding integer roots by trial and error and dividing the polynomial by corresponding linear factors.",
+    "broader_concept": "polynomial factorisation",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "graphs of cubic polynomials",
+    "explanation": "Understanding the shape, roots, turning points, and behavior of cubic polynomial graphs.",
+    "broader_concept": "polynomial functions",
+    "strand": "Algebra",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "radian measure of angles",
+    "explanation": "Measuring angles by the length of the arc subtended on a circle of radius one, with $2\pi$ radians in a full circle.",
+    "broader_concept": "angle measurement",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "arc length formula",
+    "explanation": "The length of an arc of a circle equals the radius times the angle in radians subtended by the arc.",
+    "broader_concept": "circle geometry",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "area of sector formula",
+    "explanation": "Area of a sector of a circle is half the radius squared times the angle in radians.",
+    "broader_concept": "circle geometry",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "basic trigonometric ratios",
+    "explanation": "Definitions of sine, cosine, and tangent as ratios of sides in a right-angled triangle.",
+    "broader_concept": "trigonometric ratios",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "use of inverse trigonometric functions on calculator",
+    "explanation": "Using $\sin^{-1}$, $\cos^{-1}$, and $\tan^{-1}$ keys to find angles from given trigonometric ratios.",
+    "broader_concept": "trigonometric functions",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "special angle trigonometric values",
+    "explanation": "Exact sine, cosine, and tangent values for $30^\circ$, $45^\circ$, and $60^\circ$ angles.",
+    "broader_concept": "trigonometric ratios",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "unit circle definition of sine and cosine",
+    "explanation": "Coordinates of a point on the unit circle are $(\cos \theta, \sin \theta)$.",
+    "broader_concept": "trigonometric functions",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "signs of trigonometric ratios in quadrants",
+    "explanation": "Determining the positivity or negativity of sine, cosine, and tangent in each of the four quadrants.",
+    "broader_concept": "trigonometric functions",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "sine rule",
+    "explanation": "In any triangle, the ratio of a side length to the sine of its opposite angle is constant.",
+    "broader_concept": "triangle trigonometry",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "area of triangle using sine",
+    "explanation": "Area equals half the product of two sides times the sine of the included angle.",
+    "broader_concept": "triangle trigonometry",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "cosine rule",
+    "explanation": "Relates the lengths of sides of a triangle to the cosine of one of its angles: $a^2 = b^2 + c^2 - 2bc \cos A$.",
+    "broader_concept": "triangle trigonometry",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "trigonometric problems in three dimensions",
+    "explanation": "Applying trigonometry to find lengths and angles in 3D figures by identifying right triangles and using sine, cosine, or tangent rules.",
+    "broader_concept": "spatial trigonometry",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "graphs of sine, cosine and tangent functions",
+    "explanation": "Plotting and understanding the periodic behavior, amplitude, period, and asymptotes of sine, cosine, and tangent functions.",
+    "broader_concept": "trigonometric functions",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "amplitude and period changes in trigonometric graphs",
+    "explanation": "Effect of coefficients on the amplitude and period of sine and cosine graphs, e.g., $y = b \sin(cx)$ has amplitude $|b|$ and period $2\pi / c$.",
+    "broader_concept": "trigonometric functions",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "general solutions of trigonometric equations",
+    "explanation": "Finding all solutions to equations like $\sin x = k$ or $\cos x = k$ by adding integer multiples of the period to principal solutions.",
+    "broader_concept": "trigonometric equations",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "distance between two points in coordinate plane",
+    "explanation": "Distance formula: $d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$ for points $(x_1,y_1)$ and $(x_2,y_2)$.",
+    "broader_concept": "coordinate geometry",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "midpoint of a line segment",
+    "explanation": "Midpoint formula: midpoint of segment joining $(x_1,y_1)$ and $(x_2,y_2)$ is $\left(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}\right)$.",
+    "broader_concept": "coordinate geometry",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "slope of a line",
+    "explanation": "Slope formula: $m = \frac{y_2 - y_1}{x_2 - x_1}$ for points $(x_1,y_1)$ and $(x_2,y_2)$.",
+    "broader_concept": "coordinate geometry",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "parallel lines have equal slopes",
+    "explanation": "Two lines are parallel if and only if their slopes are equal.",
+    "broader_concept": "coordinate geometry",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "perpendicular lines have slopes with product -1",
+    "explanation": "Two lines are perpendicular if and only if the product of their slopes is -1.",
+    "broader_concept": "coordinate geometry",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "area of triangle using coordinate geometry",
+    "explanation": "Area formula for triangle with vertices $(0,0),(x_1,y_1),(x_2,y_2)$ is $\frac{1}{2} |x_1 y_2 - x_2 y_1|$.",
+    "broader_concept": "coordinate geometry",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "equation of a line in slope-intercept form",
+    "explanation": "Equation of line with slope $m$ and $y$-intercept $c$ is $y = mx + c$.",
+    "broader_concept": "coordinate geometry",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "equation of a line through a point with given slope",
+    "explanation": "Equation of line through $(x_1,y_1)$ with slope $m$ is $y - y_1 = m(x - x_1)$.",
+    "broader_concept": "coordinate geometry",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "dividing a line segment internally in a given ratio",
+    "explanation": "Coordinates of a point dividing segment joining $(x_1,y_1)$ and $(x_2,y_2)$ in ratio $a:b$ are $\left(\frac{b x_1 + a x_2}{a+b}, \frac{b y_1 + a y_2}{a+b}\right)$.",
+    "broader_concept": "coordinate geometry",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "centroid of a triangle",
+    "explanation": "Point of concurrency of medians of a triangle; coordinates are averages of vertices' coordinates.",
+    "broader_concept": "triangle geometry",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "circumcentre of a triangle",
+    "explanation": "Point of concurrency of perpendicular bisectors of triangle sides; center of circumscribed circle.",
+    "broader_concept": "triangle geometry",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "orthocentre of a triangle",
+    "explanation": "Point of concurrency of altitudes of a triangle.",
+    "broader_concept": "triangle geometry",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "perpendicular distance from a point to a line",
+    "explanation": "Shortest distance from point $(x_1,y_1)$ to line $ax + by + c=0$ is $|a x_1 + b y_1 + c| / \sqrt{a^2 + b^2}$.",
+    "broader_concept": "coordinate geometry",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "angle between two lines using slopes",
+    "explanation": "Angle $\theta$ between lines with slopes $m_1$ and $m_2$ satisfies $\tan \theta = |(m_1 - m_2) / (1 + m_1 m_2)|$.",
+    "broader_concept": "coordinate geometry",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "average rate of change of a function",
+    "explanation": "The average rate of change of $f(x)$ over $[a,b]$ is $\frac{f(b)-f(a)}{b-a}$, the slope of the secant line.",
+    "broader_concept": "calculus",
+    "strand": "Differential Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "limit of a function at a point",
+    "explanation": "The value that $f(x)$ approaches as $x$ approaches $a$, denoted $\lim_{x \to a} f(x)$.",
+    "broader_concept": "calculus",
+    "strand": "Differential Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "continuity of a function at a point",
+    "explanation": "A function $f$ is continuous at $x=a$ if $\lim_{x \to a} f(x) = f(a)$.",
+    "broader_concept": "calculus",
+    "strand": "Differential Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "differentiation from first principles",
+    "explanation": "Finding the derivative of $f(x)$ as $\lim_{h \to 0} \frac{f(x+h) - f(x)}{h}$.",
+    "broader_concept": "calculus",
+    "strand": "Differential Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "power rule for differentiation",
+    "explanation": "Derivative of $y = x^n$ is $dy/dx = n x^{n-1}$ for real $n$.",
+    "broader_concept": "calculus",
+    "strand": "Differential Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "sum and difference rule for differentiation",
+    "explanation": "Derivative of a sum/difference is the sum/difference of derivatives.",
+    "broader_concept": "calculus",
+    "strand": "Differential Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "product rule for differentiation",
+    "explanation": "Derivative of $y = uv$ is $dy/dx = u dv/dx + v du/dx$.",
+    "broader_concept": "calculus",
+    "strand": "Differential Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "quotient rule for differentiation",
+    "explanation": "Derivative of $y = u/v$ is $dy/dx = (v du/dx - u dv/dx)/v^2$.",
+    "broader_concept": "calculus",
+    "strand": "Differential Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "chain rule for differentiation",
+    "explanation": "Derivative of composite function $y = f(g(x))$ is $dy/dx = f'(g(x)) \cdot g'(x)$.",
+    "broader_concept": "calculus",
+    "strand": "Differential Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "derivatives of standard trigonometric functions",
+    "explanation": "Derivatives: $d/dx(\sin x) = \cos x$, $d/dx(\cos x) = -\sin x$, $d/dx(\tan x) = \sec^2 x$.",
+    "broader_concept": "calculus",
+    "strand": "Differential Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "derivatives of inverse trigonometric functions",
+    "explanation": "Derivatives: $d/dx(\sin^{-1}(x/a)) = 1/\sqrt{a^2 - x^2}$, $d/dx(\tan^{-1}(x/a)) = a/(a^2 + x^2)$, $d/dx(\cos^{-1}(x/a)) = -1/\sqrt{a^2 - x^2}$.",
+    "broader_concept": "calculus",
+    "strand": "Differential Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "derivative of exponential functions",
+    "explanation": "Derivative of $y = e^{x}$ is $dy/dx = e^{x}$; for $y = e^{ax}$, derivative is $a e^{ax}$.",
+    "broader_concept": "calculus",
+    "strand": "Differential Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "derivative of logarithmic functions",
+    "explanation": "Derivative of $y = \ln x$ is $dy/dx = 1/x$; for $y = \ln f(x)$, derivative is $f'(x)/f(x)$.",
+    "broader_concept": "calculus",
+    "strand": "Differential Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "second derivative",
+    "explanation": "The derivative of the first derivative, representing the rate of change of the slope of a function.",
+    "broader_concept": "calculus",
+    "strand": "Differential Calculus",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "compound angle formulae for sine, cosine and tangent",
+    "explanation": "Formulas expressing $\sin(A \pm B)$, $\cos(A \pm B)$, and $\tan(A \pm B)$ in terms of $\sin A$, $\cos A$, $\tan A$, etc.",
+    "broader_concept": "trigonometric identities",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "double-angle formulae for sine, cosine and tangent",
+    "explanation": "Formulas expressing $\sin 2A$, $\cos 2A$, and $\tan 2A$ in terms of $\sin A$, $\cos A$, and $\tan A$.",
+    "broader_concept": "trigonometric identities",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "sum-to-product and product-to-sum trigonometric identities",
+    "explanation": "Formulas converting sums or differences of sines and cosines into products, and vice versa.",
+    "broader_concept": "trigonometric identities",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "inverse trigonometric functions and their properties",
+    "explanation": "Functions such as $\sin^{-1} x$, $\cos^{-1} x$, and $\tan^{-1} x$ representing angles with given trigonometric ratios.",
+    "broader_concept": "trigonometric functions",
+    "strand": "Trigonometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "equation of a circle with center at origin",
+    "explanation": "Equation $x^2 + y^2 = r^2$ represents a circle centered at (0,0) with radius $r$.",
+    "broader_concept": "circle geometry",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "equation of a circle with center not at origin",
+    "explanation": "Equation $(x - h)^2 + (y - k)^2 = r^2$ represents a circle centered at $(h,k)$ with radius $r$.",
+    "broader_concept": "circle geometry",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "finding equation of circle through three points",
+    "explanation": "Using perpendicular bisectors of chords or simultaneous equations to find circle passing through three points.",
+    "broader_concept": "circle geometry",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "tangent to a circle at a point",
+    "explanation": "A line touching a circle at exactly one point, perpendicular to the radius at the point of contact.",
+    "broader_concept": "circle geometry",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "equations of tangents to a circle parallel to a given line",
+    "explanation": "Finding tangent lines to a circle that are parallel to a given line by using perpendicular distance equal to radius.",
+    "broader_concept": "circle geometry",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "equations of tangents to a circle from an external point",
+    "explanation": "Finding equations of tangents from a point outside the circle by solving for slopes yielding perpendicular distance equal to radius.",
+    "broader_concept": "circle geometry",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  },
+  {
+    "name": "length of tangent from a point to a circle",
+    "explanation": "Length of tangent from a point to a circle is $\sqrt{d^2 - r^2}$ where $d$ is distance from point to center and $r$ is radius.",
+    "broader_concept": "circle geometry",
+    "strand": "Geometry",
+    "grade_level": "",
+    "difficulty": ""
+  }
+]

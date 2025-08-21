@@ -7,12 +7,16 @@ using OpenAI's GPT-5-mini model with its large context window.
 """
 
 import pandas as pd
-import openai
 import uuid
 import time
 import os
 from dotenv import load_dotenv
 from datetime import datetime
+
+# Import the OpenAIClient class
+import sys
+sys.path.append('../../ontology_creation_scripts')
+from openai_client import OpenAIClient
 
 # Load environment variables from .env
 load_dotenv()
@@ -20,7 +24,8 @@ api_key = os.getenv("OPENAI_API_KEY")
 if not api_key:
     raise RuntimeError("OpenAI_API_KEY not found in .env file.")
 
-client = openai.OpenAI(api_key=api_key)
+# Initialize the OpenAIClient instead of direct OpenAI client
+client = OpenAIClient()
 
 # File paths - Updated to use Ontology directory
 ONTOLOGY_DIR = "../../"  # Path to Ontology directory from relationship_enricher folder
@@ -180,7 +185,8 @@ def analyze_concept_node(target_concept, all_concepts, existing_pairs, existing_
     try:
         prompt = create_node_analysis_prompt(target_concept, all_concepts, existing_examples)
         
-        response = client.chat.completions.create(
+        # Use the client's _make_api_call method instead of direct API call
+        response = client._make_api_call(
             model="gpt-5-mini",
             messages=[
                 {"role": "system", "content": "You are a mathematics education expert specializing in prerequisite relationships between mathematical concepts."},

@@ -86,7 +86,7 @@ TEXT TO ANALYZE:
 
 Identify ONLY the broadest, most fundamental mathematical areas present. Do not extract specific concepts yet.
 
-Respond with a JSON array of broad topics:
+It is ESSENTIAL to provide the response as a JSON array of broad topics with the following structure:
 [
     {{
         "broad_topic": "topic name",
@@ -118,7 +118,7 @@ Extract concepts that are:
 - Mentioned explicitly or strongly implied in the text
 - Properly categorized under the given broad topic
 
-Respond with a JSON array:
+It is ESSENTIAL to provide the response as a JSON array of concepts with the following structure:
 [
     {{
         "name": "specific concept name",

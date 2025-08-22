@@ -219,7 +219,7 @@ class LLMClient:
             print("JSON parsing failed, attempting reformat...")
             result = self._reformat_json_response(
                 content, 
-                "JSON array of relationships with fields: prerequisite_name, dependent_name, relationship_type, strength"
+                "JSON array of relationships with fields: prerequisite_concept_id, dependent_concept_id, relationship_type, strength"
             )
             
             return result if result else []

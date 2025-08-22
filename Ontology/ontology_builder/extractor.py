@@ -157,7 +157,9 @@ class ConceptExtractor:
             'existing_concepts': existing_concepts,           # Key - for deduplication
             'existing_relationships': existing_relationships, # Key - for context
             'source_file': source,                           # Key - for tracking
-            'chunk_position': f"{chunk_index + 1} of {total_chunks}"  # Key - for awareness
+            'chunk_position': f"{chunk_index + 1} of {total_chunks}",  # Key - for awareness
+            'existing_concepts_count': len(existing_concepts),
+            'existing_relationships_count': len(existing_relationships)
         }
         
         return self.llm_client.extract_concepts(chunk, context, CONCEPT_EXTRACTION_PROMPT)
@@ -189,7 +191,10 @@ class ConceptExtractor:
             'chunk_position': f"{chunk_index + 1} of {total_chunks}", # Key - for awareness
             'concept_hierarchy_hints': self._get_concept_hierarchy_hints(existing_concepts),
             'prerequisite_patterns': self._get_prerequisite_patterns(existing_relationships),
-            'concept_ids': {concept['name']: concept['id'] for concept in existing_concepts + new_concepts}  # Add concept ID mapping
+            'concept_ids': {concept['name']: concept['id'] for concept in existing_concepts + new_concepts},  # Add concept ID mapping
+            'existing_concepts_count': len(existing_concepts),
+            'new_concepts_count': len(new_concepts),
+            'existing_relationships_count': len(existing_relationships)
         }
         
         return self.llm_client.extract_relationships(chunk, new_concepts, context, RELATIONSHIP_EXTRACTION_PROMPT)
@@ -214,7 +219,9 @@ class ConceptExtractor:
             'new_concepts': new_concepts,                    # Key - for verification
             'new_relationships': new_relationships,           # Key - for verification
             'source_file': source,                           # Key - for tracking
-            'chunk_position': f"{chunk_index + 1} of {total_chunks}"  # Key - for awareness
+            'chunk_position': f"{chunk_index + 1} of {total_chunks}",  # Key - for awareness
+            'new_concepts_count': len(new_concepts),
+            'new_relationships_count': len(new_relationships)
         }
         
         return self.llm_client.verify_extraction(context, VERIFICATION_PROMPT)
@@ -238,8 +245,8 @@ class ConceptExtractor:
         patterns = []
         for rel in relationships:
             patterns.append({
-                'prerequisite': rel.get('prerequisite_name', ''),
-                'dependent': rel.get('dependent_name', ''),
+                'prerequisite': rel.get('prerequisite_concept_id', ''),
+                'dependent': rel.get('dependent_concept_id', ''),
                 'type': rel.get('relationship_type', 'prerequisite')
             })
         return patterns 

@@ -93,11 +93,11 @@ class ConceptExtractor:
             )
             
             # Add verified concepts and relationships
-            if verification_result['concepts_valid']:
+            if verification_result and verification_result.get('concepts_valid'):
                 self.data_manager.add_concepts(new_concepts)
                 existing_concepts = self.data_manager.get_concepts()  # Update for next iteration
             
-            if verification_result['relationships_valid']:
+            if verification_result and verification_result.get('relationships_valid'):
                 self.data_manager.add_relationships(new_relationships)
                 existing_relationships = self.data_manager.get_relationships()  # Update for next iteration
         

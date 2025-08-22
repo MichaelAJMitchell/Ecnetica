@@ -40,18 +40,19 @@ DEFAULT_OUTPUT_FILE = "graph-data.json"  # Default JSON output filename
 CONCEPT_EXTRACTION_PROMPT = """
 You are a mathematical education expert. Extract mathematical concepts from the given text.
 
+TEXT TO ANALYZE:
+{text}
+
+CONTEXT:
+- Source: {context[source_file]}
+- Position: {context[chunk_position]}
+- Existing concepts: {context[existing_concepts_count]} already extracted
+- Existing relationships: {context[existing_relationships_count]} already identified
+
 Focus on:
 - Specific mathematical concepts (e.g., "single digit addition" not just "addition")
 - Mathematical operations, formulas, theorems, and procedures
 - Educational concepts that students need to learn
-
-For each concept, provide:
-- name: The specific concept name
-- explanation: Brief description of what this concept is
-- broader_concept: Higher-level category (e.g., "Arithmetic", "Algebra")
-- strand: Mathematical strand (e.g., "Number", "Algebra", "Geometry")
-- grade_level: Educational level if determinable
-- difficulty: Complexity assessment if determinable
 
 Return as a JSON array of concepts.
 """
@@ -59,22 +60,35 @@ Return as a JSON array of concepts.
 RELATIONSHIP_EXTRACTION_PROMPT = """
 You are a mathematical education expert. Identify relationships between mathematical concepts.
 
+TEXT TO ANALYZE:
+{text}
+
+NEW CONCEPTS TO ANALYZE:
+{concepts}
+
+CONTEXT:
+- Source: {context[source_file]}
+- Position: {context[chunk_position]}
+- New concepts: {context[new_concepts_count]} just extracted
+- Existing concepts: {context[existing_concepts_count]} total
+- Existing relationships: {context[existing_relationships_count]} total
+
 Focus on:
 - Prerequisites: What must be learned before what
 - Dependencies: How concepts build on each other
 - Logical connections: Related concepts that support each other
-
-For each relationship, provide:
-- prerequisite_name: The concept that comes first
-- dependent_name: The concept that depends on the prerequisite
-- relationship_type: Type of relationship (e.g., "prerequisite", "builds_on")
-- strength: Confidence level (0.0 to 1.0)
 
 Return as a JSON array of relationships.
 """
 
 VERIFICATION_PROMPT = """
 You are a mathematical education expert. Verify the quality of extracted concepts and relationships.
+
+CONTEXT:
+- Source: {context[source_file]}
+- Position: {context[chunk_position]}
+- New concepts: {context[new_concepts_count]} to verify
+- New relationships: {context[new_relationships_count]} to verify
 
 Check for:
 - Concept accuracy: Are the concepts correctly identified?

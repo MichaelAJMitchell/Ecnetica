@@ -54,7 +54,11 @@ class DataManager:
             - difficulty: Complexity assessment
         """
         for concept in concepts:
-            # Check for duplicates by name
+            # Validate concept structure before adding
+            if not self._validate_concept_structure(concept):
+                print(f"Skipping invalid concept: {concept}")
+                continue
+                
             if not self._is_duplicate_concept(concept):
                 # Generate unique ID
                 concept['id'] = self._generate_id()
@@ -78,6 +82,11 @@ class DataManager:
             - strength: Confidence level (0.0 to 1.0)
         """
         for relationship in relationships:
+            # Validate relationship structure before adding
+            if not self._validate_relationship_structure(relationship):
+                print(f"Skipping invalid relationship: {relationship}")
+                continue
+                
             # Check for duplicates by prerequisite->dependent pair
             if not self._is_duplicate_relationship(relationship):
                 # Generate unique ID
@@ -222,3 +231,19 @@ class DataManager:
             if existing_prereq == prereq and existing_dependent == dependent:
                 return True
         return False 
+
+    def _validate_concept_structure(self, concept: dict) -> bool:
+        """Validate that a concept has the required fields."""
+        required_fields = ['name']
+        for field in required_fields:
+            if not concept.get(field):
+                return False
+        return True
+
+    def _validate_relationship_structure(self, relationship: dict) -> bool:
+        """Validate that a relationship has the required fields."""
+        required_fields = ['prerequisite_name', 'dependent_name']
+        for field in required_fields:
+            if not relationship.get(field):
+                return False
+        return True 

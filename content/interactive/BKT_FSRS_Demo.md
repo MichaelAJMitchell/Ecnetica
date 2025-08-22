@@ -1,6 +1,3 @@
----
-html_theme.sidebar_secondary.remove: true
----
 # Bayesian Knowledge Tracing FSRS Demo
 
 ```{raw} html
@@ -28,442 +25,6 @@ html_theme.sidebar_secondary.remove: true
     </script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
-    <style>
-      /* Override Jupyter Book styles for BKT demo */
-      .bd-content .bkt-demo-container {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 20px;
-        background: #f8f9fa;
-        min-height: 100vh;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      }
-      
-      /* Main layout container */
-      .main-layout {
-        display: flex;
-        gap: 20px;
-        align-items: flex-start;
-      }
-      
-      /* BKT section (left side) */
-      .bkt-section {
-        flex: 1;
-        min-width: 0; /* Prevents flex item from overflowing */
-        max-width: 600px;
-      }
-      
-      /* Graph section (right side) */
-      .graph-section {
-        flex: 1;
-        min-width: 0; /* Prevents flex item from overflowing */
-        max-width: 700px;
-      }
-      
-      .bkt-demo-container .container {
-        background: rgba(255, 255, 255, 0.95);
-        padding: 30px;
-        border-radius: 15px;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-        margin-bottom: 20px;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.2);
-      }
-      
-      .bkt-demo-container h1 {
-        color: #2c3e50;
-        text-align: center;
-        margin-bottom: 10px;
-        font-size: 2.2em;
-        font-weight: 300;
-      }
-      
-      .bkt-demo-container .subtitle {
-        text-align: center;
-        color: #7f8c8d;
-        font-size: 1.1em;
-        margin-bottom: 30px;
-        font-style: italic;
-      }
-      
-
-      
-      /* Enhanced button styling */
-      .bkt-demo-container button {
-        padding: 15px 25px !important;
-        font-size: 16px !important;
-        border: none !important;
-        border-radius: 25px !important;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-        font-weight: 500 !important;
-        text-decoration: none !important;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        text-align: center;
-        vertical-align: middle;
-        line-height: 1.4;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      }
-      
-      .bkt-demo-container .primary-btn {
-        background: linear-gradient(45deg, #3498db, #2980b9) !important;
-        color: white !important;
-      }
-      
-      .bkt-demo-container .primary-btn:hover {
-        background: linear-gradient(45deg, #2980b9, #1f5f8b) !important;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-      }
-      
-      .bkt-demo-container .success-btn {
-        background: linear-gradient(45deg, #27ae60, #2ecc71) !important;
-        color: white !important;
-      }
-      
-      .bkt-demo-container .success-btn:hover {
-        background: linear-gradient(45deg, #1e8449, #27ae60) !important;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-      }
-      
-      .bkt-demo-container .danger-btn {
-        background: linear-gradient(45deg, #e74c3c, #c0392b) !important;
-        color: white !important;
-      }
-      
-      .bkt-demo-container .danger-btn:hover {
-        background: linear-gradient(45deg, #c0392b, #a93226) !important;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-      }
-      
-      /* Enhanced status styling */
-      .bkt-demo-container .status {
-        padding: 15px 20px !important;
-        border-radius: 10px !important;
-        margin: 15px 0 !important;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-        font-size: 16px !important;
-        font-weight: 500;
-        text-align: center;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      }
-      
-      .bkt-demo-container .status.success {
-        background: linear-gradient(45deg, #d4edda, #c3e6cb) !important;
-        color: #155724 !important;
-        border: 1px solid #c3e6cb !important;
-      }
-      
-      .bkt-demo-container .status.error {
-        background: linear-gradient(45deg, #f8d7da, #f5c6cb) !important;
-        color: #721c24 !important;
-        border: 1px solid #f5c6cb !important;
-      }
-      
-      .bkt-demo-container .status.info {
-        background: linear-gradient(45deg, #d1ecf1, #bee5eb) !important;
-        color: #0c5460 !important;
-        border: 1px solid #bee5eb !important;
-      }
-      
-      .bkt-demo-container .status.loading {
-        background: linear-gradient(45deg, #fff3cd, #ffeaa7) !important;
-        color: #856404 !important;
-        border: 1px solid #ffeaa7 !important;
-        animation: pulse 1.5s infinite;
-      }
-      
-      @keyframes pulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.7; }
-      }
-      
-      /* Enhanced MCQ container styling */
-      .bkt-demo-container .mcq-container {
-        background: rgba(255, 255, 255, 0.95) !important;
-        border: 3px solid #3498db !important;
-        border-radius: 15px !important;
-        padding: 25px !important;
-        margin: 20px 0 !important;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        backdrop-filter: blur(10px);
-      }
-      
-      .bkt-demo-container .mcq-question {
-        font-size: 20px !important;
-        font-weight: 600 !important;
-        margin-bottom: 20px !important;
-        color: #2c3e50 !important;
-        line-height: 1.4;
-      }
-      
-      .bkt-demo-container .mcq-meta {
-        display: flex;
-        gap: 20px;
-        margin: 15px 0;
-        flex-wrap: wrap;
-        color: #7f8c8d;
-        font-size: 14px;
-      }
-      
-      .bkt-demo-container .mcq-options {
-        margin: 20px 0 !important;
-      }
-      
-      .bkt-demo-container .mcq-option {
-        display: block !important;
-        margin: 10px 0 !important;
-        padding: 15px 20px !important;
-        background: rgba(248, 249, 250, 0.8) !important;
-        border: 2px solid #e9ecef !important;
-        border-radius: 10px !important;
-        cursor: pointer !important;
-        transition: all 0.3s ease !important;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-        font-size: 16px !important;
-        backdrop-filter: blur(5px);
-      }
-      
-      .bkt-demo-container .mcq-option:hover {
-        background: rgba(233, 236, 239, 0.9) !important;
-        border-color: #3498db !important;
-        transform: translateY(-1px);
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      }
-      
-      .bkt-demo-container .mcq-option.selected {
-        background: linear-gradient(45deg, #3498db, #2980b9) !important;
-        color: white !important;
-        border-color: #2980b9 !important;
-        box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
-      }
-      
-      .bkt-demo-container .submit-btn {
-        background: linear-gradient(45deg, #27ae60, #2ecc71) !important;
-        color: white !important;
-        padding: 15px 30px !important;
-        font-size: 16px !important;
-        border: none !important;
-        border-radius: 25px !important;
-        cursor: pointer !important;
-        transition: all 0.3s ease !important;
-        margin-top: 20px !important;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      }
-      
-      .bkt-demo-container .submit-btn:hover:not(:disabled) {
-        background: linear-gradient(45deg, #1e8449, #27ae60) !important;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-      }
-      
-      .bkt-demo-container .submit-btn:disabled {
-        background: #bdc3c7 !important;
-        cursor: not-allowed !important;
-        transform: none !important;
-        box-shadow: none !important;
-      }
-      
-      /* Enhanced progress bar styling */
-      .bkt-demo-container .progress-bar {
-        width: 100% !important;
-        height: 25px !important;
-        background-color: #ecf0f1 !important;
-        border-radius: 15px !important;
-        overflow: hidden !important;
-        margin: 15px 0 !important;
-        box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
-      }
-      
-      .bkt-demo-container .progress-fill {
-        height: 100% !important;
-        background: linear-gradient(45deg, #27ae60, #2ecc71) !important;
-        transition: width 0.5s ease !important;
-        border-radius: 15px;
-        box-shadow: 0 2px 10px rgba(39, 174, 96, 0.3);
-      }
-
-      /* Legend styling */
-      .mastery-legend {
-        background: rgba(255, 255, 255, 0.95);
-        padding: 15px;
-        border-radius: 12px;
-        margin: 10px 0;
-        border: 1px solid rgba(255,255,255,0.2);
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        backdrop-filter: blur(10px);
-        font-size: 13px;
-      }
-      
-      .gradient-legend {
-        margin: 10px 0 15px 0;
-      }
-      
-      .gradient-bar {
-        height: 20px;
-        background: linear-gradient(to right, 
-          hsl(0, 80%, 50%) 0%,
-          hsl(30, 80%, 50%) 25%,
-          hsl(60, 80%, 50%) 50%,
-          hsl(90, 80%, 50%) 75%,
-          hsl(120, 80%, 50%) 100%
-        );
-        border-radius: 10px;
-        border: 2px solid #2c3e50;
-        margin-bottom: 5px;
-      }
-      
-      .gradient-labels {
-        display: flex;
-        justify-content: space-between;
-        font-size: 11px;
-        color: #2c3e50;
-        font-weight: 500;
-      }
-      
-      .legend-item {
-        display: block;
-        margin-bottom: 8px;
-        color: #2c3e50;
-      }
-      
-      .legend-color {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        border-radius: 50%;
-        margin-right: 8px;
-        vertical-align: middle;
-        border: 2px solid #2c3e50;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      }
-      
-      /* Loading spinner */
-      .loading-spinner {
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        border: 3px solid #f3f3f3;
-        border-top: 3px solid #3498db;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-        margin-right: 10px;
-      }
-      
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-      
-      /* Graph loading spinner */
-      .graph-loading {
-        position: absolute;
-        top: 1px;
-        left: 1px;
-        right: 1px;
-        bottom: 1px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background: rgba(248, 249, 250, 0.95);
-        border-radius: 8px;
-        z-index: 10;
-      }
-      
-      .graph-loading-spinner {
-        width: 40px;
-        height: 40px;
-        border: 4px solid #e9ecef;
-        border-top: 4px solid #3498db;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-        margin-bottom: 15px;
-      }
-      
-      .graph-loading-text {
-        color: #6c757d;
-        font-size: 16px;
-        font-weight: 500;
-      }
-      
-      /* Responsive design */
-      @media (max-width: 1024px) {
-        .main-layout {
-          flex-direction: column;
-        }
-        
-        .bkt-section,
-        .graph-section {
-          max-width: none;
-        }
-        
-        #graph-container {
-          height: 400px !important;
-        }
-        
-        .graph-loading-spinner {
-          width: 30px !important;
-          height: 30px !important;
-          border-width: 3px !important;
-        }
-        
-        .graph-loading-text {
-          font-size: 14px !important;
-        }
-      }
-      
-      @media (max-width: 768px) {
-        .bkt-demo-container {
-          padding: 10px;
-        }
-        
-        .bkt-demo-container h1 {
-          font-size: 1.8em;
-        }
-        
-        .bkt-demo-container .mcq-meta {
-          flex-direction: column;
-          gap: 10px;
-        }
-        
-        .legend-item {
-          margin-bottom: 10px;
-        }
-        
-        #graph-container {
-          height: 350px !important;
-        }
-        
-        .graph-loading-spinner {
-          width: 25px !important;
-          height: 25px !important;
-          border-width: 2px !important;
-        }
-        
-        .graph-loading-text {
-          font-size: 12px !important;
-        }
-        
-        #controls {
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-        }
-        
-        #controls label,
-        #controls select,
-        #controls button {
-          width: 100%;
-        }
-      }
-    </style>
 </head>
 
 <body>
@@ -472,28 +33,27 @@ html_theme.sidebar_secondary.remove: true
       <div class="container">
         <h1>🧠 FSRS Forgetting Curves Demo</h1>
         <p class="subtitle">Watch how memory decays over time and see FSRS in action</p>
-        
-        <div id="time-controls" style="margin-top: 20px; padding: 20px; background: rgba(255, 255, 255, 0.95); border-radius: 15px; box-shadow: 0 8px 32px rgba(0,0,0,0.1);">
+        <div id="time-controls">
           <h3>⏰ Time Travel Controls</h3>
-          <div style="display: flex; gap: 10px; margin: 15px 0; flex-wrap: wrap;">
+          <div class="time-controls-buttons">
             <button onclick="skipTime(1, 0, 0)" class="primary-btn">Skip 1 Day</button>
             <button onclick="skipTime(7, 0, 0)" class="primary-btn">Skip 1 Week</button>
             <button onclick="skipTime(30, 0, 0)" class="primary-btn">Skip 1 Month</button>
             <button onclick="resetTime()" class="danger-btn">Reset Time</button>
           </div>
           
-          <div id="time-status" style="font-size: 14px; color: #666; margin-top: 10px;"></div>
+          <div id="time-status"></div>
           
-          <div style="margin-top: 15px;">
+          <div class="custom-time-container">
             <h4>Custom Time Skip:</h4>
-            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-              <input type="number" id="custom-days" placeholder="Days" min="0" max="365" style="width: 80px; padding: 8px; border: 1px solid #ddd; border-radius: 5px;">
-              <input type="number" id="custom-hours" placeholder="Hours" min="0" max="23" style="width: 80px; padding: 8px; border: 1px solid #ddd; border-radius: 5px;">
+            <div class="custom-time-inputs">
+              <input type="number" id="custom-days" placeholder="Days" min="0" max="365">
+              <input type="number" id="custom-hours" placeholder="Hours" min="0" max="23">
               <button onclick="skipCustomTime()" class="primary-btn">Skip Time</button>
             </div>
           </div>
           
-          <div style="margin-top: 15px;">
+          <div class="time-controls-actions">
             <button onclick="showMasteryDecay()" class="success-btn">📊 Check Mastery Decay</button>
             <button onclick="previewDecay(30)" class="primary-btn">🔮 Preview 30-Day Decay</button>
           </div>
@@ -512,7 +72,7 @@ html_theme.sidebar_secondary.remove: true
               Initializing BKT System...
             </div>
             
-            <div id="mcq-section" style="display: none;"></div>
+            <div id="mcq-section" class="mcq-section-hidden"></div>
           </div>
         </div>
 
@@ -533,20 +93,20 @@ html_theme.sidebar_secondary.remove: true
                 </div>
               </div>
               <div class="legend-item">
-                <span class="legend-color" style="background-color: #6c757d;"></span>
+                <span class="legend-color legend-color-not-studied"></span>
                 <span>Not Yet Studied</span>
               </div>
             </div>
             
             <div style="position: relative;">
-              <div id="graph-container" style="width: 100%; height: 500px; border: 1px solid #ddd; border-radius: 8px;"></div>
+              <div id="graph-container"></div>
               <div id="graph-loading" class="graph-loading">
                 <div class="graph-loading-spinner"></div>
                 <div class="graph-loading-text">Loading Knowledge Graph...</div>
               </div>
             </div>
 
-            <div id="controls" style="margin-top: 15px;">
+            <div id="controls">
               <label for="strand-filter">Filter by Strand: </label>
               <select id="strand-filter">
                 <option value="">All Strands</option>
@@ -560,20 +120,20 @@ html_theme.sidebar_secondary.remove: true
                 <option value="Coordinate Geometry">Coordinate Geometry</option>
               </select>
               
-              <button id="reset-view" style="margin-left: 10px;">Reset View</button>
-              <button id="toggle-physics" style="margin-left: 10px;">Toggle Physics</button>
-              <button id="load-simplified" style="margin-left: 10px;">Load Small Dense Graph</button>
-              <button id="load-full" style="margin-left: 10px;">Load Full</button>
+              <button id="reset-view">Reset View</button>
+              <button id="toggle-physics">Toggle Physics</button>
+              <button id="load-simplified">Load Small Dense Graph</button>
+              <button id="load-full">Load Full</button>
             </div>
 
-            <div id="node-info" style="margin-top: 15px; padding: 10px; background-color: #f8f9fa; border-radius: 8px; display: none;">
+            <div id="node-info">
               <h4 id="node-title"></h4>
               <p id="node-description"></p>
               <p><strong>Strand:</strong> <span id="node-strand"></span></p>
               <p><strong>Mastery Level:</strong> <span id="node-mastery"></span></p>
             </div>
 
-            <div id="stats" style="margin-top: 15px; padding: 10px; background-color: #e9ecef; border-radius: 8px;">
+            <div id="stats">
               <strong>Graph Statistics:</strong> <span id="node-count">0</span> nodes, <span id="edge-count">0</span> edges
             </div>
           </div>
@@ -729,7 +289,7 @@ html_theme.sidebar_secondary.remove: true
             const originalIndexURL = pyodideInstance._api.config.indexURL;
             pyodideInstance._api.config.indexURL = "https://cdn.jsdelivr.net/pyodide/v0.27.7/full/";
             
-            const packages = ["numpy", "networkx", "matplotlib"];
+            const packages = ["numpy", "networkx", "matplotlib", "sympy"];
             await pyodideInstance.loadPackage(packages, {
               messageCallback: (msg) => console.log(`Package loading: ${msg}`),
               errorCallback: (err) => console.error(`Package error: ${err}`)
@@ -778,7 +338,10 @@ html_theme.sidebar_secondary.remove: true
                 return json.dumps(obj)
             
             # Initialize the system
-            kg = bkt_system.KnowledgeGraph()
+            kg = bkt_system.KnowledgeGraph(
+                nodes_file='small-graph-kg.json',
+                mcqs_file='small-graph-computed_mcqs.json',
+                config_file='config.json')
             student_manager = bkt_system.StudentManager()
             mcq_scheduler = bkt_system.MCQScheduler(kg, student_manager)
             bkt = bkt_system.BayesianKnowledgeTracing(kg, student_manager)
@@ -1174,20 +737,19 @@ html_theme.sidebar_secondary.remove: true
       function displayResult(result) {
         const mcqSection = document.getElementById('mcq-section');
         const isCorrect = result.is_correct;
-        const borderColor = isCorrect ? '#27ae60' : '#e74c3c';
-        const bgColor = isCorrect ? 'rgba(212, 237, 218, 0.9)' : 'rgba(248, 215, 218, 0.9)';
-        const textColor = isCorrect ? '#155724' : '#721c24';
+        const resultClass = isCorrect ? 'mcq-result-success' : 'mcq-result-error';
         const icon = isCorrect ? '✅' : '❌';
         const changeIcon = result.mastery_change > 0 ? '📈' : result.mastery_change < 0 ? '📉' : '➖';
         
         mcqSection.innerHTML = `
-          <div class="mcq-container" style="border-color: ${borderColor}; background-color: ${bgColor}; color: ${textColor};">
+          <div class="mcq-container ${resultClass}">
             <h3>${icon} ${isCorrect ? 'Excellent!' : 'Not quite right, but you\'re learning!'}</h3>
             <p><strong>Your Answer:</strong> ${result.selected_text}</p>
             <p><strong>Correct Answer:</strong> ${result.correct_option}</p>
             <p><strong>Explanation:</strong> ${result.explanation}</p>
             
-            <div style="background: rgba(255, 255, 255, 0.95); padding: 20px; margin: 15px 0; border-radius: 10px; color: #2c3e50; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <div class="mcq-result-inner">
+
               <h4>🧠 BKT Mastery Update</h4>
               <p><strong>📚 Topic:</strong> ${result.main_topic}</p>
               <p><strong>📊 Before:</strong> ${(result.before_mastery * 100).toFixed(1)}%</p>
@@ -1196,12 +758,13 @@ html_theme.sidebar_secondary.remove: true
               <p><strong>🔄 Total Topics Updated:</strong> ${result.total_changes}</p>
               <p><em>💡 Check the knowledge graph below to see the color changes!</em></p>
               
-              <div class="progress-bar" style="margin: 15px 0;">
-                <div class="progress-fill" style="width: ${result.after_mastery * 100}%; background: ${result.after_mastery > result.before_mastery ? 'linear-gradient(45deg, #27ae60, #2ecc71)' : 'linear-gradient(45deg, #f39c12, #e67e22)'};"></div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: ${result.after_mastery * 100}%;"></div>
               </div>
             </div>
             
-            <button onclick="nextQuestion()" class="submit-btn" style="background: linear-gradient(45deg, #3498db, #2980b9) !important;">
+            <button onclick="nextQuestion()" class="submit-btn primary">
+
               🚀 Next Question
             </button>
           </div>
@@ -1598,10 +1161,10 @@ html_theme.sidebar_secondary.remove: true
               🚀 Simulated time: ${data.simulated_time}<br>
               ⏭️ Offset: ${data.offset_days} days, ${data.offset_hours} hours
             `;
-            statusDiv.style.color = '#e74c3c';
+            statusDiv.className = 'time-manipulation-active';
           } else {
             statusDiv.innerHTML = '📅 Using real time';
-            statusDiv.style.color = '#27ae60';
+            statusDiv.className = 'time-manipulation-inactive';
           }
           
         } catch (error) {
@@ -1690,7 +1253,7 @@ html_theme.sidebar_secondary.remove: true
         }
         
         mcqSection.innerHTML = `
-          <div class="container" style="border: 3px solid #e74c3c; background: rgba(248, 215, 218, 0.9);">
+          <div class="container decay-summary-container">
             <h3>⏰ Time Skip Results</h3>
             <p><strong>Time Advanced:</strong> ${decayData.time_advanced.days} days, ${decayData.time_advanced.hours} hours</p>
             <p><strong>Topics Affected:</strong> ${summary.topics_affected}</p>
@@ -1699,7 +1262,7 @@ html_theme.sidebar_secondary.remove: true
             
             ${changesHtml}
             
-            <button onclick="generateMCQ()" class="success-btn" style="margin-top: 15px;">
+            <button onclick="generateMCQ()" class="success-btn">
               🎯 Practice to Restore Memory
             </button>
           </div>

@@ -6,6 +6,12 @@ output functionality. It handles the conversion to the required JSON format
 and implements a modular archiving system to preserve previous results.
 """
 
+import os
+import json
+import shutil
+from datetime import datetime
+from typing import List, Dict, Any
+
 class DataManager:
     """
     Manages the storage, organization, and output of extracted concepts and relationships.
@@ -47,7 +53,12 @@ class DataManager:
             - grade_level: Educational level
             - difficulty: Complexity assessment
         """
-        pass
+        for concept in concepts:
+            # Check for duplicates by name
+            if not self._is_duplicate_concept(concept):
+                # Generate unique ID
+                concept['id'] = self._generate_id()
+                self.concepts.append(concept)
     
     def add_relationships(self, relationships: list):
         """
@@ -61,12 +72,25 @@ class DataManager:
             relationships: List of relationship dictionaries from the LLM extraction
             
         Each relationship should contain:
-            - prerequisite_id: ID of the prerequisite concept
-            - dependent_id: ID of the dependent concept
+            - prerequisite_name: ID of the prerequisite concept
+            - dependent_name: ID of the dependent concept
             - relationship_type: Nature of the relationship
             - strength: Confidence level (0.0 to 1.0)
         """
-        pass
+        for relationship in relationships:
+            # Check for duplicates by prerequisite->dependent pair
+            if not self._is_duplicate_relationship(relationship):
+                # Generate unique ID
+                relationship['id'] = self._generate_id()
+                self.relationships.append(relationship)
+    
+    def get_concepts(self) -> list:
+        """Get all concepts for context in prompts."""
+        return self.concepts
+    
+    def get_relationships(self) -> list:
+        """Get all relationships for context in prompts."""
+        return self.relationships
     
     def save_to_json(self, output_file: str):
         """
@@ -101,7 +125,44 @@ class DataManager:
                 ]
             }
         """
-        pass
+        # Archive previous data if it exists
+        self.archive_previous_data(output_file)
+        
+        # Convert concepts to nodes format
+        nodes = []
+        for concept in self.concepts:
+            node = {
+                'id': concept['id'],
+                'label': concept['name'],
+                'group': concept.get('strand', 'Unknown'),
+                'title': concept.get('explanation', ''),
+                'broader_concept': concept.get('broader_concept', ''),
+                'grade_level': concept.get('grade_level', ''),
+                'difficulty': concept.get('difficulty', '')
+            }
+            nodes.append(node)
+        
+        # Convert relationships to edges format
+        edges = []
+        for relationship in self.relationships:
+            edge = {
+                'from': relationship.get('prerequisite_name', ''),
+                'to': relationship.get('dependent_name', ''),
+                'strength': relationship.get('strength', 0.5)
+            }
+            edges.append(edge)
+        
+        # Create final JSON structure
+        output_data = {
+            'nodes': nodes,
+            'edges': edges
+        }
+        
+        # Write to file
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(output_data, f, indent=2, ensure_ascii=False)
+        
+        print(f"Saved {len(nodes)} concepts and {len(edges)} relationships to {output_file}")
     
     def archive_previous_data(self, output_file: str):
         """
@@ -120,4 +181,44 @@ class DataManager:
         3. Moves the existing file to the archive with a timestamp
         4. Ensures the new extraction can proceed safely
         """
-        pass 
+        if os.path.exists(output_file):
+            # Create timestamp for archive name
+            timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+            file_name = os.path.basename(output_file)
+            file_base = os.path.splitext(file_name)[0]
+            archive_name = f"{file_base}_{timestamp}.json"
+            
+            # Create archive directory if it doesn't exist
+            archive_dir = os.path.join(os.path.dirname(output_file), "archive")
+            os.makedirs(archive_dir, exist_ok=True)
+            
+            # Move file to archive
+            archive_path = os.path.join(archive_dir, archive_name)
+            shutil.move(output_file, archive_path)
+            print(f"Archived previous data to {archive_path}")
+    
+    def _generate_id(self) -> str:
+        """Generate a unique ID for concepts and relationships."""
+        import uuid
+        return str(uuid.uuid4())
+    
+    def _is_duplicate_concept(self, concept: dict) -> bool:
+        """Check if a concept is a duplicate by name."""
+        concept_name = concept.get('name', '').lower().strip()
+        for existing in self.concepts:
+            if existing.get('name', '').lower().strip() == concept_name:
+                return True
+        return False
+    
+    def _is_duplicate_relationship(self, relationship: dict) -> bool:
+        """Check if a relationship is a duplicate by prerequisite->dependent pair."""
+        prereq = relationship.get('prerequisite_name', '').lower().strip()
+        dependent = relationship.get('dependent_name', '').lower().strip()
+        
+        for existing in self.relationships:
+            existing_prereq = existing.get('prerequisite_name', '').lower().strip()
+            existing_dependent = existing.get('dependent_name', '').lower().strip()
+            
+            if existing_prereq == prereq and existing_dependent == dependent:
+                return True
+        return False 

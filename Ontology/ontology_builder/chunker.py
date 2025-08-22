@@ -31,29 +31,24 @@ class TextChunker:
     
     def create_chunks(self, text: str) -> list:
         """
-        Create simple, sentence-aware chunks with basic metadata.
+        Create simple text chunks with overlap and sentence boundary awareness.
         
         This method splits text into chunks while ensuring that:
         1. No chunk exceeds the maximum size limit
         2. Adjacent chunks have sufficient overlap for context
         3. Chunks are created at natural break points when possible
-        4. Each chunk includes metadata about its position and context
         
         Args:
             text: The full text document to be chunked
             
         Returns:
-            list: List of chunk dictionaries, each containing:
-                - chunk_content: The actual text content
-                - chunk_index: Position of this chunk in the sequence
-                - total_chunks: Total number of chunks in the document
+            list: List of text strings, each representing a chunk
         """
         if len(text) <= self.chunk_size:
-            return [{'chunk_content': text, 'chunk_index': 0, 'total_chunks': 1}]
+            return [text]
         
         chunks = []
         start = 0
-        chunk_index = 0
         
         while start < len(text):
             end = start + self.chunk_size
@@ -64,20 +59,11 @@ class TextChunker:
             
             chunk = text[start:end].strip()
             if chunk:
-                chunks.append({
-                    'chunk_content': chunk,
-                    'chunk_index': chunk_index,
-                    'total_chunks': len(chunks) + 1  # Will be updated
-                })
-                chunk_index += 1
+                chunks.append(chunk)
             
             start = end - self.overlap_size
             if start >= len(text):
                 break
-        
-        # Update total_chunks count
-        for chunk in chunks:
-            chunk['total_chunks'] = len(chunks)
         
         return chunks
     
@@ -106,29 +92,4 @@ class TextChunker:
             if pos > start + self.chunk_size // 2:  # Don't break too early
                 return pos + 1
         
-        return ideal_end
-    
-    def get_chunk_context(self, chunk: str, chunk_index: int, total_chunks: int) -> dict:
-        """
-        Generate context information for a specific chunk.
-        
-        This method creates metadata that helps the LLM understand where
-        the current chunk fits within the larger document. This context
-        is crucial for maintaining relationships between concepts across chunks.
-        
-        Args:
-            chunk: The text content of the current chunk
-            chunk_index: Position of this chunk (0-based)
-            total_chunks: Total number of chunks in the document
-            
-        Returns:
-            dict: Context information including:
-                - chunk_position: Where this chunk fits in the document
-                - surrounding_context: Brief summary of adjacent chunks
-                - document_structure: Overall organization of the document
-        """
-        return {
-            'chunk_position': f"Chunk {chunk_index + 1} of {total_chunks}",
-            'chunk_index': chunk_index,
-            'total_chunks': total_chunks
-        } 
+        return ideal_end 

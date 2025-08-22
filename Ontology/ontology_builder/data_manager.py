@@ -151,12 +151,12 @@ class DataManager:
             }
             nodes.append(node)
         
-        # Convert relationships to edges format
+        # Convert relationships to edges format using IDs directly
         edges = []
         for relationship in self.relationships:
             edge = {
-                'from': relationship.get('prerequisite_name', ''),
-                'to': relationship.get('dependent_name', ''),
+                'from': relationship.get('prerequisite_concept_id', ''),  # Direct ID reference
+                'to': relationship.get('dependent_concept_id', ''),       # Direct ID reference
                 'strength': relationship.get('strength', 0.5)
             }
             edges.append(edge)
@@ -220,17 +220,14 @@ class DataManager:
         return False
     
     def _is_duplicate_relationship(self, relationship: dict) -> bool:
-        """Check if a relationship is a duplicate by prerequisite->dependent pair."""
-        prereq = relationship.get('prerequisite_name', '').lower().strip()
-        dependent = relationship.get('dependent_name', '').lower().strip()
-        
+        prereq = relationship.get('prerequisite_concept_id', '').lower().strip()
+        dependent = relationship.get('dependent_concept_id', '').lower().strip()
         for existing in self.relationships:
-            existing_prereq = existing.get('prerequisite_name', '').lower().strip()
-            existing_dependent = existing.get('dependent_name', '').lower().strip()
-            
+            existing_prereq = existing.get('prerequisite_concept_id', '').lower().strip()
+            existing_dependent = existing.get('dependent_concept_id', '').lower().strip()
             if existing_prereq == prereq and existing_dependent == dependent:
                 return True
-        return False 
+        return False
 
     def _validate_concept_structure(self, concept: dict) -> bool:
         """Validate that a concept has the required fields."""
@@ -242,7 +239,7 @@ class DataManager:
 
     def _validate_relationship_structure(self, relationship: dict) -> bool:
         """Validate that a relationship has the required fields."""
-        required_fields = ['prerequisite_name', 'dependent_name']
+        required_fields = ['prerequisite_concept_id', 'dependent_concept_id']
         for field in required_fields:
             if not relationship.get(field):
                 return False

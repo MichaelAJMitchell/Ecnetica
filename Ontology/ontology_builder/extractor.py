@@ -187,8 +187,9 @@ class ConceptExtractor:
             'existing_relationships': existing_relationships, # Key - for patterns
             'source_file': source,                           # Key - for tracking
             'chunk_position': f"{chunk_index + 1} of {total_chunks}", # Key - for awareness
-            'concept_hierarchy_hints': self._get_concept_hierarchy_hints(existing_concepts),  # Key - for guidance
-            'prerequisite_patterns': self._get_prerequisite_patterns(existing_relationships)   # Key - for patterns
+            'concept_hierarchy_hints': self._get_concept_hierarchy_hints(existing_concepts),
+            'prerequisite_patterns': self._get_prerequisite_patterns(existing_relationships),
+            'concept_ids': {concept['name']: concept['id'] for concept in existing_concepts + new_concepts}  # Add concept ID mapping
         }
         
         return self.llm_client.extract_relationships(chunk, new_concepts, context, RELATIONSHIP_EXTRACTION_PROMPT)

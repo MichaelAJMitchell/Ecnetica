@@ -59,26 +59,21 @@ Return as a JSON array of concepts.
 
 RELATIONSHIP_EXTRACTION_PROMPT = """
 You are a mathematical education expert. Identify relationships between mathematical concepts.
-
 TEXT TO ANALYZE:
 {text}
-
 NEW CONCEPTS TO ANALYZE:
 {concepts}
-
 CONTEXT:
 - Source: {context[source_file]}
 - Position: {context[chunk_position]}
 - New concepts: {context[new_concepts_count]} just extracted
 - Existing concepts: {context[existing_concepts_count]} total
 - Existing relationships: {context[existing_relationships_count]} total
-
 Focus on:
 - Prerequisites: What must be learned before what
 - Dependencies: How concepts build on each other
 - Logical connections: Related concepts that support each other
-
-Return as a JSON array of relationships.
+Return as a JSON array of relationships with fields: prerequisite_concept_id, dependent_concept_id, relationship_type, strength
 """
 
 VERIFICATION_PROMPT = """

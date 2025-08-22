@@ -31,7 +31,7 @@ class TextChunker:
     
     def create_chunks(self, text: str) -> list:
         """
-        Create context-aware text chunks from a large document.
+        Create simple, sentence-aware chunks with basic metadata.
         
         This method splits text into chunks while ensuring that:
         1. No chunk exceeds the maximum size limit
@@ -46,9 +46,67 @@ class TextChunker:
             list: List of chunk dictionaries, each containing:
                 - chunk_content: The actual text content
                 - chunk_index: Position of this chunk in the sequence
-                - document_context: Information about surrounding chunks
+                - total_chunks: Total number of chunks in the document
         """
-        pass
+        if len(text) <= self.chunk_size:
+            return [{'chunk_content': text, 'chunk_index': 0, 'total_chunks': 1}]
+        
+        chunks = []
+        start = 0
+        chunk_index = 0
+        
+        while start < len(text):
+            end = start + self.chunk_size
+            
+            # Try to break at sentence boundary if possible
+            if end < len(text):
+                end = self._find_sentence_boundary(text, start, end)
+            
+            chunk = text[start:end].strip()
+            if chunk:
+                chunks.append({
+                    'chunk_content': chunk,
+                    'chunk_index': chunk_index,
+                    'total_chunks': len(chunks) + 1  # Will be updated
+                })
+                chunk_index += 1
+            
+            start = end - self.overlap_size
+            if start >= len(text):
+                break
+        
+        # Update total_chunks count
+        for chunk in chunks:
+            chunk['total_chunks'] = len(chunks)
+        
+        return chunks
+    
+    def _find_sentence_boundary(self, text: str, start: int, ideal_end: int) -> int:
+        """
+        Find the best sentence boundary near the ideal chunk end.
+        
+        This method looks for sentence endings (., !, ?) within a reasonable
+        distance of the ideal chunk end to avoid cutting concepts mid-sentence.
+        
+        Args:
+            text: The full text content
+            start: Start position of current chunk
+            ideal_end: Ideal end position for current chunk
+            
+        Returns:
+            int: The best position to end the chunk (at sentence boundary if found)
+        """
+        # Look within 200 characters of ideal end
+        search_start = max(ideal_end - 200, start)
+        search_end = min(ideal_end + 200, len(text))
+        
+        # Find last sentence ending
+        for char in ['.', '!', '?']:
+            pos = text.rfind(char, search_start, search_end)
+            if pos > start + self.chunk_size // 2:  # Don't break too early
+                return pos + 1
+        
+        return ideal_end
     
     def get_chunk_context(self, chunk: str, chunk_index: int, total_chunks: int) -> dict:
         """
@@ -69,4 +127,8 @@ class TextChunker:
                 - surrounding_context: Brief summary of adjacent chunks
                 - document_structure: Overall organization of the document
         """
-        pass 
+        return {
+            'chunk_position': f"Chunk {chunk_index + 1} of {total_chunks}",
+            'chunk_index': chunk_index,
+            'total_chunks': total_chunks
+        } 

@@ -154,16 +154,10 @@ class ConceptExtractor:
         """
         # Build context for concept extraction
         context = {
-            'chunk_content': chunk,
-            'existing_concepts': existing_concepts,
-            'existing_relationships': existing_relationships,
-            'source_file': source,
-            'chunk_position': f"{chunk_index + 1} of {total_chunks}",
-            'document_metadata': {
-                'filename': source,
-                'chunk_index': chunk_index,
-                'total_chunks': total_chunks
-            }
+            'existing_concepts': existing_concepts,           # Key - for deduplication
+            'existing_relationships': existing_relationships, # Key - for context
+            'source_file': source,                           # Key - for tracking
+            'chunk_position': f"{chunk_index + 1} of {total_chunks}"  # Key - for awareness
         }
         
         return self.llm_client.extract_concepts(chunk, context, CONCEPT_EXTRACTION_PROMPT)
@@ -188,14 +182,13 @@ class ConceptExtractor:
         """
         # Build context for relationship extraction
         context = {
-            'chunk_content': chunk,
-            'new_concepts': new_concepts,
-            'existing_concepts': existing_concepts,
-            'existing_relationships': existing_relationships,
-            'source_file': source,
-            'chunk_position': f"{chunk_index + 1} of {total_chunks}",
-            'concept_hierarchy_hints': self._get_concept_hierarchy_hints(existing_concepts),
-            'prerequisite_patterns': self._get_prerequisite_patterns(existing_relationships)
+            'new_concepts': new_concepts,                    # Key - for relationship building
+            'existing_concepts': existing_concepts,          # Key - for context
+            'existing_relationships': existing_relationships, # Key - for patterns
+            'source_file': source,                           # Key - for tracking
+            'chunk_position': f"{chunk_index + 1} of {total_chunks}", # Key - for awareness
+            'concept_hierarchy_hints': self._get_concept_hierarchy_hints(existing_concepts),  # Key - for guidance
+            'prerequisite_patterns': self._get_prerequisite_patterns(existing_relationships)   # Key - for patterns
         }
         
         return self.llm_client.extract_relationships(chunk, new_concepts, context, RELATIONSHIP_EXTRACTION_PROMPT)
@@ -217,11 +210,10 @@ class ConceptExtractor:
             dict: Verification results with validity flags
         """
         context = {
-            'chunk_content': chunk,
-            'new_concepts': new_concepts,
-            'new_relationships': new_relationships,
-            'source_file': source,
-            'chunk_position': f"{chunk_index + 1} of {total_chunks}"
+            'new_concepts': new_concepts,                    # Key - for verification
+            'new_relationships': new_relationships,           # Key - for verification
+            'source_file': source,                           # Key - for tracking
+            'chunk_position': f"{chunk_index + 1} of {total_chunks}"  # Key - for awareness
         }
         
         return self.llm_client.verify_extraction(context, VERIFICATION_PROMPT)

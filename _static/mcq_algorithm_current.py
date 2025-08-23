@@ -28,7 +28,11 @@ import re
 from sympy import symbols, sympify, latex, pi, simplify, factor, expand, sin, cos, sqrt,exp, log,tan, Poly, collect, Rational,E
 
 x, a, b, c, d, r_1, r_2 = symbols('x a b c d r_1 r_2')
-local_namespace = {'x': x,'a':a,'b':b,'c':c, 'r_1': r_1, 'r_2': r_2,'sin': sin, 'cos': cos, 'pi': pi,'sqrt': sqrt, tan: 'tan',log: "log",exp:"exp",E:"e"}
+local_namespace = {
+    'x': x, 'a': a, 'b': b, 'c': c, 'r_1': r_1, 'r_2': r_2,
+    'sin': sin, 'cos': cos, 'tan': tan, 'pi': pi, 'sqrt': sqrt,
+    'log': log, 'exp': exp, 'E': E
+}
 
 
 @dataclass
@@ -2076,7 +2080,6 @@ class ConfigurationManager:
         self.config = self._load_config_file()
 
     def get_breakdown_config(self) -> Dict:
-        """NEW METHOD: Get breakdown-specific configuration"""
         return self.get('breakdown_config', {
             'prerequisite_skip_threshold': 0.8,
             'step_mastery_weight': 0.3,
@@ -2118,7 +2121,7 @@ class StudentProfile:
     breakdown_preferences: Dict[str, float] = field(default_factory=lambda: {
         'breakdown_success_rate': 0.0
     })
-
+    skill_states: Dict[str, 'SkillState'] = field(default_factory=dict)
 
     def __post_init__(self):
         """Initialize default values if not provided"""
@@ -2326,12 +2329,13 @@ class StudentManager:
             mastery_levels={},
             confidence_levels={},
             studied_topics={},
-        ability_levels={
+        ability_levels= {
+            'conceptual_understanding': 0.5,
+            'procedural_fluency': 0.5,
             'problem_solving': 0.5,
+            'mathematical_communication': 0.5,
             'memory': 0.5,
-            'notation': 0.5,
-            'algebra': 0.5,
-            'interconnectedness': 0.5
+            'spatial_reasoning': 0.5
         },
             completed_questions=set(),
             daily_completed=set()
@@ -2420,7 +2424,7 @@ class StudentManager:
         }
 
     def _handle_breakdown_step_completion(self, student_id: str, step_result: str,
-                                        is_correct: bool, time_taken: float, kg) -> List[Dict]:
+                                        is_correct: bool, time_taken: float, breakdown_step: 'BreakdownStep') -> List[Dict]:
         """NEW METHOD: Handle completion of a breakdown step"""
         if not self._current_breakdown_session:
             return []
@@ -2430,9 +2434,10 @@ class StudentManager:
             'step_no': session['current_step_index'],
             'correct': is_correct,
             'time_taken': time_taken,
-            'timestamp': datetime.now()
+            'timestamp': datetime.now(),
+            'step_type': breakdown_step.step_type
         })
-
+        '''
         # Update mastery based on step completion (lighter weight than full question)
         bkt_updates = []
         if self.bkt_system:
@@ -2440,6 +2445,19 @@ class StudentManager:
             bkt_updates = self.bkt_system.process_breakdown_step(
                 student_id, step, is_correct
             )
+        '''
+        bkt_updates = []
+        if (self.bkt_system and
+            hasattr(self.bkt_system, 'skill_tracker') and
+            self.bkt_system.skill_tracker):
+
+            step_difficulty = getattr(breakdown_step, 'difficulty', 2.5)
+            skill_result = self.bkt_system.process_breakdown_step_response(
+                student_id, breakdown_step.step_type, is_correct, step_difficulty
+            )
+            if skill_result and skill_result.get('skill_update'):
+                bkt_updates.append(skill_result)
+
 
         session['current_step_index'] += 1
         return bkt_updates
@@ -2977,11 +2995,16 @@ class MCQScheduler:
 
 
     def select_optimal_mcqs(self, student_id: str, num_questions: int = 5,
-                          use_chapter_weights: bool = False) -> List[str]:
+                          use_chapter_weights: bool = False, confidence: float = 1.0) -> List[str]:
         """
         Main greedy algorithm for adaptive MCQ selection.
         Iteratively selects best question, updates virtual mastery, repeats.
         """
+
+        student = self.student_manager.get_student(student_id)
+        if not student:
+            print(f"❌ Student {student_id} not found")
+            return []
         # Get config values
         greedy_max_mcqs_to_evaluate = self.get_config_value('greedy_algorithm.greedy_max_mcqs_to_evaluate', 50)
         greedy_early_stopping = self.get_config_value('greedy_algorithm.greedy_early_stopping', False)
@@ -3050,31 +3073,31 @@ class MCQScheduler:
                 if mcq_id in selected_mcqs:  # Skip already selected
                     continue
 
-            try:
-                # Ensure vector exists before calculation
-                vector = self._get_or_create_optimized_mcq_vector(mcq_id)
-                if not vector:
-                    print(f"   ⚠️  Skipping MCQ {mcq_id} - no vector available")
+                try:
+                    # Ensure vector exists before calculation
+                    vector = self._get_or_create_optimized_mcq_vector(mcq_id)
+                    if not vector:
+                        print(f"   ⚠️  Skipping MCQ {mcq_id} - no vector available")
+                        continue
+
+                    coverage_to_cost_ratio, coverage_info = self._calculate_coverage_to_cost_ratio(mcq_id, topic_priorities, simulated_mastery_levels, student, confidence)
+                    print(f"   📊 Ratio: {coverage_to_cost_ratio:.3f}")
+
+                    if coverage_to_cost_ratio > best_ratio:
+                        best_ratio = coverage_to_cost_ratio
+                        best_mcq = mcq_id
+                        best_coverage_info = coverage_info
+                        print(f"   ✅ New best MCQ: {mcq_id} (ratio: {best_ratio:.3f})")
+                    if best_mcq is None:
+                        print("✅ No suitable MCQs left — stopping.")
+                        break
+
+                except Exception as e:
+                    print(f"   ❌ Error evaluating MCQ {mcq_id}: {type(e)} - {e}")
+                    import traceback
+                    traceback.print_exc()
+                    # Continue with next MCQ instead of crashing
                     continue
-
-                coverage_to_cost_ratio, coverage_info = self._calculate_coverage_to_cost_ratio(mcq_id, topic_priorities, simulated_mastery_levels, student)
-                print(f"   📊 Ratio: {coverage_to_cost_ratio:.3f}")
-
-                if coverage_to_cost_ratio > best_ratio:
-                    best_ratio = coverage_to_cost_ratio
-                    best_mcq = mcq_id
-                    best_coverage_info = coverage_info
-                    print(f"   ✅ New best MCQ: {mcq_id} (ratio: {best_ratio:.3f})")
-                if best_mcq is None:
-                    print("✅ No suitable MCQs left — stopping.")
-                    break
-
-            except Exception as e:
-                print(f"   ❌ Error evaluating MCQ {mcq_id}: {type(e)} - {e}")
-                import traceback
-                traceback.print_exc()
-                # Continue with next MCQ instead of crashing
-                continue
 
             if best_mcq is None:
                 print(f"No suitable MCQ found for remaining due topics in iteration {iteration + 1}")
@@ -3463,7 +3486,7 @@ class MCQScheduler:
 
 
 
-    def _calculate_coverage_to_cost_ratio(self, mcq_id: str, topic_priorities: Dict[int, float],simulated_mastery_levels: Dict[int, float],student: StudentProfile) -> Tuple[float, Dict]:
+    def _calculate_coverage_to_cost_ratio(self, mcq_id: str, topic_priorities: Dict[int, float],simulated_mastery_levels: Dict[int, float],student: StudentProfile,confidence: float = 1.0) -> Tuple[float, Dict]:
         """
         Calculate coverage-to-cost ratio
         Higher ratio = better choice (more benefit, less cost)
@@ -3490,7 +3513,7 @@ class MCQScheduler:
             return 0.0, coverage_info
 
         # Calculate difficulty cost (penalty for poor match)
-        difficulty_cost = self._calculate_difficulty_cost(mcq_vector, simulated_mastery_levels, student)
+        difficulty_cost = self._calculate_difficulty_cost(mcq_vector, student, simulated_mastery_levels, confidence)
 
         # Calculate importance bonus (reward for important topics)
         importance_bonus = self._calculate_importance_bonus(mcq_vector, topic_priorities)
@@ -3504,83 +3527,141 @@ class MCQScheduler:
         return coverage_to_cost_ratio, coverage_info
 
 
-    def calculate_skills_difficulty_mismatch(self, mcq_vector: OptimizedMCQVector,
-                                            student: StudentProfile,
-                                            config_weights: Dict[str, float] = None) -> Dict[str, float]:
+    def calculate_skills_difficulty_mismatch(self, mcq_vector: OptimizedMCQVector, student) -> Dict[str, float]:
         """
-        Calculate how question difficulty differs from student levels across all skill dimensions.
+        FIXED VERSION: Calculate mismatch between student abilities and question difficulty requirements.
+        """
 
-        For each skill, calculates: student_skill_level + offset - question_skill_difficulty
-        All mismatches are converted to penalties (negative values).
-        """
-        if config_weights is None:
-            # Read from config file if available, otherwise use defaults
-            config_weights = {
-                'problem_solving_penalty': self.get_config_value('greedy_algorithm.skills_config.problem_solving_penalty', 2.5),
-                'procedural_penalty': self.get_config_value('greedy_algorithm.skills_config.procedural_penalty', 2.0),
-                'conceptual_penalty': self.get_config_value('greedy_algorithm.skills_config.conceptual_penalty', 2.0),
-                'memory_penalty': self.get_config_value('greedy_algorithm.skills_config.memory_penalty', 1.5),
-                'communication_penalty': self.get_config_value('greedy_algorithm.skills_config.communication_penalty', 1.8),
-                'spatial_penalty': self.get_config_value('greedy_algorithm.skills_config.spatial_penalty', 1.5),
-                'student_offset': self.get_config_value('greedy_algorithm.skills_config.student_offset', 2.0),
+        # Handle both StudentProfile objects and dictionaries safely
+        if isinstance(student, dict):
+            student_id = student.get('student_id')
+            if student_id:
+                actual_student = self.student_manager.get_student(student_id)
+                if actual_student:
+                    student = actual_student
+                else:
+                    print(f"⚠️  Warning: Could not find StudentProfile for {student_id}")
+                    # Return default penalties with total_skills_penalty
+                    return {
+                        'problem_solving': 0.0,
+                        'procedural_fluency': 0.0,
+                        'conceptual_understanding': 0.0,
+                        'mathematical_communication': 0.0,
+                        'memory': 0.0,
+                        'spatial_reasoning': 0.0,
+                        'total_skills_penalty': 0.0  # CRITICAL: Include this key
+                    }
+            else:
+                print("⚠️  Warning: Student dict has no student_id")
+                return {
+                    'problem_solving': 0.0,
+                    'procedural_fluency': 0.0,
+                    'conceptual_understanding': 0.0,
+                    'mathematical_communication': 0.0,
+                    'memory': 0.0,
+                    'spatial_reasoning': 0.0,
+                    'total_skills_penalty': 0.0  # CRITICAL: Include this key
+                }
+
+        # Ensure student has ability_levels attribute
+        if not hasattr(student, 'ability_levels'):
+            print(f"⚠️  Warning: Student object missing ability_levels attribute")
+            student.ability_levels = {
+                'problem_solving': 0.5,
+                'procedural_fluency': 0.5,
+                'conceptual_understanding': 0.5,
+                'mathematical_communication': 0.5,
+                'memory': 0.5,
+                'spatial_reasoning': 0.5
             }
+
+        # Get configuration weights with defaults
+        config_weights = self.config.get('algorithm_config.skill_difficulty_weights', {
+            'problem_solving_penalty': 0.2,
+            'procedural_penalty': 0.15,
+            'conceptual_penalty': 0.15,
+            'memory_penalty': 0.1,
+            'communication_penalty': 0.1,
+            'spatial_penalty': 0.1,
+            'student_offset': 0.1
+        })
 
         skill_penalties = {}
 
-        # Problem solving skill mismatch
-        student_problem_solving = student.ability_levels.get('problem_solving', 0.5) + config_weights['student_offset']
+        # Problem-solving skills mismatch
+        student_problem_solving = student.ability_levels.get('problem_solving', 0.5) + config_weights.get('student_offset', 0.1)
         question_problem_solving = mcq_vector.difficulty_breakdown.problem_solving
         problem_solving_mismatch = student_problem_solving - question_problem_solving
-        skill_penalties['problem_solving'] = -config_weights['problem_solving_penalty'] * abs(problem_solving_mismatch)
+        skill_penalties['problem_solving'] = -config_weights.get('problem_solving_penalty', 0.2) * abs(problem_solving_mismatch)
 
-        # Procedural fluency (technical difficulty) mismatch
-        student_procedural = student.ability_levels.get('procedural_fluency', 0.5) + config_weights['student_offset']
+        # Procedural fluency mismatch
+        student_procedural = student.ability_levels.get('procedural_fluency', 0.5) + config_weights.get('student_offset', 0.1)
         question_procedural = mcq_vector.difficulty_breakdown.procedural_fluency
         procedural_mismatch = student_procedural - question_procedural
-        skill_penalties['procedural_fluency'] = -config_weights['procedural_penalty'] * abs(procedural_mismatch)
+        skill_penalties['procedural_fluency'] = -config_weights.get('procedural_penalty', 0.15) * abs(procedural_mismatch)
 
         # Conceptual understanding mismatch
-        student_conceptual = student.ability_levels.get('conceptual_understanding', 0.5) + config_weights['student_offset']
+        student_conceptual = student.ability_levels.get('conceptual_understanding', 0.5) + config_weights.get('student_offset', 0.1)
         question_conceptual = mcq_vector.difficulty_breakdown.conceptual_understanding
         conceptual_mismatch = student_conceptual - question_conceptual
-        skill_penalties['conceptual_understanding'] = -config_weights['conceptual_penalty'] * abs(conceptual_mismatch)
+        skill_penalties['conceptual_understanding'] = -config_weights.get('conceptual_penalty', 0.15) * abs(conceptual_mismatch)
 
         # Memory requirement mismatch
-        student_memory = student.ability_levels.get('memory', 0.5) + config_weights['student_offset']
+        student_memory = student.ability_levels.get('memory', 0.5) + config_weights.get('student_offset', 0.1)
         question_memory = mcq_vector.difficulty_breakdown.memory
         memory_mismatch = student_memory - question_memory
-        skill_penalties['memory'] = -config_weights['memory_penalty'] * abs(memory_mismatch)
+        skill_penalties['memory'] = -config_weights.get('memory_penalty', 0.1) * abs(memory_mismatch)
 
         # Mathematical communication mismatch
-        student_communication = student.ability_levels.get('mathematical_communication', 0.5) + config_weights['student_offset']
+        student_communication = student.ability_levels.get('mathematical_communication', 0.5) + config_weights.get('student_offset', 0.1)
         question_communication = mcq_vector.difficulty_breakdown.mathematical_communication
         communication_mismatch = student_communication - question_communication
-        skill_penalties['mathematical_communication'] = -config_weights['communication_penalty'] * abs(communication_mismatch)
+        skill_penalties['mathematical_communication'] = -config_weights.get('communication_penalty', 0.1) * abs(communication_mismatch)
 
         # Spatial reasoning mismatch
-        student_spatial = student.ability_levels.get('spatial_reasoning', 0.5) + config_weights['student_offset']
+        student_spatial = student.ability_levels.get('spatial_reasoning', 0.5) + config_weights.get('student_offset', 0.1)
         question_spatial = mcq_vector.difficulty_breakdown.spatial_reasoning
         spatial_mismatch = student_spatial - question_spatial
-        skill_penalties['spatial_reasoning'] = -config_weights['spatial_penalty'] * abs(spatial_mismatch)
+        skill_penalties['spatial_reasoning'] = -config_weights.get('spatial_penalty', 0.1) * abs(spatial_mismatch)
 
-        # Calculate total skills penalty (sum of all negative penalties)
-        total_skills_penalty = sum(skill_penalties.values())
+        # CRITICAL FIX: Calculate and include total_skills_penalty
+        total_penalty = sum(skill_penalties.values())
+        skill_penalties['total_skills_penalty'] = total_penalty
 
-        # Return breakdown for analysis and debugging
-        return {
-            'skill_penalties': skill_penalties,
-            'total_skills_penalty': total_skills_penalty,
-            'raw_mismatches': {
-                'problem_solving': problem_solving_mismatch,
-                'procedural_fluency': procedural_mismatch,
-                'conceptual_understanding': conceptual_mismatch,
-                'memory': memory_mismatch,
-                'mathematical_communication': communication_mismatch,
-                'spatial_reasoning': spatial_mismatch
-            }
-        }
+        return skill_penalties
 
-    def _calculate_difficulty_cost(self, mcq_vector: OptimizedMCQVector,simulated_mastery_levels: Dict[int, float],student: StudentProfile) -> float:
+    def _calculate_difficulty_cost(self, mcq_vector: OptimizedMCQVector,
+                                student: StudentProfile,
+                                simulated_mastery_levels: Dict[int, float],
+                                confidence: float = 1.0) -> float:
+        """
+        Calculate difficulty mismatch cost with confidence-based reduction.
+        Lower confidence = reduced penalties = more exploration.
+        """
+        # Get config values
+        confidence_cap = self.get_config_value('confidence_algorithm.confidence_cap', 0.8)
+        difficulty_reduction_factor = self.get_config_value('confidence_algorithm.difficulty_reduction_factor', 0.5)
+        min_difficulty_penalty = self.get_config_value('confidence_algorithm.min_difficulty_penalty', 0.1)
+
+        # Calculate base difficulty cost (existing logic)
+        base_difficulty_cost = self._calculate_base_difficulty_cost(mcq_vector, simulated_mastery_levels, student)
+
+        # Apply confidence-based reduction only if below cap
+        if confidence >= confidence_cap:
+            return base_difficulty_cost
+
+        # Calculate reduction factor based on confidence
+        confidence_below_cap = confidence_cap - confidence
+        max_reduction = confidence_cap  # Maximum possible reduction
+        reduction_ratio = confidence_below_cap / max_reduction
+
+        # Apply reduction but maintain minimum penalty
+        penalty_multiplier = 1.0 - (reduction_ratio * difficulty_reduction_factor)
+        penalty_multiplier = max(penalty_multiplier, min_difficulty_penalty)
+
+        return base_difficulty_cost * penalty_multiplier
+
+    def _calculate_base_difficulty_cost(self, mcq_vector: OptimizedMCQVector, simulated_mastery_levels: Dict[int, float], student: StudentProfile) -> float:
         """
         Calculate cost based on difficulty mismatch.
         Questions too hard or too easy get penalized.
@@ -3593,7 +3674,6 @@ class MCQScheduler:
         skills_analysis = self.calculate_skills_difficulty_mismatch(mcq_vector, student)
 
         # Use the total skills penalty as the base difficulty cost
-        # Since skills_analysis returns negative penalties, we need to make them positive costs
         skills_based_cost = abs(skills_analysis['total_skills_penalty'])
 
 
@@ -3869,10 +3949,72 @@ class MCQScheduler:
 
             if breakdown_steps:
                 print(f"📚 Generated {len(breakdown_steps)} breakdown steps for answer {wrong_answer}")
-
+                if hasattr(self.student_manager, 'start_breakdown_session'):
+                    self.student_manager.start_breakdown_session(student_id, breakdown_steps)
             return breakdown_steps
         return None
 
+
+    def process_breakdown_step_response(self, student_id: str, step_index: int,
+                                    user_answer: int, breakdown_steps: List['BreakdownStep']) -> Dict:
+        """
+        CORRECTED: Process individual breakdown step response with skill tracking
+        """
+        if step_index >= len(breakdown_steps):
+            return {'error': 'Invalid step index'}
+
+        step = breakdown_steps[step_index]
+        is_correct = (user_answer == step.correctindex)
+
+        result = {
+            'step_index': step_index,
+            'is_correct': is_correct,
+            'step_type': step.step_type,
+            'user_answer': user_answer,
+            'correct_answer': step.correctindex
+        }
+
+        # FIXED: Now calls the correct BKT method with correct signature
+        if (hasattr(self, 'bkt_system') and
+            self.bkt_system and
+            hasattr(self.bkt_system, 'process_breakdown_step_response')):
+
+            step_difficulty = getattr(step, 'difficulty', 2.5)
+            skill_result = self.bkt_system.process_breakdown_step_response(
+                student_id, step.step_type, is_correct, step_difficulty
+            )
+            result.update(skill_result)
+
+        return result
+
+    '''
+    # Complete breakdown sequence with skill tracking
+    def complete_breakdown_sequence(self, student_id: str, mcq_id: str,
+                                step_results: List[Dict]) -> Dict:
+        """
+        Complete breakdown sequence and apply final skill updates
+
+        Args:
+            step_results: List of {'step': BreakdownStep, 'correct': bool} dicts
+        """
+        # Check if all steps were completed correctly
+        all_steps_correct = all(result['correct'] for result in step_results)
+
+        completion_result = {}
+
+        if all_steps_correct and self.bkt_system:
+            # Apply negative update since student needed help with breakdown
+            completion_result = self.bkt_system.process_breakdown_completion(
+                student_id, mcq_id, all_steps_correct=True
+            )
+            print(f"🔄 Applied breakdown completion updates for {mcq_id}")
+
+        return {
+            'all_steps_correct': all_steps_correct,
+            'total_steps': len(step_results),
+            'completion_updates': completion_result
+        }
+        '''
     def get_next_breakdown_step(self, breakdown_steps: List['BreakdownStep'], current_step_index: int) -> Optional['BreakdownStep']:
         """NEW METHOD: Get next step in breakdown sequence"""
         if current_step_index < len(breakdown_steps) - 1:
@@ -3890,7 +4032,247 @@ class MCQScheduler:
 
 
         return True
+@dataclass
+class SkillState:
+    """Complete state for a single skill (0-1 scale)"""
+    ability_level: float  # 0-1 scale
+    alpha: float          # Beta distribution success parameter
+    beta: float           # Beta distribution failure parameter
+    last_updated: datetime
+    total_evidence: float # Total evidence accumulated
 
+
+
+class BetaInformedEloSkillTracker:
+    """
+    Tracks student skills using Beta-informed Elo updates on 0-1 scale
+    """
+
+    def __init__(self, config_manager=None):
+        self.config = config_manager
+
+        # Get parameters from config with defaults
+        self.initial_ability = self.get_config_value('skill_tracking.initial_ability', 0.5)
+        self.initial_alpha = self.get_config_value('skill_tracking.initial_alpha', 1.0)
+        self.initial_beta = self.get_config_value('skill_tracking.initial_beta', 1.0)
+        self.base_learning_rate = self.get_config_value('skill_tracking.base_learning_rate', 0.15)
+        self.min_evidence_threshold = self.get_config_value('skill_tracking.min_evidence_threshold', 0.05)
+
+        # Skill-specific learning rates
+        self.skill_learning_rates = {
+            'problem_solving': self.get_config_value('skill_tracking.skill_learning_rates.problem_solving', 0.12),
+            'procedural_fluency': self.get_config_value('skill_tracking.skill_learning_rates.procedural_fluency', 0.18),
+            'conceptual_understanding': self.get_config_value('skill_tracking.skill_learning_rates.conceptual_understanding', 0.15),
+            'memory': self.get_config_value('skill_tracking.skill_learning_rates.memory', 0.20),
+            'mathematical_communication': self.get_config_value('skill_tracking.skill_learning_rates.mathematical_communication', 0.16),
+            'spatial_reasoning': self.get_config_value('skill_tracking.skill_learning_rates.spatial_reasoning', 0.17)
+        }
+
+        # All valid skill names (matches step_type values)
+        self.valid_skills = [
+            'problem_solving', 'procedural_fluency', 'conceptual_understanding',
+            'memory', 'mathematical_communication', 'spatial_reasoning'
+        ]
+    def get_skill_summary(self, student: StudentProfile) -> Dict[str, Any]:
+        """
+        Get comprehensive skill summary for a student.
+
+        Returns:
+            Dictionary with current skill levels, confidence, and progress metrics
+        """
+
+
+        if not student:
+            print(f"⚠️  Warning: No student provided for skill summary")
+            return {}
+
+        # Ensure student has ability_levels
+        if not hasattr(student, 'ability_levels') or not student.ability_levels:
+            student.ability_levels = {skill: 0.5 for skill in self.skill_categories}
+
+        skill_summary = {}
+
+        for skill_name in self.valid_skills:
+            # Get or initialize skill state
+            skill_state = self.get_or_initialize_skill_state(student, skill_name)
+
+            # Calculate uncertainty from Beta distribution
+            total_samples = skill_state.alpha + skill_state.beta
+            uncertainty = 1 / (1 + total_samples * 0.1)
+
+            skill_summary[skill_name] = {
+                'ability_level': skill_state.ability_level,
+                'uncertainty': uncertainty,
+                'total_evidence': skill_state.total_evidence,
+                'alpha': skill_state.alpha,
+                'beta': skill_state.beta,
+                'last_updated': skill_state.last_updated
+            }
+
+        return skill_summary
+
+
+    def get_config_value(self, key: str, default):
+        """Get configuration value with fallback to default"""
+        if not self.config:
+            return default
+        try:
+            keys = key.split('.')
+            value = self.config.config
+            for k in keys:
+                value = value[k]
+            return value
+        except (KeyError, TypeError, AttributeError):
+            return default
+
+    def get_or_initialize_skill_state(self, student: 'StudentProfile', skill_name: str) -> SkillState:
+        """Get skill state or initialize if doesn't exist"""
+        if not hasattr(student, 'skill_states'):
+            student.skill_states = {}
+
+        if skill_name not in student.skill_states:
+            student.skill_states[skill_name] = SkillState(
+                ability_level=self.initial_ability,
+                alpha=self.initial_alpha,
+                beta=self.initial_beta,
+                last_updated=datetime.now(),
+                total_evidence=0.0
+            )
+
+        return student.skill_states[skill_name]
+
+    def update_skills_from_question(self, student: 'StudentProfile',
+                                   mcq_vector: 'OptimizedMCQVector',
+                                   is_correct: bool) -> Dict[str, Dict]:
+        """
+        Update all relevant skills based on question performance
+        Skills weighted by their breakdown values in the question
+        """
+        if not mcq_vector or not mcq_vector.difficulty_breakdown:
+            return {}
+
+        skill_updates = {}
+
+        # Update each skill weighted by its breakdown value
+        for skill_name in self.valid_skills:
+            skill_difficulty = getattr(mcq_vector.difficulty_breakdown, skill_name, 0.0)
+            evidence_weight = skill_difficulty #/ 5.0  # Convert 0-5 to 0-1
+
+            if evidence_weight >= self.min_evidence_threshold:
+                update_result = self._update_single_skill(
+                    student, skill_name, skill_difficulty, is_correct, evidence_weight,
+                    source="question"
+                )
+                if update_result:
+                    skill_updates[skill_name] = update_result
+
+        return skill_updates
+
+    def update_skill_from_breakdown_step(self, student: 'StudentProfile',
+                                       step_type: str, is_correct: bool,
+                                       step_difficulty: float = 2.5) -> Optional[Dict]:
+        """
+        Update specific skill based on breakdown step performance
+        Only updates on incorrect answers (correct answers do nothing)
+        """
+        if is_correct:
+            return None  # Correct breakdown steps don't update skills
+
+        if step_type not in self.valid_skills:
+            print(f"Warning: Unknown step_type '{step_type}', skipping skill update")
+            return None
+
+        # Breakdown steps provide strong evidence (weight = 1.0)
+        evidence_weight = 1.0
+
+        return self._update_single_skill(
+            student, step_type, step_difficulty, is_correct, evidence_weight,
+            source=f"breakdown_step({step_type})"
+        )
+
+    def apply_breakdown_completion_update(self, student: 'StudentProfile',
+                                        mcq_vector: 'OptimizedMCQVector') -> Dict[str, Dict]:
+        """
+        Apply negative updates when all breakdown steps are completed correctly
+        (Student needed help, so treat as if they got original question wrong)
+        """
+        if not mcq_vector or not mcq_vector.difficulty_breakdown:
+            return {}
+
+        # Apply negative updates (as if question was answered incorrectly)
+        return self.update_skills_from_question(student, mcq_vector, is_correct=False)
+
+    def _update_single_skill(self, student: 'StudentProfile', skill_name: str,
+                           question_difficulty: float, is_correct: bool,
+                           evidence_weight: float, source: str = "unknown") -> Dict:
+        """
+        Core skill update logic using Beta-informed Elo approach
+        """
+        skill_state = self.get_or_initialize_skill_state(student, skill_name)
+
+        # === CALCULATE EXPECTED PERFORMANCE ===
+        # Both student ability and question difficulty are on 0-1 scale after normalization
+        student_ability = skill_state.ability_level
+        normalized_question_difficulty = min(question_difficulty , 1.0)  # Ensure 0-1
+
+        # Calculate expected success probability using logistic function
+        difficulty_difference = normalized_question_difficulty - student_ability
+        scale_factor = self.get_config_value('skill_tracking.difficulty_scale_factor', 0.5)
+        expected_prob = 1 / (1 + math.exp(difficulty_difference / scale_factor))
+
+        # === BETA-INFORMED LEARNING RATE ===
+        # Calculate uncertainty from Beta distribution
+        total_samples = skill_state.alpha + skill_state.beta
+        uncertainty = 1 / (1 + total_samples * 0.1)  # Slower uncertainty decay
+
+        # Get skill-specific learning rate
+        base_rate = self.skill_learning_rates.get(skill_name, self.base_learning_rate)
+
+        # Adapt learning rate based on uncertainty and evidence
+        uncertainty_multiplier = self.get_config_value('skill_tracking.uncertainty_multiplier', 2.0)
+        adaptive_rate = base_rate * evidence_weight * (1 + uncertainty * uncertainty_multiplier)
+
+        # === ELO-STYLE UPDATE ===
+        actual_outcome = 1.0 if is_correct else 0.0
+        performance_error = actual_outcome - expected_prob
+
+        # Update ability level (keeping in 0-1 range)
+        ability_change = adaptive_rate * performance_error
+        new_ability = np.clip(skill_state.ability_level + ability_change, 0.0, 1.0)
+
+        # === BETA POSTERIOR UPDATE ===
+        # Weight evidence by how "surprising" the outcome was
+        surprise_factor = abs(performance_error)
+        surprise_amplification = self.get_config_value('skill_tracking.surprise_amplification', 1.5)
+        effective_evidence = evidence_weight * (0.5 + surprise_factor * surprise_amplification)
+
+        new_alpha = skill_state.alpha + effective_evidence * actual_outcome
+        new_beta = skill_state.beta + effective_evidence * (1 - actual_outcome)
+
+        # === UPDATE STUDENT STATE ===
+        old_ability = skill_state.ability_level
+        skill_state.ability_level = new_ability
+        skill_state.alpha = new_alpha
+        skill_state.beta = new_beta
+        skill_state.last_updated = datetime.now()
+        skill_state.total_evidence += effective_evidence
+
+        # Update the main ability_levels dict (used by greedy algorithm)
+        student.ability_levels[skill_name] = new_ability
+
+        return {
+            'skill_name': skill_name,
+            'source': source,
+            'old_ability': old_ability,
+            'new_ability': new_ability,
+            'ability_change': ability_change,
+            'expected_prob': expected_prob,
+            'performance_error': performance_error,
+            'evidence_weight': evidence_weight,
+            'effective_evidence': effective_evidence,
+            'uncertainty': uncertainty,
+            'question_difficulty': normalized_question_difficulty
+        }
 
 @dataclass
 class FSRSMemoryComponents:
@@ -4058,6 +4440,18 @@ class BayesianKnowledgeTracing:
         else:
             self.fsrs_forgetting = None
 
+        self.skill_tracking_enabled = self.get_config_value('skill_tracking.enabled', True)
+        if self.skill_tracking_enabled:
+            self.skill_tracker = BetaInformedEloSkillTracker(config_manager)
+            print("✅ Skill tracking enabled with Beta-informed Elo")
+        else:
+            self.skill_tracker = None
+            print("❌ Skill tracking disabled")
+
+    def set_scheduler(self, scheduler):
+        """Set reference to scheduler after initialization"""
+        self.scheduler = scheduler
+
     def _get_default_params_from_config(self) -> Dict:
         """Get default BKT parameters from config manager"""
         return self.config.get('bkt_parameters.default', {
@@ -4085,6 +4479,19 @@ class BayesianKnowledgeTracing:
             retrievability_threshold=self.config.get('bkt_config.fsrs_retrievability_threshold', 0.9),
             min_retrievability=self.config.get('bkt_config.fsrs_min_retrievability', 0.1)
         )
+
+    def get_config_value(self, key: str, default):
+        """Get configuration value with fallback to default"""
+        if not self.config:
+            return default
+        try:
+            keys = key.split('.')
+            value = self.config.config
+            for k in keys:
+                value = value[k]
+            return value
+        except (KeyError, TypeError, AttributeError):
+            return default
 
     def _initialize_topic_parameters(self):
         """Initialize BKT parameters for all topics from config"""
@@ -4158,7 +4565,7 @@ class BayesianKnowledgeTracing:
                                 is_correct: bool, mcq_id: str = None,
                                 custom_params: Optional[Dict] = None) -> Dict:
         """
-        Process a student's response and update their mastery using BKT
+        Process a student's response and update their mastery using BKT with skill tracking
         FSRS forgetting applied automatically
         """
         student = self.student_manager.get_student(student_id)
@@ -4169,7 +4576,7 @@ class BayesianKnowledgeTracing:
         params = custom_params if custom_params else self.get_topic_parameters(topic_index)
 
         # Get current mastery level
-        current_mastery = student.get_mastery(topic_index)
+        current_mastery = student.mastery_levels.get(topic_index)
         mastery_before_forgetting = current_mastery
 
         # If this is the first time seeing this topic, initialize with prior
@@ -4235,7 +4642,96 @@ class BayesianKnowledgeTracing:
             result['forgetting_applied'] = mastery_before_forgetting - forgotten_mastery
             result['total_change'] = new_mastery - mastery_before_forgetting
 
+        # Update skills if skill tracking is enabled
+        skill_updates = {}
+        if self.skill_tracking_enabled and self.skill_tracker and mcq_id:
+            try:
+                mcq_vector = self.scheduler._get_or_create_optimized_mcq_vector(mcq_id)
+                if mcq_vector:
+                    skill_updates = self.skill_tracker.update_skills_from_question(
+                        student, mcq_vector, is_correct
+                    )
+            except Exception as e:
+                print(f"Warning: Skill update failed for {mcq_id}: {e}")
+
+        result['skill_updates'] = skill_updates
         return result
+
+
+
+    def process_breakdown_completion(self, student_id: str, mcq_id: str,
+                                all_steps_correct: bool) -> Dict:
+        """
+        Process completion of breakdown sequence
+        If all steps correct, apply negative update (student needed help)
+        """
+        if not self.skill_tracking_enabled or not self.skill_tracker:
+            return {'skill_updates': {}}
+
+        if not all_steps_correct:
+            return {'skill_updates': {}}  # Individual step failures already handled
+
+        student = self.student_manager.get_student(student_id)
+        if not student:
+            raise ValueError(f"Student {student_id} not found")
+
+        try:
+            mcq_vector = self.scheduler._get_or_create_optimized_mcq_vector(mcq_id)
+            if mcq_vector:
+                skill_updates = self.skill_tracker.apply_breakdown_completion_update(
+                    student, mcq_vector
+                )
+                return {'skill_updates': skill_updates}
+        except Exception as e:
+            print(f"Warning: Breakdown completion update failed for {mcq_id}: {e}")
+
+        return {'skill_updates': {}}
+
+    def complete_breakdown_sequence(self, student_id: str, mcq_id: str,
+                                breakdown_results: List[Dict]) -> Dict:
+        """
+        Complete breakdown sequence and apply final updates
+        """
+        # Check if all steps were answered correctly
+        all_correct = all(result['is_correct'] for result in breakdown_results)
+
+        completion_result = {
+            'all_steps_correct': all_correct,
+            'total_steps': len(breakdown_results),
+            'correct_steps': sum(1 for r in breakdown_results if r['is_correct'])
+        }
+
+        # NEW: Apply negative skill updates if all steps correct (student needed help)
+        if (all_correct and
+            hasattr(self, 'bkt_system') and
+            hasattr(self.bkt_system, 'skill_tracker') and
+            self.bkt_system.skill_tracker):
+
+            skill_completion_updates = self.bkt_system.process_breakdown_completion(
+                student_id, mcq_id, all_steps_correct=True
+            )
+            completion_result['skill_completion_updates'] = skill_completion_updates
+
+        return completion_result
+
+    def process_breakdown_step_response(self, student_id: str, step_type: str,
+                                    is_correct: bool, step_difficulty: float = 2.5) -> Dict:
+        """
+        Process breakdown step response and update relevant skill
+        Only updates skills on incorrect answers
+        """
+        if not self.skill_tracking_enabled or not self.skill_tracker:
+            return {'skill_update': None}
+
+        student = self.student_manager.get_student(student_id)
+        if not student:
+            raise ValueError(f"Student {student_id} not found")
+
+        skill_update = self.skill_tracker.update_skill_from_breakdown_step(
+            student, step_type, is_correct, step_difficulty
+        )
+
+        return {'skill_update': skill_update}
 
     def process_mcq_response_improved(self, student_id: str, mcq_id: str,
                                     is_correct: bool) -> List[Dict]:
@@ -4331,7 +4827,7 @@ class BayesianKnowledgeTracing:
 
             # Only apply significant effects
             if final_effect > min_effect:
-                current_mastery = student.get_mastery(topic_index)
+                current_mastery = student.mastery_levels.get(topic_index)
                 new_mastery = min(1.0, current_mastery + final_effect)
 
                 # Update student mastery
@@ -4450,7 +4946,7 @@ class BayesianKnowledgeTracing:
         if not student:
             return 0.0
 
-        stored_mastery = student.get_mastery(topic_index)
+        stored_mastery = student.mastery_levels.get(topic_index)
 
         if self.config.get('bkt_config.enable_fsrs_forgetting', True) and self.fsrs_forgetting:
             return self.fsrs_forgetting.apply_forgetting(student_id, topic_index, stored_mastery)
@@ -4548,6 +5044,35 @@ class BayesianKnowledgeTracing:
             diagnostics['average_retrievability'] = retrievability_sum / component_count
 
         return diagnostics
+
+
+    def get_student_skill_summary(self, student_id: str) -> Dict:
+        """Get comprehensive summary of student's skill levels"""
+        if not self.skill_tracking_enabled or not self.skill_tracker:
+            return {}
+
+        student = self.student_manager.get_student(student_id)
+        if not student:
+            return {}
+
+        return self.skill_tracker.get_skill_summary(student)
+
+    def reset_student_skills(self, student_id: str):
+        """Reset student's skills to initial values (for testing)"""
+        if not self.skill_tracking_enabled or not self.skill_tracker:
+            return
+
+        student = self.student_manager.get_student(student_id)
+        if not student:
+            return
+
+        # Reset skill states
+        if hasattr(student, 'skill_states'):
+            delattr(student, 'skill_states')
+
+        # Reset ability levels to initial values
+        for skill_name in self.skill_tracker.valid_skills:
+            student.ability_levels[skill_name] = self.skill_tracker.initial_ability
 
 ##############  FSRS TIME TESTING   ##################
 
@@ -5556,12 +6081,376 @@ def interactive_breakdown_demo():
     except KeyboardInterrupt:
         print("\nDemo cancelled.")
 
+def test_skill_tracking_system():
+    """
+    Simple test suite for skill tracking functionality
+    Add this to the end of mcq_algorithm_current.py
+    """
+    print("\n" + "="*60)
+    print("🧠 SKILL TRACKING SYSTEM TESTS")
+    print("="*60)
+
+    try:
+        # Initialize system
+        print("🔧 Initializing test system...")
+
+        # Use your existing file paths
+        kg = KnowledgeGraph(
+            nodes_file='_static/kg_new.json',
+            mcqs_file='_static/computed_mcqs_breakdown.json',
+            config_file='_static/config.json'
+        )
+
+        student_manager = StudentManager(kg.config)
+        mcq_scheduler = MCQScheduler(kg, student_manager)
+        bkt_system = BayesianKnowledgeTracing(kg, student_manager)
+
+        # Connect systems
+        mcq_scheduler.set_bkt_system(bkt_system)
+        bkt_system.set_scheduler(mcq_scheduler)  # ✅ Set scheduler after creation
+        student_manager.set_bkt_system(bkt_system)
+
+        print("✅ System initialized successfully")
+
+        # Test 1: Check if skill tracking is enabled
+        print("\n1️⃣ Testing skill tracking initialization...")
+
+        skill_tracking_enabled = hasattr(bkt_system, 'skill_tracker') and bkt_system.skill_tracker is not None
+        print(f"   Skill tracking enabled: {skill_tracking_enabled}")
+
+        if not skill_tracking_enabled:
+            print("   ⚠️  Skill tracking not enabled - check config.json")
+            print("   💡 Add 'skill_tracking': {'enabled': true} to config")
+            return
+
+        # Test 2: Create test student
+        print("\n2️⃣ Creating test student...")
+
+        student_id = "skill_test_student"
+        student = student_manager.create_student(student_id)
+
+        # Initialize some topics
+        import random
+        for topic_idx in list(kg.get_all_indexes())[:5]:  # Test with first 5 topics
+            student.mastery_levels[topic_idx] = random.uniform(0.3, 0.7)
+            student.studied_topics[topic_idx] = True
+
+        print(f"   ✅ Created student: {student_id}")
+        print(f"   📚 Initialized {len(student.mastery_levels)} topics")
+
+        # Test 3: Check initial skill levels
+        print("\n3️⃣ Testing initial skill levels...")
+
+        initial_skills = {}
+        for skill in ['problem_solving', 'procedural_fluency', 'conceptual_understanding',
+                     'memory', 'mathematical_communication', 'spatial_reasoning']:
+            initial_skills[skill] = student.ability_levels.get(skill, 0.5)
+            print(f"   {skill}: {initial_skills[skill]:.3f}")
+
+        # Test 4: Test question-level skill updates
+        print("\n4️⃣ Testing question-level skill updates...")
+
+        # Get a test MCQ
+        selected_mcqs = mcq_scheduler.select_optimal_mcqs(student_id, 1)
+
+        if selected_mcqs:
+            test_mcq_id = selected_mcqs[0]
+            print(f"   📝 Testing with MCQ: {test_mcq_id}")
+
+            # Get the MCQ's topic for BKT update
+            mcq_vector = mcq_scheduler._get_or_create_optimized_mcq_vector(test_mcq_id)
+            if mcq_vector:
+                # Test incorrect answer (should decrease skills)
+                print("   ❌ Testing incorrect answer (should decrease skills)...")
+
+                topic_index = mcq_vector.main_topic_index
+                result = bkt_system.process_student_response(
+                    student_id, topic_index, is_correct=False, mcq_id=test_mcq_id
+                )
+
+                skill_updates = result.get('skill_updates', {})
+                print(f"   📊 Skills updated: {len(skill_updates)}")
+
+                for skill_name, update_data in skill_updates.items():
+                    old_val = update_data['old_ability']
+                    new_val = update_data['new_ability']
+                    change = new_val - old_val
+                    print(f"      {skill_name}: {old_val:.3f} → {new_val:.3f} ({change:+.3f})")
+
+                # Test correct answer (should increase skills)
+                print("   ✅ Testing correct answer (should increase skills)...")
+
+                result = bkt_system.process_student_response(
+                    student_id, topic_index, is_correct=True, mcq_id=test_mcq_id
+                )
+
+                skill_updates = result.get('skill_updates', {})
+                for skill_name, update_data in skill_updates.items():
+                    old_val = update_data['old_ability']
+                    new_val = update_data['new_ability']
+                    change = new_val - old_val
+                    print(f"      {skill_name}: {old_val:.3f} → {new_val:.3f} ({change:+.3f})")
+
+        else:
+            print("   ⚠️  No MCQs available for testing")
+
+        # Test 5: Test breakdown step updates
+        print("\n5️⃣ Testing breakdown step updates...")
+
+        # Test each step type
+        step_types = ['memory', 'conceptual_understanding', 'procedural_fluency',
+                     'problem_solving', 'mathematical_communication', 'spatial_reasoning']
+
+        for step_type in step_types:
+            old_skill = student.ability_levels.get(step_type, 0.5)
+
+            # Test incorrect breakdown step (should decrease specific skill)
+            result = bkt_system.process_breakdown_step_response(
+                student_id, step_type, is_correct=False, step_difficulty=3.0
+            )
+
+            skill_update = result.get('skill_update')
+            if skill_update:
+                new_skill = skill_update['new_ability']
+                change = new_skill - old_skill
+                print(f"   {step_type}: {old_skill:.3f} → {new_skill:.3f} ({change:+.3f})")
+            else:
+                print(f"   {step_type}: No update (as expected for correct answer)")
+
+        # Test 6: Test breakdown completion
+        print("\n6️⃣ Testing breakdown completion...")
+
+        if selected_mcqs:
+            test_mcq_id = selected_mcqs[0]
+
+            # Record skills before completion
+            skills_before = {}
+            for skill in step_types:
+                skills_before[skill] = student.ability_levels.get(skill, 0.5)
+
+            # Test breakdown completion (all steps correct = negative update)
+            result = bkt_system.process_breakdown_completion(
+                student_id, test_mcq_id, all_steps_correct=True
+            )
+
+            completion_updates = result.get('skill_updates', {})
+            print(f"   📊 Completion updates: {len(completion_updates)}")
+
+            for skill_name, update_data in completion_updates.items():
+                old_val = skills_before[skill_name]
+                new_val = update_data['new_ability']
+                change = new_val - old_val
+                print(f"      {skill_name}: {old_val:.3f} → {new_val:.3f} ({change:+.3f})")
+
+        # Test 7: Test skill summary
+        print("\n7️⃣ Testing skill summary...")
+
+        summary = bkt_system.get_student_skill_summary(student_id)
+        print("   📋 Final skill summary:")
+
+        for skill_name, skill_data in summary.items():
+            ability = skill_data['ability_level']
+            uncertainty = skill_data['uncertainty']
+            evidence = skill_data['total_evidence']
+            print(f"      {skill_name:25}: {ability:.3f} (±{uncertainty:.3f}) [{evidence:.1f} evidence]")
+
+        # Test 8: Verify greedy algorithm compatibility
+        print("\n8️⃣ Testing greedy algorithm compatibility...")
+
+        # Select questions - this should use updated skill levels
+        new_selected = mcq_scheduler.select_optimal_mcqs(student_id, 3)
+        print(f"   ✅ Selected {len(new_selected)} questions with updated skills")
+
+        # Verify skill levels are used in difficulty mismatch calculation
+        if new_selected:
+            test_mcq_id = new_selected[0]
+            mcq_vector = mcq_scheduler._get_or_create_optimized_mcq_vector(test_mcq_id)
+
+            if mcq_vector and mcq_vector.difficulty_breakdown:
+                # Test the skills mismatch calculation
+                skills_analysis = mcq_scheduler.calculate_skills_difficulty_mismatch(mcq_vector, student)
+
+                print("   🔍 Skills difficulty analysis:")
+                raw_mismatches = skills_analysis.get('raw_mismatches', {})
+                for skill, mismatch in raw_mismatches.items():
+                    print(f"      {skill}: {mismatch:+.3f}")
+
+        print("\n🎉 All skill tracking tests completed successfully!")
+        print("="*60)
+
+    except Exception as e:
+        print(f"\n❌ Skill tracking test failed: {str(e)}")
+        import traceback
+        traceback.print_exc()
+        print("="*60)
+
+def quick_skill_test(student_id="quick_test_student", num_questions=3):
+    """
+    Quick test function for manual testing during development
+    """
+    print(f"\n🚀 Quick skill test for {student_id}")
+    print("-" * 40)
+
+    try:
+        # Initialize system (reuse if already exists)
+        if 'kg' not in globals():
+            global kg, student_manager, mcq_scheduler, bkt_system
+
+            kg = KnowledgeGraph(
+                nodes_file='_static/kg_new.json',
+                mcqs_file='_static/computed_mcqs_breakdown.json',
+                config_file='_static/config.json'
+            )
+
+            student_manager = StudentManager(kg.config)
+            mcq_scheduler = MCQScheduler(kg, student_manager)
+            bkt_system = BayesianKnowledgeTracing(kg, student_manager, scheduler=mcq_scheduler)
+
+            mcq_scheduler.set_bkt_system(bkt_system)
+            student_manager.set_bkt_system(bkt_system)
+
+        # Create or get student
+        try:
+            student = student_manager.get_student(student_id)
+            if not student:
+                student = student_manager.create_student(student_id)
+
+                # Initialize some random mastery levels
+                import random
+                for topic_idx in list(kg.get_all_indexes())[:10]:
+                    student.mastery_levels[topic_idx] = random.uniform(0.2, 0.8)
+                    student.studied_topics[topic_idx] = True
+
+                print(f"✅ Created new student: {student_id}")
+            else:
+                print(f"📚 Using existing student: {student_id}")
+        except:
+            print(f"❌ Could not create/get student {student_id}")
+            return
+
+        # Show current skills
+        print("\n📊 Current skill levels:")
+        for skill in ['problem_solving', 'memory', 'conceptual_understanding']:
+            level = student.ability_levels.get(skill, 0.5)
+            print(f"   {skill}: {level:.3f}")
+
+        # Select and process questions
+        selected = mcq_scheduler.select_optimal_mcqs(student_id, num_questions)
+        print(f"\n📝 Selected {len(selected)} questions")
+
+        for i, mcq_id in enumerate(selected):
+            print(f"\n{i+1}. Processing {mcq_id}...")
+
+            # Get topic for this MCQ
+            mcq_vector = mcq_scheduler._get_or_create_optimized_mcq_vector(mcq_id)
+            if mcq_vector:
+                topic_index = mcq_vector.main_topic_index
+
+                # Simulate random answer
+                import random
+                is_correct = random.choice([True, False])
+
+                result = bkt_system.process_student_response(
+                    student_id, topic_index, is_correct, mcq_id
+                )
+
+                # Show skill updates
+                skill_updates = result.get('skill_updates', {})
+                status = "✅" if is_correct else "❌"
+                print(f"   {status} Answer: {is_correct}")
+                print(f"   🧠 Skills updated: {len(skill_updates)}")
+
+                for skill, update in skill_updates.items():
+                    change = update['new_ability'] - update['old_ability']
+                    print(f"      {skill}: {change:+.3f}")
+
+        # Final summary
+        if hasattr(bkt_system, 'get_student_skill_summary'):
+            summary = bkt_system.get_student_skill_summary(student_id)
+            print(f"\n📋 Final skills summary:")
+            for skill, data in summary.items():
+                print(f"   {skill}: {data['ability_level']:.3f}")
+
+        print("-" * 40)
+
+    except Exception as e:
+        print(f"❌ Quick test failed: {str(e)}")
+
+def demo_skill_progression(student_id="skill_test_student"):
+    """
+    Demonstrate skill progression over multiple questions
+    """
+    print(f"\n🎭 SKILL PROGRESSION DEMO for {student_id}")
+    print("=" * 50)
+
+    try:
+        # Quick system check
+        if 'bkt_system' not in globals() or not hasattr(bkt_system, 'skill_tracker'):
+            print("❌ Skill tracking not available. Run test_skill_tracking_system() first.")
+            return
+
+        student = student_manager.create_student(student_id)
+        import random
+        # Set initial mastery levels if you want
+        for topic_idx in kg.get_all_indexes():
+            mastery = random.uniform(0.1, 0.6)
+            student.mastery_levels[topic_idx] = mastery
+            student.confidence_levels[topic_idx] = mastery * 0.8
+            student.studied_topics[topic_idx] = True
+        # Reset student skills for clean demo
+        bkt_system.reset_student_skills(student_id)
+        student = student_manager.get_student(student_id)
+
+        if not student:
+            print(f"❌ Student {student_id} not found")
+            return
+
+        print("🔄 Reset skills to initial values (0.5)")
+
+        # Show progression through different scenarios
+        scenarios = [
+            ("Easy Memory Question (Correct)", "memory", 1.0, True),
+            ("Hard Problem Solving (Wrong)", "problem_solving", 4.5, False),
+            ("Medium Conceptual (Wrong)", "conceptual_understanding", 3.0, False),
+            ("Easy Procedural (Correct)", "procedural_fluency", 1.5, True),
+            ("Memory Breakdown Step (Wrong)", "memory", 2.0, False)
+        ]
+
+        for i, (desc, skill_type, difficulty, is_correct) in enumerate(scenarios):
+            print(f"\n{i+1}. {desc}")
+
+            old_skill = student.ability_levels.get(skill_type, 0.5)
+
+            if "Breakdown" in desc:
+                # Breakdown step update
+                result = bkt_system.process_breakdown_step_response(
+                    student_id, skill_type, is_correct, difficulty
+                )
+                skill_update = result.get('skill_update')
+                if skill_update:
+                    new_skill = skill_update['new_ability']
+                    change = new_skill - old_skill
+                    print(f"   {skill_type}: {old_skill:.3f} → {new_skill:.3f} ({change:+.3f})")
+                else:
+                    print(f"   No update (correct breakdown step)")
+            else:
+                # Regular question - need to create a mock MCQ vector
+                # This is a simplified demo, in practice you'd use real MCQs
+                print(f"   Difficulty: {difficulty:.1f}, Result: {'Correct' if is_correct else 'Wrong'}")
+                print(f"   {skill_type}: {old_skill:.3f} → [would update based on real MCQ]")
+
+        print("\n" + "=" * 50)
+
+    except Exception as e:
+        print(f"❌ Demo failed: {str(e)}")
+
+
 
 if __name__ == "__main__":
     print("Choose a demo:")
     print("1. Automatic demonstration")
     print("2. Interactive demo")
-
+    '''
     try:
         choice = input("Enter 1 or 2: ")
         if choice == "1":
@@ -5573,3 +6462,21 @@ if __name__ == "__main__":
             simple_breakdown_test()
     except KeyboardInterrupt:
         print("\nGoodbye!")
+    '''
+
+    print("\n" + "🧠" * 20)
+    print("RUNNING SKILL TRACKING TESTS")
+    print("🧠" * 20)
+
+    # Full test suite
+    test_skill_tracking_system()
+
+    # Quick interactive tests
+    print("\n💨 Running quick tests...")
+    quick_skill_test("test_user_1", 2)
+
+    # Demo progression
+    print("\n🎭 Running progression demo...")
+    demo_skill_progression("skill_test_student")
+
+    print("\n🎉 All skill tracking tests completed!")

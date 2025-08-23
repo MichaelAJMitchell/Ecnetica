@@ -78,6 +78,7 @@ generate mcqs and knowledge graph in json form, maybe change config parameters. 
 
   # Connect systems
   mcq_scheduler.set_bkt_system(bkt_system)
+  bkt_system.set_scheduler(mcq_scheduler)
   student_manager.set_bkt_system(bkt_system)
 
   #create student (example)

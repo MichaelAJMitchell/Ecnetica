@@ -102,8 +102,8 @@
       "enable_breakdown_system": true
   },
   "ui_settings": {
-    "default_questions_per_session": 5,
-    "max_questions_per_session": 20,
+    "default_questions_per_session": 30,
+    "max_questions_per_session": 30,
     "enable_explanations": true,
     "show_difficulty": false,
     "enable_confidence_display": true
@@ -115,8 +115,32 @@
       "memory_penalty": 1.5,
       "communication_penalty": 1.8,
       "spatial_penalty": 1.5,
-      "student_offset": 2.0
+      "student_offset": 0.1
     },
+    "confidence_algorithm": {
+    "confidence_cap": 0.8,
+    "difficulty_reduction_factor": 0.5,
+    "min_difficulty_penalty": 0.1
+},
+  "skill_tracking": {
+    "enabled": true,
+    "initial_ability": 0.5,
+    "initial_alpha": 1.0,
+    "initial_beta": 1.0,
+    "base_learning_rate": 0.15,
+    "min_evidence_threshold": 0.05,
+    "difficulty_scale_factor": 0.5,
+    "uncertainty_multiplier": 2.0,
+    "surprise_amplification": 1.5,
+    "skill_learning_rates": {
+      "problem_solving": 0.12,
+      "procedural_fluency": 0.18,
+      "conceptual_understanding": 0.15,
+      "memory": 0.20,
+      "mathematical_communication": 0.16,
+      "spatial_reasoning": 0.17
+    }
+  },
   "metadata": {
     "config_version": "1.0",
     "created_date": "2025-01-01",

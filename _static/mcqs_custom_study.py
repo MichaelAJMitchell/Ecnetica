@@ -914,7 +914,8 @@ def create_custom_study_session(knowledge_graph: KnowledgeGraph,
 
 kg = KnowledgeGraph('_static/kg_new.json', '_static/computed_mcqs_breakdown.json', '_static/config.json')
 student_manager = StudentManager(kg.config)
-bkt_system = BayesianKnowledgeTracing(kg, student_manager)
+mcq_scheduler = MCQScheduler(kg, student_manager)  # Create scheduler first
+bkt_system = BayesianKnowledgeTracing(kg, student_manager, scheduler=mcq_scheduler)
 # Create test student with some mastery levels
 student_id = "test_student"
 student = student_manager.create_student(student_id)

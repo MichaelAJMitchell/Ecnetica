@@ -23,7 +23,6 @@
         }
       };
     </script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <!-- Include existing stylesheet -->
@@ -55,8 +54,6 @@
       // Breakdown state management
       let isInBreakdown = false;
       let currentBreakdown = null; // {steps: [], currentStep: 0, totalSteps: N, completedSteps: []}
-      let mcqParameters = null;
-      let originalMCQData = null;
 
       // Improved MathJax rendering with retry logic
       function renderMathJax(element = document) {
@@ -100,27 +97,22 @@
 
           if (!pyodideInstance) {
             pyodideInstance = await loadPyodide({
-              indexURL: "../../_static/",
-              packageCacheKey: "bkt-demo-v1",
-              loadPackages: false
+              indexURL: "https://cdn.jsdelivr.net/pyodide/v0.27.7/full/",
+              stdout: (text) => console.log("Python:", text),
+              stderr: (text) => console.error("Python Error:", text)
             });
-
-            const originalIndexURL = pyodideInstance._api.config.indexURL;
-            pyodideInstance._api.config.indexURL = "https://cdn.jsdelivr.net/pyodide/v0.27.7/full/";
 
             const packages = ["numpy", "networkx", "matplotlib", "sympy"];
             await pyodideInstance.loadPackage(packages, {
               messageCallback: (msg) => console.log(`Package loading: ${msg}`),
               errorCallback: (err) => console.error(`Package error: ${err}`)
             });
-
-            pyodideInstance._api.config.indexURL = originalIndexURL;
           }
 
           // Step 2: Load BKT code and files
           updateStatus('Loading BKT algorithm...', 'loading');
 
-          const pyResponse = await fetch("../../_static/mcq_algorithm_current.py");
+          const pyResponse = await fetch("../../_static/mcq_algorithm_current.py", { cache: "no-store" });
           if (!pyResponse.ok) {
             throw new Error(`Failed to fetch Python code: ${pyResponse.status}`);
           }
@@ -136,7 +128,7 @@
           ];
 
           for (const file of files) {
-            const response = await fetch(file.url);
+            const response = await fetch(file.url, { cache: "no-store" });
             if (!response.ok) {
               throw new Error(`Failed to fetch ${file.name}: ${response.status}`);
             }
@@ -151,6 +143,7 @@
             import sys
             sys.path.append('.')
             import bkt_system
+            from bkt_system import *
             import json
 
             def js_export(obj):
@@ -169,6 +162,11 @@
             # Connect systems
             mcq_scheduler.set_bkt_system(bkt)
             student_manager.set_bkt_system(bkt)
+
+            # Initialize global MCQ instance variable
+            current_mcq_instance = None
+            print("✅ Global MCQ instance variable initialized")
+
 
             # Store globally
             globals()['kg'] = kg
@@ -219,6 +217,9 @@
           updateStatus('Generating personalized question...', 'loading');
 
           const result = await pyodideInstance.runPythonAsync(`
+
+            import json
+            result_json = None
             try:
                 # Generate MCQ only once per session, store parameters
                 selected_mcqs = mcq_scheduler.select_optimal_mcqs("${currentStudent}", num_questions=1)
@@ -231,41 +232,42 @@
                         # Generate parameters once and store them
                         if mcq.is_parameterized:
                             mcq.ensure_parameters_cached()  # ✅ This ensures consistent parameters
-                            stored_parameters = mcq.get_current_parameters()
+                            stored_parameters = mcq.get_current_parameters_safe()
                         else:
                             stored_parameters = {}
+
+                        # STORE MCQ INSTANCE GLOBALLY IN PYTHON
+                        global current_mcq_instance
+                        current_mcq_instance = mcq
+
 
                         student = student_manager.get_student("${currentStudent}")
                         topic_name = kg.get_topic_of_index(mcq.main_topic_index)
                         current_mastery = student.get_mastery(mcq.main_topic_index)
 
-                        mcq_data = {
+                        # Return minimal data for JavaScript (not the full MCQ)
+                        response_data = {
                             "success": True,
-                            "mcq_id": mcq_id,
-                            "text": mcq.question_text,
-                            "options": mcq.question_options,
-                            "correct_index": mcq.correctindex,
-                            "explanations": mcq.option_explanations,
-                            "topic_name": topic_name,
-                            "current_mastery": current_mastery,
-                            "difficulty": getattr(mcq, 'difficulty', 0.5),
-                            "has_breakdown": mcq.has_breakdown,
-                            "parameters": stored_parameters
+                            "mcq_id": str(mcq.id),
+                            "text": str(mcq.question_text),             # renamed
+                            "options": [str(opt) for opt in mcq.question_options],
+                            "correct_index": int(mcq.correctindex),
+                            "topic_name": str(topic_name),              # renamed
+                            "current_mastery": float(current_mastery),    # renamed
+                            "chapter": str(mcq.chapter),
+                            "difficulty": float(mcq.difficulty if hasattr(mcq, "difficulty") else 0.5),
+                            "has_breakdown": bool(mcq.has_breakdown),
+                            "stored_parameters": dict(stored_parameters)
                         }
-                        result_json = json.dumps(mcq_data)
+
+                        result_json = json.dumps(response_data)
                     else:
-                        result_json = json.dumps({
-                            "success": False,
-                            "error": f"MCQ {mcq_id} not found"
-                        })
+                        result_json = json.dumps({"success": False, "error": "MCQ not found"})
                 else:
-                    result_json = json.dumps({
-                        "success": False,
-                        "error": "No eligible MCQs found"
-                    })
+                    result_json = json.dumps({"success": False, "error": "No eligible MCQs found"})
 
             except Exception as e:
-                result_json = json.dumps({"success": False, "error": f"Error: {str(e)}"})
+                result_json= json.dumps({"success": False, "error": str(e)})
 
             result_json
           `);
@@ -273,17 +275,15 @@
           const data = JSON.parse(result);
 
           if (data.success) {
-            currentMCQ = data;
-            mcqParameters = data.parameters;
-            originalMCQData = data;
+            currentMCQ = data; // Store the minimal data
             displayMCQ(data);
-            updateStatus('Question ready! 🎯', 'success');
+            updateStatus('Question ready!', 'success');
           } else {
-            updateStatus(`❌ ${data.error}`, 'error');
+            updateStatus(`❌ Failed to generate question: ${data.error}`, 'error');
           }
 
         } catch (error) {
-          updateStatus('❌ Failed to generate MCQ', 'error');
+          updateStatus(`❌ Generation failed: ${error.message}`, 'error');
           console.error('MCQ generation error:', error);
         }
       }
@@ -345,7 +345,7 @@
         document.getElementById('submitBtn').disabled = false;
       }
 
-      // Enhanced answer submission with breakdown support
+      // answer submission with breakdown support
       async function submitAnswer() {
         if (selectedOption === null || !currentMCQ) return;
 
@@ -353,79 +353,99 @@
           updateStatus('Processing your answer...', 'loading');
 
           const result = await pyodideInstance.runPythonAsync(`
-            mcq_id = "${currentMCQ.mcq_id}"
-            selected_option = ${selectedOption}
-            correct_index = ${currentMCQ.correct_index}
-            is_correct = selected_option == correct_index
+            import json
+            result_json = None  # Initialize result variable
 
-            # Record the attempt and get BKT updates
-            bkt_updates = student_manager.record_attempt(
-                "${currentStudent}", mcq_id, is_correct, 30.0, kg
-            )
+            try:
+                # 🔑 USE THE STORED MCQ INSTANCE (not get_mcq_safely!)
+                mcq = current_mcq_instance  # This preserves cached parameters!
 
-            # Get response data
-            mcq = kg.get_mcq_safely(mcq_id, need_full_text=True)
-            student = student_manager.get_student("${currentStudent}")
-            topic_name = kg.get_topic_of_index(mcq.main_topic_index)
+                selected_option = ${selectedOption}
+                correct_index = ${currentMCQ.correct_index}
+                is_correct = selected_option == correct_index
 
-            mastery_before = None
-            mastery_after = student.get_mastery(mcq.main_topic_index)
-            mastery_change = 0
-
-            if bkt_updates:
-                primary_update = next((u for u in bkt_updates if u.get('is_primary_topic', False)), None)
-                if primary_update:
-                    mastery_before = primary_update['mastery_before']
-                    mastery_change = primary_update['mastery_change']
-
-            # Check for breakdown trigger
-            breakdown_data = None
-            if not is_correct and mcq.has_breakdown:
-                print(f"Triggering breakdown for wrong answer {selected_option}")
-                breakdown_steps = mcq.execute_breakdown_for_student(
-                    selected_option, student.mastery_levels, kg.config.config
+                # Record the attempt and get BKT updates
+                bkt_updates = student_manager.record_attempt(
+                    "${currentStudent}", mcq.id, is_correct, 30.0, kg
                 )
-                if breakdown_steps:
-                    print(f"Generated {len(breakdown_steps)} breakdown steps")
-                    # Console log for prerequisite skipping
-                    for i, step in enumerate(breakdown_steps):
-                        print(f"Step {i+1}: {step.step_type}")
 
-                    breakdown_data = {
-                        "steps": [],
-                        "total_steps": len(breakdown_steps)
-                    }
+                # Get response data using the SAME MCQ instance
+                student = student_manager.get_student("${currentStudent}")
+                topic_name = kg.get_topic_of_index(mcq.main_topic_index)
 
-                    # Convert breakdown steps to JSON-serializable format
-                    for step in breakdown_steps:
-                        step_dict = {
-                            "step_no": step.step_no,
-                            "step_type": step.step_type,
-                            "text": step.render_step_text(),
-                            "options": step.render_step_options(),
-                            "correctindex": step.correctindex,
-                            "option_explanations": step.option_explanations
+                mastery_before = None
+                mastery_after = student.get_mastery(mcq.main_topic_index)
+                mastery_change = 0
+
+                if bkt_updates:
+                    primary_update = next((u for u in bkt_updates if u.get('is_primary_topic', False)), None)
+                    if primary_update:
+                        mastery_before = primary_update['mastery_before']
+                        mastery_change = primary_update['mastery_change']
+
+                # Check for breakdown trigger
+                breakdown_data = None
+                if not is_correct and mcq.has_breakdown:
+                    print(f"Triggering breakdown for wrong answer {selected_option}")
+                    breakdown_steps = mcq.execute_breakdown_for_student(
+                        selected_option, student.mastery_levels, kg.config.config
+                    )
+                    if breakdown_steps:
+                        print(f"Generated {len(breakdown_steps)} breakdown steps")
+                        # Console log for prerequisite skipping
+                        for i, step in enumerate(breakdown_steps):
+                            print(f"Step {i+1}: {step.step_type}")
+
+                        breakdown_data = {
+                            "steps": [],
+                            "total_steps": len(breakdown_steps)
                         }
-                        breakdown_data["steps"].append(step_dict)
 
-            response_data = {
-                "is_correct": is_correct,
-                "selected_text": mcq.options[selected_option],
-                "correct_option": mcq.options[correct_index],
-                "explanation": mcq.option_explanations[selected_option],
-                "main_topic": topic_name,
-                "before_mastery": mastery_before or mastery_after,
-                "after_mastery": mastery_after,
-                "mastery_change": mastery_change,
-                "total_changes": len(bkt_updates),
-                "has_breakdown": breakdown_data is not None,
-                "breakdown": breakdown_data
-            }
+                        # Convert breakdown steps to JSON-serializable format
+                        for step in breakdown_steps:
+                            step_dict = {
+                                "step_no": step.step_no,
+                                "step_type": step.step_type,
+                                "text": step.render_step_text(),
+                                "options": step.render_step_options(),
+                                "correctindex": step.correctindex,
+                                "option_explanations": step.option_explanations
+                            }
+                            breakdown_data["steps"].append(step_dict)
 
-            js_export(response_data)
+                response_data = {
+                    "is_correct": is_correct,
+                    "selected_text": mcq.question_options[selected_option],
+                    "correct_option": mcq.question_options[correct_index],
+                    "explanation": mcq.option_explanations[selected_option],
+                    "main_topic": topic_name,
+                    "before_mastery": mastery_before or mastery_after,
+                    "after_mastery": mastery_after,
+                    "mastery_change": mastery_change,
+                    "total_changes": len(bkt_updates),
+                    "has_breakdown": breakdown_data is not None,
+                    "breakdown": breakdown_data
+                }
+
+                # ✅ Use json.dumps instead of js_export
+                result_json = json.dumps(response_data)
+
+            except Exception as e:
+                # ✅ Handle exceptions properly
+                result_json = json.dumps({"error": str(e), "success": False})
+
+            # ✅ Return the result
+            result_json
           `);
 
+
           const data = JSON.parse(result);
+
+          // Check for errors
+          if (data.error) {
+            updateStatus(`❌ Error: ${data.error}`, 'error');
+            return;
+          }
 
           // Check if breakdown should be triggered
           if (!data.is_correct && data.has_breakdown) {
@@ -434,19 +454,16 @@
             displayResult(data);
           }
 
-
-
           // Reset for next question
           selectedOption = null;
-          // Only reset currentMCQ if we're NOT starting a breakdown
           const startingBreakdown = !data.is_correct && data.has_breakdown;
           if (!startingBreakdown) {
             currentMCQ = null;
           }
 
         } catch (error) {
-          updateStatus('❌ Failed to process answer', 'error');
-          console.error('Answer processing error:', error);
+          updateStatus('❌ Submission failed: ' + error.message, 'error');
+          console.error('Answer submission error:', error);
         }
       }
 
@@ -568,57 +585,63 @@
 
       // Submit breakdown answer
       async function submitBreakdownAnswer(stepIndex) {
-        if (selectedOption === null) return;
+      if (selectedOption === null) return;
 
-        const step = currentBreakdown.steps[stepIndex];
-        const isCorrect = selectedOption === step.correctindex;
+      const step = currentBreakdown.steps[stepIndex];
+      const isCorrect = selectedOption === step.correctindex;
 
-        try {
-          // Record breakdown step attempt (treat as normal question for BKT)
-          await pyodideInstance.runPythonAsync(`
-            # Record breakdown step as normal attempt for BKT updates
-            import json
-            student_manager.record_attempt(
-                "${currentStudent}", "${currentMCQ.mcq_id}_step_${stepIndex}", ${isCorrect ? 'True' : 'False'}, 15.0, kg
-            )
-            print(f"Recorded breakdown step ${stepIndex}: {'correct' if ${isCorrect ? 'True' : 'False'} else 'incorrect'}")
-          `);
+      try {
+        //  USE THE GLOBAL MCQ INSTANCE - fully consistent approach
+        await pyodideInstance.runPythonAsync(`
+          # Use the same global MCQ instance for consistency
+          mcq = current_mcq_instance
 
-          // Store completion data
-          currentBreakdown.completedSteps[stepIndex] = {
-            selectedAnswer: selectedOption,
-            wasCorrect: isCorrect
-          };
+          # Record breakdown step as attempt on parent MCQ for BKT updates
+          student_manager.record_attempt(
+              "${currentStudent}",
+              mcq.id,  # Use the actual MCQ instance ID
+              ${isCorrect ? 'True' : 'False'},
+              15.0,
+              kg
+          )
+          print(f"Recorded breakdown step ${stepIndex} against parent MCQ {mcq.id}: {'correct' if ${isCorrect ? 'True' : 'False'} else 'incorrect'}")
 
-          // Show explanation
-          const explanationDiv = document.getElementById(`breakdown-explanation-${stepIndex}`);
-          explanationDiv.style.display = 'block';
-          explanationDiv.className = `step-explanation ${isCorrect ? 'correct' : 'incorrect'}`;
-          explanationDiv.innerHTML = `
-            <strong>Explanation:</strong> ${step.option_explanations[selectedOption]}
-            <button class="continue-btn" onclick="continueBreakdown(${stepIndex})">
-              ${stepIndex + 1 < currentBreakdown.totalSteps ? 'Continue to Next Step' : 'Complete Breakdown'}
-            </button>
-          `;
+        `);
 
-          // Disable step options
-          document.querySelectorAll('#current-step .mcq-option').forEach(btn => {
-            btn.disabled = true;
-            btn.style.opacity = '0.6';
-          });
-          document.getElementById('breakdownSubmitBtn').disabled = true;
-          document.getElementById('breakdownSubmitBtn').style.opacity = '0.6';
+        // Store completion data
+        currentBreakdown.completedSteps[stepIndex] = {
+          selectedAnswer: selectedOption,
+          wasCorrect: isCorrect
+        };
 
-          // Re-render MathJax for explanation
-          if (window.MathJax) {
-            MathJax.typesetPromise([explanationDiv]).catch((err) => console.log('MathJax render error:', err));
-          }
+        // Show explanation
+        const explanationDiv = document.getElementById(`breakdown-explanation-${stepIndex}`);
+        explanationDiv.style.display = 'block';
+        explanationDiv.className = `step-explanation ${isCorrect ? 'correct' : 'incorrect'}`;
+        explanationDiv.innerHTML = `
+          <strong>Explanation:</strong> ${step.option_explanations[selectedOption]}
+          <button class="continue-btn" onclick="continueBreakdown(${stepIndex})">
+            ${stepIndex + 1 < currentBreakdown.totalSteps ? 'Continue to Next Step' : 'Complete Breakdown'}
+          </button>
+        `;
 
-        } catch (error) {
-          console.error('Error recording breakdown step:', error);
+        // Disable step options
+        document.querySelectorAll('#current-step .mcq-option').forEach(btn => {
+          btn.disabled = true;
+          btn.style.opacity = '0.6';
+        });
+        document.getElementById('breakdownSubmitBtn').disabled = true;
+        document.getElementById('breakdownSubmitBtn').style.opacity = '0.6';
+
+        // Re-render MathJax for explanation
+        if (window.MathJax) {
+          MathJax.typesetPromise([explanationDiv]).catch((err) => console.log('MathJax render error:', err));
         }
-      }
 
+      } catch (error) {
+        console.error('Error recording breakdown step:', error);
+      }
+    }
       // Continue to next breakdown step or complete
       function continueBreakdown(currentStepIndex) {
         const nextStepIndex = currentStepIndex + 1;
@@ -663,8 +686,6 @@
       function startNewQuestion() {
         // Reset all state
         currentMCQ = null;
-        originalMCQData = null;
-        mcqParameters = null;
         selectedOption = null;
 
         // Hide breakdown section

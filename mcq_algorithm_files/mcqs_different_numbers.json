@@ -80,7 +80,7 @@
         {
           "step_no":4,
           "step_type":"procedural_fluency",
-          "text":" we now have our foumula, ${subquestion_expression_subbed}. time to do the math. when you calculate this sum, what do you get?",
+          "text":" we now have our foumula, ${subquestion_expression}. time to do the math. when you calculate this sum, what do you get?",
           "subquestion_expression":"b**2-4*a*c",
           "calculated_parameters": {
             "opt1": "b**2-4*a*c",
@@ -132,7 +132,7 @@
         {
           "step_no":3,
           "step_type":"procedural_fluency",
-          "text":" we now have our foumula, ${subquestion_expression_subbed}. time to do the math. when you calculate this sum, what do you get?",
+          "text":" we now have our foumula, ${subquestion_expression}. time to do the math. when you calculate this sum, what do you get?",
           "subquestion_expression":"b**2-4*a*c",
           "calculated_parameters": {
             "opt1": "b**2-4*a*c",
@@ -1189,4 +1189,5 @@
       }
     }
 
-  ]}
+  ]
+}

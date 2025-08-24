@@ -66,7 +66,7 @@ ECNETICA PROJECT - CONSOLIDATED STYLESHEET
   --category-financial: #2ecc71;
   --category-creative: #9b59b6;
 
-/* Visualization-specific colors */
+  /* Visualization-specific colors */
   --viz-bg-light: #ffffff;
   --viz-bg-dark: rgba(30, 39, 46, 0.85);
   --viz-text-light: #2d3748;
@@ -87,19 +87,27 @@ ECNETICA PROJECT - CONSOLIDATED STYLESHEET
 
 
 html[data-theme="light"] {
-  /* Explicit light theme - same as root */
+  /* Background colors */
   --background-primary: #ffffff;
   --background-secondary: #f8f9fa;
   --background-tertiary: #e9ecef;
+  
+  /* Primary brand colors */
   --primary: #3498db;
   --primary-hover: #2980b9;
   --primary-light: #d6eaf8;
+  
+  /* Secondary colors */
   --secondary: #95a5a6;
   --secondary-hover: #7f8c8d;
+  
+  /* Text colors */
   --text-primary: #2c3e50;
   --text-secondary: #6c757d;
   --text-muted: #adb5bd;
   --text-inverse: #ffffff;
+  
+  /* State colors */
   --success: #27ae60;
   --success-bg: #e8f8f5;
   --error: #c0392b;
@@ -108,25 +116,32 @@ html[data-theme="light"] {
   --warning-bg: #fef9e7;
   --info: #3498db;
   --info-bg: #e8f4fc;
+  
+  /* Border colors */
   --border-primary: #dee2e6;
   --border-secondary: #999999;
   --border-light: #e9ecef;
+  
+  /* Shadows */
   --shadow-light: 0 1px 3px rgba(0,0,0,0.1);
   --shadow-medium: 0 2px 10px rgba(0,0,0,0.1);
   --shadow-heavy: 0 4px 20px rgba(0,0,0,0.15);
 
+  /* specific colours*/
   --category-scientific: #3498db;
   --category-engineering: #e67e22;
   --category-financial: #2ecc71;
   --category-creative: #9b59b6;
 
-  /* Visualization colors */
+  /* Visualization-specific colors */
   --viz-bg-light: #ffffff;
   --viz-bg-dark: rgba(30, 39, 46, 0.85);
   --viz-text-light: #2d3748;
   --viz-text-dark: #ecf0f1;
   --viz-ui-bg-light: rgba(255, 255, 255, 0.9);
   --viz-ui-bg-dark: rgba(30, 39, 46, 0.85);
+  
+  /* Button-specific colors (different from container) */
   --viz-btn-bg-light: #e2e8f0;
   --viz-btn-bg-light-hover: #cbd5e1;
   --viz-btn-bg-dark: #475569;
@@ -199,10 +214,7 @@ html {
   --pst-font-family-monospace: Courier, var(--pst-font-family-monospace-system);
 }
 
-/* Content width adjustment */
-.bd-main .bd-content .bd-article-container {
-  max-width: 81em;
-}
+
 
 /* Import Computer Modern font for math expressions */
 @import url('https://cdn.jsdelivr.net/npm/computer-modern@0.1.2/fonts/Sans/cmun-sans.css');
@@ -219,7 +231,6 @@ h1, h2 {
   max-width: 1200px;
   margin: 0 auto;
 }
-
 /*--------------------------------------------------------------------*\
 3. VISUALIZATION CONTAINERS (CORE MATH CONTENT)
 \*--------------------------------------------------------------------*/
@@ -314,6 +325,16 @@ h1, h2 {
 .math-question-module .question-container {
   width: 100%;
   box-sizing: border-box;
+}
+
+/* Question Container - should match SSQ question-content */
+.question-container {
+  background-color: var(--background-secondary);  /* Match SSQ question areas */
+  color: var(--text-primary);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-light);
+  margin-bottom: var(--spacing-lg);
 }
 
 .math-question-module .topic-intro {
@@ -483,19 +504,22 @@ h1, h2 {
 /* === MCQ QUIZ STYLES === */
 
 /* MCQ Container */
+.math-question-module,
+.quiz-container,
 .mcq-container {
-  max-width: 1200px;
+  max-width: 95%;
   margin: 0 auto;
   padding: var(--spacing-lg);
+  background-color: var(--background-primary);
 }
 
 /* MCQ Module */
 .mcq-module {
   font-family: 'Arial', sans-serif;
-  max-width: 900px;
+  max-width: 85%;
   margin: 0 auto;
   padding: var(--spacing-lg);
-  background-color: var(--background-secondary);
+  background-color: var(--background-primary);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-medium);
 }
@@ -533,19 +557,29 @@ h1, h2 {
 }
 
 /* Question Container */
-.question-container {
-  background-color: var(--background-primary);
+.question-container,
+.math-question-module .question-content {
+  background-color: var(--background-secondary);
   color: var(--text-primary);
   padding: var(--spacing-lg);
   border-radius: var(--border-radius-md);
   box-shadow: var(--shadow-light);
   margin-bottom: var(--spacing-lg);
+  border-left: 4px solid var(--primary);
 }
 
-.question-text {
+.question-text,
+.math-question-module .question-title {
   font-size: 18px;
   color: var(--text-primary);
   margin-bottom: var(--spacing-lg);
+  font-weight: bold;
+}
+
+/* Content area inside question */
+.math-question-module .question-content > div:not(.question-title):not(.answer-button):not(.answer-content) {
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.6;
 }
 
 /* Options */
@@ -561,7 +595,7 @@ h1, h2 {
   border-radius: var(--border-radius-sm);
   cursor: pointer;
   transition: all 0.2s ease;
-  background-color: var(--background-secondary);
+  background-color: var(--background-primary);
   color: var(--text-primary);
   white-space: normal;
   word-wrap: break-word;
@@ -577,6 +611,7 @@ h1, h2 {
 .option.selected {
   background-color: var(--primary-light);
   border-color: var(--primary);
+  color: var(--text-primary);
 }
 
 .option-label {
@@ -585,6 +620,98 @@ h1, h2 {
   gap: var(--spacing-sm);
   cursor: pointer;
   width: 100%;
+  color: var(--text-primary);
+}
+
+/* ===== FSR (FREE RESPONSE) STYLES ===== */
+
+/* Answer buttons */
+.math-question-module .answer-button {
+  background-color: var(--primary);
+  color: var(--text-inverse);
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 14px;
+  margin: var(--spacing-md) 0;
+  display: inline-block;
+}
+
+.math-question-module .answer-button:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Answer content */
+.math-question-module .answer-content {
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  border-left: 4px solid var(--primary);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-sm);
+  margin-top: var(--spacing-md);
+  box-shadow: var(--shadow-light);
+  line-height: 1.6;
+}
+
+/* Category boxes */
+.math-question-module .scientific {
+  background-color: var(--category-scientific);
+  color: var(--text-inverse);
+}
+
+.math-question-module .engineering {
+  background-color: var(--category-engineering);
+  color: var(--text-inverse);
+}
+
+.math-question-module .financial {
+  background-color: var(--category-financial);
+  color: var(--text-inverse);
+}
+
+.math-question-module .creative {
+  background-color: var(--category-creative);
+  color: var(--text-inverse);
+}
+
+/* Answer content by category */
+.math-question-module .scientific-answer {
+  border-left-color: var(--category-scientific);
+}
+
+.math-question-module .engineering-answer {
+  border-left-color: var(--category-engineering);
+}
+
+.math-question-module .financial-answer {
+  border-left-color: var(--category-financial);
+}
+
+.math-question-module .creative-answer {
+  border-left-color: var(--category-creative);
+}
+
+/* Pre elements */
+.math-question-module pre {
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  margin: var(--spacing-sm) 0;
+}
+
+/* Active state for category boxes */
+.math-question-module .category-box.active {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+  border: 2px solid var(--text-inverse);
+}
+
+/* Ensure proper spacing for mathematical expressions */
+.math-question-module .MathJax {
+  margin: var(--spacing-xs) 0;
 }
 
 /* Explanations */
@@ -593,18 +720,21 @@ h1, h2 {
   padding: var(--spacing-md);
   border-radius: var(--border-radius-md);
   margin-bottom: var(--spacing-lg);
-  background-color: var(--info-bg);
+  background-color: var(--background-secondary);
   color: var(--text-primary);
+  border-left-color: var(--info);
 }
 
 .explanation-container.correct {
   background-color: var(--success-bg);
-  color: var(--text-primary);
+  border-left-color: var(--success);
+  color: var(--success);
 }
 
 .explanation-container.incorrect {
   background-color: var(--error-bg);
-  color: var(--text-primary);
+  border-left-color: var(--error);
+  color: var(--error);
 }
 
 .explanation-title {
@@ -627,6 +757,380 @@ h1, h2 {
 
 .breakdown-container {
   display: none;
+  margin-top: var(--spacing-md);
+}
+
+/* Breakdown Section Styling */
+.breakdown-section {
+  background-color: var(--background-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--border-radius-md);
+  margin: var(--spacing-lg) 0;
+  overflow: hidden;
+  box-shadow: var(--shadow-light);
+}
+
+.breakdown-header {
+  background-color: var(--background-tertiary);
+  color: var(--text-primary);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-bottom: 1px solid var(--border-primary);
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.breakdown-header:hover {
+  background-color: var(--primary);
+  color: var(--text-inverse);
+}
+
+.breakdown-header.active {
+  background-color: var(--primary);
+  color: var(--text-inverse);
+}
+
+#breakdown-steps-container {
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  padding: var(--spacing-lg);
+}
+
+/* Additional Breakdown Classes from HTML */
+.breakdown-step {
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  padding: var(--spacing-lg);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.step-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.step-title {
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.step-type-badge {
+  background: var(--primary);
+  color: var(--text-inverse);
+  padding: 3px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.step-completed {
+  opacity: 0.8;
+  background: var(--background-tertiary);
+}
+
+.step-completed .step-title {
+  color: var(--text-secondary);
+}
+
+.step-question {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+  font-size: 16px;
+}
+
+.step-options {
+  margin: var(--spacing-md) 0;
+}
+
+.step-explanation {
+  background: var(--info-bg);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--border-radius-sm);
+  padding: var(--spacing-md);
+  margin-top: var(--spacing-md);
+  color: var(--text-primary);
+}
+
+.step-explanation.correct {
+  background: var(--success-bg);
+  border-color: var(--success);
+  color: var(--success);
+}
+
+.step-explanation.incorrect {
+  background: var(--error-bg);
+  border-color: var(--error);
+  color: var(--error);
+}
+
+.continue-btn {
+  background: var(--success);
+  color: var(--text-inverse);
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: var(--spacing-sm);
+  transition: background-color 0.2s ease;
+}
+
+.continue-btn:hover {
+  background: var(--success);
+  filter: brightness(0.9);
+}
+
+.breakdown-complete {
+  background: var(--success-bg);
+  border: 1px solid var(--success);
+  text-align: center;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  color: var(--success);
+}
+
+.breakdown-complete h4 {
+  color: var(--success);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* MCQ Result Details */
+.result-details {
+  background: var(--background-secondary);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  margin: var(--spacing-md) 0;
+  border: 1px solid var(--border-primary);
+}
+
+.result-details p {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.mastery-update {
+  background: var(--background-secondary);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  margin: var(--spacing-md) 0;
+  border: 1px solid var(--border-primary);
+}
+
+.mastery-update h4 {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.mastery-update p {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.mastery-update em {
+  color: var(--text-secondary);
+}
+
+/* Original Question Section */
+.original-question {
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Step Progress Indicator */
+.step-progress {
+  background: var(--primary);
+  color: var(--text-inverse);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Current Step Highlighting */
+#current-step {
+  border: 2px solid var(--primary);
+  background: var(--background-primary);
+}
+
+/* Breakdown Submit Button */
+#breakdownSubmitBtn {
+  background: var(--success);
+  color: var(--text-inverse);
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#breakdownSubmitBtn:hover:not(:disabled) {
+  background: var(--success);
+  filter: brightness(0.9);
+}
+
+#breakdownSubmitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Override inline styles in breakdown sections */
+.bkt-demo-container [style*="color: #721c24"] {
+  color: var(--error) !important;
+}
+
+/* === NEW CLASSES FOR REWRITTEN MCQ === */
+
+/* Section visibility states */
+.mcq-section-hidden {
+  display: none;
+}
+
+.mcq-section-visible {
+  display: block;
+}
+
+.status-hidden {
+  display: none;
+}
+
+.breakdown-section-hidden {
+  display: none;
+}
+
+.breakdown-section-visible {
+  display: block;
+}
+
+.breakdown-explanation-hidden {
+  display: none;
+}
+
+.breakdown-explanation-visible {
+  display: block;
+}
+
+/* Button states */
+.submit-btn-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: var(--secondary) !important;
+}
+
+.submit-btn-enabled {
+  opacity: 1;
+  cursor: pointer;
+  background: var(--success) !important;
+}
+
+/* MCQ Option states */
+.mcq-option-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.mcq-option-completed {
+  cursor: default;
+  pointer-events: none;
+}
+
+.mcq-option.correct {
+  background: var(--success-bg) !important;
+  border-color: var(--success) !important;
+  color: var(--success) !important;
+}
+
+/* Current step highlighting */
+.breakdown-step-current {
+  border: 2px solid var(--primary) !important;
+  background: var(--background-primary);
+  box-shadow: var(--shadow-medium);
+}
+
+/* MCQ Result containers using classes instead of inline styles */
+.mcq-result-success {
+  border: 3px solid var(--success) !important;
+  background: var(--success-bg) !important;
+  color: var(--success) !important;
+}
+
+.mcq-result-error {
+  border: 3px solid var(--error) !important;
+  background: var(--error-bg) !important;
+  color: var(--error) !important;
+}
+
+/* Ensure text in result containers is readable */
+.mcq-result-success h3,
+.mcq-result-success p,
+.mcq-result-success strong {
+  color: var(--success) !important;
+}
+
+.mcq-result-error h3,
+.mcq-result-error p,
+.mcq-result-error strong {
+  color: var(--error) !important;
+}
+
+.mcq-result-success .result-details,
+.mcq-result-success .mastery-update {
+  background: var(--background-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--success);
+}
+
+.mcq-result-error .result-details,
+.mcq-result-error .mastery-update {
+  background: var(--background-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--error);
+}
+
+.mcq-result-success .result-details p,
+.mcq-result-success .mastery-update p,
+.mcq-result-success .result-details strong,
+.mcq-result-success .mastery-update strong {
+  color: var(--text-primary) !important;
+}
+
+.mcq-result-error .result-details p,
+.mcq-result-error .mastery-update p,
+.mcq-result-error .result-details strong,
+.mcq-result-error .mastery-update strong {
+  color: var(--text-primary) !important;
+}
+
+.mcq-result-success .mastery-update h4,
+.mcq-result-error .mastery-update h4 {
+  color: var(--text-primary) !important;
+}
+
+/* Decay summary container styles - replace inline styles */
+.decay-summary-container {
+  border: 3px solid var(--error);
+  background: var(--error-bg);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  margin: var(--spacing-lg) 0;
+  color: var(--error);
+}
+
+.decay-summary-container h3 {
+  color: var(--error);
+  margin-top: 0;
+}
+
+.decay-summary-container button {
   margin-top: var(--spacing-md);
 }
 
@@ -710,18 +1214,18 @@ h1, h2 {
 .result-container {
   display: none;
   text-align: center;
-  background-color: var(--success-bg);
+  background-color: var(--background-secondary);
   color: var(--text-primary);
   padding: var(--spacing-lg);
   border-radius: var(--border-radius-md);
   margin-bottom: var(--spacing-lg);
+  box-shadow: var(--shadow-light);
 }
 
 .result-title {
   margin-top: 0;
   color: var(--success);
 }
-
 
 /* === NAVIGATION BUTTONS === */
 
@@ -761,11 +1265,37 @@ h1, h2 {
   cursor: not-allowed;
 }
 
+/* === FORM ELEMENTS === */
+
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  border-color: var(--border-primary);
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(var(--primary), 0.2);
+}
+
+/* === TOPIC INTRO === */
+
+.topic-intro {
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+  border-left-color: var(--primary);
+}
+
 /* === BKT DEMO STYLES === */
 
 /* Main demo container */
 .bkt-demo-container {
-  max-width: 1400px;
   margin: 0 auto;
   padding: var(--spacing-lg);
   background: var(--background-primary);
@@ -786,14 +1316,14 @@ h1, h2 {
 .bkt-demo-container .bkt-section {
   flex: 1;
   min-width: 0;
-  max-width: 600px;
+  max-width: 45%;
 }
 
 /* Graph section (right side) */
 .bkt-demo-container .graph-section {
   flex: 1;
   min-width: 0;
-  max-width: 700px;
+  max-width: 50%;
 }
 
 /* Content containers */
@@ -823,6 +1353,16 @@ h1, h2 {
   font-size: 1.1em;
   margin-bottom: var(--spacing-xl);
   font-style: italic;
+}
+
+/* BKT specific layout sections */
+.bkt-section,
+.graph-section {
+  color: var(--text-primary);
+}
+
+.main-layout {
+  color: var(--text-primary);
 }
 
 /* Enhanced button styling */
@@ -953,11 +1493,12 @@ h1, h2 {
   margin: var(--spacing-lg) 0 !important;
 }
 
+/* BKT Demo MCQ options */
 .bkt-demo-container .mcq-option {
   display: block !important;
   margin: var(--spacing-sm) 0 !important;
   padding: var(--spacing-md) var(--spacing-lg) !important;
-  background: var(--background-secondary) !important;
+  background: var(--background-primary) !important;
   border: 2px solid var(--border-primary) !important;
   border-radius: var(--border-radius-md) !important;
   cursor: pointer !important;
@@ -978,6 +1519,7 @@ h1, h2 {
 .bkt-demo-container .mcq-option:hover {
   background: var(--background-tertiary) !important;
   border-color: var(--primary) !important;
+  color: var(--text-primary) !important;
   transform: translateY(-1px);
   box-shadow: var(--shadow-medium);
 }
@@ -989,6 +1531,7 @@ h1, h2 {
   box-shadow: var(--shadow-medium);
 }
 
+/* BKT Demo submit button */
 .bkt-demo-container .submit-btn {
   background: linear-gradient(45deg, var(--success), #2ecc71) !important;
   color: var(--text-inverse) !important;
@@ -1009,13 +1552,15 @@ h1, h2 {
 }
 
 .bkt-demo-container .submit-btn:disabled {
-  background: var(--border-secondary) !important;
+  font-weight: bold !important;
+  background: var(--secondary) !important;
+  color: var(--text-primary) !important;
   cursor: not-allowed !important;
   transform: none !important;
   box-shadow: none !important;
 }
 
-/* Enhanced progress bar styling */
+/* BKT Demo progress bar */
 .bkt-demo-container .progress-bar {
   width: 100% !important;
   height: 25px !important;
@@ -1032,6 +1577,21 @@ h1, h2 {
   transition: width 0.5s ease !important;
   border-radius: var(--border-radius-lg);
   box-shadow: 0 2px 10px rgba(39, 174, 96, 0.3);
+}
+
+/* BKT Demo graph container */
+.bkt-demo-container #graph-container {
+  width: 100%;
+  height: 500px;
+  border: 1px solid var(--border-primary);
+  border-radius: var(--border-radius-md);
+  background-color: var(--background-secondary);
+}
+
+/* Node and edge stats displays */
+#node-count,
+#edge-count {
+  color: var(--text-primary);
 }
 
 /* Legend styling */
@@ -1095,7 +1655,8 @@ h1, h2 {
 }
 
 /* Loading spinners */
-.bkt-demo-container .loading-spinner {
+.bkt-demo-container .loading-spinner,
+.loading-spinner {
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -1111,7 +1672,7 @@ h1, h2 {
   100% { transform: rotate(360deg); }
 }
 
-/* Graph loading spinner */
+/* BKT Demo loading elements */
 .bkt-demo-container .graph-loading {
   position: absolute;
   top: 1px;
@@ -1143,15 +1704,7 @@ h1, h2 {
   font-weight: 500;
 }
 
-/* Graph container styling */
-.bkt-demo-container #graph-container {
-  width: 100%;
-  height: 500px;
-  border: 1px solid var(--border-primary);
-  border-radius: var(--border-radius-md);
-}
-
-/* Vis.js network navigation buttons dark mode fix - try different selectors */
+/* Vis.js network navigation buttons fix */
 .bkt-demo-container #graph-container .vis-navigation .vis-button,
 .bkt-demo-container #graph-container .vis-network-navigation .vis-button,
 .bkt-demo-container #graph-container div[style*="background"] button {
@@ -1160,7 +1713,7 @@ h1, h2 {
   border: 1px solid var(--border-primary) !important;
 }
 
-/* MCQ result containers */
+/* BKT Demo result containers */
 .bkt-demo-container .mcq-result-success {
   border-color: var(--success) !important;
   background-color: var(--success-bg) !important;
@@ -1182,6 +1735,7 @@ h1, h2 {
   box-shadow: var(--shadow-medium);
 }
 
+/* BKT Demo controls */
 .bkt-demo-container #controls {
   margin-top: var(--spacing-md);
 }
@@ -1235,7 +1789,254 @@ h1, h2 {
   color: var(--text-primary);
 }
 
-/* Responsive design */
+/* ===== FSRS FORGETTING CURVES SPECIFIC STYLES ===== */
+
+/* Time controls container - replace inline styles */
+.time-controls-container {
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  background: var(--background-secondary);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-heavy);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-light);
+}
+
+#time-controls {
+  background: var(--background-secondary) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-primary) !important;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  margin-top: var(--spacing-lg);
+  box-shadow: var(--shadow-heavy);
+}
+
+#time-controls h3,
+#time-controls h4 {
+  color: var(--text-primary) !important;
+  margin-top: 0;
+}
+
+/* Time controls button container */
+.time-controls-buttons {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin: var(--spacing-md) 0;
+  flex-wrap: wrap;
+}
+
+/* Time status display */
+#time-status {
+  color: var(--text-secondary) !important;
+  font-size: 14px;
+  margin-top: var(--spacing-sm);
+}
+
+/* Time manipulation status indicators */
+.time-manipulation-active {
+  color: var(--error) !important;
+}
+
+.time-manipulation-inactive {
+  color: var(--success) !important;
+}
+
+/* Custom input fields for time controls */
+.custom-time-container {
+  margin-top: var(--spacing-md);
+}
+
+.custom-time-inputs {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: var(--spacing-xs);
+}
+
+#custom-days,
+#custom-hours {
+  background-color: var(--background-primary) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-primary) !important;
+  border-radius: var(--border-radius-sm);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  width: 80px;
+}
+
+#custom-days:focus,
+#custom-hours:focus {
+  border-color: var(--primary) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(var(--primary), 0.2) !important;
+}
+
+/* Time controls action buttons container */
+.time-controls-actions {
+  margin-top: var(--spacing-md);
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+/* Override hardcoded decay summary container styles */
+.bkt-demo-container .container[style*="border: 3px solid #e74c3c"] {
+  border-color: var(--error) !important;
+  background: var(--error-bg) !important;
+  color: var(--error) !important;
+}
+
+.bkt-demo-container .container[style*="rgba(248, 215, 218, 0.9)"] {
+  background: var(--error-bg) !important;
+  color: var(--error) !important;
+}
+.bkt-demo-container .submit-btn.primary {
+  background: linear-gradient(45deg, var(--primary), var(--primary-hover)) !important;
+}
+/* FSRS specific info displays */
+.fsrs-info,
+.memory-components {
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md);
+}
+
+/* Override any hardcoded color values in forgetting curves */
+.bkt-demo-container [style*="color: #666"],
+.bkt-demo-container [style*="color:#666"] {
+  color: var(--text-secondary) !important;
+}
+
+.bkt-demo-container [style*="color: #e74c3c"],
+.bkt-demo-container [style*="color:#e74c3c"] {
+  color: var(--error) !important;
+}
+
+.bkt-demo-container [style*="color: #27ae60"],
+.bkt-demo-container [style*="color:#27ae60"] {
+  color: var(--success) !important;
+}
+
+/* Decay analysis lists and content */
+.bkt-demo-container ul,
+.bkt-demo-container li {
+  color: var(--text-primary);
+}
+
+.bkt-demo-container strong {
+  color: var(--text-primary);
+}
+
+/* === PLACEHOLDER INTERACTIVE CONTENT === */
+
+.visualization-container {
+  background-color: var(--background-secondary);
+  border-color: var(--border-primary);
+  color: var(--text-secondary);
+}
+
+/* Make sure inline styles don't override our theme variables */
+.visualization-container[style*="background-color"] {
+  background-color: var(--background-secondary) !important;
+  border-color: var(--border-primary) !important;
+  color: var(--text-secondary) !important;
+}
+
+/* === RESPONSIVE DESIGN === */
+
+/* MCQ Responsive Styles */
+@media (max-width: 768px) {
+  .mcq-module {
+    padding: var(--spacing-md);
+  }
+  
+  .progress-info {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+  
+  .button-container {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  .nav-button {
+    width: 100%;
+  }
+  
+  .prev-button {
+    order: 2;
+  }
+  
+  .next-button {
+    order: 1;
+  }
+  
+  .container {
+    padding: var(--spacing-sm);
+  }
+  
+  .topic-intro,
+  .question-content,
+  .answer-content {
+    padding: var(--spacing-md);
+  }
+  
+  /* Responsive adjustments for Math Question Module */
+  .math-question-module .question-content {
+    padding: var(--spacing-md);
+  }
+  
+  .math-question-module .answer-content {
+    padding: var(--spacing-md);
+  }
+  
+  .math-question-module .category-box {
+    min-width: 150px;
+  }
+  
+  /* FSRS responsive adjustments */
+  #time-controls {
+    background: var(--background-secondary) !important;
+    color: var(--text-primary) !important;
+    padding: var(--spacing-md);
+  }
+  
+  .time-controls-buttons {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  .time-controls-buttons button {
+    width: 100%;
+  }
+  
+  .custom-time-inputs {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  #custom-days,
+  #custom-hours {
+    width: 100%;
+    background-color: var(--background-primary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-primary) !important;
+  }
+  
+  .time-controls-actions {
+    flex-direction: column;
+  }
+  
+  .time-controls-actions button {
+    width: 100%;
+  }
+}
+
+/* BKT Demo Responsive Design */
 @media (max-width: 1024px) {
   .bkt-demo-container .main-layout {
     flex-direction: column;
@@ -1306,7 +2107,6 @@ h1, h2 {
     margin: 0;
   }
 }
-
 /*--------------------------------------------------------------------*\
 6. SUPPORTING CONTENT
 \*--------------------------------------------------------------------*/
@@ -1433,3 +2233,751 @@ iframe {
   }
 }
 
+/*========================
+8. THEME STYLES (includes navbar)
+========================*/
+
+/* Force navbar end items to the far right */
+.navbar-header-items__end {
+  margin-left: auto !important;
+}
+
+/* Alternative selector in case the above doesn't work */
+.navbar-end {
+  margin-left: auto !important;
+}
+
+/* Ensure the navbar uses full width */
+.navbar-brand {
+  margin-right: auto !important;
+}
+
+.navbar .container-fluid {
+  justify-content: space-between !important;
+}
+
+/* ========== NAVBAR ICONS ========== */
+
+/* Base icon styling */
+.navbar-icon {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: all 0.2s ease;
+}
+
+/* Icon size variants 
+.navbar-icon--small {
+    width: 16px;
+    height: 16px;
+}
+
+.navbar-icon--medium {
+    width: 20px;
+    height: 20px;
+}
+
+.navbar-icon--large {
+    width: 24px;
+    height: 24px;
+}
+*/
+/* Icon style variants 
+.navbar-icon--filled {
+    fill: currentColor;
+    stroke: none;
+}
+
+.navbar-icon--outline {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+}
+
+.navbar-icon--bold {
+    stroke-width: 2;
+}
+*/
+/* Hover effects */
+.navbar-icon:hover {
+    transform: scale(1.5);
+}
+
+/* ========== THEME TOGGLE BUTTON ========== */
+
+.theme-toggle-custom {
+    background: none !important;
+    border: 1px solid var(--pst-color-border) !important;
+    border-radius: 0.375rem !important;
+    padding: 0.375rem !important;
+    margin-left: 0.5rem !important;
+    color: var(--pst-color-text-base) !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s ease !important;
+    font-size: 1rem !important;
+}
+
+.theme-toggle-custom:hover {
+    background-color: var(--pst-color-surface) !important;
+    transform: scale(1.05) !important;
+}
+
+/* ========== COURSE NAVIGATOR ========== */
+
+/* Course navigator button */
+.course-nav-toggle {
+    background: none !important;
+    border: 1px solid var(--pst-color-border) !important;
+    border-radius: 0.375rem !important;
+    padding: 0.375rem !important;
+    margin-left: 0.5rem !important;
+    color: var(--pst-color-text-base) !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s ease !important;
+    font-size: 1rem !important;
+}
+
+.course-nav-toggle:hover {
+    background-color: var(--pst-color-surface) !important;
+    transform: scale(1.05) !important;
+}
+
+/* Navigator Panel Overlay */
+#course-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(2px);
+}
+
+/* Navigator Panel */
+#course-nav-panel {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100%;
+    background: var(--background-primary, #fff);
+    border-left: 1px solid var(--border-primary, #dee2e6);
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+}
+
+/* Navigator Panel Header */
+.nav-panel-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-light, #e9ecef);
+    background: var(--background-secondary, #f8f9fa);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.nav-panel-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-panel-title {
+    margin: 0;
+    color: var(--text-primary, #333);
+    font-size: 1.2rem;
+}
+
+.nav-panel-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-muted, #666);
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.nav-panel-close:hover {
+    background-color: var(--background-tertiary, #f0f0f0);
+}
+
+.nav-search-input {
+    width: 100%;
+    padding: 8px 12px;
+    margin-top: 15px;
+    border: 1px solid var(--border-primary, #dee2e6);
+    border-radius: 4px;
+    background: var(--background-primary, #fff);
+    color: var(--text-primary, #333);
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.nav-search-input::placeholder {
+    color: var(--text-muted, #999);
+}
+
+/* Navigator Content */
+.nav-content {
+    padding: 20px;
+    flex: 1;
+}
+
+/* Navigation Items */
+.nav-item-link {
+    display: block;
+    padding: 8px 12px;
+    color: var(--text-primary, #333);
+    text-decoration: none;
+    border-radius: 4px;
+    margin: 2px 0;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+.nav-item-link:hover {
+    background-color: var(--background-tertiary, #f0f0f0);
+    text-decoration: none;
+    color: var(--text-primary, #333);
+}
+
+/* Remove browser's visited link styling */
+.nav-item-link:visited {
+    color: var(--text-primary, #333);
+}
+
+/* Current page highlighting - MUCH better contrast */
+.nav-item-link.current-page {
+    background-color: var(--primary, #3498db);
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Navigation Section Toggles - Better visibility */
+.nav-section-toggle {
+    padding: 8px 12px;
+    cursor: pointer;
+    color: var(--text-primary, #333);
+    font-weight: 600;
+    border-radius: 4px;
+    margin: 2px 0;
+    transition: background-color 0.2s;
+    font-size: 14px;
+    user-select: none;
+}
+
+.nav-section-toggle:hover {
+    background-color: var(--background-tertiary, #f0f0f0);
+}
+
+.nav-arrow-icon {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: inline-block;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+    vertical-align: middle;
+}
+
+.nav-section-toggle:hover .nav-arrow-icon {
+    transform: scale(1.3);
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+
+@media (max-width: 768px) {
+    #course-nav-panel {
+        width: 90% !important;
+        right: -90% !important;
+    }
+}
+
+/* Dark theme navigation items */
+html[data-theme="dark"] .nav-item-link {
+    color: var(--text-primary) !important;
+}
+
+html[data-theme="dark"] .nav-item-link:hover {
+    background-color: var(--background-tertiary) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Dark theme current page - High contrast */
+html[data-theme="dark"] .nav-item-link.current-page {
+    background-color: var(--primary, #60a5fa) !important;
+    color: #000000 !important;
+    font-weight: bold !important;
+}
+
+/* Dark theme section toggles */
+html[data-theme="dark"] .nav-section-toggle {
+    color: var(--text-primary) !important;
+}
+
+html[data-theme="dark"] .nav-section-toggle:hover {
+    background-color: var(--background-tertiary) !important;
+}
+/* ========== SCROLLBAR STYLING ========== */
+
+#course-nav-panel::-webkit-scrollbar {
+    width: 6px;
+}
+
+#course-nav-panel::-webkit-scrollbar-track {
+    background: var(--background-secondary, #f1f1f1);
+}
+
+#course-nav-panel::-webkit-scrollbar-thumb {
+    background: var(--border-primary, #c1c1c1);
+    border-radius: 3px;
+}
+
+#course-nav-panel::-webkit-scrollbar-thumb:hover {
+    background: var(--border-secondary, #a8a8a8);
+}
+
+/* ========== INTERACTIVE TOOLS FINDER STYLES ========== */
+
+/* Tools finder button - matches navbar style */
+.tools-finder-toggle {
+    background: none;
+    border: 1px solid var(--border-primary, rgba(255, 255, 255, 0.1));
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 6px;
+    margin: 0 2px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-width: 40px;
+    height: 40px;
+}
+
+.tools-finder-toggle:hover {
+    background-color: var(--background-tertiary, rgba(255, 255, 255, 0.1));
+}
+
+.tools-finder-toggle:active {
+    transform: scale(0.95);
+}
+
+/* Ensure icon matches navbar style */
+.tools-finder-toggle .navbar-icon {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Tools overlay */
+.tools-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    backdrop-filter: blur(2px);
+}
+
+/* Revison Area pannel */
+.tools-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    background: var(--background-primary, #ffffff);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 8px 24px rgba(0, 0, 0, 0.08);
+    z-index: 9999;
+    width: 90%;
+    max-width: 600px;
+    max-height: 70vh;
+    overflow: hidden;
+    display: none;
+    opacity: 0;
+    transition: all 0.2s ease;
+    border: 1px solid var(--border-primary, #e1e4e8);
+}
+
+/* Panel header */
+.tools-panel-header {
+    padding: 24px 24px 16px 24px;
+    border-bottom: 1px solid var(--border-primary, #e1e4e8);
+    background: var(--background-secondary, #f8f9fa);
+}
+
+.tools-panel-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.tools-panel-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tools-panel-subtitle {
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-secondary);
+    opacity: 0.8;
+}
+
+.tools-panel-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    line-height: 1;
+}
+
+.tools-panel-close:hover {
+    background-color: var(--background-tertiary, #f0f0f0);
+    color: var(--text-primary);
+    transform: scale(1.1);
+}
+
+/* Tools grid */
+.tools-grid {
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+@media (min-width: 500px) {
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Tool card */
+.tool-card {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: var(--background-primary, #ffffff);
+    border: 2px solid var(--border-primary, #e1e4e8);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.tool-card:hover {
+    border-color: var(--primary, #60a5fa);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.tool-card:active {
+    transform: translateY(0);
+}
+
+/* Current tool highlight */
+.tool-card.current-tool {
+    border-color: var(--primary, #60a5fa);
+    background: linear-gradient(135deg, var(--primary, #60a5fa)10, transparent 50%);
+    box-shadow: 0 4px 12px rgba(96, 165, 250, 0.2);
+}
+
+.tool-card.current-tool .tool-name {
+    color: var(--primary, #60a5fa);
+    font-weight: 600;
+}
+
+/* Tool icon */
+.tool-icon {
+    font-size: 28px;
+    margin-right: 16px;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--background-secondary, #f8f9fa);
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.tool-card:hover .tool-icon {
+    transform: scale(1.1);
+    background: var(--primary, #60a5fa)20;
+}
+
+/* Tool content */
+.tool-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.tool-name {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    line-height: 1.3;
+}
+
+.tool-description {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    opacity: 0.8;
+}
+
+/* Tool arrow */
+.tool-arrow {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-left: 12px;
+    opacity: 0.6;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.tool-card:hover .tool-arrow {
+    opacity: 1;
+    transform: translateX(4px);
+    color: var(--primary, #60a5fa);
+}
+
+/* Dark theme support */
+html[data-theme="dark"] .tools-panel {
+    background: var(--background-primary);
+    border-color: var(--border-primary);
+}
+
+html[data-theme="dark"] .tools-panel-header {
+    background: var(--background-secondary);
+    border-color: var(--border-primary);
+}
+
+html[data-theme="dark"] .tool-card {
+    background: var(--background-primary);
+    border-color: var(--border-primary);
+}
+
+html[data-theme="dark"] .tool-card:hover {
+    border-color: var(--primary);
+}
+
+html[data-theme="dark"] .tool-icon {
+    background: var(--background-tertiary);
+}
+
+html[data-theme="dark"] .tool-card:hover .tool-icon {
+    background: var(--primary)30;
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+    .tools-panel {
+        width: 95%;
+        max-width: none;
+        margin: 20px;
+    }
+    
+    .tools-grid {
+        grid-template-columns: 1fr;
+        padding: 16px;
+        gap: 12px;
+    }
+    
+    .tools-panel-header {
+        padding: 20px 16px 12px 16px;
+    }
+    
+    .tool-card {
+        padding: 16px;
+    }
+    
+    .tool-icon {
+        font-size: 24px;
+        width: 40px;
+        height: 40px;
+        margin-right: 12px;
+    }
+    
+    .tool-name {
+        font-size: 15px;
+    }
+    
+    .tool-description {
+        font-size: 12px;
+    }
+}
+
+/* Smooth scrolling for tools grid */
+.tools-grid::-webkit-scrollbar {
+    width: 6px;
+}
+
+.tools-grid::-webkit-scrollbar-track {
+    background: var(--background-secondary, #f1f1f1);
+    border-radius: 3px;
+}
+
+.tools-grid::-webkit-scrollbar-thumb {
+    background: var(--border-primary, #c1c1c1);
+    border-radius: 3px;
+}
+
+.tools-grid::-webkit-scrollbar-thumb:hover {
+    background: var(--border-secondary, #a8a8a8);
+}
+
+/* Animation for panel appearance */
+@keyframes toolsPanelFadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Accessible focus styles */
+.tools-finder-toggle:focus-visible,
+.tool-card:focus-visible,
+.tools-panel-close:focus-visible {
+    outline: 2px solid var(--primary, #60a5fa);
+    outline-offset: 2px;
+}
+
+
+
+/*--------------------------------------------------------------------*\
+THEME WIDTH ADJUSTMENTS 
+WORKING ON 
+Based on: https://pydata-sphinx-theme.readthedocs.io/en/stable/user_guide/layout.html
+\*--------------------------------------------------------------------*/
+
+/* Article content width - official method */
+.bd-main .bd-content .bd-article-container {
+  max-width: 100%; /* default is 60em */
+}
+
+/* Page width for full screen usage - official method */
+.bd-page-width {
+  max-width: 100%; /* default is 88rem */
+}
+
+/* PRIMARY SIDEBAR WIDTH ADJUSTMENTS */
+/* Direct CSS targeting for sidebar width (backup approach) */
+.bd-sidebar-primary {
+  width: 15rem !important;
+  max-width: 15rem !important;
+  flex: 0 0 15rem !important;
+}
+
+/* Adjust navigation link padding for tighter spacing */
+.bd-sidebar-primary .nav-link {
+  padding: 0.25rem 0.75rem; /* Tighter vertical padding */
+}
+
+/* Ensure the main content area takes advantage of extra space */
+.bd-main {
+  flex-grow: 1;
+}
+
+.bd-content {
+  flex-grow: 1;
+  max-width: none;
+}
+
+/* Update your container classes to match */
+.container {
+  width: 95%;
+  max-width: none;
+  margin: 0 auto;
+}
+
+.bkt-demo-container {
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+  background: var(--background-primary);
+  min-height: 100vh;
+  font-family: inherit;
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Responsive sidebar adjustments */
+@media (max-width: 1200px) {
+  .bd-sidebar-primary {
+    width: 10rem !important;
+    max-width: 10rem !important;
+    flex: 0 0 10rem !important;
+  }
+}
+
+/* On tablets, make it even smaller */
+@media (max-width: 992px) {
+  .bd-sidebar-primary {
+    width: 8rem !important;
+    max-width: 8rem !important;
+    flex: 0 0 8rem !important;
+    font-size: 0.8rem;
+  }
+}

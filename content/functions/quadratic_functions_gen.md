@@ -1,12 +1,17 @@
 # Quadratic Functions V2
 
-<iframe 
-    src="https://drive.google.com/file/d/1KQdEOxFP1FnUw8zJnDHHblAgbaGw_UCd/preview" 
-    width="100%" 
-    height="480" 
-    frameborder="0" 
-    allowfullscreen>
-</iframe>
+<div class="youtube-container">
+    <div class="youtube-header">
+    Video Lesson
+    </div>
+    <div class="youtube-responsive">
+        <iframe 
+            src="https://drive.google.com/file/d/1KQdEOxFP1FnUw8zJnDHHblAgbaGw_UCd/preview" 
+            allowfullscreen
+            title="Quadratic Functions V2 Video Lesson">
+        </iframe>
+    </div>
+</div>
 
 ## Linear Equations Revision
 

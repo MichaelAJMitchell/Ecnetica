@@ -183,6 +183,7 @@ class ConceptExtractor:
             list: New relationships extracted from the chunk
         """
         # Build context for relationship extraction
+        # Only use existing concepts for ID mapping since new concepts don't have IDs yet
         context = {
             'new_concepts': new_concepts,                    # Key - for relationship building
             'existing_concepts': existing_concepts,          # Key - for context
@@ -191,7 +192,7 @@ class ConceptExtractor:
             'chunk_position': f"{chunk_index + 1} of {total_chunks}", # Key - for awareness
             'concept_hierarchy_hints': self._get_concept_hierarchy_hints(existing_concepts),
             'prerequisite_patterns': self._get_prerequisite_patterns(existing_relationships),
-            'concept_ids': {concept['name']: concept['id'] for concept in existing_concepts + new_concepts},  # Add concept ID mapping
+            'concept_ids': {concept['name']: concept['id'] for concept in existing_concepts if 'id' in concept},  # Only existing concepts have IDs
             'existing_concepts_count': len(existing_concepts),
             'new_concepts_count': len(new_concepts),
             'existing_relationships_count': len(existing_relationships)

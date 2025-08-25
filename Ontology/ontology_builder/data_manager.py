@@ -76,8 +76,8 @@ class DataManager:
             relationships: List of relationship dictionaries from the LLM extraction
             
         Each relationship should contain:
-            - prerequisite_name: ID of the prerequisite concept
-            - dependent_name: ID of the dependent concept
+            - prerequisite_concept_id: ID or name of the prerequisite concept
+            - dependent_concept_id: ID or name of the dependent concept
             - relationship_type: Nature of the relationship
             - strength: Confidence level (0.0 to 1.0)
         """
@@ -85,6 +85,12 @@ class DataManager:
             # Validate relationship structure before adding
             if not self._validate_relationship_structure(relationship):
                 print(f"Skipping invalid relationship: {relationship}")
+                continue
+            
+            # Resolve concept names to IDs if needed
+            relationship = self._resolve_concept_references(relationship)
+            if not relationship:
+                print(f"Skipping relationship with unresolved concept references: {relationship}")
                 continue
                 
             # Check for duplicates by prerequisite->dependent pair
@@ -220,11 +226,11 @@ class DataManager:
         return False
     
     def _is_duplicate_relationship(self, relationship: dict) -> bool:
-        prereq = relationship.get('prerequisite_concept_id', '').lower().strip()
-        dependent = relationship.get('dependent_concept_id', '').lower().strip()
+        prereq = relationship.get('prerequisite_concept_id', '')
+        dependent = relationship.get('dependent_concept_id', '')
         for existing in self.relationships:
-            existing_prereq = existing.get('prerequisite_concept_id', '').lower().strip()
-            existing_dependent = existing.get('dependent_concept_id', '').lower().strip()
+            existing_prereq = existing.get('prerequisite_concept_id', '')
+            existing_dependent = existing.get('dependent_concept_id', '')
             if existing_prereq == prereq and existing_dependent == dependent:
                 return True
         return False
@@ -243,4 +249,57 @@ class DataManager:
         for field in required_fields:
             if not relationship.get(field):
                 return False
-        return True 
+        return True
+    
+    def _resolve_concept_references(self, relationship: dict) -> dict:
+        """
+        Resolve concept names to IDs in relationships.
+        
+        This method handles the case where relationships reference concept names
+        instead of IDs (which happens when new concepts are extracted).
+        
+        Args:
+            relationship: The relationship dictionary to resolve
+            
+        Returns:
+            dict: The relationship with concept names resolved to IDs, or None if resolution fails
+        """
+        prereq_ref = relationship.get('prerequisite_concept_id', '')
+        dependent_ref = relationship.get('dependent_concept_id', '')
+        
+        # If both are already UUIDs, no resolution needed
+        if self._is_uuid(prereq_ref) and self._is_uuid(dependent_ref):
+            return relationship
+        
+        # Try to resolve prerequisite concept
+        if not self._is_uuid(prereq_ref):
+            prereq_id = self._find_concept_id_by_name(prereq_ref)
+            if prereq_id:
+                relationship['prerequisite_concept_id'] = prereq_id
+            else:
+                print(f"Could not resolve prerequisite concept name: {prereq_ref}")
+                return None
+        
+        # Try to resolve dependent concept
+        if not self._is_uuid(dependent_ref):
+            dependent_id = self._find_concept_id_by_name(dependent_ref)
+            if dependent_id:
+                relationship['dependent_concept_id'] = dependent_id
+            else:
+                print(f"Could not resolve dependent concept name: {dependent_ref}")
+                return None
+        
+        return relationship
+    
+    def _is_uuid(self, value: str) -> bool:
+        """Check if a string is a valid UUID."""
+        import re
+        uuid_pattern = re.compile(r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$', re.IGNORECASE)
+        return bool(uuid_pattern.match(value))
+    
+    def _find_concept_id_by_name(self, concept_name: str) -> str:
+        """Find a concept ID by its name."""
+        for concept in self.concepts:
+            if concept.get('name', '').lower().strip() == concept_name.lower().strip():
+                return concept.get('id', '')
+        return None 

@@ -9,6 +9,7 @@ parts:
       - file: content/introduction/problem_solving
       - file: content/introduction/proof_techniques
     - file: content/knowledge-graph
+    - file: content/interactive/lightweight-knowledge-graph.md
       
   - caption: Interactive Tools
     chapters:

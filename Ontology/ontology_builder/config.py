@@ -16,8 +16,8 @@ load_dotenv()
 # LLM Configuration
 # These settings control which language models are used and in what order
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')  # Your OpenAI API key from environment
-DEFAULT_MODEL = "gpt-5-mini"  # Primary model for highest quality extraction
-FALLBACK_MODELS = ["gpt-4o-mini", "gpt-4.1-mini"]  # Backup models if primary fails
+DEFAULT_MODEL = "gpt-4.1"  # Primary model for highest quality extraction
+FALLBACK_MODELS = ["gpt-5-mini", "gpt-4.1-mini", "gpt-5", "gpt-4o-mini"]  # Backup models if primary fails
 
 # Processing Configuration
 # These settings control how documents are chunked for LLM processing
@@ -54,26 +54,57 @@ Focus on:
 - Mathematical operations, formulas, theorems, and procedures
 - Educational concepts that students need to learn
 
-Return as a JSON array of concepts.
+Return as a JSON array of concepts, where each concept has this exact structure:
+[
+  {{
+    "name": "concept_name_here",
+    "explanation": "brief_description_of_the_concept",
+    "broader_concept": "higher_level_category_or_parent_concept",
+    "strand": "mathematical_strand_e.g._Algebra_Geometry_Number_Theory",
+    "grade_level": "educational_level_e.g._Elementary_Middle_High_College",
+    "difficulty": "complexity_level_e.g._Basic_Intermediate_Advanced"
+  }}
+]
+
+IMPORTANT: Every concept MUST have a "name" field. All other fields are optional but recommended.
 """
 
 RELATIONSHIP_EXTRACTION_PROMPT = """
 You are a mathematical education expert. Identify relationships between mathematical concepts.
+
 TEXT TO ANALYZE:
 {text}
+
 NEW CONCEPTS TO ANALYZE:
 {concepts}
+
 CONTEXT:
 - Source: {context[source_file]}
 - Position: {context[chunk_position]}
 - New concepts: {context[new_concepts_count]} just extracted
 - Existing concepts: {context[existing_concepts_count]} total
 - Existing relationships: {context[existing_relationships_count]} total
+
 Focus on:
 - Prerequisites: What must be learned before what
 - Dependencies: How concepts build on each other
 - Logical connections: Related concepts that support each other
-Return as a JSON array of relationships with fields: prerequisite_concept_id, dependent_concept_id, relationship_type, strength
+
+Return as a JSON array of relationships, where each relationship has this exact structure:
+[
+  {{
+    "prerequisite_concept_id": "uuid_of_prerequisite_concept",
+    "dependent_concept_id": "uuid_of_dependent_concept", 
+    "relationship_type": "prerequisite_builds_on_related_supports",
+    "strength": 0.8
+  }}
+]
+
+IMPORTANT: 
+- Use the concept IDs from the concept_ids mapping in the context for EXISTING concepts
+- For NEW concepts (those just extracted), use the concept name as a placeholder
+- The system will resolve these placeholders to proper IDs later
+- Strength should be 0.0 to 1.0
 """
 
 VERIFICATION_PROMPT = """
@@ -91,9 +122,13 @@ Check for:
 - Completeness: Are important concepts or relationships missing?
 - Consistency: Do the extractions align with the source text?
 
-Return a JSON object with:
-- concepts_valid: boolean (true if concepts are good quality)
-- relationships_valid: boolean (true if relationships are good quality)
-- quality_score: number (1-10 overall quality)
-- feedback: brief explanation of any issues found
+Return a JSON object with this exact structure:
+{{
+  "concepts_valid": true,
+  "relationships_valid": true,
+  "quality_score": 8,
+  "feedback": "brief_explanation_of_any_issues_found"
+}}
+
+IMPORTANT: concepts_valid and relationships_valid must be boolean values. quality_score must be 1-10.
 """ 

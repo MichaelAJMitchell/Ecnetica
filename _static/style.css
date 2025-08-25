@@ -152,7 +152,7 @@ html[data-theme="light"] {
 
 html[data-theme="dark"] {
   /* Dark theme overrides */
-  --background-primary: #1e293b;
+  --background-primary: #14181e;
   --background-secondary: #374151;
   --background-tertiary: #4a5568;
   --primary: #60a5fa;
@@ -500,12 +500,38 @@ h1, h2 {
 /*--------------------------------------------------------------------*\
 5. INTERACTIVE ELEMENTS
 \*--------------------------------------------------------------------*/
+.quiz-container,
+.math-question-module {
+    background: var(--background-primary);
+    border: 1px solid var(--border-secondary);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.2s ease;
+    max-width: 90%;
+}
+
+.quiz-container:hover,
+.math-question-module:hover {
+    background: var(--background-secondary);
+    filter: brightness(1.05);
+}
+
+/* Responsive adjustments - match YouTube container */
+@media (max-width: 992px) {
+    .quiz-container,
+    .math-question-module {
+        padding: var(--spacing-md);
+        margin: var(--spacing-md) var(--spacing-sm);
+    }
+}
+
 
 /* === MCQ QUIZ STYLES === */
 
 /* MCQ Container */
-.math-question-module,
-.quiz-container,
 .mcq-container {
   max-width: 95%;
   margin: 0 auto;
@@ -516,10 +542,10 @@ h1, h2 {
 /* MCQ Module */
 .mcq-module {
   font-family: 'Arial', sans-serif;
-  max-width: 85%;
+  max-width: 100%;
   margin: 0 auto;
   padding: var(--spacing-lg);
-  background-color: var(--background-primary);
+  background-color: var(--background-secondary);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-medium);
 }
@@ -558,7 +584,6 @@ h1, h2 {
 /* Question Container - Inner content styling (maintains visual hierarchy) */
 .question-container,
 .math-question-module .question-content {
-  background-color: var(--background-primary); /* Slightly different from main container for hierarchy */
   color: var(--text-primary);
   padding: var(--spacing-lg);
   border-radius: var(--border-radius-sm); /* Smaller radius for inner elements */
@@ -566,6 +591,18 @@ h1, h2 {
   border: 1px solid var(--border-primary);
   border-left: 3px solid var(--primary); /* Keep accent border, slightly thinner */
   /* Remove box-shadow to match unified styling */
+}
+
+.question-container {
+  background-color: var(--background-tertiary);
+}
+
+.math-question-module{
+  background-color: var(--background-primary);
+}
+
+.question-content {
+  background-color: var(--background-secondary);
 }
 
 .question-text,
@@ -595,7 +632,7 @@ h1, h2 {
   border-radius: var(--border-radius-sm);
   cursor: pointer;
   transition: all 0.2s ease;
-  background-color: var(--background-primary);
+  background-color: var(--background-secondary);
   color: var(--text-primary);
   white-space: normal;
   word-wrap: break-word;

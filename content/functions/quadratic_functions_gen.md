@@ -246,7 +246,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 #### Sector Specific Questions: Linear Equations Applications
 
-<div class="math-question-module" id="linear-revision-identity-container"></div>
+<div id="linear-revision-identity-container"></div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {

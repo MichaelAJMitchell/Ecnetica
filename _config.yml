@@ -32,9 +32,13 @@ html:
   extra_css:
     - "_static/style.css"
     - "_static/jsxgraph.css"
+    - "_static/math_visualiser.css"
   extra_js:
     - "_static/theme.js"
-  # REMOVE conflicting sidebar maxdepth setting
+    - "_static/math_visualiser.js"
+    - "_static/jsxgraph-module.js"
+    - "_static/math.min.js"
+    - "_static/IdentityQuestions.js"
 
 sphinx:
   config:

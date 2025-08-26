@@ -1973,6 +1973,7 @@ select:focus {
   background-color: var(--background-secondary);
   border-color: var(--border-primary);
   color: var(--text-secondary);
+  width: 80%;
 }
 
 /* Make sure inline styles don't override our theme variables */

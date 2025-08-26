@@ -39,7 +39,7 @@ When solving linear equations, always perform the same operation to both sides o
 
 #### Interactive Visualization: Linear Equations
 
-<div id="linear-equation-container" class="visualization-container" style="height: 500px;"></div>
+<div id="linear-equation-container" class="visualization-container"></div>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     MathVisualizer.createGraphFromDescription('linear-equation-container', {

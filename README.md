@@ -13,7 +13,7 @@
 
 </div>
 
-## Required Configuration for Windows Users
+## 1. Required Configuration for Windows Users
 
 Before contributing please ensure you are using UNIX line break standards.
 
@@ -71,7 +71,7 @@ You can verify your line endings are correct by checking the bottom-right corner
 
 
 
-## Building and Running the Code
+## 2. Building and Running the Code
 
 This project uses Jupyter Book to build the site.
 
@@ -173,7 +173,7 @@ This uses `_toc-<name>.yml` file. For example:
 - `./quick-build.sh minimal` uses `_toc-minimal.yml`
 
 
-# Frontend Customization
+# 3. Frontend Customization
 
 The Ecnetica project uses a frontend system built on Jupyter Book with PyData Sphinx Theme, with custom CSS and JavaScript.
 
@@ -305,3 +305,155 @@ Provides advanced mathematical functions for expression parsing, symbolic mathem
 **Interactive Question System `_static/IdentityQuestions.js`**
 
 Creates category-based mathematical question modules with LaTeX support for educational interactions across scientific, engineering, financial, and creative contexts.
+
+# 4. Adding New Content
+
+#### How to Add a New Page
+
+This guide walks you through the complete process of adding a new page to the Ecnetica course website.
+
+## Steps Overview
+
+1. [Create the content file](#1-create-the-content-file)
+2. [Add to Table of Contents (_toc.yml)](#2-add-to-table-of-contents)
+3. [Update Course Navigator (JSON)](#3-update-course-navigator-json)
+4. [Test and Build](#4-test-and-build)
+
+---
+
+## 1. Create the Content File
+
+Create your new markdown file in the appropriate directory under `content/`:
+
+```
+content/
+├── algebra/
+├── functions/
+├── geometry/
+├── introduction/
+├── interactive/
+├── number_systems/
+├── probability/
+├── statistics/
+└── trigonometry/
+```
+
+### Example: Adding a new algebra topic
+
+```bash
+# Create the file
+touch content/algebra/my_new_topic.md
+```
+
+## 2. Add to Table of Contents
+
+Edit `_toc.yml` to include your new page in the site navigation.
+
+### For a standalone page:
+```yaml
+- caption: Algebra
+  chapters:
+  - file: content/algebra/existing_topic
+  - file: content/algebra/my_new_topic  # Add this line
+```
+
+### For a page with subsections:
+```yaml
+- caption: Algebra
+  chapters:
+  - file: content/algebra/my_new_topic
+    sections:
+    - file: content/algebra/my_new_topic_part1
+    - file: content/algebra/my_new_topic_part2
+```
+
+### For adding to existing sections:
+```yaml
+- caption: Algebra
+  chapters:
+  - file: content/algebra/expressions_manipulation
+    sections:
+    - file: content/algebra/algebraic_notation
+    - file: content/algebra/substitution_simplification
+    - file: content/algebra/my_new_topic  # Add this line
+```
+
+---
+
+## 3. Update Course Navigator (JSON)
+
+Edit `_static/course_structure.json` to add your new page to the custom course navigator.
+
+### Example: Adding to existing section
+```json
+{
+  "Algebra": {
+    "Expressions Manipulation": {
+      "Algebraic Notation": "/content/algebra/algebraic_notation.html",
+      "Substitution Simplification": "/content/algebra/substitution_simplification.html",
+      "My New Topic": "/content/algebra/my_new_topic.html"
+    }
+  }
+}
+```
+
+### Example: Adding new section
+```json
+{
+  "Algebra": {
+    "Expressions Manipulation": {
+      "Algebraic Notation": "/content/algebra/algebraic_notation.html"
+    },
+    "My New Section": {
+      "My New Topic": "/content/algebra/my_new_topic.html",
+      "Another Topic": "/content/algebra/another_topic.html"
+    }
+  }
+}
+```
+
+### Example: Adding new chapter
+```json
+{
+  "Introduction": {
+    "Course Overview": "/content/introduction/course_overview.html"
+  },
+  "My New Chapter": {
+    "Topic 1": "/content/my_chapter/topic1.html",
+    "Topic 2": "/content/my_chapter/topic2.html"
+  },
+  "Algebra": {
+    "Expressions Manipulation": {
+      "Algebraic Notation": "/content/algebra/algebraic_notation.html"
+    }
+  }
+}
+```
+
+**Important Notes:**
+- Use `.html` extension in the JSON (Jupyter Book converts `.md` to `.html`)
+- File paths should match the structure in `_toc.yml`
+- Maintain consistent indentation in JSON
+
+---
+
+## 4. Test and Build
+
+### Quick Testing Build
+For rapid testing during development:
+```bash
+./quick-build.sh testing
+```
+
+### Full Build
+Once you're satisfied with your changes:
+```bash
+./quick-build.sh
+```
+
+### Verify Your Changes
+1. **Check the sidebar navigation** - your page should appear in the main navigation
+2. **Check the course navigator** - your page should appear in the custom navigator (book icon in navbar)
+3. **Test the search** - your page should be searchable in the course navigator
+4. **Check links** - ensure all internal links work correctly
+

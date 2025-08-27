@@ -7,10 +7,6 @@
     },
     "Knowledge Graph": "/content/knowledge-graph.html"
   },
-  "Interactive Tools": {
-    "Python Playground": "/content/interactive/python_playground.html",
-    "BKT Simple Demo": "/content/interactive/BKT_Simple_Demo.html"
-  },
   "Number Systems": {
     "Overview": {
       "Natural Numbers and Integers": "/content/number_systems/natural_integers.html",

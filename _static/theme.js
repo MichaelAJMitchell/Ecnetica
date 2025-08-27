@@ -646,26 +646,60 @@ function setupNavigatorSearch() {
     const searchInput = document.getElementById('nav-search');
     const navContent = document.getElementById('nav-content');
     
+    if (!searchInput || !navContent) return;
+    
     searchInput.addEventListener('input', (e) => {
-        const query = e.target.value.toLowerCase();
+        const query = e.target.value.toLowerCase().trim();
         const links = navContent.querySelectorAll('.nav-item-link');
+        const sections = navContent.querySelectorAll('.nav-section-toggle');
         
-        links.forEach(link => {
-            const text = link.textContent.toLowerCase();
-            const matches = text.includes(query);
+        if (query === '') {
+            // Show all items when search is empty
+            links.forEach(link => {
+                link.style.display = 'block';
+                link.parentElement.style.display = 'block';
+            });
             
-            // Show/hide the link
-            link.style.display = matches || query === '' ? 'block' : 'none';
-            
-            // Show parent sections if child matches
-            if (matches && query !== '') {
-                let parent = link.closest('.nav-section-toggle')?.nextElementSibling;
-                while (parent) {
-                    parent.style.display = 'block';
-                    parent = parent.parentElement?.closest('.nav-section-toggle')?.nextElementSibling;
+            sections.forEach(section => {
+                section.parentElement.style.display = 'block';
+            });
+        } else {
+            // Filter based on search query
+            links.forEach(link => {
+                const text = link.textContent.toLowerCase();
+                const matches = text.includes(query);
+                
+                // Show/hide the link
+                link.style.display = matches ? 'block' : 'none';
+                link.parentElement.style.display = matches ? 'block' : 'none';
+                
+                if (matches) {
+                    // Show parent sections if child matches
+                    let parent = link.parentElement;
+                    while (parent && parent !== navContent) {
+                        parent.style.display = 'block';
+                        parent = parent.parentElement;
+                    }
                 }
-            }
-        });
+            });
+            
+            // Handle sections - show if they contain visible links
+            sections.forEach(section => {
+                const sectionContainer = section.parentElement;
+                const hasVisibleLinks = sectionContainer.querySelectorAll('.nav-item-link[style*="display: block"]').length > 0;
+                
+                if (hasVisibleLinks) {
+                    sectionContainer.style.display = 'block';
+                    // Also expand the section to show matching results
+                    const subsection = section.nextElementSibling;
+                    if (subsection) {
+                        subsection.style.display = 'block';
+                    }
+                } else {
+                    sectionContainer.style.display = 'none';
+                }
+            });
+        }
     });
 }
 

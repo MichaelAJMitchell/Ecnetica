@@ -314,10 +314,10 @@ This guide walks you through the complete process of adding a new page to the Ec
 
 ## Steps Overview
 
-1. [Create the content file](#1-create-the-content-file)
-2. [Add to Table of Contents (_toc.yml)](#2-add-to-table-of-contents)
-3. [Update Course Navigator (JSON)](#3-update-course-navigator-json)
-4. [Test and Build](#4-test-and-build)
+1. Create the content file
+2. Add to Table of Contents (_toc.yml) 
+3. Update Course Navigator (JSON)
+4. Test and Build
 
 ---
 

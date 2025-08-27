@@ -45,16 +45,9 @@ sphinx:
       navbar_end: ["search-button"]
       navbar_persistent: []
 
-      # CONSISTENT NAVIGATION DEPTH SETTINGS
-      # Build navigation tree up to 3 levels (Parts > Chapters > Sections)
+      # Navigation settings
       navigation_depth: 3
-      # Show ALL 3 levels in left sidebar (Parts + Chapters + Sections)
-      show_navbar_depth: 3
-      # Allow navigation to collapse/expand - users can click to open/close sections
       collapse_navigation: true
-      # Alternative: Set to false if you want everything always expanded
-      # collapse_navigation: false
-      # Show 2 levels in page table of contents
       show_toc_level: 2
       
       # Logo and branding - appears in navbar AND sidebar
@@ -63,8 +56,7 @@ sphinx:
         image_dark: "logo.png"
         text: "Ecnetica"
       
-      # Sidebar configuration - show logo and project title
-      sidebar_hide_name: false
+      # Sidebar configuration
       primary_sidebar_end: []
       secondary_sidebar_items: ["page-toc"]
       
@@ -74,13 +66,10 @@ sphinx:
       # Navigation
       show_prev_next: true
       
-      # ALL GitHub/source options disabled
+      # Source options disabled
       use_edit_page_button: false
-      use_repository_button: false
-      use_issues_button: false
-      use_download_button: false
       show_version_warning_banner: false
-
+      
 parse:
   myst_enable_extensions:
     - amsmath

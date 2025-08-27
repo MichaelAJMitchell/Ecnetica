@@ -1,12 +1,17 @@
 # Quadratic Functions V2
 
-<iframe 
-    src="https://drive.google.com/file/d/1KQdEOxFP1FnUw8zJnDHHblAgbaGw_UCd/preview" 
-    width="100%" 
-    height="480" 
-    frameborder="0" 
-    allowfullscreen>
-</iframe>
+<div class="youtube-container">
+    <div class="youtube-header">
+    Video Lesson
+    </div>
+    <div class="youtube-responsive">
+        <iframe 
+            src="https://drive.google.com/file/d/1KQdEOxFP1FnUw8zJnDHHblAgbaGw_UCd/preview" 
+            allowfullscreen
+            title="Quadratic Functions V2 Video Lesson">
+        </iframe>
+    </div>
+</div>
 
 ## Linear Equations Revision
 
@@ -34,7 +39,7 @@ When solving linear equations, always perform the same operation to both sides o
 
 #### Interactive Visualization: Linear Equations
 
-<div id="linear-equation-container" class="visualization-container" style="height: 500px;"></div>
+<div id="linear-equation-container" class="visualization-container"></div>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     MathVisualizer.createGraphFromDescription('linear-equation-container', {
@@ -241,7 +246,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 #### Sector Specific Questions: Linear Equations Applications
 
-<div class="math-question-module" id="linear-revision-identity-container"></div>
+<div id="linear-revision-identity-container"></div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {

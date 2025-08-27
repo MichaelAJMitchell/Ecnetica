@@ -253,12 +253,16 @@ def _validate_breakdown_step(step_data: Dict, route_id: str, step_index: int) ->
 
 
 def usage():
-    kg = KnowledgeGraph()
-    mcq_document = '_static\mcqs_breakdown_fixed.json'
+    kg = KnowledgeGraph(
+    nodes_file='_static/small-graph-kg.json',
+    mcqs_file='_static/small-graph-computed_mcqs.json',
+    config_file='_static/config.json'
+)
+    mcq_document = '_static\small-graph-breakdown-mcqs.json'
     print("\n" + "="*50)
     # Process all MCQs
     processed_mcqs = process_mcq_document(mcq_document, kg)
-    with open('_static\computed_mcqs_breakdown.json', 'w') as f:
+    with open('_static\small-graph-breakdown-mcqs-computed.json', 'w') as f:
         json.dump({"mcqs": processed_mcqs}, f, indent=2)
 
 if __name__ == "__main__":

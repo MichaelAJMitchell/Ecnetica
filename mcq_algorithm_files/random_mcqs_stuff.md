@@ -19,8 +19,8 @@ There is a confidence factor  which measures our confidence in our estimate of t
 
 
 ## Parameters to be Determined
-
-
+- BKT parametrs
+- the weights in the question for the select_optimal_mcqs
 ## Future Implementations
 - Hide options
 - Typing keyboard

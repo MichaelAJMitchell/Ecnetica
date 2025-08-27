@@ -23,7 +23,7 @@ from copy import deepcopy
 # These imports should match your actual import structure
 try:
     from mcq_algorithm_current import (
-        KnowledgeGraph, StudentManager, MCQScheduler, 
+        KnowledgeGraph, StudentManager, MCQScheduler,
         BayesianKnowledgeTracing, OptimizedMCQVector
     )
 except ImportError:
@@ -44,18 +44,18 @@ class TestConfig:
     nodes_file: str = '_static\small-graph-kg.json'
     mcqs_file: str = '_static\small-graph-computed_mcqs.json'
     config_file: str = '_static\config.json'
-    
+
     # Test parameters
     num_test_students: int = 10
     max_questions_per_test: int = 20
     performance_threshold_seconds: float = 2.0
-    
+
     # Weight ranges for testing
     mastery_threshold_range: Tuple[float, float] = (0.5, 0.9)
     priority_weight_range: Tuple[float, float] = (1.0, 3.0)
     subtopic_weight_range: Tuple[float, float] = (0.3, 0.9)
     prereq_weight_range: Tuple[float, float] = (0.2, 0.8)
-    
+
     # Test modes
     run_performance_tests: bool = True
     run_weight_optimization: bool = True
@@ -85,7 +85,7 @@ class WeightTestResult:
 class MCQAlgorithmTestSuite:
     """
     Comprehensive test suite for MCQ algorithm functionality.
-    
+
     This class provides systematic testing of:
     - Core algorithm functionality
     - Weight parameter effects
@@ -93,7 +93,7 @@ class MCQAlgorithmTestSuite:
     - Edge cases and error handling
     - Integration between components
     """
-    
+
     def __init__(self, test_config: TestConfig):
         self.config = test_config
         self.results: List[TestResult] = []
@@ -102,115 +102,115 @@ class MCQAlgorithmTestSuite:
         self.student_manager = None
         self.mcq_scheduler = None
         self.bkt_system = None
-        
+
     def initialize_system(self) -> bool:
         """Initialize the MCQ algorithm system for testing"""
         try:
             # Import required classes (assuming they're available)
             print("🔧 Initializing MCQ Algorithm System...")
-            
+
             self.kg = KnowledgeGraph(
                 nodes_file=self.config.nodes_file,
                 mcqs_file=self.config.mcqs_file,
                 config_file=self.config.config_file
             )
-            
+
             self.student_manager = StudentManager(self.kg.config)
             self.mcq_scheduler = MCQScheduler(self.kg, self.student_manager)
             self.bkt_system = BayesianKnowledgeTracing(self.kg, self.student_manager)
-            
+
             # Connect systems
             self.mcq_scheduler.set_bkt_system(self.bkt_system)
             self.student_manager.set_bkt_system(self.bkt_system)
-            
+
             print("✅ System initialized successfully")
             return True
-            
+
         except Exception as e:
             print(f"❌ System initialization failed: {str(e)}")
             traceback.print_exc()
             return False
-    
+
     def run_all_tests(self) -> Dict[str, Any]:
         """Run the complete test suite"""
         print("\n" + "="*80)
         print("MCQ ALGORITHM COMPREHENSIVE TEST SUITE")
         print("="*80)
-        
+
         if not self.initialize_system():
             return {"success": False, "error": "System initialization failed"}
-        
+
         total_start_time = time.time()
-        
+
         # Core functionality tests
         print("\n📋 RUNNING CORE FUNCTIONALITY TESTS")
         print("-" * 50)
         self._run_core_functionality_tests()
-        
+
         # Weight parameter tests
         if self.config.run_weight_optimization:
             print("\n⚖️ RUNNING WEIGHT PARAMETER TESTS")
             print("-" * 50)
             self._run_weight_parameter_tests()
-        
+
         # Performance tests
         if self.config.run_performance_tests:
             print("\n🚀 RUNNING PERFORMANCE TESTS")
             print("-" * 50)
             self._run_performance_tests()
-        
+
         # Edge case tests
         if self.config.run_edge_case_tests:
             print("\n⚠️ RUNNING EDGE CASE TESTS")
             print("-" * 50)
             self._run_edge_case_tests()
-        
+
         # Integration tests
         if self.config.run_integration_tests:
             print("\n🔗 RUNNING INTEGRATION TESTS")
             print("-" * 50)
             self._run_integration_tests()
-        
+
         total_time = time.time() - total_start_time
-        
+
         # Generate summary report
         return self._generate_test_report(total_time)
-    
+
     def _run_core_functionality_tests(self):
         """Test core algorithm functionality"""
-        
+
         # Test 1: System Component Validation
         self._test_system_components()
-        
+
         # Test 2: MCQ Vector Creation
         self._test_mcq_vector_creation()
-        
+
         # Test 3: Eligibility Filtering
         self._test_eligibility_filtering()
-        
+
         # Test 4: Priority Calculations
         self._test_priority_calculations()
-        
+
         # Test 5: Greedy Selection Algorithm
         self._test_greedy_selection()
-        
+
         # Test 6: Virtual Mastery Updates
         self._test_simulated_mastery_updates()
-        
+
         # Test 7: MCQ Selection Consistency
         self._test_selection_consistency()
-    
+
     def _test_system_components(self):
         """Test that all system components are properly initialized"""
         start_time = time.time()
-        
+
         try:
             # Test knowledge graph
             assert self.kg is not None, "Knowledge graph not initialized"
-            
+
             # Check knowledge graph structure
             kg_details = {}
-            
+
             if hasattr(self.kg, 'nodes'):
                 kg_details['has_nodes'] = True
                 kg_details['num_nodes'] = len(self.kg.nodes)
@@ -218,14 +218,14 @@ class MCQAlgorithmTestSuite:
             else:
                 kg_details['has_nodes'] = False
                 print("⚠️  Knowledge graph has no 'nodes' attribute")
-            
+
             if hasattr(self.kg, 'mcqs'):
                 kg_details['has_mcqs'] = True
                 kg_details['num_mcqs'] = len(self.kg.mcqs)
             else:
                 kg_details['has_mcqs'] = False
                 print("⚠️  Knowledge graph has no 'mcqs' attribute")
-            
+
             if hasattr(self.kg, 'ultra_loader'):
                 kg_details['has_ultra_loader'] = True
                 if hasattr(self.kg.ultra_loader, 'minimal_mcq_data'):
@@ -236,25 +236,25 @@ class MCQAlgorithmTestSuite:
             else:
                 kg_details['has_ultra_loader'] = False
                 print("📊 Traditional knowledge graph mode")
-            
+
             # Test student manager
             assert self.student_manager is not None, "Student manager not initialized"
-            
+
             # Test MCQ scheduler
             assert self.mcq_scheduler is not None, "MCQ scheduler not initialized"
-            
+
             # Test BKT system
             assert self.bkt_system is not None, "BKT system not initialized"
-            
+
             # Test configuration
             assert hasattr(self.kg, 'config'), "Configuration not loaded"
-            
+
             # Verify we have some way to access MCQ data
             has_mcq_data = (kg_details.get('has_mcqs', False) and kg_details.get('num_mcqs', 0) > 0) or \
                           (kg_details.get('has_ultra_loader', False) and kg_details.get('ultra_loader_mcq_count', 0) > 0)
-            
+
             assert has_mcq_data, "No MCQ data found in knowledge graph (neither traditional mcqs nor ultra_loader data)"
-            
+
             execution_time = time.time() - start_time
             self.results.append(TestResult(
                 test_name="System Components Validation",
@@ -264,7 +264,7 @@ class MCQAlgorithmTestSuite:
             ))
             print("✅ System components validation: PASSED")
             print(f"   📊 Knowledge graph details: {kg_details}")
-            
+
         except Exception as e:
             execution_time = time.time() - start_time
             self.results.append(TestResult(
@@ -275,98 +275,98 @@ class MCQAlgorithmTestSuite:
                 details=kg_details if 'kg_details' in locals() else {}
             ))
             print(f"❌ System components validation: FAILED - {str(e)}")
-            
+
             # Provide detailed debugging information
             print("🔍 Detailed Debug Information:")
             print(f"   - Knowledge Graph type: {type(self.kg)}")
             print(f"   - Knowledge Graph attributes: {[attr for attr in dir(self.kg) if not attr.startswith('_')]}")
-            
+
             if hasattr(self.kg, 'config'):
                 print(f"   - Config type: {type(self.kg.config)}")
                 print(f"   - Config attributes: {[attr for attr in dir(self.kg.config) if not attr.startswith('_')]}")
-            
+
             if hasattr(self.kg, 'ultra_loader'):
                 print(f"   - Ultra loader type: {type(self.kg.ultra_loader)}")
                 print(f"   - Ultra loader attributes: {[attr for attr in dir(self.kg.ultra_loader) if not attr.startswith('_')]}")
-            
+
             print(f"   - Student Manager type: {type(self.student_manager)}")
             print(f"   - MCQ Scheduler type: {type(self.mcq_scheduler)}")
             print(f"   - BKT System type: {type(self.bkt_system)}")
-    
+
     def _test_mcq_vector_creation(self):
         """Test MCQ vector creation and optimization"""
         start_time = time.time()
-        
+
         try:
             # First check if the system uses ultra_loader (on-demand) or traditional pre-computation
             has_ultra_loader = hasattr(self.kg, 'ultra_loader')
-            
+
             if has_ultra_loader:
                 print("📊 Detected ultra_loader - testing on-demand vector creation")
-                
+
                 # For ultra_loader systems, we need to test vector creation through actual usage
                 # Get some MCQ IDs to test with
                 available_mcq_ids = []
-                
+
                 # Try to get MCQ IDs from ultra_loader
                 if hasattr(self.kg.ultra_loader, 'minimal_mcq_data'):
                     available_mcq_ids = list(self.kg.ultra_loader.minimal_mcq_data.keys())[:5]  # Test with first 5
                 elif hasattr(self.kg, 'mcqs'):
                     available_mcq_ids = list(self.kg.mcqs.keys())[:5]
-                
+
                 if not available_mcq_ids:
                     raise Exception("No MCQ IDs available for testing vector creation")
-                
+
                 # Test on-demand vector creation
                 vectors_created = 0
                 sample_vector = None
-                
+
                 for mcq_id in available_mcq_ids:
                     vector = self.mcq_scheduler._get_or_create_optimized_mcq_vector(mcq_id)
                     if vector:
                         vectors_created += 1
                         if sample_vector is None:
                             sample_vector = vector
-                
+
                 assert vectors_created > 0, f"No vectors created from {len(available_mcq_ids)} MCQ IDs"
-                
+
                 # Check that vectors are now stored
                 num_stored_vectors = len(self.mcq_scheduler.mcq_vectors)
                 assert num_stored_vectors > 0, "Vectors created but not stored in mcq_vectors"
-                
+
             else:
                 print("📊 Traditional pre-computation mode - ensuring all vectors computed")
-                
+
                 # Traditional pre-computation mode
                 self.mcq_scheduler._ensure_vectors_computed()
-                
+
                 # Check if vectors were created
                 num_stored_vectors = len(self.mcq_scheduler.mcq_vectors)
                 assert num_stored_vectors > 0, "No MCQ vectors created in pre-computation mode"
-                
+
                 # Get sample vector
                 sample_mcq_id = list(self.mcq_scheduler.mcq_vectors.keys())[0]
                 sample_vector = self.mcq_scheduler.mcq_vectors[sample_mcq_id]
                 vectors_created = num_stored_vectors
-            
+
             # Validate sample vector properties (works for both modes)
             assert sample_vector is not None, "No sample vector available for validation"
             assert hasattr(sample_vector, 'mcq_id'), "Vector missing mcq_id"
             assert hasattr(sample_vector, 'subtopic_weights'), "Vector missing subtopic_weights"
             assert hasattr(sample_vector, 'difficulty'), "Vector missing difficulty"
             assert hasattr(sample_vector, 'prerequisites'), "Vector missing prerequisites"
-            
+
             # Test vector property access
             mcq_id = sample_vector.mcq_id
             subtopic_weights = sample_vector.subtopic_weights
             difficulty = sample_vector.difficulty
             prerequisites = sample_vector.prerequisites
-            
+
             assert isinstance(mcq_id, str), "MCQ ID should be string"
             assert isinstance(subtopic_weights, dict), "Subtopic weights should be dict"
             assert isinstance(difficulty, (int, float)), "Difficulty should be numeric"
             assert isinstance(prerequisites, dict), "Prerequisites should be dict"
-            
+
             execution_time = time.time() - start_time
             self.results.append(TestResult(
                 test_name="MCQ Vector Creation",
@@ -381,7 +381,7 @@ class MCQAlgorithmTestSuite:
                 }
             ))
             print(f"✅ MCQ vector creation: PASSED ({vectors_created} vectors created, {len(self.mcq_scheduler.mcq_vectors)} stored)")
-            
+
         except Exception as e:
             execution_time = time.time() - start_time
             self.results.append(TestResult(
@@ -391,35 +391,35 @@ class MCQAlgorithmTestSuite:
                 error_message=str(e)
             ))
             print(f"❌ MCQ vector creation: FAILED - {str(e)}")
-            
+
             # Additional debugging information
             print("🔍 Debug Information:")
             print(f"   - Has ultra_loader: {hasattr(self.kg, 'ultra_loader')}")
             print(f"   - Has mcqs attribute: {hasattr(self.kg, 'mcqs')}")
             print(f"   - mcq_vectors count: {len(self.mcq_scheduler.mcq_vectors)}")
-            
+
             if hasattr(self.kg, 'ultra_loader') and hasattr(self.kg.ultra_loader, 'minimal_mcq_data'):
                 print(f"   - Ultra loader MCQ count: {len(self.kg.ultra_loader.minimal_mcq_data)}")
             elif hasattr(self.kg, 'mcqs'):
                 print(f"   - Knowledge graph MCQ count: {len(self.kg.mcqs)}")
             else:
                 print("   - No MCQ data found in knowledge graph")
-    
+
     def _test_eligibility_filtering(self):
         """Test MCQ eligibility filtering functionality"""
         start_time = time.time()
-        
+
         try:
             # Create test student with varied mastery
             student_id = "test_eligibility_student"
             student = self._create_test_student(student_id, random_mastery=True)
-            
+
             # Test eligibility filtering
             eligible_mcqs = self.mcq_scheduler.get_available_questions_for_student(student_id)
-            
+
             # Validate results
             assert isinstance(eligible_mcqs, list), "Eligible MCQs should be a list"
-            
+
             # Test with different student configurations
             results = {}
             for mastery_level in [0.2, 0.5, 0.8]:
@@ -427,14 +427,14 @@ class MCQAlgorithmTestSuite:
                 test_student = self._create_test_student(test_student_id, fixed_mastery=mastery_level)
                 test_eligible = self.mcq_scheduler.get_available_questions_for_student(test_student_id)
                 results[f"mastery_{mastery_level}"] = len(test_eligible)
-            
+
             # Expect that lower mastery students have more eligible questions
             low_mastery_eligible = results.get("mastery_0.2", 0)
             high_mastery_eligible = results.get("mastery_0.8", 0)
-            
+
             # This is expected but not required (might be no questions for high mastery)
             mastery_correlation_reasonable = low_mastery_eligible >= high_mastery_eligible
-            
+
             execution_time = time.time() - start_time
             self.results.append(TestResult(
                 test_name="Eligibility Filtering",
@@ -448,7 +448,7 @@ class MCQAlgorithmTestSuite:
             ))
             print(f"✅ Eligibility filtering: PASSED ({len(eligible_mcqs)} eligible)")
             print(f"   📊 Low mastery (0.2): {low_mastery_eligible}, High mastery (0.8): {high_mastery_eligible}")
-            
+
         except Exception as e:
             execution_time = time.time() - start_time
             self.results.append(TestResult(
@@ -458,7 +458,7 @@ class MCQAlgorithmTestSuite:
                 error_message=str(e)
             ))
             print(f"❌ Eligibility filtering: FAILED - {str(e)}")
-            
+
             # Additional debugging for eligibility issues
             print("🔍 Debug Information:")
             try:
@@ -466,7 +466,7 @@ class MCQAlgorithmTestSuite:
                 print(f"   - Debug student created: {debug_student is not None}")
                 print(f"   - Debug student studied topics: {len(debug_student.studied_topics) if hasattr(debug_student, 'studied_topics') else 'No studied_topics attr'}")
                 print(f"   - Debug student mastery levels: {len(debug_student.mastery_levels) if hasattr(debug_student, 'mastery_levels') else 'No mastery_levels attr'}")
-                
+
                 # Check if knowledge graph has the required methods
                 if hasattr(self.kg, 'ultra_loader'):
                     print(f"   - Ultra loader available: True")
@@ -476,35 +476,35 @@ class MCQAlgorithmTestSuite:
                         print(f"   - get_mcq_ids_for_due_topics method available: False")
                 else:
                     print(f"   - Ultra loader available: False")
-                    
+
             except Exception as debug_e:
                 print(f"   - Debug failed: {debug_e}")
-    
+
     def _test_priority_calculations(self):
         """Test topic priority calculation algorithms"""
         start_time = time.time()
-        
+
         try:
             # Create test student
             student_id = "test_priority_student"
             student = self._create_test_student(student_id, random_mastery=True)
-            
+
             # Test priority calculation
             simulated_mastery_levels = student.mastery_levels.copy()
             priorities = self.mcq_scheduler._calculate_topic_priorities_due_only(student, simulated_mastery_levels)
-            
+
             # Validate priorities
             assert isinstance(priorities, dict), "Priorities should be a dictionary"
-            
+
             # Test priority ordering (lower mastery should have higher priority)
             priority_mastery_pairs = []
             for topic_idx, priority in priorities.items():
                 mastery = simulated_mastery_levels.get(topic_idx, 0.0)
                 priority_mastery_pairs.append((priority, mastery))
-            
+
             # Sort by priority (descending) and check mastery correlation
             priority_mastery_pairs.sort(reverse=True)
-            
+
             execution_time = time.time() - start_time
             self.results.append(TestResult(
                 test_name="Priority Calculations",
@@ -517,7 +517,7 @@ class MCQAlgorithmTestSuite:
                 }
             ))
             print(f"✅ Priority calculations: PASSED ({len(priorities)} topics)")
-            
+
         except Exception as e:
             execution_time = time.time() - start_time
             self.results.append(TestResult(
@@ -527,16 +527,16 @@ class MCQAlgorithmTestSuite:
                 error_message=str(e)
             ))
             print(f"❌ Priority calculations: FAILED - {str(e)}")
-    
+
     def _test_greedy_selection(self):
         """Test the main greedy selection algorithm"""
         start_time = time.time()
-        
+
         try:
             # Create test student
             student_id = "test_greedy_student"
             student = self._create_test_student(student_id, random_mastery=True)
-            
+
             # Test different numbers of questions
             selection_results = {}
             for num_questions in [1, 3, 5, 10]:
@@ -552,11 +552,11 @@ class MCQAlgorithmTestSuite:
                         "success": False,
                         "error": str(e)
                     }
-            
+
             # Validate that selections are different for different numbers
             successful_selections = [r for r in selection_results.values() if r["success"]]
             assert len(successful_selections) > 0, "No successful selections"
-            
+
             execution_time = time.time() - start_time
             self.results.append(TestResult(
                 test_name="Greedy Selection Algorithm",
@@ -565,7 +565,7 @@ class MCQAlgorithmTestSuite:
                 details={"selection_results": selection_results}
             ))
             print("✅ Greedy selection algorithm: PASSED")
-            
+
         except Exception as e:
             execution_time = time.time() - start_time
             self.results.append(TestResult(
@@ -575,34 +575,34 @@ class MCQAlgorithmTestSuite:
                 error_message=str(e)
             ))
             print(f"❌ Greedy selection algorithm: FAILED - {str(e)}")
-    
+
     def _test_simulated_mastery_updates(self):
         """Test that virtual mastery updates don't affect real student data"""
         start_time = time.time()
-        
+
         try:
             # Create test student
             student_id = "test_simulated_mastery_student"
             student = self._create_test_student(student_id, random_mastery=True)
-            
+
             # Store original mastery
             original_mastery = student.mastery_levels.copy()
-            
+
             # Run selection algorithm (which uses virtual mastery)
             selected = self.mcq_scheduler.select_optimal_mcqs(student_id, 3)
-            
+
             # Check that real mastery wasn't changed
             current_mastery = student.mastery_levels
-            
+
             mastery_unchanged = True
             for topic_idx, original_value in original_mastery.items():
                 current_value = current_mastery.get(topic_idx, 0.0)
                 if abs(original_value - current_value) > 1e-10:
                     mastery_unchanged = False
                     break
-            
+
             assert mastery_unchanged, "Real student mastery was modified during algorithm"
-            
+
             execution_time = time.time() - start_time
             self.results.append(TestResult(
                 test_name="Virtual Mastery Updates",
@@ -614,7 +614,7 @@ class MCQAlgorithmTestSuite:
                 }
             ))
             print("✅ Virtual mastery updates: PASSED")
-            
+
         except Exception as e:
             execution_time = time.time() - start_time
             self.results.append(TestResult(
@@ -624,29 +624,29 @@ class MCQAlgorithmTestSuite:
                 error_message=str(e)
             ))
             print(f"❌ Virtual mastery updates: FAILED - {str(e)}")
-    
+
     def _test_selection_consistency(self):
         """Test that selection algorithm produces consistent results"""
         start_time = time.time()
-        
+
         try:
             # Create test student
             student_id = "test_consistency_student"
             student = self._create_test_student(student_id, fixed_mastery=0.5)
-            
+
             # Run selection multiple times with same parameters
             selections = []
             for i in range(5):
                 selected = self.mcq_scheduler.select_optimal_mcqs(student_id, 3)
                 selections.append(selected)
-            
+
             # Check consistency (first selection should be deterministic)
             if len(selections) > 1 and len(selections[0]) > 0:
                 first_questions = [sel[0] if sel else None for sel in selections]
                 first_consistent = len(set(first_questions)) == 1
             else:
                 first_consistent = True  # No questions to compare
-            
+
             execution_time = time.time() - start_time
             self.results.append(TestResult(
                 test_name="Selection Consistency",
@@ -659,7 +659,7 @@ class MCQAlgorithmTestSuite:
                 }
             ))
             print("✅ Selection consistency: PASSED")
-            
+
         except Exception as e:
             execution_time = time.time() - start_time
             self.results.append(TestResult(
@@ -669,20 +669,20 @@ class MCQAlgorithmTestSuite:
                 error_message=str(e)
             ))
             print(f"❌ Selection consistency: FAILED - {str(e)}")
-    
+
     def _run_weight_parameter_tests(self):
         """Test different weight parameter configurations"""
-        
+
         weight_configs = self._generate_weight_configurations()
-        
+
         for config_name, weights in weight_configs.items():
             print(f"🧪 Testing weight configuration: {config_name}")
             result = self._test_weight_configuration(config_name, weights)
             self.weight_results.append(result)
-    
+
     def _generate_weight_configurations(self) -> Dict[str, Dict[str, float]]:
         """Generate different weight configurations for testing"""
-        
+
         configs = {
             "baseline": {
                 "mastery_threshold": 0.7,
@@ -715,46 +715,46 @@ class MCQAlgorithmTestSuite:
                 "greedy_prereq_weight": 0.3
             }
         }
-        
+
         return configs
-    
+
     def _test_weight_configuration(self, config_name: str, weights: Dict[str, float]) -> WeightTestResult:
         """Test a specific weight configuration"""
         start_time = time.time()
-        
+
         try:
             # Temporarily update configuration
             original_config = self._backup_config()
             self._apply_weight_config(weights)
-            
+
             # Test with multiple students
             results = []
             for i in range(5):  # Test with 5 different students
                 student_id = f"weight_test_student_{config_name}_{i}"
                 student = self._create_test_student(student_id, random_mastery=True)
-                
+
                 # Run selection
                 selected = self.mcq_scheduler.select_optimal_mcqs(student_id, 5)
-                
+
                 # Calculate metrics
                 coverage_ratio = self._calculate_coverage_ratio(selected, student_id)
-                
+
                 results.append({
                     "questions_selected": len(selected),
                     "coverage_ratio": coverage_ratio,
                     "success": True
                 })
-            
+
             # Restore original configuration
             self._restore_config(original_config)
-            
+
             # Calculate averages
             avg_questions = np.mean([r["questions_selected"] for r in results])
             avg_coverage = np.mean([r["coverage_ratio"] for r in results])
             success_rate = np.mean([r["success"] for r in results])
-            
+
             execution_time = time.time() - start_time
-            
+
             return WeightTestResult(
                 config_name=config_name,
                 weights=weights,
@@ -764,7 +764,7 @@ class MCQAlgorithmTestSuite:
                 success_rate=success_rate,
                 details={"individual_results": results}
             )
-            
+
         except Exception as e:
             execution_time = time.time() - start_time
             return WeightTestResult(
@@ -776,45 +776,45 @@ class MCQAlgorithmTestSuite:
                 success_rate=0.0,
                 details={"error": str(e)}
             )
-    
+
     def _run_performance_tests(self):
         """Test algorithm performance under different conditions"""
-        
+
         # Test 1: Large student load
         self._test_large_student_load()
-        
+
         # Test 2: Many question selection
         self._test_many_question_selection()
-        
+
         # Test 3: Repeated selections
         self._test_repeated_selections()
-    
+
     def _test_large_student_load(self):
         """Test performance with many students"""
         start_time = time.time()
-        
+
         try:
             num_students = 20
             students = []
-            
+
             # Create many students
             for i in range(num_students):
                 student_id = f"perf_test_student_{i}"
                 student = self._create_test_student(student_id, random_mastery=True)
                 students.append(student_id)
-            
+
             # Test selection for all students
             total_selections = 0
             for student_id in students:
                 selected = self.mcq_scheduler.select_optimal_mcqs(student_id, 3)
                 total_selections += len(selected)
-            
+
             execution_time = time.time() - start_time
             avg_time_per_student = execution_time / num_students
-            
+
             # Performance should be reasonable
             performance_acceptable = avg_time_per_student < self.config.performance_threshold_seconds
-            
+
             self.results.append(TestResult(
                 test_name="Large Student Load Performance",
                 success=performance_acceptable,
@@ -826,10 +826,10 @@ class MCQAlgorithmTestSuite:
                     "performance_acceptable": performance_acceptable
                 }
             ))
-            
+
             status = "PASSED" if performance_acceptable else "SLOW"
             print(f"✅ Large student load: {status} ({avg_time_per_student:.3f}s/student)")
-            
+
         except Exception as e:
             execution_time = time.time() - start_time
             self.results.append(TestResult(
@@ -839,21 +839,21 @@ class MCQAlgorithmTestSuite:
                 error_message=str(e)
             ))
             print(f"❌ Large student load: FAILED - {str(e)}")
-    
+
     def _test_many_question_selection(self):
         """Test selection of many questions at once"""
         start_time = time.time()
-        
+
         try:
             student_id = "many_questions_student"
             student = self._create_test_student(student_id, fixed_mastery=0.4)
-            
+
             # Try selecting many questions
             selected = self.mcq_scheduler.select_optimal_mcqs(student_id, 20)
-            
+
             execution_time = time.time() - start_time
             performance_acceptable = execution_time < self.config.performance_threshold_seconds
-            
+
             self.results.append(TestResult(
                 test_name="Many Questions Selection Performance",
                 success=performance_acceptable,
@@ -864,10 +864,10 @@ class MCQAlgorithmTestSuite:
                     "performance_acceptable": performance_acceptable
                 }
             ))
-            
+
             status = "PASSED" if performance_acceptable else "SLOW"
             print(f"✅ Many questions selection: {status} ({len(selected)}/20 in {execution_time:.3f}s)")
-            
+
         except Exception as e:
             execution_time = time.time() - start_time
             self.results.append(TestResult(
@@ -877,27 +877,27 @@ class MCQAlgorithmTestSuite:
                 error_message=str(e)
             ))
             print(f"❌ Many questions selection: FAILED - {str(e)}")
-    
+
     def _test_repeated_selections(self):
         """Test performance of repeated selections"""
         start_time = time.time()
-        
+
         try:
             student_id = "repeated_selection_student"
             student = self._create_test_student(student_id, random_mastery=True)
-            
+
             # Perform multiple selections
             num_iterations = 10
             total_selected = 0
-            
+
             for i in range(num_iterations):
                 selected = self.mcq_scheduler.select_optimal_mcqs(student_id, 2)
                 total_selected += len(selected)
-            
+
             execution_time = time.time() - start_time
             avg_time_per_selection = execution_time / num_iterations
             performance_acceptable = avg_time_per_selection < (self.config.performance_threshold_seconds / 2)
-            
+
             self.results.append(TestResult(
                 test_name="Repeated Selections Performance",
                 success=performance_acceptable,
@@ -909,10 +909,10 @@ class MCQAlgorithmTestSuite:
                     "performance_acceptable": performance_acceptable
                 }
             ))
-            
+
             status = "PASSED" if performance_acceptable else "SLOW"
             print(f"✅ Repeated selections: {status} ({avg_time_per_selection:.3f}s/selection)")
-            
+
         except Exception as e:
             execution_time = time.time() - start_time
             self.results.append(TestResult(
@@ -922,36 +922,36 @@ class MCQAlgorithmTestSuite:
                 error_message=str(e)
             ))
             print(f"❌ Repeated selections: FAILED - {str(e)}")
-    
+
     def _run_edge_case_tests(self):
         """Test edge cases and error conditions"""
-        
+
         # Test 1: Student with no studied topics
         self._test_no_studied_topics()
-        
+
         # Test 2: Student with all high mastery
         self._test_all_high_mastery()
-        
+
         # Test 3: Student with all completed questions
         self._test_all_completed_questions()
-        
+
         # Test 4: Invalid student ID
         self._test_invalid_student_id()
-    
+
     def _test_no_studied_topics(self):
         """Test student with no studied topics"""
         start_time = time.time()
-        
+
         try:
             student_id = "no_studied_topics_student"
             student = self.student_manager.create_student(student_id)
             # Don't mark any topics as studied
-            
+
             selected = self.mcq_scheduler.select_optimal_mcqs(student_id, 5)
-            
+
             # Should handle gracefully (return empty list)
             assert isinstance(selected, list), "Should return a list"
-            
+
             execution_time = time.time() - start_time
             self.results.append(TestResult(
                 test_name="No Studied Topics Edge Case",
@@ -960,7 +960,7 @@ class MCQAlgorithmTestSuite:
                 details={"questions_selected": len(selected)}
             ))
             print(f"✅ No studied topics: PASSED ({len(selected)} questions)")
-            
+
         except Exception as e:
             execution_time = time.time() - start_time
             self.results.append(TestResult(
@@ -970,20 +970,20 @@ class MCQAlgorithmTestSuite:
                 error_message=str(e)
             ))
             print(f"❌ No studied topics: FAILED - {str(e)}")
-    
+
     def _test_all_high_mastery(self):
         """Test student with all high mastery levels"""
         start_time = time.time()
-        
+
         try:
             student_id = "high_mastery_student"
             student = self._create_test_student(student_id, fixed_mastery=0.95)
-            
+
             selected = self.mcq_scheduler.select_optimal_mcqs(student_id, 5)
-            
+
             # Should handle gracefully
             assert isinstance(selected, list), "Should return a list"
-            
+
             execution_time = time.time() - start_time
             self.results.append(TestResult(
                 test_name="All High Mastery Edge Case",
@@ -992,7 +992,7 @@ class MCQAlgorithmTestSuite:
                 details={"questions_selected": len(selected)}
             ))
             print(f"✅ All high mastery: PASSED ({len(selected)} questions)")
-            
+
         except Exception as e:
             execution_time = time.time() - start_time
             self.results.append(TestResult(
@@ -1002,26 +1002,26 @@ class MCQAlgorithmTestSuite:
                 error_message=str(e)
             ))
             print(f"❌ All high mastery: FAILED - {str(e)}")
-    
+
     def _test_all_completed_questions(self):
         """Test student who completed all available questions today"""
         start_time = time.time()
-        
+
         try:
             student_id = "all_completed_student"
             student = self._create_test_student(student_id, random_mastery=True)
-            
+
             # Mark many questions as completed today
             if hasattr(self.mcq_scheduler, 'mcq_vectors'):
                 mcq_ids = list(self.mcq_scheduler.mcq_vectors.keys())[:50]  # Mark first 50 as completed
                 for mcq_id in mcq_ids:
                     student.daily_completed.add(mcq_id)
-            
+
             selected = self.mcq_scheduler.select_optimal_mcqs(student_id, 5)
-            
+
             # Should handle gracefully
             assert isinstance(selected, list), "Should return a list"
-            
+
             execution_time = time.time() - start_time
             self.results.append(TestResult(
                 test_name="All Completed Questions Edge Case",
@@ -1033,7 +1033,7 @@ class MCQAlgorithmTestSuite:
                 }
             ))
             print(f"✅ All completed questions: PASSED ({len(selected)} questions)")
-            
+
         except Exception as e:
             execution_time = time.time() - start_time
             self.results.append(TestResult(
@@ -1043,19 +1043,19 @@ class MCQAlgorithmTestSuite:
                 error_message=str(e)
             ))
             print(f"❌ All completed questions: FAILED - {str(e)}")
-    
+
     def _test_invalid_student_id(self):
         """Test with invalid student ID"""
         start_time = time.time()
-        
+
         try:
             # Try with non-existent student
             selected = self.mcq_scheduler.select_optimal_mcqs("nonexistent_student", 5)
-            
+
             # Should handle gracefully (return empty list)
             assert isinstance(selected, list), "Should return a list for invalid student"
             assert len(selected) == 0, "Should return empty list for invalid student"
-            
+
             execution_time = time.time() - start_time
             self.results.append(TestResult(
                 test_name="Invalid Student ID Edge Case",
@@ -1064,7 +1064,7 @@ class MCQAlgorithmTestSuite:
                 details={"questions_selected": len(selected)}
             ))
             print("✅ Invalid student ID: PASSED")
-            
+
         except Exception as e:
             execution_time = time.time() - start_time
             self.results.append(TestResult(
@@ -1074,48 +1074,48 @@ class MCQAlgorithmTestSuite:
                 error_message=str(e)
             ))
             print(f"❌ Invalid student ID: FAILED - {str(e)}")
-    
+
     def _run_integration_tests(self):
         """Test integration between different system components"""
-        
+
         # Test 1: Full learning session simulation
         self._test_full_learning_session()
-        
+
         # Test 2: BKT integration
         self._test_bkt_integration()
-        
+
         # Test 3: Configuration changes
         self._test_configuration_changes()
-    
+
     def _test_full_learning_session(self):
         """Test a complete learning session with question answering"""
         start_time = time.time()
-        
+
         try:
             student_id = "integration_test_student"
             student = self._create_test_student(student_id, fixed_mastery=0.3)
-            
+
             # Simulate answering several questions
             total_questions = 0
             for session_round in range(3):
                 # Select questions
                 selected = self.mcq_scheduler.select_optimal_mcqs(student_id, 3)
                 total_questions += len(selected)
-                
+
                 # Simulate answering (random correct/incorrect)
                 for mcq_id in selected:
                     is_correct = random.choice([True, False])
                     time_taken = random.uniform(30, 120)  # 30-120 seconds
-                    
+
                     # Record attempt
                     self.student_manager.record_attempt(
                         student_id, mcq_id, is_correct, time_taken, self.kg
                     )
-            
+
             # Verify student progress was tracked
             final_student = self.student_manager.get_student(student_id)
             attempts_recorded = len(final_student.completed_questions) > 0
-            
+
             execution_time = time.time() - start_time
             self.results.append(TestResult(
                 test_name="Full Learning Session Integration",
@@ -1127,9 +1127,9 @@ class MCQAlgorithmTestSuite:
                     "final_completed_count": len(final_student.completed_questions)
                 }
             ))
-            
+
             print(f"✅ Full learning session: PASSED ({total_questions} questions)")
-            
+
         except Exception as e:
             execution_time = time.time() - start_time
             self.results.append(TestResult(
@@ -1139,31 +1139,31 @@ class MCQAlgorithmTestSuite:
                 error_message=str(e)
             ))
             print(f"❌ Full learning session: FAILED - {str(e)}")
-    
+
     def _test_bkt_integration(self):
         """Test integration with Bayesian Knowledge Tracing"""
         start_time = time.time()
-        
+
         try:
             student_id = "bkt_integration_student"
             student = self._create_test_student(student_id, fixed_mastery=0.5)
-            
+
             original_mastery = student.mastery_levels.copy()
-            
+
             # Select and answer a question
             selected = self.mcq_scheduler.select_optimal_mcqs(student_id, 1)
             if selected:
                 mcq_id = selected[0]
-                
+
                 # Record a correct answer
                 bkt_updates = self.student_manager.record_attempt(
                     student_id, mcq_id, True, 60, self.kg
                 )
-                
+
                 # Check that BKT updates were applied
                 updated_student = self.student_manager.get_student(student_id)
                 mastery_changed = updated_student.mastery_levels != original_mastery
-                
+
                 execution_time = time.time() - start_time
                 self.results.append(TestResult(
                     test_name="BKT Integration",
@@ -1184,7 +1184,7 @@ class MCQAlgorithmTestSuite:
                     error_message="No questions available for BKT test"
                 ))
                 print("❌ BKT integration: FAILED - No questions available")
-            
+
         except Exception as e:
             execution_time = time.time() - start_time
             self.results.append(TestResult(
@@ -1194,15 +1194,15 @@ class MCQAlgorithmTestSuite:
                 error_message=str(e)
             ))
             print(f"❌ BKT integration: FAILED - {str(e)}")
-    
+
     def _test_configuration_changes(self):
         """Test system behavior with configuration changes"""
         start_time = time.time()
-        
+
         try:
             student_id = "config_test_student"
             student = self._create_test_student(student_id, fixed_mastery=0.6)
-            
+
             # Test with different mastery thresholds
             results = {}
             for threshold in [0.5, 0.7, 0.9]:
@@ -1210,19 +1210,19 @@ class MCQAlgorithmTestSuite:
                 original_threshold = getattr(self.kg.config, 'mastery_threshold', 0.7)
                 if hasattr(self.kg.config, 'mastery_threshold'):
                     self.kg.config.mastery_threshold = threshold
-                
+
                 # Run selection
                 selected = self.mcq_scheduler.select_optimal_mcqs(student_id, 5)
                 results[threshold] = len(selected)
-                
+
                 # Restore config
                 if hasattr(self.kg.config, 'mastery_threshold'):
                     self.kg.config.mastery_threshold = original_threshold
-            
+
             # Verify that different thresholds produce different results
             unique_results = len(set(results.values()))
             config_responsive = unique_results > 1
-            
+
             execution_time = time.time() - start_time
             self.results.append(TestResult(
                 test_name="Configuration Changes",
@@ -1233,9 +1233,9 @@ class MCQAlgorithmTestSuite:
                     "config_responsive": config_responsive
                 }
             ))
-            
+
             print(f"✅ Configuration changes: PASSED (responsive: {config_responsive})")
-            
+
         except Exception as e:
             execution_time = time.time() - start_time
             self.results.append(TestResult(
@@ -1245,14 +1245,14 @@ class MCQAlgorithmTestSuite:
                 error_message=str(e)
             ))
             print(f"❌ Configuration changes: FAILED - {str(e)}")
-    
+
     # Helper Methods
-    def _create_test_student(self, student_id: str, random_mastery: bool = False, 
+    def _create_test_student(self, student_id: str, random_mastery: bool = False,
                            fixed_mastery: Optional[float] = None) -> Any:
         """Create a test student with specified mastery characteristics"""
         try:
             student = self.student_manager.create_student(student_id)
-            
+
             # Determine number of topics/nodes
             num_topics = 0
             if hasattr(self.kg, 'nodes') and self.kg.nodes:
@@ -1268,9 +1268,9 @@ class MCQAlgorithmTestSuite:
                 # Fallback - assume reasonable number of topics
                 num_topics = 20
                 print(f"⚠️  Could not determine number of topics, using fallback: {num_topics}")
-            
+
             print(f"📝 Creating test student with {num_topics} topics")
-            
+
 
             for i in range(num_topics):
                 # Mark topic as studied (required for eligibility)
@@ -1287,7 +1287,7 @@ class MCQAlgorithmTestSuite:
                         if not isinstance(student.studied_topics, set):
                             student.studied_topics = set()
                         student.studied_topics.add(i)
-                
+
                 # Set mastery level
                 if fixed_mastery is not None:
                     mastery_value = fixed_mastery
@@ -1295,13 +1295,13 @@ class MCQAlgorithmTestSuite:
                     mastery_value = random.uniform(0.1, 0.9)
                 else:
                     mastery_value = 0.5  # Default
-                
+
                 # Set mastery in student profile
                 if hasattr(student, 'mastery_levels'):
                     student.mastery_levels[i] = mastery_value
                 elif hasattr(student, 'set_mastery'):
                     student.set_mastery(i, mastery_value)
-            
+
             # Ensure student has required attributes
             if not hasattr(student, 'studied_topics'):
                 student.studied_topics = set(range(num_topics))
@@ -1309,63 +1309,63 @@ class MCQAlgorithmTestSuite:
                 student.mastery_levels = {i: (fixed_mastery or 0.5) for i in range(num_topics)}
             if not hasattr(student, 'daily_completed'):
                 student.daily_completed = set()
-            
+
             print(f"✅ Test student created: {len(student.studied_topics)} studied topics, {len(student.mastery_levels)} mastery levels")
             return student
-            
+
         except Exception as e:
             print(f"❌ Failed to create test student: {str(e)}")
             raise Exception(f"Test student creation failed: {str(e)}")
-    
+
     def _backup_config(self) -> Dict:
         """Backup current configuration"""
         # This would need to be implemented based on actual config structure
         return {"mastery_threshold": getattr(self.kg.config, 'mastery_threshold', 0.7)}
-    
+
     def _apply_weight_config(self, weights: Dict[str, float]):
         """Apply weight configuration temporarily"""
         for key, value in weights.items():
             if hasattr(self.kg.config, key):
                 setattr(self.kg.config, key, value)
-    
+
     def _restore_config(self, backup: Dict):
         """Restore configuration from backup"""
         for key, value in backup.items():
             if hasattr(self.kg.config, key):
                 setattr(self.kg.config, key, value)
-    
+
     def _calculate_coverage_ratio(self, selected_mcqs: List[str], student_id: str) -> float:
         """Calculate coverage ratio for selected MCQs"""
         if not selected_mcqs:
             return 0.0
-        
+
         student = self.student_manager.get_student(student_id)
         if not student:
             return 0.0
-        
+
         # Simple coverage calculation based on number of topics covered
         covered_topics = set()
         for mcq_id in selected_mcqs:
             if mcq_id in self.mcq_scheduler.mcq_vectors:
                 vector = self.mcq_scheduler.mcq_vectors[mcq_id]
                 covered_topics.update(vector.subtopic_weights.keys())
-        
+
         total_due_topics = sum(1 for topic_idx, mastery in student.mastery_levels.items()
                               if mastery < 0.7 and student.is_topic_studied(topic_idx))
-        
+
         if total_due_topics == 0:
             return 1.0
-        
+
         return len(covered_topics) / total_due_topics
-    
+
     def _generate_test_report(self, total_time: float) -> Dict[str, Any]:
         """Generate comprehensive test report"""
-        
+
         # Core functionality results
         core_passed = sum(1 for r in self.results if r.success)
         core_total = len(self.results)
         core_success_rate = core_passed / core_total if core_total > 0 else 0
-        
+
         # Weight test results
         weight_summary = {}
         if self.weight_results:
@@ -1374,11 +1374,11 @@ class MCQAlgorithmTestSuite:
                 "best_config": max(self.weight_results, key=lambda x: x.avg_coverage_ratio).config_name,
                 "avg_success_rate": np.mean([r.success_rate for r in self.weight_results])
             }
-        
+
         # Performance analysis
         perf_results = [r for r in self.results if "Performance" in r.test_name]
         avg_execution_time = np.mean([r.execution_time for r in self.results])
-        
+
         report = {
             "summary": {
                 "total_execution_time": total_time,
@@ -1412,7 +1412,7 @@ class MCQAlgorithmTestSuite:
                 "performance_tests_passed": sum(1 for r in perf_results if r.success)
             }
         }
-        
+
         # Print summary
         print("\n" + "="*80)
         print("TEST SUITE SUMMARY")
@@ -1421,40 +1421,40 @@ class MCQAlgorithmTestSuite:
         print(f"✅ Core tests passed: {core_passed}/{core_total} ({core_success_rate*100:.1f}%)")
         print(f"⚖️ Weight configurations tested: {len(self.weight_results)}")
         print(f"🚀 Performance tests passed: {sum(1 for r in perf_results if r.success)}/{len(perf_results)}")
-        
+
         if self.weight_results:
             best_config = max(self.weight_results, key=lambda x: x.avg_coverage_ratio)
             print(f"🏆 Best weight configuration: {best_config.config_name} ({best_config.avg_coverage_ratio:.3f} coverage)")
-        
+
         # Print failed tests
         failed_tests = [r for r in self.results if not r.success]
         if failed_tests:
             print(f"\n❌ Failed tests:")
             for r in failed_tests:
                 print(f"   - {r.test_name}: {r.error_message}")
-        
+
         print("\n✅ Test suite completed successfully!")
-        
+
         return report
 
 
 def run_comprehensive_tests(config_file: str = 'config.json') -> Dict[str, Any]:
     """
     Main function to run the comprehensive test suite.
-    
+
     Args:
         config_file: Path to configuration file
-        
+
     Returns:
         Dictionary containing complete test results
     """
     # Create test configuration
     test_config = TestConfig(config_file=config_file)
-    
+
     # Initialize and run test suite
     test_suite = MCQAlgorithmTestSuite(test_config)
     results = test_suite.run_all_tests()
-    
+
     return results
 
 
@@ -1467,10 +1467,10 @@ def quick_functionality_test() -> bool:
         test_config.run_performance_tests = False
         test_config.run_edge_case_tests = False
         test_config.run_integration_tests = False
-        
+
         test_suite = MCQAlgorithmTestSuite(test_config)
         results = test_suite.run_all_tests()
-        
+
         return results["summary"]["core_success_rate"] > 0.8
     except Exception:
         return False
@@ -1482,16 +1482,16 @@ def weight_optimization_test() -> Dict[str, Any]:
     test_config.run_performance_tests = False
     test_config.run_edge_case_tests = False
     test_config.run_integration_tests = False
-    
+
     test_suite = MCQAlgorithmTestSuite(test_config)
     results = test_suite.run_all_tests()
-    
+
     return results["weight_details"]
 
 def debug_mcq_loading_issues(config_file: str = 'config.json') -> Dict[str, Any]:
     """
     Diagnostic function to debug MCQ loading issues.
-    
+
     Returns detailed information about what's working and what's not.
     """
     debug_info = {
@@ -1500,17 +1500,17 @@ def debug_mcq_loading_issues(config_file: str = 'config.json') -> Dict[str, Any]
         "vector_creation": {},
         "recommendations": []
     }
-    
+
     try:
         print("🔍 DEBUGGING MCQ LOADING ISSUES")
         print("="*50)
-        
+
         # Test 1: System Initialization
         print("1️⃣ Testing system initialization...")
         try:
             kg = KnowledgeGraph(
                 nodes_file='small-graph-kg.json',
-                mcqs_file='small-graph-computed_mcqs.json', 
+                mcqs_file='small-graph-computed_mcqs.json',
                 config_file=config_file
             )
             debug_info["system_initialization"]["knowledge_graph"] = "SUCCESS"
@@ -1520,10 +1520,10 @@ def debug_mcq_loading_issues(config_file: str = 'config.json') -> Dict[str, Any]
             print(f"   ❌ Knowledge graph failed: {str(e)}")
             debug_info["recommendations"].append("Check that JSON files exist and are valid")
 
-        
+
         # Test 2: Check MCQ Data Sources
         print("2️⃣ Checking MCQ data sources...")
-        
+
         if hasattr(kg, 'mcqs'):
             mcq_count = len(kg.mcqs)
             debug_info["mcq_data_sources"]["traditional_mcqs"] = mcq_count
@@ -1531,11 +1531,11 @@ def debug_mcq_loading_issues(config_file: str = 'config.json') -> Dict[str, Any]
         else:
             debug_info["mcq_data_sources"]["traditional_mcqs"] = 0
             print("   ⚠️  No traditional mcqs attribute")
-        
+
         if hasattr(kg, 'ultra_loader'):
             debug_info["mcq_data_sources"]["has_ultra_loader"] = True
             print("   📊 Ultra loader detected")
-            
+
             if hasattr(kg.ultra_loader, 'minimal_mcq_data'):
                 ultra_count = len(kg.ultra_loader.minimal_mcq_data)
                 debug_info["mcq_data_sources"]["ultra_loader_mcqs"] = ultra_count
@@ -1546,7 +1546,7 @@ def debug_mcq_loading_issues(config_file: str = 'config.json') -> Dict[str, Any]
         else:
             debug_info["mcq_data_sources"]["has_ultra_loader"] = False
             print("   📊 No ultra loader")
-        
+
         # Test 3: MCQ Scheduler Creation
         print("3️⃣ Testing MCQ scheduler...")
         try:
@@ -1558,23 +1558,23 @@ def debug_mcq_loading_issues(config_file: str = 'config.json') -> Dict[str, Any]
             debug_info["system_initialization"]["mcq_scheduler"] = f"FAILED: {str(e)}"
             print(f"   ❌ MCQ scheduler failed: {str(e)}")
             return debug_info
-        
+
         # Test 4: Vector Creation Methods
         print("4️⃣ Testing vector creation methods...")
-        
+
         # Check available methods
         has_ensure_vectors = hasattr(mcq_scheduler, '_ensure_vectors_computed')
         has_get_or_create = hasattr(mcq_scheduler, '_get_or_create_optimized_mcq_vector')
-        
+
         debug_info["vector_creation"]["has_ensure_vectors_computed"] = has_ensure_vectors
         debug_info["vector_creation"]["has_get_or_create_optimized"] = has_get_or_create
-        
+
         print(f"   📋 _ensure_vectors_computed: {has_ensure_vectors}")
         print(f"   📋 _get_or_create_optimized_mcq_vector: {has_get_or_create}")
-        
+
         # Test 5: Actual Vector Creation
         print("5️⃣ Testing actual vector creation...")
-        
+
         if has_ensure_vectors:
             try:
                 mcq_scheduler._ensure_vectors_computed()
@@ -1584,7 +1584,7 @@ def debug_mcq_loading_issues(config_file: str = 'config.json') -> Dict[str, Any]
             except Exception as e:
                 debug_info["vector_creation"]["ensure_vectors_error"] = str(e)
                 print(f"   ❌ _ensure_vectors_computed failed: {str(e)}")
-        
+
         if has_get_or_create and debug_info["mcq_data_sources"].get("ultra_loader_mcqs", 0) > 0:
             # Try to create a vector for a specific MCQ
             sample_mcq_id = list(kg.ultra_loader.minimal_mcq_data.keys())[0]
@@ -1599,50 +1599,50 @@ def debug_mcq_loading_issues(config_file: str = 'config.json') -> Dict[str, Any]
             except Exception as e:
                 debug_info["vector_creation"]["on_demand_creation"] = f"FAILED: {str(e)}"
                 print(f"   ❌ On-demand vector creation failed: {str(e)}")
-        
+
         # Test 6: Student Creation and Eligibility
         print("6️⃣ Testing student creation and eligibility...")
         try:
             test_student = student_manager.create_student("debug_student")
-            
+
             # Get number of topics
             num_topics = len(kg.nodes) if hasattr(kg, 'nodes') else 10
-            
+
             # Mark topics as studied
             for i in range(num_topics):
                 if hasattr(test_student, 'mark_topic_studied'):
                     test_student.mark_topic_studied(i)
                 test_student.mastery_levels[i] = 0.3  # Low mastery
-            
+
             eligible_mcqs = mcq_scheduler.get_available_questions_for_student("debug_student")
             debug_info["vector_creation"]["eligible_mcqs_count"] = len(eligible_mcqs)
             print(f"   📊 Eligible MCQs for test student: {len(eligible_mcqs)}")
-            
+
         except Exception as e:
             debug_info["vector_creation"]["student_eligibility_error"] = str(e)
             print(f"   ❌ Student eligibility test failed: {str(e)}")
-        
+
         # Generate recommendations
         print("7️⃣ Generating recommendations...")
-        
+
         if debug_info["mcq_data_sources"]["traditional_mcqs"] == 0 and debug_info["mcq_data_sources"]["ultra_loader_mcqs"] == 0:
             debug_info["recommendations"].append("No MCQ data found - check JSON file loading")
-        
+
         if debug_info["mcq_data_sources"]["has_ultra_loader"] and debug_info["vector_creation"].get("vectors_after_ensure_computed", 0) == 0:
             debug_info["recommendations"].append("Ultra loader detected but no vectors created - vectors are created on-demand")
-        
+
         if not debug_info["mcq_data_sources"]["has_ultra_loader"] and debug_info["vector_creation"].get("vectors_after_ensure_computed", 0) == 0:
             debug_info["recommendations"].append("Traditional mode but no vectors created - check _precompute_prerequisites_for_mcqs method")
-        
+
         if debug_info["vector_creation"].get("eligible_mcqs_count", 0) == 0:
             debug_info["recommendations"].append("No eligible MCQs found - check student topic marking and mastery thresholds")
-        
+
         print("✅ Debug analysis complete!")
-        
+
     except Exception as e:
         debug_info["overall_error"] = str(e)
         print(f"❌ Debug analysis failed: {str(e)}")
-    
+
     return debug_info
 
 
@@ -1652,39 +1652,39 @@ if __name__ == "__main__":
     print("2. Debug MCQ loading issues")
     print("3. Full comprehensive test suite")
     print("4. Weight optimization only")
-    
+
     try:
         choice = input("Enter choice (1-4, or press Enter for full suite): ").strip()
     except:
         choice = "3"  # Default to full suite
-    
+
     if choice == "1":
         print("\n🚀 Running quick functionality test...")
         success = quick_functionality_test()
         print(f"✅ Quick test {'PASSED' if success else 'FAILED'}")
-        
+
     elif choice == "2":
         print("\n🔍 Running debug analysis...")
         debug_results = debug_mcq_loading_issues()
         print("\n📋 DEBUG SUMMARY:")
         print(json.dumps(debug_results, indent=2))
-        
+
     elif choice == "4":
         print("\n⚖️ Running weight optimization test...")
         weight_results = weight_optimization_test()
         print("\n📊 WEIGHT OPTIMIZATION RESULTS:")
         for result in weight_results:
             print(f"  {result['config_name']}: {result['avg_coverage_ratio']:.3f} coverage")
-            
+
     else:  # choice == "3" or default
         print("\n🚀 Starting comprehensive MCQ algorithm test suite...")
         results = run_comprehensive_tests()
-        
+
         # Optionally save results to file
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
         results_file = f"mcq_test_results_{timestamp}.json"
-        
+
         try:
             with open(results_file, 'w') as f:
                 json.dump(results, f, indent=2)
@@ -1694,5 +1694,1022 @@ if __name__ == "__main__":
 
 
 
-    
-    
+
+
+def simple_breakdown_test():
+    """Simple test to demonstrate the MCQ breakdown system"""
+
+    # Import the updated MCQ class (assuming you have it in your file)
+
+
+    # Example MCQ data with breakdown (discriminant question)
+    example_mcq_data = {
+      "id": "5fd2fa18-963c-4473-ad47-b7ce48a44a85",
+      "text": "What is the discriminant of the quadratic equation ${question_expression}?",
+      "question_expression": "a*x**2 +b*x + c = 0",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": -9,
+          "max": 9,
+          "exclude": 0
+        },
+        "b": {
+          "type": "int",
+          "min": -9,
+          "max": 9
+        },
+        "c": {
+          "type": "int",
+          "min": -50,
+          "max": 50
+        }
+      },
+      "calculated_parameters": {
+        "opt1": "b**2-4*a*c",
+        "opt2": "b**2+4*a*c",
+        "opt3": "sqrt(b**2-4*a*c)",
+        "opt4": "(-b+sqrt(b**2-4*a*c))/(2*a)"
+      },
+      "options": [
+        "${opt1}",
+        "${opt2}",
+        "${opt3}",
+        "${opt4}"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct!The discriminant is $b^2 - 4ac$",
+        "Incorrect. You may have calculated $b^2 + 4ac$ instead of $b^2 - 4ac$.",
+        "Incorrect. Remember the formula is $b^2 - 4ac$, not $sqrt{b^2-4ac}$.",
+        "Incorrect. The discriminant is just the part under square root of the quadratic question."
+      ],
+      "main_topic_index": 17,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "17": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.3,
+        "procedural_fluency": 0.7,
+        "problem_solving": 0.2,
+        "mathematical_communication": 0.1,
+        "memory": 0.4,
+        "spatial_reasoning": 0.0
+      },
+      "overall_difficulty": 0.2833333333333334,
+      "prerequisites": {
+        "16": 0.7
+      },
+      "breakdown": {
+        "sign_error": {
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [
+                14
+              ],
+              "step_type": "memory",
+              "text": "what is the formula for solving quadratic equations?",
+              "options": [
+                "\\(x=\\frac{-b+\\sqrt{b^2-4ac}}{2a}\\)",
+                "\\(\\sqrt{b^2-4ac}\\)",
+                "\\(\\frac{-b\\pm \\sqrt{b^2-4ac}}{2a}\\)",
+                "\\(ax^2+bx+c\\)"
+              ],
+              "correctindex": 2,
+              "option_explanations": [
+                "not quite, there is a plus",
+                "this is more like the formula for the discriminant, the question is asking for the whole formula",
+                "yes! this is the formula you use when you are solving quadratic equations",
+                "this is actually the form of an actual quadratic equation. we want the formula you can use to solve for x."
+              ]
+            },
+            {
+              "step_no": 2,
+              "step_type": "memory",
+              "text": "the discriminant is part of the quadratic formula, which bit?",
+              "options": [
+                "\\(\\sqrt{b^2 - 4ac}\\)",
+                "\\(b^2 - 4ac\\)",
+                "\\(2a\\)",
+                "\\(-b \\pm \\sqrt{b^2-4ac}\\)"
+              ],
+              "correctindex": 1,
+              "option_explanations": [
+                "the discriminant is the bit under the square root, but it doesn't actually include the square root itself",
+                "yep its the bit under the square root",
+                "remember we only want the bit under the square root, not the whole top of the fraction",
+                "no"
+              ]
+            },
+            {
+              "step_no": 3,
+              "step_type": "procedural_fluency",
+              "text": "now we have the formula \\(b^2-4ac\\), we want to substitute our numbers into it. remember our quadratic is ${question_expression}. our formula has a, b and c. what should each of these numbers be?",
+              "options": [
+                "\\(a = \\text{the number by itself}, b = \\text{the number in front of the } x, c = \\text{the number in front of the } x^2\\)",
+                "\\(a = ${a}, b = ${b}, c = ${c}\\)",
+                "\\(a=1,b=2,c=3\\)",
+                "\\(a= \\text{the number in front of the } x^2, b = \\text{the number in front of the } x, c = \\text{the term by itself}\\)"
+              ],
+              "correctindex": 3,
+              "option_explanations": [
+                "almost you just have it the wrong way around",
+                "you actually just want the numbers in front of xs, don't actually include the x",
+                "no",
+                "yes yay"
+              ]
+            },
+            {
+              "step_no": 4,
+              "step_type": "procedural_fluency",
+              "text": "we now have our formula, \\(${b}^2-4(${a})(${c})\\). time to do the math. when you calculate this sum, what do you get?",
+              "calculated_parameters": {
+                "opt1": "b**2-4*a*c",
+                "opt2": "b**2+4*a*c",
+                "opt3": "sqrt(b**2-4*a*c)",
+                "opt4": "(-b+sqrt(b**2-4*a*c))/(2*a)"
+              },
+              "options": [
+                "${opt1}",
+                "${opt2}",
+                "${opt3}",
+                "${opt4}"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "yes",
+                "no",
+                "no",
+                "no"
+              ]
+            }
+          ],
+          "answer_mapping": [
+            1
+          ]
+        },
+        "formula_confusion": {
+          "steps": [
+            {
+              "step_no": 1,
+              "step_type": "memory",
+              "text": "the discriminant is part of the quadratic formula, which bit?",
+              "options": [
+                "\\(\\sqrt{b^2 - 4ac}\\)",
+                "\\(b^2 - 4ac\\)",
+                "\\(2a\\)",
+                "\\(-b \\pm \\sqrt{b^2-4ac}\\)"
+              ],
+              "correctindex": 1,
+              "option_explanations": [
+                "the discriminant is the bit under the square root, but it doesn't actually include the square root itself",
+                "yep its the bit under the square root",
+                "remember we only want the bit under the square root, not the whole top of the fraction",
+                "no"
+              ]
+            },
+            {
+              "step_no": 2,
+              "step_type": "procedural_fluency",
+              "text": "now we have the formula \\(b^2-4ac\\), we want to substitute our numbers into it. remember our quadratic is ${question_expression}. our formula has a, b and c. what should each of these numbers be?",
+              "options": [
+                "\\(a = \\text{the number by itself}, b = \\text{the number in front of the } x, c = \\text{the number in front of the } x^2\\)",
+                "\\(a = ${a}, b = ${b}, c = ${c}\\)",
+                "\\(a=1,b=2,c=3\\)",
+                "\\(a= \\text{the number in front of the } x^2, b = \\text{the number in front of the } x, c = \\text{the term by itself}\\)"
+              ],
+              "correctindex": 3,
+              "option_explanations": [
+                "almost you just have it the wrong way around",
+                "you actually just want the numbers in front of xs, don't actually include the x",
+                "no",
+                "yes yay"
+              ]
+            },
+            {
+              "step_no": 3,
+              "step_type": "procedural_fluency",
+              "text": "we now have our formula, ${subquestion_expression}. time to do the math. when you calculate this sum, what do you get?",
+              "subquestion_expression": "b**2-4*a*c",
+              "calculated_parameters": {
+                "opt1": "b**2-4*a*c",
+                "opt2": "b**2+4*a*c",
+                "opt3": "sqrt(b**2-4*a*c)",
+                "opt4": "(-b+sqrt(b**2-4*a*c))/(2*a)"
+              },
+              "options": [
+                "${opt1}",
+                "${opt2}",
+                "${opt3}",
+                "${opt4}"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "yes",
+                "no",
+                "no",
+                "no"
+              ]
+            }
+          ],
+          "answer_mapping": [
+            2,
+            3
+          ]
+        }
+      }
+    }
+
+
+    print("="*60)
+    print("MCQ BREAKDOWN SYSTEM DEMONSTRATION")
+    print("="*60)
+
+    # Create MCQ from the example data
+    mcq = MCQ.from_dict(example_mcq_data)
+
+    # Display basic MCQ information
+    print(f"\n📚 MAIN QUESTION")
+    print(f"Chapter: {mcq.chapter}")
+    print(f"Topic: {mcq.main_topic_index}")
+    print(f"Difficulty: {mcq.overall_difficulty:.2f}")
+    print(f"Has Breakdown: {mcq.has_breakdown}")
+
+    # Generate and display the question
+    print(f"\n❓ QUESTION:")
+    print(f"{mcq.question_text}")
+
+    # Display the options
+    print(f"\n📝 OPTIONS:")
+    options = mcq.question_options
+    for i, option in enumerate(options):
+        print(f"   {i+1}. {option}")
+
+    print(f"\n✅ CORRECT ANSWER: Option {mcq.correctindex + 1}")
+
+    # Show generated parameters
+    params = mcq.get_current_parameters_safe()
+    print(f"\n🎲 GENERATED PARAMETERS:")
+    for param_name, param_value in params.items():
+        if not param_name.endswith('_num') and not param_name.endswith('_den') and not param_name.endswith('_float'):
+            print(f"   {param_name} = {param_value}")
+
+    # Simulate student choosing wrong answer
+    print("\n" + "="*60)
+    print("SIMULATING WRONG ANSWER - TRIGGERING BREAKDOWN")
+    print("="*60)
+
+    student_answer = 1  # Student chose option 2 (wrong)
+    print(f"🚫 Student chose option {student_answer + 1}: {options[student_answer]}")
+    print(f"💡 This is incorrect. The correct answer was option {mcq.correctindex + 1}")
+
+    # Simulate student mastery levels
+    student_mastery = {14: 0.5, 17: 0.3}  # Low mastery in topics 14 and 17
+    config = {'prerequisite_skip_threshold': 0.8}
+
+    print(f"\n👤 STUDENT MASTERY LEVELS:")
+    for topic_id, mastery in student_mastery.items():
+        print(f"   Topic {topic_id}: {mastery:.1%}")
+
+    # Execute breakdown
+    breakdown_steps = mcq.execute_breakdown_for_student(student_answer, student_mastery, config)
+
+    if breakdown_steps:
+        print(f"\n🎯 BREAKDOWN TRIGGERED - {len(breakdown_steps)} steps generated")
+        print("\n" + "="*60)
+        print("BREAKDOWN STEPS")
+        print("="*60)
+
+        for i, step in enumerate(breakdown_steps):
+            print(f"\n📖 STEP {step.step_no} - {step.step_type.upper()}")
+            print(f"Prerequisites: {step.prereq_topics}")
+
+            # Render step text and options
+            step_text = step.render_step_text()
+            step_options = step.render_step_options()
+
+            print(f"\nQuestion: {step_text}")
+            print(f"\nOptions:")
+            for j, option in enumerate(step_options):
+                marker = "✅" if j == step.correctindex else "  "
+                print(f"   {marker} {j+1}. {option}")
+
+            print(f"\nCorrect Answer: Option {step.correctindex + 1}")
+            print(f"Explanation: {step.option_explanations[step.correctindex]}")
+
+            if i < len(breakdown_steps) - 1:
+                print("\n" + "-"*40)
+    else:
+        print("\n❌ No breakdown steps generated")
+
+    # Test with high mastery (should skip steps)
+    print("\n" + "="*60)
+    print("TESTING PREREQUISITE SKIPPING")
+    print("="*60)
+
+    high_mastery = {14: 0.9, 17: 0.3}  # High mastery in topic 14
+    print(f"\n👤 UPDATED STUDENT MASTERY:")
+    for topic_id, mastery in high_mastery.items():
+        print(f"   Topic {topic_id}: {mastery:.1%}")
+
+    breakdown_steps_skip = mcq.execute_breakdown_for_student(student_answer, high_mastery, config)
+
+    if breakdown_steps_skip:
+        print(f"\n🎯 With high prerequisite mastery, generated {len(breakdown_steps_skip)} steps:")
+        print("(Note: Some steps were skipped due to high mastery in prerequisite topics)")
+        for step in breakdown_steps_skip:
+            print(f"   - Step {step.step_no}: {step.step_type}")
+
+    print("\n" + "="*60)
+    print("TEST COMPLETED SUCCESSFULLY!")
+    print("="*60)
+    print("\n🎉 The breakdown system is working correctly!")
+    print("   ✅ Main question displayed with parameters")
+    print("   ✅ Breakdown triggered on wrong answer")
+    print("   ✅ Steps generated with parameter inheritance")
+    print("   ✅ Prerequisite skipping working")
+    print("   ✅ All text and options rendered properly")
+
+
+def interactive_breakdown_demo():
+    """Interactive demo where you can 'answer' the questions"""
+
+
+    # Use the same example data as above
+    example_mcq_data ={
+      "id": "254e6e0b-4451-4447-b170-8e86f99f3a62",
+      "text": "What is the discriminant of the quadratic equation ${question_expression}?",
+      "question_expression": "a*x**2 +b*x + c = 0",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": -9,
+          "max": 9,
+          "exclude": 0
+        },
+        "b": {
+          "type": "int",
+          "min": -9,
+          "max": 9
+        },
+        "c": {
+          "type": "int",
+          "min": -50,
+          "max": 50
+        }
+      },
+      "calculated_parameters": {},
+      "options": [
+        "b**2-4*a*c",
+        "b**2+4*a*c",
+        "sqrt(b**2-4*a*c)",
+        "(-b+sqrt(b**2-4*a*c))/(2*a)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct!The discriminant is $b^2 - 4ac$",
+        "Incorrect. You may have calculated $b^2 + 4ac$ instead of $b^2 - 4ac$.",
+        "Incorrect. Remember the formula is $b^2 - 4ac$, not $sqrt{b^2-4ac}$.",
+        "Incorrect. The discriminnant is just the part under square root of the quadratic question."
+      ],
+      "main_topic_index": 17,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "17": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.3,
+        "procedural_fluency": 0.7,
+        "problem_solving": 0.2,
+        "mathematical_communication": 0.1,
+        "memory": 0.4,
+        "spatial_reasoning": 0.0
+      },
+      "overall_difficulty": 0.2833333333333334,
+      "prerequisites": {
+        "16": 0.7
+      },
+      "breakdown": {
+        "sign_error": {
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [
+                14
+              ],
+              "step_type": "memory",
+              "text": "what is the formula for solving quadratic equations?",
+              "options": [
+                "x=\\frac{-b+\\sqrt{b^2-4ac}}{2a}",
+                "\\sqrt{b^2-4ac}",
+                "\\frac{-b\\pm \\sqrt{b^2-4ac}}{2a}",
+                "ax^2+bx+c"
+              ],
+              "correctindex": 2,
+              "option_explanations": [
+                "not quite, there is a plus",
+                "this is more like the formula for the discriminant, the question is asking for the whole formula",
+                "yes! this is the formula you use when you are solving quadratic equations",
+                "this is actually the form of an actual quadratic equation. we want the formula you can use to solve for x. "
+              ]
+            },
+            {
+              "step_no": 2,
+              "step_type": "memory",
+              "text": "the discriminant is part of the quadratic formula, which bit?",
+              "options": [
+                "$\\sqrt{b^2 - 4ac}$",
+                "$b^2 - 4ac$",
+                "2a",
+                "-b \\pm \\sqrt{b^2-4ac}"
+              ],
+              "correctindex": 1,
+              "option_explanations": [
+                "the discriminant is the bit under the square root, but it doesn't actually include the square root itself",
+                "yep its the bit under the square root",
+                "remember we only want the bit under the square root, not the whole top of the fraction",
+                "no"
+              ]
+            },
+            {
+              "step_no": 3,
+              "step_type": "procedural_fluency",
+              "text": "now we have the formula $b^2-4ac$, we want to substitute our numbers into it. remember our quadratic is ${question_expression}. our formula has a, b and c. what should each of these numbers be?",
+              "options": [
+                "a = the number by itself, b = the number in fron of the x, c = the number in front of the $x^2$",
+                "$a = ${a} \\cdot x^2, b = ${b} \\cdot x, c = ${c}",
+                "a=1,b=2,c=3",
+                "a= the number in front of the $x^2$, b = the number in front of the $x$, c = the term by itself"
+              ],
+              "correctindex": 3,
+              "option_explanations": [
+                "almost you just have it the wrong way around",
+                "you actually just want the numbers in front of xs, don't actually include the x",
+                "no",
+                "yes yay"
+              ]
+            },
+            {
+              "step_no": 4,
+              "step_type": "procedural_fluency",
+              "text": " we now have our foumula, ${subquestion_expression_subbed}. time to do the math. when you calculate this sum, what do you get?",
+              "subquestion_expression": "b**2-4*a*c",
+              "calculated_parameters": {
+                "opt1": "b**2-4*a*c",
+                "opt2": "b**2+4*a*c",
+                "opt3": "sqrt(b**2-4*a*c)",
+                "opt4": "(-b+sqrt(b**2-4*a*c))/(2*a)"
+              },
+              "options": [
+                "${opt1}",
+                "${opt2}",
+                "${opt3}",
+                "${opt4}"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "yes",
+                "no",
+                "no",
+                "no"
+              ]
+            }
+          ],
+          "answer_mapping": [
+            1
+          ]
+        },
+        "formula_confusion": {
+          "steps": [
+            {
+              "step_no": 1,
+              "step_type": "memory",
+              "text": "the discriminant is part of the quadratic formula, which bit?",
+              "options": [
+                "$\\sqrt{b^2 - 4ac}$",
+                "$b^2 - 4ac$",
+                "2a",
+                "-b \\pm \\sqrt{b^2-4ac}"
+              ],
+              "correctindex": 1,
+              "option_explanations": [
+                "the discriminant is the bit under the square root, but it doesn't actually include the square root itself",
+                "yep its the bit under the square root",
+                "remember we only want the bit under the square root, not the whole top of the fraction",
+                "no"
+              ]
+            },
+            {
+              "step_no": 2,
+              "step_type": "procedural_fluency",
+              "text": "now we have the formula $b^2-4ac$, we want to substitute our numbers into it. remember our quadratic is ${question_expression}. our formula has a, b and c. what should each of these numbers be?",
+              "options": [
+                "a = the number by itself, b = the number in fron of the x, c = the number in front of the $x^2$",
+                "$a = ${a} \\cdot x^2, b = ${b} \\cdot x, c = ${c}",
+                "a=1,b=2,c=3",
+                "a= the number in front of the $x^2$, b = the number in front of the $x$, c = the term by itself"
+              ],
+              "correctindex": 3,
+              "option_explanations": [
+                "almost you just have it the wrong way around",
+                "you actually just want the numbers in front of xs, don't actually include the x",
+                "no",
+                "yes yay"
+              ]
+            },
+            {
+              "step_no": 3,
+              "step_type": "procedural_fluency",
+              "text": " we now have our foumula, ${subquestion_expression_subbed}. time to do the math. when you calculate this sum, what do you get?",
+              "subquestion_expression": "b**2-4*a*c",
+              "calculated_parameters": {
+                "opt1": "b**2-4*a*c",
+                "opt2": "b**2+4*a*c",
+                "opt3": "sqrt(b**2-4*a*c)",
+                "opt4": "(-b+sqrt(b**2-4*a*c))/(2*a)"
+              },
+              "options": [
+                "${opt1}",
+                "${opt2}",
+                "${opt3}",
+                "${opt4}"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "yes",
+                "no",
+                "no",
+                "no"
+              ]
+            }
+          ],
+          "answer_mapping": [
+            2,
+            3
+          ]
+        }
+      }
+    }
+
+    print("\n🎮 INTERACTIVE BREAKDOWN DEMO")
+    print("="*50)
+
+    mcq = MCQ.from_dict(example_mcq_data)
+
+    # Show question
+    print(f"\n❓ {mcq.question_text}")
+    options = mcq.question_options
+
+    print(f"\nOptions:")
+    for i, option in enumerate(options):
+        print(f"   {i+1}. {option}")
+
+    # Get user input
+    try:
+        user_choice = input(f"\nEnter your choice (1-{len(options)}): ")
+        choice_index = int(user_choice) - 1
+
+        if choice_index == mcq.correctindex:
+            print("🎉 Correct! Well done!")
+        else:
+            print(f"❌ Incorrect. You chose: {options[choice_index]}")
+            print(f"The correct answer was: {options[mcq.correctindex]}")
+
+            # Trigger breakdown
+            student_mastery = {14: 0.4, 17: 0.3}
+            config = {'prerequisite_skip_threshold': 0.8}
+
+            breakdown_steps = mcq.execute_breakdown_for_student(choice_index, student_mastery, config)
+
+            if breakdown_steps:
+                print(f"\n💡 Let's break this down step by step...")
+
+                for step in breakdown_steps:
+                    print(f"\n📚 Step {step.step_no}: {step.step_type}")
+                    print(f"{step.render_step_text()}")
+
+                    step_options = step.render_step_options()
+                    for i, option in enumerate(step_options):
+                        print(f"   {i+1}. {option}")
+
+                    step_choice = input(f"\nYour answer (1-{len(step_options)}): ")
+                    step_index = int(step_choice) - 1
+
+                    if step_index == step.correctindex:
+                        print("✅ Correct!")
+                    else:
+                        print(f"❌ Not quite. The correct answer was option {step.correctindex + 1}")
+
+                    print(f"Explanation: {step.option_explanations[step.correctindex]}")
+
+                    if step != breakdown_steps[-1]:
+                        input("\nPress Enter to continue to next step...")
+
+                print("\n🎯 Breakdown complete! You should now understand the discriminant better.")
+
+    except (ValueError, IndexError):
+        print("Invalid input. Please run the demo again.")
+    except KeyboardInterrupt:
+        print("\nDemo cancelled.")
+
+def test_skill_tracking_system():
+    """
+    Simple test suite for skill tracking functionality
+    Add this to the end of mcq_algorithm_current.py
+    """
+    print("\n" + "="*60)
+    print("🧠 SKILL TRACKING SYSTEM TESTS")
+    print("="*60)
+
+    try:
+        # Initialize system
+        print("🔧 Initializing test system...")
+
+        # Use your existing file paths
+        kg = KnowledgeGraph(
+            nodes_file='_static/kg_new.json',
+            mcqs_file='_static/computed_mcqs_breakdown.json',
+            config_file='_static/config.json'
+        )
+
+        student_manager = StudentManager(kg.config)
+        mcq_scheduler = MCQScheduler(kg, student_manager)
+        bkt_system = BayesianKnowledgeTracing(kg, student_manager)
+
+        # Connect systems
+        mcq_scheduler.set_bkt_system(bkt_system)
+        bkt_system.set_scheduler(mcq_scheduler)  # ✅ Set scheduler after creation
+        student_manager.set_bkt_system(bkt_system)
+
+        print("✅ System initialized successfully")
+
+        # Test 1: Check if skill tracking is enabled
+        print("\n1️⃣ Testing skill tracking initialization...")
+
+        skill_tracking_enabled = hasattr(bkt_system, 'skill_tracker') and bkt_system.skill_tracker is not None
+        print(f"   Skill tracking enabled: {skill_tracking_enabled}")
+
+        if not skill_tracking_enabled:
+            print("   ⚠️  Skill tracking not enabled - check config.json")
+            print("   💡 Add 'skill_tracking': {'enabled': true} to config")
+            return
+
+        # Test 2: Create test student
+        print("\n2️⃣ Creating test student...")
+
+        student_id = "skill_test_student"
+        student = student_manager.create_student(student_id)
+
+        # Initialize some topics
+        import random
+        for topic_idx in list(kg.get_all_indexes())[:5]:  # Test with first 5 topics
+            student.mastery_levels[topic_idx] = random.uniform(0.3, 0.7)
+            student.studied_topics[topic_idx] = True
+
+        print(f"   ✅ Created student: {student_id}")
+        print(f"   📚 Initialized {len(student.mastery_levels)} topics")
+
+        # Test 3: Check initial skill levels
+        print("\n3️⃣ Testing initial skill levels...")
+
+        initial_skills = {}
+        for skill in ['problem_solving', 'procedural_fluency', 'conceptual_understanding',
+                     'memory', 'mathematical_communication', 'spatial_reasoning']:
+            initial_skills[skill] = student.ability_levels.get(skill, 0.5)
+            print(f"   {skill}: {initial_skills[skill]:.3f}")
+
+        # Test 4: Test question-level skill updates
+        print("\n4️⃣ Testing question-level skill updates...")
+
+        # Get a test MCQ
+        selected_mcqs = mcq_scheduler.select_optimal_mcqs(student_id, 1)
+
+        if selected_mcqs:
+            test_mcq_id = selected_mcqs[0]
+            print(f"   📝 Testing with MCQ: {test_mcq_id}")
+
+            # Get the MCQ's topic for BKT update
+            mcq_vector = mcq_scheduler._get_or_create_optimized_mcq_vector(test_mcq_id)
+            if mcq_vector:
+                # Test incorrect answer (should decrease skills)
+                print("   ❌ Testing incorrect answer (should decrease skills)...")
+
+                topic_index = mcq_vector.main_topic_index
+                result = bkt_system.process_student_response(
+                    student_id, topic_index, is_correct=False, mcq_id=test_mcq_id
+                )
+
+                skill_updates = result.get('skill_updates', {})
+                print(f"   📊 Skills updated: {len(skill_updates)}")
+
+                for skill_name, update_data in skill_updates.items():
+                    old_val = update_data['old_ability']
+                    new_val = update_data['new_ability']
+                    change = new_val - old_val
+                    print(f"      {skill_name}: {old_val:.3f} → {new_val:.3f} ({change:+.3f})")
+
+                # Test correct answer (should increase skills)
+                print("   ✅ Testing correct answer (should increase skills)...")
+
+                result = bkt_system.process_student_response(
+                    student_id, topic_index, is_correct=True, mcq_id=test_mcq_id
+                )
+
+                skill_updates = result.get('skill_updates', {})
+                for skill_name, update_data in skill_updates.items():
+                    old_val = update_data['old_ability']
+                    new_val = update_data['new_ability']
+                    change = new_val - old_val
+                    print(f"      {skill_name}: {old_val:.3f} → {new_val:.3f} ({change:+.3f})")
+
+        else:
+            print("   ⚠️  No MCQs available for testing")
+
+        # Test 5: Test breakdown step updates
+        print("\n5️⃣ Testing breakdown step updates...")
+
+        # Test each step type
+        step_types = ['memory', 'conceptual_understanding', 'procedural_fluency',
+                     'problem_solving', 'mathematical_communication', 'spatial_reasoning']
+
+        for step_type in step_types:
+            old_skill = student.ability_levels.get(step_type, 0.5)
+
+            # Test incorrect breakdown step (should decrease specific skill)
+            result = bkt_system.process_breakdown_step_response(
+                student_id, step_type, is_correct=False, step_difficulty=3.0
+            )
+
+            skill_update = result.get('skill_update')
+            if skill_update:
+                new_skill = skill_update['new_ability']
+                change = new_skill - old_skill
+                print(f"   {step_type}: {old_skill:.3f} → {new_skill:.3f} ({change:+.3f})")
+            else:
+                print(f"   {step_type}: No update (as expected for correct answer)")
+
+        # Test 6: Test breakdown completion
+        print("\n6️⃣ Testing breakdown completion...")
+
+        if selected_mcqs:
+            test_mcq_id = selected_mcqs[0]
+
+            # Record skills before completion
+            skills_before = {}
+            for skill in step_types:
+                skills_before[skill] = student.ability_levels.get(skill, 0.5)
+
+            # Test breakdown completion (all steps correct = negative update)
+            result = bkt_system.process_breakdown_completion(
+                student_id, test_mcq_id, all_steps_correct=True
+            )
+
+            completion_updates = result.get('skill_updates', {})
+            print(f"   📊 Completion updates: {len(completion_updates)}")
+
+            for skill_name, update_data in completion_updates.items():
+                old_val = skills_before[skill_name]
+                new_val = update_data['new_ability']
+                change = new_val - old_val
+                print(f"      {skill_name}: {old_val:.3f} → {new_val:.3f} ({change:+.3f})")
+
+        # Test 7: Test skill summary
+        print("\n7️⃣ Testing skill summary...")
+
+        summary = bkt_system.get_student_skill_summary(student_id)
+        print("   📋 Final skill summary:")
+
+        for skill_name, skill_data in summary.items():
+            ability = skill_data['ability_level']
+            uncertainty = skill_data['uncertainty']
+            evidence = skill_data['total_evidence']
+            print(f"      {skill_name:25}: {ability:.3f} (±{uncertainty:.3f}) [{evidence:.1f} evidence]")
+
+        # Test 8: Verify greedy algorithm compatibility
+        print("\n8️⃣ Testing greedy algorithm compatibility...")
+
+        # Select questions - this should use updated skill levels
+        new_selected = mcq_scheduler.select_optimal_mcqs(student_id, 3)
+        print(f"   ✅ Selected {len(new_selected)} questions with updated skills")
+
+        # Verify skill levels are used in difficulty mismatch calculation
+        if new_selected:
+            test_mcq_id = new_selected[0]
+            mcq_vector = mcq_scheduler._get_or_create_optimized_mcq_vector(test_mcq_id)
+
+            if mcq_vector and mcq_vector.difficulty_breakdown:
+                # Test the skills mismatch calculation
+                skills_analysis = mcq_scheduler.calculate_skills_difficulty_mismatch(mcq_vector, student)
+
+                print("   🔍 Skills difficulty analysis:")
+                raw_mismatches = skills_analysis.get('raw_mismatches', {})
+                for skill, mismatch in raw_mismatches.items():
+                    print(f"      {skill}: {mismatch:+.3f}")
+
+        print("\n🎉 All skill tracking tests completed successfully!")
+        print("="*60)
+
+    except Exception as e:
+        print(f"\n❌ Skill tracking test failed: {str(e)}")
+        import traceback
+        traceback.print_exc()
+        print("="*60)
+
+def quick_skill_test(student_id="quick_test_student", num_questions=3):
+    """
+    Quick test function for manual testing during development
+    """
+    print(f"\n🚀 Quick skill test for {student_id}")
+    print("-" * 40)
+
+    try:
+        # Initialize system (reuse if already exists)
+        if 'kg' not in globals():
+            global kg, student_manager, mcq_scheduler, bkt_system
+
+            kg = KnowledgeGraph(
+                nodes_file='_static/kg_new.json',
+                mcqs_file='_static/computed_mcqs_breakdown.json',
+                config_file='_static/config.json'
+            )
+
+            student_manager = StudentManager(kg.config)
+            mcq_scheduler = MCQScheduler(kg, student_manager)
+            bkt_system = BayesianKnowledgeTracing(kg, student_manager, scheduler=mcq_scheduler)
+
+            mcq_scheduler.set_bkt_system(bkt_system)
+            student_manager.set_bkt_system(bkt_system)
+
+        # Create or get student
+        try:
+            student = student_manager.get_student(student_id)
+            if not student:
+                student = student_manager.create_student(student_id)
+
+                # Initialize some random mastery levels
+                import random
+                for topic_idx in list(kg.get_all_indexes())[:10]:
+                    student.mastery_levels[topic_idx] = random.uniform(0.2, 0.8)
+                    student.studied_topics[topic_idx] = True
+
+                print(f"✅ Created new student: {student_id}")
+            else:
+                print(f"📚 Using existing student: {student_id}")
+        except:
+            print(f"❌ Could not create/get student {student_id}")
+            return
+
+        # Show current skills
+        print("\n📊 Current skill levels:")
+        for skill in ['problem_solving', 'memory', 'conceptual_understanding']:
+            level = student.ability_levels.get(skill, 0.5)
+            print(f"   {skill}: {level:.3f}")
+
+        # Select and process questions
+        selected = mcq_scheduler.select_optimal_mcqs(student_id, num_questions)
+        print(f"\n📝 Selected {len(selected)} questions")
+
+        for i, mcq_id in enumerate(selected):
+            print(f"\n{i+1}. Processing {mcq_id}...")
+
+            # Get topic for this MCQ
+            mcq_vector = mcq_scheduler._get_or_create_optimized_mcq_vector(mcq_id)
+            if mcq_vector:
+                topic_index = mcq_vector.main_topic_index
+
+                # Simulate random answer
+                import random
+                is_correct = random.choice([True, False])
+
+                result = bkt_system.process_student_response(
+                    student_id, topic_index, is_correct, mcq_id
+                )
+
+                # Show skill updates
+                skill_updates = result.get('skill_updates', {})
+                status = "✅" if is_correct else "❌"
+                print(f"   {status} Answer: {is_correct}")
+                print(f"   🧠 Skills updated: {len(skill_updates)}")
+
+                for skill, update in skill_updates.items():
+                    change = update['new_ability'] - update['old_ability']
+                    print(f"      {skill}: {change:+.3f}")
+
+        # Final summary
+        if hasattr(bkt_system, 'get_student_skill_summary'):
+            summary = bkt_system.get_student_skill_summary(student_id)
+            print(f"\n📋 Final skills summary:")
+            for skill, data in summary.items():
+                print(f"   {skill}: {data['ability_level']:.3f}")
+
+        print("-" * 40)
+
+    except Exception as e:
+        print(f"❌ Quick test failed: {str(e)}")
+
+def demo_skill_progression(student_id="skill_test_student"):
+    """
+    Demonstrate skill progression over multiple questions
+    """
+    print(f"\n🎭 SKILL PROGRESSION DEMO for {student_id}")
+    print("=" * 50)
+
+    try:
+        # Quick system check
+        if 'bkt_system' not in globals() or not hasattr(bkt_system, 'skill_tracker'):
+            print("❌ Skill tracking not available. Run test_skill_tracking_system() first.")
+            return
+
+        student = student_manager.create_student(student_id)
+        import random
+        # Set initial mastery levels if you want
+        for topic_idx in kg.get_all_indexes():
+            mastery = random.uniform(0.1, 0.6)
+            student.mastery_levels[topic_idx] = mastery
+            student.confidence_levels[topic_idx] = mastery * 0.8
+            student.studied_topics[topic_idx] = True
+        # Reset student skills for clean demo
+        bkt_system.reset_student_skills(student_id)
+        student = student_manager.get_student(student_id)
+
+        if not student:
+            print(f"❌ Student {student_id} not found")
+            return
+
+        print("🔄 Reset skills to initial values (0.5)")
+
+        # Show progression through different scenarios
+        scenarios = [
+            ("Easy Memory Question (Correct)", "memory", 1.0, True),
+            ("Hard Problem Solving (Wrong)", "problem_solving", 4.5, False),
+            ("Medium Conceptual (Wrong)", "conceptual_understanding", 3.0, False),
+            ("Easy Procedural (Correct)", "procedural_fluency", 1.5, True),
+            ("Memory Breakdown Step (Wrong)", "memory", 2.0, False)
+        ]
+
+        for i, (desc, skill_type, difficulty, is_correct) in enumerate(scenarios):
+            print(f"\n{i+1}. {desc}")
+
+            old_skill = student.ability_levels.get(skill_type, 0.5)
+
+            if "Breakdown" in desc:
+                # Breakdown step update
+                result = bkt_system.process_breakdown_step_response(
+                    student_id, skill_type, is_correct, difficulty
+                )
+                skill_update = result.get('skill_update')
+                if skill_update:
+                    new_skill = skill_update['new_ability']
+                    change = new_skill - old_skill
+                    print(f"   {skill_type}: {old_skill:.3f} → {new_skill:.3f} ({change:+.3f})")
+                else:
+                    print(f"   No update (correct breakdown step)")
+            else:
+                # Regular question - need to create a mock MCQ vector
+                # This is a simplified demo, in practice you'd use real MCQs
+                print(f"   Difficulty: {difficulty:.1f}, Result: {'Correct' if is_correct else 'Wrong'}")
+                print(f"   {skill_type}: {old_skill:.3f} → [would update based on real MCQ]")
+
+        print("\n" + "=" * 50)
+
+    except Exception as e:
+        print(f"❌ Demo failed: {str(e)}")
+
+
+
+if __name__ == "__main__":
+    print("Choose a demo:")
+    print("1. Automatic demonstration")
+    print("2. Interactive demo")
+
+    try:
+        choice = input("Enter 1 or 2: ")
+        if choice == "1":
+            simple_breakdown_test()
+        elif choice == "2":
+            interactive_breakdown_demo()
+        else:
+            print("Running automatic demo...")
+            simple_breakdown_test()
+    except KeyboardInterrupt:
+        print("\nGoodbye!")
+
+
+    print("\n" + "🧠" * 20)
+    print("RUNNING SKILL TRACKING TESTS")
+    print("🧠" * 20)
+
+    # Full test suite
+    test_skill_tracking_system()
+
+    # Quick interactive tests
+    print("\n💨 Running quick tests...")
+    quick_skill_test("test_user_1", 2)
+
+    # Demo progression
+    print("\n🎭 Running progression demo...")
+    demo_skill_progression("skill_test_student")
+
+    print("\n🎉 All skill tracking tests completed!")

@@ -664,7 +664,7 @@ class BreakdownStep:
                 except Exception:
                     continue
 
-            # CRITICAL FIX: Use the same parameter vs expression check as generate_question_text
+            #  Use the same parameter vs expression check as generate_question_text
             if expression in params:
                 # This is a parameter name that should be substituted
                 print(f"🔧 Treating '{expression}' as parameter name")
@@ -749,7 +749,10 @@ class BreakdownStep:
         except:
             pass
 
-        # Step 3: LaTeX formatting
+        # Step 3:  - Apply math cleaning before LaTeX formatting
+        substituted = self.parent_mcq.clean_math_expression(substituted) if self.parent_mcq else substituted
+
+        # Step 4: LaTeX formatting
         if not (substituted.startswith('\\(') and substituted.endswith('\\)')):
             if any(char in substituted for char in ['+', '-', '*', '/', '^', '=', '<', '>', 'sqrt', 'frac']) or '\\' in substituted:
                 substituted = f"\\({substituted}\\)"
@@ -822,8 +825,49 @@ class BreakdownStep:
         return substituted
 
 
+    def render_step_option_explanations(self) -> List[str]:
+        """Render step option explanations with parameter substitution and calculations"""
+        # Calculate step-specific parameters
+        calc_params = self._calculate_step_parameters()
+        # Use fresh parameters if parent MCQ is available
+        if self.parent_mcq:
+            fresh_parent_params = self.parent_mcq.get_current_parameters_safe()
+        else:
+            fresh_parent_params = self.parent_params  # Fallback
+
+        all_params = {**fresh_parent_params, **calc_params}
+
+        rendered_explanations = []
+        for explanation in self.option_explanations:
+            rendered = self._render_step_explanation_sophisticated(explanation, all_params)
+            rendered_explanations.append(rendered)
+
+        return rendered_explanations
 
 
+    def _render_step_explanation_sophisticated(self, explanation: str, all_params: Dict) -> str:
+        """Render single step explanation with sophisticated formatting and cleaning"""
+        # Step 1: Parameter substitution
+        substituted = self._substitute_parameters(explanation, all_params)
+
+        # Step 2: Try mathematical evaluation
+        try:
+            if any(op in substituted for op in ['+', '-', '*', '/', '**', 'sqrt']):
+                evaluated = self._evaluate_step_mathematical_expression(substituted, all_params)
+                if evaluated is not None:
+                    substituted = evaluated
+        except:
+            pass
+
+        # Step 3: Apply math cleaning (key fix for breakdown steps too)
+        substituted = self.parent_mcq.clean_math_expression(substituted) if self.parent_mcq else substituted
+
+        # Step 4: LaTeX formatting
+        if not (substituted.startswith('\\(') and substituted.endswith('\\)')):
+            if any(char in substituted for char in ['+', '-', '*', '/', '^', '=', '<', '>', 'sqrt', 'frac']) or '\\' in substituted:
+                substituted = f"\\({substituted}\\)"
+
+        return substituted
 
 
 @dataclass
@@ -1629,7 +1673,8 @@ class MCQ:
                             latex_expr = latex(processed)
                             latex_expr = latex_expr.replace('+ -', '- ').replace('- -', '+ ')
 
-                        # Replace placeholder with formatted expression wrapped in \( \)
+                        # After getting latex_expr, apply cleaning:
+                        latex_expr = self.clean_math_expression(latex_expr)
                         result_text = result_text.replace(placeholder, f"\\({latex_expr}\\)")
 
                     except Exception as e:
@@ -1641,7 +1686,7 @@ class MCQ:
                                 # Use smart formatting for parameter values
                                 formatted_pvalue = MCQ.smart_format_number(pvalue)
                                 fallback_expr = fallback_expr.replace(str(pname), formatted_pvalue)
-                        fallback_expr = fallback_expr.replace('+ -', '- ').replace('- -', '+ ')
+                        fallback_expr = self.clean_math_expression(fallback_expr)
                         result_text = result_text.replace(placeholder, f"\\({fallback_expr}\\)")
 
         # Handle individual parameter substitutions like ${a}$, ${b}$
@@ -1649,6 +1694,7 @@ class MCQ:
             placeholder = f'${{{param_name}}}'
             if placeholder in result_text:
                 formatted_value = MCQ.smart_format_number(param_value)
+                formatted_value = self.clean_math_expression(str(formatted_value))
                 result_text = result_text.replace(placeholder, formatted_value)
 
         return result_text
@@ -1716,18 +1762,22 @@ class MCQ:
         except:
             pass  # Keep original if evaluation fails
         try:
-            # ✅ ENHANCED: Try to evaluate simple arithmetic in fractions
+            #  Try to evaluate simple arithmetic in fractions
             substituted = self._evaluate_simple_arithmetic(substituted)
         except:
             pass  # Keep original if evaluation fails
 
-        # Step 3: LaTeX formatting - ensure proper delimiters
+        # Step 3: Apply math cleaning before LaTeX formatting
+        substituted = self.clean_math_expression(substituted)
+
+        # Step 4: LaTeX formatting - ensure proper delimiters
         if not (substituted.startswith('\\(') and substituted.endswith('\\)')):
             # Only wrap if it contains mathematical symbols or LaTeX commands
             if any(char in substituted for char in ['+', '-', '*', '/', '^', '=', '<', '>', 'frac']) or '\\' in substituted:
-                substituted = f"\\({substituted}\\)"  # ✅ FIXED: Use \(...\) not $...$
+                substituted = f"\\({substituted}\\)"
 
         return substituted
+
 
     def _evaluate_mathematical_expression(self, expr: str, params: Dict) -> Optional[str]:
         """Safely evaluate mathematical expressions and format the result"""
@@ -1811,16 +1861,96 @@ class MCQ:
                 result = result.replace(placeholder, formatted_value)
 
         # Clean up signs
-        result = self._clean_mathematical_expression(result)
+        result = self.clean_math_expression(result)
         return result
 
-    def _clean_mathematical_expression(self, expression: str) -> str:
-        """Clean up mathematical expressions for better display"""
-        import re
 
-        # ✅ FIX: Simplify common arithmetic patterns
+    @property
+    def rendered_option_explanations(self) -> List[str]:
+        """Get option explanations with parameter substitution and LaTeX formatting"""
+        if self.is_parameterized:
+            if self._current_params is None:
+                self._current_params = self._generate_parameters()
+            return self.render_option_explanations(self._current_params)
+        return self.option_explanations
 
-        # Pattern: (-a)-(-b) becomes -a+b
+    def render_option_explanations(self, params: Dict) -> List[str]:
+        """Render option explanations with sophisticated parameter substitution and centralized calculations"""
+        if not self.option_explanations:
+            return []
+
+        print(f"🔧 Rendering option explanations with params: {params}")
+
+        try:
+            # Step 1: Calculate derived parameters
+            calc = {}
+            if self.calculated_parameters:
+                for calc_name, calc_expr in self.calculated_parameters.items():
+                    try:
+                        if calc_name == calc_expr:
+                            continue
+
+                        safe_namespace = MCQ.create_safe_math_namespace({
+                            **params,
+                            **calc
+                        })
+                        calc_result = eval(calc_expr, safe_namespace)
+                        calc[calc_name] = calc_result
+                        print(f"✅ Calculated {calc_name} = {calc_result}")
+
+                    except Exception as e:
+                        print(f"⚠️ Failed to calculate {calc_name}: {e}")
+                        calc[calc_name] = 0
+
+            all_params = {**params, **calc}
+            print(f"🔗 All params: {all_params}")
+
+            # Step 2: Process explanations with parameter substitution and cleaning
+            rendered_explanations = []
+            for i, explanation in enumerate(self.option_explanations):
+                print(f"🎯 Processing explanation {i}: '{explanation}'")
+
+                # Parameter substitution and cleaning
+                result = self._render_explanation_sophisticated(explanation, all_params)
+                rendered_explanations.append(result)
+                print(f"✅ Result: {result}")
+
+            return rendered_explanations
+
+        except Exception as e:
+            print(f"💥 Error: {e}")
+            return self.option_explanations  # Return original on error
+
+    def _render_explanation_sophisticated(self, explanation: str, all_params: Dict) -> str:
+        """Render single explanation with sophisticated parameter substitution and math cleaning"""
+        # Step 1: Parameter substitution
+        substituted = self._substitute_parameters(explanation, all_params)
+
+        # Step 2: Try mathematical evaluation for any embedded math
+        try:
+            # Try to evaluate simple mathematical expressions
+            if any(op in substituted for op in ['+', '-', '*', '/', '**', 'sqrt']):
+                evaluated = self._evaluate_mathematical_expression(substituted, all_params)
+                if evaluated is not None:
+                    substituted = evaluated
+        except:
+            pass  # Keep original if evaluation fails
+
+        # Step 3: Apply math cleaning (this is the key fix)
+        substituted = self.clean_math_expression(substituted)
+
+        # Step 4: LaTeX formatting for any math content
+        if not (substituted.startswith('\\(') and substituted.endswith('\\)')):
+            # Only wrap if it contains mathematical symbols or LaTeX commands
+            if any(char in substituted for char in ['+', '-', '*', '/', '^', '=', '<', '>', 'frac']) or '\\' in substituted:
+                substituted = f"\\({substituted}\\)"
+
+        return substituted
+
+    def clean_math_expression(self, expression: str) -> str:
+        """Enhanced math expression cleaning - applies all sign fixes consistently"""
+
+        # Pattern: (a)-(b) becomes a+(-b) then a-b
         expression = re.sub(r'\((-?\d+)\)-\((-?\d+)\)',
                         lambda m: f"{m.group(1)}+{m.group(2)[1:] if m.group(2).startswith('-') else '-'+m.group(2)}",
                         expression)
@@ -1830,15 +1960,31 @@ class MCQ:
                         lambda m: f"{m.group(1)}{m.group(2)}" if m.group(2).startswith('-') else f"{m.group(1)}+{m.group(2)}",
                         expression)
 
-        # ✅ FIX: Remove unnecessary parentheses around single numbers
+        # Remove unnecessary parentheses around single numbers
         expression = re.sub(r'\((-?\d+)\)', r'\1', expression)
 
-        # ✅ FIX: Simplify double negatives and signs
-        expression = expression.replace('--', '+')
-        expression = expression.replace('+-', '-')
-        expression = expression.replace('-+', '-')
-        expression = expression.replace('+ -', '- ')
-        expression = expression.replace('- -', '+ ')
+        # Enhanced sign cleaning - apply multiple passes for complex cases
+        for _ in range(3):  # Multiple passes to catch nested issues
+            # Basic sign fixes
+            expression = expression.replace('--', '+')
+            expression = expression.replace('+-', '-')
+            expression = expression.replace('-+', '-')
+
+            # Space-aware fixes
+            expression = expression.replace('+ -', '- ')
+            expression = expression.replace('- -', '+ ')
+            expression = expression.replace('+ +', '+ ')
+
+            # Handle cases with no spaces
+            expression = re.sub(r'\+\s*-', '-', expression)
+            expression = re.sub(r'-\s*-', '+', expression)
+
+            # Clean up multiple consecutive spaces
+            expression = re.sub(r'\s+', ' ', expression)
+
+            # Clean up spaces around operators
+            expression = re.sub(r'\s*([+\-*/=])\s*', r' \1 ', expression)
+            expression = expression.strip()
 
         return expression
 
@@ -2679,7 +2825,10 @@ class KnowledgeGraph:
 
     def get_all_indexes(self) -> List[int]:
         """Get all node indexes in the graph"""
-        return list(self.nodes.keys())
+        result = []
+        for key in self.nodes.keys():
+            result.append(key)
+        return result
 
     def get_mcq_safely(self, mcq_id: str, need_full_text: bool = False):
         """
@@ -3549,7 +3698,7 @@ class MCQScheduler:
                         'mathematical_communication': 0.0,
                         'memory': 0.0,
                         'spatial_reasoning': 0.0,
-                        'total_skills_penalty': 0.0  # CRITICAL: Include this key
+                        'total_skills_penalty': 0.0
                     }
             else:
                 print("⚠️  Warning: Student dict has no student_id")
@@ -3560,7 +3709,7 @@ class MCQScheduler:
                     'mathematical_communication': 0.0,
                     'memory': 0.0,
                     'spatial_reasoning': 0.0,
-                    'total_skills_penalty': 0.0  # CRITICAL: Include this key
+                    'total_skills_penalty': 0.0
                 }
 
         # Ensure student has ability_levels attribute
@@ -3624,7 +3773,7 @@ class MCQScheduler:
         spatial_mismatch = student_spatial - question_spatial
         skill_penalties['spatial_reasoning'] = -config_weights.get('spatial_penalty', 0.1) * abs(spatial_mismatch)
 
-        # CRITICAL FIX: Calculate and include total_skills_penalty
+        # Calculate and include total_skills_penalty
         total_penalty = sum(skill_penalties.values())
         skill_penalties['total_skills_penalty'] = total_penalty
 
@@ -5461,1022 +5610,252 @@ def refresh_student_mastery(bkt_system, student_id: str):
 
     student._last_decay_update = time_manipulator.get_current_time()
 
+# Add these functions to mcq_algorithm_current.py
 
+def get_comprehensive_session_stats(student_manager, student_id: str) -> Dict:
+    """
+    Get comprehensive session statistics for the demo
+    """
+    student = student_manager.get_student(student_id)
+    if not student:
+        return {}
 
-def simple_breakdown_test():
-    """Simple test to demonstrate the MCQ breakdown system"""
+    # Basic statistics
+    total_questions = len(student.attempt_history)
+    correct_answers = sum(1 for attempt in student.attempt_history if attempt.correct)
+    success_rate = (correct_answers / total_questions) if total_questions > 0 else 0.0
 
-    # Import the updated MCQ class (assuming you have it in your file)
+    # Time statistics
+    total_time = sum(attempt.time_taken for attempt in student.attempt_history)
+    avg_time_per_question = (total_time / total_questions) if total_questions > 0 else 0.0
 
+    # Mastery statistics
+    mastery_levels = list(student.mastery_levels.values())
+    avg_mastery = sum(mastery_levels) / len(mastery_levels) if mastery_levels else 0.0
+    mastery_above_threshold = sum(1 for m in mastery_levels if m > 0.7)
 
-    # Example MCQ data with breakdown (discriminant question)
-    example_mcq_data = {
-      "id": "5fd2fa18-963c-4473-ad47-b7ce48a44a85",
-      "text": "What is the discriminant of the quadratic equation ${question_expression}?",
-      "question_expression": "a*x**2 +b*x + c = 0",
-      "generated_parameters": {
-        "a": {
-          "type": "int",
-          "min": -9,
-          "max": 9,
-          "exclude": 0
-        },
-        "b": {
-          "type": "int",
-          "min": -9,
-          "max": 9
-        },
-        "c": {
-          "type": "int",
-          "min": -50,
-          "max": 50
-        }
-      },
-      "calculated_parameters": {
-        "opt1": "b**2-4*a*c",
-        "opt2": "b**2+4*a*c",
-        "opt3": "sqrt(b**2-4*a*c)",
-        "opt4": "(-b+sqrt(b**2-4*a*c))/(2*a)"
-      },
-      "options": [
-        "${opt1}",
-        "${opt2}",
-        "${opt3}",
-        "${opt4}"
-      ],
-      "correctindex": 0,
-      "option_explanations": [
-        "Correct!The discriminant is $b^2 - 4ac$",
-        "Incorrect. You may have calculated $b^2 + 4ac$ instead of $b^2 - 4ac$.",
-        "Incorrect. Remember the formula is $b^2 - 4ac$, not $sqrt{b^2-4ac}$.",
-        "Incorrect. The discriminant is just the part under square root of the quadratic question."
-      ],
-      "main_topic_index": 17,
-      "chapter": "algebra",
-      "subtopic_weights": {
-        "17": 1.0
-      },
-      "difficulty_breakdown": {
-        "conceptual_understanding": 0.3,
-        "procedural_fluency": 0.7,
-        "problem_solving": 0.2,
-        "mathematical_communication": 0.1,
-        "memory": 0.4,
-        "spatial_reasoning": 0.0
-      },
-      "overall_difficulty": 0.2833333333333334,
-      "prerequisites": {
-        "16": 0.7
-      },
-      "breakdown": {
-        "sign_error": {
-          "steps": [
-            {
-              "step_no": 1,
-              "prereq_topics": [
-                14
-              ],
-              "step_type": "memory",
-              "text": "what is the formula for solving quadratic equations?",
-              "options": [
-                "\\(x=\\frac{-b+\\sqrt{b^2-4ac}}{2a}\\)",
-                "\\(\\sqrt{b^2-4ac}\\)",
-                "\\(\\frac{-b\\pm \\sqrt{b^2-4ac}}{2a}\\)",
-                "\\(ax^2+bx+c\\)"
-              ],
-              "correctindex": 2,
-              "option_explanations": [
-                "not quite, there is a plus",
-                "this is more like the formula for the discriminant, the question is asking for the whole formula",
-                "yes! this is the formula you use when you are solving quadratic equations",
-                "this is actually the form of an actual quadratic equation. we want the formula you can use to solve for x."
-              ]
-            },
-            {
-              "step_no": 2,
-              "step_type": "memory",
-              "text": "the discriminant is part of the quadratic formula, which bit?",
-              "options": [
-                "\\(\\sqrt{b^2 - 4ac}\\)",
-                "\\(b^2 - 4ac\\)",
-                "\\(2a\\)",
-                "\\(-b \\pm \\sqrt{b^2-4ac}\\)"
-              ],
-              "correctindex": 1,
-              "option_explanations": [
-                "the discriminant is the bit under the square root, but it doesn't actually include the square root itself",
-                "yep its the bit under the square root",
-                "remember we only want the bit under the square root, not the whole top of the fraction",
-                "no"
-              ]
-            },
-            {
-              "step_no": 3,
-              "step_type": "procedural_fluency",
-              "text": "now we have the formula \\(b^2-4ac\\), we want to substitute our numbers into it. remember our quadratic is ${question_expression}. our formula has a, b and c. what should each of these numbers be?",
-              "options": [
-                "\\(a = \\text{the number by itself}, b = \\text{the number in front of the } x, c = \\text{the number in front of the } x^2\\)",
-                "\\(a = ${a}, b = ${b}, c = ${c}\\)",
-                "\\(a=1,b=2,c=3\\)",
-                "\\(a= \\text{the number in front of the } x^2, b = \\text{the number in front of the } x, c = \\text{the term by itself}\\)"
-              ],
-              "correctindex": 3,
-              "option_explanations": [
-                "almost you just have it the wrong way around",
-                "you actually just want the numbers in front of xs, don't actually include the x",
-                "no",
-                "yes yay"
-              ]
-            },
-            {
-              "step_no": 4,
-              "step_type": "procedural_fluency",
-              "text": "we now have our formula, \\(${b}^2-4(${a})(${c})\\). time to do the math. when you calculate this sum, what do you get?",
-              "calculated_parameters": {
-                "opt1": "b**2-4*a*c",
-                "opt2": "b**2+4*a*c",
-                "opt3": "sqrt(b**2-4*a*c)",
-                "opt4": "(-b+sqrt(b**2-4*a*c))/(2*a)"
-              },
-              "options": [
-                "${opt1}",
-                "${opt2}",
-                "${opt3}",
-                "${opt4}"
-              ],
-              "correctindex": 0,
-              "option_explanations": [
-                "yes",
-                "no",
-                "no",
-                "no"
-              ]
-            }
-          ],
-          "answer_mapping": [
-            1
-          ]
-        },
-        "formula_confusion": {
-          "steps": [
-            {
-              "step_no": 1,
-              "step_type": "memory",
-              "text": "the discriminant is part of the quadratic formula, which bit?",
-              "options": [
-                "\\(\\sqrt{b^2 - 4ac}\\)",
-                "\\(b^2 - 4ac\\)",
-                "\\(2a\\)",
-                "\\(-b \\pm \\sqrt{b^2-4ac}\\)"
-              ],
-              "correctindex": 1,
-              "option_explanations": [
-                "the discriminant is the bit under the square root, but it doesn't actually include the square root itself",
-                "yep its the bit under the square root",
-                "remember we only want the bit under the square root, not the whole top of the fraction",
-                "no"
-              ]
-            },
-            {
-              "step_no": 2,
-              "step_type": "procedural_fluency",
-              "text": "now we have the formula \\(b^2-4ac\\), we want to substitute our numbers into it. remember our quadratic is ${question_expression}. our formula has a, b and c. what should each of these numbers be?",
-              "options": [
-                "\\(a = \\text{the number by itself}, b = \\text{the number in front of the } x, c = \\text{the number in front of the } x^2\\)",
-                "\\(a = ${a}, b = ${b}, c = ${c}\\)",
-                "\\(a=1,b=2,c=3\\)",
-                "\\(a= \\text{the number in front of the } x^2, b = \\text{the number in front of the } x, c = \\text{the term by itself}\\)"
-              ],
-              "correctindex": 3,
-              "option_explanations": [
-                "almost you just have it the wrong way around",
-                "you actually just want the numbers in front of xs, don't actually include the x",
-                "no",
-                "yes yay"
-              ]
-            },
-            {
-              "step_no": 3,
-              "step_type": "procedural_fluency",
-              "text": "we now have our formula, ${subquestion_expression}. time to do the math. when you calculate this sum, what do you get?",
-              "subquestion_expression": "b**2-4*a*c",
-              "calculated_parameters": {
-                "opt1": "b**2-4*a*c",
-                "opt2": "b**2+4*a*c",
-                "opt3": "sqrt(b**2-4*a*c)",
-                "opt4": "(-b+sqrt(b**2-4*a*c))/(2*a)"
-              },
-              "options": [
-                "${opt1}",
-                "${opt2}",
-                "${opt3}",
-                "${opt4}"
-              ],
-              "correctindex": 0,
-              "option_explanations": [
-                "yes",
-                "no",
-                "no",
-                "no"
-              ]
-            }
-          ],
-          "answer_mapping": [
-            2,
-            3
-          ]
-        }
-      }
+    # Topic-specific statistics
+    topics_studied = len([m for m in mastery_levels if m > 0.1])
+
+    return {
+        'total_questions': total_questions,
+        'correct_answers': correct_answers,
+        'success_rate': success_rate,
+        'total_time': total_time,
+        'avg_time_per_question': avg_time_per_question,
+        'avg_mastery': avg_mastery,
+        'topics_studied': topics_studied,
+        'mastery_above_threshold': mastery_above_threshold,
+        'session_count': student.session_count,
+        'total_time_on_system': student.total_time_on_system
     }
 
+def get_skill_progression_for_session(bkt_system, student_id: str) -> Dict:
+    """
+    Get skill progression information for session summary
+    """
+    if not bkt_system.skill_tracking_enabled or not bkt_system.skill_tracker:
+        return {}
 
-    print("="*60)
-    print("MCQ BREAKDOWN SYSTEM DEMONSTRATION")
-    print("="*60)
+    student = bkt_system.student_manager.get_student(student_id)
+    if not student:
+        return {}
 
-    # Create MCQ from the example data
-    mcq = MCQ.from_dict(example_mcq_data)
+    skill_summary = bkt_system.skill_tracker.get_skill_summary(student)
 
-    # Display basic MCQ information
-    print(f"\n📚 MAIN QUESTION")
-    print(f"Chapter: {mcq.chapter}")
-    print(f"Topic: {mcq.main_topic_index}")
-    print(f"Difficulty: {mcq.overall_difficulty:.2f}")
-    print(f"Has Breakdown: {mcq.has_breakdown}")
-
-    # Generate and display the question
-    print(f"\n❓ QUESTION:")
-    print(f"{mcq.question_text}")
-
-    # Display the options
-    print(f"\n📝 OPTIONS:")
-    options = mcq.question_options
-    for i, option in enumerate(options):
-        print(f"   {i+1}. {option}")
-
-    print(f"\n✅ CORRECT ANSWER: Option {mcq.correctindex + 1}")
-
-    # Show generated parameters
-    params = mcq.get_current_parameters_safe()
-    print(f"\n🎲 GENERATED PARAMETERS:")
-    for param_name, param_value in params.items():
-        if not param_name.endswith('_num') and not param_name.endswith('_den') and not param_name.endswith('_float'):
-            print(f"   {param_name} = {param_value}")
-
-    # Simulate student choosing wrong answer
-    print("\n" + "="*60)
-    print("SIMULATING WRONG ANSWER - TRIGGERING BREAKDOWN")
-    print("="*60)
-
-    student_answer = 1  # Student chose option 2 (wrong)
-    print(f"🚫 Student chose option {student_answer + 1}: {options[student_answer]}")
-    print(f"💡 This is incorrect. The correct answer was option {mcq.correctindex + 1}")
-
-    # Simulate student mastery levels
-    student_mastery = {14: 0.5, 17: 0.3}  # Low mastery in topics 14 and 17
-    config = {'prerequisite_skip_threshold': 0.8}
-
-    print(f"\n👤 STUDENT MASTERY LEVELS:")
-    for topic_id, mastery in student_mastery.items():
-        print(f"   Topic {topic_id}: {mastery:.1%}")
-
-    # Execute breakdown
-    breakdown_steps = mcq.execute_breakdown_for_student(student_answer, student_mastery, config)
-
-    if breakdown_steps:
-        print(f"\n🎯 BREAKDOWN TRIGGERED - {len(breakdown_steps)} steps generated")
-        print("\n" + "="*60)
-        print("BREAKDOWN STEPS")
-        print("="*60)
-
-        for i, step in enumerate(breakdown_steps):
-            print(f"\n📖 STEP {step.step_no} - {step.step_type.upper()}")
-            print(f"Prerequisites: {step.prereq_topics}")
-
-            # Render step text and options
-            step_text = step.render_step_text()
-            step_options = step.render_step_options()
-
-            print(f"\nQuestion: {step_text}")
-            print(f"\nOptions:")
-            for j, option in enumerate(step_options):
-                marker = "✅" if j == step.correctindex else "  "
-                print(f"   {marker} {j+1}. {option}")
-
-            print(f"\nCorrect Answer: Option {step.correctindex + 1}")
-            print(f"Explanation: {step.option_explanations[step.correctindex]}")
-
-            if i < len(breakdown_steps) - 1:
-                print("\n" + "-"*40)
-    else:
-        print("\n❌ No breakdown steps generated")
-
-    # Test with high mastery (should skip steps)
-    print("\n" + "="*60)
-    print("TESTING PREREQUISITE SKIPPING")
-    print("="*60)
-
-    high_mastery = {14: 0.9, 17: 0.3}  # High mastery in topic 14
-    print(f"\n👤 UPDATED STUDENT MASTERY:")
-    for topic_id, mastery in high_mastery.items():
-        print(f"   Topic {topic_id}: {mastery:.1%}")
-
-    breakdown_steps_skip = mcq.execute_breakdown_for_student(student_answer, high_mastery, config)
-
-    if breakdown_steps_skip:
-        print(f"\n🎯 With high prerequisite mastery, generated {len(breakdown_steps_skip)} steps:")
-        print("(Note: Some steps were skipped due to high mastery in prerequisite topics)")
-        for step in breakdown_steps_skip:
-            print(f"   - Step {step.step_no}: {step.step_type}")
-
-    print("\n" + "="*60)
-    print("TEST COMPLETED SUCCESSFULLY!")
-    print("="*60)
-    print("\n🎉 The breakdown system is working correctly!")
-    print("   ✅ Main question displayed with parameters")
-    print("   ✅ Breakdown triggered on wrong answer")
-    print("   ✅ Steps generated with parameter inheritance")
-    print("   ✅ Prerequisite skipping working")
-    print("   ✅ All text and options rendered properly")
-
-
-def interactive_breakdown_demo():
-    """Interactive demo where you can 'answer' the questions"""
-
-
-    # Use the same example data as above
-    example_mcq_data ={
-      "id": "254e6e0b-4451-4447-b170-8e86f99f3a62",
-      "text": "What is the discriminant of the quadratic equation ${question_expression}?",
-      "question_expression": "a*x**2 +b*x + c = 0",
-      "generated_parameters": {
-        "a": {
-          "type": "int",
-          "min": -9,
-          "max": 9,
-          "exclude": 0
-        },
-        "b": {
-          "type": "int",
-          "min": -9,
-          "max": 9
-        },
-        "c": {
-          "type": "int",
-          "min": -50,
-          "max": 50
+    # Calculate improvements (this would ideally track from session start)
+    improvements = {}
+    for skill_name, current_level in student.ability_levels.items():
+        # For demo purposes, assume some improvement
+        initial_level = 0.5  # This should be tracked from session start in real implementation
+        improvement = current_level - initial_level
+        improvements[skill_name] = {
+            'initial': initial_level,
+            'current': current_level,
+            'improvement': improvement,
+            'improvement_percentage': (improvement / initial_level) * 100 if initial_level > 0 else 0
         }
-      },
-      "calculated_parameters": {},
-      "options": [
-        "b**2-4*a*c",
-        "b**2+4*a*c",
-        "sqrt(b**2-4*a*c)",
-        "(-b+sqrt(b**2-4*a*c))/(2*a)"
-      ],
-      "correctindex": 0,
-      "option_explanations": [
-        "Correct!The discriminant is $b^2 - 4ac$",
-        "Incorrect. You may have calculated $b^2 + 4ac$ instead of $b^2 - 4ac$.",
-        "Incorrect. Remember the formula is $b^2 - 4ac$, not $sqrt{b^2-4ac}$.",
-        "Incorrect. The discriminnant is just the part under square root of the quadratic question."
-      ],
-      "main_topic_index": 17,
-      "chapter": "algebra",
-      "subtopic_weights": {
-        "17": 1.0
-      },
-      "difficulty_breakdown": {
-        "conceptual_understanding": 0.3,
-        "procedural_fluency": 0.7,
-        "problem_solving": 0.2,
-        "mathematical_communication": 0.1,
-        "memory": 0.4,
-        "spatial_reasoning": 0.0
-      },
-      "overall_difficulty": 0.2833333333333334,
-      "prerequisites": {
-        "16": 0.7
-      },
-      "breakdown": {
-        "sign_error": {
-          "steps": [
-            {
-              "step_no": 1,
-              "prereq_topics": [
-                14
-              ],
-              "step_type": "memory",
-              "text": "what is the formula for solving quadratic equations?",
-              "options": [
-                "x=\\frac{-b+\\sqrt{b^2-4ac}}{2a}",
-                "\\sqrt{b^2-4ac}",
-                "\\frac{-b\\pm \\sqrt{b^2-4ac}}{2a}",
-                "ax^2+bx+c"
-              ],
-              "correctindex": 2,
-              "option_explanations": [
-                "not quite, there is a plus",
-                "this is more like the formula for the discriminant, the question is asking for the whole formula",
-                "yes! this is the formula you use when you are solving quadratic equations",
-                "this is actually the form of an actual quadratic equation. we want the formula you can use to solve for x. "
-              ]
-            },
-            {
-              "step_no": 2,
-              "step_type": "memory",
-              "text": "the discriminant is part of the quadratic formula, which bit?",
-              "options": [
-                "$\\sqrt{b^2 - 4ac}$",
-                "$b^2 - 4ac$",
-                "2a",
-                "-b \\pm \\sqrt{b^2-4ac}"
-              ],
-              "correctindex": 1,
-              "option_explanations": [
-                "the discriminant is the bit under the square root, but it doesn't actually include the square root itself",
-                "yep its the bit under the square root",
-                "remember we only want the bit under the square root, not the whole top of the fraction",
-                "no"
-              ]
-            },
-            {
-              "step_no": 3,
-              "step_type": "procedural_fluency",
-              "text": "now we have the formula $b^2-4ac$, we want to substitute our numbers into it. remember our quadratic is ${question_expression}. our formula has a, b and c. what should each of these numbers be?",
-              "options": [
-                "a = the number by itself, b = the number in fron of the x, c = the number in front of the $x^2$",
-                "$a = ${a} \\cdot x^2, b = ${b} \\cdot x, c = ${c}",
-                "a=1,b=2,c=3",
-                "a= the number in front of the $x^2$, b = the number in front of the $x$, c = the term by itself"
-              ],
-              "correctindex": 3,
-              "option_explanations": [
-                "almost you just have it the wrong way around",
-                "you actually just want the numbers in front of xs, don't actually include the x",
-                "no",
-                "yes yay"
-              ]
-            },
-            {
-              "step_no": 4,
-              "step_type": "procedural_fluency",
-              "text": " we now have our foumula, ${subquestion_expression_subbed}. time to do the math. when you calculate this sum, what do you get?",
-              "subquestion_expression": "b**2-4*a*c",
-              "calculated_parameters": {
-                "opt1": "b**2-4*a*c",
-                "opt2": "b**2+4*a*c",
-                "opt3": "sqrt(b**2-4*a*c)",
-                "opt4": "(-b+sqrt(b**2-4*a*c))/(2*a)"
-              },
-              "options": [
-                "${opt1}",
-                "${opt2}",
-                "${opt3}",
-                "${opt4}"
-              ],
-              "correctindex": 0,
-              "option_explanations": [
-                "yes",
-                "no",
-                "no",
-                "no"
-              ]
-            }
-          ],
-          "answer_mapping": [
-            1
-          ]
-        },
-        "formula_confusion": {
-          "steps": [
-            {
-              "step_no": 1,
-              "step_type": "memory",
-              "text": "the discriminant is part of the quadratic formula, which bit?",
-              "options": [
-                "$\\sqrt{b^2 - 4ac}$",
-                "$b^2 - 4ac$",
-                "2a",
-                "-b \\pm \\sqrt{b^2-4ac}"
-              ],
-              "correctindex": 1,
-              "option_explanations": [
-                "the discriminant is the bit under the square root, but it doesn't actually include the square root itself",
-                "yep its the bit under the square root",
-                "remember we only want the bit under the square root, not the whole top of the fraction",
-                "no"
-              ]
-            },
-            {
-              "step_no": 2,
-              "step_type": "procedural_fluency",
-              "text": "now we have the formula $b^2-4ac$, we want to substitute our numbers into it. remember our quadratic is ${question_expression}. our formula has a, b and c. what should each of these numbers be?",
-              "options": [
-                "a = the number by itself, b = the number in fron of the x, c = the number in front of the $x^2$",
-                "$a = ${a} \\cdot x^2, b = ${b} \\cdot x, c = ${c}",
-                "a=1,b=2,c=3",
-                "a= the number in front of the $x^2$, b = the number in front of the $x$, c = the term by itself"
-              ],
-              "correctindex": 3,
-              "option_explanations": [
-                "almost you just have it the wrong way around",
-                "you actually just want the numbers in front of xs, don't actually include the x",
-                "no",
-                "yes yay"
-              ]
-            },
-            {
-              "step_no": 3,
-              "step_type": "procedural_fluency",
-              "text": " we now have our foumula, ${subquestion_expression_subbed}. time to do the math. when you calculate this sum, what do you get?",
-              "subquestion_expression": "b**2-4*a*c",
-              "calculated_parameters": {
-                "opt1": "b**2-4*a*c",
-                "opt2": "b**2+4*a*c",
-                "opt3": "sqrt(b**2-4*a*c)",
-                "opt4": "(-b+sqrt(b**2-4*a*c))/(2*a)"
-              },
-              "options": [
-                "${opt1}",
-                "${opt2}",
-                "${opt3}",
-                "${opt4}"
-              ],
-              "correctindex": 0,
-              "option_explanations": [
-                "yes",
-                "no",
-                "no",
-                "no"
-              ]
-            }
-          ],
-          "answer_mapping": [
-            2,
-            3
-          ]
-        }
-      }
+
+    return {
+        'current_levels': student.ability_levels.copy(),
+        'improvements': improvements,
+        'skill_summary': skill_summary
     }
 
-    print("\n🎮 INTERACTIVE BREAKDOWN DEMO")
-    print("="*50)
-
-    mcq = MCQ.from_dict(example_mcq_data)
-
-    # Show question
-    print(f"\n❓ {mcq.question_text}")
-    options = mcq.question_options
-
-    print(f"\nOptions:")
-    for i, option in enumerate(options):
-        print(f"   {i+1}. {option}")
-
-    # Get user input
-    try:
-        user_choice = input(f"\nEnter your choice (1-{len(options)}): ")
-        choice_index = int(user_choice) - 1
-
-        if choice_index == mcq.correctindex:
-            print("🎉 Correct! Well done!")
-        else:
-            print(f"❌ Incorrect. You chose: {options[choice_index]}")
-            print(f"The correct answer was: {options[mcq.correctindex]}")
-
-            # Trigger breakdown
-            student_mastery = {14: 0.4, 17: 0.3}
-            config = {'prerequisite_skip_threshold': 0.8}
-
-            breakdown_steps = mcq.execute_breakdown_for_student(choice_index, student_mastery, config)
-
-            if breakdown_steps:
-                print(f"\n💡 Let's break this down step by step...")
-
-                for step in breakdown_steps:
-                    print(f"\n📚 Step {step.step_no}: {step.step_type}")
-                    print(f"{step.render_step_text()}")
-
-                    step_options = step.render_step_options()
-                    for i, option in enumerate(step_options):
-                        print(f"   {i+1}. {option}")
-
-                    step_choice = input(f"\nYour answer (1-{len(step_options)}): ")
-                    step_index = int(step_choice) - 1
-
-                    if step_index == step.correctindex:
-                        print("✅ Correct!")
-                    else:
-                        print(f"❌ Not quite. The correct answer was option {step.correctindex + 1}")
-
-                    print(f"Explanation: {step.option_explanations[step.correctindex]}")
-
-                    if step != breakdown_steps[-1]:
-                        input("\nPress Enter to continue to next step...")
-
-                print("\n🎯 Breakdown complete! You should now understand the discriminant better.")
-
-    except (ValueError, IndexError):
-        print("Invalid input. Please run the demo again.")
-    except KeyboardInterrupt:
-        print("\nDemo cancelled.")
-
-def test_skill_tracking_system():
+def preview_decay_simulation(bkt_system, student_id: str, days_ahead: int = 7) -> Dict:
     """
-    Simple test suite for skill tracking functionality
-    Add this to the end of mcq_algorithm_current.py
+    Preview what mastery decay would look like after a certain number of days
+    WITHOUT actually applying the decay (for preview purposes)
     """
-    print("\n" + "="*60)
-    print("🧠 SKILL TRACKING SYSTEM TESTS")
-    print("="*60)
+    student = bkt_system.student_manager.get_student(student_id)
+    if not student:
+        return {'error': 'Student not found'}
 
-    try:
-        # Initialize system
-        print("🔧 Initializing test system...")
+    if not bkt_system.fsrs_forgetting:
+        return {'error': 'FSRS forgetting not enabled'}
 
-        # Use your existing file paths
-        kg = KnowledgeGraph(
-            nodes_file='_static/kg_new.json',
-            mcqs_file='_static/computed_mcqs_breakdown.json',
-            config_file='_static/config.json'
-        )
+    # Store original time offset
+    original_offset = time_manipulator.get_time_offset()
 
-        student_manager = StudentManager(kg.config)
-        mcq_scheduler = MCQScheduler(kg, student_manager)
-        bkt_system = BayesianKnowledgeTracing(kg, student_manager)
+    # Temporarily simulate time passage
+    time_manipulator.fast_forward(days=days_ahead)
 
-        # Connect systems
-        mcq_scheduler.set_bkt_system(bkt_system)
-        bkt_system.set_scheduler(mcq_scheduler)  # ✅ Set scheduler after creation
-        student_manager.set_bkt_system(bkt_system)
+    decay_preview = {
+        'days_simulated': days_ahead,
+        'topics': []
+    }
 
-        print("✅ System initialized successfully")
+    for topic_index, current_mastery in student.mastery_levels.items():
+        if current_mastery > 0.05:  # Only preview topics with some mastery
+            # Calculate predicted mastery after time passage
+            predicted_mastery = bkt_system.fsrs_forgetting.apply_forgetting(
+                student_id, topic_index, current_mastery)
 
-        # Test 1: Check if skill tracking is enabled
-        print("\n1️⃣ Testing skill tracking initialization...")
+            decay_amount = current_mastery - predicted_mastery
+            decay_percentage = (decay_amount / current_mastery) * 100 if current_mastery > 0 else 0
 
-        skill_tracking_enabled = hasattr(bkt_system, 'skill_tracker') and bkt_system.skill_tracker is not None
-        print(f"   Skill tracking enabled: {skill_tracking_enabled}")
+            # Get memory components for additional info
+            components = bkt_system.fsrs_forgetting.get_memory_components(student_id, topic_index)
 
-        if not skill_tracking_enabled:
-            print("   ⚠️  Skill tracking not enabled - check config.json")
-            print("   💡 Add 'skill_tracking': {'enabled': true} to config")
-            return
+            topic_name = bkt_system.kg.get_topic_of_index(topic_index)
+            if topic_name:  # Only include topics with valid names
+                decay_preview['topics'].append({
+                    'topic_index': topic_index,
+                    'topic_name': topic_name,
+                    'current_mastery': current_mastery,
+                    'predicted_mastery': predicted_mastery,
+                    'decay_amount': decay_amount,
+                    'decay_percentage': decay_percentage,
+                    'stability': components.stability,
+                    'difficulty': components.difficulty,
+                    'retrievability': components.retrievability
+                })
 
-        # Test 2: Create test student
-        print("\n2️⃣ Creating test student...")
+    # Restore original time offset (this is just a preview)
+    time_manipulator._time_offset = original_offset
 
-        student_id = "skill_test_student"
-        student = student_manager.create_student(student_id)
+    # Sort by decay amount (most decay first)
+    decay_preview['topics'].sort(key=lambda x: x['decay_amount'], reverse=True)
 
-        # Initialize some topics
-        import random
-        for topic_idx in list(kg.get_all_indexes())[:5]:  # Test with first 5 topics
-            student.mastery_levels[topic_idx] = random.uniform(0.3, 0.7)
-            student.studied_topics[topic_idx] = True
+    return decay_preview
 
-        print(f"   ✅ Created student: {student_id}")
-        print(f"   📚 Initialized {len(student.mastery_levels)} topics")
-
-        # Test 3: Check initial skill levels
-        print("\n3️⃣ Testing initial skill levels...")
-
-        initial_skills = {}
-        for skill in ['problem_solving', 'procedural_fluency', 'conceptual_understanding',
-                     'memory', 'mathematical_communication', 'spatial_reasoning']:
-            initial_skills[skill] = student.ability_levels.get(skill, 0.5)
-            print(f"   {skill}: {initial_skills[skill]:.3f}")
-
-        # Test 4: Test question-level skill updates
-        print("\n4️⃣ Testing question-level skill updates...")
-
-        # Get a test MCQ
-        selected_mcqs = mcq_scheduler.select_optimal_mcqs(student_id, 1)
-
-        if selected_mcqs:
-            test_mcq_id = selected_mcqs[0]
-            print(f"   📝 Testing with MCQ: {test_mcq_id}")
-
-            # Get the MCQ's topic for BKT update
-            mcq_vector = mcq_scheduler._get_or_create_optimized_mcq_vector(test_mcq_id)
-            if mcq_vector:
-                # Test incorrect answer (should decrease skills)
-                print("   ❌ Testing incorrect answer (should decrease skills)...")
-
-                topic_index = mcq_vector.main_topic_index
-                result = bkt_system.process_student_response(
-                    student_id, topic_index, is_correct=False, mcq_id=test_mcq_id
-                )
-
-                skill_updates = result.get('skill_updates', {})
-                print(f"   📊 Skills updated: {len(skill_updates)}")
-
-                for skill_name, update_data in skill_updates.items():
-                    old_val = update_data['old_ability']
-                    new_val = update_data['new_ability']
-                    change = new_val - old_val
-                    print(f"      {skill_name}: {old_val:.3f} → {new_val:.3f} ({change:+.3f})")
-
-                # Test correct answer (should increase skills)
-                print("   ✅ Testing correct answer (should increase skills)...")
-
-                result = bkt_system.process_student_response(
-                    student_id, topic_index, is_correct=True, mcq_id=test_mcq_id
-                )
-
-                skill_updates = result.get('skill_updates', {})
-                for skill_name, update_data in skill_updates.items():
-                    old_val = update_data['old_ability']
-                    new_val = update_data['new_ability']
-                    change = new_val - old_val
-                    print(f"      {skill_name}: {old_val:.3f} → {new_val:.3f} ({change:+.3f})")
-
-        else:
-            print("   ⚠️  No MCQs available for testing")
-
-        # Test 5: Test breakdown step updates
-        print("\n5️⃣ Testing breakdown step updates...")
-
-        # Test each step type
-        step_types = ['memory', 'conceptual_understanding', 'procedural_fluency',
-                     'problem_solving', 'mathematical_communication', 'spatial_reasoning']
-
-        for step_type in step_types:
-            old_skill = student.ability_levels.get(step_type, 0.5)
-
-            # Test incorrect breakdown step (should decrease specific skill)
-            result = bkt_system.process_breakdown_step_response(
-                student_id, step_type, is_correct=False, step_difficulty=3.0
-            )
-
-            skill_update = result.get('skill_update')
-            if skill_update:
-                new_skill = skill_update['new_ability']
-                change = new_skill - old_skill
-                print(f"   {step_type}: {old_skill:.3f} → {new_skill:.3f} ({change:+.3f})")
-            else:
-                print(f"   {step_type}: No update (as expected for correct answer)")
-
-        # Test 6: Test breakdown completion
-        print("\n6️⃣ Testing breakdown completion...")
-
-        if selected_mcqs:
-            test_mcq_id = selected_mcqs[0]
-
-            # Record skills before completion
-            skills_before = {}
-            for skill in step_types:
-                skills_before[skill] = student.ability_levels.get(skill, 0.5)
-
-            # Test breakdown completion (all steps correct = negative update)
-            result = bkt_system.process_breakdown_completion(
-                student_id, test_mcq_id, all_steps_correct=True
-            )
-
-            completion_updates = result.get('skill_updates', {})
-            print(f"   📊 Completion updates: {len(completion_updates)}")
-
-            for skill_name, update_data in completion_updates.items():
-                old_val = skills_before[skill_name]
-                new_val = update_data['new_ability']
-                change = new_val - old_val
-                print(f"      {skill_name}: {old_val:.3f} → {new_val:.3f} ({change:+.3f})")
-
-        # Test 7: Test skill summary
-        print("\n7️⃣ Testing skill summary...")
-
-        summary = bkt_system.get_student_skill_summary(student_id)
-        print("   📋 Final skill summary:")
-
-        for skill_name, skill_data in summary.items():
-            ability = skill_data['ability_level']
-            uncertainty = skill_data['uncertainty']
-            evidence = skill_data['total_evidence']
-            print(f"      {skill_name:25}: {ability:.3f} (±{uncertainty:.3f}) [{evidence:.1f} evidence]")
-
-        # Test 8: Verify greedy algorithm compatibility
-        print("\n8️⃣ Testing greedy algorithm compatibility...")
-
-        # Select questions - this should use updated skill levels
-        new_selected = mcq_scheduler.select_optimal_mcqs(student_id, 3)
-        print(f"   ✅ Selected {len(new_selected)} questions with updated skills")
-
-        # Verify skill levels are used in difficulty mismatch calculation
-        if new_selected:
-            test_mcq_id = new_selected[0]
-            mcq_vector = mcq_scheduler._get_or_create_optimized_mcq_vector(test_mcq_id)
-
-            if mcq_vector and mcq_vector.difficulty_breakdown:
-                # Test the skills mismatch calculation
-                skills_analysis = mcq_scheduler.calculate_skills_difficulty_mismatch(mcq_vector, student)
-
-                print("   🔍 Skills difficulty analysis:")
-                raw_mismatches = skills_analysis.get('raw_mismatches', {})
-                for skill, mismatch in raw_mismatches.items():
-                    print(f"      {skill}: {mismatch:+.3f}")
-
-        print("\n🎉 All skill tracking tests completed successfully!")
-        print("="*60)
-
-    except Exception as e:
-        print(f"\n❌ Skill tracking test failed: {str(e)}")
-        import traceback
-        traceback.print_exc()
-        print("="*60)
-
-def quick_skill_test(student_id="quick_test_student", num_questions=3):
+def get_session_summary_data(bkt_system, student_id: str, session_questions: List[str]) -> Dict:
     """
-    Quick test function for manual testing during development
+    Get comprehensive data for session summary display
     """
-    print(f"\n🚀 Quick skill test for {student_id}")
-    print("-" * 40)
+    student = bkt_system.student_manager.get_student(student_id)
+    if not student:
+        return {'error': 'Student not found'}
 
-    try:
-        # Initialize system (reuse if already exists)
-        if 'kg' not in globals():
-            global kg, student_manager, mcq_scheduler, bkt_system
+    # Basic session info
+    session_stats = get_comprehensive_session_stats(bkt_system.student_manager, student_id)
 
-            kg = KnowledgeGraph(
-                nodes_file='_static/kg_new.json',
-                mcqs_file='_static/computed_mcqs_breakdown.json',
-                config_file='_static/config.json'
-            )
+    # Skill progression
+    skill_progression = get_skill_progression_for_session(bkt_system, student_id)
 
-            student_manager = StudentManager(kg.config)
-            mcq_scheduler = MCQScheduler(kg, student_manager)
-            bkt_system = BayesianKnowledgeTracing(kg, student_manager, scheduler=mcq_scheduler)
+    # Topic coverage in this session
+    topics_covered = set()
+    questions_by_topic = {}
 
-            mcq_scheduler.set_bkt_system(bkt_system)
-            student_manager.set_bkt_system(bkt_system)
+    for mcq_id in session_questions:
+        # Get MCQ topic information
+        if hasattr(bkt_system.kg, 'ultra_loader') and bkt_system.kg.ultra_loader:
+            minimal_data = bkt_system.kg.ultra_loader.get_minimal_mcq_data(mcq_id)
+            if minimal_data:
+                topic_idx = minimal_data.main_topic_index
+                topic_name = bkt_system.kg.get_topic_of_index(topic_idx)
+                if topic_name:
+                    topics_covered.add(topic_name)
+                    if topic_name not in questions_by_topic:
+                        questions_by_topic[topic_name] = []
+                    questions_by_topic[topic_name].append(mcq_id)
 
-        # Create or get student
-        try:
-            student = student_manager.get_student(student_id)
-            if not student:
-                student = student_manager.create_student(student_id)
+    # Mastery changes during session (approximate)
+    mastery_changes = {}
+    for topic_idx, mastery in student.mastery_levels.items():
+        topic_name = bkt_system.kg.get_topic_of_index(topic_idx)
+        if topic_name in topics_covered:
+            mastery_changes[topic_name] = {
+                'current_mastery': mastery,
+                'estimated_change': 0.05  # This should be tracked properly in real implementation
+            }
 
-                # Initialize some random mastery levels
-                import random
-                for topic_idx in list(kg.get_all_indexes())[:10]:
-                    student.mastery_levels[topic_idx] = random.uniform(0.2, 0.8)
-                    student.studied_topics[topic_idx] = True
+    return {
+        'session_stats': session_stats,
+        'skill_progression': skill_progression,
+        'topics_covered': list(topics_covered),
+        'questions_by_topic': questions_by_topic,
+        'mastery_changes': mastery_changes,
+        'session_length': len(session_questions)
+    }
 
-                print(f"✅ Created new student: {student_id}")
-            else:
-                print(f"📚 Using existing student: {student_id}")
-        except:
-            print(f"❌ Could not create/get student {student_id}")
-            return
-
-        # Show current skills
-        print("\n📊 Current skill levels:")
-        for skill in ['problem_solving', 'memory', 'conceptual_understanding']:
-            level = student.ability_levels.get(skill, 0.5)
-            print(f"   {skill}: {level:.3f}")
-
-        # Select and process questions
-        selected = mcq_scheduler.select_optimal_mcqs(student_id, num_questions)
-        print(f"\n📝 Selected {len(selected)} questions")
-
-        for i, mcq_id in enumerate(selected):
-            print(f"\n{i+1}. Processing {mcq_id}...")
-
-            # Get topic for this MCQ
-            mcq_vector = mcq_scheduler._get_or_create_optimized_mcq_vector(mcq_id)
-            if mcq_vector:
-                topic_index = mcq_vector.main_topic_index
-
-                # Simulate random answer
-                import random
-                is_correct = random.choice([True, False])
-
-                result = bkt_system.process_student_response(
-                    student_id, topic_index, is_correct, mcq_id
-                )
-
-                # Show skill updates
-                skill_updates = result.get('skill_updates', {})
-                status = "✅" if is_correct else "❌"
-                print(f"   {status} Answer: {is_correct}")
-                print(f"   🧠 Skills updated: {len(skill_updates)}")
-
-                for skill, update in skill_updates.items():
-                    change = update['new_ability'] - update['old_ability']
-                    print(f"      {skill}: {change:+.3f}")
-
-        # Final summary
-        if hasattr(bkt_system, 'get_student_skill_summary'):
-            summary = bkt_system.get_student_skill_summary(student_id)
-            print(f"\n📋 Final skills summary:")
-            for skill, data in summary.items():
-                print(f"   {skill}: {data['ability_level']:.3f}")
-
-        print("-" * 40)
-
-    except Exception as e:
-        print(f"❌ Quick test failed: {str(e)}")
-
-def demo_skill_progression(student_id="skill_test_student"):
+def initialize_session_tracking(student_manager, student_id: str) -> Dict:
     """
-    Demonstrate skill progression over multiple questions
+    Initialize session tracking for a student
     """
-    print(f"\n🎭 SKILL PROGRESSION DEMO for {student_id}")
-    print("=" * 50)
+    student = student_manager.get_student(student_id)
+    if not student:
+        return {'error': 'Student not found'}
 
-    try:
-        # Quick system check
-        if 'bkt_system' not in globals() or not hasattr(bkt_system, 'skill_tracker'):
-            print("❌ Skill tracking not available. Run test_skill_tracking_system() first.")
-            return
+    # Record session start
+    student_manager.start_session(student_id)
 
-        student = student_manager.create_student(student_id)
-        import random
-        # Set initial mastery levels if you want
-        for topic_idx in kg.get_all_indexes():
-            mastery = random.uniform(0.1, 0.6)
-            student.mastery_levels[topic_idx] = mastery
-            student.confidence_levels[topic_idx] = mastery * 0.8
-            student.studied_topics[topic_idx] = True
-        # Reset student skills for clean demo
-        bkt_system.reset_student_skills(student_id)
-        student = student_manager.get_student(student_id)
+    # Store initial skill levels for comparison
+    if hasattr(student, 'ability_levels'):
+        student.session_start_abilities = student.ability_levels.copy()
 
-        if not student:
-            print(f"❌ Student {student_id} not found")
-            return
+    # Store initial mastery levels
+    student.session_start_mastery = student.mastery_levels.copy()
 
-        print("🔄 Reset skills to initial values (0.5)")
+    return {
+        'success': True,
+        'session_start_time': datetime.now().isoformat(),
+        'student_id': student_id
+    }
 
-        # Show progression through different scenarios
-        scenarios = [
-            ("Easy Memory Question (Correct)", "memory", 1.0, True),
-            ("Hard Problem Solving (Wrong)", "problem_solving", 4.5, False),
-            ("Medium Conceptual (Wrong)", "conceptual_understanding", 3.0, False),
-            ("Easy Procedural (Correct)", "procedural_fluency", 1.5, True),
-            ("Memory Breakdown Step (Wrong)", "memory", 2.0, False)
-        ]
+def finalize_session_tracking(student_manager, student_id: str) -> Dict:
+    """
+    Finalize session tracking and calculate improvements
+    """
+    student = student_manager.get_student(student_id)
+    if not student:
+        return {'error': 'Student not found'}
 
-        for i, (desc, skill_type, difficulty, is_correct) in enumerate(scenarios):
-            print(f"\n{i+1}. {desc}")
+    # End the session
+    student_manager.end_session(student_id)
 
-            old_skill = student.ability_levels.get(skill_type, 0.5)
+    # Calculate actual improvements
+    improvements = {
+        'mastery_improvements': {},
+        'skill_improvements': {}
+    }
 
-            if "Breakdown" in desc:
-                # Breakdown step update
-                result = bkt_system.process_breakdown_step_response(
-                    student_id, skill_type, is_correct, difficulty
-                )
-                skill_update = result.get('skill_update')
-                if skill_update:
-                    new_skill = skill_update['new_ability']
-                    change = new_skill - old_skill
-                    print(f"   {skill_type}: {old_skill:.3f} → {new_skill:.3f} ({change:+.3f})")
-                else:
-                    print(f"   No update (correct breakdown step)")
-            else:
-                # Regular question - need to create a mock MCQ vector
-                # This is a simplified demo, in practice you'd use real MCQs
-                print(f"   Difficulty: {difficulty:.1f}, Result: {'Correct' if is_correct else 'Wrong'}")
-                print(f"   {skill_type}: {old_skill:.3f} → [would update based on real MCQ]")
+    if hasattr(student, 'session_start_mastery'):
+        for topic_idx, start_mastery in student.session_start_mastery.items():
+            current_mastery = student.mastery_levels.get(topic_idx, 0.0)
+            improvement = current_mastery - start_mastery
+            if abs(improvement) > 0.01:  # Only track significant changes
+                topic_name = student_manager.bkt_system.kg.get_topic_of_index(topic_idx) if hasattr(student_manager, 'bkt_system') else f"Topic {topic_idx}"
+                improvements['mastery_improvements'][topic_name] = {
+                    'start': start_mastery,
+                    'end': current_mastery,
+                    'change': improvement
+                }
 
-        print("\n" + "=" * 50)
+    if hasattr(student, 'session_start_abilities'):
+        for skill_name, start_ability in student.session_start_abilities.items():
+            current_ability = student.ability_levels.get(skill_name, 0.5)
+            improvement = current_ability - start_ability
+            if abs(improvement) > 0.01:  # Only track significant changes
+                improvements['skill_improvements'][skill_name] = {
+                    'start': start_ability,
+                    'end': current_ability,
+                    'change': improvement
+                }
 
-    except Exception as e:
-        print(f"❌ Demo failed: {str(e)}")
+    return {
+        'success': True,
+        'session_end_time': datetime.now().isoformat(),
+        'improvements': improvements
+    }
 
-
-
-if __name__ == "__main__":
-    print("Choose a demo:")
-    print("1. Automatic demonstration")
-    print("2. Interactive demo")
-    '''
-    try:
-        choice = input("Enter 1 or 2: ")
-        if choice == "1":
-            simple_breakdown_test()
-        elif choice == "2":
-            interactive_breakdown_demo()
-        else:
-            print("Running automatic demo...")
-            simple_breakdown_test()
-    except KeyboardInterrupt:
-        print("\nGoodbye!")
-    '''
-
-    print("\n" + "🧠" * 20)
-    print("RUNNING SKILL TRACKING TESTS")
-    print("🧠" * 20)
-
-    # Full test suite
-    test_skill_tracking_system()
-
-    # Quick interactive tests
-    print("\n💨 Running quick tests...")
-    quick_skill_test("test_user_1", 2)
-
-    # Demo progression
-    print("\n🎭 Running progression demo...")
-    demo_skill_progression("skill_test_student")
-
-    print("\n🎉 All skill tracking tests completed!")

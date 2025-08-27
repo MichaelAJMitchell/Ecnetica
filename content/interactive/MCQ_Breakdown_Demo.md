@@ -5,7 +5,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>MCQs with Random Parameter Generation and Breakdownso</title>
+    <title>Revision Area</title>
     <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
 
     <!-- MathJax configuration -->
@@ -33,7 +33,7 @@
   <div class="bkt-demo-container">
     <div class="container">
       <h1>MCQs Demo</h1>
-      <p class="subtitle">See the randomly generated parameters work with the question breakdowns</p>
+      <p class="subtitle">Practise questions on topics you need to revise.</p>
 
       <div id="status" class="status loading">
         <div class="loading-spinner"></div>
@@ -409,7 +409,7 @@
                                 "text": step.render_step_text(),
                                 "options": step.render_step_options(),
                                 "correctindex": step.correctindex,
-                                "option_explanations": step.option_explanations
+                                "option_explanations": step.render_step_option_explanations()
                             }
                             breakdown_data["steps"].append(step_dict)
 
@@ -417,7 +417,7 @@
                     "is_correct": is_correct,
                     "selected_text": mcq.question_options[selected_option],
                     "correct_option": mcq.question_options[correct_index],
-                    "explanation": mcq.option_explanations[selected_option],
+                    "explanation": mcq.rendered_option_explanations[selected_option],
                     "main_topic": topic_name,
                     "before_mastery": mastery_before or mastery_after,
                     "after_mastery": mastery_after,

@@ -1,0 +1,2126 @@
+{"mcqs":
+
+[
+  {
+    "text": "Solve the linear equation ${question_expression} for x.",
+    "question_expression": "a*x + b = c",
+    "generated_parameters": {
+      "a": {
+        "type": "int",
+        "min": 2,
+        "max": 7,
+        "exclude": 0
+      },
+      "b": {
+        "type": "int",
+        "min": -12,
+        "max": 12
+      },
+      "c": {
+        "type": "int",
+        "min": -15,
+        "max": 15
+      }
+    },
+    "calculated_parameters": {
+      "solution": "(c - b) / a",
+      "opt1": "(c - b) / a",
+      "opt2": "(b - c) / a",
+      "opt3": "(c + b) / a",
+      "opt4": "c - b"
+    },
+    "options": [
+      "\\(x = ${opt1}\\)",
+      "\\(x = ${opt2}\\)",
+      "\\(x = ${opt3}\\)",
+      "\\(x = ${opt4}\\)"
+    ],
+    "correctindex": 0,
+    "option_explanations": [
+      "Correct! To solve \\(${a}x + ${b} = ${c}\\), subtract \\(${b}\\) from both sides to get \\(${a}x = ${c} - ${b}\\), then divide by \\(${a}\\).",
+      "Incorrect. You switched the order in the numerator. Remember to subtract \\(${b}\\) from \\(${c}\\), not \\(${c}\\) from \\(${b}\\).",
+      "Incorrect. When moving \\(${b}\\) to the right side, its sign changes, so it becomes \\(${c} - ${b}\\), not \\(${c} + ${b}\\).",
+      "Incorrect. You forgot to divide by the coefficient \\(${a}\\) after subtracting \\(${b}\\)."
+    ],
+    "main_topic_index": 37,
+    "subtopic_weights": {
+      "37": 1.0
+    },
+    "difficulty_breakdown": {
+      "conceptual_understanding": 0.2,
+      "procedural_fluency": 0.7,
+      "problem_solving": 0.1,
+      "mathematical_communication": 0.1,
+      "memory": 0.3,
+      "spatial_reasoning": 0.0
+    }
+  },
+  {
+    "text": "What is the discriminant of the quadratic equation ${question_expression}?",
+    "question_expression": "a*x**2 + b*x + c = 0",
+    "generated_parameters": {
+      "a": {
+        "type": "int",
+        "min": 1,
+        "max": 5
+      },
+      "b": {
+        "type": "int",
+        "min": -8,
+        "max": 8
+      },
+      "c": {
+        "type": "int",
+        "min": -6,
+        "max": 6
+      }
+    },
+    "calculated_parameters": {
+      "discriminant": "b**2 - 4*a*c",
+      "opt1": "b**2 + 4*a*c",
+      "opt2": "b**2 - 4*a*c",
+      "opt3": "2*b - 4*a*c",
+      "opt4": "b - 4*a*c"
+    },
+    "options": [
+      "\\(${opt1}\\)",
+      "\\(${opt2}\\)",
+      "\\(${opt3}\\)",
+      "\\(${opt4}\\)"
+    ],
+    "correctindex": 1,
+    "option_explanations": [
+      "Incorrect. You added \\(4ac\\) instead of subtracting it. The discriminant is \\(b^2 - 4ac\\).",
+      "Correct! The discriminant of a quadratic equation \\(ax^2 + bx + c = 0\\) is \\(b^2 - 4ac\\).",
+      "Incorrect. The discriminant uses \\(b^2\\), not \\(2b\\). The correct formula is \\(b^2 - 4ac\\).",
+      "Incorrect. The discriminant uses \\(b^2\\), not just \\(b\\). The correct formula is \\(b^2 - 4ac\\)."
+    ],
+    "main_topic_index": 17,
+    "subtopic_weights": {
+      "17": 1.0
+    },
+    "difficulty_breakdown": {
+      "conceptual_understanding": 0.3,
+      "procedural_fluency": 0.2,
+      "problem_solving": 0.1,
+      "mathematical_communication": 0.4,
+      "memory": 0.8,
+      "spatial_reasoning": 0.0
+    }
+  },
+  {
+    "text": "If \\(f(x) = ${a}x + ${b}\\), what is \\(f(${input_value})\\)?",
+    "generated_parameters": {
+      "a": {
+        "type": "int",
+        "min": 2,
+        "max": 6
+      },
+      "b": {
+        "type": "int",
+        "min": -8,
+        "max": 8
+      },
+      "input_value": {
+        "type": "int",
+        "min": 1,
+        "max": 5
+      }
+    },
+    "calculated_parameters": {
+      "correct_result": "a * input_value + b",
+      "opt1": "a + input_value + b",
+      "opt2": "a * input_value + b",
+      "opt3": "a * input_value - b",
+      "opt4": "a + b"
+    },
+    "options": [
+      "\\(${opt1}\\)",
+      "\\(${opt2}\\)",
+      "\\(${opt3}\\)",
+      "\\(${opt4}\\)"
+    ],
+    "correctindex": 1,
+    "option_explanations": [
+      "Incorrect. You added \\(${a}\\) and \\(${input_value}\\) instead of multiplying them. Function notation means \\(f(${input_value}) = ${a} \\times ${input_value} + ${b}\\).",
+      "Correct! Substitute \\(x = ${input_value}\\) into \\(f(x) = ${a}x + ${b}\\) to get \\(f(${input_value}) = ${a} \\times ${input_value} + ${b} = ${opt2}\\).",
+      "Incorrect. You subtracted \\(${b}\\) instead of adding it. The function is \\(f(x) = ${a}x + ${b}\\), so you add \\(${b}\\).",
+      "Incorrect. You forgot to multiply by \\(${input_value}\\). Function evaluation requires substituting the input value for \\(x\\)."
+    ],
+    "main_topic_index": 73,
+    "subtopic_weights": {
+      "73": 1.0
+    },
+    "difficulty_breakdown": {
+      "conceptual_understanding": 0.4,
+      "procedural_fluency": 0.6,
+      "problem_solving": 0.2,
+      "mathematical_communication": 0.3,
+      "memory": 0.4,
+      "spatial_reasoning": 0.0
+    }
+  },
+  {
+    "text": "What are the factors of the quadratic expression \\(x^2 + ${sum_coeff}x + ${product}\\)?",
+    "generated_parameters": {
+      "factor1": {
+        "type": "int",
+        "min": 1,
+        "max": 6
+      },
+      "factor2": {
+        "type": "int",
+        "min": 1,
+        "max": 6
+      }
+    },
+    "calculated_parameters": {
+      "sum_coeff": "factor1 + factor2",
+      "product": "factor1 * factor2",
+      "opt1": "(x + factor1)(x - factor2)",
+      "opt2": "(x - factor1)(x - factor2)",
+      "opt3": "(x + factor1)(x + factor2)",
+      "opt4": "(x - factor1)(x + factor2)"
+    },
+    "options": [
+      "\\(${opt1}\\)",
+      "\\(${opt2}\\)",
+      "\\(${opt3}\\)",
+      "\\(${opt4}\\)"
+    ],
+    "correctindex": 2,
+    "option_explanations": [
+      "Incorrect. One of your signs is wrong. Since the product is positive and the sum is positive, both factors must be positive.",
+      "Incorrect. Both signs are wrong. Since the product is positive and the sum is positive, both factors must be positive.",
+      "Correct! When the product \\(${product}\\) is positive and the sum \\(${sum_coeff}\\) is positive, both factors must be positive: \\((x + ${factor1})(x + ${factor2})\\).",
+      "Incorrect. One of your signs is wrong. Since the product is positive and the sum is positive, both factors must be positive."
+    ],
+    "main_topic_index": 6,
+    "subtopic_weights": {
+      "6": 1.0
+    },
+    "difficulty_breakdown": {
+      "conceptual_understanding": 0.5,
+      "procedural_fluency": 0.7,
+      "problem_solving": 0.6,
+      "mathematical_communication": 0.2,
+      "memory": 0.4,
+      "spatial_reasoning": 0.1
+    }
+  },
+  {
+    "text": "Simplify the expression \\(${a}(x + ${b}) + ${c}(x - ${d})\\).",
+    "generated_parameters": {
+      "a": {
+        "type": "int",
+        "min": 2,
+        "max": 5
+      },
+      "b": {
+        "type": "int",
+        "min": 1,
+        "max": 4
+      },
+      "c": {
+        "type": "int",
+        "min": 2,
+        "max": 5
+      },
+      "d": {
+        "type": "int",
+        "min": 1,
+        "max": 4
+      }
+    },
+    "calculated_parameters": {
+      "x_coeff": "a + c",
+      "constant": "a*b - c*d",
+      "opt1": "a*b + c*d",
+      "opt2": "a - c",
+      "opt3": "x_coeff*x + constant",
+      "opt4": "x_coeff*x - constant"
+    },
+    "options": [
+      "\\(${x_coeff}x + ${opt1}\\)",
+      "\\(${opt2}x + ${constant}\\)",
+      "\\(${x_coeff}x + ${constant}\\)",
+      "\\(${x_coeff}x - ${constant}\\)"
+    ],
+    "correctindex": 2,
+    "option_explanations": [
+      "Incorrect. You added the constant terms instead of using the distributive property correctly. Expand: \\(${a} \\times ${b} + ${c} \\times (-${d})\\).",
+      "Incorrect. The coefficient of \\(x\\) should be \\(${a} + ${c} = ${x_coeff}\\), not \\(${a} - ${c}\\).",
+      "Correct! Expanding: \\(${a}x + ${a} \\times ${b} + ${c}x - ${c} \\times ${d} = ${x_coeff}x + ${constant}\\).",
+      "Incorrect. Check the sign of the constant term. It should be \\(${a} \\times ${b} - ${c} \\times ${d} = ${constant}\\)."
+    ],
+    "main_topic_index": 5,
+    "subtopic_weights": {
+      "5": 1.0
+    },
+    "difficulty_breakdown": {
+      "conceptual_understanding": 0.3,
+      "procedural_fluency": 0.8,
+      "problem_solving": 0.3,
+      "mathematical_communication": 0.2,
+      "memory": 0.5,
+      "spatial_reasoning": 0.0
+    }
+  },
+  {
+    "text": "What is the slope of the line passing through points \\((${x1}, ${y1})\\) and \\((${x2}, ${y2})\\)?",
+    "generated_parameters": {
+      "x1": {
+        "type": "int",
+        "min": -5,
+        "max": 5
+      },
+      "y1": {
+        "type": "int",
+        "min": -5,
+        "max": 5,
+        "exclude":"x1"
+      },
+      "x2": {
+        "type": "int",
+        "min": -5,
+        "max": 5,
+        "exclude": [0, "y1","x1"]
+      },
+      "y2": {
+        "type": "int",
+        "min": -5,
+        "max": 5,
+        "exclude":["x1","x2","y1"]
+      }
+    },
+    "calculated_parameters": {
+      "slope": "(y2 - y1) / (x2 - x1)",
+      "opt1": "(y1 - y2) / (x2 - x1)",
+      "opt2": "(x2 - x1) / (y2 - y1)",
+      "opt3": "(y2 - y1) / (x2 - x1)",
+      "opt4": "(y2 + y1) / (x2 + x1)"
+    },
+    "options": [
+      "\\(${opt1}\\)",
+      "\\(${opt2}\\)",
+      "\\(${opt3}\\)",
+      "\\(${opt4}\\)"
+    ],
+    "correctindex": 2,
+    "option_explanations": [
+      "Incorrect. You reversed the order in the numerator. The slope formula is \\(\\frac{y_2 - y_1}{x_2 - x_1}\\), not \\(\\frac{y_1 - y_2}{x_2 - x_1}\\).",
+      "Incorrect. You swapped the numerator and denominator. The slope is \\(\\frac{\\text{rise}}{\\text{run}} = \\frac{y_2 - y_1}{x_2 - x_1}\\).",
+      "Correct! The slope formula is \\(m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{${y2} - ${y1}}{${x2} - ${x1}}\\).",
+      "Incorrect. You added instead of subtracting. The slope formula uses differences: \\(\\frac{y_2 - y_1}{x_2 - x_1}\\)."
+    ],
+    "main_topic_index": 77,
+    "subtopic_weights": {
+      "77": 1.0
+    },
+    "difficulty_breakdown": {
+      "conceptual_understanding": 0.4,
+      "procedural_fluency": 0.6,
+      "problem_solving": 0.3,
+      "mathematical_communication": 0.3,
+      "memory": 0.7,
+      "spatial_reasoning": 0.2
+    }
+  },
+  {
+    "text": "Which inequality represents the solution to \\(${a}x + ${b} < ${c}\\)?",
+    "generated_parameters": {
+      "a": {
+        "type": "int",
+        "min": 2,
+        "max": 6
+      },
+      "b": {
+        "type": "int",
+        "min": -10,
+        "max": 10
+      },
+      "c": {
+        "type": "int",
+        "min": -8,
+        "max": 12
+      }
+    },
+    "calculated_parameters": {
+      "solution": "(c - b) / a",
+      "opt1": "(c - b) / a",
+      "opt2": "(b - c) / a",
+      "opt3": "(c + b) / a",
+      "opt4": "c - b"
+    },
+    "options": [
+      "\\(x > ${opt1}\\)",
+      "\\(x < ${opt2}\\)",
+      "\\(x < ${opt1}\\)",
+      "\\(x > ${opt2}\\)"
+    ],
+    "correctindex": 2,
+    "option_explanations": [
+      "Incorrect. The inequality direction is wrong. Since we divide by positive \\(${a}\\), the inequality direction stays the same.",
+      "Incorrect. You switched the order in the calculation and used the wrong inequality direction.",
+      "Correct! Subtract \\(${b}\\) from both sides: \\(${a}x < ${c} - ${b}\\), then divide by \\(${a}\\): \\(x < \\frac{${c} - ${b}}{${a}}\\).",
+      "Incorrect. You switched the order in the calculation. The solution should be \\(x < \\frac{${c} - ${b}}{${a}}\\)."
+    ],
+    "main_topic_index": 128,
+    "subtopic_weights": {
+      "128": 1.0
+    },
+    "difficulty_breakdown": {
+      "conceptual_understanding": 0.4,
+      "procedural_fluency": 0.7,
+      "problem_solving": 0.2,
+      "mathematical_communication": 0.3,
+      "memory": 0.5,
+      "spatial_reasoning": 0.0
+    }
+  },
+  {
+    "text": "What is the nth term formula for the arithmetic sequence with first term \\(${first_term}\\) and common difference \\(${diff}\\)?",
+    "generated_parameters": {
+      "first_term": {
+        "type": "int",
+        "min": 1,
+        "max": 10
+      },
+      "diff": {
+        "type": "int",
+        "min": 2,
+        "max": 8
+      }
+    },
+    "calculated_parameters": {
+      "opt1": "first_term + (n-1)*diff",
+      "opt2": "first_term + n*diff",
+      "opt3": "first_term * n + diff",
+      "opt4": "n + first_term + diff"
+    },
+    "options": [
+      "\\(a_n = ${opt1}\\)",
+      "\\(a_n = ${opt2}\\)",
+      "\\(a_n = ${opt3}\\)",
+      "\\(a_n = ${opt4}\\)"
+    ],
+    "correctindex": 0,
+    "option_explanations": [
+      "Correct! The nth term of an arithmetic sequence is \\(a_n = a_1 + (n-1)d\\), where \\(a_1 = ${first_term}\\) and \\(d = ${diff}\\).",
+      "Incorrect. You used \\(n\\) instead of \\((n-1)\\). The formula accounts for the fact that the first term is when \\(n=1\\).",
+      "Incorrect. This formula multiplies by \\(n\\) instead of adding \\((n-1)\\) times the difference.",
+      "Incorrect. This doesn't follow the structure of an arithmetic sequence formula."
+    ],
+    "main_topic_index": 144,
+    "subtopic_weights": {
+      "144": 1.0
+    },
+    "difficulty_breakdown": {
+      "conceptual_understanding": 0.6,
+      "procedural_fluency": 0.3,
+      "problem_solving": 0.3,
+      "mathematical_communication": 0.4,
+      "memory": 0.8,
+      "spatial_reasoning": 0.0
+    }
+  },
+  {
+    "text": "Solve the absolute value equation \\(|x + ${a}| = ${b}\\).",
+    "generated_parameters": {
+      "a": {
+        "type": "int",
+        "min": 1,
+        "max": 6
+      },
+      "b": {
+        "type": "int",
+        "min": 3,
+        "max": 10
+      }
+    },
+    "calculated_parameters": {
+      "sol1": "b - a",
+      "sol2": "-b - a",
+      "opt1": "b - a",
+      "opt2": "-b - a",
+      "opt3": "a - b",
+      "opt4": "a + b"
+    },
+    "options": [
+      "\\(x = ${opt1}\\text{ only}\\)",
+      "\\(x = ${opt1}\\text{ or }x = ${opt2}\\)",
+      "\\(x = ${opt3}\\text{ or }x = ${opt4}\\)",
+      "\\(x = ${opt2}\\text{ only}\\)"
+    ],
+    "correctindex": 1,
+    "option_explanations": [
+      "Incorrect. Absolute value equations typically have two solutions. You found only one solution.",
+      "Correct! For \\(|x + ${a}| = ${b}\\), we have \\(x + ${a} = ${b}\\) or \\(x + ${a} = -${b}\\), giving \\(x = ${b} - ${a}\\) or \\(x = -${b} - ${a}\\).",
+      "Incorrect. Check your algebraic manipulation. From \\(x + ${a} = \\pm ${b}\\), subtract \\(${a}\\) from both sides.",
+      "Incorrect. You found only one solution and it's not the complete answer. Absolute value equations have two solutions."
+    ],
+    "main_topic_index": 184,
+    "subtopic_weights": {
+      "184": 1.0
+    },
+    "difficulty_breakdown": {
+      "conceptual_understanding": 0.6,
+      "procedural_fluency": 0.5,
+      "problem_solving": 0.4,
+      "mathematical_communication": 0.3,
+      "memory": 0.6,
+      "spatial_reasoning": 0.0
+    }
+  },
+  {
+    "text": "If \\(2^{${exp1}} = ${result}\\), what is the value of \\(x\\) in \\(2^{x} = ${exp_result}\\)?",
+    "generated_parameters": {
+      "exp1": {
+        "type": "int",
+        "min": 3,
+        "max": 6
+      }
+    },
+    "calculated_parameters": {
+      "result": "2**exp1",
+      "exp_result": "2**(exp1+1)",
+      "correct_x": "exp1 + 1",
+      "opt1": "exp1 + 1",
+      "opt2": "exp1",
+      "opt3": "exp1 - 1",
+      "opt4": "2*exp1"
+    },
+    "options": [
+      "\\(x = ${opt1}\\)",
+      "\\(x = ${opt2}\\)",
+      "\\(x = ${opt3}\\)",
+      "\\(x = ${opt4}\\)"
+    ],
+    "correctindex": 0,
+    "option_explanations": [
+      "Correct! Since \\(2^{${exp1}} = ${result}\\), we have \\(2^{x} = ${exp_result} = 2 \\times ${result} = 2 \\times 2^{${exp1}} = 2^{${exp1}+1}\\), so \\(x = ${exp1} + 1\\).",
+      "Incorrect. You found the exponent for \\(${result}\\), but the target is \\(${exp_result}\\), which is twice as large.",
+      "Incorrect. This would give \\(2^{${exp1}-1} = \\frac{${result}}{2}\\), which is smaller than our target.",
+      "Incorrect. This would give \\(2^{2 \\times ${exp1}}\\), which is much larger than our target \\(${exp_result}\\)."
+    ],
+    "main_topic_index": 165,
+    "subtopic_weights": {
+      "165": 1.0
+    },
+    "difficulty_breakdown": {
+      "conceptual_understanding": 0.7,
+      "procedural_fluency": 0.4,
+      "problem_solving": 0.8,
+      "mathematical_communication": 0.3,
+      "memory": 0.4,
+      "spatial_reasoning": 0.0
+    }
+  },
+  {
+    "text": "What is the sum of the first \\(${n}\\) terms of the arithmetic sequence \\(${first_term}, ${second_term}, ${third_term}, ...\\)?",
+    "generated_parameters": {
+      "first_term": {
+        "type": "int",
+        "min": 2,
+        "max": 8
+      },
+      "diff": {
+        "type": "int",
+        "min": 2,
+        "max": 5
+      },
+      "n": {
+        "type": "int",
+        "min": 8,
+        "max": 12
+      }
+    },
+    "calculated_parameters": {
+      "second_term": "first_term + diff",
+      "third_term": "first_term + 2*diff",
+      "last_term": "first_term + (n-1)*diff",
+      "sum_formula": "n * (first_term + last_term) / 2",
+      "opt1": "n * (2*first_term + (n-1)*diff) / 2",
+      "opt2": "n * first_term + diff",
+      "opt3": "first_term * n",
+      "opt4": "n * (first_term + diff)"
+    },
+    "options": [
+      "\\(${opt1}\\)",
+      "\\(${opt2}\\)",
+      "\\(${opt3}\\)",
+      "\\(${opt4}\\)"
+    ],
+    "correctindex": 0,
+    "option_explanations": [
+      "Correct! Using the arithmetic series formula: \\(S_n = \\frac{n}{2}[2a + (n-1)d] = \\frac{${n}}{2}[2 \\times ${first_term} + (${n}-1) \\times ${diff}]\\).",
+      "Incorrect. This doesn't follow the arithmetic series formula. You're missing the proper structure for summing an arithmetic sequence.",
+      "Incorrect. This would be the sum if all terms were equal to the first term, but this is an arithmetic sequence with changing terms.",
+      "Incorrect. This formula doesn't account for the increasing values in the arithmetic sequence properly."
+    ],
+    "main_topic_index": 147,
+    "subtopic_weights": {
+      "147": 1.0
+    },
+    "difficulty_breakdown": {
+      "conceptual_understanding": 0.5,
+      "procedural_fluency": 0.7,
+      "problem_solving": 0.6,
+      "mathematical_communication": 0.4,
+      "memory": 0.8,
+      "spatial_reasoning": 0.0
+    }
+  },
+  {
+    "text": "Simplify the algebraic fraction \\(\\frac{${num_a}x^2 + ${num_b}x}{${den_a}x}\\) (assume \\(x \\neq 0\\)).",
+    "generated_parameters": {
+      "num_a": {
+        "type": "int",
+        "min": 2,
+        "max": 6
+      },
+      "num_b": {
+        "type": "int",
+        "min": 3,
+        "max": 9
+      },
+      "den_a": {
+        "type": "int",
+        "min": 2,
+        "max": 4
+      }
+    },
+    "calculated_parameters": {
+      "simplified_first": "num_a / den_a",
+      "simplified_second": "num_b / den_a",
+      "opt1": "simplified_first*x + simplified_second",
+      "opt2": "num_a*x + num_b",
+      "opt3": "(num_a + num_b) / den_a",
+      "opt4": "num_a*x**2 + num_b"
+    },
+    "options": [
+      "\\(${opt1}x + ${simplified_second}\\)",
+      "\\(${opt2}x + ${num_b}\\)",
+      "\\(\\frac{${num_a} + ${num_b}}{${den_a}}\\)",
+      "\\(${num_a}x^2 + ${num_b}\\)"
+    ],
+    "correctindex": 0,
+    "option_explanations": [
+      "Correct! Factor out \\(x\\) from the numerator: \\(\\frac{x(${num_a}x + ${num_b})}{${den_a}x} = \\frac{${num_a}x + ${num_b}}{${den_a}} = \\frac{${num_a}}{${den_a}}x + \\frac{${num_b}}{${den_a}}\\).",
+      "Incorrect. You forgot to divide each term by \\(${den_a}\\). Each term in the numerator must be divided by the denominator.",
+      "Incorrect. You can't add the coefficients like this. You need to factor and cancel the common \\(x\\) terms first.",
+      "Incorrect. You didn't simplify the fraction at all. You need to factor and cancel the common \\(x\\) factor."
+    ],
+    "main_topic_index": 27,
+    "subtopic_weights": {
+      "27": 1.0
+    },
+    "difficulty_breakdown": {
+      "conceptual_understanding": 0.4,
+      "procedural_fluency": 0.8,
+      "problem_solving": 0.3,
+      "mathematical_communication": 0.3,
+      "memory": 0.5,
+      "spatial_reasoning": 0.0
+    }
+  },
+  {
+    "text": "What is the vertex of the parabola \\(y = ${a}(x - ${h})^2 + ${k}\\)?",
+    "generated_parameters": {
+      "a": {
+        "type": "int",
+        "min": 1,
+        "max": 4
+      },
+      "h": {
+        "type": "int",
+        "min": -4,
+        "max": 6
+      },
+      "k": {
+        "type": "int",
+        "min": -5,
+        "max": 7
+      }
+    },
+    "calculated_parameters": {
+      "opt1": "(-h, k)",
+      "opt2": "(h, k)",
+      "opt3": "(h, -k)",
+      "opt4": "(-h, -k)"
+    },
+    "options": [
+      "\\((${-h}, ${k})\\)",
+      "\\((${h}, ${k})\\)",
+      "\\((${h}, ${-k})\\)",
+      "\\((${-h}, ${-k})\\)"
+    ],
+    "correctindex": 1,
+    "option_explanations": [
+      "Incorrect. You took the negative of \\(h\\). In vertex form \\(y = a(x - h)^2 + k\\), the vertex is \\((h, k)\\).",
+      "Correct! In vertex form \\(y = a(x - h)^2 + k\\), the vertex is at \\((h, k) = (${h}, ${k})\\).",
+      "Incorrect. You took the negative of \\(k\\). In vertex form \\(y = a(x - h)^2 + k\\), the vertex is \\((h, k)\\).",
+      "Incorrect. You took the negative of both coordinates. In vertex form \\(y = a(x - h)^2 + k\\), the vertex is \\((h, k)\\)."
+    ],
+    "main_topic_index": 107,
+    "subtopic_weights": {
+      "107": 1.0
+    },
+    "difficulty_breakdown": {
+      "conceptual_understanding": 0.7,
+      "procedural_fluency": 0.2,
+      "problem_solving": 0.2,
+      "mathematical_communication": 0.5,
+      "memory": 0.6,
+      "spatial_reasoning": 0.3
+    }
+  },
+  {
+    "text": "If a geometric sequence has first term \\(${first_term}\\) and common ratio \\(${ratio}\\), what is the \\(${n}\\)th term?",
+    "generated_parameters": {
+      "first_term": {
+        "type": "int",
+        "min": 2,
+        "max": 8
+      },
+      "ratio": {
+        "type": "int",
+        "min": 2,
+        "max": 4
+      },
+      "n": {
+        "type": "int",
+        "min": 4,
+        "max": 6
+      }
+    },
+    "calculated_parameters": {
+      "correct_term": "first_term * ratio**(n-1)",
+      "opt1": "first_term * ratio**(n-1)",
+      "opt2": "first_term * ratio**n",
+      "opt3": "first_term + ratio**(n-1)",
+      "opt4": "first_term * n * ratio"
+    },
+    "options": [
+      "\\(${opt1}\\)",
+      "\\(${opt2}\\)",
+      "\\(${opt3}\\)",
+      "\\(${opt4}\\)"
+    ],
+    "correctindex": 0,
+    "option_explanations": [
+      "Correct! The nth term of a geometric sequence is \\(a_n = a_1 \\cdot r^{n-1} = ${first_term} \\cdot ${ratio}^{${n}-1}\\).",
+      "Incorrect. You used \\(r^n\\) instead of \\(r^{n-1}\\). The formula uses \\((n-1)\\) because the first term is when \\(n=1\\).",
+      "Incorrect. You added instead of multiplied. Geometric sequences multiply by the ratio, they don't add it.",
+      "Incorrect. This formula doesn't represent a geometric sequence. You need to multiply by \\(r^{n-1}\\), not \\(n \\cdot r\\)."
+    ],
+    "main_topic_index": 157,
+    "subtopic_weights": {
+      "157": 1.0
+    },
+    "difficulty_breakdown": {
+      "conceptual_understanding": 0.6,
+      "procedural_fluency": 0.4,
+      "problem_solving": 0.3,
+      "mathematical_communication": 0.4,
+      "memory": 0.7,
+      "spatial_reasoning": 0.0
+    }
+  },
+  {
+    "text": "What is the domain of the function \\(f(x) = \\frac{${num}}{x - ${denom}}\\)?",
+    "generated_parameters": {
+      "num": {
+        "type": "int",
+        "min": 1,
+        "max": 8
+      },
+      "denom": {
+        "type": "int",
+        "min": -6,
+        "max": 6,
+        "exclude": 0
+      }
+    },
+    "calculated_parameters": {
+      "restriction": "denom",
+      "opt1": "denom",
+      "opt2": "-denom",
+      "opt3": "1/denom",
+      "opt4": "0"
+    },
+    "options": [
+      "\\(\\text{All real numbers except }x = ${opt1}\\)",
+      "\\(\\text{All real numbers except }x = ${opt2}\\)",
+      "\\(\\text{All real numbers except }x = ${opt3}\\)",
+      "\\(\\text{All real numbers except }x = ${opt4}\\)"
+    ],
+    "correctindex": 0,
+    "option_explanations": [
+      "Correct! The function is undefined when the denominator equals zero: \\(x - ${denom} = 0\\), so \\(x = ${denom}\\).",
+      "Incorrect. You took the negative of the restriction. Set \\(x - ${denom} = 0\\) to find \\(x = ${denom}\\).",
+      "Incorrect. The restriction is the value that makes the denominator zero, not the reciprocal.",
+      "Incorrect. While rational functions often have restrictions, you need to solve \\(x - ${denom} = 0\\) to find the specific restriction."
+    ],
+    "main_topic_index": 224,
+    "subtopic_weights": {
+      "224": 1.0
+    },
+    "difficulty_breakdown": {
+      "conceptual_understanding": 0.8,
+      "procedural_fluency": 0.3,
+      "problem_solving": 0.4,
+      "mathematical_communication": 0.4,
+      "memory": 0.4,
+      "spatial_reasoning": 0.0
+    }
+  },
+
+  {
+    "text": "Solve the quadratic equation ${question_expression} using the quadratic formula.",
+    "question_expression": "a*x**2 + b*x + c = 0",
+    "generated_parameters": {
+      "a": {
+        "type": "int",
+        "min": 1,
+        "max": 3
+      },
+      "b": {
+        "type": "int",
+        "min": -8,
+        "max": 8,
+        "exclude": 0
+      },
+      "c": {
+        "type": "int",
+        "min": -6,
+        "max": 6,
+        "exclude": 0
+      }
+    },
+    "calculated_parameters": {
+      "discriminant": "b**2 - 4*a*c",
+      "sqrt_disc": "sqrt(b**2 - 4*a*c)",
+      "solution1": "(-b + sqrt(b**2 - 4*a*c)) / (2*a)",
+      "solution2": "(-b - sqrt(b**2 - 4*a*c)) / (2*a)",
+      "opt1": "(-b + sqrt(b**2 - 4*a*c)) / (2*a)",
+      "opt2": "(-b + sqrt(b**2 + 4*a*c)) / (2*a)",
+      "opt3": "(b + sqrt(b**2 - 4*a*c)) / (2*a)",
+      "opt4": "(-b + sqrt(b**2 - 4*a*c)) / a"
+    },
+    "options": [
+      "\\(x = \\frac{-${b} \\pm \\sqrt{${discriminant}}}{${2*a}}\\)",
+      "\\(x = \\frac{-${b} \\pm \\sqrt{${b**2 + 4*a*c}}}{${2*a}}\\)",
+      "\\(x = \\frac{${b} \\pm \\sqrt{${discriminant}}}{${2*a}}\\)",
+      "\\(x = \\frac{-${b} \\pm \\sqrt{${discriminant}}}{${a}}\\)"
+    ],
+    "correctindex": 0,
+    "option_explanations": [
+      "Correct! Using the quadratic formula \\(x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}\\) with \\(a=${a}\\), \\(b=${b}\\), \\(c=${c}\\).",
+      "Incorrect. You added \\(4ac\\) instead of subtracting it in the discriminant. It should be \\(b^2 - 4ac\\).",
+      "Incorrect. You forgot the negative sign in front of \\(b\\). The formula is \\(-b \\pm \\sqrt{...}\\).",
+      "Incorrect. You forgot to multiply by 2 in the denominator. It should be \\(2a\\), not just \\(a\\)."
+    ],
+    "main_topic_index": 19,
+    "subtopic_weights": {
+      "19": 1.0
+    },
+    "difficulty_breakdown": {
+      "conceptual_understanding": 0.4,
+      "procedural_fluency": 0.8,
+      "problem_solving": 0.5,
+      "mathematical_communication": 0.4,
+      "memory": 0.7,
+      "spatial_reasoning": 0.0
+    },
+    "breakdown": {
+      "discriminant_error": {
+        "answer_mapping": [1],
+        "steps": [
+          {
+            "step_no": 1,
+            "prereq_topics": [17],
+            "step_type": "memory",
+            "text": "What is the quadratic formula for solving \\(ax^2 + bx + c = 0\\)?",
+            "options": [
+              "\\(x = \\frac{b \\pm \\sqrt{b^2-4ac}}{2a}\\)",
+              "\\(x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}\\)",
+              "\\(x = \\frac{-b \\pm \\sqrt{b^2+4ac}}{2a}\\)",
+              "\\(x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{a}\\)"
+            ],
+            "correctindex": 1,
+            "option_explanations": [
+              "Incorrect. You're missing the negative sign in front of \\(b\\). The correct formula has \\(-b\\).",
+              "Correct! The quadratic formula is \\(x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}\\).",
+              "Incorrect. The discriminant should subtract \\(4ac\\), not add it.",
+              "Incorrect. The denominator should be \\(2a\\), not just \\(a\\)."
+            ]
+          },
+          {
+            "step_no": 2,
+            "step_type": "procedural_fluency",
+            "text": "For our equation ${question_expression}, identify the values: \\(a = \\), \\(b = \\), \\(c = \\)",
+            "options": [
+              "\\(a = ${a}, b = ${b}, c = ${c}\\)",
+              "\\(a = ${b}, b = ${a}, c = ${c}\\)",
+              "\\(a = ${a}, b = ${c}, c = ${b}\\)",
+              "\\(a = 1, b = ${b}, c = ${c}\\)"
+            ],
+            "correctindex": 0,
+            "option_explanations": [
+              "Correct! In \\(${a}x^2 + ${b}x + ${c} = 0\\), we have \\(a = ${a}\\), \\(b = ${b}\\), and \\(c = ${c}\\).",
+              "Incorrect. You switched \\(a\\) and \\(b\\). The coefficient of \\(x^2\\) is \\(a\\).",
+              "Incorrect. You switched \\(b\\) and \\(c\\). The coefficient of \\(x\\) is \\(b\\).",
+              "Incorrect. The coefficient of \\(x^2\\) is \\(${a}\\), not 1."
+            ]
+          },
+          {
+            "step_no": 3,
+            "step_type": "procedural_fluency",
+            "text": "Calculate the discriminant \\(b^2 - 4ac\\) using \\(a = ${a}\\), \\(b = ${b}\\), \\(c = ${c}\\).",
+            "options": [
+              "\\(${b**2 + 4*a*c}\\)",
+              "\\(${b**2 - 4*a*c}\\)",
+              "\\(${4*a*c - b**2}\\)",
+              "\\(${b**2}\\)"
+            ],
+            "correctindex": 1,
+            "option_explanations": [
+              "Incorrect. You added \\(4ac\\) instead of subtracting. It should be \\(${b}^2 - 4(${a})(${c})\\).",
+              "Correct! \\(b^2 - 4ac = ${b}^2 - 4(${a})(${c}) = ${b**2 - 4*a*c}\\).",
+              "Incorrect. You calculated \\(4ac - b^2\\) instead of \\(b^2 - 4ac\\).",
+              "Incorrect. You forgot to subtract the \\(4ac\\) term."
+            ]
+          }
+        ]
+      },
+      "sign_error": {
+        "answer_mapping": [2],
+        "steps": [
+          {
+            "step_no": 1,
+            "prereq_topics": [17],
+            "step_type": "memory",
+            "text": "In the quadratic formula \\(x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}\\), what should be the sign in front of \\(b\\)?",
+            "options": [
+              "Positive",
+              "Negative",
+              "It depends on the value of \\(b\\)",
+              "Either positive or negative"
+            ],
+            "correctindex": 1,
+            "option_explanations": [
+              "Incorrect. The quadratic formula always has \\(-b\\) in the numerator.",
+              "Correct! The quadratic formula always starts with \\(-b\\) in the numerator.",
+              "Incorrect. The sign is always negative, regardless of \\(b\\)'s value.",
+              "Incorrect. The formula specifically requires the negative sign."
+            ]
+          },
+          {
+            "step_no": 2,
+            "step_type": "procedural_fluency",
+            "text": "Apply the correct sign to get \\(x = \\frac{-${b} \\pm \\sqrt{${discriminant}}}{${2*a}}\\). What does this simplify to?",
+            "options": [
+              "\\(x = \\frac{${b} \\pm \\sqrt{${discriminant}}}{${2*a}}\\)",
+              "\\(x = \\frac{${-b} \\pm \\sqrt{${discriminant}}}{${2*a}}\\)",
+              "\\(x = \\frac{-${b} \\pm \\sqrt{${discriminant}}}{${a}}\\)",
+              "\\(x = \\frac{-${b} \\mp \\sqrt{${discriminant}}}{${2*a}}\\)"
+            ],
+            "correctindex": 1,
+            "option_explanations": [
+              "Incorrect. You didn't apply the negative sign to \\(b\\).",
+              "Correct! With the negative sign applied: \\(x = \\frac{${-b} \\pm \\sqrt{${discriminant}}}{${2*a}}\\).",
+              "Incorrect. The denominator should be \\(2a = ${2*a}\\).",
+              "Incorrect. The sign should be \\(\\pm\\), not \\(\\mp\\)."
+            ]
+          }
+        ]
+      },
+      "denominator_error": {
+        "answer_mapping": [3],
+        "steps": [
+          {
+            "step_no": 1,
+            "step_type": "memory",
+            "text": "What should be in the denominator of the quadratic formula?",
+            "options": [
+              "\\(a\\)",
+              "\\(2a\\)",
+              "\\(2\\)",
+              "\\(4a\\)"
+            ],
+            "correctindex": 1,
+            "option_explanations": [
+              "Incorrect. The denominator is \\(2a\\), not just \\(a\\).",
+              "Correct! The quadratic formula has \\(2a\\) in the denominator.",
+              "Incorrect. The denominator includes the coefficient \\(a\\).",
+              "Incorrect. It's \\(2a\\), not \\(4a\\)."
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "Solve the system of equations:\\n\\(${eq1}\\)\\n\\(${eq2}\\)",
+    "question_expression": "a*x + b*y = e; c*x + d*y = f",
+    "generated_parameters": {
+      "a": {
+        "type": "int",
+        "min": 2,
+        "max": 4
+      },
+      "b": {
+        "type": "int",
+        "min": 1,
+        "max": 3
+      },
+      "c": {
+        "type": "int",
+        "min": 1,
+        "max": 3
+      },
+      "d": {
+        "type": "int",
+        "min": 2,
+        "max": 4
+      },
+      "x_val": {
+        "type": "int",
+        "min": 1,
+        "max": 4
+      },
+      "y_val": {
+        "type": "int",
+        "min": 1,
+        "max": 4
+      }
+    },
+    "calculated_parameters": {
+      "e": "a*x_val + b*y_val",
+      "f": "c*x_val + d*y_val",
+      "eq1": "a*x + b*y = e",
+      "eq2": "c*x + d*y = f",
+      "opt1": "(x_val, y_val)",
+      "opt2": "(y_val, x_val)",
+      "opt3": "(x_val + 1, y_val)",
+      "opt4": "(x_val, y_val + 1)"
+    },
+    "options": [
+      "\\((${x_val}, ${y_val})\\)",
+      "\\((${y_val}, ${x_val})\\)",
+      "\\((${x_val + 1}, ${y_val})\\)",
+      "\\((${x_val}, ${y_val + 1})\\)"
+    ],
+    "correctindex": 0,
+    "option_explanations": [
+      "Correct! Substituting \\(x = ${x_val}\\) and \\(y = ${y_val}\\) satisfies both equations.",
+      "Incorrect. You switched the \\(x\\) and \\(y\\) values. Check which variable corresponds to which coordinate.",
+      "Incorrect. This doesn't satisfy the first equation when substituted.",
+      "Incorrect. This doesn't satisfy the second equation when substituted."
+    ],
+    "main_topic_index": 47,
+    "subtopic_weights": {
+      "47": 1.0
+    },
+    "difficulty_breakdown": {
+      "conceptual_understanding": 0.5,
+      "procedural_fluency": 0.8,
+      "problem_solving": 0.7,
+      "mathematical_communication": 0.3,
+      "memory": 0.5,
+      "spatial_reasoning": 0.2
+    },
+    "breakdown": {
+      "coordinate_confusion": {
+        "answer_mapping": [1],
+        "steps": [
+          {
+            "step_no": 1,
+            "prereq_topics": [],
+            "step_type": "mathematical_communication",
+            "text": "In an ordered pair \\((x, y)\\), which coordinate comes first?",
+            "options": [
+              "The \\(y\\)-coordinate",
+              "The \\(x\\)-coordinate",
+              "Either one",
+              "It depends on the context"
+            ],
+            "correctindex": 1,
+            "option_explanations": [
+              "Incorrect. The \\(x\\)-coordinate always comes first in an ordered pair.",
+              "Correct! In the ordered pair \\((x, y)\\), the \\(x\\)-coordinate comes first.",
+              "Incorrect. There's a standard convention for ordered pairs.",
+              "Incorrect. The convention is always \\(x\\) first, then \\(y\\)."
+            ]
+          },
+          {
+            "step_no": 2,
+            "step_type": "procedural_fluency",
+            "text": "Let's check our answer by substituting \\(x = ${x_val}\\), \\(y = ${y_val}\\) into the first equation \\(${a}x + ${b}y = ${e}\\). What do we get?",
+            "options": [
+              "\\(${a*y_val + b*x_val}\\)",
+              "\\(${a*x_val + b*y_val}\\)",
+              "\\(${a*x_val - b*y_val}\\)",
+              "\\(${a + b}\\)"
+            ],
+            "correctindex": 1,
+            "option_explanations": [
+              "Incorrect. You substituted the coordinates in the wrong order.",
+              "Correct! \\(${a}(${x_val}) + ${b}(${y_val}) = ${a*x_val + b*y_val} = ${e}\\) ✓",
+              "Incorrect. You subtracted instead of adding.",
+              "Incorrect. You didn't substitute the values properly."
+            ]
+          },
+          {
+            "step_no": 3,
+            "step_type": "procedural_fluency",
+            "text": "Now check the second equation \\(${c}x + ${d}y = ${f}\\) with \\(x = ${x_val}\\), \\(y = ${y_val}\\):",
+            "options": [
+              "\\(${c*y_val + d*x_val}\\)",
+              "\\(${c*x_val + d*y_val}\\)",
+              "\\(${c*x_val - d*y_val}\\)",
+              "\\(${c + d}\\)"
+            ],
+            "correctindex": 1,
+            "option_explanations": [
+              "Incorrect. You switched the coordinates again.",
+              "Correct! \\(${c}(${x_val}) + ${d}(${y_val}) = ${c*x_val + d*y_val} = ${f}\\) ✓",
+              "Incorrect. You subtracted instead of adding.",
+              "Incorrect. You need to substitute the actual values."
+            ]
+          }
+        ]
+      },
+      "calculation_error": {
+        "answer_mapping": [2, 3],
+        "steps": [
+          {
+            "step_no": 1,
+            "step_type": "memory",
+            "text": "Which method should we use to solve this system of linear equations?",
+            "options": [
+              "Substitution method",
+              "Elimination method",
+              "Either substitution or elimination",
+              "Graphing method"
+            ],
+            "correctindex": 2,
+            "option_explanations": [
+              "This would work, but elimination might be easier for this system.",
+              "This would work, but substitution might be easier for this system.",
+              "Correct! Both substitution and elimination methods work for linear systems.",
+              "Graphing works but is less precise than algebraic methods."
+            ]
+          },
+          {
+            "step_no": 2,
+            "step_type": "procedural_fluency",
+            "text": "Using elimination, multiply the first equation by \\(${d}\\) and the second by \\(-${b}\\). What are the new equations?",
+            "options": [
+              "\\(${a*d}x + ${b*d}y = ${e*d}\\) and \\(${-c*b}x + ${-d*b}y = ${-f*b}\\)",
+              "\\(${a*d}x + ${b*d}y = ${e*d}\\) and \\(${c*b}x + ${d*b}y = ${f*b}\\)",
+              "\\(${a}x + ${b}y = ${e*d}\\) and \\(${-c*b}x + ${-d*b}y = ${-f*b}\\)",
+              "\\(${a*d}x - ${b*d}y = ${e*d}\\) and \\(${-c*b}x - ${-d*b}y = ${-f*b}\\)"
+            ],
+            "correctindex": 0,
+            "option_explanations": [
+              "Correct! Multiplying each term by the chosen factors gives these equations.",
+              "Incorrect. You forgot the negative sign when multiplying the second equation by \\(-${b}\\).",
+              "Incorrect. You didn't multiply the left side of the first equation properly.",
+              "Incorrect. Check your signs when multiplying through."
+            ]
+          },
+          {
+            "step_no": 3,
+            "step_type": "procedural_fluency",
+            "text": "Adding these equations eliminates \\(y\\). What equation do you get for \\(x\\)?",
+            "options": [
+              "\\(${a*d - c*b}x = ${e*d - f*b}\\)",
+              "\\(${a*d + c*b}x = ${e*d + f*b}\\)",
+              "\\(${a*d}x = ${e*d}\\)",
+              "\\(x = ${x_val}\\)"
+            ],
+            "correctindex": 0,
+            "option_explanations": [
+              "Correct! Adding the equations: \\((${a*d} + (${-c*b}))x = ${e*d} + (${-f*b})\\).",
+              "Incorrect. Remember the second equation was multiplied by \\(-${b}\\), so terms are subtracted.",
+              "Incorrect. You eliminated both variables, not just \\(y\\).",
+              "You jumped to the final answer without showing the intermediate equation."
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "Factor the quadratic expression ${question_expression} completely.",
+    "question_expression": "a*x**2 + b*x + c",
+    "generated_parameters": {
+      "p": {
+        "type": "int",
+        "min": 1,
+        "max": 4
+      },
+      "q": {
+        "type": "int",
+        "min": 2,
+        "max": 5
+      }
+    },
+    "calculated_parameters": {
+      "a": "1",
+      "b": "p + q",
+      "c": "p * q",
+      "opt1": "(x + p)(x + q)",
+      "opt2": "(x - p)(x - q)",
+      "opt3": "(x + p)(x - q)",
+      "opt4": "x(x + (p + q))"
+    },
+    "options": [
+      "\\((x + ${p})(x + ${q})\\)",
+      "\\((x - ${p})(x - ${q})\\)",
+      "\\((x + ${p})(x - ${q})\\)",
+      "\\(x(x + ${p + q})\\)"
+    ],
+    "correctindex": 0,
+    "option_explanations": [
+      "Correct! Since both the sum \\(${p + q}\\) and product \\(${p*q}\\) are positive, both factors must have the same sign as the middle term.",
+      "Incorrect. With a positive middle term and positive constant, both factors should be positive.",
+      "Incorrect. This would give \\(x^2 + ${q-p}x - ${p*q}\\), which doesn't match our expression.",
+      "Incorrect. This doesn't account for the constant term \\(${c}\\) properly."
+    ],
+    "main_topic_index": 6,
+    "subtopic_weights": {
+      "6": 1.0
+    },
+    "difficulty_breakdown": {
+      "conceptual_understanding": 0.6,
+      "procedural_fluency": 0.7,
+      "problem_solving": 0.5,
+      "mathematical_communication": 0.3,
+      "memory": 0.4,
+      "spatial_reasoning": 0.2
+    },
+    "breakdown": {
+      "sign_confusion": {
+        "answer_mapping": [1, 2],
+        "steps": [
+          {
+            "step_no": 1,
+            "prereq_topics": [],
+            "step_type": "conceptual_understanding",
+            "text": "When factoring \\(x^2 + bx + c\\), if both \\(b\\) and \\(c\\) are positive, what can we say about the signs in the factors?",
+            "options": [
+              "Both factors have negative signs",
+              "Both factors have positive signs",
+              "One positive, one negative",
+              "The signs don't matter"
+            ],
+            "correctindex": 1,
+            "option_explanations": [
+              "Incorrect. If both factors were \\((x-p)(x-q)\\), we'd get \\(x^2 - (p+q)x + pq\\), giving a negative middle term.",
+              "Correct! For \\(x^2 + bx + c\\) with positive \\(b\\) and \\(c\\), we need \\((x+p)(x+q)\\).",
+              "Incorrect. This would give a negative constant term.",
+              "Incorrect. The signs determine the coefficients in the expanded form."
+            ]
+          },
+          {
+            "step_no": 2,
+            "step_type": "memory",
+            "text": "To factor \\(x^2 + ${b}x + ${c}\\), we need two numbers that multiply to \\(${c}\\) and add to \\(${b}\\). What are these numbers?",
+            "options": [
+              "\\(${p}\\) and \\(${q}\\)",
+              "\\(${-p}\\) and \\(${-q}\\)",
+              "\\(${p}\\) and \\(${-q}\\)",
+              "\\(${c}\\) and \\(1\\)"
+            ],
+            "correctindex": 0,
+            "option_explanations": [
+              "Correct! \\(${p} \\times ${q} = ${c}\\) and \\(${p} + ${q} = ${b}\\).",
+              "Incorrect. These would multiply to \\(${c}\\) but add to \\(${-(p+q)}\\).",
+              "Incorrect. These would multiply to \\(${-p*q}\\), not \\(${c}\\).",
+              "Incorrect. These don't add to \\(${b}\\)."
+            ]
+          },
+          {
+            "step_no": 3,
+            "step_type": "procedural_fluency",
+            "text": "Write the complete factorization using the numbers \\(${p}\\) and \\(${q}\\):",
+            "options": [
+              "\\((x + ${p})(x + ${q})\\)",
+              "\\((x - ${p})(x - ${q})\\)",
+              "\\(x(x + ${p} + ${q})\\)",
+              "\\((x + ${p})^2\\)"
+            ],
+            "correctindex": 0,
+            "option_explanations": [
+              "Correct! \\((x + ${p})(x + ${q})\\) expands to \\(x^2 + ${b}x + ${c}\\).",
+              "Incorrect. With positive numbers, we need \\((x + ${p})(x + ${q})\\).",
+              "Incorrect. This doesn't represent the correct factored form.",
+              "Incorrect. This would only work if \\(${p} = ${q}\\)."
+            ]
+          }
+        ]
+      },
+      "incomplete_factoring": {
+        "answer_mapping": [3],
+        "steps": [
+          {
+            "step_no": 1,
+            "step_type": "conceptual_understanding",
+            "text": "What does it mean to factor 'completely'?",
+            "options": [
+              "Factor out the GCF only",
+              "Write as a product of linear factors",
+              "Simplify the expression",
+              "Expand the expression"
+            ],
+            "correctindex": 1,
+            "option_explanations": [
+              "Incorrect. Factoring completely means going beyond just the GCF.",
+              "Correct! Complete factoring means writing as a product of linear factors.",
+              "Incorrect. Factoring and simplifying are different operations.",
+              "Incorrect. Expanding is the opposite of factoring."
+            ]
+          },
+          {
+            "step_no": 2,
+            "step_type": "procedural_fluency",
+            "text": "The expression \\(x(x + ${b})\\) is partially factored. What's missing?",
+            "options": [
+              "Nothing, it's completely factored",
+              "We need to factor \\((x + ${b})\\) further",
+              "We need to expand it back out",
+              "We need to factor out more terms"
+            ],
+            "correctindex": 1,
+            "option_explanations": [
+              "Incorrect. We can factor \\((x + ${b})\\) further since \\(${b} = ${p} + ${q}\\).",
+              "Correct! We can factor \\((x + ${b})\\) as \\((x + ${p})(x + ${q})\\) if \\(${b} = ${p} + ${q}\\) and the constant term works out.",
+              "Incorrect. We want to factor more, not expand.",
+              "Incorrect. The issue is that \\((x + ${b})\\) can be factored further."
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "A ball is thrown upward with initial velocity \\(${v0}\\) ft/s from a height of \\(${h0}\\) feet. Its height after \\(t\\) seconds is given by \\(h(t) = -16t^2 + ${v0}t + ${h0}\\). When will the ball hit the ground?",
+    "generated_parameters": {
+      "v0": {
+        "type": "int",
+        "min": 32,
+        "max": 64
+      },
+      "h0": {
+        "type": "int",
+        "min": 6,
+        "max": 20
+      }
+    },
+    "calculated_parameters": {
+      "discriminant": "v0**2 + 4*16*h0",
+      "time_solution": "(v0 + sqrt(v0**2 + 4*16*h0)) / 32",
+      "opt1": "(v0 + sqrt(discriminant)) / 32",
+      "opt2": "(v0 - sqrt(discriminant)) / 32",
+      "opt3": "v0 / 32",
+      "opt4": "sqrt(discriminant) / 32"
+    },
+    "options": [
+      "\\(t = \\frac{${v0} + \\sqrt{${discriminant}}}{32}\\) seconds",
+      "\\(t = \\frac{${v0} - \\sqrt{${discriminant}}}{32}\\) seconds",
+      "\\(t = \\frac{${v0}}{32}\\) seconds",
+      "\\(t = \\frac{\\sqrt{${discriminant}}}{32}\\) seconds"
+    ],
+    "correctindex": 0,
+    "option_explanations": [
+      "Correct! The ball hits the ground when \\(h(t) = 0\\). Using the quadratic formula, we take the positive solution since time must be positive.",
+      "Incorrect. This gives a negative time, which doesn't make physical sense for this problem.",
+      "Incorrect. You didn't account for the initial height \\(${h0}\\) feet.",
+      "Incorrect. This doesn't follow from the quadratic formula for our equation."
+    ],
+    "main_topic_index": 20,
+    "subtopic_weights": {
+      "20": 0.7,
+      "19": 0.3
+    },
+    "difficulty_breakdown": {
+      "conceptual_understanding": 0.8,
+      "procedural_fluency": 0.6,
+      "problem_solving": 0.9,
+      "mathematical_communication": 0.4,
+      "memory": 0.5,
+      "spatial_reasoning": 0.3
+    },
+    "breakdown": {
+      "negative_time": {
+        "answer_mapping": [1],
+        "steps": [
+          {
+            "step_no": 1,
+            "step_type": "conceptual_understanding",
+            "text": "When solving real-world problems involving time, what constraint must we consider for our answer?",
+            "options": [
+              "Time must be an integer",
+              "Time must be positive",
+              "Time must be less than 10",
+              "Time can be any real number"
+            ],
+            "correctindex": 1,
+            "option_explanations": [
+              "Incorrect. Time doesn't have to be an integer in physics problems.",
+              "Correct! In real-world contexts, time values must be positive (\\(t \\geq 0\\)).",
+              "Incorrect. There's no universal upper bound on time values.",
+              "Incorrect. Negative time doesn't make physical sense in this context."
+            ]
+          },
+          {
+            "step_no": 2,
+            "step_type": "procedural_fluency",
+            "text": "When we solve \\(-16t^2 + ${v0}t + ${h0} = 0\\) using the quadratic formula, we get two solutions. Which one represents when the ball hits the ground?",
+            "options": [
+              "The negative solution",
+              "The positive solution",
+              "Both solutions",
+              "The larger solution"
+            ],
+            "correctindex": 1,
+            "option_explanations": [
+              "Incorrect. Negative time doesn't make sense for when the ball hits the ground in the future.",
+              "Correct! The positive solution represents the future time when the ball hits the ground.",
+              "Incorrect. Only the positive solution is physically meaningful.",
+              "Incorrect. We need the positive solution, which may or may not be the larger one."
+            ]
+          }
+        ]
+      },
+      "formula_application": {
+        "answer_mapping": [2, 3],
+        "steps": [
+          {
+            "step_no": 1,
+            "step_type": "problem_solving",
+            "text": "What equation do we need to solve to find when the ball hits the ground?",
+            "options": [
+              "\\(h(t) = ${h0}\\)",
+              "\\(h(t) = 0\\)",
+              "\\(h(t) = ${v0}\\)",
+              "\\(h'(t) = 0\\)"
+            ],
+            "correctindex": 1,
+            "option_explanations": [
+              "Incorrect. This would find when the ball returns to its initial height.",
+              "Correct! The ball hits the ground when its height equals 0.",
+              "Incorrect. This doesn't represent ground level.",
+              "Incorrect. This would find when the velocity is zero (maximum height)."
+            ]
+          },
+          {
+            "step_no": 2,
+            "step_type": "procedural_fluency",
+            "text": "Setting \\(h(t) = 0\\) gives us \\(-16t^2 + ${v0}t + ${h0} = 0\\). What are the coefficients for the quadratic formula?",
+            "options": [
+              "\\(a = -16, b = ${v0}, c = ${h0}\\)",
+              "\\(a = 16, b = ${v0}, c = ${h0}\\)",
+              "\\(a = -16, b = ${h0}, c = ${v0}\\)",
+              "\\(a = 1, b = ${v0}, c = ${h0}\\)"
+            ],
+            "correctindex": 0,
+            "option_explanations": [
+              "Correct! In \\(-16t^2 + ${v0}t + ${h0} = 0\\), we have \\(a = -16\\), \\(b = ${v0}\\), \\(c = ${h0}\\).",
+              "Incorrect. The coefficient of \\(t^2\\) is \\(-16\\), not \\(16\\).",
+              "Incorrect. You switched \\(b\\) and \\(c\\). The coefficient of \\(t\\) is \\(b\\).",
+              "Incorrect. The coefficient of \\(t^2\\) is \\(-16\\), not \\(1\\)."
+            ]
+          },
+          {
+            "step_no": 3,
+            "step_type": "procedural_fluency",
+            "text": "Apply the quadratic formula \\(t = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}\\) with our values:",
+            "options": [
+              "\\(t = \\frac{-${v0} \\pm \\sqrt{${discriminant}}}{-32}\\)",
+              "\\(t = \\frac{${v0} \\pm \\sqrt{${discriminant}}}{32}\\)",
+              "\\(t = \\frac{-${v0} \\pm \\sqrt{${v0**2 - 4*16*h0}}}{-32}\\)",
+              "\\(t = \\frac{${v0} \\pm \\sqrt{${v0**2}}}{32}\\)"
+            ],
+            "correctindex": 0,
+            "option_explanations": [
+              "Correct! \\(t = \\frac{-(${v0}) \\pm \\sqrt{${v0}^2-4(-16)(${h0})}}{2(-16)}\\).",
+              "Incorrect. You didn't apply the negative sign to \\(b\\) and you got the denominator wrong.",
+              "Incorrect. The discriminant should be \\(${v0}^2 + 4 \\cdot 16 \\cdot ${h0}\\) (note the plus).",
+              "Incorrect. You didn't calculate the discriminant correctly."
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "Simplify the complex fraction \\(\\frac{\\frac{${num1}}{x} + \\frac{${num2}}{${denom}}}{\\frac{${num3}}{x} - \\frac{${num4}}{${denom}}}\\).",
+    "generated_parameters": {
+      "num1": {
+        "type": "int",
+        "min": 2,
+        "max": 6
+      },
+      "num2": {
+        "type": "int",
+        "min": 1,
+        "max": 4
+      },
+      "denom": {
+        "type": "int",
+        "min": 2,
+        "max": 4
+      },
+      "num3": {
+        "type": "int",
+        "min": 1,
+        "max": 3
+      },
+      "num4": {
+        "type": "int",
+        "min": 1,
+        "max": 3
+      }
+    },
+    "calculated_parameters": {
+      "common_denom": "x * denom",
+      "num_combined": "num1*denom + num2*x",
+      "den_combined": "num3*denom - num4*x",
+      "opt1": "(num1*denom + num2*x) / (num3*denom - num4*x)",
+      "opt2": "(num1 + num2) / (num3 - num4)",
+      "opt3": "(num1*x + num2*denom) / (num3*x - num4*denom)",
+      "opt4": "num1*num2 / (num3*num4)"
+    },
+    "options": [
+      "\\(\\frac{${num1 * denom} + ${num2}x}{${num3 * denom} - ${num4}x}\\)",
+      "\\(\\frac{${num1 + num2}}{${num3 - num4}}\\)",
+      "\\(\\frac{${num1}x + ${num2 * denom}}{${num3}x - ${num4 * denom}}\\)",
+      "\\(\\frac{${num1 * num2}}{${num3 * num4}}\\)"
+    ],
+    "correctindex": 0,
+    "option_explanations": [
+      "Correct! Finding common denominators in numerator and denominator, then simplifying gives \\(\\frac{${num1 * denom} + ${num2}x}{${num3 * denom} - ${num4}x}\\).",
+      "Incorrect. You can't just add the numerators and denominators separately without finding common denominators first.",
+      "Incorrect. You multiplied the wrong terms together when finding common denominators.",
+      "Incorrect. This completely ignores the variable terms and denominator structure."
+    ],
+    "main_topic_index": 32,
+    "subtopic_weights": {
+      "32": 0.8,
+      "30": 0.2
+    },
+    "difficulty_breakdown": {
+      "conceptual_understanding": 0.6,
+      "procedural_fluency": 0.9,
+      "problem_solving": 0.7,
+      "mathematical_communication": 0.4,
+      "memory": 0.5,
+      "spatial_reasoning": 0.1
+    },
+    "breakdown": {
+      "common_denominator_error": {
+        "answer_mapping": [1, 3],
+        "steps": [
+          {
+            "step_no": 1,
+            "prereq_topics": [30],
+            "step_type": "memory",
+            "text": "When adding fractions \\(\\frac{a}{x} + \\frac{b}{c}\\), what is the first step?",
+            "options": [
+              "Add the numerators and denominators",
+              "Find a common denominator",
+              "Multiply the fractions",
+              "Convert to decimals"
+            ],
+            "correctindex": 1,
+            "option_explanations": [
+              "Incorrect. You can only add numerators when denominators are the same.",
+              "Correct! The first step is to find a common denominator, which would be \\(cx\\).",
+              "Incorrect. We want to add, not multiply the fractions.",
+              "Incorrect. We should work with the fractions algebraically."
+            ]
+          },
+          {
+            "step_no": 2,
+            "step_type": "procedural_fluency",
+            "text": "What is the common denominator for \\(\\frac{${num1}}{x}\\) and \\(\\frac{${num2}}{${denom}}\\)?",
+            "options": [
+              "\\(x + ${denom}\\)",
+              "\\(x \\cdot ${denom}\\)",
+              "\\(\\frac{x}{${denom}}\\)",
+              "\\(x^2 \\cdot ${denom}\\)"
+            ],
+            "correctindex": 1,
+            "option_explanations": [
+              "Incorrect. We need to multiply the denominators, not add them.",
+              "Correct! The LCD of \\(x\\) and \\(${denom}\\) is \\(x \\cdot ${denom}\\).",
+              "Incorrect. This is not a common denominator for both fractions.",
+              "Incorrect. We don't need \\(x^2\\), just \\(x\\)."
+            ]
+          },
+          {
+            "step_no": 3,
+            "step_type": "procedural_fluency",
+            "text": "Rewrite \\(\\frac{${num1}}{x} + \\frac{${num2}}{${denom}}\\) with common denominator \\(${denom}x\\):",
+            "options": [
+              "\\(\\frac{${num1 * denom} + ${num2}x}{${denom}x}\\)",
+              "\\(\\frac{${num1}x + ${num2 * denom}}{${denom}x}\\)",
+              "\\(\\frac{${num1} + ${num2}}{${denom}x}\\)",
+              "\\(\\frac{${num1 * denom} - ${num2}x}{${denom}x}\\)"
+            ],
+            "correctindex": 0,
+            "option_explanations": [
+              "Correct! \\(\\frac{${num1}}{x} = \\frac{${num1} \\cdot ${denom}}{x \\cdot ${denom}}\\) and \\(\\frac{${num2}}{${denom}} = \\frac{${num2} \\cdot x}{${denom} \\cdot x}\\).",
+              "Incorrect. You multiplied by the wrong factors to get the common denominator.",
+              "Incorrect. You can't just put the original numerators over the common denominator.",
+              "Incorrect. You subtracted instead of added."
+            ]
+          },
+          {
+            "step_no": 4,
+            "step_type": "procedural_fluency",
+            "text": "Similarly, simplify the denominator \\(\\frac{${num3}}{x} - \\frac{${num4}}{${denom}}\\) with common denominator:",
+            "options": [
+              "\\(\\frac{${num3 * denom} - ${num4}x}{${denom}x}\\)",
+              "\\(\\frac{${num3}x - ${num4 * denom}}{${denom}x}\\)",
+              "\\(\\frac{${num3} - ${num4}}{${denom}x}\\)",
+              "\\(\\frac{${num3 * denom} + ${num4}x}{${denom}x}\\)"
+            ],
+            "correctindex": 0,
+            "option_explanations": [
+              "Correct! \\(\\frac{${num3}}{x} - \\frac{${num4}}{${denom}} = \\frac{${num3 * denom} - ${num4}x}{${denom}x}\\).",
+              "Incorrect. You multiplied by the wrong factors.",
+              "Incorrect. You need to scale both terms to the common denominator.",
+              "Incorrect. You added instead of subtracted."
+            ]
+          }
+        ]
+      },
+      "wrong_multiplication": {
+        "answer_mapping": [2],
+        "steps": [
+          {
+            "step_no": 1,
+            "step_type": "conceptual_understanding",
+            "text": "When we have a complex fraction \\(\\frac{\\frac{a}{b}}{\\frac{c}{d}}\\), how do we simplify it?",
+            "options": [
+              "\\(\\frac{a}{b} \\times \\frac{c}{d}\\)",
+              "\\(\\frac{a}{b} \\times \\frac{d}{c}\\)",
+              "\\(\\frac{a+c}{b+d}\\)",
+              "\\(\\frac{ac}{bd}\\)"
+            ],
+            "correctindex": 1,
+            "option_explanations": [
+              "Incorrect. This would be multiplication, but we need to divide by the bottom fraction.",
+              "Correct! To divide fractions, multiply by the reciprocal: \\(\\frac{a/b}{c/d} = \\frac{a}{b} \\times \\frac{d}{c}\\).",
+              "Incorrect. You can't add numerators and denominators separately.",
+              "Incorrect. This isn't the correct approach for complex fractions."
+            ]
+          },
+          {
+            "step_no": 2,
+            "step_type": "procedural_fluency",
+            "text": "Before dividing, we need to simplify the numerator and denominator separately. Start with the numerator \\(\\frac{${num1}}{x} + \\frac{${num2}}{${denom}}\\):",
+            "options": [
+              "Find a common denominator first",
+              "Multiply the fractions",
+              "Just add ${num1} + ${num2}",
+              "Cancel out the variables"
+            ],
+            "correctindex": 0,
+            "option_explanations": [
+              "Correct! We must find a common denominator before adding fractions.",
+              "Incorrect. We're adding, not multiplying these fractions.",
+              "Incorrect. We can't ignore the denominators.",
+              "Incorrect. The variables are in different positions in each fraction."
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "Find the vertex of the parabola \\(y = ${a}x^2 + ${b}x + ${c}\\) by completing the square.",
+    "generated_parameters": {
+      "a": {
+        "type": "int",
+        "min": 2,
+        "max": 4
+      },
+      "b": {
+        "type": "int",
+        "min": 4,
+        "max": 8
+      },
+      "c": {
+        "type": "int",
+        "min": -5,
+        "max": 5
+      }
+    },
+    "calculated_parameters": {
+      "h": "-b / (2*a)",
+      "k": "c - b**2/(4*a)",
+      "half_b_over_a": "b/(2*a)",
+      "b_over_2a_squared": "b**2/(4*a**2)",
+      "opt1": "(-b/(2*a), c - b**2/(4*a))",
+      "opt2": "(b/(2*a), c + b**2/(4*a))",
+      "opt3": "(-b/(2*a), c + b**2/(4*a))",
+      "opt4": "(b/(2*a), c - b**2/(4*a))"
+    },
+    "options": [
+      "\\(\\left(${-b/(2*a)}, ${c - b**2/(4*a)}\\right)\\)",
+      "\\(\\left(${b/(2*a)}, ${c + b**2/(4*a)}\\right)\\)",
+      "\\(\\left(${-b/(2*a)}, ${c + b**2/(4*a)}\\right)\\)",
+      "\\(\\left(${b/(2*a)}, ${c - b**2/(4*a)}\\right)\\)"
+    ],
+    "correctindex": 0,
+    "option_explanations": [
+      "Correct! The vertex is at \\(\\left(-\\frac{b}{2a}, c - \\frac{b^2}{4a}\\right) = \\left(-\\frac{${b}}{2(${a})}, ${c} - \\frac{${b}^2}{4(${a})}\\right)\\).",
+      "Incorrect. You made sign errors in both coordinates. The \\(x\\)-coordinate should be \\(-\\frac{b}{2a}\\).",
+      "Incorrect. The \\(y\\)-coordinate should subtract \\(\\frac{b^2}{4a}\\), not add it.",
+      "Incorrect. The \\(x\\)-coordinate should have a negative sign: \\(-\\frac{b}{2a}\\)."
+    ],
+    "main_topic_index": 108,
+    "subtopic_weights": {
+      "108": 1.0
+    },
+    "difficulty_breakdown": {
+      "conceptual_understanding": 0.7,
+      "procedural_fluency": 0.8,
+      "problem_solving": 0.6,
+      "mathematical_communication": 0.5,
+      "memory": 0.6,
+      "spatial_reasoning": 0.4
+    },
+    "breakdown": {
+      "sign_errors": {
+        "answer_mapping": [1, 2, 3],
+        "steps": [
+          {
+            "step_no": 1,
+            "prereq_topics": [107],
+            "step_type": "memory",
+            "text": "What is the vertex form of a parabola?",
+            "options": [
+              "\\(y = ax^2 + bx + c\\)",
+              "\\(y = a(x - h)^2 + k\\)",
+              "\\(y = (x - h)^2\\)",
+              "\\(y = ax + b\\)"
+            ],
+            "correctindex": 1,
+            "option_explanations": [
+              "Incorrect. This is standard form, not vertex form.",
+              "Correct! Vertex form is \\(y = a(x - h)^2 + k\\) where \\((h,k)\\) is the vertex.",
+              "Incorrect. This is missing the coefficient \\(a\\) and vertical shift \\(k\\).",
+              "Incorrect. This is the equation of a line, not a parabola."
+            ]
+          },
+          {
+            "step_no": 2,
+            "step_type": "procedural_fluency",
+            "text": "To complete the square for \\(${a}x^2 + ${b}x + ${c}\\), first factor out the coefficient of \\(x^2\\):",
+            "options": [
+              "\\(${a}(x^2 + ${b}x) + ${c}\\)",
+              "\\(${a}(x^2 + ${b/a}x) + ${c}\\)",
+              "\\(x^2 + ${b}x + ${c}\\)",
+              "\\(${a}x^2 + ${b}(x + ${c})\\)"
+            ],
+            "correctindex": 1,
+            "option_explanations": [
+              "Incorrect. When factoring out \\(${a}\\), the \\(x\\) coefficient becomes \\(\\frac{${b}}{${a}}\\).",
+              "Correct! \\(${a}x^2 + ${b}x = ${a}(x^2 + \\frac{${b}}{${a}}x)\\).",
+              "Incorrect. You need to factor out the \\(${a}\\) from the first two terms.",
+              "Incorrect. This doesn't properly factor out the coefficient."
+            ]
+          },
+          {
+            "step_no": 3,
+            "step_type": "procedural_fluency",
+            "text": "Complete the square inside the parentheses. For \\(x^2 + ${b/a}x\\), what do you add and subtract?",
+            "options": [
+              "\\(\\left(\\frac{${b}}{2 \\cdot ${a}}\\right)^2\\)",
+              "\\(\\left(\\frac{${b}}{${a}}\\right)^2\\)",
+              "\\(\\frac{${b}}{${a}}\\)",
+              "\\(\\left(\\frac{${b/2}}{${a}}\\right)^2\\)"
+            ],
+            "correctindex": 0,
+            "option_explanations": [
+              "Correct! To complete the square for \\(x^2 + px\\), add and subtract \\(\\left(\\frac{p}{2}\\right)^2\\).",
+              "Incorrect. You need to divide the coefficient by 2 first, then square it.",
+              "Incorrect. You need to square half the coefficient.",
+              "Incorrect. The formula is \\(\\left(\\frac{\\text{coefficient}}{2}\\right)^2\\)."
+            ]
+          },
+          {
+            "step_no": 4,
+            "step_type": "procedural_fluency",
+            "text": "After completing the square, the vertex coordinates \\((h, k)\\) are found from \\(y = a(x - h)^2 + k\\). What is \\(h\\)?",
+            "options": [
+              "\\(h = -\\frac{${b}}{2 \\cdot ${a}}\\)",
+              "\\(h = \\frac{${b}}{2 \\cdot ${a}}\\)",
+              "\\(h = -\\frac{${b}}{${a}}\\)",
+              "\\(h = \\frac{${b}}{${a}}\\)"
+            ],
+            "correctindex": 0,
+            "option_explanations": [
+              "Correct! The \\(x\\)-coordinate of the vertex is \\(h = -\\frac{b}{2a}\\).",
+              "Incorrect. You're missing the negative sign. It should be \\(-\\frac{b}{2a}\\).",
+              "Incorrect. You forgot to divide by 2.",
+              "Incorrect. You're missing the negative sign and forgot to divide by 2."
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "Solve the exponential equation \\(${base}^{x+${shift}} = ${target_value}\\).",
+    "generated_parameters": {
+      "base": {
+        "type": "int",
+        "min": 2,
+        "max": 4
+      },
+      "power": {
+        "type": "int",
+        "min": 3,
+        "max": 5
+      },
+      "shift": {
+        "type": "int",
+        "min": 1,
+        "max": 3
+      }
+    },
+    "calculated_parameters": {
+      "target_value": "base**power",
+      "solution": "power - shift",
+      "opt1": "power - shift",
+      "opt2": "power + shift",
+      "opt3": "power * shift",
+      "opt4": "power / shift"
+    },
+    "options": [
+      "\\(x = ${opt1}\\)",
+      "\\(x = ${opt2}\\)",
+      "\\(x = ${opt3}\\)",
+      "\\(x = ${opt4}\\)"
+    ],
+    "correctindex": 0,
+    "option_explanations": [
+      "Correct! Since \\(${base}^{${power}} = ${target_value}\\), we have \\(x + ${shift} = ${power}\\), so \\(x = ${power} - ${shift}\\).",
+      "Incorrect. You added \\(${shift}\\) instead of subtracting it. From \\(x + ${shift} = ${power}\\), we get \\(x = ${power} - ${shift}\\).",
+      "Incorrect. This doesn't follow from the exponential equation. You need to solve \\(x + ${shift} = ${power}\\).",
+      "Incorrect. This operation doesn't match the algebraic steps needed to isolate \\(x\\)."
+    ],
+    "main_topic_index": 165,
+    "subtopic_weights": {
+      "165": 1.0
+    },
+    "difficulty_breakdown": {
+      "conceptual_understanding": 0.7,
+      "procedural_fluency": 0.5,
+      "problem_solving": 0.6,
+      "mathematical_communication": 0.4,
+      "memory": 0.6,
+      "spatial_reasoning": 0.0
+    },
+    "breakdown": {
+      "algebraic_manipulation": {
+        "answer_mapping": [1],
+        "steps": [
+          {
+            "step_no": 1,
+            "step_type": "conceptual_understanding",
+            "text": "When solving \\(${base}^{x+${shift}} = ${target_value}\\), what is the first step?",
+            "options": [
+              "Take the logarithm of both sides",
+              "Express both sides with the same base",
+              "Multiply both sides by \\(${base}\\)",
+              "Add \\(${shift}\\) to both sides"
+            ],
+            "correctindex": 1,
+            "option_explanations": [
+              "This works but is more complex. Since \\(${target_value} = ${base}^{${power}}\\), we can use the same base.",
+              "Correct! Since \\(${target_value} = ${base}^{${power}}\\), we can write both sides with base \\(${base}\\).",
+              "Incorrect. This doesn't help solve exponential equations.",
+              "Incorrect. We haven't isolated the exponent yet."
+            ]
+          },
+          {
+            "step_no": 2,
+            "step_type": "procedural_fluency",
+            "text": "Rewrite \\(${target_value}\\) as a power of \\(${base}\\):",
+            "options": [
+              "\\(${base}^{${power}}\\)",
+              "\\(${base}^{${power + shift}}\\)",
+              "\\(${base}^{${shift}}\\)",
+              "\\(${power}^{${base}}\\)"
+            ],
+            "correctindex": 0,
+            "option_explanations": [
+              "Correct! \\(${target_value} = ${base}^{${power}}\\).",
+              "Incorrect. This would equal \\(${base**(power + shift)}\\), which is too large.",
+              "Incorrect. This would equal \\(${base**shift}\\), which is too small.",
+              "Incorrect. You switched the base and exponent."
+            ]
+          },
+          {
+            "step_no": 3,
+            "step_type": "procedural_fluency",
+            "text": "Now we have \\(${base}^{x+${shift}} = ${base}^{${power}}\\). When bases are equal, what can we conclude about the exponents?",
+            "options": [
+              "\\(x + ${shift} = ${power}\\)",
+              "\\(x + ${shift} = ${shift}\\)",
+              "\\(x = ${power}\\)",
+              "\\(x + ${shift} = 1\\)"
+            ],
+            "correctindex": 0,
+            "option_explanations": [
+              "Correct! If \\(a^m = a^n\\), then \\(m = n\\). So \\(x + ${shift} = ${power}\\).",
+              "Incorrect. The right side exponent is \\(${power}\\), not \\(${shift}\\).",
+              "Incorrect. You need to account for the \\(+${shift}\\) in the exponent.",
+              "Incorrect. The right side exponent is \\(${power}\\)."
+            ]
+          },
+          {
+            "step_no": 4,
+            "step_type": "procedural_fluency",
+            "text": "Solve \\(x + ${shift} = ${power}\\) for \\(x\\):",
+            "options": [
+              "\\(x = ${power - shift}\\)",
+              "\\(x = ${power + shift}\\)",
+              "\\(x = ${power}\\)",
+              "\\(x = ${shift}\\)"
+            ],
+            "correctindex": 0,
+            "option_explanations": [
+              "Correct! Subtracting \\(${shift}\\) from both sides: \\(x = ${power} - ${shift}\\).",
+              "Incorrect. You added \\(${shift}\\) instead of subtracting it.",
+              "Incorrect. You forgot to subtract \\(${shift}\\) from the right side.",
+              "Incorrect. You solved for the wrong variable or made an error."
+            ]
+          }
+        ]
+      },
+      "wrong_operation": {
+        "answer_mapping": [2, 3],
+        "steps": [
+          {
+            "step_no": 1,
+            "step_type": "conceptual_understanding",
+            "text": "What property allows us to solve \\(${base}^{x+${shift}} = ${base}^{${power}}\\)?",
+            "options": [
+              "If \\(a^m = a^n\\), then \\(m \\times n = 1\\)",
+              "If \\(a^m = a^n\\), then \\(m = n\\)",
+              "If \\(a^m = a^n\\), then \\(a = 1\\)",
+              "If \\(a^m = a^n\\), then \\(m + n = 2a\\)"
+            ],
+            "correctindex": 1,
+            "option_explanations": [
+              "Incorrect. This isn't a property of exponents.",
+              "Correct! If the bases are equal and non-zero, the exponents must be equal.",
+              "Incorrect. The base doesn't have to equal 1.",
+              "Incorrect. This isn't a valid exponential property."
+            ]
+          },
+          {
+            "step_no": 2,
+            "step_type": "procedural_fluency",
+            "text": "From \\(x + ${shift} = ${power}\\), what operation isolates \\(x\\)?",
+            "options": [
+              "Add \\(${shift}\\) to both sides",
+              "Subtract \\(${shift}\\) from both sides",
+              "Multiply both sides by \\(${shift}\\)",
+              "Divide both sides by \\(${shift}\\)"
+            ],
+            "correctindex": 1,
+            "option_explanations": [
+              "Incorrect. This would give \\(x = ${power} + ${shift}\\), not isolate \\(x\\).",
+              "Correct! Subtracting \\(${shift}\\) from both sides gives \\(x = ${power} - ${shift}\\).",
+              "Incorrect. We need to use addition/subtraction, not multiplication.",
+              "Incorrect. We need to use addition/subtraction, not division."
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "text": "A rectangular garden has length \\(${length}\\) meters more than its width. If the area is \\(${area}\\) square meters, what is the width?",
+    "generated_parameters": {
+      "length_diff": {
+        "type": "int",
+        "min": 3,
+        "max": 7
+      },
+      "width_val": {
+        "type": "int",
+        "min": 5,
+        "max": 10
+      }
+    },
+    "calculated_parameters": {
+      "length": "length_diff",
+      "area": "width_val * (width_val + length_diff)",
+      "length_expr": "w + length_diff",
+      "quadratic": "w**2 + length_diff*w - area",
+      "opt1": "width_val",
+      "opt2": "width_val + length_diff",
+      "opt3": "area / length_diff",
+      "opt4": "sqrt(area)"
+    },
+    "options": [
+      "\\(${width_val}\\) meters",
+      "\\(${width_val + length_diff}\\) meters",
+      "\\(${area / length_diff}\\) meters",
+      "\\(\\sqrt{${area}}\\) meters"
+    ],
+    "correctindex": 0,
+    "option_explanations": [
+      "Correct! Let \\(w\\) be the width. Then length \\(= w + ${length}\\). Area: \\(w(w + ${length}) = ${area}\\), solving gives \\(w = ${width_val}\\).",
+      "Incorrect. This is the length, not the width. The width is \\(${length}\\) meters less than this.",
+      "Incorrect. This doesn't account for the relationship between length and width.",
+      "Incorrect. This assumes the garden is a square, but length ≠ width in this problem."
+    ],
+    "main_topic_index": 20,
+    "subtopic_weights": {
+      "20": 0.8,
+      "19": 0.2
+    },
+    "difficulty_breakdown": {
+      "conceptual_understanding": 0.7,
+      "procedural_fluency": 0.6,
+      "problem_solving": 0.9,
+      "mathematical_communication": 0.5,
+      "memory": 0.4,
+      "spatial_reasoning": 0.6
+    },
+    "breakdown": {
+      "length_width_confusion": {
+        "answer_mapping": [1],
+        "steps": [
+          {
+            "step_no": 1,
+            "step_type": "problem_solving",
+            "text": "Let \\(w\\) represent the width in meters. How do you express the length in terms of \\(w\\)?",
+            "options": [
+              "Length \\(= w - ${length}\\)",
+              "Length \\(= w + ${length}\\)",
+              "Length \\(= ${length} - w\\)",
+              "Length \\(= ${length}w\\)"
+            ],
+            "correctindex": 1,
+            "option_explanations": [
+              "Incorrect. The problem states length is \\(${length}\\) more than width, so we add.",
+              "Correct! If length is \\(${length}\\) more than width, then length \\(= w + ${length}\\).",
+              "Incorrect. This would make length decrease as width increases.",
+              "Incorrect. This represents multiplication, not the 'more than' relationship."
+            ]
+          },
+          {
+            "step_no": 2,
+            "step_type": "procedural_fluency",
+            "text": "Write the equation for the area using \\(w\\) as the width:",
+            "options": [
+              "\\(w^2 = ${area}\\)",
+              "\\(w(w + ${length}) = ${area}\\)",
+              "\\(w + (w + ${length}) = ${area}\\)",
+              "\\((w + ${length})^2 = ${area}\\)"
+            ],
+            "correctindex": 1,
+            "option_explanations": [
+              "Incorrect. This assumes the garden is a square with side \\(w\\).",
+              "Correct! Area = length × width = \\((w + ${length}) \\times w\\).",
+              "Incorrect. This is the perimeter formula, not area.",
+              "Incorrect. This would be the area of a square with side \\((w + ${length})\\)."
+            ]
+          },
+          {
+            "step_no": 3,
+            "step_type": "procedural_fluency",
+            "text": "Expand \\(w(w + ${length}) = ${area}\\) to get a quadratic equation:",
+            "options": [
+              "\\(w^2 + ${length}w - ${area} = 0\\)",
+              "\\(w^2 - ${length}w - ${area} = 0\\)",
+              "\\(w^2 + ${length}w + ${area} = 0\\)",
+              "\\(2w + ${length} = ${area}\\)"
+            ],
+            "correctindex": 0,
+            "option_explanations": [
+              "Correct! Expanding: \\(w^2 + ${length}w = ${area}\\), so \\(w^2 + ${length}w - ${area} = 0\\).",
+              "Incorrect. The coefficient of \\(w\\) should be positive \\(+${length}\\).",
+              "Incorrect. The constant term should be \\(-${area}\\) after moving it to the left side.",
+              "Incorrect. You didn't expand \\(w(w + ${length})\\) correctly."
+            ]
+          },
+          {
+            "step_no": 4,
+            "step_type": "problem_solving",
+            "text": "The quadratic \\(w^2 + ${length}w - ${area} = 0\\) has solutions \\(w = ${width_val}\\) and \\(w = ${-area/width_val}\\). Which solution makes sense for this problem?",
+            "options": [
+              "\\(w = ${width_val}\\) meters",
+              "\\(w = ${-area/width_val}\\) meters",
+              "Both solutions",
+              "Neither solution"
+            ],
+            "correctindex": 0,
+            "option_explanations": [
+              "Correct! Width must be positive, so \\(w = ${width_val}\\) meters is the only physically meaningful solution.",
+              "Incorrect. Width cannot be negative in a real-world context.",
+              "Incorrect. Only the positive solution makes physical sense.",
+              "Incorrect. The positive solution is valid for this problem."
+            ]
+          }
+        ]
+      },
+      "wrong_formula": {
+        "answer_mapping": [2, 3],
+        "steps": [
+          {
+            "step_no": 1,
+            "step_type": "memory",
+            "text": "What is the formula for the area of a rectangle?",
+            "options": [
+              "Area \\(= 2 \\times \\text{length} + 2 \\times \\text{width}\\)",
+              "Area \\(= \\text{length} \\times \\text{width}\\)",
+              "Area \\(= \\text{length} + \\text{width}\\)",
+              "Area \\(= \\text{length}^2 + \\text{width}^2\\)"
+            ],
+            "correctindex": 1,
+            "option_explanations": [
+              "Incorrect. This is the perimeter formula, not area.",
+              "Correct! The area of a rectangle is length × width.",
+              "Incorrect. This would be part of the perimeter calculation.",
+              "Incorrect. This isn't the area formula for rectangles."
+            ]
+          },
+          {
+            "step_no": 2,
+            "step_type": "problem_solving",
+            "text": "If the width is \\(w\\) and length is \\(w + ${length}\\), what equation represents the area?",
+            "options": [
+              "\\(w + (w + ${length}) = ${area}\\)",
+              "\\(w \\times (w + ${length}) = ${area}\\)",
+              "\\(w^2 + ${length}^2 = ${area}\\)",
+              "\\(2w + ${length} = ${area}\\)"
+            ],
+            "correctindex": 1,
+            "option_explanations": [
+              "Incorrect. This is addition, but area requires multiplication.",
+              "Correct! Area = width × length = \\(w \\times (w + ${length})\\).",
+              "Incorrect. This looks like the Pythagorean theorem, not area.",
+              "Incorrect. This is a linear equation, but our problem leads to a quadratic."
+            ]
+          }
+        ]
+      }
+    }
+  }
+]
+}

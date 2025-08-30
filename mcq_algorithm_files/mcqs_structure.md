@@ -93,14 +93,14 @@ ${param_name}_type$ → "exponential"
 
 ### options
 currently four options, including the correct option. the other options should, if possible, be common mistakes a student could make on the question. Examples of mistakes include sign/ calculation errors, mixing the question up with a similar concept, an option that looks similar but is not the same. The correct answer should be roughly evenly distributed across the indexes, it should not always be the first option.
-This can substitute parameters and render them for display. Any calculations than need to be done should be in calculated parameters, with that parameter called in the options to be substituted. Ensure the parameter name is in the options, not the contents of the parameters. options should use latex formatting, with an extra backslash as the mcqs are stored in json. ```\\(option\\)``` should be the format. . Use ```\\text{}``` for any text in the options.
+This can substitute parameters and render them for display. Any calculations than need to be done should be in calculated parameters, with that parameter called in the options to be substituted. Ensure the parameter name is in the options, not the contents of the parameters. Any signs must be outside the brakets. The ${} must be included for every individual parameter separately. options should use latex formatting, with an extra backslash as the mcqs are stored in json. ```\\(option\\)``` should be the format, with each option wrapped in mathjax denominators on the outside. No extra one are needed within an individual option . Use ```\\text{}``` for any text in the options.
 
 Formatted as an array(list) with each option.
 ### correct index
 the index from 0-3 which corresponds to the right answer in the options.
 ### option explanations
-Contains four explanations which are personalized to the option. For the correct one, it should emphasis the underlying theory, explaining why the question was right incase the student just guessed. For the incorrect options which are possible mistakes, it should explain where it is possible the student went wrong and explained the correct answer. If the answer is not based on a common mistake, the explanation should explain why this answer is wrong and explain the correct answer.
-Any math should be wrapped in ```\\(\\)```, with ```${param}``` used for substituting any parameters defined in the question.
+Contains four explanations which are personalized to the option. For the correct one, it should emphasis the underlying theory, explaining why the question was right incase the student just guessed. For the incorrect options which are possible mistakes, it should explain where it is possible the student went wrong and explained the correct answer. If the answer is not based on a common mistake, the explanation should explain why this answer is wrong and explain the correct answer. They should be encouraging, not overly blunt.
+Any text should be wrapped in ```\\text{}```, with ```${param}``` used for substituting any parameters defined in the question. The whole thing should be wrapped in ```\\(  \\)``` .
 
 
 Formatted as an array(list), with each of the four explanations for the options in the order they appear in options.

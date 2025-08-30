@@ -25,13 +25,14 @@ import math
 import json
 import random
 import re
-from sympy import symbols, sympify, latex, pi, simplify, factor, expand, sin, cos, sqrt,exp, log,tan, Poly, collect, Rational,E
+from sympy import ( sqrt, Poly, sympify, expand, factor, simplify, collect, symbols, latex, Rational,gcd, lcm, factorial, isprime, factorint, Abs, floor, ceiling, Mod,diff, integrate, limit, series, solve, roots,sin, cos, tan, asin, acos, atan, sec, csc, cot, pi, E, deg, rad, log, exp,cancel, apart, together, nsimplify
+)
 
 x, a, b, c, d, r_1, r_2 = symbols('x a b c d r_1 r_2')
 local_namespace = {
     'x': x, 'a': a, 'b': b, 'c': c, 'r_1': r_1, 'r_2': r_2,
     'sin': sin, 'cos': cos, 'tan': tan, 'pi': pi, 'sqrt': sqrt,
-    'log': log, 'exp': exp, 'E': E
+    'log': log, 'exp': exp, 'E': E, 'gcd':gcd
 }
 
 
@@ -903,15 +904,38 @@ class MCQ:
             '__builtins__': {},
             # Math functions
             'sqrt': lambda x: x**0.5,
-            'abs': abs,
-            'min': min,
-            'max': max,
             'round': round,
             'int': int,
             'float': float,
-            'pow': pow,
             'sum': sum,
             'len': len,
+
+        # Basic arithmetic & comparison
+        'abs': Abs, 'max': max, 'min': min, 'round': round,
+
+        # Number theory
+        'gcd': gcd, 'lcm': lcm, 'factorial': factorial,
+        'isprime': isprime, 'factorint': factorint,
+        'floor': floor, 'ceiling': ceiling, 'mod': Mod,
+
+        # Calculus
+        'diff': diff, 'integrate': integrate, 'limit': limit,
+        'solve': solve, 'roots': roots,
+
+        # Trigonometry
+        'sin': sin, 'cos': cos, 'tan': tan,
+        'asin': asin, 'acos': acos, 'atan': atan,
+        'sec': sec, 'csc': csc, 'cot': cot,
+
+        # Constants
+        'pi': pi, 'e': E,
+
+        # Logarithms & exponentials
+        'log': log, 'ln': log, 'exp': exp,
+        'sqrt': sqrt, 'pow': pow,
+
+        # Rational functions
+        'cancel': cancel,
         }
         if base_params:
             safe_namespace.update(base_params)
@@ -2560,7 +2584,7 @@ class StudentManager:
             del self.active_sessions[student_id]
 
     def start_breakdown_session(self, student_id: str, breakdown_steps: List['BreakdownStep']):
-        """NEW METHOD: Start a breakdown session for a student"""
+        """ Start a breakdown session for a student"""
         self._current_breakdown_session = {
             'student_id': student_id,
             'steps': breakdown_steps,
@@ -4107,7 +4131,7 @@ class MCQScheduler:
     def process_breakdown_step_response(self, student_id: str, step_index: int,
                                     user_answer: int, breakdown_steps: List['BreakdownStep']) -> Dict:
         """
-        CORRECTED: Process individual breakdown step response with skill tracking
+        Process individual breakdown step response with skill tracking
         """
         if step_index >= len(breakdown_steps):
             return {'error': 'Invalid step index'}
@@ -4123,7 +4147,7 @@ class MCQScheduler:
             'correct_answer': step.correctindex
         }
 
-        # FIXED: Now calls the correct BKT method with correct signature
+
         if (hasattr(self, 'bkt_system') and
             self.bkt_system and
             hasattr(self.bkt_system, 'process_breakdown_step_response')):
@@ -4136,34 +4160,7 @@ class MCQScheduler:
 
         return result
 
-    '''
-    # Complete breakdown sequence with skill tracking
-    def complete_breakdown_sequence(self, student_id: str, mcq_id: str,
-                                step_results: List[Dict]) -> Dict:
-        """
-        Complete breakdown sequence and apply final skill updates
 
-        Args:
-            step_results: List of {'step': BreakdownStep, 'correct': bool} dicts
-        """
-        # Check if all steps were completed correctly
-        all_steps_correct = all(result['correct'] for result in step_results)
-
-        completion_result = {}
-
-        if all_steps_correct and self.bkt_system:
-            # Apply negative update since student needed help with breakdown
-            completion_result = self.bkt_system.process_breakdown_completion(
-                student_id, mcq_id, all_steps_correct=True
-            )
-            print(f"🔄 Applied breakdown completion updates for {mcq_id}")
-
-        return {
-            'all_steps_correct': all_steps_correct,
-            'total_steps': len(step_results),
-            'completion_updates': completion_result
-        }
-        '''
     def get_next_breakdown_step(self, breakdown_steps: List['BreakdownStep'], current_step_index: int) -> Optional['BreakdownStep']:
         """NEW METHOD: Get next step in breakdown sequence"""
         if current_step_index < len(breakdown_steps) - 1:
@@ -4843,23 +4840,58 @@ class BayesianKnowledgeTracing:
         """
         # Check if all steps were answered correctly
         all_correct = all(result['is_correct'] for result in breakdown_results)
+        correct_count = sum(1 for r in breakdown_results if r['is_correct'])
+        total_count = len(breakdown_results)
+        performance_ratio = correct_count / total_count if total_count > 0 else 0.0
 
         completion_result = {
             'all_steps_correct': all_correct,
-            'total_steps': len(breakdown_results),
-            'correct_steps': sum(1 for r in breakdown_results if r['is_correct'])
+            'total_steps': total_count,
+            'correct_steps': correct_count,
+            'performance_ratio': performance_ratio
         }
 
-        # NEW: Apply negative skill updates if all steps correct (student needed help)
+        # Apply skill updates if all steps correct (student needed help)
         if (all_correct and
             hasattr(self, 'bkt_system') and
             hasattr(self.bkt_system, 'skill_tracker') and
             self.bkt_system.skill_tracker):
 
-            skill_completion_updates = self.bkt_system.process_breakdown_completion(
+            skill_completion_updates = self.process_breakdown_completion(
                 student_id, mcq_id, all_steps_correct=True
             )
             completion_result['skill_completion_updates'] = skill_completion_updates
+
+        # Add BKT mastery updates based on performance
+        # Use record_attempt with performance-weighted result
+        is_correct_equivalent = performance_ratio >= 0.8
+
+        # Get the StudentManager to use record_attempt
+        if hasattr(self, 'student_manager') and self.student_manager:
+            bkt_updates = self.student_manager.record_attempt(
+                student_id, mcq_id, is_correct_equivalent, 10.0, self.kg
+            )
+
+            # Scale the updates based on performance
+            if bkt_updates and performance_ratio < 1.0:
+                scale_factor = 0.3 + (0.4 * performance_ratio)  # 0.3 to 0.7 scaling
+
+                # Apply scaling
+                for update in bkt_updates:
+                    if 'mastery_change' in update:
+                        original_change = update['mastery_change']
+                        scaled_change = original_change * scale_factor
+
+                        student = self.student_manager.get_student(student_id)
+                        if student and 'main_topic_index' in update:
+                            topic_index = update['main_topic_index']
+                            current_mastery = student.get_mastery(topic_index)
+                            adjusted_mastery = current_mastery - original_change + scaled_change
+                            student.mastery_levels[topic_index] = max(0.0, min(1.0, adjusted_mastery))
+                            update['mastery_change'] = scaled_change
+                            update['mastery_after'] = student.mastery_levels[topic_index]
+
+            completion_result['bkt_updates'] = bkt_updates
 
         return completion_result
 
@@ -4882,8 +4914,7 @@ class BayesianKnowledgeTracing:
 
         return {'skill_update': skill_update}
 
-    def process_mcq_response_improved(self, student_id: str, mcq_id: str,
-                                    is_correct: bool) -> List[Dict]:
+    def process_mcq_response_improved(self, student_id: str, mcq_id: str,is_correct: bool) -> List[Dict]:
         """
         Enhanced version that uses explicit topic weights from the MCQ
         with FSRS forgetting applied automatically

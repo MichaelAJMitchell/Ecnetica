@@ -97,7 +97,18 @@ generate mcqs and knowledge graph in json form, maybe change config parameters. 
 
   #answer question
  mcq = kg.get_mcq_safely(mcq_id, need_full_text=True)
+
 display questions by mcq.question_text, mcq.question_options. These randomly generate parameters if there is any.
+
+after a student has answered a question process it by:
+bkt_updates = student_manager.record_attempt(
+    student_id,     # The student's ID
+    mcq_id,         # The question ID
+    is_correct,     # True/False for the answer
+    time_taken,     # Time in seconds
+    kg              # Knowledge graph instance
+)
+this prepares breakdown, applies bkt and area of affect,, fsrs
 
 ```
 

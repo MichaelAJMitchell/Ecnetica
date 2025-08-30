@@ -129,9 +129,9 @@ html[data-theme="light"] {
 
   /* specific colours*/
   --category-scientific: #3498db;
-  --category-engineering: #e67e22;
+  --category-engineering: #9b59b6;
   --category-financial: #2ecc71;
-  --category-creative: #9b59b6;
+  --category-creative: #e67e22;
 
   /* Visualization-specific colors */
   --viz-bg-light: #ffffff;
@@ -180,9 +180,9 @@ html[data-theme="dark"] {
   --shadow-heavy: 0 4px 20px rgba(0,0,0,0.4);
 
   --category-scientific: #93c5fd;
-  --category-engineering: #fdba74;
+  --category-engineering: #c4b5fd;
   --category-financial: #6ee7b7;
-  --category-creative: #c4b5fd;
+  --category-creative: #fdba74;
 
   /* Visualization colors */
   --viz-bg-light: #ffffff;
@@ -274,16 +274,19 @@ h1, h2 {
     margin-bottom: var(--spacing-sm);
 }
 
-/* Light mode buttons */
-.visualization-container:not(.dark-theme) .control-btn {
-    background-color: var(--viz-btn-bg-light);
-    color: var(--viz-btn-text-light);
+.visualization-container .control-btn {
     border: none;
     padding: 6px 12px;
     border-radius: var(--border-radius-sm);
     cursor: pointer;
     font-size: 14px;
     transition: all 0.2s ease;
+}
+
+/* Light mode buttons */
+.visualization-container:not(.dark-theme) .control-btn {
+    background-color: var(--viz-btn-bg-light);
+    color: var(--viz-btn-text-light);
 }
 
 .visualization-container:not(.dark-theme) .control-btn:hover {
@@ -294,12 +297,6 @@ h1, h2 {
 .visualization-container.dark-theme .control-btn {
     background-color: var(--viz-btn-bg-dark);
     color: var(--viz-btn-text-dark);
-    border: none;
-    padding: 6px 12px;
-    border-radius: var(--border-radius-sm);
-    cursor: pointer;
-    font-size: 14px;
-    transition: all 0.2s ease;
 }
 
 .visualization-container.dark-theme .control-btn:hover {
@@ -327,15 +324,7 @@ h1, h2 {
   box-sizing: border-box;
 }
 
-/* Question Container - should match SSQ question-content */
-.question-container {
-  background-color: var(--background-secondary);  /* Match SSQ question areas */
-  color: var(--text-primary);
-  padding: var(--spacing-lg);
-  border-radius: var(--border-radius-md);
-  box-shadow: var(--shadow-light);
-  margin-bottom: var(--spacing-lg);
-}
+
 
 .math-question-module .topic-intro {
   background-color: var(--background-secondary);
@@ -391,16 +380,7 @@ h1, h2 {
   color: var(--text-inverse);
 }
 
-/* Question content container - main styling */
-.math-question-module .question-content {
-  background-color: var(--background-secondary);
-  color: var(--text-primary);
-  padding: var(--spacing-lg); /* Added proper padding */
-  border-radius: var(--border-radius-md); /* Consistent border radius */
-  box-shadow: var(--shadow-light); /* Added shadow for depth */
-  margin-bottom: var(--spacing-lg); /* Space between questions */
-  border-left: 4px solid var(--primary); /* Left border like in screenshot */
-}
+
 
 .math-question-module .question-title {
   color: var(--text-primary);
@@ -409,11 +389,7 @@ h1, h2 {
   margin-bottom: var(--spacing-md); /* Space after title */
 }
 
-/* Content area inside question */
-.math-question-module .question-content > div:not(.question-title):not(.answer-button):not(.answer-content) {
-  margin-bottom: var(--spacing-lg); /* Space after question content */
-  line-height: 1.6;
-}
+
 
 /* Answer button styling */
 .math-question-module .answer-button {
@@ -482,20 +458,7 @@ h1, h2 {
   margin: var(--spacing-xs) 0;
 }
 
-/* Responsive adjustments for Math Question Module */
-@media (max-width: 768px) {
-  .math-question-module .question-content {
-    padding: var(--spacing-md);
-  }
 
-  .math-question-module .answer-content {
-    padding: var(--spacing-md);
-  }
-
-  .math-question-module .category-box {
-    min-width: 150px;
-  }
-}
 
 /*--------------------------------------------------------------------*\
 5. INTERACTIVE ELEMENTS
@@ -517,15 +480,6 @@ h1, h2 {
 .math-question-module:hover {
     background: var(--background-secondary);
     filter: brightness(1.05);
-}
-
-/* Responsive adjustments - match YouTube container */
-@media (max-width: 992px) {
-    .quiz-container,
-    .math-question-module {
-        padding: var(--spacing-md);
-        margin: var(--spacing-md) var(--spacing-sm);
-    }
 }
 
 
@@ -589,6 +543,7 @@ h1, h2 {
   border-radius: var(--border-radius-sm); /* Smaller radius for inner elements */
   margin-bottom: var(--spacing-lg);
   border: 1px solid var(--border-primary);
+  box-shadow: var(--shadow-light);
   border-left: 3px solid var(--primary); /* Keep accent border, slightly thinner */
   /* Remove box-shadow to match unified styling */
 }
@@ -662,74 +617,6 @@ h1, h2 {
 
 /* ===== FSR (FREE RESPONSE) STYLES ===== */
 
-/* Answer buttons */
-.math-question-module .answer-button {
-  background-color: var(--primary);
-  color: var(--text-inverse);
-  border: none;
-  padding: var(--spacing-sm) var(--spacing-lg);
-  border-radius: var(--border-radius-sm);
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  font-size: 14px;
-  margin: var(--spacing-md) 0;
-  display: inline-block;
-}
-
-.math-question-module .answer-button:hover {
-  background-color: var(--primary-hover);
-}
-
-/* Answer content */
-.math-question-module .answer-content {
-  background-color: var(--background-primary);
-  color: var(--text-primary);
-  border-left: 4px solid var(--primary);
-  padding: var(--spacing-lg);
-  border-radius: var(--border-radius-sm);
-  margin-top: var(--spacing-md);
-  box-shadow: var(--shadow-light);
-  line-height: 1.6;
-}
-
-/* Category boxes */
-.math-question-module .scientific {
-  background-color: var(--category-scientific);
-  color: var(--text-inverse);
-}
-
-.math-question-module .engineering {
-  background-color: var(--category-engineering);
-  color: var(--text-inverse);
-}
-
-.math-question-module .financial {
-  background-color: var(--category-financial);
-  color: var(--text-inverse);
-}
-
-.math-question-module .creative {
-  background-color: var(--category-creative);
-  color: var(--text-inverse);
-}
-
-/* Answer content by category */
-.math-question-module .scientific-answer {
-  border-left-color: var(--category-scientific);
-}
-
-.math-question-module .engineering-answer {
-  border-left-color: var(--category-engineering);
-}
-
-.math-question-module .financial-answer {
-  border-left-color: var(--category-financial);
-}
-
-.math-question-module .creative-answer {
-  border-left-color: var(--category-creative);
-}
-
 /* Pre elements */
 .math-question-module pre {
   background-color: var(--background-secondary);
@@ -800,11 +687,13 @@ h1, h2 {
 /* Breakdown Section Styling */
 .breakdown-section {
   background-color: var(--background-secondary);
+  background: var(--warning-bg);
   border: 1px solid var(--border-primary);
   border-radius: var(--border-radius-md);
   margin: var(--spacing-lg) 0;
   overflow: hidden;
   box-shadow: var(--shadow-light);
+  padding: var(--spacing-lg);
 }
 
 .breakdown-header {
@@ -841,7 +730,7 @@ h1, h2 {
 .breakdown-step {
   background-color: var(--background-primary);
   color: var(--text-primary);
-  padding: var(--spacing-lg);
+  padding: var(--spacing-sm);
   border: 1px solid var(--border-primary);
   border-radius: var(--border-radius-md);
   margin-bottom: var(--spacing-md);
@@ -1979,167 +1868,6 @@ select:focus {
 }
 
 /* === RESPONSIVE DESIGN === */
-
-/* MCQ Responsive Styles */
-@media (max-width: 768px) {
-  .mcq-module {
-    padding: var(--spacing-md);
-  }
-
-  .progress-info {
-    flex-direction: column;
-    gap: var(--spacing-xs);
-  }
-
-  .button-container {
-    flex-direction: column;
-    gap: var(--spacing-sm);
-  }
-
-  .nav-button {
-    width: 100%;
-  }
-
-  .prev-button {
-    order: 2;
-  }
-
-  .next-button {
-    order: 1;
-  }
-
-  .container {
-    padding: var(--spacing-sm);
-  }
-
-  .topic-intro,
-  .question-content,
-  .answer-content {
-    padding: var(--spacing-md);
-  }
-
-  /* Responsive adjustments for Math Question Module */
-  .math-question-module .question-content {
-    padding: var(--spacing-md);
-  }
-
-  .math-question-module .answer-content {
-    padding: var(--spacing-md);
-  }
-
-  .math-question-module .category-box {
-    min-width: 150px;
-  }
-
-  /* FSRS responsive adjustments */
-  #time-controls {
-    background: var(--background-secondary) !important;
-    color: var(--text-primary) !important;
-    padding: var(--spacing-md);
-  }
-
-  .time-controls-buttons {
-    flex-direction: column;
-    gap: var(--spacing-sm);
-  }
-
-  .time-controls-buttons button {
-    width: 100%;
-  }
-
-  .custom-time-inputs {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  #custom-days,
-  #custom-hours {
-    width: 100%;
-    background-color: var(--background-primary) !important;
-    color: var(--text-primary) !important;
-    border-color: var(--border-primary) !important;
-  }
-
-  .time-controls-actions {
-    flex-direction: column;
-  }
-
-  .time-controls-actions button {
-    width: 100%;
-  }
-}
-
-/* BKT Demo Responsive Design */
-@media (max-width: 1024px) {
-  .bkt-demo-container .main-layout {
-    flex-direction: column;
-  }
-
-  .bkt-demo-container .bkt-section,
-  .bkt-demo-container .graph-section {
-    max-width: none;
-  }
-
-  .bkt-demo-container #graph-container {
-    height: 400px !important;
-  }
-
-  .bkt-demo-container .graph-loading-spinner {
-    width: 30px !important;
-    height: 30px !important;
-    border-width: 3px !important;
-  }
-
-  .bkt-demo-container .graph-loading-text {
-    font-size: 14px !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .bkt-demo-container {
-    padding: var(--spacing-sm);
-  }
-
-  .bkt-demo-container h1 {
-    font-size: 1.8em;
-  }
-
-  .bkt-demo-container .mcq-meta {
-    flex-direction: column;
-    gap: var(--spacing-sm);
-  }
-
-  .bkt-demo-container .legend-item {
-    margin-bottom: var(--spacing-sm);
-  }
-
-  .bkt-demo-container #graph-container {
-    height: 350px !important;
-  }
-
-  .bkt-demo-container .graph-loading-spinner {
-    width: 25px !important;
-    height: 25px !important;
-    border-width: 2px !important;
-  }
-
-  .bkt-demo-container .graph-loading-text {
-    font-size: 12px !important;
-  }
-
-  .bkt-demo-container #controls {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-  }
-
-  .bkt-demo-container #controls label,
-  .bkt-demo-container #controls select,
-  .bkt-demo-container #controls button {
-    width: 100%;
-    margin: 0;
-  }
-}
 /*--------------------------------------------------------------------*\
 6. SUPPORTING CONTENT
 \*--------------------------------------------------------------------*/
@@ -2226,87 +1954,12 @@ tr:hover {
     border-radius: var(--border-radius-sm);
 }
 
-/* Responsive adjustments */
-@media (max-width: 992px) {
-    .youtube-container {
-        padding: var(--spacing-md);
-        margin: var(--spacing-md) var(--spacing-sm);
-    }
-    
-    .youtube-header {
-        font-size: 1rem;
-    }
-}
-
 
 
 
 /*--------------------------------------------------------------------*\
 7. RESPONSIVE DESIGN
 \*--------------------------------------------------------------------*/
-
-/* MCQ Responsive Styles */
-@media (max-width: 768px) {
-  .mcq-module {
-    padding: var(--spacing-md);
-  }
-
-  .progress-info {
-    flex-direction: column;
-    gap: var(--spacing-xs);
-  }
-
-  .button-container {
-    flex-direction: column;
-    gap: var(--spacing-sm);
-  }
-
-  .nav-button {
-    width: 100%;
-  }
-
-  .prev-button {
-    order: 2;
-  }
-
-  .next-button {
-    order: 1;
-  }
-}
-
-/* Responsive adjustments for visualizations */
-@media (max-width: 900px) {
-  .visualization-container {
-    flex: 1 1 100%;
-  }
-
-  .visualization-container .info-box {
-    position: relative;
-    top: auto;
-    left: auto;
-    max-width: 100%;
-    margin-bottom: var(--spacing-md);
-  }
-
-  .visualization-container .slider-container {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    margin-top: var(--spacing-md);
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: var(--spacing-sm);
-  }
-
-  .topic-intro,
-  .question-content,
-  .answer-content {
-    padding: var(--spacing-md);
-  }
-}
 
 /*========================
 8. THEME STYLES (includes navbar)
@@ -2345,38 +1998,7 @@ tr:hover {
     transition: all 0.2s ease;
 }
 
-/* Icon size variants
-.navbar-icon--small {
-    width: 16px;
-    height: 16px;
-}
 
-.navbar-icon--medium {
-    width: 20px;
-    height: 20px;
-}
-
-.navbar-icon--large {
-    width: 24px;
-    height: 24px;
-}
-*/
-/* Icon style variants
-.navbar-icon--filled {
-    fill: currentColor;
-    stroke: none;
-}
-
-.navbar-icon--outline {
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.5;
-}
-
-.navbar-icon--bold {
-    stroke-width: 2;
-}
-*/
 /* Hover effects */
 .navbar-icon:hover {
     transform: scale(1.5);
@@ -2582,59 +2204,6 @@ tr:hover {
 
 .nav-section-toggle:hover .nav-arrow-icon {
     transform: scale(1.3);
-}
-
-/* ========== RESPONSIVE DESIGN ========== */
-
-@media (max-width: 768px) {
-    #course-nav-panel {
-        width: 90% !important;
-        right: -90% !important;
-    }
-}
-
-/* Dark theme navigation items */
-html[data-theme="dark"] .nav-item-link {
-    color: var(--text-primary) !important;
-}
-
-html[data-theme="dark"] .nav-item-link:hover {
-    background-color: var(--background-tertiary) !important;
-    color: var(--text-primary) !important;
-}
-
-/* Dark theme current page - High contrast */
-html[data-theme="dark"] .nav-item-link.current-page {
-    background-color: var(--primary, #60a5fa) !important;
-    color: #000000 !important;
-    font-weight: bold !important;
-}
-
-/* Dark theme section toggles */
-html[data-theme="dark"] .nav-section-toggle {
-    color: var(--text-primary) !important;
-}
-
-html[data-theme="dark"] .nav-section-toggle:hover {
-    background-color: var(--background-tertiary) !important;
-}
-/* ========== SCROLLBAR STYLING ========== */
-
-#course-nav-panel::-webkit-scrollbar {
-    width: 6px;
-}
-
-#course-nav-panel::-webkit-scrollbar-track {
-    background: var(--background-secondary, #f1f1f1);
-}
-
-#course-nav-panel::-webkit-scrollbar-thumb {
-    background: var(--border-primary, #c1c1c1);
-    border-radius: 3px;
-}
-
-#course-nav-panel::-webkit-scrollbar-thumb:hover {
-    background: var(--border-secondary, #a8a8a8);
 }
 
 /* ========== INTERACTIVE TOOLS FINDER STYLES ========== */
@@ -2901,44 +2470,6 @@ html[data-theme="dark"] .tool-card:hover .tool-icon {
     background: var(--primary)30;
 }
 
-/* Responsive design */
-@media (max-width: 640px) {
-    .tools-panel {
-        width: 95%;
-        max-width: none;
-        margin: 20px;
-    }
-
-    .tools-grid {
-        grid-template-columns: 1fr;
-        padding: 16px;
-        gap: 12px;
-    }
-
-    .tools-panel-header {
-        padding: 20px 16px 12px 16px;
-    }
-
-    .tool-card {
-        padding: 16px;
-    }
-
-    .tool-icon {
-        font-size: 24px;
-        width: 40px;
-        height: 40px;
-        margin-right: 12px;
-    }
-
-    .tool-name {
-        font-size: 15px;
-    }
-
-    .tool-description {
-        font-size: 12px;
-    }
-}
-
 /* Smooth scrolling for tools grid */
 .tools-grid::-webkit-scrollbar {
     width: 6px;
@@ -3038,494 +2569,6 @@ Based on: https://pydata-sphinx-theme.readthedocs.io/en/stable/user_guide/layout
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Responsive sidebar adjustments */
-@media (max-width: 1200px) {
-  .bd-sidebar-primary {
-    width: 10rem !important;
-    max-width: 10rem !important;
-    flex: 0 0 10rem !important;
-  }
-}
-
-/* On tablets, make it even smaller */
-@media (max-width: 992px) {
-  .bd-sidebar-primary {
-    width: 8rem !important;
-    max-width: 8rem !important;
-    flex: 0 0 8rem !important;
-    font-size: 0.8rem;
-  }
-}
-
-/*for the first full demo */
-
-.comprehensive-demo-container {
-  min-height: 100vh;
-  background: var(--background-primary);
-}
-
-.demo-header {
-  background: var(--background-secondary);
-  padding: var(--spacing-lg);
-  border-bottom: 1px solid var(--border-primary);
-  text-align: center;
-}
-
-
-.current-time {
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.time-manipulation {
-  display: flex;
-  gap: var(--spacing-sm);
-}
-
-.time-btn, .preview-btn {
-  padding: var(--spacing-sm) var(--spacing-md);
-  border: none;
-  border-radius: var(--border-radius-md);
-  background: var(--primary);
-  color: var(--text-inverse);
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.2s;
-}
-
-.time-btn:hover, .preview-btn:hover {
-  background: var(--primary-hover);
-}
-
-.main-demo-layout {
-  display: flex;
-  min-height: calc(100vh - 120px);
-}
-
-.practice-section {
-  flex: 1;
-  padding: var(--spacing-lg);
-  border-right: 1px solid var(--border-primary);
-}
-
-.visualization-section {
-  flex: 1;
-  padding: var(--spacing-lg);
-}
-
-.session-progress {
-  background: var(--background-secondary);
-  border-radius: var(--border-radius-md);
-  padding: var(--spacing-md);
-  margin-bottom: var(--spacing-lg);
-}
-
-.progress-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: var(--spacing-sm);
-}
-
-.progress-stats {
-  font-weight: 600;
-  color: var(--text-secondary);
-}
-
-.progress-fill {
-  height: 100%;
-  background: var(--primary);
-  transition: width 0.3s ease;
-  width: 0%;
-}
-
-.feedback-screen {
-  background: var(--background-secondary);
-  border-radius: var(--border-radius-lg);
-  padding: var(--spacing-lg);
-  margin: var(--spacing-md) 0;
-}
-
-.feedback-result.correct {
-  color: var(--success);
-  font-size: 1.2em;
-  font-weight: bold;
-  margin-bottom: var(--spacing-md);
-}
-
-.feedback-result.incorrect {
-  color: var(--error);
-  font-size: 1.2em;
-  font-weight: bold;
-  margin-bottom: var(--spacing-md);
-}
-
-.correct-answer, .explanation {
-  margin: var(--spacing-md) 0;
-  padding: var(--spacing-sm);
-  background: var(--background-primary);
-  border-radius: var(--border-radius-sm);
-}
-
-.mastery-updates, .skills-updates {
-  margin: var(--spacing-md) 0;
-}
-
-.update-item, .skill-update {
-  display: flex;
-  justify-content: space-between;
-  padding: var(--spacing-sm);
-  background: var(--background-primary);
-  border-radius: var(--border-radius-sm);
-  margin: var(--spacing-xs) 0;
-}
-
-.mastery-change, .skill-change {
-  font-weight: 600;
-  color: var(--primary);
-}
-
-/*--------------------------------------------------------------------*\
-BREAKDOWN SECTION STYLES (from MCQ_Breakdown_Demo)
-\*--------------------------------------------------------------------*/
-
-
-.breakdown-header .step-progress {
-  background: var(--primary);
-  color: var(--text-inverse);
-  padding: var(--spacing-xs) var(--spacing-md);
-  border-radius: 20px;
-  font-weight: bold;
-  font-size: 14px;
-  display: inline-block;
-  margin-top: var(--spacing-sm);
-}
-
-
-
-.breakdown-step.completed {
-  background: var(--background-secondary);
-  opacity: 0.8;
-}
-
-.breakdown-step.current {
-  border: 2px solid var(--primary);
-  background: var(--background-primary);
-  box-shadow: var(--shadow-medium);
-}
-
-.step-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: var(--spacing-md);
-  padding-bottom: var(--spacing-sm);
-  border-bottom: 1px solid var(--border-light);
-}
-
-.step-result.correct {
-  color: var(--success);
-  font-weight: bold;
-}
-
-.step-result.incorrect {
-  color: var(--error);
-  font-weight: bold;
-}
-
-
-
-
-.completed-options {
-  margin: var(--spacing-md) 0;
-}
-
-.completed-options .option {
-  padding: var(--spacing-sm) var(--spacing-md);
-  margin: var(--spacing-xs) 0;
-  border: 1px solid var(--border-primary);
-  border-radius: var(--border-radius-sm);
-  background: var(--background-secondary);
-}
-
-.completed-options .option.selected {
-  border-color: var(--primary);
-  background: var(--primary-light);
-}
-
-.completed-options .option.correct-answer {
-  border-color: var(--success);
-  background: var(--success-bg);
-}
-
-
-
-.explanation-content {
-  margin-bottom: var(--spacing-md);
-}
-
-.breakdown-stats {
-  display: flex;
-  justify-content: space-around;
-  margin: var(--spacing-lg) 0;
-  background: var(--background-primary);
-  padding: var(--spacing-md);
-  border-radius: var(--border-radius-md);
-}
-
-.breakdown-stats .stat-item {
-  text-align: center;
-}
-
-.breakdown-stats .stat-label {
-  display: block;
-  font-size: 0.9em;
-  color: var(--text-secondary);
-}
-
-.breakdown-stats .stat-value {
-  display: block;
-  font-weight: bold;
-  font-size: 1.1em;
-  color: var(--primary);
-}
-
-/*--------------------------------------------------------------------*\
-REMAINING STYLES (continued from before)
-\*--------------------------------------------------------------------*/
-
-.algorithm-panel {
-  background: var(--background-secondary);
-  border-radius: var(--border-radius-lg);
-  padding: var(--spacing-lg);
-  margin-top: var(--spacing-lg);
-}
-
-.algorithm-step {
-  margin: var(--spacing-md) 0;
-  padding: var(--spacing-md);
-  background: var(--background-primary);
-  border-radius: var(--border-radius-md);
-}
-
-.algorithm-step h4 {
-  margin: 0 0 var(--spacing-sm) 0;
-  color: var(--primary);
-}
-
-.skills-section {
-  background: var(--background-secondary);
-  border-radius: var(--border-radius-lg);
-  padding: var(--spacing-lg);
-  margin: var(--spacing-lg) 0;
-}
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-sm);
-}
-
-.skill-item {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-sm);
-  background: var(--background-primary);
-  border-radius: var(--border-radius-sm);
-}
-
-.skill-name {
-  min-width: 120px;
-  font-size: 0.9em;
-  text-transform: capitalize;
-}
-
-.skill-bar {
-  flex: 1;
-  height: 8px;
-  background: var(--border-light);
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.skill-fill {
-  height: 100%;
-  background: var(--primary);
-  transition: width 0.5s ease;
-}
-
-.skill-value {
-  min-width: 40px;
-  text-align: right;
-  font-weight: 600;
-  font-size: 0.9em;
-}
-
-.spaced-repetition-section {
-  background: var(--warning-bg);
-  border-radius: var(--border-radius-lg);
-  padding: var(--spacing-lg);
-  margin: var(--spacing-lg) 0;
-}
-
-.spaced-repetition-info {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-}
-
-.next-review, .retention-info {
-  padding: var(--spacing-sm);
-  background: var(--background-primary);
-  border-radius: var(--border-radius-sm);
-}
-
-.session-summary-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: var(--background-primary);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.summary-container {
-  max-width: 600px;
-  background: var(--success-bg);
-  border-radius: var(--border-radius-lg);
-  padding: var(--spacing-xxl);
-  text-align: center;
-  box-shadow: var(--shadow-heavy);
-}
-
-.summary-header h1 {
-  color: var(--success);
-  margin-bottom: var(--spacing-lg);
-}
-
-.session-stats {
-  margin: var(--spacing-lg) 0;
-}
-
-.stat-item {
-  font-size: 1.2em;
-  margin: var(--spacing-sm) 0;
-}
-
-.stat-number {
-  font-weight: bold;
-  color: var(--primary);
-  font-size: 1.5em;
-}
-
-.summary-content {
-  text-align: left;
-  margin: var(--spacing-lg) 0;
-}
-
-.summary-section {
-  margin: var(--spacing-lg) 0;
-}
-
-.summary-section h3 {
-  color: var(--text-primary);
-  margin-bottom: var(--spacing-md);
-}
-
-.topics-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xs);
-}
-
-.topic-item {
-  display: flex;
-  justify-content: space-between;
-  padding: var(--spacing-sm);
-  border-radius: var(--border-radius-sm);
-}
-
-.topic-item.improved {
-  background: var(--success-bg);
-  border-left: 3px solid var(--success);
-}
-
-.topic-item.review {
-  background: var(--warning-bg);
-  border-left: 3px solid var(--warning);
-}
-
-.improvement {
-  color: var(--success);
-  font-weight: 600;
-}
-
-.retention {
-  color: var(--warning);
-  font-weight: 600;
-}
-
-.summary-actions {
-  display: flex;
-  gap: var(--spacing-md);
-  justify-content: center;
-  margin-top: var(--spacing-lg);
-}
-
-.no-items {
-  color: var(--text-muted);
-  font-style: italic;
-  padding: var(--spacing-md);
-}
-
-.decay-preview-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2000;
-}
-
-.modal-content {
-  background: var(--background-primary);
-  border-radius: var(--border-radius-lg);
-  padding: var(--spacing-xl);
-  max-width: 500px;
-  max-height: 70vh;
-  overflow-y: auto;
-}
-
-.decay-list {
-  margin: var(--spacing-md) 0;
-}
-
-.decay-item {
-  display: flex;
-  justify-content: space-between;
-  padding: var(--spacing-sm);
-  border-bottom: 1px solid var(--border-light);
-}
-
-.decay-change {
-  color: var(--error);
-  font-weight: 600;
-}
-
-/* end of for first full demo */
-
-
-
-/* Add these styles to style.css for the comprehensive demo */
 
 /* ===================================================================
    COMPREHENSIVE DEMO SPECIFIC STYLES
@@ -3547,6 +2590,8 @@ REMAINING STYLES (continued from before)
   border-radius: var(--border-radius-sm);
   padding: var(--spacing-md);
   margin-bottom: var(--spacing-md);
+  padding-top: var(--spacing-sm);
+
 }
 
 .question-selection-info h4 {
@@ -3567,14 +2612,53 @@ REMAINING STYLES (continued from before)
 }
 
 .graph-container {
-  width: 100%;
-  height: 350px;
-  border: 1px solid var(--border-primary);
-  border-radius: var(--border-radius-sm);
-  background: var(--background-secondary);
   position: relative;
+  width: 100%;
+  height: 400px;
+  border: 1px solid var(--border-primary);
+  border-radius: var(--border-radius-md);
+  background-color: var(--background-secondary);
 }
 
+.graph-loading {
+  position: absolute !important;  /* Make sure it's positioned relative to graph container */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--background-secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  border-radius: var(--border-radius-md);
+}
+
+.graph-loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--border-light);
+  border-top: 4px solid var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: var(--spacing-md);
+}
+
+.graph-loading-text {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Hide loading when graph is ready */
+.graph-container.loaded .graph-loading {
+  display: none;
+}
 /* Skills and Time Section */
 .skills-time-section {
   display: flex;
@@ -3725,13 +2809,7 @@ REMAINING STYLES (continued from before)
 }
 
 /* Breakdown Styles */
-.breakdown-section {
-  background: var(--warning-bg);
-  border: 1px solid var(--warning);
-  border-radius: var(--border-radius-md);
-  padding: var(--spacing-lg);
-  margin-top: var(--spacing-md);
-}
+
 
 .breakdown-section h3 {
   color: var(--warning);
@@ -3741,6 +2819,7 @@ REMAINING STYLES (continued from before)
 .step-progress h4 {
   color: var(--text-primary);
   margin-bottom: var(--spacing-md);
+  margin-top: var(--spacing-md);
   font-size: 1.1rem;
 }
 
@@ -3761,21 +2840,25 @@ REMAINING STYLES (continued from before)
 
 
 .step-result {
-  margin-top: var(--spacing-md);
-  padding: var(--spacing-md);
-  border-radius: var(--border-radius-sm);
+  background-color: var(--background-secondary);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-md) 0;
+  box-shadow: var(--shadow-light);
 }
 
 .step-result.correct {
   background: var(--success-bg);
   border: 1px solid var(--success);
   color: var(--success);
+  border-left: 4px solid var(--success);
 }
 
 .step-result.incorrect {
   background: var(--error-bg);
   border: 1px solid var(--error);
   color: var(--error);
+  border-left: 4px solid var(--error);
 }
 
 .breakdown-complete {
@@ -3869,90 +2952,6 @@ REMAINING STYLES (continued from before)
   margin-bottom: var(--spacing-md);
 }
 
-/* Responsive Design */
-@media (max-width: 1200px) {
-  .demo-layout {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto;
-  }
-
-  .mcq-main-section {
-    grid-column: 1;
-    grid-row: 1;
-    max-height: none;
-  }
-
-  .graph-section {
-    grid-column: 1;
-    grid-row: 2;
-  }
-
-  .skills-time-section {
-    grid-column: 1;
-    grid-row: 3;
-    flex-direction: row;
-    gap: var(--spacing-md);
-  }
-
-  .session-info {
-    grid-column: 1;
-    grid-row: 4;
-  }
-}
-
-@media (max-width: 768px) {
-  .demo-layout {
-    padding: var(--spacing-md);
-    gap: var(--spacing-md);
-  }
-
-  .skills-time-section {
-    flex-direction: column;
-  }
-
-  .session-stats {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .session-complete {
-    padding: var(--spacing-lg);
-    width: 95%;
-  }
-
-  .stat-value {
-    font-size: 1.5rem;
-  }
-}
-
-/* Loading States */
-.graph-loading {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: var(--text-secondary);
-}
-
-.graph-loading-spinner {
-  width: 40px;
-  height: 40px;
-  border: 3px solid var(--border-secondary);
-  border-top: 3px solid var(--primary);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin: 0 auto var(--spacing-sm);
-}
-
-.graph-loading-text {
-  font-size: 0.9rem;
-}
-
-/* Animations */
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
 
 /* Enhanced Button Styles for Demo */
 
@@ -3977,116 +2976,110 @@ REMAINING STYLES (continued from before)
 
 
 
-      .skills-time-section {
-        grid-column: 2 / 3;
-        grid-row: 1 / 3;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
+.skills-time-section {
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
-      .skills-panel, .time-panel {
-        background: var(--background-primary);
-        border: 1px solid var(--border-primary);
-        border-radius: var(--border-radius-md);
-        padding: 20px;
-        flex: 1;
-      }
+.skills-panel, .time-panel {
+  background: var(--background-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--border-radius-md);
+  padding: 20px;
+  flex: 1;
+}
 
-      .session-info {
-        grid-column: 1 / 3;
-        grid-row: 3 / 4;
-        background: var(--background-secondary);
-        border: 1px solid var(--border-primary);
-        border-radius: var(--border-radius-md);
-        padding: 15px;
-        max-height: 120px;
-        overflow-y: auto;
-      }
+.session-info {
+  grid-column: 1 / 3;
+  grid-row: 3 / 4;
+  background: var(--background-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--border-radius-md);
+  padding: 15px;
+  max-height: 120px;
+  overflow-y: auto;
+}
 
-      .question-selection-info {
-        background: var(--background-secondary);
-        padding: 15px;
-        border-radius: var(--border-radius-sm);
-        margin-bottom: 15px;
-        border-left: 4px solid var(--primary);
-      }
+.question-selection-info {
+  background: var(--background-secondary);
+  padding: 15px;
+  border-radius: var(--border-radius-sm);
+  margin-bottom: 15px;
+  border-left: 4px solid var(--primary);
+}
 
-      .skill-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 8px 0;
-        border-bottom: 1px solid var(--border-secondary);
-      }
+.skill-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-secondary);
+}
 
 
 
-      .skill-fill {
-        height: 100%;
-        background: #750F8C;
-        transition: width 0.3s ease;
-      }
+.skill-fill {
+  height: 100%;
+  background: #750F8C;
+  transition: width 0.3s ease;
+}
 
-      .time-controls {
-        display: flex;
-        flex-direction: column;
-        gap: var(--spacing-sm);
-      }
+.time-controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
 
-      .time-button {
-        padding: 8px 12px;
-        border: 1px solid var(--border-primary);
-        background: var(--background-primary);
-        color: var(--text-primary);
-        border-radius: var(--border-radius-sm);
-        cursor: pointer;
-        transition: all 0.2s ease;
-      }
+.time-button {
+  padding: 8px 12px;
+  border: 1px solid var(--border-primary);
+  background: var(--background-primary);
+  color: var(--text-primary);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
 
-      .time-button:hover {
-        background: var(--primary);
-        color: var(--text-on-primary);
-      }
+.time-button:hover {
+  background: var(--primary);
+  color: var(--text-on-primary);
+}
 
-      .graph-container {
-        width: 100%;
-        height: 350px;
-        border: 1px solid var(--border-primary);
-        border-radius: var(--border-radius-sm);
-      }
+.graph-container {
+  width: 100%;
+  height: 350px;
+  border: 1px solid var(--border-primary);
+  border-radius: var(--border-radius-sm);
+}
 
-      .session-stats {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 15px;
-        margin-top: 15px;
-      }
+.session-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
 
-      .stat-card {
-        background: var(--background-primary);
-        padding: 15px;
-        border-radius: var(--border-radius-sm);
-        border: 1px solid var(--border-primary);
-        text-align: center;
-      }
+.stat-card {
+  background: var(--background-primary);
+  padding: 15px;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--border-primary);
+  text-align: center;
+}
 
-      .session-complete {
-        text-align: center;
-        padding: 40px;
-        background: var(--success-bg);
-        border: 2px solid var(--success);
-        border-radius: var(--border-radius-md);
-        margin: 20px 0;
-      }
+.session-complete {
+  text-align: center;
+  padding: 40px;
+  background: var(--success-bg);
+  border: 2px solid var(--success);
+  border-radius: var(--border-radius-md);
+  margin: 20px 0;
+}
 
-      .breakdown-section {
-        margin-top: 20px;
-        padding: 20px;
-        background: var(--warning-bg);
-        border: 1px solid var(--warning);
-        border-radius: var(--border-radius-md);
-      }
+
 .secondary-layout {
   display: flex;
   gap: var(--spacing-lg);
@@ -4128,4 +3121,1079 @@ REMAINING STYLES (continued from before)
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
+}
+
+
+/* Base math content styling */
+.math-content {
+  /* Typography - uses your existing Computer Modern import */
+  font-family: 'Computer Modern Serif', 'Times New Roman', serif;
+  font-size: 1.05em;
+  line-height: 1.65;
+
+  /* Colors - uses your CSS variables */
+  color: var(--text-primary);
+
+  /* Spacing - uses your variables */
+  margin: var(--spacing-sm) 0;
+  padding: var(--spacing-xs) var(--spacing-sm);
+
+  /* Visual enhancement */
+  border-radius: var(--border-radius-sm);
+  background-color: var(--background-secondary);
+  border-left: 3px solid var(--primary);
+
+  /* Subtle shadow for depth */
+  box-shadow: var(--shadow-light);
+
+  /* Smooth transitions */
+  transition: all 0.2s ease;
+}
+
+
+/*====================================================================*\
+SIMPLE BREAKDOWN COMPLETION STYLING
+\*====================================================================*/
+
+.breakdown-complete-enhanced {
+  text-align: center;
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  margin: var(--spacing-lg) 0;
+  box-shadow: var(--shadow-medium);
+  animation: slideInUp 0.5s ease-out;
+}
+
+.breakdown-complete-enhanced h3 {
+  font-size: 1.8em;
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-primary);
+}
+
+/* Score display */
+.completion-stats {
+  margin: var(--spacing-lg) 0;
+}
+
+.score-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.score-number {
+  font-size: 3em;
+  font-weight: bold;
+  color: var(--text-primary);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.score-details {
+  font-size: 1.1em;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Completion message */
+.completion-message {
+  font-size: 1.3em;
+  font-weight: 500;
+  margin: var(--spacing-lg) 0;
+  color: var(--text-primary);
+}
+
+/* BKT updates info */
+.bkt-updates {
+  margin: var(--spacing-md) 0;
+  padding: var(--spacing-sm);
+  background-color: var(--info-bg);
+  border-radius: var(--border-radius-sm);
+  color: var(--info);
+  font-weight: 500;
+}
+
+/* Single action button */
+.completion-actions {
+  margin: var(--spacing-xl) 0;
+}
+
+.completion-actions .primary-btn {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: var(--border-radius-md);
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-light);
+}
+
+.completion-actions .primary-btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Completion summary */
+.completion-summary {
+  margin-top: var(--spacing-xl);
+  padding: var(--spacing-lg);
+  background-color: var(--background-primary);
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--border-primary);
+  text-align: left;
+}
+
+.completion-summary p {
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
+}
+
+.completion-summary ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.completion-summary li {
+  padding: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
+  background-color: var(--background-secondary);
+  border-radius: var(--border-radius-sm);
+  border-left: 3px solid var(--border-secondary);
+  font-size: 0.95em;
+  line-height: 1.4;
+}
+
+.completion-summary li:last-child {
+  margin-bottom: 0;
+}
+
+/* Simple slide-in animation */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Dark theme specific adjustments */
+html[data-theme="dark"] .breakdown-complete-enhanced {
+  box-shadow: var(--shadow-heavy);
+}
+
+html[data-theme="dark"] .score-number {
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+
+
+
+/*====================================================================*\
+PROGRESSIVE BREAKDOWN STYLING
+\*====================================================================*/
+
+/* Original question reminder */
+.original-question-reminder {
+  background-color: var(--info-bg);
+  border: 2px solid var(--info);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.original-question-reminder h4 {
+  color: var(--info);
+  margin-bottom: var(--spacing-md);
+}
+
+.original-question-text {
+  font-size: 1.1em;
+  font-weight: 500;
+  margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
+}
+
+.original-options-reminder {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.option-reminder {
+  padding: var(--spacing-sm);
+  background-color: var(--background-primary);
+  border-radius: var(--border-radius-sm);
+  border-left: 3px solid var(--border-light);
+}
+
+.option-reminder.was-selected {
+  border-left-color: var(--primary);
+  background-color: var(--primary-light);
+  font-weight: 500;
+}
+
+/* Breakdown step containers */
+.breakdown-step {
+  margin-bottom: var(--spacing-sm);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-light);
+}
+
+.breakdown-step.completed {
+  background-color: var(--success-bg);
+  border: 2px solid var(--success);
+}
+
+.breakdown-step.current {
+  background-color: var(--background-secondary);
+  border: 2px solid var(--primary);
+}
+
+/* Step headers */
+.step-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+  margin-top: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  padding-top: var(--spacing-md);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.step-header.completed {
+  background-color: var(--success);
+  color: white;
+  padding-top: var(--spacing-md);
+}
+
+.step-header.current {
+  background-color: var(--primary);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--spacing-md);
+}
+
+.step-progress {
+  font-size: 0.9em;
+  opacity: 0.9;
+}
+
+/* Step questions */
+.step-question {
+  padding: var(--spacing-md);
+  font-size: 1.05em;
+  line-height: 1.6;
+}
+
+.step-question.completed {
+  background-color: var(--background-primary);
+}
+
+.step-question.current {
+  background-color: var(--background-primary);
+  border-bottom: 2px solid var(--primary);
+}
+
+/* Step options */
+.step-options {
+  padding: var(--spacing-md);
+}
+
+.step-options.completed .option-display {
+  padding: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--background-secondary);
+}
+
+.step-options.completed .option-display.was-selected {
+  background-color: var(--primary-light);
+  border-left: 4px solid var(--primary);
+  font-weight: 500;
+}
+
+.step-options.completed .option-display.correct-answer {
+  background-color: var(--success-bg);
+  border-left: 4px solid var(--success);
+  color: var(--text-primary);
+}
+
+.step-options.completed .option-display.was-selected.correct-answer {
+  background-color: var(--success);
+  color: white;
+  border-left-color: var(--success);
+}
+
+/* Current step options (interactive buttons) */
+.step-options.current {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.step-options.current .mcq-option {
+  background-color: var(--background-primary);
+  border: 2px solid var(--border-primary);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  font-size: 1em;
+}
+
+.step-options.current .mcq-option:hover {
+  border-color: var(--primary);
+  background-color: var(--primary-light);
+}
+
+.step-options.current .mcq-option.selected {
+  border-color: var(--primary);
+  background-color: var(--primary);
+  color: white;
+}
+
+.step-options.current .mcq-option:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Step explanations */
+.step-explanation {
+  padding: var(--spacing-md);
+  border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+  line-height: 1.6;
+}
+
+.step-explanation.completed.correct {
+  background-color: var(--success-bg);
+  border-top: 2px solid var(--success);
+  color: var(--text-primary);
+}
+
+.step-explanation.completed.incorrect {
+  background-color: var(--error-bg);
+  border-top: 2px solid var(--error);
+  color: var(--text-primary);
+}
+
+/* Step results (for current step) */
+.step-result {
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  line-height: 1.6;
+}
+
+.step-result.correct {
+  background-color: var(--success-bg);
+  border-left: 4px solid var(--success);
+}
+
+.step-result.incorrect {
+  background-color: var(--error-bg);
+  border-left: 4px solid var(--error);
+}
+
+/* Submit button for current step */
+#breakdown-submit {
+  margin: var(--spacing-md);
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+#breakdown-submit:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+#breakdown-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Continue buttons */
+.continue-btn {
+  background-color: var(--secondary);
+  color: white;
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  margin-top: var(--spacing-md);
+  transition: all 0.2s ease;
+}
+
+.continue-btn:hover {
+  background-color: var(--secondary-hover);
+}
+
+/* Breakdown complete message */
+.breakdown-complete {
+  text-align: center;
+  padding: var(--spacing-xl);
+  background-color: var(--success-bg);
+  border: 2px solid var(--success);
+  border-radius: var(--border-radius-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.breakdown-complete h3 {
+  color: var(--success);
+  margin-bottom: var(--spacing-md);
+}
+
+
+
+/*====================================================================*\
+MATH TEXT WRAPPING AND OVERFLOW FIXES
+\*====================================================================*/
+
+.MathJax,
+mjx-container {
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+  max-width: 100%;
+  /* Allow natural line breaking for text in math */
+  white-space: normal !important;
+  word-wrap: break-word !important;
+}
+/* For math expressions with \text{}, allow them to wrap */
+mjx-mtext {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  line-height: 1.4 !important;
+}
+
+/* Option buttons - no scrollbars, allow wrapping */
+.mcq-option {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  overflow: visible !important;
+  text-align: left;
+  padding: var(--spacing-md);
+  min-height: 44px;
+  line-height: 1.4;
+  /* Allow content to expand vertically instead of scrolling */
+  height: auto !important;
+}
+
+/* Specifically fix math in option buttons */
+.mcq-option .MathJax,
+.mcq-option mjx-container {
+  overflow: visible !important;
+  white-space: normal !important;
+  display: inline !important;
+  max-width: none !important;
+}
+
+/* Fix explanation wrapping in breakdowns */
+.step-result p,
+.step-explanation,
+.breakdown-complete-enhanced p {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  overflow: visible !important;
+  line-height: 1.6;
+  /* Remove any max-width constraints */
+  max-width: none !important;
+}
+
+/* Ensure containers don't constrain their content */
+.step-result,
+.step-explanation.completed {
+  overflow: visible !important;
+  word-wrap: break-word !important;
+}
+
+/* Question containers - allow natural flow */
+.mcq-question,
+.step-question,
+.breakdown-question,
+.original-question-text {
+  overflow: visible !important;
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  line-height: 1.6;
+}
+
+/* Force visible overflow for all breakdown content */
+.breakdown-step,
+.breakdown-content {
+  overflow: visible !important;
+}
+
+/* Selection highlighting - keep this working */
+.mcq-option.selected {
+  background-color: var(--primary) !important;
+  color: white !important;
+  border-color: var(--primary) !important;
+  font-weight: 600;
+}
+
+.mcq-option:hover:not(.selected):not(:disabled) {
+  background-color: var(--primary-light);
+  border-color: var(--primary);
+}
+
+/* Main question explanation in displayResult() */
+.result-content p,
+.result-content strong,
+.mcq-result .result-content p {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  overflow: visible !important;
+  line-height: 1.6 !important;
+  max-width: none !important;
+  width: auto !important;
+}
+
+/* Breakdown step explanations - completed steps */
+.step-explanation.completed,
+.step-explanation.completed strong,
+.breakdown-step.completed .step-explanation {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  overflow: visible !important;
+  line-height: 1.6 !important;
+  max-width: none !important;
+  width: auto !important;
+}
+
+/* Breakdown step results - current step explanations */
+.step-result,
+.step-result p,
+.step-result strong,
+div[id^="breakdown-result-"] {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  overflow: visible !important;
+  line-height: 1.6 !important;
+  max-width: none !important;
+  width: auto !important;
+}
+
+/* All explanation containers - catch-all */
+[class*="explanation"],
+[class*="result"],
+.mcq-result,
+.breakdown-complete-enhanced p {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  overflow: visible !important;
+  line-height: 1.6 !important;
+  max-width: none !important;
+  width: auto !important;
+}
+
+/* Force MathJax in explanations to wrap properly */
+.result-content .MathJax,
+.step-explanation .MathJax,
+.step-result .MathJax,
+[class*="explanation"] .MathJax,
+[class*="result"] .MathJax {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  overflow: visible !important;
+  max-width: 100% !important;
+  display: inline-block !important;
+}
+
+/* Ensure parent containers don't constrain text */
+.mcq-result,
+.breakdown-step,
+.breakdown-content,
+#breakdown-content {
+  overflow: visible !important;
+  word-wrap: break-word !important;
+  max-width: none !important;
+  width: auto !important;
+}
+
+/* Remove any fixed widths or constraints */
+.result-content,
+.step-explanation,
+.step-result,
+.breakdown-complete-enhanced {
+  max-width: none !important;
+  width: auto !important;
+  overflow: visible !important;
+  box-sizing: border-box !important;
+}
+
+
+
+/*====================================================================*\
+ENHANCED OPTION HIGHLIGHTING (fixes selection visibility)
+\*====================================================================*/
+
+/* Make sure selected options are clearly visible */
+.mcq-option.selected {
+  background-color: var(--primary) !important;
+  color: white !important;
+  border-color: var(--primary) !important;
+  font-weight: 600;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-medium);
+}
+
+.step-options.current .mcq-option.selected {
+  background-color: var(--primary) !important;
+  color: white !important;
+  border: 2px solid var(--primary) !important;
+}
+
+/* Hover states for better UX */
+.mcq-option:hover:not(.selected):not(:disabled) {
+  background-color: var(--primary-light);
+  border-color: var(--primary);
+  cursor: pointer;
+  transform: translateY(-1px);
+}
+
+/* Disabled state styling */
+.mcq-option:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Focus states for accessibility */
+.mcq-option:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+
+/* Responsive adjustments  */
+@media (max-width: 768px) {
+  .math-question-module .question-content {
+    padding: var(--spacing-md);
+  }
+
+  .math-question-module .answer-content {
+    padding: var(--spacing-md);
+  }
+
+  .math-question-module .category-box {
+    min-width: 150px;
+  }
+  .mcq-module {
+    padding: var(--spacing-md);
+  }
+
+  .progress-info {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .button-container {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .nav-button {
+    width: 100%;
+  }
+
+  .prev-button {
+    order: 2;
+  }
+
+  .next-button {
+    order: 1;
+  }
+
+  .container {
+    padding: var(--spacing-sm);
+  }
+
+  .topic-intro,
+  .question-content,
+  .answer-content {
+    padding: var(--spacing-md);
+  }
+
+  /* FSRS responsive adjustments */
+  #time-controls {
+    background: var(--background-secondary) !important;
+    color: var(--text-primary) !important;
+    padding: var(--spacing-md);
+  }
+
+  .time-controls-buttons {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .time-controls-buttons button {
+    width: 100%;
+  }
+
+  .custom-time-inputs {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #custom-days,
+  #custom-hours {
+    width: 100%;
+    background-color: var(--background-primary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-primary) !important;
+  }
+
+  .time-controls-actions {
+    flex-direction: column;
+  }
+
+  .time-controls-actions button {
+    width: 100%;
+  }
+    .bkt-demo-container {
+    padding: var(--spacing-sm);
+  }
+
+  .bkt-demo-container h1 {
+    font-size: 1.8em;
+  }
+
+  .bkt-demo-container .legend-item {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .bkt-demo-container #graph-container {
+    height: 350px !important;
+  }
+
+  .bkt-demo-container .graph-loading-spinner {
+    width: 25px !important;
+    height: 25px !important;
+    border-width: 2px !important;
+  }
+
+  .bkt-demo-container .graph-loading-text {
+    font-size: 12px !important;
+  }
+
+  .bkt-demo-container #controls {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .bkt-demo-container #controls label,
+  .bkt-demo-container #controls select,
+  .bkt-demo-container #controls button {
+    width: 100%;
+    margin: 0;
+  }
+
+    .demo-layout {
+    padding: var(--spacing-md);
+    gap: var(--spacing-md);
+  }
+
+  .skills-time-section {
+    flex-direction: column;
+  }
+
+  .session-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .session-complete {
+    padding: var(--spacing-lg);
+    width: 95%;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+  }
+      #course-nav-panel {
+      width: 90% !important;
+      right: -90% !important;
+  }
+  .breakdown-complete-enhanced {
+    padding: var(--spacing-lg);
+  }
+
+  .score-number {
+    font-size: 2.5em;
+  }
+
+  .completion-message {
+    font-size: 1.2em;
+  }
+
+  .completion-actions .primary-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .completion-summary {
+    padding: var(--spacing-md);
+  }
+
+  .breakdown-step {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .step-header.current {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-xs);
+  }
+
+  .step-options.current .mcq-option {
+    padding: var(--spacing-sm);
+    font-size: 0.95em;
+  }
+
+  .original-question-reminder {
+    padding: var(--spacing-md);
+  }
+
+  .mcq-option {
+    font-size: 0.95em;
+    padding: var(--spacing-sm);
+    line-height: 1.3;
+  }
+
+  /* Slightly smaller math on mobile but still no scrollbars */
+  .MathJax {
+    font-size: 0.9em;
+  }
+}
+
+/* BKT Demo Responsive Design */
+@media (max-width: 1024px) {
+  .bkt-demo-container .main-layout {
+    flex-direction: column;
+  }
+
+  .bkt-demo-container .bkt-section,
+  .bkt-demo-container .graph-section {
+    max-width: none;
+  }
+
+  .bkt-demo-container #graph-container {
+    height: 400px !important;
+  }
+
+  .bkt-demo-container .graph-loading-spinner {
+    width: 30px !important;
+    height: 30px !important;
+    border-width: 3px !important;
+  }
+
+  .bkt-demo-container .graph-loading-text {
+    font-size: 14px !important;
+  }
+}
+
+
+/* Responsive adjustments for visualizations */
+@media (max-width: 900px) {
+  .visualization-container {
+    flex: 1 1 100%;
+  }
+
+  .visualization-container .info-box {
+    position: relative;
+    top: auto;
+    left: auto;
+    max-width: 100%;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .visualization-container .slider-container {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin-top: var(--spacing-md);
+  }
+}
+
+
+
+/* Dark theme navigation items */
+html[data-theme="dark"] .nav-item-link {
+    color: var(--text-primary) !important;
+}
+
+html[data-theme="dark"] .nav-item-link:hover {
+    background-color: var(--background-tertiary) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Dark theme current page - High contrast */
+html[data-theme="dark"] .nav-item-link.current-page {
+    background-color: var(--primary, #60a5fa) !important;
+    color: #000000 !important;
+    font-weight: bold !important;
+}
+
+/* Dark theme section toggles */
+html[data-theme="dark"] .nav-section-toggle {
+    color: var(--text-primary) !important;
+}
+
+html[data-theme="dark"] .nav-section-toggle:hover {
+    background-color: var(--background-tertiary) !important;
+}
+/* ========== SCROLLBAR STYLING ========== */
+
+#course-nav-panel::-webkit-scrollbar {
+    width: 6px;
+}
+
+#course-nav-panel::-webkit-scrollbar-track {
+    background: var(--background-secondary, #f1f1f1);
+}
+
+#course-nav-panel::-webkit-scrollbar-thumb {
+    background: var(--border-primary, #c1c1c1);
+    border-radius: 3px;
+}
+
+#course-nav-panel::-webkit-scrollbar-thumb:hover {
+    background: var(--border-secondary, #a8a8a8);
+}
+
+
+/* Responsive adjustments - match YouTube container */
+@media (max-width: 992px) {
+    .quiz-container,
+    .math-question-module {
+        padding: var(--spacing-md);
+        margin: var(--spacing-md) var(--spacing-sm);
+    }
+}
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .youtube-container {
+        padding: var(--spacing-md);
+        margin: var(--spacing-md) var(--spacing-sm);
+    }
+
+    .youtube-header {
+        font-size: 1rem;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+    .tools-panel {
+        width: 95%;
+        max-width: none;
+        margin: 20px;
+    }
+
+    .tools-grid {
+        grid-template-columns: 1fr;
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .tools-panel-header {
+        padding: 20px 16px 12px 16px;
+    }
+
+    .tool-card {
+        padding: 16px;
+    }
+
+    .tool-icon {
+        font-size: 24px;
+        width: 40px;
+        height: 40px;
+        margin-right: 12px;
+    }
+
+    .tool-name {
+        font-size: 15px;
+    }
+
+    .tool-description {
+        font-size: 12px;
+    }
+}
+
+/* Responsive sidebar adjustments */
+@media (max-width: 1200px) {
+  .bd-sidebar-primary {
+    width: 10rem !important;
+    max-width: 10rem !important;
+    flex: 0 0 10rem !important;
+  }
+}
+
+/* On tablets, make it even smaller */
+@media (max-width: 992px) {
+  .bd-sidebar-primary {
+    width: 8rem !important;
+    max-width: 8rem !important;
+    flex: 0 0 8rem !important;
+    font-size: 0.8rem;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .demo-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+  }
+
+  .mcq-main-section {
+    grid-column: 1;
+    grid-row: 1;
+    max-height: none;
+  }
+
+  .graph-section {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .skills-time-section {
+    grid-column: 1;
+    grid-row: 3;
+    flex-direction: row;
+    gap: var(--spacing-md);
+  }
+
+  .session-info {
+    grid-column: 1;
+    grid-row: 4;
+  }
 }

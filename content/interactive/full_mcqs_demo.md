@@ -1,9 +1,10 @@
+# MCQ Algorithm Demo
 ```{raw} html
 
 <!doctype html>
 <html>
 <head>
-    <title>Comprehensive MCQ Algorithm Demo</title>
+    <title> MCQ Algorithm Demo</title>
     <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
 
     <!-- MathJax configuration -->
@@ -882,7 +883,7 @@
 
             try:
               # Get step results data from JavaScript - use the correct variable
-              step_results_data = ${JSON.stringify(stepResultsData)}
+              step_results_data = ${JSON.stringify(stepResultsData).replace(/true/g, 'True').replace(/false/g, 'False')}
 
               # Convert to proper Python format
               step_results = []

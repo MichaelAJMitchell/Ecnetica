@@ -1552,9 +1552,7 @@ class MCQ:
         """Ensure parameters are generated and cached for consistent use"""
         if self.is_parameterized:
             if self._current_params is None:
-                print(f"🔧 Pre-caching parameters for MCQ {self.id}")
                 self._current_params = self._generate_parameters()
-                print(f"✅ Cached {len(self._current_params)} parameters: {self._current_params}")
             else:
                 print(f"⚡ Parameters already cached for MCQ {self.id}: {self._current_params}")
         else:
@@ -2621,7 +2619,7 @@ class StudentManager:
             hasattr(self.bkt_system, 'skill_tracker') and
             self.bkt_system.skill_tracker):
 
-            step_difficulty = getattr(breakdown_step, 'difficulty', 2.5)
+            step_difficulty = getattr(breakdown_step, 'difficulty', 0.2)
             skill_result = self.bkt_system.process_breakdown_step_response(
                 student_id, breakdown_step.step_type, is_correct, step_difficulty
             )
@@ -4152,7 +4150,7 @@ class MCQScheduler:
             self.bkt_system and
             hasattr(self.bkt_system, 'process_breakdown_step_response')):
 
-            step_difficulty = getattr(step, 'difficulty', 2.5)
+            step_difficulty = getattr(step, 'difficulty', 0.2)
             skill_result = self.bkt_system.process_breakdown_step_response(
                 student_id, step.step_type, is_correct, step_difficulty
             )
@@ -4316,7 +4314,7 @@ class BetaInformedEloSkillTracker:
 
     def update_skill_from_breakdown_step(self, student: 'StudentProfile',
                                        step_type: str, is_correct: bool,
-                                       step_difficulty: float = 2.5) -> Optional[Dict]:
+                                       step_difficulty: float = 0.2) -> Optional[Dict]:
         """
         Update specific skill based on breakdown step performance
         Only updates on incorrect answers (correct answers do nothing)
@@ -4375,7 +4373,7 @@ class BetaInformedEloSkillTracker:
         base_rate = self.skill_learning_rates.get(skill_name, self.base_learning_rate)
 
         # Adapt learning rate based on uncertainty and evidence
-        uncertainty_multiplier = self.get_config_value('skill_tracking.uncertainty_multiplier', 2.0)
+        uncertainty_multiplier = self.get_config_value('skill_tracking.uncertainty_multiplier', 1.0)
         adaptive_rate = base_rate * evidence_weight * (1 + uncertainty * uncertainty_multiplier)
 
         # === ELO-STYLE UPDATE ===
@@ -4896,7 +4894,7 @@ class BayesianKnowledgeTracing:
         return completion_result
 
     def process_breakdown_step_response(self, student_id: str, step_type: str,
-                                    is_correct: bool, step_difficulty: float = 2.5) -> Dict:
+                                    is_correct: bool, step_difficulty: float = 0.2) -> Dict:
         """
         Process breakdown step response and update relevant skill
         Only updates skills on incorrect answers

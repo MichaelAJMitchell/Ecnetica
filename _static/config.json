@@ -62,7 +62,7 @@
     "min_confidence": 0.1,
     "max_confidence": 0.95,
     "confidence_growth_rate": 0.02,
-    "attempts_for_full_confidence": 10,
+    "attempts_for_full_confidence": 20,
     "confidence_question_weight": 0.3,
     "confidence_time_weight": 0.3,
     "confidence_consistency_weight": 0.2,
@@ -114,7 +114,7 @@
       "conceptual_penalty": 2.0,
       "memory_penalty": 1.5,
       "communication_penalty": 1.8,
-      "spatial_penalty": 1.5,
+      "spatial_penalty": 2.5,
       "student_offset": 0.1
     },
     "confidence_algorithm": {
@@ -132,6 +132,7 @@
     "difficulty_scale_factor": 0.5,
     "uncertainty_multiplier": 2.0,
     "surprise_amplification": 1.5,
+    "max_change_per_update":0.2,
     "skill_learning_rates": {
       "problem_solving": 0.12,
       "procedural_fluency": 0.18,

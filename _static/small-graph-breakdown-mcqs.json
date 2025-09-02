@@ -2621,7 +2621,7 @@
       }
     },
     {
-      "text": "You're exploring arithmetic series! For the first \\(${n}\\) terms of the arithmetic sequence \\(${a}, ${a+d}, ${a+2*d}, ...\\), what formula gives us the sum \\(S_n\\)?",
+      "text": "For the first \\(${n}\\) terms of the arithmetic sequence \\(${a}, ${a+d}, ${a+2*d}, ...\\), what formula gives us the sum \\(S_n\\)?",
       "generated_parameters": {
         "a": {
           "type": "int",

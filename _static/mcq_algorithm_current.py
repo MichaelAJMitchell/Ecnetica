@@ -82,7 +82,6 @@ class MCQLoader:
 
     def _build_minimal_index(self):
         """Build index with only essential data for the algorithm"""
-        print(f"🔍 Building optimized MCQ index from {self.mcqs_file}...")
 
         try:
             with open(self.mcqs_file, 'r', encoding='utf-8') as f:
@@ -125,8 +124,6 @@ class MCQLoader:
             print(f"❌ Error building minimal index: {e}")
             raise
 
-        print(f"✅  optimized index complete:")
-        print(f"   📊 {len(self.minimal_mcq_data)} MCQs indexed")
 
 
     def get_mcqs_for_due_topics_minimal(self, due_topic_indices: List[int]) -> List[MinimalMCQData]:
@@ -322,10 +319,8 @@ class BreakdownStep:
         # Get fresh parameters from parent MCQ to ensure consistency
         if self.parent_mcq:
             fresh_parent_params = self.parent_mcq.get_current_parameters_safe()
-            print(f"🔄 Using fresh parent params: {fresh_parent_params}")
         else:
             fresh_parent_params = self.parent_params  # Fallback to stored params
-            print(f"📦 Using stored params: {fresh_parent_params}")
 
         return self._generate_step_text_with_substitution(self.text, fresh_parent_params)
 
@@ -398,8 +393,6 @@ class BreakdownStep:
                         # Debug output to see what's being used
                         if len(sympy_safe_params) != len(params):
                             filtered_out = set(params.keys()) - set(sympy_safe_params.keys())
-                            print(f"   Filtered out parameters: {filtered_out}")
-                            print(f"   Using safe parameters: {list(sympy_safe_params.keys())}")
                         latex_expr = ""
                         # Handle equations separately
                         if '=' in self.parent_question_expression:
@@ -555,11 +548,6 @@ class BreakdownStep:
                                 # Skip any parameter that causes issues during type checking
                                 continue
 
-                        # Debug output to see what's being used
-                        if len(sympy_safe_params) != len(params):
-                            filtered_out = set(params.keys()) - set(sympy_safe_params.keys())
-                            print(f"   Filtered out parameters: {filtered_out}")
-                            print(f"   Using safe parameters: {list(sympy_safe_params.keys())}")
                         latex_expr = ""
                         # Handle equations separately
                         if '=' in self.subquestion_expression:
@@ -668,11 +656,9 @@ class BreakdownStep:
             #  Use the same parameter vs expression check as generate_question_text
             if expression in params:
                 # This is a parameter name that should be substituted
-                print(f"🔧 Treating '{expression}' as parameter name")
                 expr = symbols(expression)
             else:
                 # This is a mathematical expression to be parsed
-                print(f"🔧 Parsing '{expression}' as mathematical expression")
                 expr = sympify(expression, locals=local_namespace)
 
             # Apply parameter substitution
@@ -1553,10 +1539,7 @@ class MCQ:
         if self.is_parameterized:
             if self._current_params is None:
                 self._current_params = self._generate_parameters()
-            else:
-                print(f"⚡ Parameters already cached for MCQ {self.id}: {self._current_params}")
-        else:
-            print(f"📝 MCQ {self.id} is not parameterized")
+
 
     def generate_question_text(self, text: str, params: Dict) -> str:
         """
@@ -1632,11 +1615,6 @@ class MCQ:
                                 # Skip any parameter that causes issues during type checking
                                 continue
 
-                        # Debug output to see what's being used
-                        if len(sympy_safe_params) != len(params):
-                            filtered_out = set(params.keys()) - set(sympy_safe_params.keys())
-                            print(f"   Filtered out parameters: {filtered_out}")
-                            print(f"   Using safe parameters: {list(sympy_safe_params.keys())}")
                         latex_expr = ""
                         # Handle equations separately
                         if '=' in self.question_expression:
@@ -1727,7 +1705,6 @@ class MCQ:
         if not self.options:
             return []
 
-        print(f"🔧 Rendering options with params: {params}")
 
         try:
             # Step 1: Calculate derived parameters
@@ -1744,24 +1721,20 @@ class MCQ:
                         })
                         calc_result = eval(calc_expr, safe_namespace)
                         calc[calc_name] = calc_result
-                        print(f"✅ Calculated {calc_name} = {calc_result}")
 
                     except Exception as e:
                         print(f"⚠️ Failed to calculate {calc_name}: {e}")
                         calc[calc_name] = 0
 
             all_params = {**params, **calc}
-            print(f"🔗 All params: {all_params}")
 
             # Step 2: Process options with parameter substitution only
             rendered_options = []
             for i, option in enumerate(self.options):
-                print(f"🎯 Processing option {i}: '{option}'")
 
                 # Sophisticated parameter substitution and formatting
                 result = self._render_option_sophisticated(option, all_params)
                 rendered_options.append(result)
-                print(f"✅ Result: {result}")
 
             return rendered_options
 
@@ -1901,8 +1874,6 @@ class MCQ:
         if not self.option_explanations:
             return []
 
-        print(f"🔧 Rendering option explanations with params: {params}")
-
         try:
             # Step 1: Calculate derived parameters
             calc = {}
@@ -1918,24 +1889,20 @@ class MCQ:
                         })
                         calc_result = eval(calc_expr, safe_namespace)
                         calc[calc_name] = calc_result
-                        print(f"✅ Calculated {calc_name} = {calc_result}")
 
                     except Exception as e:
                         print(f"⚠️ Failed to calculate {calc_name}: {e}")
                         calc[calc_name] = 0
 
             all_params = {**params, **calc}
-            print(f"🔗 All params: {all_params}")
 
             # Step 2: Process explanations with parameter substitution and cleaning
             rendered_explanations = []
             for i, explanation in enumerate(self.option_explanations):
-                print(f"🎯 Processing explanation {i}: '{explanation}'")
 
                 # Parameter substitution and cleaning
                 result = self._render_explanation_sophisticated(explanation, all_params)
                 rendered_explanations.append(result)
-                print(f"✅ Result: {result}")
 
             return rendered_explanations
 
@@ -2071,7 +2038,6 @@ class MCQ:
 
             # Check if student's answer index is in this route's mapping
             if student_answer in answer_mapping:
-                print(f"🎯 Student answer {student_answer} mapped to route '{route_id}'")
                 return route_id
 
         # Fallback: if no mapping found, use first available route
@@ -2121,7 +2087,7 @@ class MCQ:
         route_data = self.breakdown[route]
         steps_data = route_data.get('steps', [])
 
-        print(f"📚 Executing breakdown route '{route}' with {len(steps_data)} steps")
+
 
         # Create BreakdownStep objects
         executable_steps = []
@@ -2131,10 +2097,6 @@ class MCQ:
             # Check if step should be skipped based on prerequisite mastery
             if not step.should_skip(student_mastery, config):
                 executable_steps.append(step)
-                print(f"✅ Added step {step.step_no} ({step.step_type})")
-            else:
-                print(f"⏭️ Skipping step {step.step_no} due to prerequisite mastery")
-
         return executable_steps
 
 
@@ -2619,7 +2581,7 @@ class StudentManager:
             hasattr(self.bkt_system, 'skill_tracker') and
             self.bkt_system.skill_tracker):
 
-            step_difficulty = getattr(breakdown_step, 'difficulty', 0.2)
+            step_difficulty = getattr(breakdown_step, 'difficulty', 0.0)
             skill_result = self.bkt_system.process_breakdown_step_response(
                 student_id, breakdown_step.step_type, is_correct, step_difficulty
             )
@@ -2791,9 +2753,7 @@ class KnowledgeGraph:
 
     def _load_mcqs_from_json(self, mcqs_file: str):
         """optimized loading for select_optimal_mcqs algorithm"""
-        print(f"📥 Setting up optimized loading for {mcqs_file}...")
         self.ultra_loader = MCQLoader(mcqs_file)
-        print(f"✅  optimized loader ready")
 
         # Show memory savings
         stats = self.ultra_loader.get_stats()
@@ -2818,8 +2778,6 @@ class KnowledgeGraph:
 
          # Get MCQ IDs for due topics
         relevant_mcq_ids = self.ultra_loader.get_mcq_ids_for_due_topics(due_topics)
-
-        print(f"👤 Preloaded minimal data for {len(relevant_mcq_ids)} MCQs across {len(due_topics)} due topics for student {student_id}")
 
         return relevant_mcq_ids
 
@@ -3183,7 +3141,6 @@ class MCQScheduler:
 
         # Get MCQs eligible for selection
         eligible_mcqs = self.get_available_questions_for_student(student_id)
-        print(f"Eligible MCQs: {eligible_mcqs}")
         if not eligible_mcqs:
             print(f"No eligible MCQs found for greedy selection (no due main topics with all studied subtopics)")
             return []
@@ -3196,7 +3153,6 @@ class MCQScheduler:
             else:
                 print(f"❌ Failed to create vector for MCQ {mcq_id}")
 
-        print(f"✅ Created {vectors_created}/{len(eligible_mcqs)} MCQ vectors")
 
         if vectors_created == 0:
             print("❌ No MCQ vectors could be created - cannot run algorithm")
@@ -3225,14 +3181,9 @@ class MCQScheduler:
         selected_mcqs = []
         last_total_coverage = 0.0
 
-        print(f"Initial due topics: {len(topic_priorities)} topics")
-        print(f"Topic priorities range: {min(topic_priorities.values()):.3f} to {max(topic_priorities.values()):.3f}")
-        print(f"Eligible MCQs with due main topics: {len(eligible_mcqs)}")
-
         # Greedy selection loop
         for iteration in range(num_questions):
             if not topic_priorities:
-                print(f"All due topics covered after {iteration} questions")
                 break
 
             # Calculate coverage-to-cost ratio for each available MCQ
@@ -3252,15 +3203,12 @@ class MCQScheduler:
                         continue
 
                     coverage_to_cost_ratio, coverage_info = self._calculate_coverage_to_cost_ratio(mcq_id, topic_priorities, simulated_mastery_levels, student, confidence)
-                    print(f"   📊 Ratio: {coverage_to_cost_ratio:.3f}")
 
                     if coverage_to_cost_ratio > best_ratio:
                         best_ratio = coverage_to_cost_ratio
                         best_mcq = mcq_id
                         best_coverage_info = coverage_info
-                        print(f"   ✅ New best MCQ: {mcq_id} (ratio: {best_ratio:.3f})")
                     if best_mcq is None:
-                        print("✅ No suitable MCQs left — stopping.")
                         break
 
                 except Exception as e:
@@ -3283,19 +3231,12 @@ class MCQScheduler:
                 # Update virtual mastery and topic priorities
                 total_topic_coverage_score = self._update_simulated_mastery_and_priorities(best_mcq, simulated_mastery_levels, topic_priorities, best_coverage_info, student)
 
-                if iteration % 5 == 0:  # Only print every 5th iteration
-                    print(f"✅ Q{iteration}: Coverage {total_topic_coverage_score:.3f}")
 
             except Exception as e:
                 print(f"❌ Error updating virtual mastery: {type(e)} - {e}")
                 import traceback
                 traceback.print_exc()
                 break
-            if iteration % 5 == 0:
-            #print(f"Selected Q{iteration + 1}: {self.kg.mcqs[best_mcq].text[:50]}...")
-                print(f"  Coverage-to-cost ratio: {best_ratio:.3f}")
-                print(f"  Total coverage gained: {total_topic_coverage_score:.3f}")
-                print(f"  Remaining due topics: {len(topic_priorities)}")
 
             # Early stopping if improvement is minimal
             if (greedy_early_stopping and abs(total_topic_coverage_score - last_total_coverage) < greedy_convergence_threshold):
@@ -3309,7 +3250,6 @@ class MCQScheduler:
         # apply reordering for better learning outcomes
         pedagogically_ordered_mcqs = self._reorder_mcqs_pedagogically(selected_mcqs)
 
-        print(f"📚 Final pedagogical order: {pedagogically_ordered_mcqs}")
         return pedagogically_ordered_mcqs
 
 
@@ -3748,13 +3688,13 @@ class MCQScheduler:
 
         # Get configuration weights with defaults
         config_weights = self.config.get('algorithm_config.skill_difficulty_weights', {
-            'problem_solving_penalty': 0.2,
-            'procedural_penalty': 0.15,
-            'conceptual_penalty': 0.15,
-            'memory_penalty': 0.1,
-            'communication_penalty': 0.1,
-            'spatial_penalty': 0.1,
-            'student_offset': 0.1
+            'problem_solving_penalty': 0.0,
+            'procedural_penalty': 0.0,
+            'conceptual_penalty': 0.0,
+            'memory_penalty': 0.0,
+            'communication_penalty': 0.0,
+            'spatial_penalty': 0.0,
+            'student_offset': 0.0
         })
 
         skill_penalties = {}
@@ -3912,8 +3852,6 @@ class MCQScheduler:
         if not selected_mcqs:
             return selected_mcqs
 
-        print(f"🎓 Reordering {len(selected_mcqs)} MCQs pedagogically...")
-
         # Step 1: Group MCQs by main topic
         topic_to_mcqs = self._group_mcqs_by_main_topic(selected_mcqs)
 
@@ -3924,10 +3862,8 @@ class MCQScheduler:
         sorted_topics = sorted(topic_to_mcqs.keys(),
                             key=lambda t: topic_chain_lengths[t])
 
-        print(f"📚 Topic ordering by prerequisite chain length:")
         for topic in sorted_topics:
             topic_name = self.kg.get_topic_of_index(topic)
-            print(f"   {topic_name} (chain length: {topic_chain_lengths[topic]})")
 
         # Step 4: Sort MCQs within each topic by difficulty breakdown priority
         for topic in topic_to_mcqs:
@@ -3936,7 +3872,6 @@ class MCQScheduler:
         # Step 5: Round-robin through topics (handles unequal distribution)
         reordered_mcqs = self._round_robin_mcq_selection(topic_to_mcqs, sorted_topics)
 
-        print(f"✅ Pedagogical reordering complete: {len(reordered_mcqs)} MCQs")
         return reordered_mcqs
 
 
@@ -4092,7 +4027,6 @@ class MCQScheduler:
                     topic_name = self.kg.get_topic_of_index(topic)
                     vector = self._get_or_create_optimized_mcq_vector(mcq_id)
                     difficulty = vector.difficulty if vector else 0.0
-                    print(f"   Round-robin: Added {mcq_id} from {topic_name} (difficulty: {difficulty:.3f})")
 
             # Update remaining count
             total_remaining -= round_assigned
@@ -4119,7 +4053,6 @@ class MCQScheduler:
             )
 
             if breakdown_steps:
-                print(f"📚 Generated {len(breakdown_steps)} breakdown steps for answer {wrong_answer}")
                 if hasattr(self.student_manager, 'start_breakdown_session'):
                     self.student_manager.start_breakdown_session(student_id, breakdown_steps)
             return breakdown_steps
@@ -4150,7 +4083,7 @@ class MCQScheduler:
             self.bkt_system and
             hasattr(self.bkt_system, 'process_breakdown_step_response')):
 
-            step_difficulty = getattr(step, 'difficulty', 0.2)
+            step_difficulty = getattr(step, 'difficulty', 0.0)
             skill_result = self.bkt_system.process_breakdown_step_response(
                 student_id, step.step_type, is_correct, step_difficulty
             )
@@ -4300,8 +4233,7 @@ class BetaInformedEloSkillTracker:
         # Update each skill weighted by its breakdown value
         for skill_name in self.valid_skills:
             skill_difficulty = getattr(mcq_vector.difficulty_breakdown, skill_name, 0.0)
-            evidence_weight = skill_difficulty #/ 5.0  # Convert 0-5 to 0-1
-
+            evidence_weight = skill_difficulty
             if evidence_weight >= self.min_evidence_threshold:
                 update_result = self._update_single_skill(
                     student, skill_name, skill_difficulty, is_correct, evidence_weight,
@@ -4314,7 +4246,7 @@ class BetaInformedEloSkillTracker:
 
     def update_skill_from_breakdown_step(self, student: 'StudentProfile',
                                        step_type: str, is_correct: bool,
-                                       step_difficulty: float = 0.2) -> Optional[Dict]:
+                                       step_difficulty: float = 0.0) -> Optional[Dict]:
         """
         Update specific skill based on breakdown step performance
         Only updates on incorrect answers (correct answers do nothing)
@@ -4382,6 +4314,8 @@ class BetaInformedEloSkillTracker:
 
         # Update ability level (keeping in 0-1 range)
         ability_change = adaptive_rate * performance_error
+        max_change = self.get_config_value('skill_tracking.max_change_per_update', 0.05)
+        ability_change = max(-max_change, min(max_change, ability_change))
         new_ability = np.clip(skill_state.ability_level + ability_change, 0.0, 1.0)
 
         # === BETA POSTERIOR UPDATE ===
@@ -4894,7 +4828,7 @@ class BayesianKnowledgeTracing:
         return completion_result
 
     def process_breakdown_step_response(self, student_id: str, step_type: str,
-                                    is_correct: bool, step_difficulty: float = 0.2) -> Dict:
+                                    is_correct: bool, step_difficulty: float = 0.0) -> Dict:
         """
         Process breakdown step response and update relevant skill
         Only updates skills on incorrect answers

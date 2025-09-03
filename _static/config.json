@@ -127,19 +127,19 @@
     "initial_ability": 0.5,
     "initial_alpha": 1.0,
     "initial_beta": 1.0,
-    "base_learning_rate": 0.15,
+    "base_learning_rate": 0.04,
+    "max_change_per_update": 0.05,
     "min_evidence_threshold": 0.05,
     "difficulty_scale_factor": 0.5,
     "uncertainty_multiplier": 2.0,
     "surprise_amplification": 1.5,
-    "max_change_per_update":0.2,
     "skill_learning_rates": {
-      "problem_solving": 0.12,
-      "procedural_fluency": 0.18,
-      "conceptual_understanding": 0.15,
-      "memory": 0.20,
-      "mathematical_communication": 0.16,
-      "spatial_reasoning": 0.17
+      "problem_solving": 0.035,
+      "procedural_fluency": 0.055,
+      "conceptual_understanding": 0.04,
+      "memory": 0.06,
+      "mathematical_communication": 0.04,
+      "spatial_reasoning": 0.05
     }
   },
   "metadata": {

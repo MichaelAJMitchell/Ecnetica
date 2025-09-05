@@ -1,7 +1,7 @@
 import uuid
 import json
 from typing import Dict, List, Union
-from mcq_algorithm_different_numbers import DifficultyBreakdown, KnowledgeGraph, MCQ
+from mcq_algorithm import DifficultyBreakdown, KnowledgeGraph, MCQ
 
 def process_mcq_document(mcq_document: Union[List[Dict], Dict], knowledge_graph) -> List[Dict]:
     """

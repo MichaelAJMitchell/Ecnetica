@@ -16,12 +16,23 @@ There is a confidence factor  which measures our confidence in our estimate of t
 - We want parameters to be set such that the area of affect updates prerequisite topics by the right amount. If they are updated by too small of updates, students will be propmeted to do questions on perhaps basic topics that we know they know, which is not maximising their time. If prerequiste topics are given too large of updates, too many topics will end up never being prompted for review. Most topics should fall below the mastery threshold for review sometimes, bar some very core/ basic topics such as linear equations, basic math etc.
 - Confidence parameters should be set so that when we have enough information on the student, the confidence levels on that topic are above the threshold for confidence to influence the selection algorithm. We need to determine what is 'enough questions' to say we are confident in the students mastery levels.
 - The greedy algorithm weights need to be determined such that a balance is created between testing the core due topics and all the other parameters. We need to ensure that other parameters have a noticeable impact, but don't eclipse the core testing due topics.
-
+- 
 
 ## Parameters to be Determined
-- BKT parametrs
+- BKT parameters
 - the weights in the question for the select_optimal_mcqs
+- the weights for updating skills
 ## Future Implementations
 - Hide options
 - Typing keyboard
--
+- adding pictures to questions
+- adding animations/ interactive graphs
+- adding hints
+- having an i don't know button or an my answer is not an option button
+- having a press to show options so that students are encouraged to do the questions before seeing the answers
+- having the cards have and 'is an exam question' property so there can be exam specific custom study
+- adding 
+- how do questions on the actual page work with the algorithm
+## Things that I could have done
+- do you have some mechanism for if a student just cannot get a topic right, do you eventually just like leave it?
+- 

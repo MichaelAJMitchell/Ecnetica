@@ -12,7 +12,6 @@ parts:
 
   - caption: Interactive Tools
     chapters:
-    - file: content/interactive/python_playground
     - file: content/interactive/BKT_Simple_Demo
     - file: content/interactive/BKT_FSRS_Demo
     - file: content/interactive/MCQ_Breakdown_Demo

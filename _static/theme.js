@@ -714,11 +714,6 @@ function closeNavigator() {
 function createInteractiveToolsFinder() {
     // Interactive tools structure - simplified since there are only a few tools
     const interactiveTools = {
-        'Python Playground': {
-            url: '/content/interactive/python_playground.html',
-            description: 'Interactive Python coding environment',
-            icon: '🐍'
-        },
         'BKT Simple Demo': {
             url: '/content/interactive/BKT_Simple_Demo.html',
             description: 'Bayesian Knowledge Tracing demonstration',
@@ -737,7 +732,7 @@ function createInteractiveToolsFinder() {
         'Comprehensive MCQS Demo': {
             url: '/content/interactive/full_mcqs_demo.html',
             description: 'Revision Area showing statstics updates',
-            icon: ':)'
+            icon: '📚'
         },
     };
 

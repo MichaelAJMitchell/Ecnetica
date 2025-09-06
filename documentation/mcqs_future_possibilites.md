@@ -35,6 +35,7 @@ which is a little broad but not massive. Eg if student has mastery in a topic of
 - importance for the mcq algorithm is currently measured by out degree, it could be calculated using other graph theory concepts one example is relevance of the topic to learning in the future. can be defined as the number of nodes x such that there exists a path between the current topic and x. This would make sure students are strong at topics which are involved in a lot of topics later on.
 - identifying chapters which need a focused review- there is some theory written about it mcqs_algorithm_explanation, but it was not implemented anywhere
 - the smart_number_format() function currently limits numbers to 4 decimal places, but this might not be suitable for all questions. 
+- could find a way to randomise the order options appear in so students don't learn the order off if they do the same question a couple of times
 ### new features
 - Typing keyboard- use smypy probably, but what way to we expect students to type answers? Build a math keyboard or teach a simplified version of mathjax? This would prevent the fact that students can often just figure out the answer from mcqs by process of elimination, rather than actually doing the question. 
 - adding pictures to questions

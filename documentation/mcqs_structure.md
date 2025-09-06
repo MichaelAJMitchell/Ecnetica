@@ -7,8 +7,8 @@ Ensure the correct files are imported into the knowledge graph.
 The bottom of this document has full examples for both the precomputed form for generation and the computed form for the algorithm.
 
 Questions can have breakdowns which break the question into steps when a student gets it wrong. There can be different breakdowns for each answer. They can also have randomly generated parameters which change every time a student does the question.
-## parameters
-The code can generate parameters for questions, so that the numbers are different every time a student sees the question. There is two types of parameters, generated and calculated. The generated ones are the ones which are randomly generated. But it isn't always easiest to generate the actual parameters in the question. Sometimes to get the answers to be nice numbers/ question factorisable/solvable etc, its easiest to generate numbers to base the parameters in the question of off. A lot of the time this might mean randomly generating the answers and then working back to calculate what the corresponding question should be. The calculated_parameters field if for any parameters based on the generated, or other calculated ones. This used sympy to do the substitutions.
+## Parameters
+The code can generate parameters for questions, so that the numbers are different every time a student sees the question. There is two types of parameters, generated and calculated. The generated ones are the ones which are randomly generated. But it isn't always easiest to generate the actual parameters in the question. Sometimes to get the answers to be nice numbers/ question factorable/solvable etc, its easiest to generate numbers to base the parameters in the question of off. A lot of the time this might mean randomly generating the answers and then working back to calculate what the corresponding question should be. The calculated_parameters field if for any parameters based on the generated, or other calculated ones. This used sympy to do the substitutions.
 ## mcqs explicit content
 ### text
 the question stores the information the student will see when they are asked a question. Questions should range in content from simple definitions and applications designed to test if the students have a basic understanding of the core concept, to questions testing more tricky or complex aspects of the topic, including incorporating other topics.
@@ -25,7 +25,7 @@ The actual expression is under question_expression. This can be multiplied out t
 
 ### generated_parameters
 For randomized parameters
-There is different types of parameters that will follow different rules when they are being randomised.
+There is different types of parameters that will follow different rules when they are being randomized.
 - int is just a random integer between the min and the max
 - choice randomly chooses from a list of choices you give it as "choices":
 - fraction generated a numerator and a denominator and then makes them a fraction. It has options numerator_min, numerator_max, denominator_min, denominator_max, exclude_numerator, exclude_denominator, reduce< proper_only, as well an normal exclude.
@@ -60,7 +60,28 @@ For anything that needs to be calculated, eg for question_expression, options, o
 These are formatted as "parameter_name":"rule to calculate it by". The calculations should use the python math conventions.
 Don't have anything using random in calculated parameters, it won't work. there should be on logic such as ```"'ax^2 + bx + c = 0' if form_type == 'standard' else ('y = a(x-h)^2 + k' if form_type == 'vertex' else ('y = a(x-p)(x-q)' if form_type == 'factored' else 'y = mx + b'))"```.  Don't use len(). Things should not use $$ or latex syntax.
 
-
+The sympy functions which can be used in the parameters are:
+```
+'sqrt': lambda x: x**0.5,
+'round': round,
+'int': int,
+'float': float,
+'sum': sum,
+'len': len,
+'abs': Abs, 'max': max, 'min': min, 'round': round,
+'gcd': gcd, 'lcm': lcm, 'factorial': factorial,
+'isprime': isprime, 'factorint': factorint,
+'floor': floor, 'ceiling': ceiling, 'mod': Mod,
+'diff': diff, 'integrate': integrate, 'limit': limit,
+'solve': solve, 'roots': roots,
+'sin': sin, 'cos': cos, 'tan': tan,
+'asin': asin, 'acos': acos, 'atan': atan,
+'sec': sec, 'csc': csc, 'cot': cot,
+'pi': pi, 'e': E,
+'log': log, 'ln': log, 'exp': exp,
+'sqrt': sqrt, 'pow': pow,
+'cancel': cancel,
+```
 There is options that can be used in the question text and options that give more information. They can be used in calculated parameters or question expression without the ${ }.
 ```
 For fractions:
@@ -93,7 +114,7 @@ ${param_name}_type$ → "exponential"
 
 ### options
 currently four options, including the correct option. the other options should, if possible, be common mistakes a student could make on the question. Examples of mistakes include sign/ calculation errors, mixing the question up with a similar concept, an option that looks similar but is not the same. The correct answer should be roughly evenly distributed across the indexes, it should not always be the first option.
-This can substitute parameters and render them for display. Any calculations than need to be done should be in calculated parameters, with that parameter called in the options to be substituted. Ensure the parameter name is in the options, not the contents of the parameters. Any signs must be outside the brakets. The ${} must be included for every individual parameter separately. options should use latex formatting, with an extra backslash as the mcqs are stored in json. ```\\(option\\)``` should be the format, with each option wrapped in mathjax denominators on the outside. No extra one are needed within an individual option . Use ```\\text{}``` for any text in the options.
+This can substitute parameters and render them for display. Any calculations than need to be done should be in calculated parameters, with that parameter called in the options to be substituted. Ensure the parameter name is in the options, not the contents of the parameters. Any signs must be outside the brackets. The ${} must be included for every individual parameter separately. options should use latex formatting, with an extra backslash as the mcqs are stored in json. ```\\(option\\)``` should be the format, with each option wrapped in mathjax denominators on the outside. No extra one are needed within an individual option . Use ```\\text{}``` for any text in the options.
 
 Formatted as an array(list) with each option.
 ### correct index

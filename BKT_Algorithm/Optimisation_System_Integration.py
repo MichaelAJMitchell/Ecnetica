@@ -31,7 +31,7 @@ except ImportError:
     print(" BKT optimizer not available")
 
 try:
-    from _static.mcq_algorithm_current import (
+    from _static.mcq_algorithm import (
         KnowledgeGraph, StudentManager, BayesianKnowledgeTracing, MCQScheduler,
         FSRSForgettingConfig, ConfigurationManager
     )

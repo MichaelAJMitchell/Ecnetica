@@ -112,7 +112,7 @@
           // Step 2: Load BKT code and files
           updateStatus('Loading BKT algorithm...', 'loading');
 
-          const pyResponse = await fetch("../../_static/mcq_algorithm_current.py", { cache: "no-store" });
+          const pyResponse = await fetch("../../_static/mcq_algorithm.py", { cache: "no-store" });
           if (!pyResponse.ok) {
             throw new Error(`Failed to fetch Python code: ${pyResponse.status}`);
           }

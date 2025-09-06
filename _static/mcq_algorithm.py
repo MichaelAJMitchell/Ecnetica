@@ -242,16 +242,6 @@ class DifficultyBreakdown:
         """Factory method for easier instantiation"""
         return cls(conceptual, procedural, problem_solving, communication, memory, spatial)
 
-    def to_dict(self) -> Dict[str, float]:
-        """Convert to dictionary for MCQVector compatibility"""
-        return {
-            'problem_solving': self.problem_solving,
-            'memory': self.memory,
-            'notation': self.notation,
-            'algebra': self.algebra,
-            'interconnected': self.interconnected
-        }
-
 
 @dataclass
 class BreakdownStep:
@@ -1794,7 +1784,6 @@ class MCQ:
 
     def _evaluate_simple_arithmetic(self, expression: str) -> str:
         """Evaluate simple arithmetic in expressions like fractions"""
-        import re
 
         # Pattern to match fractions with arithmetic: \frac{a-b}{c+d}
         frac_pattern = r'\\frac\{([^}]+)\}\{([^}]+)\}'
@@ -1837,7 +1826,6 @@ class MCQ:
                 raise ValueError("Complex expression")
         except:
             # If evaluation fails, try to extract just the number
-            import re
             numbers = re.findall(r'-?\d+', expr)
             return int(numbers[0]) if numbers else 0
 
@@ -2212,7 +2200,6 @@ class ConfigurationManager:
     def get_breakdown_config(self) -> Dict:
         return self.get('breakdown_config', {
             'prerequisite_skip_threshold': 0.8,
-            'step_mastery_weight': 0.3,
             'enable_breakdown_system': True
         })
 
@@ -2555,7 +2542,7 @@ class StudentManager:
 
     def _handle_breakdown_step_completion(self, student_id: str, step_result: str,
                                         is_correct: bool, time_taken: float, breakdown_step: 'BreakdownStep') -> List[Dict]:
-        """NEW METHOD: Handle completion of a breakdown step"""
+        """ Handle completion of a breakdown step"""
         if not self._current_breakdown_session:
             return []
 
@@ -2567,15 +2554,6 @@ class StudentManager:
             'timestamp': datetime.now(),
             'step_type': breakdown_step.step_type
         })
-        '''
-        # Update mastery based on step completion (lighter weight than full question)
-        bkt_updates = []
-        if self.bkt_system:
-            step = session['steps'][session['current_step_index']]
-            bkt_updates = self.bkt_system.process_breakdown_step(
-                student_id, step, is_correct
-            )
-        '''
         bkt_updates = []
         if (self.bkt_system and
             hasattr(self.bkt_system, 'skill_tracker') and
@@ -2593,7 +2571,7 @@ class StudentManager:
         return bkt_updates
 
     def complete_breakdown_session(self, student_id: str) -> Dict:
-        """NEW METHOD: Complete breakdown session and analyze results"""
+        """ Complete breakdown session and analyze results"""
         if not self._current_breakdown_session:
             return {}
 
@@ -2623,12 +2601,12 @@ class StudentManager:
         return breakdown_attempt
 
     def is_in_breakdown_session(self, student_id: str) -> bool:
-        """NEW METHOD: Check if student is currently in a breakdown session"""
+        """ Check if student is currently in a breakdown session"""
         return (self._current_breakdown_session is not None and
                 self._current_breakdown_session.get('student_id') == student_id)
 
     def get_current_breakdown_step(self, student_id: str) -> Optional['BreakdownStep']:
-        """NEW METHOD: Get current breakdown step for student"""
+        """ Get current breakdown step for student"""
         if not self.is_in_breakdown_session(student_id):
             return None
 
@@ -3119,11 +3097,7 @@ class MCQScheduler:
             print("⚠️ No fallback method defined; returning empty list")
             return []
 
-
-
-
-
-    def select_optimal_mcqs(self, student_id: str, num_questions: int = 5,
+    def select_optimal_mcqs(self, student_id: str, num_questions: int = 50,
                           use_chapter_weights: bool = False, confidence: float = 1.0) -> List[str]:
         """
         Main greedy algorithm for adaptive MCQ selection.
@@ -4093,13 +4067,13 @@ class MCQScheduler:
 
 
     def get_next_breakdown_step(self, breakdown_steps: List['BreakdownStep'], current_step_index: int) -> Optional['BreakdownStep']:
-        """NEW METHOD: Get next step in breakdown sequence"""
+        """ Get next step in breakdown sequence"""
         if current_step_index < len(breakdown_steps) - 1:
             return breakdown_steps[current_step_index + 1]
         return None
 
     def should_trigger_breakdown(self, student_id: str, mcq_id: str, is_correct: bool) -> bool:
-        """NEW METHOD: Determine if breakdown should be triggered"""
+        """ Determine if breakdown should be triggered"""
         if is_correct:
             return False
 
@@ -5051,7 +5025,7 @@ class BayesianKnowledgeTracing:
             'guess_rate': current_params['guess_rate']
         }
 
-    # NEW METHODS FOR FSRS FUNCTIONALITY
+    # METHODS FOR FSRS FUNCTIONALITY
     def get_current_mastery_with_decay(self, student_id: str, topic_index: int) -> float:
         """Get current mastery level with forgetting applied, without updating stored values"""
         student = self.student_manager.get_student(student_id)

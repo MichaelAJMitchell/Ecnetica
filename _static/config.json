@@ -79,7 +79,7 @@
     "greedy_prereq_weight": 0.5,
     "greedy_mastery_update_rate": 0.8,
     "greedy_early_stopping": false,
-    "greedy_max_mcqs_to_evaluate": 50,
+    "greedy_max_mcqs_to_evaluate": 100,
     "skills_breakdown_weight": 2.0,
     "overall_difficulty_weight": 1.0,
     "enable_virtual_area_effects": true,
@@ -98,12 +98,11 @@
   },
     "breakdown_config": {
       "prerequisite_skip_threshold": 0.8,
-      "step_mastery_weight": 0.3,
       "enable_breakdown_system": true
   },
   "ui_settings": {
     "default_questions_per_session": 30,
-    "max_questions_per_session": 30,
+    "max_questions_per_session": 100,
     "enable_explanations": true,
     "show_difficulty": false,
     "enable_confidence_display": true

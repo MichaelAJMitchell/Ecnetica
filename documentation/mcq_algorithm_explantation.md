@@ -111,7 +111,7 @@ bkt_updates = student_manager.record_attempt(
     time_taken,     # Time in seconds
     kg              # Knowledge graph instance
 )
-this prepares breakdown, applies bkt and area of affect,, fsrs
+this prepares breakdown, applies bkt and area of affect, fsrs
 
 ```
 

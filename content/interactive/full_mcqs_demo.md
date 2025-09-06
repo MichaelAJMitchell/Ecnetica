@@ -132,7 +132,6 @@
           <h2>🎉 Session Complete!</h2>
           <div id="final-statistics"></div>
           <button onclick="startNewSession()" class="primary-btn">Start New Session</button>
-          <button onclick="reviewSession()" class="success-btn">Review Session</button>
         </div>
       </div>
     </div>
@@ -1079,19 +1078,6 @@
               <h4>Success Rate</h4>
               <div class="stat-value">${successRate}%</div>
             </div>
-            <div class="stat-card">
-              <h4>Total Time</h4>
-              <div class="stat-value">${sessionStats.totalTime.toFixed(1)}s</div>
-            </div>
-            <div class="stat-card">
-              <h4>Average Time per Question</h4>
-              <div class="stat-value">${(sessionStats.totalTime / sessionStats.questionsAnswered).toFixed(1)}s</div>
-            </div>
-          </div>
-
-          <div class="skill-improvements">
-            <h3>🎯 Skill Improvements This Session</h3>
-            <div id="session-skill-summary"></div>
           </div>
         `;
 

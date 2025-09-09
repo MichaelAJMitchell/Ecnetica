@@ -53,7 +53,7 @@ if FSRS_IMPLEMENTATION is None:
 
 # Import your existing FSRS implementation for integration
 try:
-    from _static.mcq_algorithm_current import (
+    from _static.mcq_algorithm import (
         FSRSForgettingModel, FSRSForgettingConfig, FSRSMemoryComponents
     )
     CUSTOM_FSRS_AVAILABLE = True

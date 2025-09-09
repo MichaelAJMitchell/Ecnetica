@@ -15,7 +15,6 @@ Main Classes:
 
 
 
-
 import numpy as np
 import networkx as nx
 from typing import Dict, List, Set, Tuple, Optional, Union, Any
@@ -25,10 +24,16 @@ from datetime import datetime
 import math
 import json
 import random
-from sympy import symbols, sympify, latex, pi, simplify, factor, expand, sin, cos, sqrt, tan, Poly, collect, Rational
+import re
+from sympy import ( sqrt, Poly, sympify, expand, factor, simplify, collect, symbols, latex, Rational,gcd, lcm, factorial, isprime, factorint, Abs, floor, ceiling, Mod,diff, integrate, limit, series, solve, roots,sin, cos, tan, asin, acos, atan, sec, csc, cot, pi, E, deg, rad, log, exp,cancel, apart, together, nsimplify
+)
 
 x, a, b, c, d, r_1, r_2 = symbols('x a b c d r_1 r_2')
-local_namespace = {'x': x,'a':a,'b':b,'c':c, 'r_1': r_1, 'r_2': r_2,'sin': sin, 'cos': cos, 'pi': pi,'sqrt': sqrt}
+local_namespace = {
+    'x': x, 'a': a, 'b': b, 'c': c, 'r_1': r_1, 'r_2': r_2,
+    'sin': sin, 'cos': cos, 'tan': tan, 'pi': pi, 'sqrt': sqrt,
+    'log': log, 'exp': exp, 'E': E, 'gcd':gcd
+}
 
 
 @dataclass
@@ -46,7 +51,10 @@ class MinimalMCQData:
     text: Optional[str] = None  # Only for display/debugging
     chapter: Optional[str] = None
 
-    is_parameterized: bool = False
+    is_parameterized: bool = False #?
+
+    has_breakdown: bool = False
+    breakdown_options: List[int] = field(default_factory=list)
 
 class MCQLoader:
     """
@@ -67,9 +75,13 @@ class MCQLoader:
         # Build the minimal index
         self._build_minimal_index()
 
+        self._breakdown_stats = {
+            'total_with_breakdown': 0,
+            'by_topic': {}
+        }
+
     def _build_minimal_index(self):
         """Build index with only essential data for the algorithm"""
-        print(f"🔍 Building optimized MCQ index from {self.mcqs_file}...")
 
         try:
             with open(self.mcqs_file, 'r', encoding='utf-8') as f:
@@ -112,8 +124,6 @@ class MCQLoader:
             print(f"❌ Error building minimal index: {e}")
             raise
 
-        print(f"✅  optimized index complete:")
-        print(f"   📊 {len(self.minimal_mcq_data)} MCQs indexed")
 
 
     def get_mcqs_for_due_topics_minimal(self, due_topic_indices: List[int]) -> List[MinimalMCQData]:
@@ -232,15 +242,610 @@ class DifficultyBreakdown:
         """Factory method for easier instantiation"""
         return cls(conceptual, procedural, problem_solving, communication, memory, spatial)
 
-    def to_dict(self) -> Dict[str, float]:
-        """Convert to dictionary for MCQVector compatibility"""
-        return {
-            'problem_solving': self.problem_solving,
-            'memory': self.memory,
-            'notation': self.notation,
-            'algebra': self.algebra,
-            'interconnected': self.interconnected
+
+@dataclass
+class BreakdownStep:
+    """Represents a single step in a question breakdown"""
+    step_no: int
+    step_type: str
+    text: str
+    options: List[str]
+    correctindex: int
+    option_explanations: List[str]
+    prereq_topics: List[int] = field(default_factory=list)
+    subquestion_expression: Optional[str] = None
+    calculated_parameters: Optional[Dict[str, str]] = field(default_factory=dict)
+
+    # Inherited from parent MCQ
+    parent_mcq: 'MCQ' = None
+    parent_generated_parameters: Dict[str, Dict] = field(default_factory=dict)
+    parent_calculated_parameters: Dict[str, str] = field(default_factory=dict)
+    parent_params: Dict[str, Union[int, float]] = field(default_factory=dict)
+    parent_question_expression: Optional[str] = None
+
+    def __post_init__(self):
+        """Process step data after initialization"""
+        # Merge parent and step-specific calculated parameters
+        self.all_calculated_parameters = {
+            **self.parent_calculated_parameters,
+            **self.calculated_parameters
         }
+
+    @classmethod
+    def from_dict(cls, step_data: Dict, parent_mcq: 'MCQ') -> 'BreakdownStep':
+        """Create BreakdownStep from dictionary with parent MCQ context"""
+        return cls(
+            step_no=step_data['step_no'],
+            step_type=step_data['step_type'],
+            text=step_data['text'],
+            options=step_data['options'],
+            correctindex=step_data['correctindex'],
+            option_explanations=step_data['option_explanations'],
+            prereq_topics=step_data.get('prereq_topics', []),
+            subquestion_expression=step_data.get('subquestion_expression'),
+            calculated_parameters=step_data.get('calculated_parameters', {}),
+            parent_generated_parameters=parent_mcq.generated_parameters or {},
+            parent_calculated_parameters=parent_mcq.calculated_parameters or {},
+            parent_params=parent_mcq.get_current_parameters_safe(),
+            parent_question_expression=parent_mcq.question_expression,
+            parent_mcq=parent_mcq
+        )
+
+    def should_skip(self, student_mastery: Dict[int, float], config: Dict) -> bool:
+        """Check if this step should be skipped based on prerequisite mastery"""
+        if not self.prereq_topics:
+            return False
+
+        mastery_threshold = config.get('prerequisite_skip_threshold', 0.8)
+
+        for topic_id in self.prereq_topics:
+            if student_mastery.get(topic_id, 0.0) > mastery_threshold:
+                return True
+
+        return False
+
+    def render_step_text(self) -> str:
+        """Render step text with parameter substitution using parent MCQ's method"""
+        # Get fresh parameters from parent MCQ to ensure consistency
+        if self.parent_mcq:
+            fresh_parent_params = self.parent_mcq.get_current_parameters_safe()
+        else:
+            fresh_parent_params = self.parent_params  # Fallback to stored params
+
+        return self._generate_step_text_with_substitution(self.text, fresh_parent_params)
+
+
+
+    def _generate_step_text_with_substitution(self, text: str, params: Dict) -> str:
+        """Generate step text using the SAME logic as generate_question_text"""
+        if not params or not text:
+            return text
+
+        result_text = text
+
+        # Handle question_expression variants (SAME as generate_question_text)
+        if hasattr(self, 'parent_question_expression') and self.parent_question_expression:
+            placeholders = [
+                ('${question_expression_expanded}', 'expanded'),
+                ('${question_expression_factored}', 'factored'),
+                ('${question_expression_simplified}', 'simplified'),
+                ('${question_expression_collected}', 'collected'),
+                ('${question_expression}', 'as_is')
+            ]
+
+            for placeholder, format_type in placeholders:
+                if placeholder in result_text:
+                    try:
+                        local_namespace = {'__builtins__': {}}
+
+                        # Create SymPy-safe parameter dictionary
+                        # Only include numeric parameters
+                        sympy_safe_params = {}
+                        for key, value in params.items():
+                            try:
+                                if isinstance(value, (int, float)):
+                                    sympy_safe_params[key] = value
+                                elif hasattr(value, 'numerator') and hasattr(value, 'denominator'):  # Fraction
+                                    sympy_safe_params[key] = Rational(value.numerator, value.denominator)
+                                # Skip strings, complex objects, etc.
+                                elif isinstance(value, list) and all(isinstance(x, (int, float)) for x in value):
+                                    # Handle coefficient lists - keep as list for indexing
+                                    sympy_safe_params[key] = value
+                                elif isinstance(value, str) and not ('\\' in value or callable(value)):  # ✅ ALLOW clean strings but skip LaTeX and function-like strings
+                                    sympy_safe_params[key] = value  # Keep string parameters for substitution
+                                # Skip problematic types that cause 'subs' errors
+                                elif hasattr(value, 'subs') or callable(value):
+                                    continue  # Skip SymPy objects and functions
+                                elif callable(value):  # Function objects
+                                    continue
+                                elif hasattr(value, '__call__'):  # More function detection
+                                    continue
+                                elif str(type(value)).startswith('<function'):  # Function type detection
+                                    continue
+                                elif isinstance(value, (list, dict, tuple)) and not all(isinstance(x, (int, float)) for x in value):
+                                    continue
+                                else:
+                                    # Try to convert unknown types to float
+                                    try:
+                                        # Check if it's a numeric type we can safely convert
+                                        if hasattr(value, '__float__') and not callable(value):
+                                            sympy_safe_params[key] = float(value)
+                                        elif hasattr(value, '__int__') and not callable(value):
+                                            sympy_safe_params[key] = int(value)
+                                    except (ValueError, TypeError, AttributeError):
+                                        # Skip if can't convert safely
+                                        continue
+
+                            except Exception:
+                                # Skip any parameter that causes issues during type checking
+                                continue
+
+                        # Debug output to see what's being used
+                        if len(sympy_safe_params) != len(params):
+                            filtered_out = set(params.keys()) - set(sympy_safe_params.keys())
+                        latex_expr = ""
+                        # Handle equations separately
+                        if '=' in self.parent_question_expression:
+                            left_side, right_side = self.parent_question_expression.split('=', 1)
+                            left_expr = sympify(left_side.strip(), locals=local_namespace)
+                            right_expr = sympify(right_side.strip(), locals=local_namespace)
+
+                            left_sub = left_expr.subs(sympy_safe_params)
+                            right_sub = right_expr.subs(sympy_safe_params)
+
+                            # Apply format
+                            if format_type == 'expanded':
+                                left_proc = expand(left_sub)
+                                right_proc = expand(right_sub)
+                            elif format_type == 'factored':
+                                left_proc = factor(left_sub)
+                                right_proc = factor(right_sub)
+                            elif format_type == 'simplified':
+                                left_proc = simplify(left_sub)
+                                right_proc = simplify(right_sub)
+                            elif format_type == 'collected':
+                                left_proc = collect(left_sub, symbols('x'))
+                                right_proc = collect(right_sub, symbols('x'))
+                            else:
+                                left_proc = left_sub
+                                right_proc = right_sub
+
+                            # Convert both sides to LaTeX
+                            left_latex = latex(left_proc)
+                            right_latex = latex(right_proc)
+                            # Clean signs
+                            left_latex = left_latex.replace('+ -', '- ').replace('- -', '+ ')
+                            right_latex = right_latex.replace('+ -', '- ').replace('- -', '+ ')
+
+                            latex_expr = f"{left_latex} = {right_latex}"
+
+                        else:
+                            if self.parent_question_expression in params:
+                                # This is a parameter name that should be substituted
+                                expr = symbols(self.parent_question_expression)
+                            else:
+                                # This is a mathematical expression to be parsed
+                                expr = sympify(self.parent_question_expression, locals=local_namespace)
+                            substituted = expr.subs(sympy_safe_params)
+                            if format_type == 'expanded':
+                                processed = expand(substituted)
+                            elif format_type == 'factored':
+                                processed = factor(substituted)
+                            elif format_type == 'simplified':
+                                processed = simplify(substituted)
+                            elif format_type == 'collected':
+                                processed = collect(substituted, symbols('x'))
+                            else:
+                                processed = substituted
+
+                            latex_expr = latex(processed)
+                            latex_expr = latex_expr.replace('+ -', '- ').replace('- -', '+ ')
+
+                        # Replace placeholder with formatted expression wrapped in $...$
+                        result_text = result_text.replace(placeholder, f"\\({latex_expr}\\)")
+
+                    except Exception as e:
+                        print(f"⚠️ Error processing question_expression: {e}")
+                        # Fallback: do naive substitution of parameters
+                        fallback_expr = self.parent_question_expression
+                        for pname, pvalue in sympy_safe_params.items():
+                            if not pname.endswith('_sympy'):  # Skip SymPy objects
+                                # Use smart formatting for parameter values
+                                formatted_pvalue = MCQ.smart_format_number(pvalue)
+                                fallback_expr = fallback_expr.replace(str(pname), formatted_pvalue)
+                        fallback_expr = fallback_expr.replace('+ -', '- ').replace('- -', '+ ')
+                        result_text = result_text.replace(placeholder, f"\\({fallback_expr}\\)")
+
+            for placeholder, format_type in placeholders:
+                if placeholder in result_text:
+                    try:
+                        # FIXED: Use the same parameter vs expression logic
+                        if self.parent_question_expression in params:
+                            # This is a parameter name that should be substituted
+                            processed = MCQ.smart_format_number(params[self.parent_question_expression])
+                        else:
+                            # This is a mathematical expression to be processed
+                            processed = self._process_expression_with_sympy(
+                                self.parent_question_expression, format_type, params
+                            )
+
+                        result_text = result_text.replace(placeholder, f"\\({processed}\\)")
+
+                    except Exception as e:
+                        print(f"⚠️ Error processing question_expression: {e}")
+                        # Use the same fallback as generate_question_text
+                        fallback_expr = self.parent_question_expression
+                        for pname, pvalue in params.items():
+                            if isinstance(pvalue, (int, float)):
+                                formatted_pvalue = MCQ.smart_format_number(pvalue)
+                                fallback_expr = fallback_expr.replace(str(pname), formatted_pvalue)
+                        result_text = result_text.replace(placeholder, f"${fallback_expr}$")
+
+        # Handle subquestion_expression variants (SAME pattern)
+        if hasattr(self, 'subquestion_expression') and self.subquestion_expression and self.subquestion_expression.strip():
+            subq_placeholders = [
+                ('${subquestion_expression_expanded}', 'expanded'),
+                ('${subquestion_expression_factored}', 'factored'),
+                ('${subquestion_expression_simplified}', 'simplified'),
+                ('${subquestion_expression_collected}', 'collected'),
+                ('${subquestion_expression}', 'as_is')
+                ]
+
+            for placeholder, format_type in subq_placeholders:
+                if placeholder in result_text:
+                    try:
+                        local_namespace = {'__builtins__': {}}
+
+                        # Create SymPy-safe parameter dictionary
+                        # Only include numeric parameters
+                        sympy_safe_params = {}
+                        for key, value in params.items():
+                            try:
+                                if isinstance(value, (int, float)):
+                                    sympy_safe_params[key] = value
+                                elif hasattr(value, 'numerator') and hasattr(value, 'denominator'):  # Fraction
+                                    sympy_safe_params[key] = Rational(value.numerator, value.denominator)
+                                # Skip strings, complex objects, etc.
+                                elif isinstance(value, list) and all(isinstance(x, (int, float)) for x in value):
+                                    # Handle coefficient lists - keep as list for indexing
+                                    sympy_safe_params[key] = value
+                                elif isinstance(value, str) and not ('\\' in value or callable(value)):  # ✅ ALLOW clean strings but skip LaTeX and function-like strings
+                                    sympy_safe_params[key] = value  # Keep string parameters for substitution
+                                # Skip problematic types that cause 'subs' errors
+                                elif hasattr(value, 'subs') or callable(value):
+                                    continue  # Skip SymPy objects and functions
+                                elif callable(value):  # Function objects
+                                    continue
+                                elif hasattr(value, '__call__'):  # More function detection
+                                    continue
+                                elif str(type(value)).startswith('<function'):  # Function type detection
+                                    continue
+                                elif isinstance(value, (list, dict, tuple)) and not all(isinstance(x, (int, float)) for x in value):
+                                    continue
+                                else:
+                                    # Try to convert unknown types to float
+                                    try:
+                                        # Check if it's a numeric type we can safely convert
+                                        if hasattr(value, '__float__') and not callable(value):
+                                            sympy_safe_params[key] = float(value)
+                                        elif hasattr(value, '__int__') and not callable(value):
+                                            sympy_safe_params[key] = int(value)
+                                    except (ValueError, TypeError, AttributeError):
+                                        # Skip if can't convert safely
+                                        continue
+
+                            except Exception:
+                                # Skip any parameter that causes issues during type checking
+                                continue
+
+                        latex_expr = ""
+                        # Handle equations separately
+                        if '=' in self.subquestion_expression:
+                            left_side, right_side = self.subquestion_expression.split('=', 1)
+                            left_expr = sympify(left_side.strip(), locals=local_namespace)
+                            right_expr = sympify(right_side.strip(), locals=local_namespace)
+
+                            left_sub = left_expr.subs(sympy_safe_params)
+                            right_sub = right_expr.subs(sympy_safe_params)
+
+                            # Apply format
+                            if format_type == 'expanded':
+                                left_proc = expand(left_sub)
+                                right_proc = expand(right_sub)
+                            elif format_type == 'factored':
+                                left_proc = factor(left_sub)
+                                right_proc = factor(right_sub)
+                            elif format_type == 'simplified':
+                                left_proc = simplify(left_sub)
+                                right_proc = simplify(right_sub)
+                            elif format_type == 'collected':
+                                left_proc = collect(left_sub, symbols('x'))
+                                right_proc = collect(right_sub, symbols('x'))
+                            else:
+                                left_proc = left_sub
+                                right_proc = right_sub
+
+                            # Convert both sides to LaTeX
+                            left_latex = latex(left_proc)
+                            right_latex = latex(right_proc)
+                            # Clean signs
+                            left_latex = left_latex.replace('+ -', '- ').replace('- -', '+ ')
+                            right_latex = right_latex.replace('+ -', '- ').replace('- -', '+ ')
+
+                            latex_expr = f"{left_latex} = {right_latex}"
+
+                        else:
+                            if self.subquestion_expression in params:
+                                # This is a parameter name that should be substituted
+                                expr = symbols(self.subquestion_expression)
+                            else:
+                                # This is a mathematical expression to be parsed
+                                expr = sympify(self.subquestion_expression, locals=local_namespace)
+                            substituted = expr.subs(sympy_safe_params)
+                            if format_type == 'expanded':
+                                processed = expand(substituted)
+                            elif format_type == 'factored':
+                                processed = factor(substituted)
+                            elif format_type == 'simplified':
+                                processed = simplify(substituted)
+                            elif format_type == 'collected':
+                                processed = collect(substituted, symbols('x'))
+                            else:
+                                processed = substituted
+
+                            latex_expr = latex(processed)
+                            latex_expr = latex_expr.replace('+ -', '- ').replace('- -', '+ ')
+
+                        # Replace placeholder with formatted expression wrapped in $...$
+                        result_text = result_text.replace(placeholder, f"\\({latex_expr}\\)")
+
+                    except Exception as e:
+                        print(f"⚠️ Error processing question_expression: {e}")
+                        # Fallback: do naive substitution of parameters
+                        fallback_expr = self.question_expression
+                        for pname, pvalue in sympy_safe_params.items():
+                            if not pname.endswith('_sympy'):  # Skip SymPy objects
+                                # Use smart formatting for parameter values
+                                formatted_pvalue = MCQ.smart_format_number(pvalue)
+                                fallback_expr = fallback_expr.replace(str(pname), formatted_pvalue)
+                        fallback_expr = fallback_expr.replace('+ -', '- ').replace('- -', '+ ')
+                        result_text = result_text.replace(placeholder, f"\\({fallback_expr}\\)")
+
+
+
+
+        # Individual parameter substitutions (SAME as existing code)
+        for param_name, param_value in params.items():
+            placeholder = f'${{{param_name}}}'
+            if placeholder in result_text:
+                formatted_value = MCQ.smart_format_number(param_value)
+                result_text = result_text.replace(placeholder, formatted_value)
+
+        return result_text
+
+    def _process_expression_with_sympy(self, expression: str, format_type: str, params: Dict) -> str:
+        """Process mathematical expressions using SymPy - USING EXISTING LOGIC from generate_question_text"""
+        from sympy import sympify, expand, factor, simplify, collect, symbols, latex, Rational
+
+        try:
+            local_namespace = {'__builtins__': {}}
+
+            # FIXED: Use the SAME logic as generate_question_text
+            # Create SymPy-safe parameters (same as existing code)
+            sympy_safe_params = {}
+            for key, value in params.items():
+                try:
+                    if isinstance(value, (int, float)):
+                        sympy_safe_params[key] = value
+                    elif hasattr(value, 'numerator') and hasattr(value, 'denominator'):  # Fraction
+                        sympy_safe_params[key] = Rational(value.numerator, value.denominator)
+                    # Skip strings, complex objects, etc.
+                except Exception:
+                    continue
+
+            #  Use the same parameter vs expression check as generate_question_text
+            if expression in params:
+                # This is a parameter name that should be substituted
+                expr = symbols(expression)
+            else:
+                # This is a mathematical expression to be parsed
+                expr = sympify(expression, locals=local_namespace)
+
+            # Apply parameter substitution
+            substituted = expr.subs(sympy_safe_params)
+
+            # Apply format transformation (same as existing code)
+            if format_type == 'expanded':
+                processed = expand(substituted)
+            elif format_type == 'factored':
+                processed = factor(substituted)
+            elif format_type == 'simplified':
+                processed = simplify(substituted)
+            elif format_type == 'collected':
+                processed = collect(substituted, symbols('x'))
+            else:  # 'as_is'
+                processed = substituted
+
+            # Convert to LaTeX (same as existing code)
+            latex_expr = latex(processed)
+            latex_expr = latex_expr.replace('+ -', '- ').replace('- -', '+ ')
+            return latex_expr
+
+        except Exception as e:
+            print(f"⚠️ SymPy processing failed: {e}")
+            # FIXED: Use the same fallback as generate_question_text
+            fallback_expr = expression
+            for pname, pvalue in sympy_safe_params.items():
+                if not pname.endswith('_sympy'):  # Skip SymPy objects
+                    # Use smart formatting for parameter values
+                    formatted_pvalue = MCQ.smart_format_number(pvalue)
+                    fallback_expr = fallback_expr.replace(str(pname), formatted_pvalue)
+            fallback_expr = fallback_expr.replace('+ -', '- ').replace('- -', '+ ')
+            return fallback_expr
+
+    def _simple_parameter_substitution(self, expression: str, params: Dict) -> str:
+        """Simple parameter substitution without SymPy"""
+        result = expression
+        for pname, pvalue in params.items():
+            if not isinstance(pvalue, str):
+                formatted_pvalue = MCQ.smart_format_number(pvalue)
+                result = result.replace(str(pname), formatted_pvalue)
+
+        return result.replace('+ -', '- ').replace('- -', '+ ')
+
+    def render_step_options(self) -> List[str]:
+        """Render step options with parameter substitution and calculations"""
+        # Calculate step-specific parameters
+        calc_params = self._calculate_step_parameters()
+        # Use fresh parameters if parent MCQ is available
+        if self.parent_mcq:
+            fresh_parent_params = self.parent_mcq.get_current_parameters_safe()
+        else:
+            fresh_parent_params = self.parent_params  # Fallback
+
+        all_params = {**fresh_parent_params, **calc_params}
+
+        rendered_options = []
+        for option in self.options:
+            rendered = self._render_step_option_sophisticated(option, all_params)
+            rendered_options.append(rendered)
+
+        return rendered_options
+
+    def _render_step_option_sophisticated(self, option: str, all_params: Dict) -> str:
+        """Render single step option with sophisticated formatting"""
+        # Step 1: Parameter substitution
+        substituted = self._substitute_parameters(option, all_params)
+
+        # Step 2: Try mathematical evaluation
+        try:
+            if any(op in substituted for op in ['+', '-', '*', '/', '**', 'sqrt']):
+                evaluated = self._evaluate_step_mathematical_expression(substituted, all_params)
+                if evaluated is not None:
+                    substituted = evaluated
+        except:
+            pass
+
+        # Step 3:  - Apply math cleaning before LaTeX formatting
+        substituted = self.parent_mcq.clean_math_expression(substituted) if self.parent_mcq else substituted
+
+        # Step 4: LaTeX formatting
+        if not (substituted.startswith('\\(') and substituted.endswith('\\)')):
+            if any(char in substituted for char in ['+', '-', '*', '/', '^', '=', '<', '>', 'sqrt', 'frac']) or '\\' in substituted:
+                substituted = f"\\({substituted}\\)"
+
+        return substituted
+
+    def _evaluate_step_mathematical_expression(self, expr: str, params: Dict) -> Optional[str]:
+        """Safely evaluate mathematical expressions for steps"""
+        try:
+            safe_namespace = MCQ.create_safe_math_namespace({
+                **params
+            })
+
+            result = eval(expr, safe_namespace)
+            return MCQ.smart_format_number(result)
+
+        except:
+            return None
+
+    def _calculate_step_parameters(self) -> Dict[str, Union[int, float]]:
+        """Calculate step-specific parameters"""
+        calc_params = {}
+
+        for calc_name, calc_expr in self.all_calculated_parameters.items():
+            try:
+                if calc_name == calc_expr:
+                    continue
+
+                # Create safe namespace with parent parameters
+                safe_namespace = MCQ.create_safe_math_namespace({
+                    **self.parent_params,
+                    **calc_params
+                })
+                calc_result = eval(calc_expr, safe_namespace)
+                calc_params[calc_name] = calc_result
+
+            except Exception as e:
+                print(f"⚠️ Failed to calculate step parameter {calc_name}: {e}")
+                calc_params[calc_name] = 0
+
+        return calc_params
+
+    def _substitute_parameters(self, text: str, params: Dict) -> str:
+        """Substitute parameters using new ${param} format (no double $)"""
+        result = text
+
+        # Sort parameters by length to avoid partial matches ???
+        sorted_params = sorted(params.items(), key=lambda x: len(x[0]), reverse=True)
+
+        for param_name, param_value in sorted_params:
+            # New format: ${param} (single $ for parameter substitution)
+            placeholder = f'${{{param_name}}}'
+            if placeholder in result:
+                formatted_value = MCQ.smart_format_number(param_value)
+                result = result.replace(placeholder, formatted_value)
+
+        return result
+
+    def _substitute_and_render_option(self, option: str, all_params: Dict) -> str:
+        """Substitute parameters and render option for LaTeX display"""
+        # Step 1: Parameter substitution
+        substituted = self._substitute_parameters(option, all_params)
+
+        # Step 2: LaTeX formatting (assuming options are already in LaTeX format)
+        # Just wrap in LaTeX delimiters if not already wrapped
+        if not (substituted.startswith('\\(') and substituted.endswith('\\)')):
+            if any(char in substituted for char in ['+', '-', '*', '/', '^', '=', '<', '>']):
+                substituted = f"\\({substituted}\\)"
+
+        return substituted
+
+
+    def render_step_option_explanations(self) -> List[str]:
+        """Render step option explanations with parameter substitution and calculations"""
+        # Calculate step-specific parameters
+        calc_params = self._calculate_step_parameters()
+        # Use fresh parameters if parent MCQ is available
+        if self.parent_mcq:
+            fresh_parent_params = self.parent_mcq.get_current_parameters_safe()
+        else:
+            fresh_parent_params = self.parent_params  # Fallback
+
+        all_params = {**fresh_parent_params, **calc_params}
+
+        rendered_explanations = []
+        for explanation in self.option_explanations:
+            rendered = self._render_step_explanation_sophisticated(explanation, all_params)
+            rendered_explanations.append(rendered)
+
+        return rendered_explanations
+
+
+    def _render_step_explanation_sophisticated(self, explanation: str, all_params: Dict) -> str:
+        """Render single step explanation with sophisticated formatting and cleaning"""
+        # Step 1: Parameter substitution
+        substituted = self._substitute_parameters(explanation, all_params)
+
+        # Step 2: Try mathematical evaluation
+        try:
+            if any(op in substituted for op in ['+', '-', '*', '/', '**', 'sqrt']):
+                evaluated = self._evaluate_step_mathematical_expression(substituted, all_params)
+                if evaluated is not None:
+                    substituted = evaluated
+        except:
+            pass
+
+        # Step 3: Apply math cleaning (key fix for breakdown steps too)
+        substituted = self.parent_mcq.clean_math_expression(substituted) if self.parent_mcq else substituted
+
+        # Step 4: LaTeX formatting
+        if not (substituted.startswith('\\(') and substituted.endswith('\\)')):
+            if any(char in substituted for char in ['+', '-', '*', '/', '^', '=', '<', '>', 'sqrt', 'frac']) or '\\' in substituted:
+                substituted = f"\\({substituted}\\)"
+
+        return substituted
+
 
 @dataclass
 class MCQ:
@@ -266,7 +871,52 @@ class MCQ:
     _current_params: Optional[Dict] = field(default=None, init=False)
     _is_parameterized: Optional[bool] = field(default=None, init=False)
 
+    breakdown: Optional[Dict[str, Dict]] = None
 
+    @staticmethod
+    def create_safe_math_namespace(base_params: Dict = None) -> Dict:
+        """Create a standardized safe namespace with common math functions"""
+        safe_namespace = {
+            '__builtins__': {},
+            # Math functions
+            'sqrt': lambda x: x**0.5,
+            'round': round,
+            'int': int,
+            'float': float,
+            'sum': sum,
+            'len': len,
+
+        # Basic arithmetic & comparison
+        'abs': Abs, 'max': max, 'min': min, 'round': round,
+
+        # Number theory
+        'gcd': gcd, 'lcm': lcm, 'factorial': factorial,
+        'isprime': isprime, 'factorint': factorint,
+        'floor': floor, 'ceiling': ceiling, 'mod': Mod,
+
+        # Calculus
+        'diff': diff, 'integrate': integrate, 'limit': limit,
+        'solve': solve, 'roots': roots,
+
+        # Trigonometry
+        'sin': sin, 'cos': cos, 'tan': tan,
+        'asin': asin, 'acos': acos, 'atan': atan,
+        'sec': sec, 'csc': csc, 'cot': cot,
+
+        # Constants
+        'pi': pi, 'e': E,
+
+        # Logarithms & exponentials
+        'log': log, 'ln': log, 'exp': exp,
+        'sqrt': sqrt, 'pow': pow,
+
+        # Rational functions
+        'cancel': cancel,
+        }
+        if base_params:
+            safe_namespace.update(base_params)
+
+        return safe_namespace
 
     @classmethod
     def from_dict(cls, data: Dict):
@@ -314,6 +964,8 @@ class MCQ:
 
         overall_difficulty = data['overall_difficulty']
 
+        breakdown = data.get('breakdown', None)
+
 
         return cls(
             text=data['text'],
@@ -329,35 +981,11 @@ class MCQ:
             prerequisites=prerequisites,
             question_expression=data.get('question_expression'),
             generated_parameters=data.get('generated_parameters', {}),
-            calculated_parameters=data.get('calculated_parameters', {})
+            calculated_parameters=data.get('calculated_parameters', {}),
+            breakdown=breakdown
         )
-
-    '''
     def _generate_parameters(self) -> Dict:
-        if not self.generated_parameters:
-            return {}
-        params ={}
-
-        for name, rule in self.generated_parameters.items():
-            if rule['type']=='int':
-                value = random.randint(rule['min'],rule['max'])
-                if rule.get('exclude'):
-                    exclude = params[rule['exclude']]
-                    while value == exclude:
-                        value = random.choice([i for i in range(rule['min'],rule['max']+1)if i != exclude])
-                    else:
-                        # Fallback if can't find valid value
-                        params[name] = rule['min']
-            elif rule['type'] == 'choice':
-                value = random.choice(rule['choices'])
-            else:
-                raise ValueError(f"Unknown type: {rule['type']}")
-            params[name] = value
-
-        return params
-        '''
-    def _generate_parameters(self) -> Dict:
-        """Completely rewritten parameter generation - simple and robust"""
+        """Generates random parameters for questions based on constraints"""
         if not self.generated_parameters:
             return {}
 
@@ -365,7 +993,7 @@ class MCQ:
             params = {}
             success = True
 
-            # Simple approach: generate all parameters, then check constraints
+            # generate all parameters, then check constraints
             for param_name, config in self.generated_parameters.items():
                 try:
                     if config['type'] == 'int':
@@ -375,9 +1003,26 @@ class MCQ:
                             print(f"Warning: Invalid range for {param_name}: min={config['min']} > max={config['max']}")
                             success = False
                             break
-                        # Generate random value in range
-                        value = random.randint(config['min'], config['max'])
-                        params[param_name] = value
+                        min_val = config['min']
+                        max_val = config['max']
+                        exclude = config.get('exclude', [])
+
+                        # Handle single exclude value
+                        if not isinstance(exclude, list):
+                            exclude = [exclude]
+
+                        # Generate valid values
+                        valid_values = [x for x in range(min_val, max_val + 1) if x not in exclude]
+
+                        if not valid_values:
+                            raise ValueError(f"No valid values for parameter {param_name}")
+
+                        params[param_name] = random.choice(valid_values)
+
+                    elif config['type'] == 'float':
+                        min_val = config['min']
+                        max_val = config['max']
+                        params[param_name] = random.uniform(min_val, max_val)
 
                     elif config['type'] == 'choice':
                         if not config.get('choices'):
@@ -411,12 +1056,10 @@ class MCQ:
                         params[f"{param_name}_unit"] = angle_data['unit']
 
                     elif config['type'] == 'polynomial':
-                        # FIXED: Store only numerical data, not SymPy objects
                         poly_data = self._generate_polynomial_parameter(config)
                         params[param_name] = poly_data['expression']  # String expression
                         params[f"{param_name}_coeffs"] = poly_data['coefficients']  # List of numbers
                         params[f"{param_name}_degree"] = poly_data['degree']  # Integer
-                        # DON'T store sympy_expr - it causes the 'subs' error
                         coeffs = poly_data['coefficients']
                         for i, coeff in enumerate(coeffs):
                             params[f"{param_name}_coeff_{i}"] = coeff
@@ -480,44 +1123,9 @@ class MCQ:
                             # Create safe evaluation environment
                             local_namespace = {'__builtins__': {}}
 
-                            # Convert parameters to SymPy-compatible format
-                            sympy_params = {}
-                            for key, value in params.items():
-                                try:
-                                    if isinstance(value, (int, float)):
-                                        sympy_params[key] = value
-                                    elif hasattr(value, 'numerator') and hasattr(value, 'denominator'):
-                                        # Handle Fraction objects properly
-                                        sympy_params[key] = Rational(value.numerator, value.denominator)
-                                    elif isinstance(value, list) and all(isinstance(x, (int, float)) for x in value):
-                                        # Handle coefficient lists properly - store as list, not SymPy
-                                        sympy_params[key] = value
-                                    # Skip complex objects that cause 'subs' errors
-                                except Exception:
-                                    continue
-
-                            # Parse and evaluate the calculated parameter
-                            expr = sympify(calc_expr, locals=local_namespace)
-                            result = expr.subs(sympy_params)
-
-                            # FIXED: Convert result to proper Python types
-                            if hasattr(result, 'is_number') and result.is_number:
-                                if result.is_integer:
-                                    params[calc_name] = int(result)
-                                elif hasattr(result, 'p') and hasattr(result, 'q'):  # SymPy Rational
-                                    # Convert SymPy Rational to Python Fraction
-                                    params[calc_name] = Fraction(int(result.p), int(result.q))
-                                else:
-                                    # Keep as SymPy Rational if it's a clean fraction
-                                    if isinstance(result, Rational):
-                                        params[calc_name] = Fraction(int(result.p), int(result.q))
-                                    else:
-                                        params[calc_name] = float(result)
-                            else:
-                                params[calc_name] = str(result)
-
-
-
+                            safe_namespace = MCQ.create_safe_math_namespace({**params})
+                            calc_result = eval(calc_expr, {"__builtins__": {}}, safe_namespace)
+                            params[calc_name] = calc_result
                         except Exception as e:
                             print(f"Warning: Error calculating parameter {calc_name} with expression '{calc_expr}': {e}")
                             # For debugging: show available parameters
@@ -590,111 +1198,130 @@ class MCQ:
 
     def _generate_angle_parameter(self, config: Dict[str, Any]) -> Dict[str, float]:
         """Generate an angle parameter with unit handling."""
-        unit = config.get('unit', 'degrees')
-        special_only = config.get('special_angles_only', False)
-        quadrant = config.get('quadrant', 'any')
+        angle_type = config.get('type', 'degrees')
+        special_angles_only = config.get('special_angles_only', False)
+        quadrant = config.get('quadrant', None)  # 1-4, or None for any
 
-        if special_only:
-            # Common special angles in degrees
-            special_degrees = [0, 30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330, 360]
+        if special_angles_only:
+            if angle_type == 'degrees':
+                special_angles = [0, 30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330, 360]
+            else:  # radians
+                special_angles = [0, math.pi/6, math.pi/4, math.pi/3, math.pi/2,
+                                2*math.pi/3, 3*math.pi/4, 5*math.pi/6, math.pi,
+                                7*math.pi/6, 5*math.pi/4, 4*math.pi/3, 3*math.pi/2,
+                                5*math.pi/3, 7*math.pi/4, 11*math.pi/6, 2*math.pi]
 
             # Filter by quadrant if specified
-            if quadrant != 'any':
-                quad_ranges = {1: (0, 90), 2: (90, 180), 3: (180, 270), 4: (270, 360)}
-                min_deg, max_deg = quad_ranges[quadrant]
-                special_degrees = [a for a in special_degrees if min_deg <= a <= max_deg]
+            if quadrant:
+                if angle_type == 'degrees':
+                    quadrant_ranges = {
+                        1: (0, 90), 2: (90, 180), 3: (180, 270), 4: (270, 360)
+                    }
+                else:
+                    quadrant_ranges = {
+                        1: (0, math.pi/2), 2: (math.pi/2, math.pi),
+                        3: (math.pi, 3*math.pi/2), 4: (3*math.pi/2, 2*math.pi)
+                    }
 
-            degrees_value = random.choice(special_degrees)
+                min_range, max_range = quadrant_ranges[quadrant]
+                special_angles = [a for a in special_angles if min_range <= a <= max_range]
+
+            angle_value = random.choice(special_angles)
         else:
-            # Generate from range
-            min_val = config.get('min', 0)
-            max_val = config.get('max', 360 if unit == 'degrees' else 2*math.pi)
-
-            if unit == 'degrees':
-                degrees_value = random.randint(min_val, max_val)
+            # Generate any angle
+            if angle_type == 'degrees':
+                min_angle, max_angle = 0, 360
             else:
-                radians_value = random.uniform(min_val, max_val)
-                degrees_value = math.degrees(radians_value)
+                min_angle, max_angle = 0, 2*math.pi
 
-        # Convert and return both representations
-        radians_value = math.radians(degrees_value)
+            if quadrant:
+                if angle_type == 'degrees':
+                    quadrant_ranges = {
+                        1: (0, 90), 2: (90, 180), 3: (180, 270), 4: (270, 360)
+                    }
+                else:
+                    quadrant_ranges = {
+                        1: (0, math.pi/2), 2: (math.pi/2, math.pi),
+                        3: (math.pi, 3*math.pi/2), 4: (3*math.pi/2, 2*math.pi)
+                    }
+                min_angle, max_angle = quadrant_ranges[quadrant]
+
+            if angle_type == 'degrees':
+                angle_value = random.randint(int(min_angle), int(max_angle))
+            else:
+                angle_value = random.uniform(min_angle, max_angle)
+
+        # Convert to both formats
+        if angle_type == 'degrees':
+            degrees = angle_value
+            radians = math.radians(angle_value)
+        else:
+            radians = angle_value
+            degrees = math.degrees(angle_value)
 
         return {
-            'value': degrees_value if unit == 'degrees' else radians_value,
-            'unit': unit,
-            'degrees': degrees_value,
-            'radians': radians_value
+            'value': angle_value,
+            'degrees': degrees,
+            'radians': radians,
+            'unit': angle_type
         }
 
+
     def _generate_polynomial_parameter(self, config: Dict[str, Any]) -> Dict[str, Any]:
-        """Generate a polynomial parameter with controlled coefficients."""
+        """Generate a polynomial parameter with specified constraints."""
         degree = config.get('degree', 2)
         variable = config.get('variable', 'x')
         coeff_min = config.get('coefficient_min', -5)
         coeff_max = config.get('coefficient_max', 5)
-        leading_exclude = config.get('leading_coefficient_exclude', [0])
+        leading_coeff_exclude = config.get('leading_coefficient_exclude', [0])
         monic = config.get('monic', False)
-        integer_coeffs = config.get('integer_coefficients', True)
+        integer_coeffs = config.get('integer_coeffs', True)
 
-        var_symbol = symbols(variable)
         coefficients = []
 
-        # Generate coefficients from highest degree to constant term
-        for i in range(degree + 1):
-            if i == 0 and monic:  # Leading coefficient for monic polynomial
-                coeff = 1
-            elif i == 0:  # Leading coefficient
-                if integer_coeffs:
-                    valid_coeffs = [c for c in range(coeff_min, coeff_max + 1) if c not in leading_exclude]
-                    coeff = random.choice(valid_coeffs)
-                else:
-                    coeff = random.uniform(coeff_min, coeff_max)
-                    while coeff in leading_exclude:
-                        coeff = random.uniform(coeff_min, coeff_max)
-            else:  # Other coefficients
-                if integer_coeffs:
-                    coeff = random.randint(coeff_min, coeff_max)
-                else:
-                    coeff = random.uniform(coeff_min, coeff_max)
-            if hasattr(coeff, 'evalf'):  # If it's a SymPy object
-                coeff = float(coeff.evalf())
-            elif not isinstance(coeff, (int, float)):
-                coeff = float(coeff)
+        # Generate leading coefficient (ensure non-zero unless monic)
+        if monic:
+            coefficients.append(1)
+        else:
+            valid_leading = [x for x in range(coeff_min, coeff_max + 1) if x not in leading_coeff_exclude]
+            coefficients.append(random.choice(valid_leading))
 
+        # Generate remaining coefficients
+        for i in range(degree):
+            if integer_coeffs:
+                coeff = random.randint(coeff_min, coeff_max)
+            else:
+                coeff = random.uniform(coeff_min, coeff_max)
             coefficients.append(coeff)
 
-        # Build sympy expression
-        #sympy_expr = sum(coeff * var_symbol**(degree - i) for i, coeff in enumerate(coefficients))
-        #sympy_expr = expand(sympy_expr)
-
-        # Create string representation
+        # Build expression string
         terms = []
         for i, coeff in enumerate(coefficients):
             power = degree - i
+
             if coeff == 0:
                 continue
 
-            # Coefficient handling
             if power == 0:
                 terms.append(str(coeff))
-            elif coeff == 1:
-                if power == 1:
+            elif power == 1:
+                if coeff == 1:
                     terms.append(variable)
-                else:
-                    terms.append(f"{variable}**{power}")
-            elif coeff == -1:
-                if power == 1:
+                elif coeff == -1:
                     terms.append(f"-{variable}")
                 else:
-                    terms.append(f"-{variable}**{power}")
-            else:
-                if power == 1:
                     terms.append(f"{coeff}*{variable}")
+            else:
+                if coeff == 1:
+                    terms.append(f"{variable}**{power}")
+                elif coeff == -1:
+                    terms.append(f"-{variable}**{power}")
                 else:
                     terms.append(f"{coeff}*{variable}**{power}")
 
-
-        expression = " + ".join(terms).replace("+ -", "- ")
+        expression = " + ".join(terms).replace(" + -", " - ")
+        if not expression:
+            expression = "0"
 
         return {
             'expression': expression,
@@ -710,19 +1337,14 @@ class MCQ:
         domain_max = config.get('domain_max', 10)
         param_ranges = config.get('parameter_ranges', {})
 
-        x_sym = symbols('x')
 
         if func_type == 'linear':
             # f(x) = mx + b
             m = random.randint(param_ranges.get('slope_min', -5), param_ranges.get('slope_max', 5))
             b = random.randint(param_ranges.get('intercept_min', -10), param_ranges.get('intercept_max', 10))
 
-            if m == 0 and not param_ranges.get('allow_zero_slope', False):
-                m = 1
-
-            expression = f"{m}*x + {b}" if b >= 0 else f"{m}*x - {abs(b)}"
-            sympy_expr = m * x_sym + b
             parameters = {'slope': m, 'y_intercept': b}
+            expression = f"{m}*x + {b}".replace("+ -", "- ")
 
         elif func_type == 'quadratic':
             # f(x) = ax² + bx + c
@@ -734,7 +1356,6 @@ class MCQ:
                 a = 1
 
             expression = f"{a}*x**2 + {b}*x + {c}".replace("+ -", "- ")
-            sympy_expr = a * x_sym**2 + b * x_sym + c
             parameters = {'a': a, 'b': b, 'c': c}
 
         elif func_type == 'exponential':
@@ -743,13 +1364,11 @@ class MCQ:
             b = random.choice([2, 3, 5, 10] if 'bases' not in param_ranges else param_ranges['bases'])
 
             expression = f"{a} * {b}**x"
-            sympy_expr = a * b**x_sym
             parameters = {'coefficient': a, 'base': b}
 
         else:  # Default to linear if unknown type
             m, b = 1, 0
             expression = "x"
-            sympy_expr = x_sym
             parameters = {'slope': m, 'y_intercept': b}
 
         return {
@@ -762,7 +1381,7 @@ class MCQ:
         }
 
     def _generate_fallback_parameters(self) -> Dict:
-        """Enhanced fallback parameter generation with fraction support"""
+        """ fallback parameter generation"""
         print(f"Generating fallback parameters for question ID: {getattr(self, 'id', 'unknown')}")
         params = {}
 
@@ -806,6 +1425,8 @@ class MCQ:
 
                 elif rule['type'] == 'function':
                     params[name] = 'x'
+                    params[f"{name}_m"] = 1
+                    params[f"{name}_b"] = 0
                     params[f"{name}_type"] = 'linear'
 
                 else:
@@ -815,13 +1436,10 @@ class MCQ:
                 print(f"Warning: Error in fallback for parameter {name}: {e}")
                 params[name] = 1
 
-        # Calculate derived parameters for fallback
+        # Calculate derived parameters for fallback ?????????????????????
         for calc_name, calc_expr in (self.calculated_parameters or {}).items():
             try:
-                # Check if this is a literal string
-                if self._is_literal_string(calc_expr):
-                    params[calc_name] = calc_expr
-                    continue
+
 
                 # Try mathematical evaluation
                 local_namespace = {'__builtins__': {}}
@@ -850,55 +1468,17 @@ class MCQ:
                 params[calc_name] = calc_expr
         return params
 
-    '''
-    def generate_question_text(self, text: str, params: Dict) -> str:
-        if not params or not text:
-            return text
 
 
-        sympy_params = {k: sympify(v, locals=local_namespace) for k, v in params.items()}
-
-        calc = {
-        n: sympify(expr, locals=local_namespace).subs(params)
-        for n, expr in self.calculated_parameters.items()}
-
-        all_syms = {**{k: sympify(v) for k,v in params.items()}, **calc}
-
-        expr = sympify(self.question_expression, locals=local_namespace).subs(all_syms)
-
-        rendered_options = []
-        for option in self.options:
-            if option in calc:
-                val = calc[option]
-            else:
-                val = sympify(option, locals= local_namespace).subs({**sympy_params,**calc})
-            rendered_options.append(latex(simplify(val)))
-
-
-        # Format text
-        if '${question_expression_subbed}$' in self.text:
-            q_text = self.text.replace('${question_expression_subbed}$', f"${latex(expr)}$")
-        else:
-            q_text = self.question_template.format(**params)
-
-        for name, value in params.items():
-            q_text = q_text.replace(f'${{{name}}}', str(value))
-
-        return {
-            'id': self.id,
-            'question': q_text,
-            'options': rendered_options,
-            'correct_index': self.correct_index,
-            'explanations': (self.option_explanations, []),
-            'params': params
-        }
-        '''
     @staticmethod
-    def smart_format_number(value):
+    def smart_format_number(value: Union[int, float, Fraction]) -> str:
         """
         Smart number formatting that prefers clean representations
         """
-        if isinstance(value, int):
+        if isinstance(value, str):
+            return str(value)
+
+        elif isinstance(value, int):
             return str(value)
 
         elif isinstance(value, float):
@@ -907,8 +1487,6 @@ class MCQ:
                 return str(int(round(value)))
 
             # Check if it's a simple fraction
-            # FIXED: Better fraction detection and formatting
-            from fractions import Fraction
             frac = Fraction(value).limit_denominator(100)  # Max denominator 100
 
             # Use fraction if it's exact and has a reasonable denominator
@@ -926,7 +1504,7 @@ class MCQ:
             elif abs(value - round(value, 2)) < 1e-10:
                 return str(round(value, 2))  # 2 decimal places if exact
             else:
-                return str(round(value, 3))  # Max 3 decimal places
+                return str(round(value, 4))  # Max 4 decimal places
 
         elif hasattr(value, 'numerator') and hasattr(value, 'denominator'):
             # Already a fraction
@@ -946,6 +1524,12 @@ class MCQ:
         else:
             return str(value)
 
+    def ensure_parameters_cached(self) -> None:
+        """Ensure parameters are generated and cached for consistent use"""
+        if self.is_parameterized:
+            if self._current_params is None:
+                self._current_params = self._generate_parameters()
+
 
     def generate_question_text(self, text: str, params: Dict) -> str:
         """
@@ -963,33 +1547,16 @@ class MCQ:
 
         # Start with text to modify
         result_text = text
-        '''
-        # Combine parameters and calculated values into local namespace
-        all_params = params
-        local_namespace = dict(all_params)
-        # Convert all parameters to appropriate types for SymPy
-        sympy_params = {}
-        for key, value in params.items():
-            try:
-                # Convert to SymPy expressions if needed
-                if isinstance(value, (int, float)):
-                    sympy_params[key] = sympify(value)
-                else:
-                    sympy_params[key] = value
-            except Exception:
-                sympy_params[key] = value
-        '''
         # Define question expression placeholders and formats
         placeholders = [
-            ('${question_expression_expanded}$', 'expanded'),
-            ('${question_expression_factored}$', 'factored'),
-            ('${question_expression_simplified}$', 'simplified'),
-            ('${question_expression_collected}$', 'collected'),
-            ('${question_expression}$', 'as_is')
+            ('${question_expression_expanded}', 'expanded'),
+            ('${question_expression_factored}', 'factored'),
+            ('${question_expression_simplified}', 'simplified'),
+            ('${question_expression_collected}', 'collected'),
+            ('${question_expression}', 'as_is')
         ]
 
-        # If question_expression is defined and not empty
-        #if self.question_expression and self.question_expression.strip() != "":
+        # If question_expression is defined
         if self.question_expression and self.question_expression.strip():
             for placeholder, format_type in placeholders:
                 if placeholder in result_text:
@@ -997,12 +1564,12 @@ class MCQ:
                         local_namespace = {'__builtins__': {}}
 
                         # Create SymPy-safe parameter dictionary
-                        # Only include numeric parameters - this prevents all the .subs() errors
+                        # Only include numeric parameters
                         sympy_safe_params = {}
                         for key, value in params.items():
                             try:
                                 if isinstance(value, (int, float)):
-                                    sympy_safe_params[key] = value
+                                    sympy_safe_params[key] = MCQ.smart_format_number(value)
                                 elif hasattr(value, 'numerator') and hasattr(value, 'denominator'):  # Fraction
                                     sympy_safe_params[key] = Rational(value.numerator, value.denominator)
                                 # Skip strings, complex objects, etc.
@@ -1038,11 +1605,6 @@ class MCQ:
                                 # Skip any parameter that causes issues during type checking
                                 continue
 
-                        # Debug output to see what's being used
-                        if len(sympy_safe_params) != len(params):
-                            filtered_out = set(params.keys()) - set(sympy_safe_params.keys())
-                            print(f"   Filtered out parameters: {filtered_out}")
-                            print(f"   Using safe parameters: {list(sympy_safe_params.keys())}")
                         latex_expr = ""
                         # Handle equations separately
                         if '=' in self.question_expression:
@@ -1080,28 +1642,6 @@ class MCQ:
                             latex_expr = f"{left_latex} = {right_latex}"
 
                         else:
-                            '''
-                            # DEBUG: Print all parameter types to find the function object
-                            print(f"\n🔍 DEBUG for question_expression '{self.question_expression}':")
-                            print(f"Total params: {len(params)}")
-                            for key, value in params.items():
-                                value_type = type(value).__name__
-                                value_str = str(value)[:50] + "..." if len(str(value)) > 50 else str(value)
-                                is_callable = callable(value)
-                                has_subs = hasattr(value, 'subs')
-                                print(f"  {key}: {value_type} = {value_str} (callable: {is_callable}, has_subs: {has_subs})")
-
-                            print(f"\nSymPy-safe params: {len(sympy_safe_params)}")
-                            for key, value in sympy_safe_params.items():
-                                value_type = type(value).__name__
-                                is_callable = callable(value)
-                                has_subs = hasattr(value, 'subs')
-                                print(f"  {key}: {value_type} (callable: {is_callable}, has_subs: {has_subs})")
-                            # Single expression
-                            expr = sympify(self.question_expression, locals=local_namespace)
-
-                            substituted = expr.subs(sympy_safe_params)
-                            '''
                             if self.question_expression in params:
                                 # This is a parameter name that should be substituted
                                 expr = symbols(self.question_expression)
@@ -1123,8 +1663,9 @@ class MCQ:
                             latex_expr = latex(processed)
                             latex_expr = latex_expr.replace('+ -', '- ').replace('- -', '+ ')
 
-                        # Replace placeholder with formatted expression wrapped in $...$
-                        result_text = result_text.replace(placeholder, f"${latex_expr}$")
+                        # After getting latex_expr, apply cleaning:
+                        latex_expr = self.clean_math_expression(latex_expr)
+                        result_text = result_text.replace(placeholder, f"\\({latex_expr}\\)")
 
                     except Exception as e:
                         print(f"⚠️ Error processing question_expression: {e}")
@@ -1135,204 +1676,294 @@ class MCQ:
                                 # Use smart formatting for parameter values
                                 formatted_pvalue = MCQ.smart_format_number(pvalue)
                                 fallback_expr = fallback_expr.replace(str(pname), formatted_pvalue)
-                        fallback_expr = fallback_expr.replace('+ -', '- ').replace('- -', '+ ')
-                        result_text = result_text.replace(placeholder, f"${fallback_expr}$")
+                        fallback_expr = self.clean_math_expression(fallback_expr)
+                        result_text = result_text.replace(placeholder, f"\\({fallback_expr}\\)")
 
         # Handle individual parameter substitutions like ${a}$, ${b}$
         for param_name, param_value in params.items():
-            placeholder = f'${{{param_name}}}$'
+            placeholder = f'${{{param_name}}}'
             if placeholder in result_text:
                 formatted_value = MCQ.smart_format_number(param_value)
+                formatted_value = self.clean_math_expression(str(formatted_value))
                 result_text = result_text.replace(placeholder, formatted_value)
 
         return result_text
 
 
-        '''
-                        # Create SymPy expression
-                        expr = sympify(self.question_expression, locals=local_namespace)
-
-                        # Calculate derived parameters first
-                        calc = {}
-                        for calc_name, calc_expr in self.calculated_parameters.items():
-                            calc_expr_sympy = sympify(calc_expr, locals=local_namespace)
-                            calc[calc_name] = calc_expr_sympy.subs(params)
-
-                        # Substitute all parameters
-                        all_params = {**params, **calc}
-                        substituted_expr = expr.subs(all_params)
-
-                        # Apply the transformation based on the format type
-                        if format_type == 'expanded':
-                            processed_expr = expand(substituted_expr)
-                        elif format_type == 'factored':
-                            processed_expr = factor(substituted_expr)
-                        elif format_type == 'simplified':
-                            processed_expr = simplify(substituted_expr)
-                        elif format_type == 'collected':
-                            processed_expr = collect(substituted_expr, symbols('x'))
-                        else:  # 'as_is'
-                            processed_expr = substituted_expr
-
-                        # Convert to LaTeX
-                        latex_expr = latex(processed_expr)
-
-                        # Replace in text (handle both with and without trailing $)
-                        result_text = result_text.replace(placeholder , f"${latex_expr}$")
-
-                    except Exception as e:
-                        print(f"Error in question expression substitution: {e}")
-                        # Fallback to simple string replacement
-                        fallback_expr = self.question_expression
-                        for param_name, param_value in params.items():
-                            fallback_expr = fallback_expr.replace(param_name, str(param_value))
-
-                        result_text = result_text.replace(placeholder, f"${fallback_expr}$")
-
-                    break  # Stop after finding the first matching placeholder
-                '''
-
-        '''
-        if self.question_expression and ('${question_expression_subbed}' in result_text):
-            try:
-                # Create SymPy expression
-                expr = sympify(self.question_expression, locals=local_namespace)
-
-                # Calculate derived parameters first
-                calc = {}
-                for calc_name, calc_expr in self.calculated_parameters.items():
-                    calc_expr_sympy = sympify(calc_expr, locals=local_namespace)
-                    calc[calc_name] = calc_expr_sympy.subs(params)
-
-                # Substitute all parameters
-                all_params = {**params, **calc}
-                substituted_expr = expr.subs(all_params)
-
-                # Convert to LaTeX
-                latex_expr = latex(substituted_expr)
-
-                # Replace in text (handle both with and without trailing $)
-                if '${question_expression_subbed}$' in result_text:
-                    result_text = result_text.replace('${question_expression_subbed}$', f"${latex_expr}$")
-                else:
-                    result_text = result_text.replace('${question_expression_subbed}', f"${latex_expr}$")
-
-            except Exception as e:
-                print(f"Error in question expression substitution: {e}")
-                # Fallback to simple string replacement
-                fallback_expr = self.question_expression
-                for param_name, param_value in params.items():
-                    fallback_expr = fallback_expr.replace(param_name, str(param_value))
-                result_text = result_text.replace('${question_expression_subbed}', f"${fallback_expr}$")
-
-        # Handle individual parameter substitutions
-        for param_name, param_value in params.items():
-            placeholder = f'${{{param_name}}}'
-            result_text = result_text.replace(placeholder, str(param_value))
-        '''
-
-
-
     def render_options(self, params: Dict) -> List[str]:
-        """FIXED: Render options with proper parameter handling and fraction formatting"""
+        """Render options with sophisticated parameter substitution and centralized calculations"""
         if not self.options:
             return []
 
+
         try:
-            # Calculate derived parameters first
+            # Step 1: Calculate derived parameters
             calc = {}
             if self.calculated_parameters:
                 for calc_name, calc_expr in self.calculated_parameters.items():
                     try:
-                        # Skip self-referential parameters
                         if calc_name == calc_expr:
                             continue
 
-                        local_namespace = {'__builtins__': {}}
-
-                        # FIXED: Prepare parameters for calculation
-                        calc_params = {}
-                        for key, value in params.items():
-                            if isinstance(value, (int, float)):
-                                calc_params[key] = value
-                            elif hasattr(value, 'numerator') and hasattr(value, 'denominator'):
-                                calc_params[key] = Rational(value.numerator, value.denominator)
-                            elif isinstance(value, list) and all(isinstance(x, (int, float)) for x in value):
-                                # Keep lists as lists for indexing
-                                calc_params[key] = value
-
-                        expr = sympify(calc_expr, locals=local_namespace)
-                        result = expr.subs(calc_params)
-
-                        # Convert result to proper type
-                        if hasattr(result, 'is_number') and result.is_number:
-                            if result.is_integer:
-                                calc[calc_name] = int(result)
-                            elif isinstance(result, Rational):
-                                calc[calc_name] = Fraction(int(result.p), int(result.q))
-                            else:
-                                calc[calc_name] = float(result)
-                        else:
-                            calc[calc_name] = str(result)
+                        safe_namespace =MCQ.create_safe_math_namespace({
+                            **params,
+                            **calc
+                        })
+                        calc_result = eval(calc_expr, safe_namespace)
+                        calc[calc_name] = calc_result
 
                     except Exception as e:
-                        print(f"Warning: Error calculating {calc_name}: {e}")
-                        continue
+                        print(f"⚠️ Failed to calculate {calc_name}: {e}")
+                        calc[calc_name] = 0
 
-            # Render each option
-            rendered_options = []
             all_params = {**params, **calc}
 
-            for option in self.options:
-                try:
-                    local_namespace = {'__builtins__': {}, 'x': symbols('x')}
+            # Step 2: Process options with parameter substitution only
+            rendered_options = []
+            for i, option in enumerate(self.options):
 
-                    # FIXED: Create evaluation-safe parameters
-                    eval_params = {}
-                    for key, value in all_params.items():
-                        if isinstance(value, (int, float)):
-                            eval_params[key] = value
-                        elif hasattr(value, 'numerator') and hasattr(value, 'denominator'):
-                            eval_params[key] = Rational(value.numerator, value.denominator)
-                        elif isinstance(value, list) and all(isinstance(x, (int, float)) for x in value):
-                            eval_params[key] = value  # Keep as list for indexing
-
-                    expr = sympify(option, locals=local_namespace)
-                    result = expr.subs(eval_params)
-
-                    # FIXED: Use smart formatting for clean output
-                    if hasattr(result, 'is_number') and result.is_number:
-                        formatted_result = MCQ.smart_format_number(result)
-                        # Check if the original option contained mathematical symbols
-                        if any(char in str(option) for char in ['*', '+', '-', '/', '^', '(', ')', 'x', 'sqrt']):
-                            # Wrap mathematical results in LaTeX delimiters
-                            rendered_options.append(f"\\({formatted_result}\\)")
-                        else:
-                            # Keep plain numbers unwrapped for simple parameter names
-                            rendered_options.append(formatted_result)
-                    else:
-                        # For non-numeric results, convert to LaTeX and wrap in delimiters
-                        latex_result = latex(simplify(result))
-                        rendered_options.append(f"\\({latex_result}\\)")
-                except Exception as e:
-                    print(f"Error rendering option '{option}': {e}")
-                    # Fallback: simple string substitution with smart formatting
-                    fallback_option = option
-                    for name, value in all_params.items():
-                        formatted_value = MCQ.smart_format_number(value)
-                        fallback_option = fallback_option.replace(name, formatted_value)
-                    # Apply LaTeX wrapping to fallback if needed
-                    if any(char in str(option) for char in ['*', '+', '-', '/', '^', '(', ')', 'x', 'sqrt']):
-                        rendered_options.append(f"\\({fallback_option}\\)")
-                    else:
-                        rendered_options.append(fallback_option)
+                # Sophisticated parameter substitution and formatting
+                result = self._render_option_sophisticated(option, all_params)
+                rendered_options.append(result)
 
             return rendered_options
 
         except Exception as e:
-            print(f"Error rendering options: {e}")
-            return self.options  # Return original options as fallback
+            print(f"💥 Error: {e}")
+            return [f"\\({opt}\\)" for opt in self.options]
 
+    def _render_option_sophisticated(self, option: str, all_params: Dict) -> str:
+        """Render single option with sophisticated parameter substitution and LaTeX formatting"""
+        # Step 1: Parameter substitution using new format
+        substituted = self._substitute_parameters(option, all_params)
+
+        # Step 2: Evaluate any remaining mathematical expressions
+        try:
+            # Try to evaluate as math if it looks like an expression
+            if any(op in substituted for op in ['+', '-', '*', '/', '**', 'sqrt']):
+                evaluated = self._evaluate_mathematical_expression(substituted, all_params)
+                if evaluated is not None:
+                    substituted = evaluated
+        except:
+            pass  # Keep original if evaluation fails
+        try:
+            #  Try to evaluate simple arithmetic in fractions
+            substituted = self._evaluate_simple_arithmetic(substituted)
+        except:
+            pass  # Keep original if evaluation fails
+
+        # Step 3: Apply math cleaning before LaTeX formatting
+        substituted = self.clean_math_expression(substituted)
+
+        # Step 4: LaTeX formatting - ensure proper delimiters
+        if not (substituted.startswith('\\(') and substituted.endswith('\\)')):
+            # Only wrap if it contains mathematical symbols or LaTeX commands
+            if any(char in substituted for char in ['+', '-', '*', '/', '^', '=', '<', '>', 'frac']) or '\\' in substituted:
+                substituted = f"\\({substituted}\\)"
+
+        return substituted
+
+
+    def _evaluate_mathematical_expression(self, expr: str, params: Dict) -> Optional[str]:
+        """Safely evaluate mathematical expressions and format the result"""
+        try:
+            # Create safe namespace
+            safe_namespace = MCQ.create_safe_math_namespace({
+                **params
+            })
+
+            # Try to evaluate
+            result = eval(expr, safe_namespace)
+
+            # Format the result using smart formatting
+            return self.smart_format_number(result)
+
+        except:
+            return None  # Return None if evaluation fails
+
+
+    def _evaluate_simple_arithmetic(self, expression: str) -> str:
+        """Evaluate simple arithmetic in expressions like fractions"""
+
+        # Pattern to match fractions with arithmetic: \frac{a-b}{c+d}
+        frac_pattern = r'\\frac\{([^}]+)\}\{([^}]+)\}'
+
+        def evaluate_frac_parts(match):
+            numerator = match.group(1)
+            denominator = match.group(2)
+
+            try:
+                # Evaluate numerator and denominator separately
+                num_result = self._safe_arithmetic_eval(numerator)
+                den_result = self._safe_arithmetic_eval(denominator)
+
+                # Return simplified fraction
+                if den_result != 0:
+                    if num_result % den_result == 0:
+                        return str(num_result // den_result)  # Whole number
+                    else:
+                        return f"\\frac{{{num_result}}}{{{den_result}}}"
+                else:
+                    return f"\\frac{{{num_result}}}{{{den_result}}}"  # Keep original if division by zero
+
+            except:
+                # If evaluation fails, return original
+                return f"\\frac{{{numerator}}}{{{denominator}}}"
+
+        # Apply evaluation to all fractions in the expression
+        result = re.sub(frac_pattern, evaluate_frac_parts, expression)
+
+        return result
+
+    def _safe_arithmetic_eval(self, expr: str) -> int:
+        """Safely evaluate simple arithmetic expressions"""
+        try:
+            # Only allow basic arithmetic - no variables or complex operations
+            allowed_chars = set('0123456789+-*/() ')
+            if all(c in allowed_chars for c in expr):
+                return int(eval(expr, {"__builtins__": {}}))
+            else:
+                raise ValueError("Complex expression")
+        except:
+            # If evaluation fails, try to extract just the number
+            numbers = re.findall(r'-?\d+', expr)
+            return int(numbers[0]) if numbers else 0
+
+
+    def _substitute_parameters(self, text: str, params: Dict) -> str:
+        """Substitute parameters using new ${param} format"""
+        result = text
+
+        # Sort parameters by length to avoid partial matches
+        sorted_params = sorted(params.items(), key=lambda x: len(x[0]), reverse=True)
+
+        for param_name, param_value in sorted_params:
+            placeholder = f'${{{param_name}}}'
+            if placeholder in result:
+                formatted_value = self.smart_format_number(param_value)
+                result = result.replace(placeholder, formatted_value)
+
+        # Clean up signs
+        result = self.clean_math_expression(result)
+        return result
+
+
+    @property
+    def rendered_option_explanations(self) -> List[str]:
+        """Get option explanations with parameter substitution and LaTeX formatting"""
+        if self.is_parameterized:
+            if self._current_params is None:
+                self._current_params = self._generate_parameters()
+            return self.render_option_explanations(self._current_params)
+        return self.option_explanations
+
+    def render_option_explanations(self, params: Dict) -> List[str]:
+        """Render option explanations with sophisticated parameter substitution and centralized calculations"""
+        if not self.option_explanations:
+            return []
+
+        try:
+            # Step 1: Calculate derived parameters
+            calc = {}
+            if self.calculated_parameters:
+                for calc_name, calc_expr in self.calculated_parameters.items():
+                    try:
+                        if calc_name == calc_expr:
+                            continue
+
+                        safe_namespace = MCQ.create_safe_math_namespace({
+                            **params,
+                            **calc
+                        })
+                        calc_result = eval(calc_expr, safe_namespace)
+                        calc[calc_name] = calc_result
+
+                    except Exception as e:
+                        print(f"⚠️ Failed to calculate {calc_name}: {e}")
+                        calc[calc_name] = 0
+
+            all_params = {**params, **calc}
+
+            # Step 2: Process explanations with parameter substitution and cleaning
+            rendered_explanations = []
+            for i, explanation in enumerate(self.option_explanations):
+
+                # Parameter substitution and cleaning
+                result = self._render_explanation_sophisticated(explanation, all_params)
+                rendered_explanations.append(result)
+
+            return rendered_explanations
+
+        except Exception as e:
+            print(f"💥 Error: {e}")
+            return self.option_explanations  # Return original on error
+
+    def _render_explanation_sophisticated(self, explanation: str, all_params: Dict) -> str:
+        """Render single explanation with sophisticated parameter substitution and math cleaning"""
+        # Step 1: Parameter substitution
+        substituted = self._substitute_parameters(explanation, all_params)
+
+        # Step 2: Try mathematical evaluation for any embedded math
+        try:
+            # Try to evaluate simple mathematical expressions
+            if any(op in substituted for op in ['+', '-', '*', '/', '**', 'sqrt']):
+                evaluated = self._evaluate_mathematical_expression(substituted, all_params)
+                if evaluated is not None:
+                    substituted = evaluated
+        except:
+            pass  # Keep original if evaluation fails
+
+        # Step 3: Apply math cleaning (this is the key fix)
+        substituted = self.clean_math_expression(substituted)
+
+        # Step 4: LaTeX formatting for any math content
+        if not (substituted.startswith('\\(') and substituted.endswith('\\)')):
+            # Only wrap if it contains mathematical symbols or LaTeX commands
+            if any(char in substituted for char in ['+', '-', '*', '/', '^', '=', '<', '>', 'frac']) or '\\' in substituted:
+                substituted = f"\\({substituted}\\)"
+
+        return substituted
+
+    def clean_math_expression(self, expression: str) -> str:
+        """Enhanced math expression cleaning - applies all sign fixes consistently"""
+
+        # Pattern: (a)-(b) becomes a+(-b) then a-b
+        expression = re.sub(r'\((-?\d+)\)-\((-?\d+)\)',
+                        lambda m: f"{m.group(1)}+{m.group(2)[1:] if m.group(2).startswith('-') else '-'+m.group(2)}",
+                        expression)
+
+        # Pattern: (-a)+(-b) becomes -a-b
+        expression = re.sub(r'\((-?\d+)\)\+\((-?\d+)\)',
+                        lambda m: f"{m.group(1)}{m.group(2)}" if m.group(2).startswith('-') else f"{m.group(1)}+{m.group(2)}",
+                        expression)
+
+        # Remove unnecessary parentheses around single numbers
+        expression = re.sub(r'\((-?\d+)\)', r'\1', expression)
+
+        # Enhanced sign cleaning - apply multiple passes for complex cases
+        for _ in range(3):  # Multiple passes to catch nested issues
+            # Basic sign fixes
+            expression = expression.replace('--', '+')
+            expression = expression.replace('+-', '-')
+            expression = expression.replace('-+', '-')
+
+            # Space-aware fixes
+            expression = expression.replace('+ -', '- ')
+            expression = expression.replace('- -', '+ ')
+            expression = expression.replace('+ +', '+ ')
+
+            # Handle cases with no spaces
+            expression = re.sub(r'\+\s*-', '-', expression)
+            expression = re.sub(r'-\s*-', '+', expression)
+
+            # Clean up multiple consecutive spaces
+            expression = re.sub(r'\s+', ' ', expression)
+
+            # Clean up spaces around operators
+            expression = re.sub(r'\s*([+\-*/=])\s*', r' \1 ', expression)
+            expression = expression.strip()
+
+        return expression
 
     @property
     def question_text(self) -> str:
@@ -1359,15 +1990,121 @@ class MCQ:
             self._is_parameterized = bool(self.generated_parameters)
         return self._is_parameterized
 
+
+    @property
+    def has_breakdown(self) -> bool:
+        """Check if this MCQ has breakdown steps"""
+        return bool(self.breakdown)
+
+    @property
+    def breakdown_routes(self) -> List[str]:
+        """Get available breakdown routes"""
+        return list(self.breakdown.keys()) if self.breakdown else []
+
+
+    def get_breakdown_route(self, student_answer: int) -> Optional[str]:
+        """
+        Determine which breakdown route to use based on student answer.
+
+        Args:
+            student_answer: Index of the answer the student chose (0-based)
+
+        Returns:
+            Route ID for breakdown, or None if no breakdown should be triggered
+        """
+        if not self.has_breakdown:
+            return None
+
+        # Never provide breakdown for correct answers
+        if student_answer == self.correctindex:
+            return None
+
+        # Look for route that maps to this answer index
+        for route_id, route_data in self.breakdown.items():
+            # Get answer_mapping list (defaults to empty list if not present)
+            answer_mapping = route_data.get('answer_mapping', [])
+
+            # Check if student's answer index is in this route's mapping
+            if student_answer in answer_mapping:
+                return route_id
+
+        # Fallback: if no mapping found, use first available route
+        routes = list(self.breakdown.keys())
+        if routes:
+            fallback_route = routes[0]
+            return fallback_route
+
+        return None
+
+    def should_skip_step(self, prereq_topics: List[int], student_mastery: Dict[int, float], config: Dict) -> bool:
+        """Check if a step should be skipped based on prerequisite mastery"""
+        if not prereq_topics:
+            return False
+
+        mastery_threshold = config.get('prerequisite_skip_threshold', 0.8)
+
+        for topic_id in prereq_topics:
+            if student_mastery.get(topic_id, 0.0) > mastery_threshold:
+                return True
+
+        return False
+
+    def execute_breakdown_for_student(self, student_answer: int, student_mastery: Dict[int, float], config: Dict) -> Optional[List[BreakdownStep]]:
+        """
+        Execute breakdown steps for a student who answered incorrectly.
+        Updated to use answer mapping.
+
+        Args:
+            student_answer: Index of answer student chose (0-based)
+            student_mastery: Dictionary of student's mastery levels
+            config: Configuration dictionary
+
+        Returns:
+            List of BreakdownStep objects or None
+        """
+        # Only provide breakdown for wrong answers
+        if not self.has_breakdown or student_answer == self.correctindex:
+            return None
+
+        # Get the appropriate breakdown route using answer mapping
+        route = self.get_breakdown_route(student_answer)
+        if not route or route not in self.breakdown:
+            return None
+
+        # Get steps for this route
+        route_data = self.breakdown[route]
+        steps_data = route_data.get('steps', [])
+
+
+
+        # Create BreakdownStep objects
+        executable_steps = []
+        for step_data in steps_data:
+            step = BreakdownStep.from_dict(step_data, self)
+
+            # Check if step should be skipped based on prerequisite mastery
+            if not step.should_skip(student_mastery, config):
+                executable_steps.append(step)
+        return executable_steps
+
+
+
+
+
+
     def regenerate_parameters(self):
         """Force regeneration of parameters"""
         self._current_params = None
 
-    def get_current_parameters(self) -> Dict[str, Union[int, float]]:
-        """Get current parameter values"""
-        if self.is_parameterized and self._current_params is None:
-            self._current_params = self._generate_parameters()
-        return self._current_params or {}
+    def get_current_parameters_safe(self) -> Dict[str, Union[int, float]]:
+        """Get current parameter values with guaranteed consistency"""
+        if self.is_parameterized:
+            if self._current_params is None:
+                print(f"⚠️ WARNING: Parameters were None when they should be cached! Regenerating...")
+                self._current_params = self._generate_parameters()
+                print(f"🔄 Regenerated parameters: {self._current_params}")
+            return self._current_params.copy()  # Return copy to prevent modification
+        return {}
 
     def get_correct_answer_value(self) -> Optional[Union[int, float, str]]:
         """Get the numerical value of the correct answer"""
@@ -1460,6 +2197,11 @@ class ConfigurationManager:
         """Reload configuration from file"""
         self.config = self._load_config_file()
 
+    def get_breakdown_config(self) -> Dict:
+        return self.get('breakdown_config', {
+            'prerequisite_skip_threshold': 0.8,
+            'enable_breakdown_system': True
+        })
 
 @dataclass
 class StudentProfile:
@@ -1473,6 +2215,7 @@ class StudentProfile:
     studied_topics: Dict[int, bool]  #  {node_index: is_studied} this is to take into account topics they havent covered yet
     completed_questions: Set[str]  # set of completed MCQ IDs (this might be something to remove)
     daily_completed: Set[str]  # questions completed today
+
 
 
     ability_levels: Dict[str, float] = field(default_factory=lambda: {
@@ -1491,6 +2234,11 @@ class StudentProfile:
     registration_date: Optional[datetime] = None
     attempt_history: List[StudentAttempt] = field(default_factory=list)
 
+    breakdown_history: List[Dict] = field(default_factory=list)
+    breakdown_preferences: Dict[str, float] = field(default_factory=lambda: {
+        'breakdown_success_rate': 0.0
+    })
+    skill_states: Dict[str, 'SkillState'] = field(default_factory=dict)
 
     def __post_init__(self):
         """Initialize default values if not provided"""
@@ -1668,6 +2416,8 @@ class StudentManager:
         self.active_sessions: Dict[str, datetime] = {}
         self.config = config_manager
         self.bkt_system = None  # Reference to BKT system
+        self._current_breakdown_session = None
+
     def get_mastery_threshold(self):
         """Get mastery threshold from config"""
         return self.config.get('algorithm_config.mastery_threshold', 0.7) if self.config else 0.7
@@ -1696,12 +2446,13 @@ class StudentManager:
             mastery_levels={},
             confidence_levels={},
             studied_topics={},
-        ability_levels={
+        ability_levels= {
+            'conceptual_understanding': 0.5,
+            'procedural_fluency': 0.5,
             'problem_solving': 0.5,
+            'mathematical_communication': 0.5,
             'memory': 0.5,
-            'notation': 0.5,
-            'algebra': 0.5,
-            'interconnectedness': 0.5
+            'spatial_reasoning': 0.5
         },
             completed_questions=set(),
             daily_completed=set()
@@ -1723,6 +2474,11 @@ class StudentManager:
         student = self.get_student(student_id)
         if not student:
             return []
+
+        if hasattr(self, '_current_breakdown_session') and self._current_breakdown_session:
+            return self._handle_breakdown_step_completion(
+                student_id, mcq_id, is_correct, time_taken, kg
+            )
 
         # Record the attempt normally
         if hasattr(kg, 'ultra_loader'):
@@ -1774,6 +2530,92 @@ class StudentManager:
                 student.last_active = datetime.now()
             del self.active_sessions[student_id]
 
+    def start_breakdown_session(self, student_id: str, breakdown_steps: List['BreakdownStep']):
+        """ Start a breakdown session for a student"""
+        self._current_breakdown_session = {
+            'student_id': student_id,
+            'steps': breakdown_steps,
+            'current_step_index': 0,
+            'start_time': datetime.now(),
+            'step_results': []
+        }
+
+    def _handle_breakdown_step_completion(self, student_id: str, step_result: str,
+                                        is_correct: bool, time_taken: float, breakdown_step: 'BreakdownStep') -> List[Dict]:
+        """ Handle completion of a breakdown step"""
+        if not self._current_breakdown_session:
+            return []
+
+        session = self._current_breakdown_session
+        session['step_results'].append({
+            'step_no': session['current_step_index'],
+            'correct': is_correct,
+            'time_taken': time_taken,
+            'timestamp': datetime.now(),
+            'step_type': breakdown_step.step_type
+        })
+        bkt_updates = []
+        if (self.bkt_system and
+            hasattr(self.bkt_system, 'skill_tracker') and
+            self.bkt_system.skill_tracker):
+
+            step_difficulty = getattr(breakdown_step, 'difficulty', 0.0)
+            skill_result = self.bkt_system.process_breakdown_step_response(
+                student_id, breakdown_step.step_type, is_correct, step_difficulty
+            )
+            if skill_result and skill_result.get('skill_update'):
+                bkt_updates.append(skill_result)
+
+
+        session['current_step_index'] += 1
+        return bkt_updates
+
+    def complete_breakdown_session(self, student_id: str) -> Dict:
+        """ Complete breakdown session and analyze results"""
+        if not self._current_breakdown_session:
+            return {}
+
+        session = self._current_breakdown_session
+
+        # Analyze student performance on breakdown
+        total_steps = len(session['step_results'])
+        correct_steps = sum(1 for result in session['step_results'] if result['correct'])
+        success_rate = correct_steps / total_steps if total_steps > 0 else 0
+
+        # Store breakdown completion in student profile
+        student = self.get_student(student_id)
+        breakdown_attempt = {
+            'timestamp': datetime.now(),
+            'total_steps': total_steps,
+            'correct_steps': correct_steps,
+            'success_rate': success_rate,
+            'session_data': session
+        }
+
+        # Add breakdown history to student profile
+        if not hasattr(student, 'breakdown_history'):
+            student.breakdown_history = []
+        student.breakdown_history.append(breakdown_attempt)
+
+        self._current_breakdown_session = None
+        return breakdown_attempt
+
+    def is_in_breakdown_session(self, student_id: str) -> bool:
+        """ Check if student is currently in a breakdown session"""
+        return (self._current_breakdown_session is not None and
+                self._current_breakdown_session.get('student_id') == student_id)
+
+    def get_current_breakdown_step(self, student_id: str) -> Optional['BreakdownStep']:
+        """ Get current breakdown step for student"""
+        if not self.is_in_breakdown_session(student_id):
+            return None
+
+        session = self._current_breakdown_session
+        if session['current_step_index'] < len(session['steps']):
+            return session['steps'][session['current_step_index']]
+        return None
+
+
     def reset_daily_progress(self, student_id: str):
         """Reset daily completed questions"""
         student = self.get_student(student_id)
@@ -1817,8 +2659,8 @@ class KnowledgeGraph:
     Uses a directed graph where edges represent prerequisite relationships.
     This class stores a lot of things
     """
-    def __init__(self, nodes_file: str = '_static\kg_new.json',
-                 mcqs_file: str = 'mcq_algorithm_files\kg_mcq_code_system\computed_mcqs.json',
+    def __init__(self, nodes_file: str = 'kg_new.json',
+                 mcqs_file: str = 'computed_mcqs_breakdown.json',
                  config_file: str = 'config.json'):
 
         self.nodes = {}  # {index: Node}
@@ -1889,9 +2731,7 @@ class KnowledgeGraph:
 
     def _load_mcqs_from_json(self, mcqs_file: str):
         """optimized loading for select_optimal_mcqs algorithm"""
-        print(f"📥 Setting up optimized loading for {mcqs_file}...")
         self.ultra_loader = MCQLoader(mcqs_file)
-        print(f"✅  optimized loader ready")
 
         # Show memory savings
         stats = self.ultra_loader.get_stats()
@@ -1916,8 +2756,6 @@ class KnowledgeGraph:
 
          # Get MCQ IDs for due topics
         relevant_mcq_ids = self.ultra_loader.get_mcq_ids_for_due_topics(due_topics)
-
-        print(f"👤 Preloaded minimal data for {len(relevant_mcq_ids)} MCQs across {len(due_topics)} due topics for student {student_id}")
 
         return relevant_mcq_ids
 
@@ -1945,7 +2783,10 @@ class KnowledgeGraph:
 
     def get_all_indexes(self) -> List[int]:
         """Get all node indexes in the graph"""
-        return list(self.nodes.keys())
+        result = []
+        for key in self.nodes.keys():
+            result.append(key)
+        return result
 
     def get_mcq_safely(self, mcq_id: str, need_full_text: bool = False):
         """
@@ -1955,16 +2796,18 @@ class KnowledgeGraph:
             For full data: MCQ object
             None if not found
         """
+        # Get the MCQ using appropriate loader
         if hasattr(self, 'ultra_loader'):
             if need_full_text:
-                return self.ultra_loader.get_full_mcq_if_needed(mcq_id)
+                mcq = self.ultra_loader.get_full_mcq_if_needed(mcq_id)
             else:
-                return self.ultra_loader.get_minimal_mcq_data(mcq_id)
+                mcq = self.ultra_loader.get_minimal_mcq_data(mcq_id)
         else:
-            return self.mcqs.get(mcq_id)
-                # Handle parameter regeneration for parameterized MCQs
-            if mcq and mcq.is_parameterized and regenerate_params:
-                mcq.regenerate_parameters()
+            mcq = self.mcqs.get(mcq_id)
+
+        # Handle parameter regeneration for parameterized MCQs
+        if mcq and hasattr(mcq, 'is_parameterized') and mcq.is_parameterized:
+            mcq.regenerate_parameters()
 
         return mcq
 
@@ -2155,6 +2998,7 @@ class MCQScheduler:
         - Prerequisites and dependencies
         - Question difficulty and coverage
         - Learning objectives and priorities
+        - orders them
 
     The greedy algorithm iteratively selects questions that maximize
     coverage-to-cost ratio until learning goals are met.
@@ -2253,16 +3097,17 @@ class MCQScheduler:
             print("⚠️ No fallback method defined; returning empty list")
             return []
 
-
-
-
-
-    def select_optimal_mcqs(self, student_id: str, num_questions: int = 5,
-                          use_chapter_weights: bool = False) -> List[str]:
+    def select_optimal_mcqs(self, student_id: str, num_questions: int = 50,
+                          use_chapter_weights: bool = False, confidence: float = 1.0) -> List[str]:
         """
         Main greedy algorithm for adaptive MCQ selection.
         Iteratively selects best question, updates virtual mastery, repeats.
         """
+
+        student = self.student_manager.get_student(student_id)
+        if not student:
+            print(f"❌ Student {student_id} not found")
+            return []
         # Get config values
         greedy_max_mcqs_to_evaluate = self.get_config_value('greedy_algorithm.greedy_max_mcqs_to_evaluate', 50)
         greedy_early_stopping = self.get_config_value('greedy_algorithm.greedy_early_stopping', False)
@@ -2270,7 +3115,6 @@ class MCQScheduler:
 
         # Get MCQs eligible for selection
         eligible_mcqs = self.get_available_questions_for_student(student_id)
-        print(f"Eligible MCQs: {eligible_mcqs}")
         if not eligible_mcqs:
             print(f"No eligible MCQs found for greedy selection (no due main topics with all studied subtopics)")
             return []
@@ -2283,7 +3127,6 @@ class MCQScheduler:
             else:
                 print(f"❌ Failed to create vector for MCQ {mcq_id}")
 
-        print(f"✅ Created {vectors_created}/{len(eligible_mcqs)} MCQ vectors")
 
         if vectors_created == 0:
             print("❌ No MCQ vectors could be created - cannot run algorithm")
@@ -2312,14 +3155,9 @@ class MCQScheduler:
         selected_mcqs = []
         last_total_coverage = 0.0
 
-        print(f"Initial due topics: {len(topic_priorities)} topics")
-        print(f"Topic priorities range: {min(topic_priorities.values()):.3f} to {max(topic_priorities.values()):.3f}")
-        print(f"Eligible MCQs with due main topics: {len(eligible_mcqs)}")
-
         # Greedy selection loop
         for iteration in range(num_questions):
             if not topic_priorities:
-                print(f"All due topics covered after {iteration} questions")
                 break
 
             # Calculate coverage-to-cost ratio for each available MCQ
@@ -2331,31 +3169,28 @@ class MCQScheduler:
                 if mcq_id in selected_mcqs:  # Skip already selected
                     continue
 
-            try:
-                # Ensure vector exists before calculation
-                vector = self._get_or_create_optimized_mcq_vector(mcq_id)
-                if not vector:
-                    print(f"   ⚠️  Skipping MCQ {mcq_id} - no vector available")
+                try:
+                    # Ensure vector exists before calculation
+                    vector = self._get_or_create_optimized_mcq_vector(mcq_id)
+                    if not vector:
+                        print(f"   ⚠️  Skipping MCQ {mcq_id} - no vector available")
+                        continue
+
+                    coverage_to_cost_ratio, coverage_info = self._calculate_coverage_to_cost_ratio(mcq_id, topic_priorities, simulated_mastery_levels, student, confidence)
+
+                    if coverage_to_cost_ratio > best_ratio:
+                        best_ratio = coverage_to_cost_ratio
+                        best_mcq = mcq_id
+                        best_coverage_info = coverage_info
+                    if best_mcq is None:
+                        break
+
+                except Exception as e:
+                    print(f"   ❌ Error evaluating MCQ {mcq_id}: {type(e)} - {e}")
+                    import traceback
+                    traceback.print_exc()
+                    # Continue with next MCQ instead of crashing
                     continue
-
-                coverage_to_cost_ratio, coverage_info = self._calculate_coverage_to_cost_ratio(mcq_id, topic_priorities, simulated_mastery_levels, student)
-                print(f"   📊 Ratio: {coverage_to_cost_ratio:.3f}")
-
-                if coverage_to_cost_ratio > best_ratio:
-                    best_ratio = coverage_to_cost_ratio
-                    best_mcq = mcq_id
-                    best_coverage_info = coverage_info
-                    print(f"   ✅ New best MCQ: {mcq_id} (ratio: {best_ratio:.3f})")
-                if best_mcq is None:
-                    print("✅ No suitable MCQs left — stopping.")
-                    break
-
-            except Exception as e:
-                print(f"   ❌ Error evaluating MCQ {mcq_id}: {type(e)} - {e}")
-                import traceback
-                traceback.print_exc()
-                # Continue with next MCQ instead of crashing
-                continue
 
             if best_mcq is None:
                 print(f"No suitable MCQ found for remaining due topics in iteration {iteration + 1}")
@@ -2370,19 +3205,12 @@ class MCQScheduler:
                 # Update virtual mastery and topic priorities
                 total_topic_coverage_score = self._update_simulated_mastery_and_priorities(best_mcq, simulated_mastery_levels, topic_priorities, best_coverage_info, student)
 
-                if iteration % 5 == 0:  # Only print every 5th iteration
-                    print(f"✅ Q{iteration}: Coverage {total_topic_coverage_score:.3f}")
 
             except Exception as e:
                 print(f"❌ Error updating virtual mastery: {type(e)} - {e}")
                 import traceback
                 traceback.print_exc()
                 break
-            if iteration % 5 == 0:
-            #print(f"Selected Q{iteration + 1}: {self.kg.mcqs[best_mcq].text[:50]}...")
-                print(f"  Coverage-to-cost ratio: {best_ratio:.3f}")
-                print(f"  Total coverage gained: {total_topic_coverage_score:.3f}")
-                print(f"  Remaining due topics: {len(topic_priorities)}")
 
             # Early stopping if improvement is minimal
             if (greedy_early_stopping and abs(total_topic_coverage_score - last_total_coverage) < greedy_convergence_threshold):
@@ -2396,7 +3224,6 @@ class MCQScheduler:
         # apply reordering for better learning outcomes
         pedagogically_ordered_mcqs = self._reorder_mcqs_pedagogically(selected_mcqs)
 
-        print(f"📚 Final pedagogical order: {pedagogically_ordered_mcqs}")
         return pedagogically_ordered_mcqs
 
 
@@ -2479,79 +3306,6 @@ class MCQScheduler:
 
         coverage_details['total_topic_coverage_score'] = total_topic_coverage_score
         return coverage_details
-    '''
-    def _update_simulated_mastery_and_priorities(self, mcq_id: str,
-                                            simulated_mastery_levels: Dict[int, float],
-                                            topic_priorities: Dict[int, float],
-                                            coverage_info: Dict,
-                                            student: StudentProfile) -> float:
-        """
-        Simulate mastery updates from answering an MCQ correctly, by adding on question difficulty (probably will change eventually)
-        Updates virtual mastery and recalculates priorities.
-        """
-        # Get config values
-        mastery_threshold = self.get_config_value('algorithm_config.mastery_threshold', 0.7)
-        greedy_mastery_update_rate = self.get_config_value('greedy_algorithm.greedy_mastery_update_rate', 0.8)
-        greedy_priority_weight = self.get_config_value('greedy_algorithm.greedy_priority_weight', 2.0)
-
-        mcq_vector = self.mcq_vectors.get(mcq_id)
-
-        if not mcq_vector:
-            return 0.0
-
-        topics_to_remove = []
-        total_topic_coverage_score = coverage_info['total_topic_coverage_score']
-
-        # Update main topic and subtopics
-        for main_topic_index, topic_weight in mcq_vector.subtopic_weights.items():
-            if main_topic_index in topic_priorities:  # Only update due topics
-                current_mastery = simulated_mastery_levels.get(main_topic_index, student.get_mastery(main_topic_index))
-
-                # Mastery increase based on question difficulty and weight
-                if main_topic_index == mcq_vector.main_topic_index:
-                    # Main topic gets full difficulty boost
-                    mastery_increase = mcq_vector.difficulty * greedy_mastery_update_rate
-                else:
-                    # Subtopics get weighted boost
-                    mastery_increase = (mcq_vector.difficulty * topic_weight * greedy_mastery_update_rate)
-
-                new_mastery = min(1.0, current_mastery + mastery_increase)
-                simulated_mastery_levels[main_topic_index] = new_mastery
-
-                # Remove topics that reach mastery threshold
-                if new_mastery >= mastery_threshold:
-                    topics_to_remove.append(main_topic_index)
-                else:
-                    # Recalculate priority for topics still below threshold
-                    new_priority = (1.0 - new_mastery) ** greedy_priority_weight
-                    topic_priorities[main_topic_index] = new_priority
-
-        # Update prerequisites with reduced effect
-        for prereq_index, prereq_weight in mcq_vector.prerequisites.items():
-            if prereq_index in topic_priorities:  # Only update due prerequisites
-                current_mastery = simulated_mastery_levels.get(prereq_index, student.get_mastery(prereq_index))
-
-                # Prerequisites get smaller, weighted boost
-                mastery_increase = (mcq_vector.difficulty * prereq_weight * greedy_mastery_update_rate * 0.5)
-
-                new_mastery = min(1.0, current_mastery + mastery_increase)
-                simulated_mastery_levels[prereq_index] = new_mastery
-
-                # Remove prerequisites that reach mastery threshold
-                if new_mastery >= mastery_threshold:
-                    topics_to_remove.append(prereq_index)
-                else:
-                    # Recalculate priority for prerequisites still below threshold
-                    new_priority = (1.0 - new_mastery) ** greedy_priority_weight
-                    topic_priorities[prereq_index] = new_priority
-
-        # Remove topics that are no longer due
-        for main_topic_index in topics_to_remove:
-            topic_priorities.pop(main_topic_index, None)
-
-
-        return total_topic_coverage_score
-        '''
 
     def set_bkt_system(self, bkt_system):
         """Set reference to BKT system after initialization"""
@@ -2817,7 +3571,7 @@ class MCQScheduler:
 
 
 
-    def _calculate_coverage_to_cost_ratio(self, mcq_id: str, topic_priorities: Dict[int, float],simulated_mastery_levels: Dict[int, float],student: StudentProfile) -> Tuple[float, Dict]:
+    def _calculate_coverage_to_cost_ratio(self, mcq_id: str, topic_priorities: Dict[int, float],simulated_mastery_levels: Dict[int, float],student: StudentProfile,confidence: float = 1.0) -> Tuple[float, Dict]:
         """
         Calculate coverage-to-cost ratio
         Higher ratio = better choice (more benefit, less cost)
@@ -2844,7 +3598,7 @@ class MCQScheduler:
             return 0.0, coverage_info
 
         # Calculate difficulty cost (penalty for poor match)
-        difficulty_cost = self._calculate_difficulty_cost(mcq_vector, simulated_mastery_levels, student)
+        difficulty_cost = self._calculate_difficulty_cost(mcq_vector, student, simulated_mastery_levels, confidence)
 
         # Calculate importance bonus (reward for important topics)
         importance_bonus = self._calculate_importance_bonus(mcq_vector, topic_priorities)
@@ -2858,83 +3612,141 @@ class MCQScheduler:
         return coverage_to_cost_ratio, coverage_info
 
 
-    def calculate_skills_difficulty_mismatch(self, mcq_vector: OptimizedMCQVector,
-                                            student: StudentProfile,
-                                            config_weights: Dict[str, float] = None) -> Dict[str, float]:
+    def calculate_skills_difficulty_mismatch(self, mcq_vector: OptimizedMCQVector, student) -> Dict[str, float]:
         """
-        Calculate how question difficulty differs from student levels across all skill dimensions.
+        FIXED VERSION: Calculate mismatch between student abilities and question difficulty requirements.
+        """
 
-        For each skill, calculates: student_skill_level + offset - question_skill_difficulty
-        All mismatches are converted to penalties (negative values).
-        """
-        if config_weights is None:
-            # Read from config file if available, otherwise use defaults
-            config_weights = {
-                'problem_solving_penalty': self.get_config_value('greedy_algorithm.skills_config.problem_solving_penalty', 2.5),
-                'procedural_penalty': self.get_config_value('greedy_algorithm.skills_config.procedural_penalty', 2.0),
-                'conceptual_penalty': self.get_config_value('greedy_algorithm.skills_config.conceptual_penalty', 2.0),
-                'memory_penalty': self.get_config_value('greedy_algorithm.skills_config.memory_penalty', 1.5),
-                'communication_penalty': self.get_config_value('greedy_algorithm.skills_config.communication_penalty', 1.8),
-                'spatial_penalty': self.get_config_value('greedy_algorithm.skills_config.spatial_penalty', 1.5),
-                'student_offset': self.get_config_value('greedy_algorithm.skills_config.student_offset', 2.0),
+        # Handle both StudentProfile objects and dictionaries safely
+        if isinstance(student, dict):
+            student_id = student.get('student_id')
+            if student_id:
+                actual_student = self.student_manager.get_student(student_id)
+                if actual_student:
+                    student = actual_student
+                else:
+                    print(f"⚠️  Warning: Could not find StudentProfile for {student_id}")
+                    # Return default penalties with total_skills_penalty
+                    return {
+                        'problem_solving': 0.0,
+                        'procedural_fluency': 0.0,
+                        'conceptual_understanding': 0.0,
+                        'mathematical_communication': 0.0,
+                        'memory': 0.0,
+                        'spatial_reasoning': 0.0,
+                        'total_skills_penalty': 0.0
+                    }
+            else:
+                print("⚠️  Warning: Student dict has no student_id")
+                return {
+                    'problem_solving': 0.0,
+                    'procedural_fluency': 0.0,
+                    'conceptual_understanding': 0.0,
+                    'mathematical_communication': 0.0,
+                    'memory': 0.0,
+                    'spatial_reasoning': 0.0,
+                    'total_skills_penalty': 0.0
+                }
+
+        # Ensure student has ability_levels attribute
+        if not hasattr(student, 'ability_levels'):
+            print(f"⚠️  Warning: Student object missing ability_levels attribute")
+            student.ability_levels = {
+                'problem_solving': 0.5,
+                'procedural_fluency': 0.5,
+                'conceptual_understanding': 0.5,
+                'mathematical_communication': 0.5,
+                'memory': 0.5,
+                'spatial_reasoning': 0.5
             }
+
+        # Get configuration weights with defaults
+        config_weights = self.config.get('algorithm_config.skill_difficulty_weights', {
+            'problem_solving_penalty': 0.0,
+            'procedural_penalty': 0.0,
+            'conceptual_penalty': 0.0,
+            'memory_penalty': 0.0,
+            'communication_penalty': 0.0,
+            'spatial_penalty': 0.0,
+            'student_offset': 0.0
+        })
 
         skill_penalties = {}
 
-        # Problem solving skill mismatch
-        student_problem_solving = student.ability_levels.get('problem_solving', 0.5) + config_weights['student_offset']
+        # Problem-solving skills mismatch
+        student_problem_solving = student.ability_levels.get('problem_solving', 0.5) + config_weights.get('student_offset', 0.1)
         question_problem_solving = mcq_vector.difficulty_breakdown.problem_solving
         problem_solving_mismatch = student_problem_solving - question_problem_solving
-        skill_penalties['problem_solving'] = -config_weights['problem_solving_penalty'] * abs(problem_solving_mismatch)
+        skill_penalties['problem_solving'] = -config_weights.get('problem_solving_penalty', 0.2) * abs(problem_solving_mismatch)
 
-        # Procedural fluency (technical difficulty) mismatch
-        student_procedural = student.ability_levels.get('procedural_fluency', 0.5) + config_weights['student_offset']
+        # Procedural fluency mismatch
+        student_procedural = student.ability_levels.get('procedural_fluency', 0.5) + config_weights.get('student_offset', 0.1)
         question_procedural = mcq_vector.difficulty_breakdown.procedural_fluency
         procedural_mismatch = student_procedural - question_procedural
-        skill_penalties['procedural_fluency'] = -config_weights['procedural_penalty'] * abs(procedural_mismatch)
+        skill_penalties['procedural_fluency'] = -config_weights.get('procedural_penalty', 0.15) * abs(procedural_mismatch)
 
         # Conceptual understanding mismatch
-        student_conceptual = student.ability_levels.get('conceptual_understanding', 0.5) + config_weights['student_offset']
+        student_conceptual = student.ability_levels.get('conceptual_understanding', 0.5) + config_weights.get('student_offset', 0.1)
         question_conceptual = mcq_vector.difficulty_breakdown.conceptual_understanding
         conceptual_mismatch = student_conceptual - question_conceptual
-        skill_penalties['conceptual_understanding'] = -config_weights['conceptual_penalty'] * abs(conceptual_mismatch)
+        skill_penalties['conceptual_understanding'] = -config_weights.get('conceptual_penalty', 0.15) * abs(conceptual_mismatch)
 
         # Memory requirement mismatch
-        student_memory = student.ability_levels.get('memory', 0.5) + config_weights['student_offset']
+        student_memory = student.ability_levels.get('memory', 0.5) + config_weights.get('student_offset', 0.1)
         question_memory = mcq_vector.difficulty_breakdown.memory
         memory_mismatch = student_memory - question_memory
-        skill_penalties['memory'] = -config_weights['memory_penalty'] * abs(memory_mismatch)
+        skill_penalties['memory'] = -config_weights.get('memory_penalty', 0.1) * abs(memory_mismatch)
 
         # Mathematical communication mismatch
-        student_communication = student.ability_levels.get('mathematical_communication', 0.5) + config_weights['student_offset']
+        student_communication = student.ability_levels.get('mathematical_communication', 0.5) + config_weights.get('student_offset', 0.1)
         question_communication = mcq_vector.difficulty_breakdown.mathematical_communication
         communication_mismatch = student_communication - question_communication
-        skill_penalties['mathematical_communication'] = -config_weights['communication_penalty'] * abs(communication_mismatch)
+        skill_penalties['mathematical_communication'] = -config_weights.get('communication_penalty', 0.1) * abs(communication_mismatch)
 
         # Spatial reasoning mismatch
-        student_spatial = student.ability_levels.get('spatial_reasoning', 0.5) + config_weights['student_offset']
+        student_spatial = student.ability_levels.get('spatial_reasoning', 0.5) + config_weights.get('student_offset', 0.1)
         question_spatial = mcq_vector.difficulty_breakdown.spatial_reasoning
         spatial_mismatch = student_spatial - question_spatial
-        skill_penalties['spatial_reasoning'] = -config_weights['spatial_penalty'] * abs(spatial_mismatch)
+        skill_penalties['spatial_reasoning'] = -config_weights.get('spatial_penalty', 0.1) * abs(spatial_mismatch)
 
-        # Calculate total skills penalty (sum of all negative penalties)
-        total_skills_penalty = sum(skill_penalties.values())
+        # Calculate and include total_skills_penalty
+        total_penalty = sum(skill_penalties.values())
+        skill_penalties['total_skills_penalty'] = total_penalty
 
-        # Return breakdown for analysis and debugging
-        return {
-            'skill_penalties': skill_penalties,
-            'total_skills_penalty': total_skills_penalty,
-            'raw_mismatches': {
-                'problem_solving': problem_solving_mismatch,
-                'procedural_fluency': procedural_mismatch,
-                'conceptual_understanding': conceptual_mismatch,
-                'memory': memory_mismatch,
-                'mathematical_communication': communication_mismatch,
-                'spatial_reasoning': spatial_mismatch
-            }
-        }
+        return skill_penalties
 
-    def _calculate_difficulty_cost(self, mcq_vector: OptimizedMCQVector,simulated_mastery_levels: Dict[int, float],student: StudentProfile) -> float:
+    def _calculate_difficulty_cost(self, mcq_vector: OptimizedMCQVector,
+                                student: StudentProfile,
+                                simulated_mastery_levels: Dict[int, float],
+                                confidence: float = 1.0) -> float:
+        """
+        Calculate difficulty mismatch cost with confidence-based reduction.
+        Lower confidence = reduced penalties = more exploration.
+        """
+        # Get config values
+        confidence_cap = self.get_config_value('confidence_algorithm.confidence_cap', 0.8)
+        difficulty_reduction_factor = self.get_config_value('confidence_algorithm.difficulty_reduction_factor', 0.5)
+        min_difficulty_penalty = self.get_config_value('confidence_algorithm.min_difficulty_penalty', 0.1)
+
+        # Calculate base difficulty cost (existing logic)
+        base_difficulty_cost = self._calculate_base_difficulty_cost(mcq_vector, simulated_mastery_levels, student)
+
+        # Apply confidence-based reduction only if below cap
+        if confidence >= confidence_cap:
+            return base_difficulty_cost
+
+        # Calculate reduction factor based on confidence
+        confidence_below_cap = confidence_cap - confidence
+        max_reduction = confidence_cap  # Maximum possible reduction
+        reduction_ratio = confidence_below_cap / max_reduction
+
+        # Apply reduction but maintain minimum penalty
+        penalty_multiplier = 1.0 - (reduction_ratio * difficulty_reduction_factor)
+        penalty_multiplier = max(penalty_multiplier, min_difficulty_penalty)
+
+        return base_difficulty_cost * penalty_multiplier
+
+    def _calculate_base_difficulty_cost(self, mcq_vector: OptimizedMCQVector, simulated_mastery_levels: Dict[int, float], student: StudentProfile) -> float:
         """
         Calculate cost based on difficulty mismatch.
         Questions too hard or too easy get penalized.
@@ -2947,7 +3759,6 @@ class MCQScheduler:
         skills_analysis = self.calculate_skills_difficulty_mismatch(mcq_vector, student)
 
         # Use the total skills penalty as the base difficulty cost
-        # Since skills_analysis returns negative penalties, we need to make them positive costs
         skills_based_cost = abs(skills_analysis['total_skills_penalty'])
 
 
@@ -3015,8 +3826,6 @@ class MCQScheduler:
         if not selected_mcqs:
             return selected_mcqs
 
-        print(f"🎓 Reordering {len(selected_mcqs)} MCQs pedagogically...")
-
         # Step 1: Group MCQs by main topic
         topic_to_mcqs = self._group_mcqs_by_main_topic(selected_mcqs)
 
@@ -3027,10 +3836,8 @@ class MCQScheduler:
         sorted_topics = sorted(topic_to_mcqs.keys(),
                             key=lambda t: topic_chain_lengths[t])
 
-        print(f"📚 Topic ordering by prerequisite chain length:")
         for topic in sorted_topics:
             topic_name = self.kg.get_topic_of_index(topic)
-            print(f"   {topic_name} (chain length: {topic_chain_lengths[topic]})")
 
         # Step 4: Sort MCQs within each topic by difficulty breakdown priority
         for topic in topic_to_mcqs:
@@ -3039,7 +3846,6 @@ class MCQScheduler:
         # Step 5: Round-robin through topics (handles unequal distribution)
         reordered_mcqs = self._round_robin_mcq_selection(topic_to_mcqs, sorted_topics)
 
-        print(f"✅ Pedagogical reordering complete: {len(reordered_mcqs)} MCQs")
         return reordered_mcqs
 
 
@@ -3195,7 +4001,6 @@ class MCQScheduler:
                     topic_name = self.kg.get_topic_of_index(topic)
                     vector = self._get_or_create_optimized_mcq_vector(mcq_id)
                     difficulty = vector.difficulty if vector else 0.0
-                    print(f"   Round-robin: Added {mcq_id} from {topic_name} (difficulty: {difficulty:.3f})")
 
             # Update remaining count
             total_remaining -= round_assigned
@@ -3208,6 +4013,319 @@ class MCQScheduler:
         return reordered_mcqs
 
 
+    def handle_breakdown_question(self, student_id: str, mcq_id: str, wrong_answer: int) -> Optional[List['BreakdownStep']]:
+        """Handle breakdown execution for wrong answers"""
+        student = self.student_manager.get_student(student_id)
+        mcq = self.kg.get_mcq_safely(mcq_id, need_full_text=True)
+
+        if mcq and mcq.has_breakdown:
+            config = self.kg.config.config  # Access config dict
+
+            # Use the updated MCQ method that handles answer_mapping
+            breakdown_steps = mcq.execute_breakdown_for_student(
+                wrong_answer, student.mastery_levels, config
+            )
+
+            if breakdown_steps:
+                if hasattr(self.student_manager, 'start_breakdown_session'):
+                    self.student_manager.start_breakdown_session(student_id, breakdown_steps)
+            return breakdown_steps
+        return None
+
+
+    def process_breakdown_step_response(self, student_id: str, step_index: int,
+                                    user_answer: int, breakdown_steps: List['BreakdownStep']) -> Dict:
+        """
+        Process individual breakdown step response with skill tracking
+        """
+        if step_index >= len(breakdown_steps):
+            return {'error': 'Invalid step index'}
+
+        step = breakdown_steps[step_index]
+        is_correct = (user_answer == step.correctindex)
+
+        result = {
+            'step_index': step_index,
+            'is_correct': is_correct,
+            'step_type': step.step_type,
+            'user_answer': user_answer,
+            'correct_answer': step.correctindex
+        }
+
+
+        if (hasattr(self, 'bkt_system') and
+            self.bkt_system and
+            hasattr(self.bkt_system, 'process_breakdown_step_response')):
+
+            step_difficulty = getattr(step, 'difficulty', 0.0)
+            skill_result = self.bkt_system.process_breakdown_step_response(
+                student_id, step.step_type, is_correct, step_difficulty
+            )
+            result.update(skill_result)
+
+        return result
+
+
+    def get_next_breakdown_step(self, breakdown_steps: List['BreakdownStep'], current_step_index: int) -> Optional['BreakdownStep']:
+        """ Get next step in breakdown sequence"""
+        if current_step_index < len(breakdown_steps) - 1:
+            return breakdown_steps[current_step_index + 1]
+        return None
+
+    def should_trigger_breakdown(self, student_id: str, mcq_id: str, is_correct: bool) -> bool:
+        """ Determine if breakdown should be triggered"""
+        if is_correct:
+            return False
+
+        mcq = self.kg.get_mcq_safely(mcq_id, need_full_text=True)
+        if not mcq or not mcq.has_breakdown:
+            return False
+
+
+        return True
+@dataclass
+class SkillState:
+    """Complete state for a single skill (0-1 scale)"""
+    ability_level: float  # 0-1 scale
+    alpha: float          # Beta distribution success parameter
+    beta: float           # Beta distribution failure parameter
+    last_updated: datetime
+    total_evidence: float # Total evidence accumulated
+
+
+
+class BetaInformedEloSkillTracker:
+    """
+    Tracks student skills using Beta-informed Elo updates on 0-1 scale
+    """
+
+    def __init__(self, config_manager=None):
+        self.config = config_manager
+
+        # Get parameters from config with defaults
+        self.initial_ability = self.get_config_value('skill_tracking.initial_ability', 0.5)
+        self.initial_alpha = self.get_config_value('skill_tracking.initial_alpha', 1.0)
+        self.initial_beta = self.get_config_value('skill_tracking.initial_beta', 1.0)
+        self.base_learning_rate = self.get_config_value('skill_tracking.base_learning_rate', 0.15)
+        self.min_evidence_threshold = self.get_config_value('skill_tracking.min_evidence_threshold', 0.05)
+
+        # Skill-specific learning rates
+        self.skill_learning_rates = {
+            'problem_solving': self.get_config_value('skill_tracking.skill_learning_rates.problem_solving', 0.12),
+            'procedural_fluency': self.get_config_value('skill_tracking.skill_learning_rates.procedural_fluency', 0.18),
+            'conceptual_understanding': self.get_config_value('skill_tracking.skill_learning_rates.conceptual_understanding', 0.15),
+            'memory': self.get_config_value('skill_tracking.skill_learning_rates.memory', 0.20),
+            'mathematical_communication': self.get_config_value('skill_tracking.skill_learning_rates.mathematical_communication', 0.16),
+            'spatial_reasoning': self.get_config_value('skill_tracking.skill_learning_rates.spatial_reasoning', 0.17)
+        }
+
+        # All valid skill names (matches step_type values)
+        self.valid_skills = [
+            'problem_solving', 'procedural_fluency', 'conceptual_understanding',
+            'memory', 'mathematical_communication', 'spatial_reasoning'
+        ]
+    def get_skill_summary(self, student: StudentProfile) -> Dict[str, Any]:
+        """
+        Get comprehensive skill summary for a student.
+
+        Returns:
+            Dictionary with current skill levels, confidence, and progress metrics
+        """
+
+
+        if not student:
+            print(f"⚠️  Warning: No student provided for skill summary")
+            return {}
+
+        # Ensure student has ability_levels
+        if not hasattr(student, 'ability_levels') or not student.ability_levels:
+            student.ability_levels = {skill: 0.5 for skill in self.skill_categories}
+
+        skill_summary = {}
+
+        for skill_name in self.valid_skills:
+            # Get or initialize skill state
+            skill_state = self.get_or_initialize_skill_state(student, skill_name)
+
+            # Calculate uncertainty from Beta distribution
+            total_samples = skill_state.alpha + skill_state.beta
+            uncertainty = 1 / (1 + total_samples * 0.1)
+
+            skill_summary[skill_name] = {
+                'ability_level': skill_state.ability_level,
+                'uncertainty': uncertainty,
+                'total_evidence': skill_state.total_evidence,
+                'alpha': skill_state.alpha,
+                'beta': skill_state.beta,
+                'last_updated': skill_state.last_updated
+            }
+
+        return skill_summary
+
+
+    def get_config_value(self, key: str, default):
+        """Get configuration value with fallback to default"""
+        if not self.config:
+            return default
+        try:
+            keys = key.split('.')
+            value = self.config.config
+            for k in keys:
+                value = value[k]
+            return value
+        except (KeyError, TypeError, AttributeError):
+            return default
+
+    def get_or_initialize_skill_state(self, student: 'StudentProfile', skill_name: str) -> SkillState:
+        """Get skill state or initialize if doesn't exist"""
+        if not hasattr(student, 'skill_states'):
+            student.skill_states = {}
+
+        if skill_name not in student.skill_states:
+            student.skill_states[skill_name] = SkillState(
+                ability_level=self.initial_ability,
+                alpha=self.initial_alpha,
+                beta=self.initial_beta,
+                last_updated=datetime.now(),
+                total_evidence=0.0
+            )
+
+        return student.skill_states[skill_name]
+
+    def update_skills_from_question(self, student: 'StudentProfile',
+                                   mcq_vector: 'OptimizedMCQVector',
+                                   is_correct: bool) -> Dict[str, Dict]:
+        """
+        Update all relevant skills based on question performance
+        Skills weighted by their breakdown values in the question
+        """
+        if not mcq_vector or not mcq_vector.difficulty_breakdown:
+            return {}
+
+        skill_updates = {}
+
+        # Update each skill weighted by its breakdown value
+        for skill_name in self.valid_skills:
+            skill_difficulty = getattr(mcq_vector.difficulty_breakdown, skill_name, 0.0)
+            evidence_weight = skill_difficulty
+            if evidence_weight >= self.min_evidence_threshold:
+                update_result = self._update_single_skill(
+                    student, skill_name, skill_difficulty, is_correct, evidence_weight,
+                    source="question"
+                )
+                if update_result:
+                    skill_updates[skill_name] = update_result
+
+        return skill_updates
+
+    def update_skill_from_breakdown_step(self, student: 'StudentProfile',
+                                       step_type: str, is_correct: bool,
+                                       step_difficulty: float = 0.0) -> Optional[Dict]:
+        """
+        Update specific skill based on breakdown step performance
+        Only updates on incorrect answers (correct answers do nothing)
+        """
+        if is_correct:
+            return None  # Correct breakdown steps don't update skills
+
+        if step_type not in self.valid_skills:
+            print(f"Warning: Unknown step_type '{step_type}', skipping skill update")
+            return None
+
+        # Breakdown steps provide strong evidence (weight = 1.0)
+        evidence_weight = 1.0
+
+        return self._update_single_skill(
+            student, step_type, step_difficulty, is_correct, evidence_weight,
+            source=f"breakdown_step({step_type})"
+        )
+
+    def apply_breakdown_completion_update(self, student: 'StudentProfile',
+                                        mcq_vector: 'OptimizedMCQVector') -> Dict[str, Dict]:
+        """
+        Apply negative updates when all breakdown steps are completed correctly
+        (Student needed help, so treat as if they got original question wrong)
+        """
+        if not mcq_vector or not mcq_vector.difficulty_breakdown:
+            return {}
+
+        # Apply negative updates (as if question was answered incorrectly)
+        return self.update_skills_from_question(student, mcq_vector, is_correct=False)
+
+    def _update_single_skill(self, student: 'StudentProfile', skill_name: str,
+                           question_difficulty: float, is_correct: bool,
+                           evidence_weight: float, source: str = "unknown") -> Dict:
+        """
+        Core skill update logic using Beta-informed Elo approach
+        """
+        skill_state = self.get_or_initialize_skill_state(student, skill_name)
+
+        # === CALCULATE EXPECTED PERFORMANCE ===
+        # Both student ability and question difficulty are on 0-1 scale after normalization
+        student_ability = skill_state.ability_level
+        normalized_question_difficulty = min(question_difficulty , 1.0)  # Ensure 0-1
+
+        # Calculate expected success probability using logistic function
+        difficulty_difference = normalized_question_difficulty - student_ability
+        scale_factor = self.get_config_value('skill_tracking.difficulty_scale_factor', 0.5)
+        expected_prob = 1 / (1 + math.exp(difficulty_difference / scale_factor))
+
+        # === BETA-INFORMED LEARNING RATE ===
+        # Calculate uncertainty from Beta distribution
+        total_samples = skill_state.alpha + skill_state.beta
+        uncertainty = 1 / (1 + total_samples * 0.1)  # Slower uncertainty decay
+
+        # Get skill-specific learning rate
+        base_rate = self.skill_learning_rates.get(skill_name, self.base_learning_rate)
+
+        # Adapt learning rate based on uncertainty and evidence
+        uncertainty_multiplier = self.get_config_value('skill_tracking.uncertainty_multiplier', 1.0)
+        adaptive_rate = base_rate * evidence_weight * (1 + uncertainty * uncertainty_multiplier)
+
+        # === ELO-STYLE UPDATE ===
+        actual_outcome = 1.0 if is_correct else 0.0
+        performance_error = actual_outcome - expected_prob
+
+        # Update ability level (keeping in 0-1 range)
+        ability_change = adaptive_rate * performance_error
+        max_change = self.get_config_value('skill_tracking.max_change_per_update', 0.05)
+        ability_change = max(-max_change, min(max_change, ability_change))
+        new_ability = np.clip(skill_state.ability_level + ability_change, 0.0, 1.0)
+
+        # === BETA POSTERIOR UPDATE ===
+        # Weight evidence by how "surprising" the outcome was
+        surprise_factor = abs(performance_error)
+        surprise_amplification = self.get_config_value('skill_tracking.surprise_amplification', 1.5)
+        effective_evidence = evidence_weight * (0.5 + surprise_factor * surprise_amplification)
+
+        new_alpha = skill_state.alpha + effective_evidence * actual_outcome
+        new_beta = skill_state.beta + effective_evidence * (1 - actual_outcome)
+
+        # === UPDATE STUDENT STATE ===
+        old_ability = skill_state.ability_level
+        skill_state.ability_level = new_ability
+        skill_state.alpha = new_alpha
+        skill_state.beta = new_beta
+        skill_state.last_updated = datetime.now()
+        skill_state.total_evidence += effective_evidence
+
+        # Update the main ability_levels dict (used by greedy algorithm)
+        student.ability_levels[skill_name] = new_ability
+
+        return {
+            'skill_name': skill_name,
+            'source': source,
+            'old_ability': old_ability,
+            'new_ability': new_ability,
+            'ability_change': ability_change,
+            'expected_prob': expected_prob,
+            'performance_error': performance_error,
+            'evidence_weight': evidence_weight,
+            'effective_evidence': effective_evidence,
+            'uncertainty': uncertainty,
+            'question_difficulty': normalized_question_difficulty
+        }
+
 @dataclass
 class FSRSMemoryComponents:
     """FSRS-inspired memory components for modeling different types of forgetting"""
@@ -3219,6 +4337,7 @@ class FSRSMemoryComponents:
     recent_success_rate: float = 0.5
 
 
+#i think i put this in the config, will check
 
 @dataclass
 class FSRSForgettingConfig:
@@ -3373,6 +4492,18 @@ class BayesianKnowledgeTracing:
         else:
             self.fsrs_forgetting = None
 
+        self.skill_tracking_enabled = self.get_config_value('skill_tracking.enabled', True)
+        if self.skill_tracking_enabled:
+            self.skill_tracker = BetaInformedEloSkillTracker(config_manager)
+            print("✅ Skill tracking enabled with Beta-informed Elo")
+        else:
+            self.skill_tracker = None
+            print("❌ Skill tracking disabled")
+
+    def set_scheduler(self, scheduler):
+        """Set reference to scheduler after initialization"""
+        self.scheduler = scheduler
+
     def _get_default_params_from_config(self) -> Dict:
         """Get default BKT parameters from config manager"""
         return self.config.get('bkt_parameters.default', {
@@ -3400,6 +4531,19 @@ class BayesianKnowledgeTracing:
             retrievability_threshold=self.config.get('bkt_config.fsrs_retrievability_threshold', 0.9),
             min_retrievability=self.config.get('bkt_config.fsrs_min_retrievability', 0.1)
         )
+
+    def get_config_value(self, key: str, default):
+        """Get configuration value with fallback to default"""
+        if not self.config:
+            return default
+        try:
+            keys = key.split('.')
+            value = self.config.config
+            for k in keys:
+                value = value[k]
+            return value
+        except (KeyError, TypeError, AttributeError):
+            return default
 
     def _initialize_topic_parameters(self):
         """Initialize BKT parameters for all topics from config"""
@@ -3473,7 +4617,7 @@ class BayesianKnowledgeTracing:
                                 is_correct: bool, mcq_id: str = None,
                                 custom_params: Optional[Dict] = None) -> Dict:
         """
-        Process a student's response and update their mastery using BKT
+        Process a student's response and update their mastery using BKT with skill tracking
         FSRS forgetting applied automatically
         """
         student = self.student_manager.get_student(student_id)
@@ -3484,7 +4628,7 @@ class BayesianKnowledgeTracing:
         params = custom_params if custom_params else self.get_topic_parameters(topic_index)
 
         # Get current mastery level
-        current_mastery = student.get_mastery(topic_index)
+        current_mastery = student.mastery_levels.get(topic_index)
         mastery_before_forgetting = current_mastery
 
         # If this is the first time seeing this topic, initialize with prior
@@ -3550,10 +4694,133 @@ class BayesianKnowledgeTracing:
             result['forgetting_applied'] = mastery_before_forgetting - forgotten_mastery
             result['total_change'] = new_mastery - mastery_before_forgetting
 
+        # Update skills if skill tracking is enabled
+        skill_updates = {}
+        if self.skill_tracking_enabled and self.skill_tracker and mcq_id:
+            try:
+                mcq_vector = self.scheduler._get_or_create_optimized_mcq_vector(mcq_id)
+                if mcq_vector:
+                    skill_updates = self.skill_tracker.update_skills_from_question(
+                        student, mcq_vector, is_correct
+                    )
+            except Exception as e:
+                print(f"Warning: Skill update failed for {mcq_id}: {e}")
+
+        result['skill_updates'] = skill_updates
         return result
 
-    def process_mcq_response_improved(self, student_id: str, mcq_id: str,
-                                    is_correct: bool) -> List[Dict]:
+
+
+    def process_breakdown_completion(self, student_id: str, mcq_id: str,
+                                all_steps_correct: bool) -> Dict:
+        """
+        Process completion of breakdown sequence
+        If all steps correct, apply negative update (student needed help)
+        """
+        if not self.skill_tracking_enabled or not self.skill_tracker:
+            return {'skill_updates': {}}
+
+        if not all_steps_correct:
+            return {'skill_updates': {}}  # Individual step failures already handled
+
+        student = self.student_manager.get_student(student_id)
+        if not student:
+            raise ValueError(f"Student {student_id} not found")
+
+        try:
+            mcq_vector = self.scheduler._get_or_create_optimized_mcq_vector(mcq_id)
+            if mcq_vector:
+                skill_updates = self.skill_tracker.apply_breakdown_completion_update(
+                    student, mcq_vector
+                )
+                return {'skill_updates': skill_updates}
+        except Exception as e:
+            print(f"Warning: Breakdown completion update failed for {mcq_id}: {e}")
+
+        return {'skill_updates': {}}
+
+    def complete_breakdown_sequence(self, student_id: str, mcq_id: str,
+                                breakdown_results: List[Dict]) -> Dict:
+        """
+        Complete breakdown sequence and apply final updates
+        """
+        # Check if all steps were answered correctly
+        all_correct = all(result['is_correct'] for result in breakdown_results)
+        correct_count = sum(1 for r in breakdown_results if r['is_correct'])
+        total_count = len(breakdown_results)
+        performance_ratio = correct_count / total_count if total_count > 0 else 0.0
+
+        completion_result = {
+            'all_steps_correct': all_correct,
+            'total_steps': total_count,
+            'correct_steps': correct_count,
+            'performance_ratio': performance_ratio
+        }
+
+        # Apply skill updates if all steps correct (student needed help)
+        if (all_correct and
+            hasattr(self, 'bkt_system') and
+            hasattr(self.bkt_system, 'skill_tracker') and
+            self.bkt_system.skill_tracker):
+
+            skill_completion_updates = self.process_breakdown_completion(
+                student_id, mcq_id, all_steps_correct=True
+            )
+            completion_result['skill_completion_updates'] = skill_completion_updates
+
+        # Add BKT mastery updates based on performance
+        # Use record_attempt with performance-weighted result
+        is_correct_equivalent = performance_ratio >= 0.8
+
+        # Get the StudentManager to use record_attempt
+        if hasattr(self, 'student_manager') and self.student_manager:
+            bkt_updates = self.student_manager.record_attempt(
+                student_id, mcq_id, is_correct_equivalent, 10.0, self.kg
+            )
+
+            # Scale the updates based on performance
+            if bkt_updates and performance_ratio < 1.0:
+                scale_factor = 0.3 + (0.4 * performance_ratio)  # 0.3 to 0.7 scaling
+
+                # Apply scaling
+                for update in bkt_updates:
+                    if 'mastery_change' in update:
+                        original_change = update['mastery_change']
+                        scaled_change = original_change * scale_factor
+
+                        student = self.student_manager.get_student(student_id)
+                        if student and 'main_topic_index' in update:
+                            topic_index = update['main_topic_index']
+                            current_mastery = student.get_mastery(topic_index)
+                            adjusted_mastery = current_mastery - original_change + scaled_change
+                            student.mastery_levels[topic_index] = max(0.0, min(1.0, adjusted_mastery))
+                            update['mastery_change'] = scaled_change
+                            update['mastery_after'] = student.mastery_levels[topic_index]
+
+            completion_result['bkt_updates'] = bkt_updates
+
+        return completion_result
+
+    def process_breakdown_step_response(self, student_id: str, step_type: str,
+                                    is_correct: bool, step_difficulty: float = 0.0) -> Dict:
+        """
+        Process breakdown step response and update relevant skill
+        Only updates skills on incorrect answers
+        """
+        if not self.skill_tracking_enabled or not self.skill_tracker:
+            return {'skill_update': None}
+
+        student = self.student_manager.get_student(student_id)
+        if not student:
+            raise ValueError(f"Student {student_id} not found")
+
+        skill_update = self.skill_tracker.update_skill_from_breakdown_step(
+            student, step_type, is_correct, step_difficulty
+        )
+
+        return {'skill_update': skill_update}
+
+    def process_mcq_response_improved(self, student_id: str, mcq_id: str,is_correct: bool) -> List[Dict]:
         """
         Enhanced version that uses explicit topic weights from the MCQ
         with FSRS forgetting applied automatically
@@ -3646,7 +4913,7 @@ class BayesianKnowledgeTracing:
 
             # Only apply significant effects
             if final_effect > min_effect:
-                current_mastery = student.get_mastery(topic_index)
+                current_mastery = student.mastery_levels.get(topic_index)
                 new_mastery = min(1.0, current_mastery + final_effect)
 
                 # Update student mastery
@@ -3758,14 +5025,14 @@ class BayesianKnowledgeTracing:
             'guess_rate': current_params['guess_rate']
         }
 
-    # NEW METHODS FOR FSRS FUNCTIONALITY
+    # METHODS FOR FSRS FUNCTIONALITY
     def get_current_mastery_with_decay(self, student_id: str, topic_index: int) -> float:
         """Get current mastery level with forgetting applied, without updating stored values"""
         student = self.student_manager.get_student(student_id)
         if not student:
             return 0.0
 
-        stored_mastery = student.get_mastery(topic_index)
+        stored_mastery = student.mastery_levels.get(topic_index)
 
         if self.config.get('bkt_config.enable_fsrs_forgetting', True) and self.fsrs_forgetting:
             return self.fsrs_forgetting.apply_forgetting(student_id, topic_index, stored_mastery)
@@ -3863,6 +5130,35 @@ class BayesianKnowledgeTracing:
             diagnostics['average_retrievability'] = retrievability_sum / component_count
 
         return diagnostics
+
+
+    def get_student_skill_summary(self, student_id: str) -> Dict:
+        """Get comprehensive summary of student's skill levels"""
+        if not self.skill_tracking_enabled or not self.skill_tracker:
+            return {}
+
+        student = self.student_manager.get_student(student_id)
+        if not student:
+            return {}
+
+        return self.skill_tracker.get_skill_summary(student)
+
+    def reset_student_skills(self, student_id: str):
+        """Reset student's skills to initial values (for testing)"""
+        if not self.skill_tracking_enabled or not self.skill_tracker:
+            return
+
+        student = self.student_manager.get_student(student_id)
+        if not student:
+            return
+
+        # Reset skill states
+        if hasattr(student, 'skill_states'):
+            delattr(student, 'skill_states')
+
+        # Reset ability levels to initial values
+        for skill_name in self.skill_tracker.valid_skills:
+            student.ability_levels[skill_name] = self.skill_tracker.initial_ability
 
 ##############  FSRS TIME TESTING   ##################
 
@@ -4218,178 +5514,285 @@ def analyze_area_of_effect(bkt_updates: List[Dict], kg) -> Dict:
         'area_effect_updates': area_effect_updates
     }
 
+def refresh_student_mastery(bkt_system, student_id: str):
+    """
+    Simple function to refresh one student's mastery with current decay
+    """
+    student = bkt_system.student_manager.get_student(student_id)
+    if not student or not bkt_system.fsrs_forgetting:
+        return
 
-def test():
-    kg = KnowledgeGraph(
-        nodes_file='mcq_algorithm_files\kg.json',
-        mcqs_file='mcq_algorithm_files\computed_mcqs_different_numbers.json',
-        config_file='_static\config.json')
-    student_manager = StudentManager(kg.config)
-    mcq_scheduler = MCQScheduler(kg, student_manager)
-    bkt_system = BayesianKnowledgeTracing(kg, student_manager)
+    print(f"🔄 Refreshing mastery for {student_id}...")
 
-    # Connect systems
-    mcq_scheduler.set_bkt_system(bkt_system)
-    student_manager.set_bkt_system(bkt_system)
+    updates = []
+    for topic_index, stored_mastery in list(student.mastery_levels.items()):
+        if stored_mastery > 0.05:
+            decayed_mastery = bkt_system.fsrs_forgetting.apply_forgetting(
+                student_id, topic_index, stored_mastery)
 
-    #create student (example)
-    student_id = "test_student"
-    student = student_manager.create_student(student_id)
-    import random
-    # Set initial mastery levels if you want
-    for topic_idx in kg.get_all_indexes():
-        mastery = random.uniform(0.1, 0.6)
-        student.mastery_levels[topic_idx] = mastery
-        student.confidence_levels[topic_idx] = mastery * 0.8
-        student.studied_topics[topic_idx] = True
+            decay_amount = stored_mastery - decayed_mastery
+            if decay_amount > 0.001:
+                student.mastery_levels[topic_index] = decayed_mastery
+                topic_name = bkt_system.kg.get_topic_of_index(topic_index)
+                updates.append(f"   {topic_name}: {stored_mastery:.3f} → {decayed_mastery:.3f} (-{decay_amount:.3f})")
 
-    #select questions
-    selected_mcqs = mcq_scheduler.select_optimal_mcqs(student_id, num_questions=3)
-    for mcq_id in selected_mcqs:
-        mcq = kg.get_mcq_safely(mcq_id, need_full_text=True)
-        q =mcq.question_text
-        print(q)
-    test_data ={
-      "id": "93d54eb9-5ead-4068-ade5-0482365c0dbe",
-      "text": "Factor the quadratic expression ${question_expression}$.",
-      "question_expression":"(x-r_1)*(x-r_2)",
-      "generated_parameters":{
-        "a":{"type":"int", "min":-24,"max":24,"exclude":0},
-        "b":{"type":"int", "min":-12,"max":12,"exclude":0},
-        "c":{"type":"int", "min":-24,"max":24,"exclude":0},
-        "d":{"type":"int","min":-12,"max":12,"exclude":0}
-      },
-      "calculated_parameters":{
-        "r_1":"a/b",
-        "r_2":"c/d"
-      },
-      "options": [
-        "(b*x -c)*(d*x -a)",
-        "(b*x -a)*(d*x -c)",
-        "(27*x + 1)*(2*x - 12)",
-        "(d*x + c)*(b*x - a)"
-      ],
-      "correctindex": 1,
-      "option_explanations": [
-        "Incorrect. Check your factors",
-        "Correct! ",
-        "Incorrect. ",
-        "Incorrect. check your signs."
-      ],
-      "main_topic_index": 6,
-      "chapter": "algebra",
-      "subtopic_weights": {
-        "6": 1.0
-      },
-      "difficulty_breakdown": {
-        "conceptual_understanding": 0.4,
-        "procedural_fluency": 0.8,
-        "problem_solving": 0.6,
-        "mathematical_communication": 0.2,
-        "memory": 0.3,
-        "spatial_reasoning": 0.0
-      },
-      "overall_difficulty": 0.38333333333333336,
-      "prerequisites": {
-        "7": 0.8,
-        "12": 0.9
-      }}
+    if updates:
+        print(f"📉 Applied decay to {len(updates)} topics:")
+        for update in updates[:5]:  # Show first 5
+            print(update)
+        if len(updates) > 5:
+            print(f"   ... and {len(updates)-5} more")
+    else:
+        print("   No significant decay to apply")
 
-    mcq = MCQ.from_dict(test_data)
-    print("✅ MCQ created successfully")
+    student._last_decay_update = time_manipulator.get_current_time()
 
-    # Test parameter generation
-    mcq.regenerate_parameters()
-    params = mcq.get_current_parameters()
-    print(f"✅ Parameters generated: {params}")
+# Add these functions to mcq_algorithm_current.py
 
-    # Test question text
-    question_text = mcq.question_text
-    print(f"✅ Question text: {question_text}")
+def get_comprehensive_session_stats(student_manager, student_id: str) -> Dict:
+    """
+    Get comprehensive session statistics for the demo
+    """
+    student = student_manager.get_student(student_id)
+    if not student:
+        return {}
 
-    # Test options
-    options = mcq.question_options
-    print(f"✅ Options: {options}")
+    # Basic statistics
+    total_questions = len(student.attempt_history)
+    correct_answers = sum(1 for attempt in student.attempt_history if attempt.correct)
+    success_rate = (correct_answers / total_questions) if total_questions > 0 else 0.0
 
-    print("\n🎉 Basic parameterized MCQ test PASSED!")
+    # Time statistics
+    total_time = sum(attempt.time_taken for attempt in student.attempt_history)
+    avg_time_per_question = (total_time / total_questions) if total_questions > 0 else 0.0
 
-    # Test the exclude logic fix
-    exclude_test_data = {
-        "id": "test_exclude_fix",
-        "text": "Test exclude: a=${a}, b=${b}",
-        "question_expression": "a*x + b",
-        "generated_parameters": {
-            "b": {"type": "int", "min": 1, "max": 5},
-            "a": {"type": "int", "min": 1, "max": 10, "exclude": "b"}
-        },
-        "calculated_parameters": {},
-        "options": ["a", "b", "c", "d"],
-        "correctindex": 0,
-        "option_explanations": ["", "", "", ""],
-        "main_topic_index": 1,
-        "chapter": "test",
-        "subtopic_weights": {"1": 1.0},
-        "difficulty_breakdown": {"conceptual_understanding": 0.5},
-        "overall_difficulty": 0.5,
-        "prerequisites": {}
+    # Mastery statistics
+    mastery_levels = list(student.mastery_levels.values())
+    avg_mastery = sum(mastery_levels) / len(mastery_levels) if mastery_levels else 0.0
+    mastery_above_threshold = sum(1 for m in mastery_levels if m > 0.7)
+
+    # Topic-specific statistics
+    topics_studied = len([m for m in mastery_levels if m > 0.1])
+
+    return {
+        'total_questions': total_questions,
+        'correct_answers': correct_answers,
+        'success_rate': success_rate,
+        'total_time': total_time,
+        'avg_time_per_question': avg_time_per_question,
+        'avg_mastery': avg_mastery,
+        'topics_studied': topics_studied,
+        'mastery_above_threshold': mastery_above_threshold,
+        'session_count': student.session_count,
+        'total_time_on_system': student.total_time_on_system
     }
 
-    print("Testing exclude logic fix...")
-    mcq = MCQ.from_dict(exclude_test_data)
-    violations = 0
-    total_tests = 100
+def get_skill_progression_for_session(bkt_system, student_id: str) -> Dict:
+    """
+    Get skill progression information for session summary
+    """
+    if not bkt_system.skill_tracking_enabled or not bkt_system.skill_tracker:
+        return {}
 
-    for i in range(total_tests):
-        params = mcq._generate_parameters()
-        if params['a'] == params['b']:
-            violations += 1
-            print(f"Violation {violations}: a={params['a']}, b={params['b']}")
+    student = bkt_system.student_manager.get_student(student_id)
+    if not student:
+        return {}
 
-    violation_rate = violations / total_tests
-    print(f"Exclude logic test: {violations}/{total_tests} violations ({violation_rate:.1%})")
+    skill_summary = bkt_system.skill_tracker.get_skill_summary(student)
 
-    if violation_rate < 0.05:
-        print("✅ Exclude logic fix PASSED")
-    else:
-        print("❌ Exclude logic fix FAILED")
+    # Calculate improvements (this would ideally track from session start)
+    improvements = {}
+    for skill_name, current_level in student.ability_levels.items():
+        # For demo purposes, assume some improvement
+        initial_level = 0.5  # This should be tracked from session start in real implementation
+        improvement = current_level - initial_level
+        improvements[skill_name] = {
+            'initial': initial_level,
+            'current': current_level,
+            'improvement': improvement,
+            'improvement_percentage': (improvement / initial_level) * 100 if initial_level > 0 else 0
+        }
 
-    # Test question text generation
-    print("\nTesting question text generation...")
-    question_test_data = {
-        "id": "test_question_text",
-        "text": "What is the discriminant of ${question_expression}$?",
-        "question_expression": "a*x**2 + b*x + c",
-        "generated_parameters": {
-            "a": {"type": "int", "min": 1, "max": 3},
-            "b": {"type": "int", "min": 1, "max": 3},
-            "c": {"type": "int", "min": 1, "max": 3}
-        },
-        "calculated_parameters": {},
-        "options": ["test"],
-        "correctindex": 0,
-        "option_explanations": [""],
-        "main_topic_index": 1,
-        "chapter": "test",
-        "subtopic_weights": {"1": 1.0},
-        "difficulty_breakdown": {"conceptual_understanding": 0.5},
-        "overall_difficulty": 0.5,
-        "prerequisites": {}
+    return {
+        'current_levels': student.ability_levels.copy(),
+        'improvements': improvements,
+        'skill_summary': skill_summary
     }
 
-    mcq2 = MCQ.from_dict(question_test_data)
-    params = mcq2._generate_parameters()
-    question_text = mcq2.generate_question_text(mcq2.text, params)
-    print(f"Generated text: {question_text}")
+def preview_decay_simulation(bkt_system, student_id: str, days_ahead: int = 7) -> Dict:
+    """
+    Preview what mastery decay would look like after a certain number of days
+    WITHOUT actually applying the decay (for preview purposes)
+    """
+    student = bkt_system.student_manager.get_student(student_id)
+    if not student:
+        return {'error': 'Student not found'}
 
-    if '${question_expression}' not in question_text and '$' in question_text:
-        print("✅ Question text generation fix PASSED")
-    else:
-        print("❌ Question text generation fix FAILED")
+    if not bkt_system.fsrs_forgetting:
+        return {'error': 'FSRS forgetting not enabled'}
 
-    print("\n🎉 Fix verification complete!")
+    # Store original time offset
+    original_offset = time_manipulator.get_time_offset()
 
+    # Temporarily simulate time passage
+    time_manipulator.fast_forward(days=days_ahead)
 
+    decay_preview = {
+        'days_simulated': days_ahead,
+        'topics': []
+    }
 
-if __name__ == "__main__":
-    test()
+    for topic_index, current_mastery in student.mastery_levels.items():
+        if current_mastery > 0.05:  # Only preview topics with some mastery
+            # Calculate predicted mastery after time passage
+            predicted_mastery = bkt_system.fsrs_forgetting.apply_forgetting(
+                student_id, topic_index, current_mastery)
+
+            decay_amount = current_mastery - predicted_mastery
+            decay_percentage = (decay_amount / current_mastery) * 100 if current_mastery > 0 else 0
+
+            # Get memory components for additional info
+            components = bkt_system.fsrs_forgetting.get_memory_components(student_id, topic_index)
+
+            topic_name = bkt_system.kg.get_topic_of_index(topic_index)
+            if topic_name:  # Only include topics with valid names
+                decay_preview['topics'].append({
+                    'topic_index': topic_index,
+                    'topic_name': topic_name,
+                    'current_mastery': current_mastery,
+                    'predicted_mastery': predicted_mastery,
+                    'decay_amount': decay_amount,
+                    'decay_percentage': decay_percentage,
+                    'stability': components.stability,
+                    'difficulty': components.difficulty,
+                    'retrievability': components.retrievability
+                })
+
+    # Restore original time offset (this is just a preview)
+    time_manipulator._time_offset = original_offset
+
+    # Sort by decay amount (most decay first)
+    decay_preview['topics'].sort(key=lambda x: x['decay_amount'], reverse=True)
+
+    return decay_preview
+
+def get_session_summary_data(bkt_system, student_id: str, session_questions: List[str]) -> Dict:
+    """
+    Get comprehensive data for session summary display
+    """
+    student = bkt_system.student_manager.get_student(student_id)
+    if not student:
+        return {'error': 'Student not found'}
+
+    # Basic session info
+    session_stats = get_comprehensive_session_stats(bkt_system.student_manager, student_id)
+
+    # Skill progression
+    skill_progression = get_skill_progression_for_session(bkt_system, student_id)
+
+    # Topic coverage in this session
+    topics_covered = set()
+    questions_by_topic = {}
+
+    for mcq_id in session_questions:
+        # Get MCQ topic information
+        if hasattr(bkt_system.kg, 'ultra_loader') and bkt_system.kg.ultra_loader:
+            minimal_data = bkt_system.kg.ultra_loader.get_minimal_mcq_data(mcq_id)
+            if minimal_data:
+                topic_idx = minimal_data.main_topic_index
+                topic_name = bkt_system.kg.get_topic_of_index(topic_idx)
+                if topic_name:
+                    topics_covered.add(topic_name)
+                    if topic_name not in questions_by_topic:
+                        questions_by_topic[topic_name] = []
+                    questions_by_topic[topic_name].append(mcq_id)
+
+    # Mastery changes during session (approximate)
+    mastery_changes = {}
+    for topic_idx, mastery in student.mastery_levels.items():
+        topic_name = bkt_system.kg.get_topic_of_index(topic_idx)
+        if topic_name in topics_covered:
+            mastery_changes[topic_name] = {
+                'current_mastery': mastery,
+                'estimated_change': 0.05  # This should be tracked properly in real implementation
+            }
+
+    return {
+        'session_stats': session_stats,
+        'skill_progression': skill_progression,
+        'topics_covered': list(topics_covered),
+        'questions_by_topic': questions_by_topic,
+        'mastery_changes': mastery_changes,
+        'session_length': len(session_questions)
+    }
+
+def initialize_session_tracking(student_manager, student_id: str) -> Dict:
+    """
+    Initialize session tracking for a student
+    """
+    student = student_manager.get_student(student_id)
+    if not student:
+        return {'error': 'Student not found'}
+
+    # Record session start
+    student_manager.start_session(student_id)
+
+    # Store initial skill levels for comparison
+    if hasattr(student, 'ability_levels'):
+        student.session_start_abilities = student.ability_levels.copy()
+
+    # Store initial mastery levels
+    student.session_start_mastery = student.mastery_levels.copy()
+
+    return {
+        'success': True,
+        'session_start_time': datetime.now().isoformat(),
+        'student_id': student_id
+    }
+
+def finalize_session_tracking(student_manager, student_id: str) -> Dict:
+    """
+    Finalize session tracking and calculate improvements
+    """
+    student = student_manager.get_student(student_id)
+    if not student:
+        return {'error': 'Student not found'}
+
+    # End the session
+    student_manager.end_session(student_id)
+
+    # Calculate actual improvements
+    improvements = {
+        'mastery_improvements': {},
+        'skill_improvements': {}
+    }
+
+    if hasattr(student, 'session_start_mastery'):
+        for topic_idx, start_mastery in student.session_start_mastery.items():
+            current_mastery = student.mastery_levels.get(topic_idx, 0.0)
+            improvement = current_mastery - start_mastery
+            if abs(improvement) > 0.01:  # Only track significant changes
+                topic_name = student_manager.bkt_system.kg.get_topic_of_index(topic_idx) if hasattr(student_manager, 'bkt_system') else f"Topic {topic_idx}"
+                improvements['mastery_improvements'][topic_name] = {
+                    'start': start_mastery,
+                    'end': current_mastery,
+                    'change': improvement
+                }
+
+    if hasattr(student, 'session_start_abilities'):
+        for skill_name, start_ability in student.session_start_abilities.items():
+            current_ability = student.ability_levels.get(skill_name, 0.5)
+            improvement = current_ability - start_ability
+            if abs(improvement) > 0.01:  # Only track significant changes
+                improvements['skill_improvements'][skill_name] = {
+                    'start': start_ability,
+                    'end': current_ability,
+                    'change': improvement
+                }
+
+    return {
+        'success': True,
+        'session_end_time': datetime.now().isoformat(),
+        'improvements': improvements
+    }
 

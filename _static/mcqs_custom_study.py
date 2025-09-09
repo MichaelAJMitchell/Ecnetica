@@ -15,7 +15,7 @@ from typing import Dict, List, Set, Tuple, Optional, Union, Any
 from dataclasses import dataclass, field
 from datetime import datetime
 import random
-from mcq_algorithm_current import (
+from mcq_algorithm import (
     MCQScheduler, OptimizedMCQVector, BayesianKnowledgeTracing,
     StudentProfile, KnowledgeGraph, StudentManager
 )
@@ -60,16 +60,13 @@ class CustomStudyScheduler(MCQScheduler):
         self._centrality_cache = {}  # Cache expensive centrality calculations
         self.bkt_system = bkt_system
         # Precompute expensive graph metrics once
-        print("🔄 Precomputing graph metrics for custom study...")
         self._precomputed_metrics = self._precompute_graph_metrics()
-        print("✅ Graph metrics precomputed")
 
     def _precompute_graph_metrics(self) -> Dict:
         """
         Pre-compute all expensive graph operations once to improve performance.
         Called during initialization to avoid repeated expensive calculations.
         """
-        print("   📊 Computing descendants for all nodes...")
         descendants = {}
         for node_id in self.kg.nodes.keys():
             try:
@@ -77,13 +74,11 @@ class CustomStudyScheduler(MCQScheduler):
             except:
                 descendants[node_id] = []
 
-        print("   📊 Computing betweenness centrality...")
         try:
             centrality = nx.betweenness_centrality(self.kg.graph)
         except:
             centrality = {node_id: 0.0 for node_id in self.kg.nodes.keys()}
 
-        print("   📊 Computing shortest path lengths...")
         try:
             shortest_paths = dict(nx.all_pairs_shortest_path_length(self.kg.graph))
         except:
@@ -107,7 +102,6 @@ class CustomStudyScheduler(MCQScheduler):
             raise ValueError(f"Student {student_id} not found")
 
         print(f"🎯 Starting custom study for {student_id}")
-        print(f"   📊 Request: {custom_request.num_questions} questions")
 
         # Phase 1: Identify target nodes based on request
         target_nodes = self._identify_target_nodes(custom_request, student)
@@ -115,13 +109,11 @@ class CustomStudyScheduler(MCQScheduler):
             print("❌ No target nodes identified")
             return []
 
-        print(f"   🎯 Target nodes identified: {len(target_nodes)} nodes")
 
         # Phase 2: Prerequisite chain analysis
         if custom_request.prerequisite_testing:
             weak_prereqs = self._assess_prerequisite_chains(target_nodes, student, custom_request)
             if weak_prereqs:
-                print(f"   ⚠️  Weak prerequisites found: {len(weak_prereqs)} topics")
                 # Handle prerequisite questions first
                 prereq_questions = self._handle_prerequisite_questions(
                     weak_prereqs, custom_request, student
@@ -134,7 +126,6 @@ class CustomStudyScheduler(MCQScheduler):
             target_nodes, custom_request, student
         )
 
-        print(f"   ✅ Selected nodes for questions: {len(selected_nodes)} nodes")
 
         # Phase 4: MCQ selection with custom priorities
         selected_mcqs = self._select_mcqs_for_nodes(
@@ -146,7 +137,6 @@ class CustomStudyScheduler(MCQScheduler):
             selected_mcqs, custom_request.interleaving_preference
         )
 
-        print(f"   🎉 Custom study complete: {len(final_mcqs)} questions selected")
         return final_mcqs
 
     def _identify_target_nodes(self, request: CustomStudyRequest,
@@ -385,7 +375,6 @@ class CustomStudyScheduler(MCQScheduler):
         if not eligible_mcqs:
             print("⚠️  No eligible MCQs found after filtering daily completed questions")
             return []
-        print(f"   📚 Found {len(eligible_mcqs)} eligible MCQs (after daily filtering)")
 
         # Remove duplicates
         eligible_mcqs = list(set(eligible_mcqs))
@@ -675,7 +664,6 @@ class CustomStudyScheduler(MCQScheduler):
                 print(f"   ⚠️  FSRS calculation failed for topic {topic_id}: {e}")
                 continue
 
-        print(f"   📅 FSRS predicted {len(due_topics)} topics due tomorrow")
         return due_topics
 
     def _get_tomorrows_due_topics_fallback(self, student: StudentProfile) -> List[int]:
@@ -691,7 +679,6 @@ class CustomStudyScheduler(MCQScheduler):
             if self.kg.config.get('algorithm_config.mastery_threshold', 0.7)<= mastery <= self.kg.config.get('algorithm_config.mastery_threshold', 0.7) + 0.1:
                 due_topics.append(node_id)
 
-        print(f"   📅 Fallback method found {len(due_topics)} potentially due topics")
         return due_topics
 
     def _get_cached_betweenness(self, node_id: int) -> float:
@@ -911,7 +898,8 @@ def create_custom_study_session(knowledge_graph: KnowledgeGraph,
     scheduler = CustomStudyScheduler(knowledge_graph, student_manager, bkt_system)
     return scheduler.select_custom_mcqs(student_id, custom_request)
 
-
+# testing code 
+'''
 kg = KnowledgeGraph('_static/kg_new.json', '_static/computed_mcqs_breakdown.json', '_static/config.json')
 student_manager = StudentManager(kg.config)
 mcq_scheduler = MCQScheduler(kg, student_manager)  # Create scheduler first
@@ -935,3 +923,4 @@ print(f"Selected: {selected_mcqs}")
 for mcq_id in selected_mcqs:
     mcq = kg.get_mcq_safely(mcq_id, need_full_text=True)
     print(mcq.question_text,)
+'''

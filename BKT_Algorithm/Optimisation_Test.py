@@ -96,7 +96,7 @@ def check_dependencies():
     
     # Core system modules
     try:
-        from _static.mcq_algorithm_current import (
+        from _static.mcq_algorithm import (
             KnowledgeGraph, StudentManager, BayesianKnowledgeTracing, MCQScheduler
         )
     except ImportError as e:
@@ -145,7 +145,7 @@ def check_dependencies():
 
 def initialize_core_system():
     """Initialize the core BKT-FSRS system"""
-    from _static.mcq_algorithm_current import (
+    from _static.mcq_algorithm import (
         KnowledgeGraph, StudentManager, BayesianKnowledgeTracing, MCQScheduler
     )
     
@@ -411,7 +411,7 @@ def run_quick_test():
     try:
         # Just test imports and basic functionality
         print(" Testing imports...")
-        from _static.mcq_algorithm_current import KnowledgeGraph, StudentManager
+        from _static.mcq_algorithm import KnowledgeGraph, StudentManager
         from BKT_Algorithm.Optimisation_System_Integration import IntegratedParameterOptimizer
         print("✅ All imports successful")
         

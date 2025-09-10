@@ -18,7 +18,7 @@ Welcome to our comprehensive mathematics course! This page serves as your main n
 async function loadCourseStructure() {
   try {
     // Load the course structure JSON file
-    const response = await fetch('/_static/course_structure.json');
+    const response = await fetch('/Ecnetica/_static/course_structure.json');
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }

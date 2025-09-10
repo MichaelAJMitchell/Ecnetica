@@ -104,17 +104,17 @@ async function createCourseNavigator() {
         console.log('Falling back to hardcoded course structure');
         const fallbackStructure = {
             'Introduction': {
-                'Course Overview': '/content/introduction/course_overview.html',
+                'Course Overview': '/Ecnetica/content/introduction/course_overview.html',
                 'Mathematical Thinking': {
-                    'Problem Solving': '/content/introduction/problem_solving.html',
-                    'Proof Techniques': '/content/introduction/proof_techniques.html'
+                    'Problem Solving': '/Ecnetica/content/introduction/problem_solving.html',
+                    'Proof Techniques': '/Ecnetica/content/introduction/proof_techniques.html'
                 },
-                'Knowledge Graph': '/content/knowledge-graph.html'
+                'Knowledge Graph': '/Ecnetica/content/knowledge-graph.html'
             },
             'Interactive Tools': {
-                'Python Playground': '/content/interactive/python_playground.html',
-                'BKT Simple Demo': '/content/interactive/BKT_Simple_Demo.html',
-                'BKT FSRS Demo': '/content/interactive/BKT_FSRS_Demo.html'
+                'Python Playground': '/Ecnetica/content/interactive/python_playground.html',
+                'BKT Simple Demo': '/Ecnetica/content/interactive/BKT_Simple_Demo.html',
+                'BKT FSRS Demo': '/Ecnetica/content/interactive/BKT_FSRS_Demo.html'
             }
         };
         
@@ -408,22 +408,22 @@ function createInteractiveToolsFinder() {
     // Interactive tools structure - simplified since there are only a few tools
     const interactiveTools = {
         'BKT Simple Demo': {
-            url: '/content/interactive/BKT_Simple_Demo.html',
+            url: '/Ecnetica/content/interactive/BKT_Simple_Demo.html',
             description: 'Bayesian Knowledge Tracing demonstration',
             icon: '🧠'
         },
         'BKT FSRS Demo': {
-            url: '/content/interactive/BKT_FSRS_Demo.html',
+            url: '/Ecnetica/content/interactive/BKT_FSRS_Demo.html',
             description: 'FSRS-based spaced repetition demo',
             icon: '⏳'
         },
         'MCQ Breakdown Demo': {
-            url: '/content/interactive/MCQ_Breakdown_Demo.html',
+            url: '/Ecnetica/content/interactive/MCQ_Breakdown_Demo.html',
             description: 'Multiple Choice Question breakdown tool',
             icon: '❓'
         },
         'Comprehensive MCQS Demo': {
-            url: '/content/interactive/full_mcqs_demo.html',
+            url: '/Ecnetica/content/interactive/full_mcqs_demo.html',
             description: 'Revision Area showing statstics updates',
             icon: '📚'
         },

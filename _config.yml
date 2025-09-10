@@ -25,25 +25,55 @@ repository:
   path_to_book: ./  # Optional path to your book, relative to the repository root
   branch: jb  # Which branch of the repository should be used when creating links (optional)
 
-# Add GitHub buttons to your book
-# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+# HTML settings - NO GitHub buttons
 html:
-  use_issues_button: true
-  use_repository_button: true
-  use_edit_page_button: true
   baseurl: ""
   extra_footer: "Copyright-info"
-  sidebar:
-    maxdepth: 1  # Try adding this
+  extra_css:
+    - "_static/style.css"
+    - "_static/jsxgraph.css"
+    - "_static/math_visualiser.css"
+  extra_js:
+    - "_static/theme.js"
+    - "_static/math_visualiser.js"
+    - "_static/jsxgraph-module.js"
+    - "_static/math.min.js"
+    - "_static/IdentityQuestions.js"
 
 sphinx:
   config:
-    #html_theme: sphinx-book-theme
+    html_theme: pydata_sphinx_theme
     html_theme_options:
-      navigation_depth: 4
-      sidebar_hide_name: false
-    html_extra_path: ['InteractiveComponents']  # This will copy the entire folder
+      navbar_start: ["navbar-logo"]
+      navbar_center: []
+      navbar_end: ["search-button"]
+      navbar_persistent: []
 
+      # Navigation settings
+      navigation_depth: 3
+      collapse_navigation: true
+      show_toc_level: 2
+      
+      # Logo and branding - appears in navbar AND sidebar
+      logo:
+        image_light: "logo.png"
+        image_dark: "logo.png"
+        text: "Ecnetica"
+      
+      # Sidebar configuration
+      primary_sidebar_end: []
+      secondary_sidebar_items: ["page-toc"]
+      
+      # Search
+      search_bar_text: "Search the docs..."
+      
+      # Navigation
+      show_prev_next: true
+      
+      # Source options disabled
+      use_edit_page_button: false
+      show_version_warning_banner: false
+      
 parse:
   myst_enable_extensions:
     - amsmath

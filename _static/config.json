@@ -2,23 +2,23 @@
   "bkt_parameters": {
     "default": {
       "prior_knowledge": 0.1,
-      "learning_rate": 0.3,
+      "learning_rate": 0.02,
       "slip_rate": 0.05,
-      "guess_rate": 0.15
+      "guess_rate": 0.4
     },
     "topic_specific": {
       "17": {
         "prior_knowledge": 0.05,
-        "learning_rate": 0.25,
-        "slip_rate": 0.03,
-        "guess_rate": 0.1,
+        "learning_rate": 0.02,
+        "slip_rate": 0.05,
+        "guess_rate": 0.4,
         "description": "Discriminant - requires more foundational knowledge"
       },
       "15": {
         "prior_knowledge": 0.08,
-        "learning_rate": 0.35,
-        "slip_rate": 0.06,
-        "guess_rate": 0.12,
+        "learning_rate": 0.02,
+        "slip_rate": 0.05,
+        "guess_rate": 0.4,
         "description": "Quadratic formula - procedural skill"
       }
     }
@@ -35,7 +35,22 @@
     "area_effect_enabled": true,
     "area_effect_max_distance": 2,
     "area_effect_decay_rate": 0.6,
-    "area_effect_min_effect": 0.01
+    "area_effect_min_effect": 0.01,
+    "enable_fsrs_forgetting": true,
+    "fsrs_stability_power": -0.5,
+    "fsrs_difficulty_power": 0.3,
+    "fsrs_retrievability_power": -0.8,
+    "fsrs_stability_weight": 0.4,
+    "fsrs_difficulty_weight": 0.3,
+    "fsrs_retrievability_weight": 0.3,
+    "fsrs_success_stability_boost": 1.2,
+    "fsrs_failure_stability_penalty": 0.8,
+    "fsrs_difficulty_adaptation_rate": 0.1,
+    "fsrs_base_forgetting_time": 1.0,
+    "fsrs_max_stability": 365.0,
+    "fsrs_min_stability": 0.1,
+    "fsrs_retrievability_threshold": 0.9,
+    "fsrs_min_retrievability": 0.1
   },
   "algorithm_config": {
     "difficulty_range": 0.5,
@@ -47,7 +62,7 @@
     "min_confidence": 0.1,
     "max_confidence": 0.95,
     "confidence_growth_rate": 0.02,
-    "attempts_for_full_confidence": 10,
+    "attempts_for_full_confidence": 20,
     "confidence_question_weight": 0.3,
     "confidence_time_weight": 0.3,
     "confidence_consistency_weight": 0.2,
@@ -64,14 +79,67 @@
     "greedy_prereq_weight": 0.5,
     "greedy_mastery_update_rate": 0.8,
     "greedy_early_stopping": false,
-    "greedy_max_mcqs_to_evaluate": 50
+    "greedy_max_mcqs_to_evaluate": 100,
+    "skills_breakdown_weight": 2.0,
+    "overall_difficulty_weight": 1.0,
+    "enable_virtual_area_effects": true,
+    "pedagogy_ordering": {
+    "max_prereq_depth": 6,
+    "max_prereq_nodes": 50,
+    "skill_progression_weights": {
+      "memory": 1.0,
+      "conceptual_understanding": 1.1,
+      "procedural_fluency": 2.0,
+      "mathematical_communication": 3.0,
+      "problem_solving": 4.0,
+      "spatial_reasoning": 4.1
+  }
+}
+  },
+    "breakdown_config": {
+      "prerequisite_skip_threshold": 0.8,
+      "enable_breakdown_system": true
   },
   "ui_settings": {
-    "default_questions_per_session": 5,
-    "max_questions_per_session": 20,
+    "default_questions_per_session": 30,
+    "max_questions_per_session": 100,
     "enable_explanations": true,
     "show_difficulty": false,
     "enable_confidence_display": true
+  },
+      "skills_config": {
+      "problem_solving_penalty": 2.5,
+      "procedural_penalty": 2.0,
+      "conceptual_penalty": 2.0,
+      "memory_penalty": 1.5,
+      "communication_penalty": 1.8,
+      "spatial_penalty": 2.5,
+      "student_offset": 0.1
+    },
+    "confidence_algorithm": {
+    "confidence_cap": 0.8,
+    "difficulty_reduction_factor": 0.5,
+    "min_difficulty_penalty": 0.1
+},
+  "skill_tracking": {
+    "enabled": true,
+    "initial_ability": 0.5,
+    "initial_alpha": 1.0,
+    "initial_beta": 1.0,
+    "base_learning_rate": 0.04,
+    "max_change_per_update": 0.05,
+    "min_evidence_threshold": 0.05,
+    "difficulty_scale_factor": 0.5,
+    "uncertainty_multiplier": 2.0,
+    "surprise_amplification": 1.5,
+    "skill_learning_rates": {
+      "problem_solving": 0.035,
+      "procedural_fluency": 0.055,
+      "conceptual_understanding": 0.04,
+      "memory": 0.06,
+      "mathematical_communication": 0.04,
+      "spatial_reasoning": 0.05
+    }
   },
   "metadata": {
     "config_version": "1.0",

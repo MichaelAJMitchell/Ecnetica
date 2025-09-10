@@ -1,12 +1,17 @@
 # Quadratic Functions V2
 
-<iframe 
-    src="https://drive.google.com/file/d/1KQdEOxFP1FnUw8zJnDHHblAgbaGw_UCd/preview" 
-    width="100%" 
-    height="480" 
-    frameborder="0" 
-    allowfullscreen>
-</iframe>
+<div class="youtube-container">
+    <div class="youtube-header">
+    Video Lesson
+    </div>
+    <div class="youtube-responsive">
+        <iframe 
+            src="https://drive.google.com/file/d/1KQdEOxFP1FnUw8zJnDHHblAgbaGw_UCd/preview" 
+            allowfullscreen
+            title="Quadratic Functions V2 Video Lesson">
+        </iframe>
+    </div>
+</div>
 
 ## Linear Equations Revision
 
@@ -34,7 +39,7 @@ When solving linear equations, always perform the same operation to both sides o
 
 #### Interactive Visualization: Linear Equations
 
-<div id="linear-equation-container" class="visualization-container" style="height: 500px;"></div>
+<div id="linear-equation-container" class="visualization-container"></div>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     MathVisualizer.createGraphFromDescription('linear-equation-container', {
@@ -111,31 +116,122 @@ document.addEventListener('DOMContentLoaded', function() {
         title: "Linear Equations Adaptive Review",
         questions: [
             {
-                text: "Solve for x: \\(5x - 15 = 0\\)",
-                options: ["\\(x = -3\\)", "\\(x = 3\\)", "\\(x = -15\\)", "\\(x = 5\\)"],
+                id: "mcq_linear_conceptual_001",
+                text: "Why must we perform the same operation on both sides when solving \\(3x + 6 = 15\\)?",
+                options: [
+                    "Because it's a rule we must follow in algebra",
+                    "To maintain the equality - if two things are equal and we do the same thing to both, they remain equal",
+                    "To make the equation look more balanced",
+                    "Because we can only work with one side at a time"
+                ],
                 correctIndex: 1,
                 option_explanations: [
-                    "Incorrect. Check your signs when moving terms across the equals sign.",
-                    "Correct! From \\(5x - 15 = 0\\), we get \\(5x = 15\\), so \\(x = 3\\). This demonstrates proper algebraic manipulation.",
-                    "Incorrect. This appears to be a confusion between the constant term and the solution.",
-                    "Incorrect. This is the coefficient of x, not the solution."
+                    "Incorrect. The answer is to maintain equality. If you chose this, you're missing the logical foundation - equations aren't just arbitrary rules but represent balanced relationships.",
+                    "Correct! Step-by-step solution: Step 1: Start with \\(3x + 6 = 15\\) (both sides equal) Step 2: Subtract 6 from both sides: \\(3x = 9\\) (equality preserved) Step 3: Divide both sides by 3: \\(x = 3\\) Check: \\(3(3) + 6 = 15\\) ✓",
+                    "Incorrect. The answer is to maintain equality. If you chose 'balanced appearance', you're confusing visual balance with mathematical equality - the goal is preserving the equal relationship, not looks.",
+                    "Incorrect. The answer is to maintain equality. If you chose this, you're missing that we must work with both sides simultaneously to preserve the equal relationship."
                 ],
-                main_topic_index: 0,
+                main_topic_index: "e7a4f6d2-3b85-4f54-a64b-7a4e7f6d2b86",
                 chapter: "algebra",
                 subtopic_weights: {
-                    "0": 0.9,
-                    "1": 0.1
+                    "e7a4f6d2-3b85-4f54-a64b-7a4e7f6d2b86": 0.8,
+                    "d5f9c2e8-9a42-4b68-b73a-5f9d5c2e8a43": 0.2
                 },
                 difficulty_breakdown: {
-                    conceptual: 0.2,
-                    procedural: 0.4,
-                    problem_solving: 0.1,
-                    communication: 0.2,
+                    conceptual_understanding: 0.8,
+                    procedural_fluency: 0.2,
+                    problem_solving: 0.3,
+                    mathematical_communication: 0.6,
                     memory: 0.3,
-                    spatial: 0.0
+                    spatial_reasoning: 0.0
+                }
+            },
+            {
+                id: "mcq_linear_procedural_001",
+                text: "Solve for x: \\(5x - 20 = 0\\)",
+                options: ["\\(x = -4\\)", "\\(x = 5\\)", "\\(x = 4\\)", "\\(x = 20\\)"],
+                correctIndex: 2,
+                option_explanations: [
+                    "Incorrect. The answer is \\(x = 4\\). If you got -4, you likely made a sign error when moving -20. Correct approach: Add 20 to both sides, then divide by 5.",
+                    "Incorrect. The answer is \\(x = 4\\). If you got 5, you may have confused the coefficient with the solution. Correct approach: After \\(5x = 20\\), divide by 5 to get \\(x = 4\\).",
+                    "Correct! Step-by-step solution: Step 1: Add 20 to both sides: \\(5x = 20\\) Step 2: Divide both sides by 5: \\(x = 4\\) Step 3: Simplify: \\(x = 4\\) Check: \\(5(4) - 20 = 0\\) ✓",
+                    "Incorrect. The answer is \\(x = 4\\). If you got 20, you forgot to divide by the coefficient. Correct approach: After getting \\(5x = 20\\), you must divide both sides by 5."
+                ],
+                main_topic_index: "e7a4f6d2-3b85-4f54-a64b-7a4e7f6d2b86",
+                chapter: "algebra",
+                subtopic_weights: {
+                    "e7a4f6d2-3b85-4f54-a64b-7a4e7f6d2b86": 1.0
                 },
-                overall_difficulty: 0.25,
-                prerequisites: []
+                difficulty_breakdown: {
+                    conceptual_understanding: 0.3,
+                    procedural_fluency: 0.7,
+                    problem_solving: 0.2,
+                    mathematical_communication: 0.2,
+                    memory: 0.4,
+                    spatial_reasoning: 0.0
+                }
+            },
+            {
+                id: "mcq_linear_strategic_001",
+                text: "Which first step would be most efficient for solving \\(\\frac{2}{3}x + 4 = 10\\)?",
+                options: [
+                    "Multiply everything by 3 to clear the fraction",
+                    "Divide everything by \\(\\frac{2}{3}\\)",
+                    "Convert 4 and 10 to fractions with denominator 3",
+                    "Subtract 4 from both sides to isolate the term with x"
+                ],
+                correctIndex: 3,
+                option_explanations: [
+                    "Incorrect. The most efficient step is to subtract 4 first. If you clear fractions first, you get \\(2x + 12 = 30\\) - more complex arithmetic than needed.",
+                    "Incorrect. The most efficient step is to subtract 4 first. If you divide by a fraction immediately, you're making the arithmetic unnecessarily complex.",
+                    "Incorrect. The most efficient step is to subtract 4 first. If you convert to fractions, you're adding complexity when you could work more directly.",
+                    "Correct! Step-by-step solution: Step 1: Subtract 4 from both sides: \\(\\frac{2}{3}x = 6\\) Step 2: Multiply by \\(\\frac{3}{2}\\): \\(x = 9\\) Step 3: Simplify: \\(x = 9\\) Check: \\(\\frac{2}{3}(9) + 4 = 10\\) ✓"
+                ],
+                main_topic_index: "e7a4f6d2-3b85-4f54-a64b-7a4e7f6d2b86",
+                chapter: "algebra",
+                subtopic_weights: {
+                    "e7a4f6d2-3b85-4f54-a64b-7a4e7f6d2b86": 0.7,
+                    "f2b7c9a4-8e63-4d85-b96e-2b7f2c9a4e64": 0.3
+                },
+                difficulty_breakdown: {
+                    conceptual_understanding: 0.5,
+                    procedural_fluency: 0.6,
+                    problem_solving: 0.8,
+                    mathematical_communication: 0.4,
+                    memory: 0.3,
+                    spatial_reasoning: 0.0
+                }
+            },
+            {
+                id: "mcq_linear_error_001",
+                text: "A student solved \\(2x - 8 = 4\\) and got \\(x = -2\\). What error did they likely make?",
+                options: [
+                    "They subtracted 8 from both sides instead of adding 8",
+                    "They divided by 2 incorrectly",
+                    "They forgot to change the sign of 4",
+                    "They multiplied both sides by 2"
+                ],
+                correctIndex: 0,
+                option_explanations: [
+                    "Correct! Step-by-step solution: Step 1: Student likely did \\(2x - 8 - 8 = 4 - 8\\), getting \\(2x = -4\\), then \\(x = -2\\) Step 2: Correct method: \\(2x - 8 + 8 = 4 + 8\\) gives \\(2x = 12\\) Step 3: Therefore \\(x = 6\\) Check: \\(2(6) - 8 = 4\\) ✓",
+                    "Incorrect. The answer is they subtracted 8 instead of adding 8. If you chose division error, the mistake happened earlier - with \\(2x = 12\\), division would give \\(x = 6\\), not \\(x = -2\\).",
+                    "Incorrect. The answer is they subtracted 8 instead of adding 8. If you chose changing the sign of 4, you're misunderstanding - the 4 doesn't change; the error is in handling -8.",
+                    "Incorrect. The answer is they subtracted 8 instead of adding 8. If you chose multiplication, that would give \\(4x - 16 = 8\\), not lead to \\(x = -2\\)."
+                ],
+                main_topic_index: "e7a4f6d2-3b85-4f54-a64b-7a4e7f6d2b86",
+                chapter: "algebra",
+                subtopic_weights: {
+                    "e7a4f6d2-3b85-4f54-a64b-7a4e7f6d2b86": 0.8,
+                    "d5f9c2e8-9a42-4b68-b73a-5f9d5c2e8a43": 0.2
+                },
+                difficulty_breakdown: {
+                    conceptual_understanding: 0.6,
+                    procedural_fluency: 0.5,
+                    problem_solving: 0.8,
+                    mathematical_communication: 0.4,
+                    memory: 0.3,
+                    spatial_reasoning: 0.0
+                }
             }
         ]
     };
@@ -348,60 +444,132 @@ This is a clever technique - by substituting $u = t^2$, we transform a quartic (
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const adaptiveMCQData = {
-        title: "Quadratic Form Assessment",
+        title: "Quadratic Form Assessment", 
         questions: [
             {
-                text: "Which of the following is the standard form of a quadratic equation?",
-                options: ["\\(y = mx + b\\)", "\\(ax^2 + bx + c = 0\\)", "\\(a^2 + b^2 = c^2\\)", "\\(\\frac{x}{a} + \\frac{y}{b} = 1\\)"],
-                correctIndex: 1,
-                option_explanations: [
-                    "Incorrect. This is the slope-intercept form of a linear equation.",
-                    "Correct! The standard form \\(ax^2 + bx + c = 0\\) where \\(a ≠ 0\\) is the foundation for all quadratic equation solving methods.",
-                    "Incorrect. This is the Pythagorean theorem, used in geometry.",
-                    "Incorrect. This is the intercept form of a line."
+                id: "mcq_quad_form_conceptual_001",
+                text: "Why must \\(a \\neq 0\\) in the quadratic equation \\(ax^2 + bx + c = 0\\)?",
+                options: [
+                    "Because if \\(a = 0\\), we'd have \\(bx + c = 0\\), which is linear, not quadratic",
+                    "Because negative coefficients aren't allowed in quadratic equations",
+                    "Both the first and third options are correct",
+                    "Because the graph wouldn't be a parabola if \\(a\\) were zero"
                 ],
-                main_topic_index: 2,
+                correctIndex: 2,
+                option_explanations: [
+                    "Partially correct! If \\(a = 0\\), we lose the \\(x^2\\) term and get a linear equation, but there's more to consider.",
+                    "Incorrect. Coefficients can be negative in quadratic equations. The sign of \\(a\\) just determines if the parabola opens up or down.",
+                    "Correct! Both reasons are mathematically equivalent: no \\(x^2\\) term means no quadratic equation AND no parabolic graph. Step 1: If \\(a = 0\\), equation becomes \\(bx + c = 0\\). Step 2: This is linear (degree 1), not quadratic (degree 2). Step 3: Graphically, linear gives a line, quadratic gives a parabola. Check: The \\(x^2\\) term creates the curved shape.",
+                    "Partially correct! Without the \\(x^2\\) term, we can't have a parabola, but this connects to the first option."
+                ],
+                main_topic_index: "649f8c3e-2d75-4a86-b97d-49f8c649d2c8",
                 chapter: "algebra",
                 subtopic_weights: {
-                    "2": 1.0
+                    "649f8c3e-2d75-4a86-b97d-49f8c649d2c8": 0.8,
+                    "656e9a4f-3b68-4d52-a85b-56e9a656b3d9": 0.2
                 },
                 difficulty_breakdown: {
-                    conceptual: 0.3,
-                    procedural: 0.1,
-                    problem_solving: 0.0,
-                    communication: 0.4,
-                    memory: 0.5,
-                    spatial: 0.0
-                },
-                overall_difficulty: 0.22,
-                prerequisites: [0]
+                    conceptual_understanding: 0.8,
+                    procedural_fluency: 0.2,
+                    problem_solving: 0.4,
+                    mathematical_communication: 0.7,
+                    memory: 0.3,
+                    spatial_reasoning: 0.3
+                }
             },
             {
-                text: "Convert \\((x-2)(x+5) = 7\\) to standard form.",
-                options: ["\\(x^2 + 3x - 10 = 7\\)", "\\(x^2 + 3x - 17 = 0\\)", "\\(x^2 + 3x + 3 = 0\\)", "\\(x^2 - 3x - 17 = 0\\)"],
+                id: "mcq_quad_form_procedural_001",
+                text: "Convert \\((2x-1)(x+3) = 5\\) to standard form \\(ax^2 + bx + c = 0\\).",
+                options: [
+                    "\\(2x^2 + 5x - 3 = 0\\)",
+                    "\\(2x^2 + 5x - 8 = 0\\)",
+                    "\\(2x^2 + 7x - 8 = 0\\)",
+                    "\\(2x^2 + 6x - 8 = 0\\)"
+                ],
                 correctIndex: 1,
                 option_explanations: [
-                    "Incorrect. You expanded correctly but forgot to move the 7 to the left side.",
-                    "Correct! Expanding gives \\(x^2 + 3x - 10 = 7\\), then subtracting 7 from both sides gives \\(x^2 + 3x - 17 = 0\\).",
-                    "Incorrect. Check your expansion: \\((x-2)(x+5) = x^2 + 5x - 2x - 10 = x^2 + 3x - 10\\).",
-                    "Incorrect. The middle term should be +3x, not -3x."
+                    "Incorrect. You expanded correctly to get \\(2x^2 + 5x - 3 = 5\\), but forgot to subtract 5 from both sides.",
+                    "Correct! Step 1: Expand left side using FOIL: \\(2x^2 + 6x - x - 3 = 5\\). Step 2: Combine like terms: \\(2x^2 + 5x - 3 = 5\\). Step 3: Subtract 5 from both sides: \\(2x^2 + 5x - 8 = 0\\). Check: \\(a = 2\\), \\(b = 5\\), \\(c = -8\\).",
+                    "Incorrect. This suggests you made an error combining like terms. \\(6x - x = 5x\\), not \\(7x\\).",
+                    "Incorrect. This suggests you didn't combine like terms correctly. \\(6x - x = 5x\\), not \\(6x\\)."
                 ],
-                main_topic_index: 2,
-                chapter: "algebra", 
+                main_topic_index: "649f8c3e-2d75-4a86-b97d-49f8c649d2c8",
+                chapter: "algebra",
                 subtopic_weights: {
-                    "2": 0.7,
-                    "0": 0.3
+                    "649f8c3e-2d75-4a86-b97d-49f8c649d2c8": 0.7,
+                    "656e9a4f-3b68-4d52-a85b-56e9a656b3d9": 0.2,
+                    "e7a4f6d2-3b85-4f54-a64b-7a4e7f6d2b86": 0.1
                 },
                 difficulty_breakdown: {
-                    conceptual: 0.3,
-                    procedural: 0.6,
-                    problem_solving: 0.4,
-                    communication: 0.2,
-                    memory: 0.3,
-                    spatial: 0.0
+                    conceptual_understanding: 0.4,
+                    procedural_fluency: 0.8,
+                    problem_solving: 0.3,
+                    mathematical_communication: 0.3,
+                    memory: 0.5,
+                    spatial_reasoning: 0.0
+                }
+            },
+            {
+                id: "mcq_quad_form_strategic_001", 
+                text: "Which equation is easiest to convert to standard form?",
+                options: [
+                    "\\(3x(x-2) = x + 5\\)",
+                    "\\(\\frac{x^2}{2} + \\frac{x}{3} = 1\\)",
+                    "\\(x^2 - 5x = (x-1)(x+2)\\)",
+                    "\\((x-4)^2 = 16\\)"
+                ],
+                correctIndex: 3,
+                option_explanations: [
+                    "Incorrect. This requires expanding \\(3x(x-2) = 3x^2 - 6x\\), then rearranging \\(3x^2 - 6x = x + 5\\) to \\(3x^2 - 7x - 5 = 0\\).",
+                    "Incorrect. Fractions require clearing denominators: multiply by 6 to get \\(3x^2 + 2x = 6\\), then \\(3x^2 + 2x - 6 = 0\\).",
+                    "Incorrect. Need to expand the right side: \\((x-1)(x+2) = x^2 + x - 2\\), then rearrange \\(x^2 - 5x = x^2 + x - 2\\).",
+                    "Correct! \\((x-4)^2 = 16\\) expands to \\(x^2 - 8x + 16 = 16\\), then subtract 16: \\(x^2 - 8x = 0\\). Just two steps! Step 1: Expand perfect square. Step 2: Move constant to left side. Remember: Perfect squares expand quickly and avoid fractions."
+                ],
+                main_topic_index: "649f8c3e-2d75-4a86-b97d-49f8c649d2c8",
+                chapter: "algebra",
+                subtopic_weights: {
+                    "649f8c3e-2d75-4a86-b97d-49f8c649d2c8": 0.8,
+                    "b5d9e6a4-7c28-4f53-a69d-2e8f5a9c3b74": 0.2
                 },
-                overall_difficulty: 0.35,
-                prerequisites: [0]
+                difficulty_breakdown: {
+                    conceptual_understanding: 0.5,
+                    procedural_fluency: 0.6,
+                    problem_solving: 0.8,
+                    mathematical_communication: 0.4,
+                    memory: 0.3,
+                    spatial_reasoning: 0.0
+                }
+            },
+            {
+                id: "mcq_quad_form_error_001",
+                text: "A student claims that \\(3x^2 + \\frac{2}{x} - 1 = 0\\) is a quadratic equation. What error are they making?",
+                options: [
+                    "They're correct - this is a quadratic equation",
+                    "They forgot that quadratic equations can't have negative coefficients",
+                    "They didn't notice the \\(\\frac{2}{x}\\) term, which creates a negative power of \\(x\\)",
+                    "They should have written it as \\(3x^2 + 2x^{-1} - 1 = 0\\) first"
+                ],
+                correctIndex: 2,
+                option_explanations: [
+                    "Incorrect. This equation contains \\(\\frac{2}{x} = 2x^{-1}\\), which is a negative power of \\(x\\), making it not quadratic.",
+                    "Incorrect. Quadratic equations can have negative coefficients. The issue is the negative power of \\(x\\).",
+                    "Correct! The term \\(\\frac{2}{x} = 2x^{-1}\\) contains \\(x^{-1}\\), which is a negative power. Step 1: Quadratic equations can only have non-negative integer powers of \\(x\\). Step 2: Highest power must be exactly 2. Step 3: This equation is rational, not quadratic. Remember: \\(\\frac{1}{x} = x^{-1}\\) creates negative powers.",
+                    "Incorrect. While rewriting helps identify the problem, the equation is still not quadratic because of the \\(x^{-1}\\) term."
+                ],
+                main_topic_index: "649f8c3e-2d75-4a86-b97d-49f8c649d2c8",
+                chapter: "algebra",
+                subtopic_weights: {
+                    "649f8c3e-2d75-4a86-b97d-49f8c649d2c8": 0.8,
+                    "656e9a4f-3b68-4d52-a85b-56e9a656b3d9": 0.2
+                },
+                difficulty_breakdown: {
+                    conceptual_understanding: 0.7,
+                    procedural_fluency: 0.4,
+                    problem_solving: 0.6,
+                    mathematical_communication: 0.6,
+                    memory: 0.4,
+                    spatial_reasoning: 0.0
+                }
             }
         ]
     };
@@ -594,59 +762,128 @@ document.addEventListener('DOMContentLoaded', function() {
         title: "Factorization Method Assessment",
         questions: [
             {
-                text: "Solve by factorization: \\(x^2 - 5x + 6 = 0\\)",
-                options: ["\\(x = 2\\) or \\(x = 3\\)", "\\(x = -2\\) or \\(x = -3\\)", "\\(x = 1\\) or \\(x = 6\\)", "\\(x = -1\\) or \\(x = -6\\)"],
+                id: "mcq_factorization_conceptual_001",
+                text: "Why does the zero product property allow us to solve \\((x-2)(x-3) = 0\\)?",
+                options: [
+                    "Because if the product of two factors is zero, at least one factor must be zero",
+                    "Because we can divide both sides by \\((x-2)\\)",
+                    "Because the factors are equal to each other",
+                    "Because quadratic equations always have two solutions"
+                ],
                 correctIndex: 0,
                 option_explanations: [
-                    "Correct! We need two numbers that multiply to 6 and add to -5. That's -2 and -3, giving us \\((x-2)(x-3) = 0\\), so \\(x = 2\\) or \\(x = 3\\).",
-                    "Incorrect. Check the signs carefully. When factoring \\(x^2 - 5x + 6\\), we get \\((x-2)(x-3)\\), not \\((x+2)(x+3)\\).",
-                    "Incorrect. While 1×6 = 6, we need the numbers to add to -5, and 1 + 6 = 7.",
-                    "Incorrect. These would give us \\((x+1)(x+6) = x^2 + 7x + 6\\), which is different from our equation."
+                    "Correct! The zero product property states: if \\(A \\times B = 0\\), then \\(A = 0\\) or \\(B = 0\\) (or both). Step 1: Set each factor equal to zero. Step 2: Solve \\(x-2 = 0\\) and \\(x-3 = 0\\). Step 3: Get \\(x = 2\\) or \\(x = 3\\). Remember: Only zero has the property that multiplying by it gives zero.",
+                    "Incorrect. Dividing by \\((x-2)\\) would be invalid if \\(x = 2\\), and it doesn't help us find the solutions.",
+                    "Incorrect. The factors aren't equal to each other; they're each equal to zero separately.",
+                    "Incorrect. While quadratics often have two solutions, the zero product property is the specific reason factorization works."
                 ],
-                main_topic_index: 6,
+                main_topic_index: "a8c4f7e5-3a76-4b43-b78a-8c4a8f7e5a77",
                 chapter: "algebra",
                 subtopic_weights: {
-                    "6": 0.8,
-                    "2": 0.2
+                    "a8c4f7e5-3a76-4b43-b78a-8c4a8f7e5a77": 0.8,
+                    "b3d6a9f2-7e59-4c86-a97e-3d6b3a9f2e58": 0.2
                 },
                 difficulty_breakdown: {
-                    conceptual: 0.4,
-                    procedural: 0.5,
-                    problem_solving: 0.5,
-                    communication: 0.2,
-                    memory: 0.3,
-                    spatial: 0.0
-                },
-                overall_difficulty: 0.38,
-                prerequisites: [0, 2]
+                    conceptual_understanding: 0.9,
+                    procedural_fluency: 0.3,
+                    problem_solving: 0.4,
+                    mathematical_communication: 0.8,
+                    memory: 0.4,
+                    spatial_reasoning: 0.0
+                }
             },
             {
-                text: "Which quadratic can be factored as \\((2x-1)(x+3)\\)?",
-                options: ["\\(2x^2 + 5x - 3 = 0\\)", "\\(2x^2 - 5x - 3 = 0\\)", "\\(2x^2 + 7x - 3 = 0\\)", "\\(2x^2 - 7x + 3 = 0\\)"],
-                correctIndex: 0,
-                option_explanations: [
-                    "Correct! Expanding \\((2x-1)(x+3)\\) gives \\(2x^2 + 6x - x - 3 = 2x^2 + 5x - 3\\).",
-                    "Incorrect. Check your expansion of \\((2x-1)(x+3)\\). The middle term should be +5x, not -5x.",
-                    "Incorrect. This would require the middle term to be +7x, but \\((2x-1)(x+3)\\) gives +5x.",
-                    "Incorrect. This has all wrong signs. Double-check your expansion using FOIL method."
+                id: "mcq_factorization_procedural_001",
+                text: "Factor \\(x^2 + 5x + 6\\) completely.",
+                options: [
+                    "\\((x+6)(x+1)\\)",
+                    "\\((x+2)(x+3)\\)",
+                    "\\((x+5)(x+1)\\)",
+                    "\\((x-2)(x-3)\\)"
                 ],
-                main_topic_index: 7,
+                correctIndex: 1,
+                option_explanations: [
+                    "Incorrect. Check: \\((x+6)(x+1) = x^2 + 7x + 6\\), not \\(x^2 + 5x + 6\\).",
+                    "Correct! Step 1: Find two numbers that multiply to 6 and add to 5. Step 2: Numbers 2 and 3 work: \\(2 \\times 3 = 6\\) and \\(2 + 3 = 5\\). Step 3: Write as \\((x+2)(x+3)\\). Check: \\((x+2)(x+3) = x^2 + 5x + 6\\) ✓",
+                    "Incorrect. Check: \\((x+5)(x+1) = x^2 + 6x + 5\\), not \\(x^2 + 5x + 6\\).",
+                    "Incorrect. Check: \\((x-2)(x-3) = x^2 - 5x + 6\\), not \\(x^2 + 5x + 6\\)."
+                ],
+                main_topic_index: "a8c4f7e5-3a76-4b43-b78a-8c4a8f7e5a77",
                 chapter: "algebra",
                 subtopic_weights: {
-                    "7": 0.6,
-                    "6": 0.3,
-                    "2": 0.1
+                    "a8c4f7e5-3a76-4b43-b78a-8c4a8f7e5a77": 0.8,
+                    "b3d6a9f2-7e59-4c86-a97e-3d6b3a9f2e58": 0.2
                 },
                 difficulty_breakdown: {
-                    conceptual: 0.3,
-                    procedural: 0.6,
-                    problem_solving: 0.4,
-                    communication: 0.3,
-                    memory: 0.4,
-                    spatial: 0.0
+                    conceptual_understanding: 0.4,
+                    procedural_fluency: 0.8,
+                    problem_solving: 0.3,
+                    mathematical_communication: 0.3,
+                    memory: 0.5,
+                    spatial_reasoning: 0.0
+                }
+            },
+            {
+                id: "mcq_factorization_strategic_001",
+                text: "Which method should you try first when factoring \\(6x^2 - 4x\\)?",
+                options: [
+                    "Look for two numbers that multiply to 6 and add to -4",
+                    "Use the quadratic formula",
+                    "Factor out the greatest common factor first",
+                    "Complete the square"
+                ],
+                correctIndex: 2,
+                option_explanations: [
+                    "Incorrect. This approach works for \\(x^2 + bx + c\\), but here we should factor out the common factor \\(2x\\) first.",
+                    "Incorrect. The quadratic formula works but factoring is more efficient when a common factor exists.",
+                    "Correct! Always check for common factors first. Step 1: Find GCF of \\(6x^2\\) and \\(-4x\\), which is \\(2x\\). Step 2: Factor out: \\(2x(3x - 2) = 0\\). Step 3: Solve: \\(x = 0\\) or \\(x = \\frac{2}{3}\\). Remember: Common factors simplify the expression and often reveal obvious solutions.",
+                    "Incorrect. Completing the square is more complex than needed when we can factor directly."
+                ],
+                main_topic_index: "a8c4f7e5-3a76-4b43-b78a-8c4a8f7e5a77",
+                chapter: "algebra",
+                subtopic_weights: {
+                    "a8c4f7e5-3a76-4b43-b78a-8c4a8f7e5a77": 0.7,
+                    "c5e8b4d7-4f42-4d73-c84f-5e8c5b4d7f43": 0.3
                 },
-                overall_difficulty: 0.4,
-                prerequisites: [2, 6]
+                difficulty_breakdown: {
+                    conceptual_understanding: 0.6,
+                    procedural_fluency: 0.5,
+                    problem_solving: 0.8,
+                    mathematical_communication: 0.5,
+                    memory: 0.4,
+                    spatial_reasoning: 0.0
+                }
+            },
+            {
+                id: "mcq_factorization_error_001",
+                text: "A student factored \\(x^2 + 7x + 12\\) as \\((x+3)(x+4)\\) but got the wrong answer when solving \\(x^2 + 7x + 12 = 0\\). What's the issue?",
+                options: [
+                    "They should have factored as \\((x-3)(x-4)\\)",
+                    "The factorization is wrong; it should be \\((x+6)(x+2)\\)",
+                    "They need to use the quadratic formula instead",
+                    "The factorization is correct; they made an error applying the zero product property"
+                ],
+                correctIndex: 3,
+                option_explanations: [
+                    "Incorrect. \\((x-3)(x-4) = x^2 - 7x + 12\\), which is different from our equation.",
+                    "Incorrect. Check: \\((x+6)(x+2) = x^2 + 8x + 12\\), not \\(x^2 + 7x + 12\\).",
+                    "Incorrect. The factorization method works fine here; the error is in solving the factored form.",
+                    "Correct! The factorization \\((x+3)(x+4)\\) is right. Step 1: From \\((x+3)(x+4) = 0\\), use zero product property. Step 2: Set \\(x+3 = 0\\) and \\(x+4 = 0\\). Step 3: Solve to get \\(x = -3\\) or \\(x = -4\\), not \\(x = 3\\) or \\(x = 4\\). Remember: \\(x + 3 = 0\\) means \\(x = -3\\), not \\(x = 3\\)."
+                ],
+                main_topic_index: "a8c4f7e5-3a76-4b43-b78a-8c4a8f7e5a77",
+                chapter: "algebra",
+                subtopic_weights: {
+                    "a8c4f7e5-3a76-4b43-b78a-8c4a8f7e5a77": 0.8,
+                    "b3d6a9f2-7e59-4c86-a97e-3d6b3a9f2e58": 0.2
+                },
+                difficulty_breakdown: {
+                    conceptual_understanding: 0.5,
+                    procedural_fluency: 0.6,
+                    problem_solving: 0.8,
+                    mathematical_communication: 0.4,
+                    memory: 0.3,
+                    spatial_reasoning: 0.0
+                }
             }
         ]
     };
@@ -895,58 +1132,128 @@ document.addEventListener('DOMContentLoaded', function() {
         title: "Quadratic Formula Mastery Assessment",
         questions: [
             {
-                text: "Using the quadratic formula, solve \\(3x^2 - 7x + 2 = 0\\)",
-                options: ["\\(x = \\frac{1}{3}\\) or \\(x = 2\\)", "\\(x = \\frac{7 \\pm \\sqrt{25}}{6}\\)", "\\(x = \\frac{7 \\pm 5}{6}\\)", "All of the above"],
-                correctIndex: 3,
-                option_explanations: [
-                    "This is correct when simplified, but let's see the full working.",
-                    "This shows the intermediate step correctly: \\(x = \\frac{7 \\pm \\sqrt{49-24}}{6} = \\frac{7 \\pm \\sqrt{25}}{6}\\)",
-                    "This is the next step: \\(\\sqrt{25} = 5\\), so \\(x = \\frac{7 \\pm 5}{6}\\)",
-                    "Correct! All options show different stages of the same correct solution: \\(x = \\frac{7+5}{6} = 2\\) or \\(x = \\frac{7-5}{6} = \\frac{1}{3}\\)"
+                id: "mcq_quadratic_formula_conceptual_001",
+                text: "Why is the quadratic formula guaranteed to work for any quadratic equation while factorization might not?",
+                options: [
+                    "Because the quadratic formula is derived from completing the square, which always works",
+                    "Because the quadratic formula can handle any coefficients, including irrational and complex ones",
+                    "Because factorization only works when the roots are rational numbers",
+                    "All of the above"
                 ],
-                main_topic_index: 15,
-                chapter: "algebra",
+                correctIndex: 1,
+                option_explanations: [
+                    "Partially correct! The quadratic formula is derived from completing the square, which makes it universal, but there's more to consider.",
+                    "Correct! The quadratic formula \\(x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}\\) works for any real coefficients. Step 1: It's derived from completing the square, which always works. Step 2: It handles decimal, irrational, and complex coefficients that factorization can't. Step 3: It gives exact solutions even when roots are irrational. Remember: The formula is universal because it's algebraically complete.",
+                    "Partially correct! Factorization does fail when roots aren't rational, but the quadratic formula handles much more than just irrational roots.",
+                    "Incorrect. While all statements have some truth, the most complete answer is that the formula handles any coefficients systematically."
+                ],
+                main_topic_index: "d9f2c6a3-7b58-4d72-b74d-9f2d9c6a3b59",
+                chapter: "algebra", 
                 subtopic_weights: {
-                    "15": 0.8,
-                    "14": 0.2
+                    "d9f2c6a3-7b58-4d72-b74d-9f2d9c6a3b59": 0.8,
+                    "a8c4f7e5-3a76-4b43-b78a-8c4a8f7e5a77": 0.2
                 },
                 difficulty_breakdown: {
-                    conceptual: 0.4,
-                    procedural: 0.7,
-                    problem_solving: 0.5,
-                    communication: 0.4,
-                    memory: 0.6,
-                    spatial: 0.0
-                },
-                overall_difficulty: 0.52,
-                prerequisites: [2, 14]
+                    conceptual_understanding: 0.8,
+                    procedural_fluency: 0.3,
+                    problem_solving: 0.4,
+                    mathematical_communication: 0.7,
+                    memory: 0.5,
+                    spatial_reasoning: 0.0
+                }
             },
             {
-                text: "For which equation would the quadratic formula give complex (non-real) solutions?",
-                options: ["\\(x^2 - 4x + 3 = 0\\)", "\\(x^2 - 4x + 4 = 0\\)", "\\(x^2 - 4x + 5 = 0\\)", "\\(x^2 - 4x + 2 = 0\\)"],
-                correctIndex: 2,
-                option_explanations: [
-                    "Incorrect. Here \\(\\Delta = 16 - 12 = 4 > 0\\), giving two real solutions.",
-                    "Incorrect. Here \\(\\Delta = 16 - 16 = 0\\), giving one repeated real solution.",
-                    "Correct! Here \\(\\Delta = 16 - 20 = -4 < 0\\), so we get \\(\\sqrt{-4}\\) which leads to complex solutions.",
-                    "Incorrect. Here \\(\\Delta = 16 - 8 = 8 > 0\\), giving two real (irrational) solutions."
+                id: "mcq_quadratic_formula_procedural_001",
+                text: "Using the quadratic formula, solve \\(2x^2 - 5x + 2 = 0\\)",
+                options: [
+                    "\\(x = \\frac{1}{2}\\) or \\(x = 2\\)",
+                    "\\(x = \\frac{5 \\pm \\sqrt{9}}{4}\\)",
+                    "\\(x = \\frac{5 \\pm 3}{4}\\)",
+                    "All of the above"
                 ],
-                main_topic_index: 15,
+                correctIndex: 0,
+                option_explanations: [
+                    "Correct! Step 1: Use \\(x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}\\) with \\(a=2\\), \\(b=-5\\), \\(c=2\\). Step 2: \\(x = \\frac{5 \\pm \\sqrt{25-16}}{4} = \\frac{5 \\pm 3}{4}\\). Step 3: \\(x = \\frac{8}{4} = 2\\) or \\(x = \\frac{2}{4} = \\frac{1}{2}\\). Check: \\(2(2)^2 - 5(2) + 2 = 8 - 10 + 2 = 0\\) ✓",
+                    "Incorrect. This shows the intermediate step \\(x = \\frac{5 \\pm \\sqrt{25-16}}{4} = \\frac{5 \\pm \\sqrt{9}}{4}\\), but doesn't simplify to the final answer.",
+                    "Incorrect. This continues the calculation \\(x = \\frac{5 \\pm 3}{4}\\), but doesn't give the final simplified values.",
+                    "Incorrect. While the middle options show correct intermediate steps, they don't give the final simplified solutions."
+                ],
+                main_topic_index: "d9f2c6a3-7b58-4d72-b74d-9f2d9c6a3b59",
                 chapter: "algebra",
                 subtopic_weights: {
-                    "15": 0.6,
-                    "17": 0.4
+                    "d9f2c6a3-7b58-4d72-b74d-9f2d9c6a3b59": 0.8,
+                    "649f8c3e-2d75-4a86-b97d-49f8c649d2c8": 0.2
                 },
                 difficulty_breakdown: {
-                    conceptual: 0.6,
-                    procedural: 0.4,
-                    problem_solving: 0.5,
-                    communication: 0.3,
-                    memory: 0.5,
-                    spatial: 0.0
+                    conceptual_understanding: 0.3,
+                    procedural_fluency: 0.8,
+                    problem_solving: 0.4,
+                    mathematical_communication: 0.3,
+                    memory: 0.6,
+                    spatial_reasoning: 0.0
+                }
+            },
+            {
+                id: "mcq_quadratic_formula_strategic_001",
+                text: "When should you choose the quadratic formula over factorization?",
+                options: [
+                    "When the equation has decimal coefficients",
+                    "When you can't find integer factors quickly",
+                    "When you need exact irrational solutions",
+                    "All of the above"
+                ],
+                correctIndex: 3,
+                option_explanations: [
+                    "Partially correct! Decimal coefficients make factorization difficult, but the quadratic formula handles them easily.",
+                    "Partially correct! If you can't find integer factors quickly, the quadratic formula is often more efficient.",
+                    "Partially correct! The quadratic formula gives exact radical solutions, while factorization only works for rational roots.",
+                    "Correct! The quadratic formula is the strategic choice when: Step 1: Coefficients are decimal/complex. Step 2: Integer factors aren't obvious. Step 3: Exact irrational solutions are needed. Step 4: You want a systematic approach that always works. Remember: The formula is your universal backup method."
+                ],
+                main_topic_index: "d9f2c6a3-7b58-4d72-b74d-9f2d9c6a3b59",
+                chapter: "algebra",
+                subtopic_weights: {
+                    "d9f2c6a3-7b58-4d72-b74d-9f2d9c6a3b59": 0.7,
+                    "a8c4f7e5-3a76-4b43-b78a-8c4a8f7e5a77": 0.3
                 },
-                overall_difficulty: 0.47,
-                prerequisites: [2, 17]
+                difficulty_breakdown: {
+                    conceptual_understanding: 0.6,
+                    procedural_fluency: 0.4,
+                    problem_solving: 0.8,
+                    mathematical_communication: 0.6,
+                    memory: 0.4,
+                    spatial_reasoning: 0.0
+                }
+            },
+            {
+                id: "mcq_quadratic_formula_error_001",
+                text: "A student used the quadratic formula on \\(x^2 - 6x + 9 = 0\\) and got \\(x = \\frac{6 \\pm 0}{2} = 3\\). What should they understand about this result?",
+                options: [
+                    "They made an error - there should be two different solutions",
+                    "They made a sign error in the formula",
+                    "This is correct - the equation has one repeated root",
+                    "They should have factored instead"
+                ],
+                correctIndex: 2,
+                option_explanations: [
+                    "Incorrect. Not all quadratic equations have two distinct solutions. When the discriminant equals zero, there's one repeated root.",
+                    "Incorrect. The calculation \\(x = \\frac{6 \\pm \\sqrt{36-36}}{2} = \\frac{6 \\pm 0}{2} = 3\\) is correct.",
+                    "Correct! When the discriminant \\(b^2-4ac = 0\\), there's one repeated root. Step 1: Here \\(\\Delta = 36-36 = 0\\). Step 2: This gives \\(x = \\frac{6 \\pm 0}{2} = 3\\). Step 3: The equation \\((x-3)^2 = 0\\) has one repeated solution. Check: This is a perfect square trinomial. Remember: Zero discriminant means one repeated root, not an error.",
+                    "Incorrect. While factoring as \\((x-3)^2 = 0\\) is simpler, the quadratic formula gives the correct answer too."
+                ],
+                main_topic_index: "d9f2c6a3-7b58-4d72-b74d-9f2d9c6a3b59",
+                chapter: "algebra",
+                subtopic_weights: {
+                    "d9f2c6a3-7b58-4d72-b74d-9f2d9c6a3b59": 0.7,
+                    "d6f2c8a5-7b67-4d59-b67b-6f2d6c8a5b68": 0.3
+                },
+                difficulty_breakdown: {
+                    conceptual_understanding: 0.7,
+                    procedural_fluency: 0.5,
+                    problem_solving: 0.6,
+                    mathematical_communication: 0.5,
+                    memory: 0.4,
+                    spatial_reasoning: 0.0
+                }
             }
         ]
     };
@@ -1156,59 +1463,128 @@ document.addEventListener('DOMContentLoaded', function() {
         title: "Discriminant and Nature of Roots Assessment",
         questions: [
             {
-                text: "What is the discriminant of \\(x^2 - 6x + 9 = 0\\) and what does it tell us?",
-                options: ["\\(\\Delta = 0\\); one repeated real root", "\\(\\Delta = 36\\); two distinct real roots", "\\(\\Delta = -36\\); no real roots", "\\(\\Delta = 18\\); two irrational roots"],
+                id: "mcq_discriminant_conceptual_001",
+                text: "What does the discriminant tell us about the nature of solutions without actually solving the equation?",
+                options: [
+                    "It tells us the number and type of real solutions based on whether it's positive, zero, or negative",
+                    "It tells us the exact values of the solutions",
+                    "It tells us whether the parabola opens up or down",
+                    "It tells us the y-intercept of the parabola"
+                ],
                 correctIndex: 0,
                 option_explanations: [
-                    "Correct! \\(\\Delta = (-6)^2 - 4(1)(9) = 36 - 36 = 0\\). When \\(\\Delta = 0\\), there's one repeated real root, and the parabola touches the x-axis at exactly one point.",
-                    "Incorrect. While \\(b^2 = 36\\), remember that \\(\\Delta = b^2 - 4ac = 36 - 36 = 0\\).",
-                    "Incorrect. The discriminant calculation is wrong. \\(\\Delta = 36 - 36 = 0\\), not -36.",
-                    "Incorrect. The discriminant is 0, not 18, and this leads to rational (not irrational) solutions."
+                    "Correct! The discriminant \\(\\Delta = b^2 - 4ac\\) is our solution predictor. Step 1: If \\(\\Delta > 0\\), two distinct real solutions. Step 2: If \\(\\Delta = 0\\), one repeated real solution. Step 3: If \\(\\Delta < 0\\), no real solutions (complex solutions). Check: This tells us about the parabola's x-intercepts. Remember: The discriminant is the part under the square root in the quadratic formula.",
+                    "Incorrect. The discriminant tells us about the nature of solutions, but not their exact values. We need the full quadratic formula for that.",
+                    "Incorrect. The sign of the coefficient \\(a\\) (not the discriminant) determines if the parabola opens up or down.",
+                    "Incorrect. The y-intercept is the constant term \\(c\\), not related to the discriminant."
                 ],
-                main_topic_index: 17,
+                main_topic_index: "d6f2c8a5-7b67-4d59-b67b-6f2d6c8a5b68",
                 chapter: "algebra",
                 subtopic_weights: {
-                    "17": 0.8,
-                    "16": 0.2
+                    "d6f2c8a5-7b67-4d59-b67b-6f2d6c8a5b68": 0.8,
+                    "d9f2c6a3-7b58-4d72-b74d-9f2d9c6a3b59": 0.2
                 },
                 difficulty_breakdown: {
-                    conceptual: 0.6,
-                    procedural: 0.4,
-                    problem_solving: 0.3,
-                    communication: 0.4,
+                    conceptual_understanding: 0.8,
+                    procedural_fluency: 0.3,
+                    problem_solving: 0.4,
+                    mathematical_communication: 0.7,
                     memory: 0.5,
-                    spatial: 0.2
-                },
-                overall_difficulty: 0.42,
-                prerequisites: [2, 15]
+                    spatial_reasoning: 0.2
+                }
             },
             {
-                text: "For what value of k does \\(x^2 + 4x + k = 0\\) have equal roots?",
-                options: ["\\(k = 4\\)", "\\(k = 8\\)", "\\(k = 16\\)", "\\(k = -4\\)"],
-                correctIndex: 0,
-                option_explanations: [
-                    "Correct! For equal roots, \\(\\Delta = 0\\). So \\(16 - 4k = 0\\), giving \\(k = 4\\). This creates \\((x+2)^2 = 0\\).",
-                    "Incorrect. With \\(k = 8\\), \\(\\Delta = 16 - 32 = -16 < 0\\), giving no real roots.",
-                    "Incorrect. With \\(k = 16\\), \\(\\Delta = 16 - 64 = -48 < 0\\), giving no real roots.",
-                    "Incorrect. With \\(k = -4\\), \\(\\Delta = 16 + 16 = 32 > 0\\), giving two distinct roots."
+                id: "mcq_discriminant_procedural_001",
+                text: "Calculate the discriminant of \\(2x^2 - 8x + 6 = 0\\) and determine the nature of its roots.",
+                options: [
+                    "\\(\\Delta = 40\\); two distinct real roots",
+                    "\\(\\Delta = 16\\); two distinct real roots",
+                    "\\(\\Delta = 88\\); two distinct real roots",
+                    "\\(\\Delta = -16\\); no real roots"
                 ],
-                main_topic_index: 17,
+                correctIndex: 1,
+                option_explanations: [
+                    "Incorrect. Check your calculation: \\(\\Delta = (-8)^2 - 4(2)(6) = 64 - 48 = 16\\), not 40.",
+                    "Correct! Step 1: Use \\(\\Delta = b^2 - 4ac\\) with \\(a=2\\), \\(b=-8\\), \\(c=6\\). Step 2: \\(\\Delta = (-8)^2 - 4(2)(6) = 64 - 48 = 16\\). Step 3: Since \\(\\Delta = 16 > 0\\), there are two distinct real roots. Check: The parabola crosses the x-axis at two points.",
+                    "Incorrect. Check your calculation: \\(4ac = 4(2)(6) = 48\\), so \\(\\Delta = 64 - 48 = 16\\), not 88.",
+                    "Incorrect. The discriminant is positive: \\(\\Delta = 64 - 48 = 16 > 0\\), so there are real roots."
+                ],
+                main_topic_index: "d6f2c8a5-7b67-4d59-b67b-6f2d6c8a5b68",
                 chapter: "algebra",
                 subtopic_weights: {
-                    "17": 0.7,
-                    "16": 0.2,
-                    "2": 0.1
+                    "d6f2c8a5-7b67-4d59-b67b-6f2d6c8a5b68": 0.8,
+                    "d9f2c6a3-7b58-4d72-b74d-9f2d9c6a3b59": 0.2
                 },
                 difficulty_breakdown: {
-                    conceptual: 0.5,
-                    procedural: 0.6,
-                    problem_solving: 0.7,
-                    communication: 0.3,
-                    memory: 0.4,
-                    spatial: 0.1
+                    conceptual_understanding: 0.4,
+                    procedural_fluency: 0.8,
+                    problem_solving: 0.3,
+                    mathematical_communication: 0.3,
+                    memory: 0.6,
+                    spatial_reasoning: 0.1
+                }
+            },
+            {
+                id: "mcq_discriminant_strategic_001",
+                text: "A student wants to find the value of \\(k\\) so that \\(x^2 + 6x + k = 0\\) has exactly one solution. What's the most efficient approach?",
+                options: [
+                    "Try different values of \\(k\\) until the equation factors nicely",
+                    "Use the quadratic formula and see when the \\(\\pm\\) becomes just \\(+\\)",
+                    "Set the discriminant equal to zero and solve for \\(k\\)",
+                    "Complete the square and find when the constant term is zero"
+                ],
+                correctIndex: 2,
+                option_explanations: [
+                    "Incorrect. This trial-and-error approach is inefficient and doesn't guarantee finding the exact value.",
+                    "Incorrect. While this would eventually work, it's more complex than using the discriminant directly.",
+                    "Correct! For exactly one solution, set \\(\\Delta = 0\\). Step 1: \\(b^2 - 4ac = 0\\). Step 2: \\(36 - 4k = 0\\). Step 3: \\(k = 9\\). Check: This gives \\((x+3)^2 = 0\\). Remember: Zero discriminant means one repeated root.",
+                    "Incorrect. Completing the square works but is more complex than using the discriminant condition directly."
+                ],
+                main_topic_index: "d6f2c8a5-7b67-4d59-b67b-6f2d6c8a5b68",
+                chapter: "algebra",
+                subtopic_weights: {
+                    "d6f2c8a5-7b67-4d59-b67b-6f2d6c8a5b68": 0.7,
+                    "d9f2c6a3-7b58-4d72-b74d-9f2d9c6a3b59": 0.3
                 },
-                overall_difficulty: 0.48,
-                prerequisites: [2, 15, 17]
+                difficulty_breakdown: {
+                    conceptual_understanding: 0.6,
+                    procedural_fluency: 0.5,
+                    problem_solving: 0.8,
+                    mathematical_communication: 0.5,
+                    memory: 0.4,
+                    spatial_reasoning: 0.1
+                }
+            },
+            {
+                id: "mcq_discriminant_error_001",
+                text: "A student calculated the discriminant of \\(3x^2 - 12x + 12 = 0\\) as \\(\\Delta = 144 - 144 = 0\\) and concluded there are no real solutions. What's their error?",
+                options: [
+                    "They used the wrong formula for the discriminant",
+                    "They made an arithmetic error in the calculation",
+                    "They misinterpreted what \\(\\Delta = 0\\) means",
+                    "They forgot to divide by \\(2a\\) at the end"
+                ],
+                correctIndex: 3,
+                option_explanations: [
+                    "Incorrect. The formula \\(\\Delta = b^2 - 4ac\\) is correct, and their calculation \\(144 - 144 = 0\\) is right.",
+                    "Incorrect. Their arithmetic is correct: \\((-12)^2 - 4(3)(12) = 144 - 144 = 0\\).",
+                    "Incorrect. They correctly calculated \\(\\Delta = 0\\), but they misinterpreted what this means.",
+                    "Correct! The student correctly calculated \\(\\Delta = 0\\) but misunderstood its meaning. Step 1: \\(\\Delta = 0\\) means one repeated real root, not no real solutions. Step 2: When \\(\\Delta = 0\\), the parabola touches the x-axis at exactly one point. Step 3: Here, \\(x = \\frac{12}{6} = 2\\) is the repeated root. Remember: Negative discriminant means no real solutions, zero discriminant means one repeated real solution."
+                ],
+                main_topic_index: "d6f2c8a5-7b67-4d59-b67b-6f2d6c8a5b68",
+                chapter: "algebra",
+                subtopic_weights: {
+                    "d6f2c8a5-7b67-4d59-b67b-6f2d6c8a5b68": 0.8,
+                    "d9f2c6a3-7b58-4d72-b74d-9f2d9c6a3b59": 0.2
+                },
+                difficulty_breakdown: {
+                    conceptual_understanding: 0.7,
+                    procedural_fluency: 0.5,
+                    problem_solving: 0.6,
+                    mathematical_communication: 0.6,
+                    memory: 0.4,
+                    spatial_reasoning: 0.2
+                }
             }
         ]
     };

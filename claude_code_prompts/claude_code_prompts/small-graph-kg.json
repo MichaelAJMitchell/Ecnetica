@@ -1,0 +1,3701 @@
+{
+  "nodes": [
+    {
+      "id": 0,
+      "uuid": "a7f3d8e2-5b91-4c73-9a42-1e6f8d3c7b5a",
+      "topic": "Understanding variables as unknowns",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 1,
+      "uuid": "b2e9f7a1-8c64-4d15-b73e-9f2a5c8e1d47",
+      "topic": "Understanding coefficients",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 0,
+          "weight": 0.5
+        },
+        {
+          "target": 191,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "uuid": "c4a8b9d3-7e52-4f89-a61c-8b7e3f9a2c65",
+      "topic": "Understanding constant terms",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 3,
+      "uuid": "d6c2e5f8-9a73-4b16-c84d-7a3f6e9b4c28",
+      "topic": "Identifying terms in expressions",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 1,
+          "weight": 0.5
+        },
+        {
+          "target": 189,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "uuid": "e8f4a7b2-6d59-4e32-b95f-3c8a7e2b6d91",
+      "topic": "Recognizing like terms",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 3,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "uuid": "f9b6c3e7-4a85-4f61-a72b-5d9e8f3a7c64",
+      "topic": "Combining like terms",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 4,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "uuid": "a3c7f2d8-5e94-4b27-c85e-8f6a9b3d7e52",
+      "topic": "Understanding distributive property",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 5,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "uuid": "b5d9e6a4-7c28-4f53-a69d-2e8f5a9c3b74",
+      "topic": "Expanding single brackets",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 6,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "uuid": "c7f1a8e5-9b42-4d76-b83a-6f9c2e7d4a85",
+      "topic": "Expanding with negative signs",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 7,
+          "weight": 0.5
+        },
+        {
+          "target": 198,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "uuid": "d9e3b6c8-4a57-4f84-c92b-8e5a7f3d6c91",
+      "topic": "FOIL method for binomials",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 8,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "uuid": "e2f8c5a9-6d73-4b18-a64f-3c9e8a2f7b58",
+      "topic": "Expanding double brackets",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 9,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "uuid": "f4a7d3b6-8e59-4c25-b71c-5f8d9e4a3c72",
+      "topic": "Collecting terms after expansion",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 10,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "uuid": "a6b9e2f5-3c84-4d61-c98f-7e2a6b9f4d83",
+      "topic": "Recognizing common factors",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 11,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "uuid": "b8c4f7a3-5e96-4b47-a82e-9f6c3b8e7a54",
+      "topic": "Factoring out numerical common factors",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 12,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "uuid": "c9d6a5e8-7f23-4c58-b94a-6e8f2c9a5d76",
+      "topic": "Factoring out variable common factors",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 13,
+          "weight": 0.5
+        },
+        {
+          "target": 13,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "uuid": "d2e7b4f9-4a68-4d83-c56b-8f3e7d2b9c85",
+      "topic": "Factoring out mixed common factors",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 14,
+          "weight": 0.5
+        },
+        {
+          "target": 14,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "uuid": "e4f9c6a2-6b85-4f72-a37d-5c8f6e4a9b72",
+      "topic": "Factoring by grouping",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 15,
+          "weight": 0.5
+        },
+        {
+          "target": 15,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "uuid": "f7a3d8e5-8c47-4b96-c84f-9e6a3f7d8c53",
+      "topic": "Recognizing difference of two squares",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 205,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "uuid": "a9b6f2c7-5d84-4e63-b75c-8f2a9b6c7e54",
+      "topic": "Factoring difference of two squares",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 17,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "uuid": "b3c8e5a4-7f29-4d46-a68d-6e9c3b8e5f72",
+      "topic": "Recognizing perfect square trinomials",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 205,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "uuid": "c5d2f9b6-9a47-4c73-b82e-7f4c5d2f9a68",
+      "topic": "Factoring perfect square trinomials",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 19,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "uuid": "d7e4a1c8-3b65-4f84-c93f-8e7d4a1c8b59",
+      "topic": "Factoring x² + bx + c",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 22,
+      "uuid": "e9f6b3d5-5c82-4a57-a64b-2f9e6b3d5c84",
+      "topic": "Factoring ax² + bx + c (a ≠ 1)",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 21,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "uuid": "f2a8c5e6-7d48-4b73-c85d-6a2f8c5e7d49",
+      "topic": "Trial and error for factoring quadratics",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 22,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "uuid": "a4b7f3d9-8e56-4c29-b76e-5b4a7f3d9e58",
+      "topic": "AC method for factoring quadratics",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 22,
+          "weight": 0.5
+        },
+        {
+          "target": 22,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "uuid": "b6c9e2a5-4f73-4d86-a59c-7e6c9e2a5f74",
+      "topic": "Understanding algebraic fractions",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 0,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "uuid": "c8d4f7b2-6a95-4e42-c73b-9f8d4f7b2a96",
+      "topic": "Canceling common factors in fractions",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 1,
+          "weight": 0.5
+        },
+        {
+          "target": 225,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "uuid": "d5e8a3f6-2b67-4c54-b86f-4e5d8a3f6b68",
+      "topic": "Simplifying algebraic fractions",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 205,
+          "weight": 0.5
+        },
+        {
+          "target": 226,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "uuid": "e7f2c9a4-5d83-4f61-a72c-6f7e2c9a4d85",
+      "topic": "Multiplying algebraic fractions",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 29,
+      "uuid": "f9a6d3b7-8c45-4b78-c94a-8a9f6d3b7c46",
+      "topic": "Dividing algebraic fractions",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 30,
+      "uuid": "a3c5f8e2-4b69-4d35-b67d-2c3a5f8e2b69",
+      "topic": "Finding common denominators for algebraic fractions",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 31,
+      "uuid": "b5d8a4f7-6e52-4c86-a84e-5d8b5a4f7e53",
+      "topic": "Adding fractions with same denominator",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 229,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "uuid": "c7f3b6e9-9a74-4d47-c75a-7f3c7b6e9a75",
+      "topic": "Adding fractions with different denominators",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 31,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "uuid": "d9e6c2a5-3b87-4f58-b68b-9e6d9c2a5b88",
+      "topic": "Understanding what an equation is",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 0,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "uuid": "e2a7f4d8-5c63-4b29-a59c-2a7e2f4d8c64",
+      "topic": "Understanding what a solution is",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 33,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "uuid": "f4b9e6c3-7d48-4f73-c86d-4b9f4e6c3d49",
+      "topic": "Understanding inverse operations",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 34,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "uuid": "a6c2f5d9-8e54-4b67-b79e-6c2a6f5d9e55",
+      "topic": "Balance method for equations",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 35,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "uuid": "b8d5a3f7-4c76-4d84-a92c-8d5b8a3f7c77",
+      "topic": "Solving one-step linear equations",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 36,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "uuid": "c3e7b6a4-6f59-4c45-c85f-3e7c3b6a4f58",
+      "topic": "Solving two-step linear equations",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 37,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "uuid": "d5f9c2e8-9a42-4b68-b73a-5f9d5c2e8a43",
+      "topic": "Solving multi-step linear equations",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 38,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "uuid": "e7a4f6d2-3b85-4f54-a64b-7a4e7f6d2b86",
+      "topic": "Linear equations with variables on both sides",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 39,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "uuid": "f9b7c5e3-5d67-4c39-c76d-9b7f9c5e3d68",
+      "topic": "Linear equations with brackets",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 7,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "uuid": "a2c6f9d5-7e48-4b83-b95e-2c6a2f9d5e49",
+      "topic": "Clearing fractions in equations",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 43,
+      "uuid": "b4d8a6f3-8c54-4f72-a86c-4d8b4a6f3c55",
+      "topic": "Linear equations with fractions",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 32,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "uuid": "c6e2f5b9-4a73-4d67-c84a-6e2c6f5b9a74",
+      "topic": "Checking solutions to linear equations",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 251,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "uuid": "d8f4c7a5-6b59-4f48-b75b-8f4d8c7a5b58",
+      "topic": "Identifying no solution vs infinite solutions",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 224,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "uuid": "e3a7b4f8-9d52-4c36-a69d-3a7e3b4f8d53",
+      "topic": "Understanding simultaneous equations",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 47,
+      "uuid": "f5b9e6c2-2e74-4f65-c87e-5b9f5e6c2e75",
+      "topic": "Substitution method concept",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 48,
+      "uuid": "a7c3f6d4-5a86-4b49-b78a-7c3a7f6d4a87",
+      "topic": "Substitution method steps",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 47,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "uuid": "b9d5a8e7-6c43-4d72-a95c-9d5b9a8e7c44",
+      "topic": "Elimination method concept",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 50,
+      "uuid": "c4e8b6f2-8f57-4c64-c86f-4e8c4b6f2f58",
+      "topic": "Elimination with same coefficients",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 49,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "uuid": "d6f2c9a8-3b75-4f39-b73b-6f2d6c9a8b76",
+      "topic": "Elimination with different coefficients",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 50,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "uuid": "e8a4f7d3-5c68-4b52-a64c-8a4e8f7d3c69",
+      "topic": "Elimination method complete process",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 53,
+      "uuid": "f3b7e5c9-7d46-4f75-c85d-3b7f3e5c9d47",
+      "topic": "Graphical solution of simultaneous equations",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 54,
+      "uuid": "a5c9f6e2-9a58-4b84-b79a-5c9a5f6e2a59",
+      "topic": "Recognizing parallel lines (no solution)",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 55,
+      "uuid": "b7d3a6f4-4e72-4c47-a63e-7d3b7a6f4e73",
+      "topic": "Recognizing same line (infinite solutions)",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 54,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "uuid": "c9e5b8d7-6f84-4d56-c74f-9e5c9b8d7f85",
+      "topic": "Standard form of quadratic equation",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 57,
+      "uuid": "d2f7c4a9-8b63-4f72-b86b-2f7d2c4a9b64",
+      "topic": "Identifying quadratic equations",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 56,
+          "weight": 0.5
+        },
+        {
+          "target": 56,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "uuid": "e4a8f6d3-5c49-4b95-a75c-4a8e4f6d3c48",
+      "topic": "Rearranging to standard form",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 57,
+          "weight": 0.5
+        },
+        {
+          "target": 57,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "uuid": "f6b2e9c7-9d57-4f68-c89d-6b2f6e9c7d58",
+      "topic": "Zero product property",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 58,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "uuid": "a8c4f7e5-3a76-4b43-b78a-8c4a8f7e5a77",
+      "topic": "Solving quadratics by factoring",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 59,
+          "weight": 0.5
+        },
+        {
+          "target": 12,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "uuid": "b3d6a9f2-7e59-4c86-a97e-3d6b3a9f2e58",
+      "topic": "Applying zero product property after factoring",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 60,
+          "weight": 0.5
+        },
+        {
+          "target": 59,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "uuid": "c5e8b4d7-4f42-4d73-c84f-5e8c5b4d7f43",
+      "topic": "Why we complete the square",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 63,
+      "uuid": "d7f3c6a9-6b65-4f58-b76b-7f3d7c6a9b66",
+      "topic": "Completing square for x² + bx",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 62,
+          "weight": 0.5
+        },
+        {
+          "target": 62,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "uuid": "e9a5f8d2-8c47-4b84-a68c-9a5e9f8d2c48",
+      "topic": "Step-by-step completing the square",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 63,
+          "weight": 0.5
+        },
+        {
+          "target": 63,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "uuid": "f2b7e4c8-5d69-4f75-c95d-2b7f2e4c8d68",
+      "topic": "Completing the square method",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 64,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "uuid": "a4c8f5b6-9e53-4d42-b79e-4c8a4f5b6e54",
+      "topic": "Taking square root of both sides",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 64,
+          "weight": 0.5
+        },
+        {
+          "target": 65,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "uuid": "b6d2a7f9-3f76-4c58-a63f-6d2b6a7f9f77",
+      "topic": "Understanding quadratic formula components",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 194,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "uuid": "c8e4b9d5-7a64-4f87-c74a-8e4c8b9d5a65",
+      "topic": "Quadratic formula",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 67,
+          "weight": 0.5
+        },
+        {
+          "target": 67,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "uuid": "d3f6c2e8-4b59-4d73-b84b-3f6d3c2e8b58",
+      "topic": "Substituting values into quadratic formula",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 68,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "uuid": "e5a8f4d7-6c46-4f62-a76c-5a8e5f4d7c47",
+      "topic": "Simplifying quadratic formula results",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 69,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "uuid": "f7b3e6c9-8d72-4b95-c98d-7b3f7e6c9d73",
+      "topic": "Understanding the discriminant",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 215,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "uuid": "a9c5f8e4-5a65-4d48-b75a-9c5a9f8e4a66",
+      "topic": "Discriminant of a quadratic equation",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 71,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "uuid": "b2d7a4f6-9e83-4c57-a69e-2d7b2a4f6e84",
+      "topic": "Discriminant > 0: two real roots",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 72,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "uuid": "c4e9b6d8-3f74-4f46-c83f-4e9c4b6d8f75",
+      "topic": "Discriminant = 0: one repeated root",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 72,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 75,
+      "uuid": "d6f2c8a5-7b67-4d59-b67b-6f2d6c8a5b68",
+      "topic": "Discriminant < 0: no real roots",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 72,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "uuid": "e8a4f7d9-4c58-4f72-a74c-8a4e8f7d9c59",
+      "topic": "Nature of quadratic roots",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 77,
+      "uuid": "f3b6e9c2-6d43-4b85-c96d-3b6f3e9c2d44",
+      "topic": "Sum and product of quadratic roots",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 72,
+          "weight": 0.5
+        },
+        {
+          "target": 79,
+          "weight": 0.5
+        },
+        {
+          "target": 68,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 78,
+      "uuid": "a5c9f2d7-8e56-4f68-b78e-5c9a5f2d7e57",
+      "topic": "Forming quadratic from given roots",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 76,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 79,
+      "uuid": "b7d4a6f8-5f79-4c42-a65f-7d4b7a6f8f78",
+      "topic": "Expanding (x - p)(x - q) form",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 80,
+      "uuid": "c9e6b8d3-9a64-4d75-c89a-9e6c9b8d3a65",
+      "topic": "Understanding coordinate system",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 197,
+          "weight": 0.5
+        },
+        {
+          "target": 0,
+          "weight": 0.5
+        },
+        {
+          "target": 53,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 81,
+      "uuid": "d2f8c5a7-3b52-4f87-b83b-2f8d2c5a7b53",
+      "topic": "Plotting points on coordinate plane",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 252,
+          "weight": 0.5
+        },
+        {
+          "target": 80,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 82,
+      "uuid": "e4a7f9d6-7c73-4b46-a67c-4a7e4f9d6c74",
+      "topic": "Identifying linear vs non-linear relationships",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 81,
+          "weight": 0.5
+        },
+        {
+          "target": 81,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 83,
+      "uuid": "f6b3e5c8-4d68-4f59-c74d-6b3f6e5c8d69",
+      "topic": "Understanding slope as rate of change",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 82,
+          "weight": 0.5
+        },
+        {
+          "target": 1,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 84,
+      "uuid": "a8c7f4e2-6f85-4b72-b86f-8c7a8f4e2f86",
+      "topic": "Slope as rise over run",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 83,
+          "weight": 0.5
+        },
+        {
+          "target": 83,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 85,
+      "uuid": "b3d9a6f5-9e54-4c67-a69e-3d9b3a6f5e55",
+      "topic": "Finding slope from two points",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 84,
+          "weight": 0.5
+        },
+        {
+          "target": 227,
+          "weight": 0.5
+        },
+        {
+          "target": 84,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 86,
+      "uuid": "c5e2b8d4-2a76-4f83-c82a-5e2c5b8d4a77",
+      "topic": "Understanding positive slope",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 85,
+          "weight": 0.5
+        },
+        {
+          "target": 85,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 87,
+      "uuid": "d7f4c6a9-5b69-4d58-b75b-7f4d7c6a9b68",
+      "topic": "Understanding negative slope",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 85,
+          "weight": 0.5
+        },
+        {
+          "target": 85,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 88,
+      "uuid": "e9a6f3d2-8c47-4f74-a68c-9a6e9f3d2c48",
+      "topic": "Zero slope for horizontal lines",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 86,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 89,
+      "uuid": "f2b8e5c7-4d63-4b89-c94d-2b8f2e5c7d64",
+      "topic": "Undefined slope for vertical lines",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 87,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 90,
+      "uuid": "a4c7f9e6-6f52-4d45-b76f-4c7a4f9e6f53",
+      "topic": "Understanding y-intercept",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 2,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 91,
+      "uuid": "b6d3a8f4-9e75-4c68-a89e-6d3b6a8f4e76",
+      "topic": "Understanding x-intercept",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 90,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 92,
+      "uuid": "c8e5b2d7-3a64-4f57-c73a-8e5c8b2d7a65",
+      "topic": "Slope-intercept form y = mx + c",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 90,
+          "weight": 0.5
+        },
+        {
+          "target": 85,
+          "weight": 0.5
+        },
+        {
+          "target": 90,
+          "weight": 0.5
+        },
+        {
+          "target": 85,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 93,
+      "uuid": "d3f7c9a6-7b83-4d46-b87b-3f7d3c9a6b84",
+      "topic": "Graphing lines using slope-intercept form",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 92,
+          "weight": 0.5
+        },
+        {
+          "target": 233,
+          "weight": 0.5
+        },
+        {
+          "target": 92,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 94,
+      "uuid": "e5a4f6d8-4c59-4f72-a74c-5a4e5f6d8c58",
+      "topic": "Understanding point-slope form",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 92,
+          "weight": 0.5
+        },
+        {
+          "target": 92,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 95,
+      "uuid": "f7b6e9c2-6d48-4b85-c96d-7b6f7e9c2d49",
+      "topic": "Finding equation from point and slope",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 94,
+          "weight": 0.5
+        },
+        {
+          "target": 94,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 96,
+      "uuid": "a9c2f5d7-8e67-4f54-b78e-9c2a9f5d7e68",
+      "topic": "Finding equation from two points",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 95,
+          "weight": 0.5
+        },
+        {
+          "target": 32,
+          "weight": 0.5
+        },
+        {
+          "target": 95,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 97,
+      "uuid": "b4d8a3f6-5f73-4c49-a65f-4d8b4a3f6f74",
+      "topic": "General form ax + by + c = 0",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 98,
+      "uuid": "c6e7b9d4-9a56-4d78-c89a-6e7c6b9d4a57",
+      "topic": "Converting between forms of linear equations",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 229,
+          "weight": 0.5
+        },
+        {
+          "target": 97,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 99,
+      "uuid": "d8f3c6a2-2b84-4f65-b82b-8f3d8c6a2b85",
+      "topic": "Parallel lines have same slope",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 100,
+      "uuid": "e3a5f8d9-6c47-4b72-a76c-3a5e3f8d9c48",
+      "topic": "Perpendicular lines have negative reciprocal slopes",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 101,
+      "uuid": "f5b7e4c6-8d69-4f58-c98d-5b7f5e4c6d68",
+      "topic": "Finding parallel and perpendicular line equations",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 99,
+          "weight": 0.5
+        },
+        {
+          "target": 100,
+          "weight": 0.5
+        },
+        {
+          "target": 100,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "uuid": "a7c9f2e8-4f53-4d84-b74f-7c9a7f2e8f54",
+      "topic": "Recognizing parabola shape",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 193,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 103,
+      "uuid": "b2d6a5f3-9e76-4c67-a89e-2d6b2a5f3e77",
+      "topic": "Direction of parabola opening",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 102,
+          "weight": 0.5
+        },
+        {
+          "target": 194,
+          "weight": 0.5
+        },
+        {
+          "target": 102,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 104,
+      "uuid": "c4e8b7d5-3a64-4f49-c73a-4e8c4b7d5a65",
+      "topic": "Quadratic function vs equation",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 103,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 105,
+      "uuid": "d6f3c9a7-7b58-4d72-b87b-6f3d6c9a7b59",
+      "topic": "Understanding vertex as turning point",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 103,
+          "weight": 0.5
+        },
+        {
+          "target": 103,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 106,
+      "uuid": "e8a2f5d4-4c83-4f65-a74c-8a2e8f5d4c84",
+      "topic": "Vertex coordinates",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 105,
+          "weight": 0.5
+        },
+        {
+          "target": 215,
+          "weight": 0.5
+        },
+        {
+          "target": 135,
+          "weight": 0.5
+        },
+        {
+          "target": 105,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 107,
+      "uuid": "f3b4e7c9-6d46-4b78-c96d-3b4f3e7c9d47",
+      "topic": "Vertex form y = a(x - h)² + k",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 106,
+          "weight": 0.5
+        },
+        {
+          "target": 207,
+          "weight": 0.5
+        },
+        {
+          "target": 106,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 108,
+      "uuid": "a5c7f9d6-8e69-4f54-b78e-5c7a5f9d6e68",
+      "topic": "Converting to vertex form by completing square",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 107,
+          "weight": 0.5
+        },
+        {
+          "target": 171,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 109,
+      "uuid": "b7d2a6f8-5f72-4c47-a65f-7d2b7a6f8f73",
+      "topic": "Minimum point identification",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 103,
+          "weight": 0.5
+        },
+        {
+          "target": 103,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 110,
+      "uuid": "c9e4b8d3-9a85-4d56-c89a-9e4c9b8d3a86",
+      "topic": "Maximum point identification",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 103,
+          "weight": 0.5
+        },
+        {
+          "target": 103,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 111,
+      "uuid": "d2f6c5a9-3b74-4f68-b83b-2f6d2c5a9b75",
+      "topic": "Axis of symmetry",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 106,
+          "weight": 0.5
+        },
+        {
+          "target": 106,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 112,
+      "uuid": "e4a8f3d7-7c59-4b43-a67c-4a8e4f3d7c58",
+      "topic": "Y-intercept of quadratic",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 2,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 113,
+      "uuid": "f6b9e5c2-4d82-4f57-c94d-6b9f6e5c2d83",
+      "topic": "X-intercepts of quadratic",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 18,
+          "weight": 0.5
+        },
+        {
+          "target": 60,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 114,
+      "uuid": "a8c3f7e6-6f64-4b78-b86f-8c3a8f7e6f65",
+      "topic": "Relationship between intercepts and roots",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 21,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 115,
+      "uuid": "b3d5a9f4-9e47-4c83-a69e-3d5b3a9f4e48",
+      "topic": "Sketching parabola using key points",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 251,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 116,
+      "uuid": "c5e7b2d8-2a76-4f59-c82a-5e7c5b2d8a77",
+      "topic": "Domain and range of quadratic functions",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 224,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 117,
+      "uuid": "d7f4c6a3-5b68-4d72-b75b-7f4d7c6a3b69",
+      "topic": "Creating table of values for parabola",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 115,
+          "weight": 0.5
+        },
+        {
+          "target": 118,
+          "weight": 0.5
+        },
+        {
+          "target": 203,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 118,
+      "uuid": "e9a6f8d5-8c54-4f46-a68c-9a6e9f8d5c55",
+      "topic": "Using symmetry when graphing parabolas",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 111,
+          "weight": 0.5
+        },
+        {
+          "target": 250,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 119,
+      "uuid": "f2b8e4c7-4d73-4b89-c94d-2b8f2e4c7d74",
+      "topic": "Inequality symbols and meaning",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 0,
+          "weight": 0.5
+        },
+        {
+          "target": 255,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 120,
+      "uuid": "a4c6f9e2-6f85-4d45-b76f-4c6a4f9e2f86",
+      "topic": "Difference between inequalities and equations",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 119,
+          "weight": 0.5
+        },
+        {
+          "target": 119,
+          "weight": 0.5
+        },
+        {
+          "target": 0,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 121,
+      "uuid": "b6d8a3f7-9e52-4c68-a89e-6d8b6a3f7e53",
+      "topic": "Understanding solution sets",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 120,
+          "weight": 0.5
+        },
+        {
+          "target": 120,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 122,
+      "uuid": "c8e5b7d4-3a67-4f57-c73a-8e5c8b7d4a68",
+      "topic": "Representing inequalities on number line",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 81,
+          "weight": 0.5
+        },
+        {
+          "target": 121,
+          "weight": 0.5
+        },
+        {
+          "target": 121,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 123,
+      "uuid": "d3f7c2a6-7b84-4d49-b87b-3f7d3c2a6b85",
+      "topic": "Interval notation for inequalities",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 122,
+          "weight": 0.5
+        },
+        {
+          "target": 122,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 124,
+      "uuid": "e5a9f6d8-4c73-4f62-a74c-5a9e5f6d8c74",
+      "topic": "Adding/subtracting same number to inequalities",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 125,
+      "uuid": "f7b4e8c5-6d59-4b75-c96d-7b4f7e8c5d58",
+      "topic": "Multiplying/dividing by positive numbers",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 126,
+      "uuid": "a9c6f3d2-8e46-4f84-b78e-9c6a9f3d2e47",
+      "topic": "Multiplying/dividing by negative numbers",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 226,
+          "weight": 0.5
+        },
+        {
+          "target": 198,
+          "weight": 0.5
+        },
+        {
+          "target": 255,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 127,
+      "uuid": "b2d8a5f9-5f71-4c57-a65f-2d8b2a5f9f72",
+      "topic": "Complete rules for manipulating inequalities",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 124,
+          "weight": 0.5
+        },
+        {
+          "target": 125,
+          "weight": 0.5
+        },
+        {
+          "target": 126,
+          "weight": 0.5
+        },
+        {
+          "target": 234,
+          "weight": 0.5
+        },
+        {
+          "target": 124,
+          "weight": 0.5
+        },
+        {
+          "target": 125,
+          "weight": 0.5
+        },
+        {
+          "target": 126,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 128,
+      "uuid": "c4e3b9d7-9a68-4d43-c89a-4e3c4b9d7a69",
+      "topic": "Solving one-step inequalities",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 127,
+          "weight": 0.5
+        },
+        {
+          "target": 127,
+          "weight": 0.5
+        },
+        {
+          "target": 37,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 129,
+      "uuid": "d6f5c7a4-2b85-4f56-b82b-6f5d6c7a4b86",
+      "topic": "Solving two-step inequalities",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 128,
+          "weight": 0.5
+        },
+        {
+          "target": 128,
+          "weight": 0.5
+        },
+        {
+          "target": 38,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 130,
+      "uuid": "e8a7f2d6-6c74-4b89-a76c-8a7e8f2d6c75",
+      "topic": "Multi-step linear inequalities",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 129,
+          "weight": 0.5
+        },
+        {
+          "target": 129,
+          "weight": 0.5
+        },
+        {
+          "target": 4,
+          "weight": 0.5
+        },
+        {
+          "target": 39,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 131,
+      "uuid": "f3b9e6c8-4d63-4f52-c94d-3b9f3e6c8d64",
+      "topic": "Compound inequalities with 'and'",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 130,
+          "weight": 0.5
+        },
+        {
+          "target": 248,
+          "weight": 0.5
+        },
+        {
+          "target": 130,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 132,
+      "uuid": "a5c2f8d5-8e49-4d78-b78e-5c2a5f8d5e48",
+      "topic": "Compound inequalities with 'or'",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 131,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 133,
+      "uuid": "b7d4a6f3-5f86-4c67-a65f-7d4b7a6f3f87",
+      "topic": "Graphing compound inequalities",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 132,
+          "weight": 0.5
+        },
+        {
+          "target": 229,
+          "weight": 0.5
+        },
+        {
+          "target": 93,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 134,
+      "uuid": "c9e6b8d2-9a75-4f54-c89a-9e6c9b8d2a76",
+      "topic": "Understanding quadratic inequalities",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 195,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 135,
+      "uuid": "d2f8c5a7-3b62-4d89-b83b-2f8d2c5a7b63",
+      "topic": "Finding critical points",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 113,
+          "weight": 0.5
+        },
+        {
+          "target": 134,
+          "weight": 0.5
+        },
+        {
+          "target": 208,
+          "weight": 0.5
+        },
+        {
+          "target": 224,
+          "weight": 0.5
+        },
+        {
+          "target": 59,
+          "weight": 0.5
+        },
+        {
+          "target": 224,
+          "weight": 0.5
+        },
+        {
+          "target": 59,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 136,
+      "uuid": "e4a3f7d9-7c48-4f73-a67c-4a3e4f7d9c49",
+      "topic": "Sign chart method for quadratic inequalities",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 135,
+          "weight": 0.5
+        },
+        {
+          "target": 190,
+          "weight": 0.5
+        },
+        {
+          "target": 213,
+          "weight": 0.5
+        },
+        {
+          "target": 118,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 137,
+      "uuid": "f6b5e9c4-4d87-4b56-c94d-6b5f6e9c4d88",
+      "topic": "Solving quadratic inequalities completely",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 136,
+          "weight": 0.5
+        },
+        {
+          "target": 209,
+          "weight": 0.5
+        },
+        {
+          "target": 250,
+          "weight": 0.5
+        },
+        {
+          "target": 117,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 138,
+      "uuid": "a8c7f2e6-6f74-4d42-b86f-8c7a8f2e6f75",
+      "topic": "Interpreting inequalities graphically",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 82,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 139,
+      "uuid": "b3d9a5f8-9e53-4c85-a69e-3d9b3a5f8e54",
+      "topic": "Using graphs to solve inequalities",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 138,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 140,
+      "uuid": "c5e2b7d4-2a79-4f68-c82a-5e2c5b7d4a78",
+      "topic": "Understanding what a sequence is",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 116,
+          "weight": 0.5
+        },
+        {
+          "target": 141,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 141,
+      "uuid": "d7f4c9a6-5b66-4d57-b75b-7f4d7c9a6b67",
+      "topic": "Understanding term and position",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 140,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 142,
+      "uuid": "e9a6f3d8-8c45-4f84-a68c-9a6e9f3d8c46",
+      "topic": "Recognizing arithmetic sequences",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 205,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 143,
+      "uuid": "f2b8e5c7-4d72-4b89-c94d-2b8f2e5c7d73",
+      "topic": "Finding common difference",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 142,
+          "weight": 0.5
+        },
+        {
+          "target": 84,
+          "weight": 0.5
+        },
+        {
+          "target": 83,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 144,
+      "uuid": "a4c6f9e2-6f58-4d45-b76f-4c6a4f9e2f59",
+      "topic": "Understanding arithmetic sequences",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 143,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 145,
+      "uuid": "b6d8a3f7-9e84-4c68-a89e-6d8b6a3f7e85",
+      "topic": "First term notation a₁",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 141,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 146,
+      "uuid": "c8e5b7d4-3a61-4f57-c73a-8e5c8b7d4a62",
+      "topic": "nth term formula for arithmetic sequences",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 144,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 147,
+      "uuid": "d3f7c2a9-7b77-4d49-b87b-3f7d3c2a9b78",
+      "topic": "Finding specific terms in arithmetic sequences",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 146,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 148,
+      "uuid": "e5a9f6d5-4c93-4f62-a74c-5a9e5f6d5c94",
+      "topic": "Finding position when given term value",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 146,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 149,
+      "uuid": "f7b4e8c2-6d56-4b75-c96d-7b4f7e8c2d57",
+      "topic": "Understanding difference between series and sequence",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 150,
+      "uuid": "a9c6f3d8-8e82-4f84-b78e-9c6a9f3d8e83",
+      "topic": "Arithmetic series concept",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 149,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 151,
+      "uuid": "b2d8a5f4-5f65-4c57-a65f-2d8b2a5f4f66",
+      "topic": "Partial sum notation Sₙ",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 150,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 152,
+      "uuid": "c4e3b9d7-9a48-4d43-c89a-4e3c4b9d7a49",
+      "topic": "Sum formula for arithmetic series",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 151,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 153,
+      "uuid": "d6f5c7a3-2b71-4f56-b82b-6f5d6c7a3b72",
+      "topic": "Choosing appropriate sum formula",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 152,
+          "weight": 0.5
+        },
+        {
+          "target": 228,
+          "weight": 0.5
+        },
+        {
+          "target": 246,
+          "weight": 0.5
+        },
+        {
+          "target": 246,
+          "weight": 0.5
+        },
+        {
+          "target": 180,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 154,
+      "uuid": "e8a7f2d6-6c94-4b89-a76c-8a7e8f2d6c95",
+      "topic": "Recognizing geometric sequences",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 249,
+          "weight": 0.5
+        },
+        {
+          "target": 142,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 155,
+      "uuid": "f3b9e6c8-4d57-4f52-c94d-3b9f3e6c8d58",
+      "topic": "Finding common ratio",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 154,
+          "weight": 0.5
+        },
+        {
+          "target": 216,
+          "weight": 0.5
+        },
+        {
+          "target": 235,
+          "weight": 0.5
+        },
+        {
+          "target": 85,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 156,
+      "uuid": "a5c2f8d5-8e73-4d78-b78e-5c2a5f8d5e74",
+      "topic": "Understanding geometric sequences",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 155,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 157,
+      "uuid": "b7d4a6f3-5f46-4c67-a65f-7d4b7a6f3f47",
+      "topic": "nth term formula for geometric sequences",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 156,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 158,
+      "uuid": "c9e6b8d2-9a89-4f54-c89a-9e6c9b8d2a88",
+      "topic": "Understanding geometric growth and decay",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 157,
+          "weight": 0.5
+        },
+        {
+          "target": 83,
+          "weight": 0.5
+        },
+        {
+          "target": 136,
+          "weight": 0.5
+        },
+        {
+          "target": 84,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 159,
+      "uuid": "d2f8c5a7-3b52-4d89-b83b-2f8d2c5a7b53",
+      "topic": "Geometric series concept",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 160,
+      "uuid": "e4a3f7d9-7c75-4f73-a67c-4a3e4f7d9c76",
+      "topic": "Sum of finite geometric series",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 159,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 161,
+      "uuid": "f6b5e9c4-4d68-4b56-c94d-6b5f6e9c4d69",
+      "topic": "Understanding convergent series",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 160,
+          "weight": 0.5
+        },
+        {
+          "target": 116,
+          "weight": 0.5
+        },
+        {
+          "target": 224,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 162,
+      "uuid": "a8c7f2e6-6f51-4d42-b86f-8c7a8f2e6f52",
+      "topic": "Sum of infinite geometric series",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 161,
+          "weight": 0.5
+        },
+        {
+          "target": 131,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 163,
+      "uuid": "b3d9a5f8-9e74-4c85-a69e-3d9b3a5f8e75",
+      "topic": "Understanding exponential functions",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 92,
+          "weight": 0.5
+        },
+        {
+          "target": 193,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 164,
+      "uuid": "c5e2b7d4-2a67-4f68-c82a-5e2c5b7d4a68",
+      "topic": "Exponential vs polynomial functions",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 163,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 165,
+      "uuid": "d7f4c9a6-5b93-4d57-b75b-7f4d7c9a6b94",
+      "topic": "Exponential equations with same base",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 164,
+          "weight": 0.5
+        },
+        {
+          "target": 192,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 166,
+      "uuid": "e9a6f3d8-8c56-4f84-a68c-9a6e9f3d8c57",
+      "topic": "Steps for same-base exponential equations",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 165,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 167,
+      "uuid": "f2b8e5c7-4d79-4b89-c94d-2b8f2e5c7d78",
+      "topic": "More complex exponential equations",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 166,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 168,
+      "uuid": "a4c6f9e2-6f42-4d45-b76f-4c6a4f9e2f43",
+      "topic": "Logarithm as inverse of exponential",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 169,
+      "uuid": "b6d8a3f7-9e65-4c68-a89e-6d8b6a3f7e66",
+      "topic": "Definition of logarithm",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 168,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 170,
+      "uuid": "c8e5b7d4-3a88-4f57-c73a-8e5c8b7d4a89",
+      "topic": "Logarithmic function notation",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 169,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 171,
+      "uuid": "d3f7c2a9-7b53-4d49-b87b-3f7d3c2a9b54",
+      "topic": "Converting between exponential and logarithmic form",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 170,
+          "weight": 0.5
+        },
+        {
+          "target": 205,
+          "weight": 0.5
+        },
+        {
+          "target": 98,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 172,
+      "uuid": "e5a9f6d5-4c76-4f62-a74c-5a9e5f6d5c77",
+      "topic": "Logarithm product rule",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 20,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 173,
+      "uuid": "f7b4e8c2-6d99-4b75-c96d-7b4f7e8c2d98",
+      "topic": "Logarithm quotient rule",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 174,
+      "uuid": "a9c6f3d8-8e62-4f84-b78e-9c6a9f3d8e63",
+      "topic": "Logarithm power rule",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 175,
+      "uuid": "b2d8a5f4-5f85-4c57-a65f-2d8b2a5f4f86",
+      "topic": "All laws of logarithms",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 172,
+          "weight": 0.5
+        },
+        {
+          "target": 173,
+          "weight": 0.5
+        },
+        {
+          "target": 174,
+          "weight": 0.5
+        },
+        {
+          "target": 225,
+          "weight": 0.5
+        },
+        {
+          "target": 127,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 176,
+      "uuid": "3a1937e2-df56-4574-a05d-4ccef87176a0",
+      "topic": "Expanding logarithmic expressions",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 175,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 177,
+      "uuid": "d535db44-4e8c-412e-acee-681b3cbf778c",
+      "topic": "Condensing logarithmic expressions",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 175,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 178,
+      "uuid": "e490e83e-d07e-485f-aed0-e3c496c1dee5",
+      "topic": "Basic logarithmic equations",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 179,
+      "uuid": "35649796-3f6a-478a-8d6b-2e0ca615d218",
+      "topic": "Logarithmic equations with same base",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 230,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 180,
+      "uuid": "2cb3d0e1-0cd8-4df8-8024-7fc935761615",
+      "topic": "Change of base formula",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 205,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 181,
+      "uuid": "6361e577-655b-418e-9783-55668b6cdd15",
+      "topic": "Understanding absolute value",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 182,
+      "uuid": "08acff52-9f2b-4cb7-aabb-e80e0bc0bb32",
+      "topic": "Absolute value definition",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 181,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 183,
+      "uuid": "308d08d0-5db6-4143-aa1a-1d14dc9e6e18",
+      "topic": "Modulus function properties",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 182,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 184,
+      "uuid": "99fa22b9-5ebb-4451-b9df-24cf66a78439",
+      "topic": "Simple absolute value equations",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 135,
+          "weight": 0.5
+        },
+        {
+          "target": 183,
+          "weight": 0.5
+        },
+        {
+          "target": 242,
+          "weight": 0.5
+        },
+        {
+          "target": 190,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 185,
+      "uuid": "731e2cc8-d7b7-4b6c-ae98-769915254fc0",
+      "topic": "Basic modulus equations",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 184,
+          "weight": 0.5
+        },
+        {
+          "target": 242,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 186,
+      "uuid": "7b9f37dc-ea6e-471c-8df2-4a8a13496d38",
+      "topic": "Complex modulus equations",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 185,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 187,
+      "uuid": "241ce722-344e-4fee-bf34-d67744d44154",
+      "topic": "Absolute value inequalities",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 122,
+          "weight": 0.5
+        },
+        {
+          "target": 184,
+          "weight": 0.5
+        },
+        {
+          "target": 230,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 188,
+      "uuid": "338c56d9-3517-4631-bc06-6d2413e928ef",
+      "topic": "Checking solutions in absolute value equations",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 186,
+          "weight": 0.5
+        },
+        {
+          "target": 252,
+          "weight": 0.5
+        },
+        {
+          "target": 242,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 189,
+      "uuid": "051438f2-0459-49a7-8af2-26ae14b08c33",
+      "topic": "Recognizing when expression is algebraic",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 190,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 190,
+      "uuid": "630153d7-cf11-40d9-b24c-ba42cbbd4308",
+      "topic": "Systematic term counting technique",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 204,
+          "weight": 0.5
+        },
+        {
+          "target": 3,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 191,
+      "uuid": "376c331f-530e-4d2f-b9b0-c2713647d386",
+      "topic": "Recognizing implicit coefficients",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 0,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 192,
+      "uuid": "c7262aa8-66e1-45c1-8d4d-c673154cc4be",
+      "topic": "Recognizing implied exponents",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 0,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 193,
+      "uuid": "a5146351-4572-4bb7-ad60-73b13a70cc09",
+      "topic": "Finding degree of individual terms",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 192,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 194,
+      "uuid": "07357d70-7a13-4a10-b8f7-73116a2125d4",
+      "topic": "Identifying leading term",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 189,
+          "weight": 0.5
+        },
+        {
+          "target": 193,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 195,
+      "uuid": "0866c8a4-cf2c-4503-af34-eaa7464d6de4",
+      "topic": "Arranging polynomials in standard form",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 194,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 196,
+      "uuid": "eddcb13f-bfe1-4349-9d71-7d3db69e53af",
+      "topic": "Recognizing missing terms in polynomials",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 195,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 197,
+      "uuid": "089ef9a7-b555-45e6-b1f9-26f55885339a",
+      "topic": "Recognizing like terms with multiple variables",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 189,
+          "weight": 0.5
+        },
+        {
+          "target": 4,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 198,
+      "uuid": "972185e4-5b10-4d6a-bf58-656419ef3d26",
+      "topic": "Handling signs when combining like terms",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 5,
+          "weight": 0.5
+        },
+        {
+          "target": 197,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 199,
+      "uuid": "4455e69e-a9e9-4434-b357-5a0513c2e0c2",
+      "topic": "Visual technique for distributive property",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 190,
+          "weight": 0.5
+        },
+        {
+          "target": 6,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 200,
+      "uuid": "6fdecc90-ad12-4b2a-83d7-5d0b3e0b15f4",
+      "topic": "Distributive property with variables outside",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 1,
+          "weight": 0.5
+        },
+        {
+          "target": 7,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 201,
+      "uuid": "d67deb51-a7cd-4ee6-b0e0-67d4cbba497d",
+      "topic": "Double negative rule in expansion",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 202,
+          "weight": 0.5
+        },
+        {
+          "target": 8,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 202,
+      "uuid": "25232aad-5d8d-4510-b2ec-7bf4a4b6fb15",
+      "topic": "Common mistakes in bracket expansion",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 199,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 203,
+      "uuid": "0fa26d68-37fc-4859-91bb-eeac20901ae9",
+      "topic": "Physical finger technique for FOIL",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 9,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 204,
+      "uuid": "e0766c4f-3368-4d54-b1dd-0e4659a97621",
+      "topic": "Organizing FOIL calculations",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 203,
+          "weight": 0.5
+        },
+        {
+          "target": 9,
+          "weight": 0.5
+        },
+        {
+          "target": 203,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 205,
+      "uuid": "477cb4d1-9fb4-49ad-bf8b-297bcc9850ec",
+      "topic": "Recognizing special products before expanding",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 10,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 206,
+      "uuid": "206494a0-3876-43a6-adb0-eb38f5f1a0c4",
+      "topic": "Collecting middle terms in quadratic expansion",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 196,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 207,
+      "uuid": "b358042b-6619-4698-b4b1-0c7766028a57",
+      "topic": "Perfect square expansion shortcuts",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 195,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 208,
+      "uuid": "9be90f0d-7d5e-4ecb-8746-3237c3d1f703",
+      "topic": "GCF inspection technique",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 12,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 209,
+      "uuid": "8ec70e0f-ad52-4e6a-ab59-4fcf753c273a",
+      "topic": "Checking factoring by distributing back",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 208,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 210,
+      "uuid": "70216645-13f0-49d6-b096-860a1258af60",
+      "topic": "Strategic grouping for factoring by grouping",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 222,
+          "weight": 0.5
+        },
+        {
+          "target": 16,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 211,
+      "uuid": "3c144f67-0103-45c4-9fe1-38aacb059ddc",
+      "topic": "Finding GCF within each group",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 210,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 212,
+      "uuid": "0decc56d-f5ee-4a0f-a43d-cb1bf7d94afc",
+      "topic": "Recognizing common binomial factor",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 211,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 213,
+      "uuid": "36fa7f95-7bd4-442f-8283-b6153962ae26",
+      "topic": "Visual pattern recognition for difference of squares",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 197,
+          "weight": 0.5
+        },
+        {
+          "target": 199,
+          "weight": 0.5
+        },
+        {
+          "target": 17,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 214,
+      "uuid": "d45f83c3-ec97-49c7-993d-419537a2c37d",
+      "topic": "Pattern recognition for perfect square trinomials",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 213,
+          "weight": 0.5
+        },
+        {
+          "target": 19,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 215,
+      "uuid": "4c6a5449-fced-4b5c-862b-853f1dd0c440",
+      "topic": "Middle term check for perfect squares",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 214,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 216,
+      "uuid": "326d4e6d-6227-4641-99c8-93b03fa4899f",
+      "topic": "Listing factor pairs systematically",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 12,
+          "weight": 0.5
+        },
+        {
+          "target": 117,
+          "weight": 0.5
+        },
+        {
+          "target": 136,
+          "weight": 0.5
+        },
+        {
+          "target": 117,
+          "weight": 0.5
+        },
+        {
+          "target": 21,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 217,
+      "uuid": "4ce028ed-4dab-4d57-b273-f714c051d023",
+      "topic": "Sign analysis for quadratic factoring",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 216,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 218,
+      "uuid": "b14457ab-5634-42eb-920a-b572a06df707",
+      "topic": "AC method: multiply a and c",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 24,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 219,
+      "uuid": "605bae8b-80ed-45a1-9888-dc1ef2123363",
+      "topic": "AC method: find factor pairs of ac",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 218,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 220,
+      "uuid": "0867e03e-e972-41d2-a1d8-707b015a90d7",
+      "topic": "AC method: check which pair sums to b",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 217,
+          "weight": 0.5
+        },
+        {
+          "target": 219,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 221,
+      "uuid": "f6f6b0b6-3ac6-4948-a1bb-e1e1052dbc22",
+      "topic": "AC method: split middle term",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 220,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 222,
+      "uuid": "7921844c-e22e-4fe2-bd43-7671bb437d30",
+      "topic": "AC method: group and factor",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 221,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 223,
+      "uuid": "5dc60c74-b286-4a7a-a656-62bdda71a8f3",
+      "topic": "Systematic trial and error for factoring",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 216,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 224,
+      "uuid": "2e0d15e7-be97-4ab2-8598-e2a90933f98f",
+      "topic": "Identifying domain restrictions for fractions",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 196,
+          "weight": 0.5
+        },
+        {
+          "target": 116,
+          "weight": 0.5
+        },
+        {
+          "target": 25,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 225,
+      "uuid": "2566ee01-be64-4a90-8ef3-6cf6f85621f3",
+      "topic": "Always factor before canceling",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 12,
+          "weight": 0.5
+        },
+        {
+          "target": 224,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 226,
+      "uuid": "7e8a7d63-012a-4b41-8272-fff57092b8ae",
+      "topic": "Canceling factors, not terms",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 256,
+          "weight": 0.5
+        },
+        {
+          "target": 209,
+          "weight": 0.5
+        },
+        {
+          "target": 26,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 227,
+      "uuid": "7ea124da-33d6-4b9e-ba4d-ef0f96caecf8",
+      "topic": "Cross multiplication for algebraic fractions",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 28,
+          "weight": 0.5
+        },
+        {
+          "target": 29,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 228,
+      "uuid": "3e90c9a5-9c81-428a-9f62-a9e3b656bb53",
+      "topic": "Finding LCD for algebraic expressions",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 204,
+          "weight": 0.5
+        },
+        {
+          "target": 216,
+          "weight": 0.5
+        },
+        {
+          "target": 30,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 229,
+      "uuid": "41ab1f6a-d609-4a36-abed-d5f7a766a6fa",
+      "topic": "Converting to common denominator technique",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 195,
+          "weight": 0.5
+        },
+        {
+          "target": 228,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 230,
+      "uuid": "05f2c1a5-30be-46a6-aa4e-88616617e970",
+      "topic": "Identifying main fraction bar in complex fractions",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 190,
+          "weight": 0.5
+        },
+        {
+          "target": 189,
+          "weight": 0.5
+        },
+        {
+          "target": 27,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 231,
+      "uuid": "614b043c-5605-47b9-bb93-4cf965ddab5f",
+      "topic": "Distinguishing equations from expressions",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 33,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 232,
+      "uuid": "fd96b7ad-a201-4d8d-aeb9-b26c3b2a7de1",
+      "topic": "Understanding 'isolating the variable'",
+      "chapter": "Algebra",
+      "dependencies": []
+    },
+    {
+      "id": 233,
+      "uuid": "6abebf9d-7ed3-4039-8123-6eb04e3c1bd0",
+      "topic": "Order for undoing operations",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 35,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 234,
+      "uuid": "0eece207-2848-4c3a-a2ba-9a8e8354bd3a",
+      "topic": "Maintaining equation balance technique",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 233,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 235,
+      "uuid": "68957425-025f-40dc-83d6-93560f49ea11",
+      "topic": "Recognizing when coefficient is 1",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 36,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 236,
+      "uuid": "926909a8-84d1-4e44-9171-5b95d8aa1b64",
+      "topic": "Clearing fraction coefficients",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 37,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 237,
+      "uuid": "d3fd1d06-5f5b-415b-816d-48bf07b7c586",
+      "topic": "Combining like terms within equations",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 4,
+          "weight": 0.5
+        },
+        {
+          "target": 38,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 238,
+      "uuid": "1f8e2d57-9092-4740-9586-7f059078713f",
+      "topic": "Moving all variables to one side",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 226,
+          "weight": 0.5
+        },
+        {
+          "target": 189,
+          "weight": 0.5
+        },
+        {
+          "target": 39,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 239,
+      "uuid": "fd6b652a-ffd3-48ba-9abf-529b4ea3e43d",
+      "topic": "Moving constants to opposite side",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 2,
+          "weight": 0.5
+        },
+        {
+          "target": 238,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 240,
+      "uuid": "0d9fec23-da98-4850-b9ed-c8e0c02b1e2e",
+      "topic": "Expanding brackets as first step in equations",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 7,
+          "weight": 0.5
+        },
+        {
+          "target": 41,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 241,
+      "uuid": "3fc80db3-46a1-4555-afa8-36e1460ec60f",
+      "topic": "Clearing fractions by multiplying by LCD",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 30,
+          "weight": 0.5
+        },
+        {
+          "target": 42,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 242,
+      "uuid": "5542b263-681c-45ac-8c6d-5f65edf274a9",
+      "topic": "Substitution technique for checking",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 188,
+          "weight": 0.5
+        },
+        {
+          "target": 209,
+          "weight": 0.5
+        },
+        {
+          "target": 34,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 243,
+      "uuid": "88968044-f47d-4fbe-870c-a8ad4b7cdcce",
+      "topic": "Recognizing no solution situations",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 190,
+          "weight": 0.5
+        },
+        {
+          "target": 202,
+          "weight": 0.5
+        },
+        {
+          "target": 254,
+          "weight": 0.5
+        },
+        {
+          "target": 40,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 244,
+      "uuid": "1e12c67e-3ee4-4d7e-a5eb-0d8140298dff",
+      "topic": "Recognizing infinite solution situations",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 189,
+          "weight": 0.5
+        },
+        {
+          "target": 40,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 245,
+      "uuid": "9b2ca6c2-c31d-4977-9248-900101ebaf6c",
+      "topic": "Visual interpretation of simultaneous equations",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 46,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 246,
+      "uuid": "42004a84-e098-4c2e-a345-35e070b71618",
+      "topic": "Choosing between substitution and elimination",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 204,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 247,
+      "uuid": "6281fb5d-7509-4ae3-83b6-68f0dde62da4",
+      "topic": "Making the substitution in substitution method",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 230,
+          "weight": 0.5
+        },
+        {
+          "target": 48,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 248,
+      "uuid": "9ad632db-ece1-423e-a720-bdeb7552d29b",
+      "topic": "Making coefficients match for elimination",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 249,
+          "weight": 0.5
+        },
+        {
+          "target": 51,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 249,
+      "uuid": "6dd4ede0-8945-4e0c-ba56-700a36c14dfa",
+      "topic": "Choosing addition vs subtraction in elimination",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 248,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 250,
+      "uuid": "b286892e-afa5-4e18-8b71-b762f87e93f3",
+      "topic": "Back-substitution technique",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 52,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 251,
+      "uuid": "cfa7c33c-b5fd-4bcd-9d86-5b4730879f57",
+      "topic": "Verifying simultaneous equation solutions",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 197,
+          "weight": 0.5
+        },
+        {
+          "target": 246,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 252,
+      "uuid": "8e8873df-3ec7-4a29-8e02-3d710514f399",
+      "topic": "Reading intersection coordinates from graph",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 53,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 253,
+      "uuid": "7598241a-7742-4ced-8db0-13bed8b51375",
+      "topic": "Systematic error checking techniques",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 137,
+          "weight": 0.5
+        },
+        {
+          "target": 176,
+          "weight": 0.5
+        },
+        {
+          "target": 34,
+          "weight": 0.5
+        },
+        {
+          "target": 190,
+          "weight": 0.5
+        },
+        {
+          "target": 209,
+          "weight": 0.5
+        },
+        {
+          "target": 225,
+          "weight": 0.5
+        },
+        {
+          "target": 251,
+          "weight": 0.5
+        },
+        {
+          "target": 252,
+          "weight": 0.5
+        },
+        {
+          "target": 216,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 254,
+      "uuid": "4432a84d-e9d9-4766-9383-c051fe579dd9",
+      "topic": "Awareness of common algebraic mistakes",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 188,
+          "weight": 0.5
+        },
+        {
+          "target": 253,
+          "weight": 0.5
+        },
+        {
+          "target": 202,
+          "weight": 0.5
+        },
+        {
+          "target": 226,
+          "weight": 0.5
+        },
+        {
+          "target": 243,
+          "weight": 0.5
+        },
+        {
+          "target": 171,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 255,
+      "uuid": "d2b175f3-d92a-4068-bdec-ec0c6464f8db",
+      "topic": "Preventing sign errors",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 254,
+          "weight": 0.5
+        },
+        {
+          "target": 198,
+          "weight": 0.5
+        },
+        {
+          "target": 126,
+          "weight": 0.5
+        },
+        {
+          "target": 217,
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": 256,
+      "uuid": "4ffaccd7-f8fa-4355-94c9-d3a846e92beb",
+      "topic": "Preventing fraction errors",
+      "chapter": "Algebra",
+      "dependencies": [
+        {
+          "target": 254,
+          "weight": 0.5
+        },
+        {
+          "target": 255,
+          "weight": 0.5
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "total_nodes": 257,
+    "chapters": [
+      "Algebra"
+    ],
+    "description": "Converted knowledge graph"
+  }
+}

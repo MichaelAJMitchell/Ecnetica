@@ -86,7 +86,7 @@ function createEnhancedThemeToggle() {
 async function createCourseNavigator() {
     try {
         // Load course structure from JSON file
-        const response = await fetch('_static/course_structure.json');
+        const response = await fetch('/Ecnetica/_static/course_structure.json');
         if (!response.ok) {
             throw new Error(`Failed to load course structure: ${response.status}`);
         }
@@ -105,16 +105,10 @@ async function createCourseNavigator() {
         const fallbackStructure = {
             'Introduction': {
                 'Course Overview': '/Ecnetica/content/introduction/course_overview.html',
-                'Mathematical Thinking': {
-                    'Problem Solving': '/Ecnetica/content/introduction/problem_solving.html',
-                    'Proof Techniques': '/Ecnetica/content/introduction/proof_techniques.html'
-                },
                 'Knowledge Graph': '/Ecnetica/content/knowledge-graph.html'
             },
             'Interactive Tools': {
-                'Python Playground': '/Ecnetica/content/interactive/python_playground.html',
-                'BKT Simple Demo': '/Ecnetica/content/interactive/BKT_Simple_Demo.html',
-                'BKT FSRS Demo': '/Ecnetica/content/interactive/BKT_FSRS_Demo.html'
+                'Comprehensive MCQS Demo': '/Ecnetica/content/interactive/full_mcqs_demo.html',
             }
         };
         

@@ -159,7 +159,9 @@ The testing build currently includes:
 - Quadratic functions (with interactive visualizations)
 - Interactive tools (Python playground, BKT demo)
 
-### Custom TOC Build
+<!--### Custom TOC Build
+
+i haven't fixed it with the full spefic directory apporach to fix the file paths
 
 You can also build with custom table of contents files:
 
@@ -171,7 +173,7 @@ This uses `_toc-<name>.yml` file. For example:
 
 - `./quick-build.sh full` uses `_toc-full.yml`
 - `./quick-build.sh minimal` uses `_toc-minimal.yml`
-
+-->
 
 # 3. Frontend Customization
 
@@ -456,4 +458,6 @@ Once you're satisfied with your changes:
 2. **Check the course navigator** - your page should appear in the custom navigator (book icon in navbar)
 3. **Test the search** - your page should be searchable in the course navigator
 4. **Check links** - ensure all internal links work correctly
+
+
 

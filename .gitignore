@@ -10,3 +10,4 @@ venv/
 
 # Ignore testing generated content
 content-testing/
+content-local/

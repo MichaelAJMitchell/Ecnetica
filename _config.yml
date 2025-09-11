@@ -27,7 +27,7 @@ repository:
 
 # HTML settings - NO GitHub buttons
 html:
-  baseurl: ""
+ # baseurl: /Ecnetica/
   extra_footer: "Copyright-info"
   extra_css:
     - "_static/style.css"

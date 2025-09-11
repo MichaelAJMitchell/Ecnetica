@@ -206,8 +206,7 @@ function generateToolsBar(courseStructure) {
       title: 'Interactive Tools',
       icon: '🔧',
       items: [
-        { name: 'Python Playground', url: '/content/interactive/python_playground.html', icon: '🐍' },
-        { name: 'BKT Simple Demo', url: '/content/interactive/BKT_Simple_Demo.html', icon: '🧠' },
+        { name: 'Comprehensive MCQ Demo', url: '/content/interactive/full_mcqs_demol', icon: '🧠' },
         { name: 'BKT FSRS Demo', url: '/content/interactive/BKT_FSRS_Demo.html', icon: '⏳' },
         { name: 'MCQ Breakdown Demo', url: '/content/interactive/MCQ_Breakdown_Demo.html', icon: '❓' }
       ]

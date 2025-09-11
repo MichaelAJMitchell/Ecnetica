@@ -1,10 +1,9 @@
-# MCQ Algorithm Demo
+# Comprehensive MCQ Demo
 ```{raw} html
 
 <!doctype html>
 <html>
 <head>
-    <title> MCQ Algorithm Demo</title>
     <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
 
     <!-- MathJax configuration -->

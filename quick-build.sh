@@ -55,7 +55,15 @@ if [ "$1" == "testing" ]; then
         echo "Copying static assets..."
         cp -r _static content-testing/
     fi
+
+    # Replace Ecnetica/content with content in all files in content-testing
+    echo "Fixing paths in all files in content-testing..."
+    find content-testing -type f -exec sed -i 's|Ecnetica/content|content|g' {} +
     
+    # Replace /Ecnetica/_static/ with /_static/ in all files in content-testing
+    find content-testing -type f -exec sed -i 's|/Ecnetica/_static/|/_static/|g' {} +
+
+
     # Build with minimal content
     echo "Building testing content..."
     cd content-testing
@@ -65,6 +73,7 @@ if [ "$1" == "testing" ]; then
     echo "Fast testing build complete!"
     cd _build-testing/_build/html/ && python -m http.server && cd "$DIR"
     
+: <<'END'
 # Normal build with full content folder
 elif [ -n "$1" ]; then
     # Custom TOC file provided
@@ -76,8 +85,35 @@ elif [ -n "$1" ]; then
     echo "Building with: $TOC_FILE"
     jupyter-book build --verbose --toc "$TOC_FILE" .
     cd _build/html/ && python -m http.server && cd "$DIR"
+END
+
 else
-    # Normal build
-    jupyter-book build --verbose .
-    cd _build/html/ && python -m http.server && cd "$DIR"
+    # Normal build with local content-local directory
+    echo "Preparing content-local directory for local build..."
+    rm -rf content-local/
+    mkdir -p content-local
+
+    # Copy all content and static assets
+    cp -r content content-local/
+    cp -r _static content-local/
+
+    # Copy config and TOC
+    cp _config.yml content-local/
+    cp _toc.yml content-local/
+    cp logo.png content-local/ 2>/dev/null || echo "logo.png not found, skipping"
+    cp references.bib content-local/ 2>/dev/null || echo "references.bib not found, skipping"
+
+    # Fix paths in all files in content-local
+    echo "Fixing paths in all files in content-local..."
+    find content-local -type f -exec sed -i 's|Ecnetica/content|content|g' {} +
+    find content-local -type f -exec sed -i 's|/Ecnetica/_static/|/_static/|g' {} +
+
+    # Build from content-local
+    echo "Building from content-local..."
+    cd content-local
+    jupyter-book build --verbose --path-output ../_build-local .
+    cd ..
+
+    echo "Local build complete!"
+    cd _build-local/_build/html/ && python -m http.server && cd "$DIR"
 fi

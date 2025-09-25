@@ -39,34 +39,16 @@ class ConceptExtractor:
         self.llm_client = LLMClient()
         self.chunker = TextChunker()
     
-    def process_file(self, file_path: str, output_file: str):
-        """
-        Process a single file to extract mathematical concepts and relationships.
-        
-        Workflow:
-        1. Extract text from the file
-        2. Split text into context-aware chunks
-        3. Use LLM to extract concepts from each chunk
-        4. Use LLM to extract relationships between concepts
-        5. Verify extraction quality with LLM
-        6. Save results to JSON output file
-        
-        Args:
-            file_path: Path to the input file (PDF, MD, or CSV)
-            output_file: Path where the JSON output should be saved
-        """
+    def process_file(self, file_path: str, output_file: str, chapters_per_chunk: int = 1):
+        """Process a single file with configurable chapter chunking."""
         print(f"Processing file: {file_path}")
         
-        # Extract text from file
-        try:
-            text_content = self.file_processor.process_file(file_path)
-            print(f"Extracted {len(text_content)} characters of text")
-        except Exception as e:
-            print(f"Error processing file {file_path}: {str(e)}")
-            return
+        # Extract content and file type
+        content, file_type = self.file_processor.process_file(file_path)
+        print(f"Extracted content from {file_type} file")
         
-        # Create context-aware chunks
-        chunks = self.chunker.create_chunks(text_content)
+        # Create chunks based on file type
+        chunks = self.chunker.create_chunks(content, file_type, chapters_per_chunk)
         print(f"Split into {len(chunks)} chunks for processing")
         
         # Get existing data for context
@@ -105,18 +87,8 @@ class ConceptExtractor:
         self.data_manager.save_to_json(output_file)
         print(f"Processing complete. Results saved to {output_file}")
     
-    def process_directory(self, directory_path: str, output_file: str):
-        """
-        Process all supported files in a directory to build a comprehensive ontology.
-        
-        This method iterates through all files in the specified directory,
-        processing each supported file and accumulating all extracted concepts
-        and relationships into a single knowledge graph.
-        
-        Args:
-            directory_path: Path to directory containing files to process
-            output_file: Path where the combined JSON output should be saved
-        """
+    def process_directory(self, directory_path: str, output_file: str, chapters_per_chunk: int = 1):
+        """Process all supported files in a directory."""
         if not os.path.exists(directory_path):
             raise FileNotFoundError(f"Directory not found: {directory_path}")
         
@@ -131,7 +103,7 @@ class ConceptExtractor:
         
         for file_path in supported_files:
             try:
-                self.process_file(file_path, output_file)
+                self.process_file(file_path, output_file, chapters_per_chunk)
             except Exception as e:
                 print(f"Error processing {file_path}: {str(e)}")
                 continue

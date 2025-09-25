@@ -1,0 +1,384 @@
+{
+  "nodes": [
+    {
+      "id": "aa462402-8824-4bc7-9517-641d0d8afc3e",
+      "label": "Natural Numbers (N)",
+      "group": "Number Theory",
+      "title": "The set of counting numbers starting from 1, i.e., {1, 2, 3, ...}.",
+      "broader_concept": "Number Systems",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1bed2cee-51d7-4a2c-aa8c-8a583a9e9427",
+      "label": "Integers (Z)",
+      "group": "Number Theory",
+      "title": "The set of whole numbers including zero and negative numbers, i.e., {..., -2, -1, 0, 1, 2, ...}.",
+      "broader_concept": "Number Systems",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "0b5d442b-7e23-44da-a87f-ec450fe0aa69",
+      "label": "Rational Numbers (Q)",
+      "group": "Number Theory",
+      "title": "Numbers that can be expressed as a fraction a/b where a and b are integers and b ≠ 0.",
+      "broader_concept": "Number Systems",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "2d53f270-92dc-4d27-ad33-6c1070cb3b8c",
+      "label": "Irrational Numbers",
+      "group": "Number Theory",
+      "title": "Numbers that cannot be expressed as a ratio of two integers, such as √2 or π.",
+      "broader_concept": "Number Systems",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "c70eaf1e-7599-4822-aff5-f1582fdb35a3",
+      "label": "Real Numbers (R)",
+      "group": "Number Theory",
+      "title": "The set of all rational and irrational numbers.",
+      "broader_concept": "Number Systems",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "736862ab-43d2-429c-ba21-a35f6d5b8fe3",
+      "label": "Complex Numbers (C)",
+      "group": "Number Theory",
+      "title": "Numbers of the form a + ib, where a and b are real numbers and i is the imaginary unit.",
+      "broader_concept": "Number Systems",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "11df53c5-d9f3-4782-827f-7feced070ea0",
+      "label": "Addition of Rational Numbers",
+      "group": "Number Theory",
+      "title": "Combining two rational numbers using the addition operation.",
+      "broader_concept": "Arithmetic Operations",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "ef9b476b-0cf6-42c4-9dff-8bf08700a1a2",
+      "label": "Subtraction of Rational Numbers",
+      "group": "Number Theory",
+      "title": "Finding the difference between two rational numbers.",
+      "broader_concept": "Arithmetic Operations",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "748cf573-76d0-42c5-abc8-eba4d967c276",
+      "label": "Multiplication of Rational Numbers",
+      "group": "Number Theory",
+      "title": "Finding the product of two rational numbers.",
+      "broader_concept": "Arithmetic Operations",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "863f1a8d-ffee-4d0d-a249-6679e5b3eddd",
+      "label": "Division of Rational Numbers",
+      "group": "Number Theory",
+      "title": "Dividing one rational number by another (nonzero) rational number.",
+      "broader_concept": "Arithmetic Operations",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "dbefa534-3b6e-4cf9-9cc3-f38a6a5832f1",
+      "label": "Properties of Arithmetic (Commutative, Associative, Distributive Laws)",
+      "group": "Number Theory",
+      "title": "Rules that govern the order and grouping of numbers in addition and multiplication.",
+      "broader_concept": "Arithmetic Operations",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "ba415458-55e7-4374-a686-9bd91bff5cd7",
+      "label": "Order of Operations",
+      "group": "Number Theory",
+      "title": "The rules that define the correct sequence to evaluate a mathematical expression (PEMDAS/BODMAS).",
+      "broader_concept": "Arithmetic Operations",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "0d6d973a-1fa9-4aca-aade-f7136c0a8d3a",
+      "label": "Number Line Representation",
+      "group": "Number Theory",
+      "title": "Placing numbers on a line to show their order and relative size.",
+      "broader_concept": "Number Systems",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "e7dbce6e-f4b6-4860-b61d-9324e6befbc3",
+      "label": "Negative Numbers in Context",
+      "group": "Number Theory",
+      "title": "Understanding and applying negative numbers in real-life situations such as debts or temperatures.",
+      "broader_concept": "Integers",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "6c8d52c3-8314-4202-ad35-f1a530c0aa6d",
+      "label": "Fractions, Decimals, and Percentages as Representations of Rational Numbers",
+      "group": "Number Theory",
+      "title": "Recognizing that fractions, decimals, and percentages are different ways to represent rational numbers.",
+      "broader_concept": "Rational Numbers",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "7a418c77-9eba-4e0b-8330-3017530a4783",
+      "label": "Prime Numbers",
+      "group": "Number Theory",
+      "title": "Numbers greater than 1 that have no positive divisors other than 1 and themselves.",
+      "broader_concept": "Number Theory",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "f6f09cef-b4ef-43aa-a11c-b977b131e30b",
+      "label": "Factors and Multiples",
+      "group": "Number Theory",
+      "title": "Factors are numbers that divide another number exactly; multiples are products of a number and an integer.",
+      "broader_concept": "Number Theory",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "c26e21d7-ad8e-45d8-aacb-a39194442aed",
+      "label": "Prime Factorization",
+      "group": "Number Theory",
+      "title": "Expressing a number as a product of its prime factors.",
+      "broader_concept": "Prime Numbers",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "fe19226f-8a40-4875-99b3-adb141f3f334",
+      "label": "Scientific Notation (a × 10^n)",
+      "group": "Number Theory",
+      "title": "Expressing numbers as a × 10^n where 1 ≤ a < 10 and n is an integer.",
+      "broader_concept": "Number Representation",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "64bbad5d-8aa3-4252-8c84-634e7c38f9f6",
+      "label": "Complex Conjugate",
+      "group": "Number Theory",
+      "title": "For a complex number a + ib, the complex conjugate is a - ib.",
+      "broader_concept": "Complex Numbers",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "2730ea82-a740-4cee-94a4-ba17c28ce579",
+      "label": "Modulus of a Complex Number",
+      "group": "Number Theory",
+      "title": "The distance of a complex number from the origin in the complex plane, given by |a + ib| = sqrt(a^2 + b^2).",
+      "broader_concept": "Complex Numbers",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "f9e443b4-2f8c-44a8-8822-1ab26955a6e1",
+      "label": "Argand Diagram",
+      "group": "Number Theory",
+      "title": "A graphical representation of complex numbers on a plane.",
+      "broader_concept": "Complex Numbers",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "550a31bc-bfcf-41ed-83ae-836cb2802f78",
+      "label": "Geometric Construction of Square Roots (√2, √3)",
+      "group": "Geometry",
+      "title": "Using geometric methods to construct irrational numbers like √2 and √3.",
+      "broader_concept": "Irrational Numbers",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "707f3647-7159-4972-93ff-cb25af686c87",
+      "label": "Proof by Induction",
+      "group": "Algebra",
+      "title": "A method of mathematical proof used to prove statements about natural numbers.",
+      "broader_concept": "Mathematical Proof",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "4a53b8a4-0993-424b-ae07-e2300c7d1933",
+      "label": "Geometric Sequences and Series",
+      "group": "Algebra",
+      "title": "A sequence where each term is found by multiplying the previous term by a constant; series is the sum of such terms.",
+      "broader_concept": "Sequences and Series",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "814915fb-216c-49ae-9530-5739cbc49f09",
+      "label": "Arithmetic Sequences and Series",
+      "group": "Algebra",
+      "title": "A sequence where each term is found by adding a constant to the previous term; series is the sum of such terms.",
+      "broader_concept": "Sequences and Series",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "837eabf2-0328-4ef9-b944-114485fa23b1",
+      "label": "Sum to Infinity of a Geometric Series",
+      "group": "Algebra",
+      "title": "The sum of all terms in an infinite geometric series with |r| < 1.",
+      "broader_concept": "Geometric Series",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    }
+  ],
+  "edges": [
+    {
+      "from": "aa462402-8824-4bc7-9517-641d0d8afc3e",
+      "to": "1bed2cee-51d7-4a2c-aa8c-8a583a9e9427",
+      "strength": 1.0
+    },
+    {
+      "from": "1bed2cee-51d7-4a2c-aa8c-8a583a9e9427",
+      "to": "0b5d442b-7e23-44da-a87f-ec450fe0aa69",
+      "strength": 1.0
+    },
+    {
+      "from": "0b5d442b-7e23-44da-a87f-ec450fe0aa69",
+      "to": "2d53f270-92dc-4d27-ad33-6c1070cb3b8c",
+      "strength": 0.8
+    },
+    {
+      "from": "0b5d442b-7e23-44da-a87f-ec450fe0aa69",
+      "to": "c70eaf1e-7599-4822-aff5-f1582fdb35a3",
+      "strength": 1.0
+    },
+    {
+      "from": "2d53f270-92dc-4d27-ad33-6c1070cb3b8c",
+      "to": "c70eaf1e-7599-4822-aff5-f1582fdb35a3",
+      "strength": 1.0
+    },
+    {
+      "from": "c70eaf1e-7599-4822-aff5-f1582fdb35a3",
+      "to": "736862ab-43d2-429c-ba21-a35f6d5b8fe3",
+      "strength": 1.0
+    },
+    {
+      "from": "11df53c5-d9f3-4782-827f-7feced070ea0",
+      "to": "ef9b476b-0cf6-42c4-9dff-8bf08700a1a2",
+      "strength": 0.9
+    },
+    {
+      "from": "11df53c5-d9f3-4782-827f-7feced070ea0",
+      "to": "748cf573-76d0-42c5-abc8-eba4d967c276",
+      "strength": 0.7
+    },
+    {
+      "from": "748cf573-76d0-42c5-abc8-eba4d967c276",
+      "to": "863f1a8d-ffee-4d0d-a249-6679e5b3eddd",
+      "strength": 0.9
+    },
+    {
+      "from": "dbefa534-3b6e-4cf9-9cc3-f38a6a5832f1",
+      "to": "11df53c5-d9f3-4782-827f-7feced070ea0",
+      "strength": 0.8
+    },
+    {
+      "from": "dbefa534-3b6e-4cf9-9cc3-f38a6a5832f1",
+      "to": "748cf573-76d0-42c5-abc8-eba4d967c276",
+      "strength": 0.8
+    },
+    {
+      "from": "ba415458-55e7-4374-a686-9bd91bff5cd7",
+      "to": "11df53c5-d9f3-4782-827f-7feced070ea0",
+      "strength": 0.7
+    },
+    {
+      "from": "ba415458-55e7-4374-a686-9bd91bff5cd7",
+      "to": "748cf573-76d0-42c5-abc8-eba4d967c276",
+      "strength": 0.7
+    },
+    {
+      "from": "0d6d973a-1fa9-4aca-aade-f7136c0a8d3a",
+      "to": "1bed2cee-51d7-4a2c-aa8c-8a583a9e9427",
+      "strength": 0.8
+    },
+    {
+      "from": "0d6d973a-1fa9-4aca-aade-f7136c0a8d3a",
+      "to": "0b5d442b-7e23-44da-a87f-ec450fe0aa69",
+      "strength": 0.8
+    },
+    {
+      "from": "e7dbce6e-f4b6-4860-b61d-9324e6befbc3",
+      "to": "1bed2cee-51d7-4a2c-aa8c-8a583a9e9427",
+      "strength": 0.9
+    },
+    {
+      "from": "6c8d52c3-8314-4202-ad35-f1a530c0aa6d",
+      "to": "0b5d442b-7e23-44da-a87f-ec450fe0aa69",
+      "strength": 1.0
+    },
+    {
+      "from": "7a418c77-9eba-4e0b-8330-3017530a4783",
+      "to": "c26e21d7-ad8e-45d8-aacb-a39194442aed",
+      "strength": 1.0
+    },
+    {
+      "from": "f6f09cef-b4ef-43aa-a11c-b977b131e30b",
+      "to": "c26e21d7-ad8e-45d8-aacb-a39194442aed",
+      "strength": 0.8
+    },
+    {
+      "from": "0b5d442b-7e23-44da-a87f-ec450fe0aa69",
+      "to": "fe19226f-8a40-4875-99b3-adb141f3f334",
+      "strength": 0.8
+    },
+    {
+      "from": "736862ab-43d2-429c-ba21-a35f6d5b8fe3",
+      "to": "64bbad5d-8aa3-4252-8c84-634e7c38f9f6",
+      "strength": 1.0
+    },
+    {
+      "from": "736862ab-43d2-429c-ba21-a35f6d5b8fe3",
+      "to": "2730ea82-a740-4cee-94a4-ba17c28ce579",
+      "strength": 1.0
+    },
+    {
+      "from": "736862ab-43d2-429c-ba21-a35f6d5b8fe3",
+      "to": "f9e443b4-2f8c-44a8-8822-1ab26955a6e1",
+      "strength": 1.0
+    },
+    {
+      "from": "2d53f270-92dc-4d27-ad33-6c1070cb3b8c",
+      "to": "550a31bc-bfcf-41ed-83ae-836cb2802f78",
+      "strength": 0.9
+    },
+    {
+      "from": "aa462402-8824-4bc7-9517-641d0d8afc3e",
+      "to": "707f3647-7159-4972-93ff-cb25af686c87",
+      "strength": 0.8
+    },
+    {
+      "from": "4a53b8a4-0993-424b-ae07-e2300c7d1933",
+      "to": "837eabf2-0328-4ef9-b944-114485fa23b1",
+      "strength": 1.0
+    },
+    {
+      "from": "aa462402-8824-4bc7-9517-641d0d8afc3e",
+      "to": "814915fb-216c-49ae-9530-5739cbc49f09",
+      "strength": 0.8
+    }
+  ]
+}

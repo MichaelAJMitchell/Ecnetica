@@ -15,7 +15,7 @@ class TextChunker:
     and prevent important mathematical concepts from being split across boundaries.
     """
     
-    def __init__(self, chunk_size: int = 1000000, overlap_size: int = 200000):
+    def __init__(self, chunk_size: int = 750000, overlap_size: int = 100000):
         """
         Initialize the chunker with configurable chunk and overlap sizes.
         

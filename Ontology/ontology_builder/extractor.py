@@ -82,25 +82,25 @@ class ConceptExtractor:
                 chunk, existing_concepts, existing_relationships, file_path, i, len(chunks)
             )
             
-            # Step 2: Extract relationships
+            # Step 2: Add concepts FIRST so they get IDs
+            if new_concepts:
+                self.data_manager.add_concepts(new_concepts)
+                existing_concepts = self.data_manager.get_concepts()  # Now includes concepts with IDs
+            
+            # Step 3: Extract relationships AFTER concepts have IDs
             new_relationships = self._extract_relationships(
                 chunk, new_concepts, existing_concepts, existing_relationships, file_path, i, len(chunks)
             )
             
-            # Step 3: Verify extraction quality
+            # Step 4: Verify extraction quality
             verification_result = self._verify_extraction(
                 chunk, new_concepts, new_relationships, file_path, i, len(chunks)
             )
             
-            # Add verified concepts and relationships
-            if verification_result and verification_result.get('concepts_valid'):
-                self.data_manager.add_concepts(new_concepts)
-                existing_concepts = self.data_manager.get_concepts()  # Update for next iteration
-            
-            if verification_result and verification_result.get('relationships_valid'):
+            # Add relationships (concepts already added above)
+            if verification_result and verification_result.get('relationships_valid') and new_relationships:
                 self.data_manager.add_relationships(new_relationships)
-                existing_relationships = self.data_manager.get_relationships()  # Update for next iteration
-        
+                existing_relationships = self.data_manager.get_relationships()  # Update for next iteration        
         # Save final results
         self.data_manager.save_to_json(output_file)
         print(f"Processing complete. Results saved to {output_file}")
@@ -192,7 +192,7 @@ class ConceptExtractor:
             'chunk_position': f"{chunk_index + 1} of {total_chunks}", # Key - for awareness
             'concept_hierarchy_hints': self._get_concept_hierarchy_hints(existing_concepts),
             'prerequisite_patterns': self._get_prerequisite_patterns(existing_relationships),
-            'concept_ids': {concept['name']: concept['id'] for concept in existing_concepts if 'id' in concept},  # Only existing concepts have IDs
+            'concept_ids': {concept['name']: concept['id'] for concept in existing_concepts + new_concepts if 'id' in concept},  # Include both existing and new concepts
             'existing_concepts_count': len(existing_concepts),
             'new_concepts_count': len(new_concepts),
             'existing_relationships_count': len(existing_relationships)

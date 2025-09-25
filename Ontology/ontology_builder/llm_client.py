@@ -184,7 +184,8 @@ class LLMClient:
                 return result
             
             # Fallback: reformat the response
-            print("JSON parsing failed, attempting reformat...")
+            print("JSON concept parsing failed, attempting reformat...")
+            print(content)
             result = self._reformat_json_response(
                 content, 
                 "JSON array of mathematical concepts with fields: name, explanation, broader_concept, strand, grade_level, difficulty"
@@ -216,7 +217,8 @@ class LLMClient:
                 return result
             
             # Fallback: reformat the response
-            print("JSON parsing failed, attempting reformat...")
+            print("JSON relationship parsing failed, attempting reformat...")
+            print(content)
             result = self._reformat_json_response(
                 content, 
                 "JSON array of relationships with fields: prerequisite_concept_id, dependent_concept_id, relationship_type, strength"
@@ -248,7 +250,8 @@ class LLMClient:
                 return result
             
             # Fallback: reformat the response
-            print("JSON parsing failed, attempting reformat...")
+            print("JSON parsing failed on verification, attempting reformat...")
+            print(content)
             result = self._reformat_json_response(
                 content, 
                 "JSON object with fields: concepts_valid (boolean), relationships_valid (boolean), quality_score (number), feedback (string)"
@@ -305,7 +308,7 @@ Return ONLY the valid JSON, no other text.
                     {"role": "user", "content": reformat_prompt}
                 ],
                 temperature=0.1,  # Low temperature for consistent formatting
-                max_tokens=2000
+                max_tokens=32768
             )
             
             content = response.choices[0].message.content.strip()

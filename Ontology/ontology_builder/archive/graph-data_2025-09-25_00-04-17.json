@@ -1,0 +1,570 @@
+{
+  "nodes": [
+    {
+      "id": "dd8a1153-06d4-4de7-8e62-bb583a20a8ef",
+      "label": "Pythagorean Identity",
+      "group": "Trigonometry",
+      "title": "The fundamental trigonometric identity: cos^2(A) + sin^2(A) = 1.",
+      "broader_concept": "Trigonometric Identities",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "e48b4381-ad4e-4b7e-ae6a-df18a664e0bf",
+      "label": "Sine Rule",
+      "group": "Trigonometry",
+      "title": "Relates the sides of a triangle to the sines of its angles: a/sin A = b/sin B = c/sin C.",
+      "broader_concept": "Trigonometric Laws",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "8a5e4fb9-cc0a-489c-91d7-2bf5fe8a4edf",
+      "label": "Cosine Rule",
+      "group": "Trigonometry",
+      "title": "Relates the lengths of sides of a triangle to the cosine of one of its angles: a^2 = b^2 + c^2 – 2bc cos A.",
+      "broader_concept": "Trigonometric Laws",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "0a823d77-999e-4bf3-83b8-24344dc74778",
+      "label": "Cosine of Angle Difference Formula",
+      "group": "Trigonometry",
+      "title": "Formula for cos(A–B): cos(A–B) = cos A cos B + sin A sin B.",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "becf0450-b5f3-4b57-9027-625837a07064",
+      "label": "Cosine of Angle Sum Formula",
+      "group": "Trigonometry",
+      "title": "Formula for cos(A+B): cos(A+B) = cos A cos B – sin A sin B.",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "6f27803f-4b5a-40ea-aa92-3a6078d40eb3",
+      "label": "Double Angle Formula for Cosine",
+      "group": "Trigonometry",
+      "title": "Formula for cos(2A): cos 2A = cos^2 A – sin^2 A.",
+      "broader_concept": "Double Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "7257132b-f2e3-4c23-9c45-071f525f54ed",
+      "label": "Sine of Angle Sum Formula",
+      "group": "Trigonometry",
+      "title": "Formula for sin(A+B): sin(A+B) = sin A cos B + cos A sin B.",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "a8eb478b-0693-4f3e-ba06-7ee1b6933272",
+      "label": "Sine of Angle Difference Formula",
+      "group": "Trigonometry",
+      "title": "Formula for sin(A–B): sin(A–B) = sin A cos B – cos A sin B.",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "fec90432-733b-419f-b862-ec6e9e889843",
+      "label": "Tangent of Angle Sum Formula",
+      "group": "Trigonometry",
+      "title": "Formula for tan(A+B): tan(A+B) = (tan A + tan B) / (1 – tan A tan B).",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "af94bece-2458-4bb6-9a25-da84109a8f29",
+      "label": "Tangent of Angle Difference Formula",
+      "group": "Trigonometry",
+      "title": "Formula for tan(A–B): tan(A–B) = (tan A – tan B) / (1 + tan A tan B).",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "9b94798a-8007-4a1f-a324-8710ddb3001d",
+      "label": "Double Angle Formula for Sine",
+      "group": "Trigonometry",
+      "title": "Formula for sin(2A): sin 2A = 2 sin A cos A.",
+      "broader_concept": "Double Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "77536e50-2487-4da2-a2dd-f2d5514f74f0",
+      "label": "Double Angle Formula for Tangent",
+      "group": "Trigonometry",
+      "title": "Formula for tan(2A): tan 2A = (2 tan A) / (1 – tan^2 A).",
+      "broader_concept": "Double Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "7440907b-6487-4cd8-b6ff-dac930b973b2",
+      "label": "Alternative Double Angle Formula for Sine",
+      "group": "Trigonometry",
+      "title": "Alternative forms for sin(2A), such as sin 2A = 2 tan A / (1 + tan^2 A).",
+      "broader_concept": "Double Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "20122a21-9610-4a86-b68d-732dfcbd749e",
+      "label": "Alternative Double Angle Formula for Cosine",
+      "group": "Trigonometry",
+      "title": "Alternative forms for cos(2A), such as cos 2A = 1 – 2 sin^2 A or cos 2A = 2 cos^2 A – 1.",
+      "broader_concept": "Double Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "640159ad-cfbc-4771-b954-2ace495c2d5d",
+      "label": "Half Angle Formula for Cosine",
+      "group": "Trigonometry",
+      "title": "Formula for cos^2 A in terms of cos 2A: cos^2 A = ½ (1 + cos 2A).",
+      "broader_concept": "Half Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "02932e06-92a7-459a-a40c-5f6d8d192131",
+      "label": "Half Angle Formula for Sine",
+      "group": "Trigonometry",
+      "title": "Formula for sin^2 A in terms of cos 2A: sin^2 A = ½ (1 – cos 2A).",
+      "broader_concept": "Half Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "0c80cd97-69cf-48b6-8efc-e8ae1263b064",
+      "label": "Product-to-Sum Formula for Cosine",
+      "group": "Trigonometry",
+      "title": "Formula: 2 cos A cos B = cos(A+B) + cos(A–B).",
+      "broader_concept": "Product-to-Sum Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "29695f2d-1f04-406d-9ff6-314cc8122553",
+      "label": "Product-to-Sum Formula for Sine and Cosine",
+      "group": "Trigonometry",
+      "title": "Formula: 2 sin A cos B = sin(A+B) + sin(A–B).",
+      "broader_concept": "Product-to-Sum Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "eaa4302a-8f22-41a2-9346-25ce9aba9cb6",
+      "label": "Product-to-Sum Formula for Sine",
+      "group": "Trigonometry",
+      "title": "Formula: 2 sin A sin B = cos(A–B) – cos(A+B).",
+      "broader_concept": "Product-to-Sum Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "a489c66d-c4a9-4535-a284-97c3577a7677",
+      "label": "Product-to-Sum Formula for Cosine and Sine",
+      "group": "Trigonometry",
+      "title": "Formula: 2 cos A sin B = sin(A+B) – sin(A–B).",
+      "broader_concept": "Product-to-Sum Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "f78b6d3b-2cc9-469e-b817-c58bf1f0c9e3",
+      "label": "Sum-to-Product Formula for Cosine",
+      "group": "Trigonometry",
+      "title": "Formula: cos A + cos B = 2 cos((A+B)/2) cos((A–B)/2).",
+      "broader_concept": "Sum-to-Product Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "876e78ae-75bc-4877-a020-6579ddc31c06",
+      "label": "Difference-to-Product Formula for Cosine",
+      "group": "Trigonometry",
+      "title": "Formula: cos A – cos B = –2 sin((A+B)/2) sin((A–B)/2).",
+      "broader_concept": "Sum-to-Product Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "51216520-0281-4846-b759-90dd5da81e80",
+      "label": "Sum-to-Product Formula for Sine",
+      "group": "Trigonometry",
+      "title": "Formula: sin A + sin B = 2 sin((A+B)/2) cos((A–B)/2).",
+      "broader_concept": "Sum-to-Product Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "48455d03-f96c-4221-b8ec-60a1e4f27b6b",
+      "label": "Natural numbers (N)",
+      "group": "Number Theory",
+      "title": "The set of counting numbers starting from 1, i.e., {1, 2, 3, ...}.",
+      "broader_concept": "Number systems",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "a942f2c8-699b-4d28-bf18-6983b4338eaf",
+      "label": "Integers (Z)",
+      "group": "Number Theory",
+      "title": "The set of whole numbers including negative numbers, zero, and positive numbers.",
+      "broader_concept": "Number systems",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "537a701b-3252-4d3f-b869-1e72d535a3d3",
+      "label": "Rational numbers (Q)",
+      "group": "Number Theory",
+      "title": "Numbers that can be expressed as a ratio of two integers (fractions, terminating or repeating decimals).",
+      "broader_concept": "Number systems",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "73bd6e29-ca0c-4ead-87a1-a1063be1b642",
+      "label": "Irrational numbers",
+      "group": "Number Theory",
+      "title": "Numbers that cannot be expressed as a ratio of two integers; their decimal expansions are non-repeating and non-terminating.",
+      "broader_concept": "Number systems",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "0afdda9a-f14f-4064-855f-c84f81c39097",
+      "label": "Real numbers (R)",
+      "group": "Number Theory",
+      "title": "All rational and irrational numbers.",
+      "broader_concept": "Number systems",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "8515af7b-0816-4603-97e1-40f2db412f9e",
+      "label": "Complex numbers (C)",
+      "group": "Number Theory",
+      "title": "Numbers of the form a + ib, where a and b are real numbers and i is the imaginary unit.",
+      "broader_concept": "Number systems",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "102a34e4-891e-4e61-a455-03ad6ec95d6e",
+      "label": "Addition of rational numbers",
+      "group": "Number Theory",
+      "title": "Combining two rational numbers to find their sum.",
+      "broader_concept": "Arithmetic operations",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "39ee905a-af16-4343-97d4-34f1907bcfdd",
+      "label": "Subtraction of rational numbers",
+      "group": "Number Theory",
+      "title": "Finding the difference between two rational numbers.",
+      "broader_concept": "Arithmetic operations",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1d9b3857-ee22-43ae-8d61-06235b3b8db7",
+      "label": "Multiplication of rational numbers",
+      "group": "Number Theory",
+      "title": "Finding the product of two rational numbers.",
+      "broader_concept": "Arithmetic operations",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "9f069131-5fc1-4643-9064-2c03298c60ed",
+      "label": "Division of rational numbers",
+      "group": "Number Theory",
+      "title": "Finding the quotient when one rational number is divided by another (nonzero) rational number.",
+      "broader_concept": "Arithmetic operations",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "67a6817b-620e-4f38-b143-248073a19eef",
+      "label": "Properties of arithmetic operations",
+      "group": "Number Theory",
+      "title": "Commutative, associative, and distributive laws governing addition and multiplication.",
+      "broader_concept": "Arithmetic operations",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "10e91619-f226-4f2f-8ae3-5e7ff7408355",
+      "label": "Order of operations",
+      "group": "Number Theory",
+      "title": "The rules that define the sequence in which operations are performed (PEMDAS/BODMAS).",
+      "broader_concept": "Arithmetic operations",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "15e9ff96-00c8-4db0-aeb0-0140076134c6",
+      "label": "Number line representation",
+      "group": "Number Theory",
+      "title": "Visualizing numbers and their order on a line.",
+      "broader_concept": "Number systems",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "5deb36b7-7fe1-4b84-8fb0-bb79e32f5609",
+      "label": "Negative numbers in context",
+      "group": "Number Theory",
+      "title": "Interpreting negative numbers in real-life situations, such as debt or temperature.",
+      "broader_concept": "Integers (Z)",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "24e44458-3f87-42b2-ac8f-3ebf3c988865",
+      "label": "Fractions, decimals, and percentages equivalence",
+      "group": "Number Theory",
+      "title": "Understanding that fractions, decimals, and percentages are different representations of rational numbers.",
+      "broader_concept": "Rational numbers (Q)",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "9e4b1190-1420-4693-bbe5-d47e89112532",
+      "label": "Prime numbers",
+      "group": "Number Theory",
+      "title": "Natural numbers greater than 1 that have no positive divisors other than 1 and themselves.",
+      "broader_concept": "Number systems",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "9ec208be-6eb8-43eb-846b-6c1ad3482c8a",
+      "label": "Prime factorization",
+      "group": "Number Theory",
+      "title": "Expressing a number as a product of its prime factors.",
+      "broader_concept": "Prime numbers",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "4da2ee3c-d135-469a-a67c-b55fbdc9eb83",
+      "label": "Scientific notation",
+      "group": "Number Theory",
+      "title": "Expressing numbers in the form a × 10ⁿ, where 1 ≤ a < 10 and n is an integer.",
+      "broader_concept": "Number representation",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "5189b2fd-796e-436e-be62-dbd0d1d60051",
+      "label": "Complex conjugate",
+      "group": "Number Theory",
+      "title": "For a complex number a + ib, the conjugate is a - ib.",
+      "broader_concept": "Complex numbers (C)",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "037da7e4-aac2-4625-bae3-ef4aa0df2746",
+      "label": "Modulus of a complex number",
+      "group": "Number Theory",
+      "title": "The distance of a complex number from the origin in the complex plane.",
+      "broader_concept": "Complex numbers (C)",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "fc51770e-bbd6-4cc3-9ef0-2a88b2241439",
+      "label": "Argand diagram",
+      "group": "Number Theory",
+      "title": "A graphical representation of complex numbers on the complex plane.",
+      "broader_concept": "Complex numbers (C)",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "4b2f815c-0c63-42b5-befc-8ba93c5382e3",
+      "label": "Geometric construction of √2 and √3",
+      "group": "Geometry",
+      "title": "Constructing the square roots of 2 and 3 using geometric methods.",
+      "broader_concept": "Irrational numbers",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "1145132c-e86c-4820-8197-b02145281ec8",
+      "label": "Proof that √2 is irrational",
+      "group": "Number Theory",
+      "title": "Mathematical proof that the square root of 2 cannot be expressed as a ratio of two integers.",
+      "broader_concept": "Irrational numbers",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "07e0839c-0361-43c4-aa37-4deb7acb0464",
+      "label": "Sequences and series",
+      "group": "Algebra",
+      "title": "Ordered lists of numbers and their sums, including arithmetic and geometric types.",
+      "broader_concept": "Patterns and relationships",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "756b7815-88e6-4911-8661-ba1a139bb035",
+      "label": "Arithmetic sequence",
+      "group": "Algebra",
+      "title": "A sequence where each term is obtained by adding a constant to the previous term.",
+      "broader_concept": "Sequences and series",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "4f59c435-08f5-4ffa-9e28-81bb93c46dc1",
+      "label": "Geometric sequence",
+      "group": "Algebra",
+      "title": "A sequence where each term is obtained by multiplying the previous term by a constant.",
+      "broader_concept": "Sequences and series",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "81e38523-d359-43cd-a1e8-c25713a8081e",
+      "label": "Sum of arithmetic series",
+      "group": "Algebra",
+      "title": "The sum of the terms in an arithmetic sequence.",
+      "broader_concept": "Arithmetic sequence",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "5fa1a6d6-dd49-447d-9da2-ffc52fc4e3a0",
+      "label": "Sum of geometric series",
+      "group": "Algebra",
+      "title": "The sum of the terms in a geometric sequence, including finite and infinite cases.",
+      "broader_concept": "Geometric sequence",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    }
+  ],
+  "edges": [
+    {
+      "from": "dd8a1153-06d4-4de7-8e62-bb583a20a8ef",
+      "to": "6f27803f-4b5a-40ea-aa92-3a6078d40eb3",
+      "strength": 1.0
+    },
+    {
+      "from": "dd8a1153-06d4-4de7-8e62-bb583a20a8ef",
+      "to": "20122a21-9610-4a86-b68d-732dfcbd749e",
+      "strength": 1.0
+    },
+    {
+      "from": "dd8a1153-06d4-4de7-8e62-bb583a20a8ef",
+      "to": "640159ad-cfbc-4771-b954-2ace495c2d5d",
+      "strength": 1.0
+    },
+    {
+      "from": "dd8a1153-06d4-4de7-8e62-bb583a20a8ef",
+      "to": "02932e06-92a7-459a-a40c-5f6d8d192131",
+      "strength": 1.0
+    },
+    {
+      "from": "7257132b-f2e3-4c23-9c45-071f525f54ed",
+      "to": "9b94798a-8007-4a1f-a324-8710ddb3001d",
+      "strength": 0.9
+    },
+    {
+      "from": "7257132b-f2e3-4c23-9c45-071f525f54ed",
+      "to": "7440907b-6487-4cd8-b6ff-dac930b973b2",
+      "strength": 0.8
+    },
+    {
+      "from": "9b94798a-8007-4a1f-a324-8710ddb3001d",
+      "to": "7440907b-6487-4cd8-b6ff-dac930b973b2",
+      "strength": 0.8
+    },
+    {
+      "from": "6f27803f-4b5a-40ea-aa92-3a6078d40eb3",
+      "to": "20122a21-9610-4a86-b68d-732dfcbd749e",
+      "strength": 0.9
+    },
+    {
+      "from": "6f27803f-4b5a-40ea-aa92-3a6078d40eb3",
+      "to": "640159ad-cfbc-4771-b954-2ace495c2d5d",
+      "strength": 0.9
+    },
+    {
+      "from": "6f27803f-4b5a-40ea-aa92-3a6078d40eb3",
+      "to": "02932e06-92a7-459a-a40c-5f6d8d192131",
+      "strength": 0.9
+    },
+    {
+      "from": "becf0450-b5f3-4b57-9027-625837a07064",
+      "to": "6f27803f-4b5a-40ea-aa92-3a6078d40eb3",
+      "strength": 0.8
+    },
+    {
+      "from": "0a823d77-999e-4bf3-83b8-24344dc74778",
+      "to": "6f27803f-4b5a-40ea-aa92-3a6078d40eb3",
+      "strength": 0.8
+    },
+    {
+      "from": "7257132b-f2e3-4c23-9c45-071f525f54ed",
+      "to": "29695f2d-1f04-406d-9ff6-314cc8122553",
+      "strength": 0.8
+    },
+    {
+      "from": "a8eb478b-0693-4f3e-ba06-7ee1b6933272",
+      "to": "29695f2d-1f04-406d-9ff6-314cc8122553",
+      "strength": 0.8
+    },
+    {
+      "from": "0a823d77-999e-4bf3-83b8-24344dc74778",
+      "to": "0c80cd97-69cf-48b6-8efc-e8ae1263b064",
+      "strength": 0.8
+    },
+    {
+      "from": "becf0450-b5f3-4b57-9027-625837a07064",
+      "to": "0c80cd97-69cf-48b6-8efc-e8ae1263b064",
+      "strength": 0.8
+    },
+    {
+      "from": "7257132b-f2e3-4c23-9c45-071f525f54ed",
+      "to": "eaa4302a-8f22-41a2-9346-25ce9aba9cb6",
+      "strength": 0.7
+    },
+    {
+      "from": "a8eb478b-0693-4f3e-ba06-7ee1b6933272",
+      "to": "eaa4302a-8f22-41a2-9346-25ce9aba9cb6",
+      "strength": 0.7
+    },
+    {
+      "from": "7257132b-f2e3-4c23-9c45-071f525f54ed",
+      "to": "a489c66d-c4a9-4535-a284-97c3577a7677",
+      "strength": 0.7
+    },
+    {
+      "from": "a8eb478b-0693-4f3e-ba06-7ee1b6933272",
+      "to": "a489c66d-c4a9-4535-a284-97c3577a7677",
+      "strength": 0.7
+    },
+    {
+      "from": "f78b6d3b-2cc9-469e-b817-c58bf1f0c9e3",
+      "to": "876e78ae-75bc-4877-a020-6579ddc31c06",
+      "strength": 0.8
+    }
+  ]
+}

@@ -24,23 +24,15 @@ class ConceptExtractor:
     4. Data management (storing and organizing extracted information)
     """
     
-    def __init__(self):
-        """
-        Initialize all required components for the extraction pipeline.
-        
-        Components:
-        - file_processor: Handles different file formats (PDF, MD, CSV)
-        - data_manager: Manages extracted data and JSON output
-        - llm_client: Interfaces with LLM APIs for concept extraction
-        - chunker: Breaks large texts into manageable chunks with context
-        """
+    def __init__(self, chapters_per_chunk: int = 1, rows_per_chunk: int = 1):
+        """Initialize extractor with configurable chunking parameters."""
         self.file_processor = FileProcessor()
         self.data_manager = DataManager()
         self.llm_client = LLMClient()
-        self.chunker = TextChunker()
+        self.chunker = TextChunker(chapters_per_chunk, rows_per_chunk)
     
-    def process_file(self, file_path: str, output_file: str, chapters_per_chunk: int = 1):
-        """Process a single file with configurable chapter chunking."""
+    def process_file(self, file_path: str, output_file: str):
+        """Process a single file."""
         print(f"Processing file: {file_path}")
         
         # Extract content and file type
@@ -48,7 +40,7 @@ class ConceptExtractor:
         print(f"Extracted content from {file_type} file")
         
         # Create chunks based on file type
-        chunks = self.chunker.create_chunks(content, file_type, chapters_per_chunk)
+        chunks = self.chunker.create_chunks(content, file_type)
         print(f"Split into {len(chunks)} chunks for processing")
         
         # Get existing data for context
@@ -87,7 +79,7 @@ class ConceptExtractor:
         self.data_manager.save_to_json(output_file)
         print(f"Processing complete. Results saved to {output_file}")
     
-    def process_directory(self, directory_path: str, output_file: str, chapters_per_chunk: int = 1):
+    def process_directory(self, directory_path: str, output_file: str):
         """Process all supported files in a directory."""
         if not os.path.exists(directory_path):
             raise FileNotFoundError(f"Directory not found: {directory_path}")
@@ -103,7 +95,7 @@ class ConceptExtractor:
         
         for file_path in supported_files:
             try:
-                self.process_file(file_path, output_file, chapters_per_chunk)
+                self.process_file(file_path, output_file)
             except Exception as e:
                 print(f"Error processing {file_path}: {str(e)}")
                 continue

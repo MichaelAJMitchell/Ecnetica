@@ -1,0 +1,1055 @@
+{
+  "nodes": [
+    {
+      "id": "8becae02-2001-49ee-8840-c18f2c80b1df",
+      "label": "Pythagorean Identity",
+      "group": "Trigonometry",
+      "title": "The fundamental trigonometric identity: cos²A + sin²A = 1.",
+      "broader_concept": "Trigonometric Identities",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "ca2ce3b2-fd6e-4971-956c-1ac77e6bff9c",
+      "label": "Sine Rule",
+      "group": "Trigonometry",
+      "title": "A formula relating the sides and angles of any triangle: a/sinA = b/sinB = c/sinC.",
+      "broader_concept": "Trigonometric Laws",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "af6e27be-c642-49d0-93e5-edd13a3db710",
+      "label": "Cosine Rule",
+      "group": "Trigonometry",
+      "title": "A formula relating the sides and angles of any triangle: a² = b² + c² – 2bc cosA.",
+      "broader_concept": "Trigonometric Laws",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "9b879d2d-51bf-46c8-a523-3797d3b583af",
+      "label": "Cosine of Angle Difference",
+      "group": "Trigonometry",
+      "title": "Formula for the cosine of the difference of two angles: cos(A–B) = cosA cosB + sinA sinB.",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "bf333220-3db0-4cdc-a6cf-19a329d48150",
+      "label": "Cosine of Angle Sum",
+      "group": "Trigonometry",
+      "title": "Formula for the cosine of the sum of two angles: cos(A+B) = cosA cosB – sinA sinB.",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "3c571355-6e05-427e-9055-22601842fddc",
+      "label": "Cosine Double Angle Formula",
+      "group": "Trigonometry",
+      "title": "Formula for the cosine of double an angle: cos2A = cos²A – sin²A.",
+      "broader_concept": "Double Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "7fd61ae0-df22-4c51-ba40-cb781c68947c",
+      "label": "Sine of Angle Sum",
+      "group": "Trigonometry",
+      "title": "Formula for the sine of the sum of two angles: sin(A+B) = sinA cosB + cosA sinB.",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "fc9d45f5-9aea-4db8-a4c4-feb213a5b547",
+      "label": "Sine of Angle Difference",
+      "group": "Trigonometry",
+      "title": "Formula for the sine of the difference of two angles: sin(A–B) = sinA cosB – cosA sinB.",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "b28e20b1-93b0-4efa-9099-39edf0b0054e",
+      "label": "Tangent of Angle Sum",
+      "group": "Trigonometry",
+      "title": "Formula for the tangent of the sum of two angles: tan(A+B) = (tanA + tanB) / (1 – tanA tanB).",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "35ba8395-18f5-49b9-8b0c-662453410bb7",
+      "label": "Tangent of Angle Difference",
+      "group": "Trigonometry",
+      "title": "Formula for the tangent of the difference of two angles: tan(A–B) = (tanA – tanB) / (1 + tanA tanB).",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "486866f4-9066-45c5-90ce-de13e67e49b7",
+      "label": "Sine Double Angle Formula",
+      "group": "Trigonometry",
+      "title": "Formula for the sine of double an angle: sin2A = 2 sinA cosA.",
+      "broader_concept": "Double Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "18a6432b-757e-4658-9b09-bbb1d02fad77",
+      "label": "Tangent Double Angle Formula",
+      "group": "Trigonometry",
+      "title": "Formula for the tangent of double an angle: tan2A = 2 tanA / (1 – tan²A).",
+      "broader_concept": "Double Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "c8421e4b-a239-4088-b665-5e84e5e91b12",
+      "label": "Cosine Double Angle Alternate Forms",
+      "group": "Trigonometry",
+      "title": "Alternate forms for cos2A: cos2A = 1 – 2sin²A or cos2A = 2cos²A – 1.",
+      "broader_concept": "Double Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "1a0a0c06-cb0f-406f-a3c0-facf9298f0a9",
+      "label": "Sine Double Angle Alternate Form",
+      "group": "Trigonometry",
+      "title": "Alternate form for sin2A: sin2A = 2tanA / (1 + tan²A).",
+      "broader_concept": "Double Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "c4cf1733-0398-4454-8e7f-8fcdb9a1314e",
+      "label": "Power-Reducing Formula for Cosine",
+      "group": "Trigonometry",
+      "title": "Formula expressing cos²A in terms of cos2A: cos²A = ½ (1 + cos2A).",
+      "broader_concept": "Power-Reducing Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "b0b2416e-ae08-4555-9cd6-43303fccc8a5",
+      "label": "Power-Reducing Formula for Sine",
+      "group": "Trigonometry",
+      "title": "Formula expressing sin²A in terms of cos2A: sin²A = ½ (1 – cos2A).",
+      "broader_concept": "Power-Reducing Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "eed2b7ba-393b-4217-8625-379410dacac6",
+      "label": "Product-to-Sum Formulas",
+      "group": "Trigonometry",
+      "title": "Formulas converting products of sines and cosines into sums: e.g., 2 cosA cosB = cos(A+B) + cos(A–B).",
+      "broader_concept": "Trigonometric Identities",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "bfc5127d-cceb-4507-97da-3a83de3c61f2",
+      "label": "Sum-to-Product Formulas",
+      "group": "Trigonometry",
+      "title": "Formulas converting sums of sines and cosines into products: e.g., cosA + cosB = 2 cos[(A+B)/2] cos[(A–B)/2].",
+      "broader_concept": "Trigonometric Identities",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "fc115505-64f5-4e0b-9ad4-377db1e945c5",
+      "label": "Geometric Constructions",
+      "group": "Geometry",
+      "title": "The process of drawing geometric shapes, angles, and lines accurately using instruments such as compass, straight edge, ruler, protractor, and set square.",
+      "broader_concept": "Synthetic Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "96e38b48-0e0f-4171-9c85-14eba4b2da50",
+      "label": "Dynamic Geometry Software",
+      "group": "Geometry",
+      "title": "Use of computer applications to explore and construct geometric figures dynamically.",
+      "broader_concept": "Synthetic Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "a2ad7bb4-77ed-46f2-b593-dc5dfbf277b1",
+      "label": "Circle Construction",
+      "group": "Geometry",
+      "title": "Drawing a circle with a given radius using appropriate geometric tools.",
+      "broader_concept": "Geometric Constructions",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1267705a-d773-474c-a048-3a9f6ab3ecb4",
+      "label": "Use of Geometric Instruments",
+      "group": "Geometry",
+      "title": "Appropriate use of straight edge, compass, ruler, protractor, and set square in geometric constructions.",
+      "broader_concept": "Geometric Constructions",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "b7c4dbc3-af4f-4c65-b70a-952c59d7474f",
+      "label": "Coordinate Geometry",
+      "group": "Geometry",
+      "title": "Study of geometric figures using a coordinate plane and algebraic equations.",
+      "broader_concept": "Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "97912120-d971-4aa7-bfb1-cc0b3717b76d",
+      "label": "Linear Relationships",
+      "group": "Algebra",
+      "title": "Relationships between variables that form straight lines when graphed; includes concepts of slope and y-intercept.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "2ad8e596-1385-41d0-a81d-217f979e790e",
+      "label": "Slope",
+      "group": "Algebra",
+      "title": "A measure of the steepness of a line, representing the rate of change in a linear relationship.",
+      "broader_concept": "Linear Relationships",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "00a20fa3-b58d-409f-b3e3-02020ee93894",
+      "label": "Point of Intersection",
+      "group": "Geometry",
+      "title": "The point where two lines or curves meet on a coordinate plane.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "e5f071e4-28a8-4cc1-a964-f48c32e8bdc3",
+      "label": "Equation of a Line",
+      "group": "Algebra",
+      "title": "An algebraic expression (e.g., ax + by + c = 0) representing all points on a straight line.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "6e137e39-1150-48ee-ac02-eca950e3af61",
+      "label": "Parallel and Perpendicular Lines",
+      "group": "Geometry",
+      "title": "Lines in a plane that never meet (parallel) or intersect at right angles (perpendicular), determined using slopes.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "87713bab-4eb2-4b4a-a540-b3700bfb9eea",
+      "label": "Distance from a Point to a Line",
+      "group": "Geometry",
+      "title": "The shortest (perpendicular) distance from a given point to a given line in the plane.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "7aa9ac37-7e69-4b7a-98ad-2d42582e145f",
+      "label": "Division of a Line Segment",
+      "group": "Geometry",
+      "title": "Dividing a line segment internally in a given ratio m:n.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "dae3a8d5-4136-47b2-a454-9050e8b63a8f",
+      "label": "Equation of a Circle",
+      "group": "Geometry",
+      "title": "Algebraic representation of a circle in the form (x-h)^2 + (y-k)^2 = r^2 or x^2 + y^2 + 2gx + 2fy + c = 0.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "8e39100f-2864-4a20-b59d-5b76ed120678",
+      "label": "Area of a Triangle (Coordinate Geometry)",
+      "group": "Geometry",
+      "title": "Calculation of the area of a triangle using coordinates of its vertices.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "7fbddc6c-e195-4af9-989c-2507edb6d996",
+      "label": "Right-Angled Triangles",
+      "group": "Geometry",
+      "title": "Triangles with one angle measuring 90 degrees, foundational for trigonometry.",
+      "broader_concept": "Trigonometry",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "bd1e8c65-5196-45c8-9132-1e8f2faf0f48",
+      "label": "Pythagoras' Theorem",
+      "group": "Geometry",
+      "title": "A fundamental relation in right-angled triangles: a^2 + b^2 = c^2.",
+      "broader_concept": "Right-Angled Triangles",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "2b172d4a-78f4-4a26-ab66-96803cafad8d",
+      "label": "Trigonometric Ratios",
+      "group": "Algebra",
+      "title": "Ratios of sides in a right-angled triangle: sine, cosine, and tangent.",
+      "broader_concept": "Trigonometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "be826141-49bb-4db2-ae46-6b8e40fb4d76",
+      "label": "Area of a Triangle (Trigonometry)",
+      "group": "Geometry",
+      "title": "Calculation of the area of a triangle using trigonometric ratios.",
+      "broader_concept": "Trigonometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "0ccb6c84-4dc0-4bbc-9aff-34443407a50a",
+      "label": "Area of a Sector",
+      "group": "Geometry",
+      "title": "Calculation of the area of a sector of a circle using angle and radius.",
+      "broader_concept": "Trigonometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "933f8372-ca7c-4c86-8218-928c33738a78",
+      "label": "Length of an Arc",
+      "group": "Geometry",
+      "title": "Calculation of the length of a segment of a circle's circumference.",
+      "broader_concept": "Trigonometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "c37880e0-b3cb-4576-bc32-cc7a679b07fe",
+      "label": "Trigonometric Functions",
+      "group": "Algebra",
+      "title": "Functions such as sine, cosine, and tangent, and their graphs.",
+      "broader_concept": "Trigonometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "4733619f-8278-4496-a664-c77f10860df4",
+      "label": "Graphing Trigonometric Functions",
+      "group": "Algebra",
+      "title": "Plotting sine, cosine, and tangent functions, including transformations.",
+      "broader_concept": "Trigonometric Functions",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "ff1fd6b2-316e-4b39-a829-ec4591ac7576",
+      "label": "Trigonometric Equations",
+      "group": "Algebra",
+      "title": "Equations involving trigonometric functions, such as sin nθ = 0, and finding all solutions.",
+      "broader_concept": "Trigonometric Functions",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "9bb6d1ab-65c0-481c-8e73-27b5f64fb827",
+      "label": "Radian Measure",
+      "group": "Algebra",
+      "title": "Measuring angles in radians instead of degrees.",
+      "broader_concept": "Trigonometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "868d840b-dc8e-4067-be02-cfba671db629",
+      "label": "Trigonometric Formulae",
+      "group": "Algebra",
+      "title": "Key identities and formulas in trigonometry, such as addition, subtraction, and double angle formulas.",
+      "broader_concept": "Trigonometry",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "d1f3a13a-c33c-48e1-bd98-2a1fc48d6b43",
+      "label": "Natural Numbers (N)",
+      "group": "Number Theory",
+      "title": "The set of counting numbers starting from 1, i.e., {1, 2, 3, ...}.",
+      "broader_concept": "Number Systems",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "f6732cbc-199d-40b7-aba3-1ba0e2942ce7",
+      "label": "Integers (Z)",
+      "group": "Number Theory",
+      "title": "The set of whole numbers including positive, negative numbers, and zero.",
+      "broader_concept": "Number Systems",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "3d25c6bc-14de-418a-b82f-94e54a44e010",
+      "label": "Rational Numbers (Q)",
+      "group": "Number Theory",
+      "title": "Numbers that can be expressed as a ratio of two integers, including fractions and decimals with finite or repeating representations.",
+      "broader_concept": "Number Systems",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "ac8ff143-4238-4cc4-9125-1c3827381c3e",
+      "label": "Irrational Numbers",
+      "group": "Number Theory",
+      "title": "Numbers that cannot be expressed as a ratio of two integers; their decimal representation is non-repeating and non-terminating.",
+      "broader_concept": "Number Systems",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "99d28d00-e0a5-44a0-9d9c-64e88de6ad13",
+      "label": "Real Numbers (R)",
+      "group": "Number Theory",
+      "title": "The set of all rational and irrational numbers.",
+      "broader_concept": "Number Systems",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "97d91ce6-922a-4d58-9d6d-628132044509",
+      "label": "Complex Numbers (C)",
+      "group": "Algebra",
+      "title": "Numbers in the form a + ib where a and b are real numbers and i is the imaginary unit.",
+      "broader_concept": "Number Systems",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "bbbc433a-3d91-442f-a119-dee023ddbe17",
+      "label": "Addition of Rational Numbers",
+      "group": "Number Theory",
+      "title": "Combining two rational numbers to find their sum.",
+      "broader_concept": "Operations with Rational Numbers",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "49b88348-effe-4102-b043-5add2d1cc1bd",
+      "label": "Subtraction of Rational Numbers",
+      "group": "Number Theory",
+      "title": "Finding the difference between two rational numbers.",
+      "broader_concept": "Operations with Rational Numbers",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "6bf51a09-d414-4f41-82ba-21c99660a40e",
+      "label": "Multiplication of Rational Numbers",
+      "group": "Number Theory",
+      "title": "Finding the product of two rational numbers.",
+      "broader_concept": "Operations with Rational Numbers",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "cae44646-0ef5-489c-b173-574b42641f9c",
+      "label": "Division of Rational Numbers",
+      "group": "Number Theory",
+      "title": "Dividing one rational number by another (non-zero) rational number.",
+      "broader_concept": "Operations with Rational Numbers",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "cf81b098-8e6b-4477-8bc8-e20751883503",
+      "label": "Order of Operations",
+      "group": "Number Theory",
+      "title": "The rules that define the correct sequence to evaluate a mathematical expression (including brackets).",
+      "broader_concept": "Arithmetic",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "b0ede1de-43dc-4267-ba74-4d5678202b5f",
+      "label": "Number Line Representation",
+      "group": "Number Theory",
+      "title": "Visual representation of numbers as points on a line, used to show order and operations.",
+      "broader_concept": "Number Representation",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "869881f4-db92-4637-8afe-8d3b134656ce",
+      "label": "Commutative Law",
+      "group": "Algebra",
+      "title": "The property that states a + b = b + a and ab = ba.",
+      "broader_concept": "Properties of Operations",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "b8b164d6-c4f5-4f06-aa3f-38154e6de35a",
+      "label": "Associative Law",
+      "group": "Algebra",
+      "title": "The property that states (a + b) + c = a + (b + c) and (ab)c = a(bc).",
+      "broader_concept": "Properties of Operations",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1f227b54-811b-445d-b28c-26a41dd38be8",
+      "label": "Distributive Law",
+      "group": "Algebra",
+      "title": "The property that states a(b + c) = ab + ac.",
+      "broader_concept": "Properties of Operations",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "90535c8e-4d22-47cd-9119-8b0ebc9552ab",
+      "label": "Negative Numbers in Context",
+      "group": "Number Theory",
+      "title": "Understanding and applying negative numbers in real-life contexts such as debts or temperatures below zero.",
+      "broader_concept": "Integers",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "60b5acd0-17f6-4927-b887-413c902ddc00",
+      "label": "Fractions, Decimals, and Percentages as Rational Numbers",
+      "group": "Number Theory",
+      "title": "Recognizing that fractions, decimals (finite or repeating), and percentages are different representations of rational numbers.",
+      "broader_concept": "Rational Numbers",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "f44f5039-50df-4464-b06f-34b9684d0929",
+      "label": "Prime Numbers",
+      "group": "Number Theory",
+      "title": "Numbers greater than 1 that have no positive divisors other than 1 and itself.",
+      "broader_concept": "Factors and Multiples",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "96e6bfb8-39db-4fd5-a970-2988637eba3f",
+      "label": "Expressing Numbers as Products of Prime Factors",
+      "group": "Number Theory",
+      "title": "Writing numbers as a product of their prime factors.",
+      "broader_concept": "Prime Numbers",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "e50642ff-e966-4edb-9613-76b97f03341e",
+      "label": "Scientific Notation (a × 10ⁿ)",
+      "group": "Number Theory",
+      "title": "Expressing numbers in the form a × 10ⁿ, where 1 ≤ a < 10 and n is an integer.",
+      "broader_concept": "Number Representation",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "b2350cfa-af9e-4c21-8146-a1d2b8076e55",
+      "label": "Complex Conjugate",
+      "group": "Algebra",
+      "title": "For a complex number a + ib, its conjugate is a - ib.",
+      "broader_concept": "Complex Numbers",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "9191da34-5e36-47c7-b7ce-b35d997ba8ff",
+      "label": "Modulus of a Complex Number",
+      "group": "Algebra",
+      "title": "The distance of a complex number from the origin on the Argand diagram.",
+      "broader_concept": "Complex Numbers",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "1ef44f58-9596-46e1-9b41-2d816948a54f",
+      "label": "Argand Diagram",
+      "group": "Algebra",
+      "title": "A graphical representation of complex numbers with real and imaginary axes.",
+      "broader_concept": "Complex Numbers",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "947ff704-fc56-466b-bf01-1071968c43be",
+      "label": "Geometric Construction of √2 and √3",
+      "group": "Geometry",
+      "title": "Using geometric methods to construct the square roots of 2 and 3.",
+      "broader_concept": "Irrational Numbers",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "e760c0d8-40d5-45f8-be14-2f7776a90c07",
+      "label": "Proof that √2 is Irrational",
+      "group": "Number Theory",
+      "title": "Demonstrating that the square root of 2 cannot be expressed as a ratio of two integers.",
+      "broader_concept": "Irrational Numbers",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "a1df2789-ea45-4d21-9eed-eccb11dae252",
+      "label": "Arithmetic Sequences",
+      "group": "Algebra",
+      "title": "A sequence in which each term is found by adding a constant to the previous term.",
+      "broader_concept": "Sequences and Series",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "013aeb71-6f91-442d-9df2-c6c85053c469",
+      "label": "Geometric Sequences",
+      "group": "Algebra",
+      "title": "A sequence in which each term is found by multiplying the previous term by a constant.",
+      "broader_concept": "Sequences and Series",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "b3ac95c0-4a86-4c4f-97d4-7e1c48ffc11f",
+      "label": "Sum of Arithmetic Series",
+      "group": "Algebra",
+      "title": "The sum of the first n terms of an arithmetic sequence.",
+      "broader_concept": "Sequences and Series",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    }
+  ],
+  "edges": [
+    {
+      "from": "8becae02-2001-49ee-8840-c18f2c80b1df",
+      "to": "3c571355-6e05-427e-9055-22601842fddc",
+      "strength": 0.9
+    },
+    {
+      "from": "8becae02-2001-49ee-8840-c18f2c80b1df",
+      "to": "c8421e4b-a239-4088-b665-5e84e5e91b12",
+      "strength": 0.9
+    },
+    {
+      "from": "8becae02-2001-49ee-8840-c18f2c80b1df",
+      "to": "c4cf1733-0398-4454-8e7f-8fcdb9a1314e",
+      "strength": 0.8
+    },
+    {
+      "from": "8becae02-2001-49ee-8840-c18f2c80b1df",
+      "to": "b0b2416e-ae08-4555-9cd6-43303fccc8a5",
+      "strength": 0.8
+    },
+    {
+      "from": "bf333220-3db0-4cdc-a6cf-19a329d48150",
+      "to": "3c571355-6e05-427e-9055-22601842fddc",
+      "strength": 1.0
+    },
+    {
+      "from": "9b879d2d-51bf-46c8-a523-3797d3b583af",
+      "to": "3c571355-6e05-427e-9055-22601842fddc",
+      "strength": 1.0
+    },
+    {
+      "from": "7fd61ae0-df22-4c51-ba40-cb781c68947c",
+      "to": "486866f4-9066-45c5-90ce-de13e67e49b7",
+      "strength": 1.0
+    },
+    {
+      "from": "fc9d45f5-9aea-4db8-a4c4-feb213a5b547",
+      "to": "486866f4-9066-45c5-90ce-de13e67e49b7",
+      "strength": 1.0
+    },
+    {
+      "from": "b28e20b1-93b0-4efa-9099-39edf0b0054e",
+      "to": "18a6432b-757e-4658-9b09-bbb1d02fad77",
+      "strength": 1.0
+    },
+    {
+      "from": "35ba8395-18f5-49b9-8b0c-662453410bb7",
+      "to": "18a6432b-757e-4658-9b09-bbb1d02fad77",
+      "strength": 1.0
+    },
+    {
+      "from": "3c571355-6e05-427e-9055-22601842fddc",
+      "to": "c4cf1733-0398-4454-8e7f-8fcdb9a1314e",
+      "strength": 1.0
+    },
+    {
+      "from": "3c571355-6e05-427e-9055-22601842fddc",
+      "to": "b0b2416e-ae08-4555-9cd6-43303fccc8a5",
+      "strength": 1.0
+    },
+    {
+      "from": "3c571355-6e05-427e-9055-22601842fddc",
+      "to": "c8421e4b-a239-4088-b665-5e84e5e91b12",
+      "strength": 1.0
+    },
+    {
+      "from": "486866f4-9066-45c5-90ce-de13e67e49b7",
+      "to": "1a0a0c06-cb0f-406f-a3c0-facf9298f0a9",
+      "strength": 1.0
+    },
+    {
+      "from": "bf333220-3db0-4cdc-a6cf-19a329d48150",
+      "to": "eed2b7ba-393b-4217-8625-379410dacac6",
+      "strength": 0.8
+    },
+    {
+      "from": "9b879d2d-51bf-46c8-a523-3797d3b583af",
+      "to": "eed2b7ba-393b-4217-8625-379410dacac6",
+      "strength": 0.8
+    },
+    {
+      "from": "7fd61ae0-df22-4c51-ba40-cb781c68947c",
+      "to": "eed2b7ba-393b-4217-8625-379410dacac6",
+      "strength": 0.8
+    },
+    {
+      "from": "fc9d45f5-9aea-4db8-a4c4-feb213a5b547",
+      "to": "eed2b7ba-393b-4217-8625-379410dacac6",
+      "strength": 0.8
+    },
+    {
+      "from": "eed2b7ba-393b-4217-8625-379410dacac6",
+      "to": "bfc5127d-cceb-4507-97da-3a83de3c61f2",
+      "strength": 0.8
+    },
+    {
+      "from": "ca2ce3b2-fd6e-4971-956c-1ac77e6bff9c",
+      "to": "af6e27be-c642-49d0-93e5-edd13a3db710",
+      "strength": 0.7
+    },
+    {
+      "from": "fc115505-64f5-4e0b-9ad4-377db1e945c5",
+      "to": "a2ad7bb4-77ed-46f2-b593-dc5dfbf277b1",
+      "strength": 1.0
+    },
+    {
+      "from": "fc115505-64f5-4e0b-9ad4-377db1e945c5",
+      "to": "1267705a-d773-474c-a048-3a9f6ab3ecb4",
+      "strength": 1.0
+    },
+    {
+      "from": "1267705a-d773-474c-a048-3a9f6ab3ecb4",
+      "to": "fc115505-64f5-4e0b-9ad4-377db1e945c5",
+      "strength": 0.9
+    },
+    {
+      "from": "fc115505-64f5-4e0b-9ad4-377db1e945c5",
+      "to": "96e38b48-0e0f-4171-9c85-14eba4b2da50",
+      "strength": 0.7
+    },
+    {
+      "from": "b7c4dbc3-af4f-4c65-b70a-952c59d7474f",
+      "to": "97912120-d971-4aa7-bfb1-cc0b3717b76d",
+      "strength": 1.0
+    },
+    {
+      "from": "97912120-d971-4aa7-bfb1-cc0b3717b76d",
+      "to": "2ad8e596-1385-41d0-a81d-217f979e790e",
+      "strength": 1.0
+    },
+    {
+      "from": "2ad8e596-1385-41d0-a81d-217f979e790e",
+      "to": "6e137e39-1150-48ee-ac02-eca950e3af61",
+      "strength": 1.0
+    },
+    {
+      "from": "e5f071e4-28a8-4cc1-a964-f48c32e8bdc3",
+      "to": "6e137e39-1150-48ee-ac02-eca950e3af61",
+      "strength": 0.8
+    },
+    {
+      "from": "b7c4dbc3-af4f-4c65-b70a-952c59d7474f",
+      "to": "e5f071e4-28a8-4cc1-a964-f48c32e8bdc3",
+      "strength": 0.9
+    },
+    {
+      "from": "b7c4dbc3-af4f-4c65-b70a-952c59d7474f",
+      "to": "dae3a8d5-4136-47b2-a454-9050e8b63a8f",
+      "strength": 0.9
+    },
+    {
+      "from": "dae3a8d5-4136-47b2-a454-9050e8b63a8f",
+      "to": "0ccb6c84-4dc0-4bbc-9aff-34443407a50a",
+      "strength": 0.7
+    },
+    {
+      "from": "dae3a8d5-4136-47b2-a454-9050e8b63a8f",
+      "to": "933f8372-ca7c-4c86-8218-928c33738a78",
+      "strength": 0.7
+    },
+    {
+      "from": "b7c4dbc3-af4f-4c65-b70a-952c59d7474f",
+      "to": "8e39100f-2864-4a20-b59d-5b76ed120678",
+      "strength": 0.8
+    },
+    {
+      "from": "b7c4dbc3-af4f-4c65-b70a-952c59d7474f",
+      "to": "87713bab-4eb2-4b4a-a540-b3700bfb9eea",
+      "strength": 0.8
+    },
+    {
+      "from": "b7c4dbc3-af4f-4c65-b70a-952c59d7474f",
+      "to": "7aa9ac37-7e69-4b7a-98ad-2d42582e145f",
+      "strength": 0.8
+    },
+    {
+      "from": "7fbddc6c-e195-4af9-989c-2507edb6d996",
+      "to": "bd1e8c65-5196-45c8-9132-1e8f2faf0f48",
+      "strength": 1.0
+    },
+    {
+      "from": "7fbddc6c-e195-4af9-989c-2507edb6d996",
+      "to": "2b172d4a-78f4-4a26-ab66-96803cafad8d",
+      "strength": 1.0
+    },
+    {
+      "from": "2b172d4a-78f4-4a26-ab66-96803cafad8d",
+      "to": "ca2ce3b2-fd6e-4971-956c-1ac77e6bff9c",
+      "strength": 0.8
+    },
+    {
+      "from": "2b172d4a-78f4-4a26-ab66-96803cafad8d",
+      "to": "af6e27be-c642-49d0-93e5-edd13a3db710",
+      "strength": 0.8
+    },
+    {
+      "from": "2b172d4a-78f4-4a26-ab66-96803cafad8d",
+      "to": "be826141-49bb-4db2-ae46-6b8e40fb4d76",
+      "strength": 0.9
+    },
+    {
+      "from": "2b172d4a-78f4-4a26-ab66-96803cafad8d",
+      "to": "c37880e0-b3cb-4576-bc32-cc7a679b07fe",
+      "strength": 0.8
+    },
+    {
+      "from": "c37880e0-b3cb-4576-bc32-cc7a679b07fe",
+      "to": "4733619f-8278-4496-a664-c77f10860df4",
+      "strength": 1.0
+    },
+    {
+      "from": "c37880e0-b3cb-4576-bc32-cc7a679b07fe",
+      "to": "ff1fd6b2-316e-4b39-a829-ec4591ac7576",
+      "strength": 0.9
+    },
+    {
+      "from": "c37880e0-b3cb-4576-bc32-cc7a679b07fe",
+      "to": "868d840b-dc8e-4067-be02-cfba671db629",
+      "strength": 0.9
+    },
+    {
+      "from": "c37880e0-b3cb-4576-bc32-cc7a679b07fe",
+      "to": "9bb6d1ab-65c0-481c-8e73-27b5f64fb827",
+      "strength": 0.7
+    },
+    {
+      "from": "be826141-49bb-4db2-ae46-6b8e40fb4d76",
+      "to": "0ccb6c84-4dc0-4bbc-9aff-34443407a50a",
+      "strength": 0.6
+    },
+    {
+      "from": "be826141-49bb-4db2-ae46-6b8e40fb4d76",
+      "to": "933f8372-ca7c-4c86-8218-928c33738a78",
+      "strength": 0.6
+    },
+    {
+      "from": "d1f3a13a-c33c-48e1-bd98-2a1fc48d6b43",
+      "to": "f6732cbc-199d-40b7-aba3-1ba0e2942ce7",
+      "strength": 1.0
+    },
+    {
+      "from": "f6732cbc-199d-40b7-aba3-1ba0e2942ce7",
+      "to": "3d25c6bc-14de-418a-b82f-94e54a44e010",
+      "strength": 1.0
+    },
+    {
+      "from": "3d25c6bc-14de-418a-b82f-94e54a44e010",
+      "to": "ac8ff143-4238-4cc4-9125-1c3827381c3e",
+      "strength": 0.9
+    },
+    {
+      "from": "3d25c6bc-14de-418a-b82f-94e54a44e010",
+      "to": "99d28d00-e0a5-44a0-9d9c-64e88de6ad13",
+      "strength": 1.0
+    },
+    {
+      "from": "ac8ff143-4238-4cc4-9125-1c3827381c3e",
+      "to": "99d28d00-e0a5-44a0-9d9c-64e88de6ad13",
+      "strength": 1.0
+    },
+    {
+      "from": "99d28d00-e0a5-44a0-9d9c-64e88de6ad13",
+      "to": "97d91ce6-922a-4d58-9d6d-628132044509",
+      "strength": 1.0
+    },
+    {
+      "from": "d1f3a13a-c33c-48e1-bd98-2a1fc48d6b43",
+      "to": "bbbc433a-3d91-442f-a119-dee023ddbe17",
+      "strength": 0.8
+    },
+    {
+      "from": "d1f3a13a-c33c-48e1-bd98-2a1fc48d6b43",
+      "to": "49b88348-effe-4102-b043-5add2d1cc1bd",
+      "strength": 0.8
+    },
+    {
+      "from": "d1f3a13a-c33c-48e1-bd98-2a1fc48d6b43",
+      "to": "6bf51a09-d414-4f41-82ba-21c99660a40e",
+      "strength": 0.8
+    },
+    {
+      "from": "d1f3a13a-c33c-48e1-bd98-2a1fc48d6b43",
+      "to": "cae44646-0ef5-489c-b173-574b42641f9c",
+      "strength": 0.8
+    },
+    {
+      "from": "f6732cbc-199d-40b7-aba3-1ba0e2942ce7",
+      "to": "bbbc433a-3d91-442f-a119-dee023ddbe17",
+      "strength": 0.9
+    },
+    {
+      "from": "f6732cbc-199d-40b7-aba3-1ba0e2942ce7",
+      "to": "49b88348-effe-4102-b043-5add2d1cc1bd",
+      "strength": 0.9
+    },
+    {
+      "from": "f6732cbc-199d-40b7-aba3-1ba0e2942ce7",
+      "to": "6bf51a09-d414-4f41-82ba-21c99660a40e",
+      "strength": 0.9
+    },
+    {
+      "from": "f6732cbc-199d-40b7-aba3-1ba0e2942ce7",
+      "to": "cae44646-0ef5-489c-b173-574b42641f9c",
+      "strength": 0.9
+    },
+    {
+      "from": "3d25c6bc-14de-418a-b82f-94e54a44e010",
+      "to": "bbbc433a-3d91-442f-a119-dee023ddbe17",
+      "strength": 1.0
+    },
+    {
+      "from": "3d25c6bc-14de-418a-b82f-94e54a44e010",
+      "to": "49b88348-effe-4102-b043-5add2d1cc1bd",
+      "strength": 1.0
+    },
+    {
+      "from": "3d25c6bc-14de-418a-b82f-94e54a44e010",
+      "to": "6bf51a09-d414-4f41-82ba-21c99660a40e",
+      "strength": 1.0
+    },
+    {
+      "from": "3d25c6bc-14de-418a-b82f-94e54a44e010",
+      "to": "cae44646-0ef5-489c-b173-574b42641f9c",
+      "strength": 1.0
+    },
+    {
+      "from": "bbbc433a-3d91-442f-a119-dee023ddbe17",
+      "to": "cf81b098-8e6b-4477-8bc8-e20751883503",
+      "strength": 0.8
+    },
+    {
+      "from": "49b88348-effe-4102-b043-5add2d1cc1bd",
+      "to": "cf81b098-8e6b-4477-8bc8-e20751883503",
+      "strength": 0.8
+    },
+    {
+      "from": "6bf51a09-d414-4f41-82ba-21c99660a40e",
+      "to": "cf81b098-8e6b-4477-8bc8-e20751883503",
+      "strength": 0.8
+    },
+    {
+      "from": "cae44646-0ef5-489c-b173-574b42641f9c",
+      "to": "cf81b098-8e6b-4477-8bc8-e20751883503",
+      "strength": 0.8
+    },
+    {
+      "from": "d1f3a13a-c33c-48e1-bd98-2a1fc48d6b43",
+      "to": "f44f5039-50df-4464-b06f-34b9684d0929",
+      "strength": 0.9
+    },
+    {
+      "from": "f44f5039-50df-4464-b06f-34b9684d0929",
+      "to": "96e6bfb8-39db-4fd5-a970-2988637eba3f",
+      "strength": 1.0
+    },
+    {
+      "from": "3d25c6bc-14de-418a-b82f-94e54a44e010",
+      "to": "60b5acd0-17f6-4927-b887-413c902ddc00",
+      "strength": 1.0
+    },
+    {
+      "from": "b0ede1de-43dc-4267-ba74-4d5678202b5f",
+      "to": "f6732cbc-199d-40b7-aba3-1ba0e2942ce7",
+      "strength": 0.8
+    },
+    {
+      "from": "b0ede1de-43dc-4267-ba74-4d5678202b5f",
+      "to": "3d25c6bc-14de-418a-b82f-94e54a44e010",
+      "strength": 0.8
+    },
+    {
+      "from": "b0ede1de-43dc-4267-ba74-4d5678202b5f",
+      "to": "99d28d00-e0a5-44a0-9d9c-64e88de6ad13",
+      "strength": 0.8
+    },
+    {
+      "from": "869881f4-db92-4637-8afe-8d3b134656ce",
+      "to": "bbbc433a-3d91-442f-a119-dee023ddbe17",
+      "strength": 0.7
+    },
+    {
+      "from": "b8b164d6-c4f5-4f06-aa3f-38154e6de35a",
+      "to": "bbbc433a-3d91-442f-a119-dee023ddbe17",
+      "strength": 0.7
+    },
+    {
+      "from": "1f227b54-811b-445d-b28c-26a41dd38be8",
+      "to": "6bf51a09-d414-4f41-82ba-21c99660a40e",
+      "strength": 0.7
+    },
+    {
+      "from": "90535c8e-4d22-47cd-9119-8b0ebc9552ab",
+      "to": "f6732cbc-199d-40b7-aba3-1ba0e2942ce7",
+      "strength": 0.8
+    },
+    {
+      "from": "d1f3a13a-c33c-48e1-bd98-2a1fc48d6b43",
+      "to": "e50642ff-e966-4edb-9613-76b97f03341e",
+      "strength": 0.7
+    },
+    {
+      "from": "3d25c6bc-14de-418a-b82f-94e54a44e010",
+      "to": "e50642ff-e966-4edb-9613-76b97f03341e",
+      "strength": 0.7
+    },
+    {
+      "from": "97d91ce6-922a-4d58-9d6d-628132044509",
+      "to": "b2350cfa-af9e-4c21-8146-a1d2b8076e55",
+      "strength": 1.0
+    }
+  ]
+}

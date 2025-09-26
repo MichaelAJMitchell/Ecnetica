@@ -174,7 +174,7 @@ class LLMClient:
                     {"role": "user", "content": prompt.format(text=text, context=context)}
                 ],
                 temperature=0.3,
-                max_tokens=2000
+                max_tokens=32768
             )
             
             content = response.choices[0].message.content.strip()
@@ -207,7 +207,7 @@ class LLMClient:
                     {"role": "user", "content": prompt.format(text=text, concepts=concepts, context=context)}
                 ],
                 temperature=0.3,
-                max_tokens=2000
+                max_tokens=32768
             )
             
             content = response.choices[0].message.content.strip()
@@ -240,7 +240,7 @@ class LLMClient:
                     {"role": "user", "content": prompt.format(context=context)}
                 ],
                 temperature=0.1,
-                max_tokens=1000
+                max_tokens=32768
             )
             
             content = response.choices[0].message.content.strip()

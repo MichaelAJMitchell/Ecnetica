@@ -13,3 +13,9 @@ jupyterlite-sphinx
 networkx
 # testing dependencies for navbar design
 sphinx-book-theme
+# Ontology builder dependencies
+pandas
+PyPDF2
+PyMuPDF
+python-dotenv
+openai

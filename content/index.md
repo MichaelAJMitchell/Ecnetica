@@ -206,9 +206,9 @@ function generateToolsBar(courseStructure) {
       title: 'Interactive Tools',
       icon: '🔧',
       items: [
-        { name: 'Comprehensive MCQ Demo', url: 'Ecnetica/content/interactive/full_mcqs_demo.html', icon: '🧠' },
-        { name: 'BKT FSRS Demo', url: 'Ecnetica/content/interactive/BKT_FSRS_Demo.html', icon: '⏳' },
-        { name: 'MCQ Breakdown Demo', url: 'Ecnetica/content/interactive/MCQ_Breakdown_Demo.html', icon: '❓' }
+        { name: 'Comprehensive MCQ Demo', url: 'interactive/full_mcqs_demo.html', icon: '🧠' },
+        { name: 'BKT FSRS Demo', url: 'interactive/BKT_FSRS_Demo.html', icon: '⏳' },
+        { name: 'MCQ Breakdown Demo', url: 'interactive/MCQ_Breakdown_Demo.html', icon: '❓' }
       ]
     },
     {

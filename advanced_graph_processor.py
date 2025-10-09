@@ -182,8 +182,8 @@ class AdvancedGraphProcessor:
         return clusters
     
     def optimize_layout(self, nodes: List[Dict], edges: List[Dict]) -> Tuple[List[Dict], Dict]:
-        """Optimize node positions for better visualization."""
-        print("Optimizing layout...")
+        """Enhanced layout with gravitational system and better initialization."""
+        print("Optimizing layout with enhanced gravitational system...")
         
         # Create a subgraph for layout calculation
         layout_graph = nx.DiGraph()
@@ -196,14 +196,32 @@ class AdvancedGraphProcessor:
         for edge in edges:
             layout_graph.add_edge(edge['from'], edge['to'])
         
-        # Use hierarchical layout for better structure
-        try:
-            pos = nx.spring_layout(layout_graph, k=3, iterations=50, seed=42)
-        except:
-            # Fallback to random layout
-            pos = nx.random_layout(layout_graph, seed=42)
+        # Step 1: Initial positioning by strand clusters
+        initial_pos = self.create_strand_based_initial_positions(nodes)
         
-        # Apply positions to nodes
+        # Step 2: Enhanced spring layout with gravity
+        try:
+            pos = nx.spring_layout(
+                layout_graph, 
+                pos=initial_pos,  # Use initial positions
+                k=50,             # Much larger spring constant for many nodes
+                iterations=200,   # More iterations for better convergence
+                seed=42
+            )
+        except:
+            # Fallback with better parameters
+            pos = nx.spring_layout(
+                layout_graph, 
+                pos=initial_pos,
+                k=30,
+                iterations=100,
+                seed=42
+            )
+        
+        # Step 3: Apply gravitational forces
+        pos = self.apply_gravitational_forces(pos, nodes, layout_graph)
+        
+        # Step 4: Apply positions to nodes
         for node in nodes:
             if node['id'] in pos:
                 node['x'] = pos[node['id']][0] * 1000  # Scale up
@@ -228,6 +246,95 @@ class AdvancedGraphProcessor:
             bounds = {'min_x': 0, 'max_x': 0, 'min_y': 0, 'max_y': 0, 'center_x': 0, 'center_y': 0}
         
         return nodes, bounds
+    
+    def create_strand_based_initial_positions(self, nodes: List[Dict]) -> Dict[str, Tuple[float, float]]:
+        """Create initial positions based on strand clusters."""
+        # Define strand cluster positions in a circle
+        strands = list(set(node.get('group', 'Unknown') for node in nodes))
+        num_strands = len(strands)
+        
+        # Create positions in a circle
+        strand_positions = {}
+        radius = 5.0  # Base radius
+        
+        for i, strand in enumerate(strands):
+            angle = 2 * np.pi * i / num_strands
+            x = radius * np.cos(angle)
+            y = radius * np.sin(angle)
+            strand_positions[strand] = (x, y)
+        
+        # Assign initial positions to nodes
+        initial_pos = {}
+        for node in nodes:
+            strand = node.get('group', 'Unknown')
+            base_x, base_y = strand_positions[strand]
+            
+            # Add some randomness around the strand center
+            importance = node.get('importance', 0.5)
+            noise_scale = 0.5 + (1 - importance) * 0.5  # Less important nodes spread more
+            
+            x = base_x + np.random.normal(0, noise_scale)
+            y = base_y + np.random.normal(0, noise_scale)
+            
+            initial_pos[node['id']] = (x, y)
+        
+        return initial_pos
+    
+    def apply_gravitational_forces(self, pos: Dict, nodes: List[Dict], graph: nx.DiGraph) -> Dict:
+        """Apply gravitational forces to improve layout."""
+        # Parameters
+        gravity_strength = 0.1
+        repulsion_strength = 0.5
+        attraction_strength = 0.3
+        
+        # Convert to numpy arrays for easier computation
+        node_ids = list(pos.keys())
+        positions = np.array([pos[node_id] for node_id in node_ids])
+        
+        # Apply forces for several iterations
+        for iteration in range(50):
+            forces = np.zeros_like(positions)
+            
+            # Gravitational force towards center
+            center = np.mean(positions, axis=0)
+            for i, pos_i in enumerate(positions):
+                direction = center - pos_i
+                distance = np.linalg.norm(direction)
+                if distance > 0:
+                    forces[i] += gravity_strength * direction / distance
+            
+            # Repulsion between all nodes
+            for i in range(len(positions)):
+                for j in range(i + 1, len(positions)):
+                    direction = positions[i] - positions[j]
+                    distance = np.linalg.norm(direction)
+                    if distance > 0:
+                        force = repulsion_strength / (distance ** 2)
+                        forces[i] += force * direction / distance
+                        forces[j] -= force * direction / distance
+            
+            # Attraction along edges
+            for edge in graph.edges():
+                if edge[0] in pos and edge[1] in pos:
+                    i = node_ids.index(edge[0])
+                    j = node_ids.index(edge[1])
+                    
+                    direction = positions[j] - positions[i]
+                    distance = np.linalg.norm(direction)
+                    if distance > 0:
+                        force = attraction_strength * distance
+                        forces[i] += force * direction / distance
+                        forces[j] -= force * direction / distance
+            
+            # Apply forces
+            positions += forces * 0.1  # Damping factor
+        
+        # Convert back to dictionary
+        new_pos = {}
+        for i, node_id in enumerate(node_ids):
+            new_pos[node_id] = tuple(positions[i])
+        
+        return new_pos
     
     def create_metadata(self) -> Dict[str, Any]:
         """Create comprehensive metadata for the visualization."""

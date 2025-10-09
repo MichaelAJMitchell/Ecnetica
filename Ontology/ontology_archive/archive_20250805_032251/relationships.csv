@@ -1,2 +1,0 @@
-id,prerequisite_id,dependent_id,prerequisite_name,dependent_name,explanation,source
-51e7c935-9502-4e18-bdfa-712cb4f6c3d0,9b7c3a89-6ae8-4a42-ae68-eb304be7ca3b,9b7c3a89-6ae8-4a42-ae68-eb304be7ca3b,test prereq,test prereq,test relationship,unknown

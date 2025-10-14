@@ -16,8 +16,8 @@ load_dotenv()
 # LLM Configuration
 # These settings control which language models are used and in what order
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')  # Your OpenAI API key from environment
-DEFAULT_MODEL = "gpt-4.1"  # Primary model for highest quality extraction
-FALLBACK_MODELS = ["gpt-5-mini", "gpt-4.1-mini", "gpt-5", "gpt-4o-mini"]  # Backup models if primary fails
+DEFAULT_MODEL = "gpt-5" # Primary model for highest quality extraction
+FALLBACK_MODELS = ["gpt-4.1", "gpt-5-mini", "gpt-4.1-mini", "gpt-5", "gpt-4o-mini"]  # Backup models if primary fails
 
 # Processing Configuration
 # These settings control how documents are chunked for LLM processing

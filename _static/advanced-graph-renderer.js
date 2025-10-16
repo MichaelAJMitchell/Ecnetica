@@ -82,6 +82,18 @@ class AdvancedGraphRenderer {
         this.canvas.style.borderRadius = '8px';
         this.canvas.style.cursor = 'grab';
         this.canvas.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+        
+        // Handle canvas resize
+        window.addEventListener('resize', () => {
+            this.handleResize();
+        });
+    }
+    
+    handleResize() {
+        const rect = this.canvas.getBoundingClientRect();
+        this.canvas.width = rect.width;
+        this.canvas.height = rect.height;
+        this.render();
     }
     
     setupEvents() {
@@ -185,26 +197,34 @@ class AdvancedGraphRenderer {
     }
     
     render() {
-        // Clear canvas
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        // Clear canvas with background
+        this.ctx.fillStyle = '#f8f9fa';
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
         
         if (!this.visibleNodes.length) return;
         
         // Save context
         this.ctx.save();
         
-        // Apply transformations
-        this.ctx.translate(this.offsetX, this.offsetY);
-        this.ctx.scale(this.scale, this.scale);
-        
-        // Render edges first (behind nodes)
-        this.renderEdges();
-        
-        // Render nodes
-        this.renderNodes();
-        
-        // Render UI overlays
-        this.renderOverlays();
+        try {
+            // Apply transformations
+            this.ctx.translate(this.offsetX, this.offsetY);
+            this.ctx.scale(this.scale, this.scale);
+            
+            // Render edges first (behind nodes)
+            this.renderEdges();
+            
+            // Render nodes
+            this.renderNodes();
+            
+            // Render UI overlays
+            this.renderOverlays();
+        } catch (error) {
+            console.error('Rendering error:', error);
+            // Reset to safe state
+            this.ctx.restore();
+            this.ctx.save();
+        }
         
         // Restore context
         this.ctx.restore();
@@ -421,42 +441,50 @@ class AdvancedGraphRenderer {
     
     // Interaction handlers
     onMouseDown(e) {
-        const rect = this.canvas.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        const node = this.getNodeAtPosition(x, y);
-        if (node) {
-            this.selectedNode = node;
-            this.canvas.style.cursor = 'pointer';
-        } else {
-            this.isDragging = true;
-            this.lastX = x;
-            this.lastY = y;
-            this.canvas.style.cursor = 'grabbing';
+        try {
+            const rect = this.canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const node = this.getNodeAtPosition(x, y);
+            if (node) {
+                this.selectedNode = node;
+                this.canvas.style.cursor = 'pointer';
+            } else {
+                this.isDragging = true;
+                this.lastX = x;
+                this.lastY = y;
+                this.canvas.style.cursor = 'grabbing';
+            }
+            
+            e.preventDefault();
+        } catch (error) {
+            console.error('Mouse down error:', error);
         }
-        
-        e.preventDefault();
     }
     
     onMouseMove(e) {
-        const rect = this.canvas.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        if (this.isDragging) {
-            const deltaX = x - this.lastX;
-            const deltaY = y - this.lastY;
-            this.offsetX += deltaX;
-            this.offsetY += deltaY;
-            this.lastX = x;
-            this.lastY = y;
-        } else {
-            const node = this.getNodeAtPosition(x, y);
-            if (node !== this.hoveredNode) {
-                this.hoveredNode = node;
-                this.canvas.style.cursor = node ? 'pointer' : 'grab';
+        try {
+            const rect = this.canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            if (this.isDragging) {
+                const deltaX = x - this.lastX;
+                const deltaY = y - this.lastY;
+                this.offsetX += deltaX;
+                this.offsetY += deltaY;
+                this.lastX = x;
+                this.lastY = y;
+            } else {
+                const node = this.getNodeAtPosition(x, y);
+                if (node !== this.hoveredNode) {
+                    this.hoveredNode = node;
+                    this.canvas.style.cursor = node ? 'pointer' : 'grab';
+                }
             }
+        } catch (error) {
+            console.error('Mouse move error:', error);
         }
     }
     
@@ -474,18 +502,24 @@ class AdvancedGraphRenderer {
     onWheel(e) {
         e.preventDefault();
         
-        const rect = this.canvas.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        const zoomFactor = e.deltaY > 0 ? 0.9 : 1.1;
-        const newScale = Math.max(0.1, Math.min(5, this.scale * zoomFactor));
-        
-        // Adjust offset to zoom towards mouse
-        const newOffsetX = x - (x - this.offsetX) * (newScale / this.scale);
-        const newOffsetY = y - (y - this.offsetY) * (newScale / this.scale);
-        
-        this.animateTo(newScale, newOffsetX, newOffsetY);
+        try {
+            const rect = this.canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const zoomFactor = e.deltaY > 0 ? 0.9 : 1.1;
+            const newScale = Math.max(0.1, Math.min(5, this.scale * zoomFactor));
+            
+            // Adjust offset to zoom towards mouse
+            const newOffsetX = x - (x - this.offsetX) * (newScale / this.scale);
+            const newOffsetY = y - (y - this.offsetY) * (newScale / this.scale);
+            
+            this.animateTo(newScale, newOffsetX, newOffsetY);
+        } catch (error) {
+            console.error('Zoom error:', error);
+            // Reset to safe zoom level
+            this.animateTo(1, 0, 0);
+        }
     }
     
     onTouchStart(e) {

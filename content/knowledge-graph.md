@@ -171,18 +171,18 @@ document.addEventListener('DOMContentLoaded', function() {
         this.textContent = physicsEnabled ? 'Disable Physics' : 'Enable Physics';
     });
 
-    // Load simplified data
+    // Load graph data
     document.getElementById('load-simplified').addEventListener('click', function() {
-        loadGraphData('../../_static/small-graph.json');
+        loadGraphData('../../_static/graph-data.json');
     });
 
     // Load full data
     document.getElementById('load-full').addEventListener('click', function() {
-        loadGraphData('/_static/graph-data.json');
+        loadGraphData('../../_static/graph-data.json');
     });
 
-    // Load full data by default
-    loadGraphData('../../_static/small-graph.json');
+    // Load data by default
+    loadGraphData('../../_static/graph-data.json');
 });
 
 function loadGraphData(filename) {

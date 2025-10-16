@@ -353,7 +353,7 @@ html_theme.sidebar_secondary.remove: true
           
           // Step 6: Load knowledge graph after MCQ is ready
           updateStatus('Loading knowledge graph...', 'loading');
-          loadGraphData('../../_static/small-graph.json');
+          loadGraphData('../../_static/graph-data.json');
           
           // Mark as initialized
           isInitialized = true;
@@ -688,7 +688,7 @@ html_theme.sidebar_secondary.remove: true
 
         // Load graph data
         document.getElementById('load-simplified').addEventListener('click', function() {
-          loadGraphData('../../_static/small-graph.json');
+          loadGraphData('../../_static/graph-data.json');
         });
 
         document.getElementById('load-full').addEventListener('click', function() {

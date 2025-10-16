@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Advanced Knowledge Graph Visualization</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
     <style>
         * {
             margin: 0;
@@ -340,7 +341,7 @@
                 }
                 
                 // Load the graph data
-                const response = await fetch('./advanced-graph-data.json');
+                const response = await fetch('./graph-data.json');
                 if (!response.ok) {
                     throw new Error(`Failed to load graph data: ${response.status}`);
                 }

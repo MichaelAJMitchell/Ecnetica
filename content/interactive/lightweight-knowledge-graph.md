@@ -37,7 +37,7 @@ let graph;
 let graphData;
 
 // Load and initialize the graph
-fetch('../../_static/lightweight-graph.json')
+fetch('../../_static/graph-data.json')
     .then(response => response.json())
     .then(data => {
         graphData = data;

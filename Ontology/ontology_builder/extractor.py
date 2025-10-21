@@ -66,11 +66,6 @@ class ConceptExtractor:
                 chunk, new_concepts, existing_concepts, existing_relationships, file_path, i, len(chunks)
             )
             
-            # Step 4: Verify extraction quality
-            verification_result = self._verify_extraction(
-                chunk, new_concepts, new_relationships, file_path, i, len(chunks)
-            )
-            
             # Add relationships (concepts already added above)
             if new_relationships:
                 self.data_manager.add_relationships(new_relationships)

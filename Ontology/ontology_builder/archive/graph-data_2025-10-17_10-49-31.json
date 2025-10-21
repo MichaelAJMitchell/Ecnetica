@@ -1,0 +1,4469 @@
+{
+  "nodes": [
+    {
+      "id": "f2a4a1e9-c62a-4978-94c8-00433782ba89",
+      "label": "Geometric constructions",
+      "group": "Geometry",
+      "title": "Creating exact geometric figures using formal procedures with compass and straightedge.",
+      "broader_concept": "Synthetic geometry",
+      "grade_level": "Middle/High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "a6aca275-e404-4dc8-855e-cb5224619fca",
+      "label": "Applying geometric constructions to real-life contexts",
+      "group": "Geometry",
+      "title": "Using constructions to solve practical layout, design, and measurement problems (e.g., bisecting spaces, setting right angles, laying out circles).",
+      "broader_concept": "Geometric constructions",
+      "grade_level": "Middle/High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "75070581-4238-4b83-93e7-9f7ffe1ddbe7",
+      "label": "Drawing a circle of given radius",
+      "group": "Geometry",
+      "title": "Using a compass set to a specified length to draw a circle centered at a point.",
+      "broader_concept": "Geometric constructions",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "5a2c8b79-8b7b-4136-88aa-8d142dc3a0a9",
+      "label": "Use of a straightedge (unmarked ruler)",
+      "group": "Geometry",
+      "title": "Drawing straight lines and extending segments without measurement.",
+      "broader_concept": "Geometric instruments and measurement",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "e7a204f7-8fc1-45bb-92a6-d6284a66d8a4",
+      "label": "Use of a compass",
+      "group": "Geometry",
+      "title": "Transferring lengths and drawing arcs/circles for constructions.",
+      "broader_concept": "Geometric instruments and measurement",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "dd7d02d3-a595-4617-8935-5860270db712",
+      "label": "Use of a ruler (measuring length)",
+      "group": "Geometry",
+      "title": "Measuring and marking lengths accurately on diagrams.",
+      "broader_concept": "Geometric instruments and measurement",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "7757300b-8c45-4d59-bd6c-1e8b04fa3a84",
+      "label": "Use of a protractor (measuring angles)",
+      "group": "Geometry",
+      "title": "Measuring and marking angles to a required degree measure.",
+      "broader_concept": "Geometric instruments and measurement",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "36fdb921-8304-442c-bde8-599ee8e33491",
+      "label": "Use of a set square",
+      "group": "Geometry",
+      "title": "Drawing perpendicular and specific-angle lines (e.g., 30°, 45°, 60°, 90°) accurately.",
+      "broader_concept": "Geometric instruments and measurement",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "508544fa-c466-47b1-981b-472c93afc7ad",
+      "label": "Perpendicular bisector construction",
+      "group": "Geometry",
+      "title": "Constructing the line that is perpendicular to a segment and passes through its midpoint using a compass and straightedge.",
+      "broader_concept": "Geometric constructions",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "ad03a6b3-973b-49f2-847a-8f1002164418",
+      "label": "Angle bisector construction",
+      "group": "Geometry",
+      "title": "Constructing a ray that divides a given angle into two equal angles with compass and straightedge.",
+      "broader_concept": "Geometric constructions",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "3442d1d1-407f-40cf-bcdd-6259676e0581",
+      "label": "Constructing a perpendicular line through a given point",
+      "group": "Geometry",
+      "title": "Creating a line perpendicular to a given line either through a point on the line or a point not on the line.",
+      "broader_concept": "Geometric constructions",
+      "grade_level": "Middle/High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "ecfcbfd3-4041-44e3-9361-e9d457b7fd49",
+      "label": "Constructing a parallel line through a given point",
+      "group": "Geometry",
+      "title": "Using compass-and-straightedge methods (e.g., corresponding angles) to draw a line parallel to a given line through a specified point.",
+      "broader_concept": "Geometric constructions",
+      "grade_level": "Middle/High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "3e620e70-fd1e-4162-98cf-67b536de4574",
+      "label": "Dynamic geometry software for constructions",
+      "group": "Geometry",
+      "title": "Using digital tools (e.g., GeoGebra) to create, explore, and verify geometric constructions dynamically.",
+      "broader_concept": "Technology in geometry",
+      "grade_level": "Middle/High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "45eea489-a53d-43d3-bf92-f420a1ca421c",
+      "label": "Precision and accuracy in geometric drawings",
+      "group": "Geometry",
+      "title": "Applying correct instrument techniques to reduce error and produce exact constructions.",
+      "broader_concept": "Geometric constructions",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "cc8baa7d-8f67-49b1-b993-4db71b4faced",
+      "label": "Cartesian coordinate plane",
+      "group": "Geometry",
+      "title": "The two-dimensional plane defined by perpendicular x- and y-axes used to locate points with ordered pairs.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "d7721bde-9db2-4df5-931e-391e8bc14a74",
+      "label": "Ordered pairs (x, y)",
+      "group": "Geometry",
+      "title": "A pair of numbers that uniquely identifies a point on the coordinate plane.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "7a92b721-1e71-4acd-820e-1b60eac74998",
+      "label": "Plotting points on the coordinate plane",
+      "group": "Geometry",
+      "title": "Placing points at given coordinates relative to the axes and origin.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "79ac5e53-6a83-416c-8615-a081abdfe751",
+      "label": "Linear relationships in real-world contexts",
+      "group": "Algebra",
+      "title": "Modeling real-life situations where one quantity changes at a constant rate with respect to another.",
+      "broader_concept": "Mathematical Modeling",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "cda1edbb-beaf-4445-b012-41a47917b59f",
+      "label": "Tabular representation of linear relationships",
+      "group": "Algebra",
+      "title": "Using value tables (x and corresponding y) to represent and analyze linear patterns.",
+      "broader_concept": "Linear Functions",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "7814a5f3-fa2c-4527-9d45-717c958fc617",
+      "label": "Graphical representation of linear relationships",
+      "group": "Algebra",
+      "title": "Plotting points and drawing straight lines to model linear functions on the coordinate plane.",
+      "broader_concept": "Linear Functions",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "e799386f-8299-4bb3-9514-1d66e11a143c",
+      "label": "Slope of a line",
+      "group": "Algebra",
+      "title": "A measure of steepness of a line, often computed as rise over run (Δy/Δx).",
+      "broader_concept": "Linear Functions",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "5d1dc506-b6f8-4da5-90e4-fa47c606476e",
+      "label": "Rate of change",
+      "group": "Algebra",
+      "title": "Change in the dependent variable per unit change in the independent variable; constant for linear relationships.",
+      "broader_concept": "Functions",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1de47b1e-d3c9-4666-b46b-13763ef9ac67",
+      "label": "Equivalence of slope and rate of change",
+      "group": "Algebra",
+      "title": "Recognizing that the slope of a linear graph equals the contextual rate at which one quantity changes relative to another.",
+      "broader_concept": "Linear Functions",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "5f959f6f-3df0-43b6-8577-a7b86afe42fa",
+      "label": "Y-intercept (start value)",
+      "group": "Algebra",
+      "title": "The value of the dependent variable when the independent variable is zero; the initial value in context.",
+      "broader_concept": "Linear Functions",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "87adc4f8-d79d-4e9d-9b45-4f62711ee6c4",
+      "label": "Interpreting intercepts in context",
+      "group": "Algebra",
+      "title": "Explaining the meaning of the start value and other intercepts with respect to a real-world situation.",
+      "broader_concept": "Mathematical Modeling",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "c89784ee-9e00-4c36-9709-7ea962e051f7",
+      "label": "Comparing linear relationships",
+      "group": "Algebra",
+      "title": "Analyzing and contrasting lines using slope (rate of change) and intercepts (start values).",
+      "broader_concept": "Linear Functions",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "da21b5c0-4223-4a58-a18b-f649bc9c312a",
+      "label": "Independent and dependent variables in linear models",
+      "group": "Algebra",
+      "title": "Identifying which quantity is controlled (x) and which responds (y) in a linear relationship.",
+      "broader_concept": "Functions",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "19ce6dbe-28cb-433e-84b3-3e81ea682935",
+      "label": "Point of intersection of two lines",
+      "group": "Algebra",
+      "title": "The coordinate pair that satisfies both linear relationships simultaneously.",
+      "broader_concept": "Systems of Linear Equations",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "3134dae9-f3bb-41f2-9e33-95b31d17a576",
+      "label": "Interpreting intersection in context (break-even point)",
+      "group": "Algebra",
+      "title": "Understanding the practical significance of where two linear models yield the same value.",
+      "broader_concept": "Mathematical Modeling",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "e79388b9-253b-4d9c-8d9d-71ff0eb0a89b",
+      "label": "Solving systems of linear equations by graphing",
+      "group": "Algebra",
+      "title": "Finding the solution to two linear relationships by locating their point of intersection on a graph.",
+      "broader_concept": "Systems of Linear Equations",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "e9e12583-2762-46c1-98d0-4e65cc5c9b10",
+      "label": "Graphical strategies for solving linear problems",
+      "group": "Algebra",
+      "title": "Using graphs to estimate or determine solutions to linear equations and systems from context.",
+      "broader_concept": "Problem-Solving Strategies",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "0ecc06de-c9cb-4ca0-9ab3-f5089cd193b4",
+      "label": "Numeric (tabular) strategies for solving linear problems",
+      "group": "Algebra",
+      "title": "Using tables of values to compute, compare, and find solutions to linear relationships.",
+      "broader_concept": "Problem-Solving Strategies",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "9a89ff9b-3e38-4f01-9c74-6d723eca91f0",
+      "label": "Mental strategies and estimation for linear problems",
+      "group": "Algebra",
+      "title": "Estimating slopes, intercepts, and intersections to check reasonableness of solutions in context.",
+      "broader_concept": "Problem-Solving Strategies",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "68003940-1d34-40fe-bc15-749eac13fcba",
+      "label": "Right-angled triangles",
+      "group": "Geometry & Trigonometry",
+      "title": "Triangles with one 90° angle; sides include two legs and the hypotenuse.",
+      "broader_concept": "Triangles",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "ac2bf445-3c73-4978-9559-7db5753bc14e",
+      "label": "Hypotenuse in a right triangle",
+      "group": "Geometry & Trigonometry",
+      "title": "The side opposite the right angle; the longest side of a right triangle.",
+      "broader_concept": "Right-angled triangles",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "6d3392cb-53ae-4d94-b967-469f7d1e5461",
+      "label": "Opposite and adjacent sides relative to an angle",
+      "group": "Geometry & Trigonometry",
+      "title": "Naming the leg opposite or adjacent to a given acute angle in a right triangle.",
+      "broader_concept": "Right-angled triangles",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "430679e9-d7e6-4491-9e66-26ca90816080",
+      "label": "Pythagorean Theorem",
+      "group": "Geometry & Trigonometry",
+      "title": "In a right triangle, a^2 + b^2 = c^2, relating legs to the hypotenuse.",
+      "broader_concept": "Right-angled triangles",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "19d827d1-1157-461a-be61-1e5dd9f24dca",
+      "label": "Applying the Pythagorean Theorem to heights and distances",
+      "group": "Geometry & Trigonometry",
+      "title": "Solving contextual right-triangle problems (e.g., ladders, buildings, line-of-sight) using a^2 + b^2 = c^2.",
+      "broader_concept": "Right triangle applications",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "78abccc6-6b8b-400b-b6b2-6a4e309314fb",
+      "label": "Trigonometric ratios in right triangles",
+      "group": "Geometry & Trigonometry",
+      "title": "Definition of sine, cosine, and tangent as ratios of side lengths in a right triangle.",
+      "broader_concept": "Trigonometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "16b16418-bfa7-491d-9e07-277b89c4b982",
+      "label": "SOH-CAH-TOA mnemonic",
+      "group": "Geometry & Trigonometry",
+      "title": "Mnemonic for remembering sin = opposite/hypotenuse, cos = adjacent/hypotenuse, tan = opposite/adjacent.",
+      "broader_concept": "Trigonometric ratios in right triangles",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "8f9179f2-f4c0-472c-9543-6ca434ad2956",
+      "label": "Selecting appropriate trigonometric ratio",
+      "group": "Geometry & Trigonometry",
+      "title": "Choosing sine, cosine, or tangent based on which sides are known and which are unknown.",
+      "broader_concept": "Right triangle problem solving",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "787b78b1-40e7-45d3-8f56-110679b324a8",
+      "label": "Finding unknown side lengths using trigonometric ratios",
+      "group": "Geometry & Trigonometry",
+      "title": "Computing a missing leg or hypotenuse from an angle and a side using sine, cosine, or tangent.",
+      "broader_concept": "Trigonometric ratios in right triangles",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "d42c8a8a-6285-492c-b81c-0f892f11c283",
+      "label": "Finding unknown angles using inverse trigonometric functions",
+      "group": "Geometry & Trigonometry",
+      "title": "Using arcsin, arccos, or arctan to determine an angle from side-length ratios.",
+      "broader_concept": "Trigonometric ratios in right triangles",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "207e9052-1336-44f9-964f-32530cfc8eb0",
+      "label": "Angles of elevation and depression",
+      "group": "Geometry & Trigonometry",
+      "title": "Angles measured above or below a horizontal line used in real-world right-triangle models.",
+      "broader_concept": "Applications of trigonometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "508de5dd-0bb5-40ff-a3b4-16c6b6cc30b7",
+      "label": "Modeling real-world situations with right triangles",
+      "group": "Geometry & Trigonometry",
+      "title": "Translating contextual scenarios (heights, distances, ramps, sightlines) into right-triangle diagrams.",
+      "broader_concept": "Mathematical modeling",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "2bad09f4-0119-46eb-b5e5-209bd39a98f8",
+      "label": "Solving right triangles",
+      "group": "Geometry & Trigonometry",
+      "title": "Determining all unknown sides and angles using Pythagoras, trigonometric ratios, and inverse trig functions.",
+      "broader_concept": "Right triangle trigonometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "247c8396-fab2-4ec5-983f-0a6c51779b47",
+      "label": "Transformation geometry",
+      "group": "Geometry",
+      "title": "Study of geometric transformations and their properties in the plane.",
+      "broader_concept": "Geometry",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "bfc7b758-b388-45b4-b67e-9398b9fc2e41",
+      "label": "Translation (geometric transformation)",
+      "group": "Geometry",
+      "title": "Shifts every point of a figure by the same vector, preserving distances and orientation.",
+      "broader_concept": "Rigid motions (isometries)",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "16f889bb-971b-436f-8f21-ad4a845e0f6d",
+      "label": "Rotation (geometric transformation)",
+      "group": "Geometry",
+      "title": "Turns a figure about a fixed center by a given angle, preserving distances and angles.",
+      "broader_concept": "Rigid motions (isometries)",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "3b892499-9486-4e14-baea-9ee397fe788a",
+      "label": "Axial symmetry (line reflection)",
+      "group": "Geometry",
+      "title": "Reflection of a figure across a line (axis), producing a mirror image.",
+      "broader_concept": "Rigid motions (isometries)",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "4702869d-f61f-47b1-aef7-a1cc853d58f6",
+      "label": "Central symmetry (point reflection)",
+      "group": "Geometry",
+      "title": "A half-turn (180-degree rotation) about a point that maps each point to its opposite relative to the center.",
+      "broader_concept": "Rigid motions (isometries)",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "4278f57b-222b-4da1-b285-a04418b1bd8f",
+      "label": "Locating axes of symmetry in simple shapes",
+      "group": "Geometry",
+      "title": "Identifying lines that divide a shape into two mirror-image halves.",
+      "broader_concept": "Symmetry in plane figures",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "b490d195-b0ac-42c1-8bd7-91f0c85c94a3",
+      "label": "Image under a transformation",
+      "group": "Geometry",
+      "title": "The resulting point or figure after applying a specified geometric transformation.",
+      "broader_concept": "Geometric mappings",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "59607969-9a36-4a9d-8966-1f04782ac005",
+      "label": "Enlargement (dilation)",
+      "group": "Geometry",
+      "title": "A similarity transformation that scales a figure from a center by a scale factor k > 0.",
+      "broader_concept": "Similarity transformations",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "5e3bb17c-9b66-4d14-a330-2b32f771d0d5",
+      "label": "Centre of enlargement",
+      "group": "Geometry",
+      "title": "The fixed point from which distances are scaled along rays during an enlargement.",
+      "broader_concept": "Enlargement (dilation)",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "8898323a-2e89-427e-ba1e-6bd5d447cc67",
+      "label": "Scale factor of enlargement",
+      "group": "Geometry",
+      "title": "The multiplicative factor k that scales all distances from the center in an enlargement.",
+      "broader_concept": "Enlargement (dilation)",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "3467339c-8dba-4d20-a3ad-983797a71698",
+      "label": "Reduction (0 < k < 1)",
+      "group": "Geometry",
+      "title": "An enlargement with scale factor between 0 and 1 that produces a smaller similar image.",
+      "broader_concept": "Scale factor of enlargement",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "4b204349-f373-4fb9-98e0-1a1a8bf2e05d",
+      "label": "Magnification (k > 1)",
+      "group": "Geometry",
+      "title": "An enlargement with scale factor greater than 1 that produces a larger similar image.",
+      "broader_concept": "Scale factor of enlargement",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "7ff3fbf8-373a-415d-90ad-f3c0fcc321b4",
+      "label": "Rational scale factor (k ∈ Q)",
+      "group": "Geometry",
+      "title": "Using rational numbers as scale factors in enlargements, including fractional scaling.",
+      "broader_concept": "Scale factor of enlargement",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "256cf10f-8bd4-4f7b-8d20-82146eee2bc8",
+      "label": "Area scaling under enlargement",
+      "group": "Geometry",
+      "title": "Under an enlargement with scale factor k, the area of a figure scales by k^2.",
+      "broader_concept": "Measurement of area",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "a79c5a1a-2108-45bd-87d4-01b93cd76a9d",
+      "label": "Recognising images under transformations",
+      "group": "Geometry",
+      "title": "Identifying the result of applying translations, rotations, axial symmetry, or central symmetry to points and shapes.",
+      "broader_concept": "Geometric transformations",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "af9e8268-92a8-4354-959e-9e9d064b6514",
+      "label": "Solving problems involving enlargements",
+      "group": "Geometry",
+      "title": "Applying center and scale factor to find images/preimages, lengths, and areas in enlargement contexts.",
+      "broader_concept": "Problem solving in geometry",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "a3093879-b6fd-442a-ace1-dd3e4e4826af",
+      "label": "Rigid motions (isometries)",
+      "group": "Geometry",
+      "title": "Transformations that preserve distances and angles, including translations, rotations, and reflections.",
+      "broader_concept": "Geometric transformations",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "304517a3-e0b4-4ba9-852c-b493e50adbc3",
+      "label": "Synthetic geometry",
+      "group": "Geometry",
+      "title": "Study of geometry using axioms, theorems, and constructions without coordinates or algebra.",
+      "broader_concept": "Euclidean geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "852d62c6-165e-4145-b8cd-fea940944e85",
+      "label": "Compass-and-straightedge constructions (16–21)",
+      "group": "Geometry",
+      "title": "Perform a specified set of classical geometric constructions labeled 16–21 in the syllabus.",
+      "broader_concept": "Geometric constructions",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "74b36ad7-5307-48c6-8a5b-e5349d50512b",
+      "label": "Compass-and-straightedge construction 22",
+      "group": "Geometry",
+      "title": "Execute the syllabus' construction number 22 using a compass and straightedge.",
+      "broader_concept": "Geometric constructions",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "d270675d-be84-49ea-95db-8b2a3afe2773",
+      "label": "Theorem (geometric)",
+      "group": "Logic/Proof",
+      "title": "A mathematical statement that can be proven from axioms and previously established results.",
+      "broader_concept": "Logic and proof",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "0ab81685-b382-42c0-9ad7-174624274f84",
+      "label": "Proof",
+      "group": "Logic/Proof",
+      "title": "A logically coherent argument establishing the truth of a theorem.",
+      "broader_concept": "Logic and proof",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "6cc70deb-d647-4bbe-9882-4897b4db276c",
+      "label": "Axiom",
+      "group": "Logic/Proof",
+      "title": "A foundational assumption accepted without proof, used to derive theorems.",
+      "broader_concept": "Logic and proof",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "590adf19-e4ca-4cc8-81df-ff10d70fb99f",
+      "label": "Corollary",
+      "group": "Logic/Proof",
+      "title": "A proposition that follows readily from a theorem with little or no additional proof.",
+      "broader_concept": "Logic and proof",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "8ba719ab-3e99-498d-9d4b-aa7958dccbf4",
+      "label": "Converse of a statement",
+      "group": "Logic/Proof",
+      "title": "The statement formed by reversing the hypothesis and conclusion of an implication.",
+      "broader_concept": "Logical statements",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "7d3d37dc-f93b-4b6d-9838-192b8052d8e3",
+      "label": "Logical implication (implies)",
+      "group": "Logic/Proof",
+      "title": "A relationship A → B meaning if A is true, then B must also be true.",
+      "broader_concept": "Propositional logic",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "ecd561e0-fcd5-4369-ba8c-fda8339ef29a",
+      "label": "Logical equivalence",
+      "group": "Logic/Proof",
+      "title": "Two statements that always have the same truth value; each implies the other.",
+      "broader_concept": "Propositional logic",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "0ef18445-7cfc-46e6-bd4c-f3b7ed6c0c49",
+      "label": "Biconditional (if and only if)",
+      "group": "Logic/Proof",
+      "title": "The statement A iff B, asserting both A → B and B → A.",
+      "broader_concept": "Propositional logic",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "459b892e-279e-45b7-b5c7-f0382112b0bc",
+      "label": "Proof by contradiction",
+      "group": "Logic/Proof",
+      "title": "An indirect proof technique that assumes the negation of the desired result and derives a contradiction.",
+      "broader_concept": "Proof techniques",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "354dab63-8506-4575-aa31-55721d591de8",
+      "label": "Investigating geometric theorems through problem solving",
+      "group": "Geometry",
+      "title": "Exploring, testing, and applying named theorems (e.g., 7, 8, 11–13, 16–18, 20–21) to solve geometric problems.",
+      "broader_concept": "Mathematical problem solving",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "880cb71f-8fcc-4ee2-98e7-4e6282466d7a",
+      "label": "Corollary 6 (application in synthetic geometry)",
+      "group": "Geometry",
+      "title": "Use of a specified corollary labeled 6 in the syllabus to deduce further results and solve problems.",
+      "broader_concept": "Corollary",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "58b71a85-0b08-4237-86f9-16a05030a84d",
+      "label": "Theorem 11 (ratios in synthetic geometry)",
+      "group": "Geometry",
+      "title": "A syllabus theorem concerning ratios in geometric figures, supporting later results.",
+      "broader_concept": "Geometric ratios and proportionality",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "695ae71a-4bcd-480b-93b7-f1d2cb034bde",
+      "label": "Theorem 12 (ratios in synthetic geometry)",
+      "group": "Geometry",
+      "title": "A syllabus theorem on ratios in geometry, forming part of the foundation for subsequent proofs.",
+      "broader_concept": "Geometric ratios and proportionality",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "38f4e397-a2a9-4f06-a449-84de224c7943",
+      "label": "Theorem 13 (ratios in synthetic geometry)",
+      "group": "Geometry",
+      "title": "A syllabus theorem dealing with ratios in geometric contexts that underpins further results.",
+      "broader_concept": "Geometric ratios and proportionality",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "81acff43-3dc9-4fa6-8f8c-4eee00626692",
+      "label": "Geometric ratios and proportionality",
+      "group": "Geometry",
+      "title": "Reasoning with ratios in geometric figures (e.g., segment lengths) to derive relationships and proofs.",
+      "broader_concept": "Proportional reasoning",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "eca3b158-0fb2-40db-860a-52ff6fd67f61",
+      "label": "Foundation for the Pythagorean theorem",
+      "group": "Geometry",
+      "title": "Results and ratio arguments that prepare for the formal proof of the Pythagorean theorem.",
+      "broader_concept": "Right triangle geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "71c9a594-c365-46bd-bfa7-b758767ae0af",
+      "label": "Deductive reasoning in geometry",
+      "group": "Logic/Proof",
+      "title": "Deriving conclusions from axioms and theorems using logically valid steps.",
+      "broader_concept": "Mathematical reasoning",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "9d19200b-88e9-46ed-8a53-e2aac5227c75",
+      "label": "Parallel lines criterion via slopes",
+      "group": "Geometry",
+      "title": "Two non-vertical lines are parallel if and only if their slopes are equal.",
+      "broader_concept": "Lines in the coordinate plane",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "dd881e89-35fc-4b46-b08a-9394d41217ba",
+      "label": "Perpendicular lines criterion via slopes",
+      "group": "Geometry",
+      "title": "Two non-vertical lines are perpendicular if and only if their slopes are negative reciprocals (m1 · m2 = -1).",
+      "broader_concept": "Lines in the coordinate plane",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "61a3a938-0a65-408e-8c47-3fbaa4caeaaa",
+      "label": "Linear equation in general form (ax + by + c = 0)",
+      "group": "Geometry",
+      "title": "Represents a straight line in the plane; coefficients determine slope and intercepts.",
+      "broader_concept": "Lines in the coordinate plane",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "db47bb2f-a105-42b2-bd0d-a3fe40d778ba",
+      "label": "Angle between two lines using slopes",
+      "group": "Geometry",
+      "title": "For slopes m1 and m2, tan(θ) = |(m1 − m2)/(1 + m1·m2)| gives the acute angle between lines.",
+      "broader_concept": "Lines in the coordinate plane",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "1e750643-6ad9-426e-8ad3-dc0a590c611e",
+      "label": "Perpendicular distance from a point to a line",
+      "group": "Geometry",
+      "title": "Distance from (x0, y0) to Ax + By + C = 0 is |Ax0 + By0 + C| / √(A2 + B2).",
+      "broader_concept": "Lines in the coordinate plane",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "a92b5d69-b193-4670-b267-1e31068d55e1",
+      "label": "Internal division of a line segment (section formula)",
+      "group": "Geometry",
+      "title": "Point dividing segment A(x1,y1) and B(x2,y2) internally in ratio m:n has coordinates ((mx2 + nx1)/(m+n), (my2 + ny1)/(m+n)).",
+      "broader_concept": "Segments in the coordinate plane",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "1867fc4c-bdc6-4648-8388-07c8f49665d7",
+      "label": "Area of a triangle in the coordinate plane",
+      "group": "Geometry",
+      "title": "Area with vertices (x1,y1),(x2,y2),(x3,y3) is 1/2 |x1(y2−y3) + x2(y3−y1) + x3(y1−y2)| (shoelace method).",
+      "broader_concept": "Polygons in the coordinate plane",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "b428bac8-41dd-43c0-acb3-4a1bed5e0be9",
+      "label": "Center-radius form of a circle equation",
+      "group": "Geometry",
+      "title": "(x − h)2 + (y − k)2 = r2 represents all points at distance r from center (h, k).",
+      "broader_concept": "Circles in the coordinate plane",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "8176d0cb-0551-4575-b127-7a5b5de3ce7c",
+      "label": "General form of a circle equation",
+      "group": "Geometry",
+      "title": "x2 + y2 + 2gx + 2fy + c = 0 represents a circle with center (−g, −f) and radius r = √(g2 + f2 − c).",
+      "broader_concept": "Circles in the coordinate plane",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "ad808778-bf6b-4f66-b7be-8c7efdf8480b",
+      "label": "Equation of a circle centered at the origin",
+      "group": "Geometry",
+      "title": "x2 + y2 = r2 describes a circle with center (0, 0) and radius r.",
+      "broader_concept": "Circles in the coordinate plane",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "387aead0-6d99-48b6-b789-286ca028dd88",
+      "label": "Line–circle intersection (center at origin)",
+      "group": "Geometry",
+      "title": "Solving a line with x2 + y2 = r2 to find intersection points; includes cases of secant, tangent, or no intersection.",
+      "broader_concept": "Intersections in coordinate geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "48be0b25-e8b2-44cf-b8a4-c7537b4ea820",
+      "label": "Line–circle intersection (general)",
+      "group": "Geometry",
+      "title": "Solving simultaneous equations of a line and a circle to determine intersection points and tangency conditions.",
+      "broader_concept": "Intersections in coordinate geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "201d96a3-9fb6-45e8-b56a-7be247c48740",
+      "label": "Pythagorean theorem (2D)",
+      "group": "Geometry",
+      "title": "In a right triangle, the sum of the squares of the legs equals the square of the hypotenuse (a^2 + b^2 = c^2); used to solve planar problems.",
+      "broader_concept": "Right triangle geometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "12b7b43e-ae09-4c38-8338-513d0d86b85f",
+      "label": "Area of a triangle using trigonometry",
+      "group": "Trigonometry",
+      "title": "Compute area with A = (1/2)ab sin C when two sides and the included angle are known.",
+      "broader_concept": "Triangle measurement",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "c07a48ac-d468-49fe-81b4-89609c0c9a89",
+      "label": "Sine rule (Law of sines)",
+      "group": "Trigonometry",
+      "title": "Relates sides and angles in any triangle: a/sin A = b/sin B = c/sin C; used to find unknown sides/angles.",
+      "broader_concept": "Non-right triangle trigonometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "85a91615-758b-4ced-a1b6-a3d807ab1f84",
+      "label": "Cosine rule (Law of cosines)",
+      "group": "Trigonometry",
+      "title": "Generalizes Pythagoras: c^2 = a^2 + b^2 − 2ab cos C (and cyclic forms) to find sides/angles in any triangle.",
+      "broader_concept": "Non-right triangle trigonometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "95cf2c93-6eea-43fb-ad55-dbbe76daabe5",
+      "label": "Definition of sin θ for all real θ",
+      "group": "Trigonometry",
+      "title": "Extends sine to all real angles (e.g., via the unit circle), allowing positive/negative values and periodicity.",
+      "broader_concept": "Trigonometric functions",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "bdb25b39-4254-446b-9013-9bcb7ef69891",
+      "label": "Definition of cos θ for all real θ",
+      "group": "Trigonometry",
+      "title": "Extends cosine to all real angles (e.g., via the unit circle) with even symmetry and period 2π.",
+      "broader_concept": "Trigonometric functions",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "2cfd4d53-045f-431f-9348-817b567273f4",
+      "label": "Definition of tan θ",
+      "group": "Trigonometry",
+      "title": "Defines tangent as tan θ = sin θ / cos θ with undefined values where cos θ = 0; period π.",
+      "broader_concept": "Trigonometric functions",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "09c1d8f8-8dd7-4052-87dd-aa48334e845a",
+      "label": "Area of a sector of a circle",
+      "group": "Geometry",
+      "title": "Area given by A = (1/2) r^2 θ (radians) or A = (θ/360) π r^2 (degrees).",
+      "broader_concept": "Circle measurement",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "980c83b1-2ae2-47c5-98d0-dc50a091cd80",
+      "label": "Arc length of a circle",
+      "group": "Geometry",
+      "title": "Arc length given by s = r θ (radians) or s = (θ/360) 2π r (degrees).",
+      "broader_concept": "Circle measurement",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "4aef7841-7a96-410b-a13f-21849ac825a0",
+      "label": "Trigonometric ratios in surd form",
+      "group": "Trigonometry",
+      "title": "Use exact radical values for sin, cos, tan of special angles (e.g., 30°, 45°, 60°) instead of decimals.",
+      "broader_concept": "Exact trigonometric values",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "0b51143e-315b-468a-a7a0-0c329f1a40d6",
+      "label": "3D trigonometry problem solving",
+      "group": "Trigonometry",
+      "title": "Apply trigonometric methods to three-dimensional contexts to find lengths, angles, and distances.",
+      "broader_concept": "Spatial reasoning with trigonometry",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "4334586f-715c-4c82-9a07-e34a92fbb1f1",
+      "label": "Graph of y = sin θ",
+      "group": "Trigonometry",
+      "title": "Sine function graph with amplitude 1, period 2π, and key intercepts/maximum/minimum points.",
+      "broader_concept": "Trigonometric graphs",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "b8bc54ac-629b-4530-a163-7c4e948232a3",
+      "label": "Graph of y = cos θ",
+      "group": "Trigonometry",
+      "title": "Cosine function graph with amplitude 1, period 2π, starting at maximum when θ = 0.",
+      "broader_concept": "Trigonometric graphs",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "8b3f1817-3870-4cb7-970c-f8a4babe3755",
+      "label": "Graph of y = tan θ",
+      "group": "Trigonometry",
+      "title": "Tangent function graph with period π and vertical asymptotes at odd multiples of π/2.",
+      "broader_concept": "Trigonometric graphs",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "72d9667c-268c-488b-aedc-a7d0a5166dfb",
+      "label": "Graphing transformed sine functions a + b sin(cθ)",
+      "group": "Trigonometry",
+      "title": "Plot sinusoidal graphs with vertical shift a, amplitude |b|, and period 2π/|c|.",
+      "broader_concept": "Function transformations",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "f989586e-674d-480d-9724-c23c85d652e7",
+      "label": "Graphing transformed cosine functions a + b cos(cθ)",
+      "group": "Trigonometry",
+      "title": "Plot cosine graphs with vertical shift a, amplitude |b|, and period 2π/|c|.",
+      "broader_concept": "Function transformations",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "52b498a8-f6c1-47e3-accb-2d7d4be400aa",
+      "label": "General solutions of trigonometric equations",
+      "group": "Trigonometry",
+      "title": "Find all solutions using periodicity, e.g., sin(nθ) = 0 implies θ = kπ/n for integers k.",
+      "broader_concept": "Trigonometric equations",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "79807dbe-6347-41b9-8ddd-86b71bb3a1cc",
+      "label": "Solving equations like cos(nθ) = 1/2",
+      "group": "Trigonometry",
+      "title": "Determine principal solutions and express the infinite family of solutions using k ∈ Z.",
+      "broader_concept": "Trigonometric equations",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "05c3085b-0302-4ffd-842e-ca33c0082c2c",
+      "label": "Radian measure of angles",
+      "group": "Trigonometry",
+      "title": "Measure angles via arc length: θ = s/r; convert between degrees and radians and use radians in formulas.",
+      "broader_concept": "Angle measurement",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "17553bf8-0143-4008-b3c7-4d8509aa08d3",
+      "label": "Derivation of core trigonometric identities",
+      "group": "Trigonometry",
+      "title": "Prove identities such as Pythagorean, angle addition/subtraction, and double-angle formulas.",
+      "broader_concept": "Trigonometric identities",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "6facba6c-2ab3-4dd2-934d-535dcda70e47",
+      "label": "Application of trigonometric identities",
+      "group": "Trigonometry",
+      "title": "Use identities to simplify expressions, transform formulas, and solve trigonometric equations.",
+      "broader_concept": "Trigonometric identities",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "ea46c450-8d3d-4771-ba8c-a9e3c5208f89",
+      "label": "Reduction (0<k<1)",
+      "group": "Geometry",
+      "title": "An enlargement with scale factor 0<k<1 that produces a smaller, similar image; all linear dimensions are multiplied by k.",
+      "broader_concept": "Scale factor of enlargement",
+      "grade_level": "Middle School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "48253557-0ab3-4ed8-b81a-bb8ba79ecde5",
+      "label": "Magnification (k>1)",
+      "group": "Geometry",
+      "title": "An enlargement with scale factor k>1 that produces a larger, similar image; all linear dimensions are multiplied by k.",
+      "broader_concept": "Scale factor of enlargement",
+      "grade_level": "Middle School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "23b0a1ba-1617-49d2-97b9-797785119f09",
+      "label": "Constructing an enlargement with given center and scale factor",
+      "group": "Geometry",
+      "title": "A procedure using rays from the center through object points and proportional distances to draw the image at scale factor k.",
+      "broader_concept": "Enlargement (Dilation)",
+      "grade_level": "Middle School",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "7ebf16b6-3ca6-4972-ab11-ba69d07ca275",
+      "label": "Finding the centre of enlargement from object and image",
+      "group": "Geometry",
+      "title": "A method to locate the center by joining pairs of corresponding points and intersecting the lines through them.",
+      "broader_concept": "Enlargement (Dilation)",
+      "grade_level": "Middle School",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "7c0b235a-3ec1-4d98-8934-4692e39ce3a4",
+      "label": "Relating linear and area scale factors",
+      "group": "Geometry",
+      "title": "Understanding that linear measures scale by k while areas scale by k^2 in an enlargement.",
+      "broader_concept": "Area scaling under enlargement",
+      "grade_level": "Middle School",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "e8baac2c-ffe6-47ed-8105-65dbdbba10c1",
+      "label": "Number systems",
+      "group": "Number & Operations",
+      "title": "Classifications of numbers including natural numbers, integers, and rational numbers",
+      "broader_concept": "Number & Operations",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "aa719419-8607-4651-b838-db497614d9bd",
+      "label": "Natural numbers (N)",
+      "group": "Number & Operations",
+      "title": "Counting numbers 1, 2, 3, ... used for counting and ordering",
+      "broader_concept": "Number systems",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "417ced1d-2b69-4dff-8c1a-a5853bc07cc7",
+      "label": "Integers (Z)",
+      "group": "Number & Operations",
+      "title": "Whole numbers including negatives, zero, and positives",
+      "broader_concept": "Number systems",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "47a14ce4-ae5e-4ff0-8d45-37fad06ab32a",
+      "label": "Rational numbers (Q)",
+      "group": "Number & Operations",
+      "title": "Numbers expressible as a ratio of two integers, including fractions, finite and repeating decimals, and percentages",
+      "broader_concept": "Number systems",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "6e448877-b9e9-482f-bc6a-645d28c01c6a",
+      "label": "Fractions as rational numbers",
+      "group": "Number & Operations",
+      "title": "Representation of rational numbers as a/b with integers a and b (b ≠ 0)",
+      "broader_concept": "Rational numbers (Q)",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "7b7250bb-6d45-44ce-ba00-d94f28ecf2ed",
+      "label": "Finite decimal representations",
+      "group": "Number & Operations",
+      "title": "Decimals that terminate after a finite number of digits",
+      "broader_concept": "Rational numbers (Q)",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "d520e406-5a5e-4617-a225-e7724adc9544",
+      "label": "Repeating decimal representations",
+      "group": "Number & Operations",
+      "title": "Decimals with a digit pattern that repeats indefinitely",
+      "broader_concept": "Rational numbers (Q)",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "57384f08-f517-4eee-8f3d-e11c8caf2fc4",
+      "label": "Percentages as rational numbers",
+      "group": "Number & Operations",
+      "title": "Rational numbers expressed per hundred (%)",
+      "broader_concept": "Rational numbers (Q)",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "6590e61e-2268-4baa-9e3f-ef5d064d1878",
+      "label": "Equivalence of fractions, decimals, and percentages",
+      "group": "Number & Operations",
+      "title": "Recognising and converting between equivalent representations of rational numbers",
+      "broader_concept": "Rational numbers (Q)",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "7481b85b-775a-4799-a91f-1feb6aeb5b5d",
+      "label": "Number line representation",
+      "group": "Number & Operations",
+      "title": "Placing numbers on a number line to show magnitude and order",
+      "broader_concept": "Number systems",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "bb5f730b-194f-4151-b77d-478f272094d8",
+      "label": "Ordering numbers on the number line",
+      "group": "Number & Operations",
+      "title": "Comparing and arranging N, Z, and Q using their positions on a number line",
+      "broader_concept": "Number line representation",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "59beba9d-8b34-4e81-b2f5-5d58e73444ee",
+      "label": "Whole number operations",
+      "group": "Number & Operations",
+      "title": "Addition, subtraction, multiplication, and division within natural numbers",
+      "broader_concept": "Arithmetic",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "5f481fb9-173f-47fe-b8c1-87f7726c8cb6",
+      "label": "Addition in N",
+      "group": "Number & Operations",
+      "title": "Combining two natural numbers to find a sum in N",
+      "broader_concept": "Whole number operations",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "edf7ccbc-dd5e-49cc-8ef6-d8dd8d696bbf",
+      "label": "Subtraction in N",
+      "group": "Number & Operations",
+      "title": "Finding a difference of natural numbers when the result remains in N",
+      "broader_concept": "Whole number operations",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "461fd13d-2e75-4e6f-8dc9-915676b42c8e",
+      "label": "Multiplication in N",
+      "group": "Number & Operations",
+      "title": "Repeated addition of equal groups within natural numbers",
+      "broader_concept": "Whole number operations",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "e07ff76a-e3a9-48fa-950a-efdeba0aedc8",
+      "label": "Division in N",
+      "group": "Number & Operations",
+      "title": "Partitioning into equal groups or measuring how many groups fit, when the answer is in N",
+      "broader_concept": "Whole number operations",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "ef913cd5-47e4-4ac6-8453-4f234a85fab3",
+      "label": "Inverse operations: addition and subtraction",
+      "group": "Number & Operations",
+      "title": "Understanding subtraction as the inverse of addition",
+      "broader_concept": "Properties of arithmetic",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "b8b6c020-1f6f-4f4b-92d3-f0fb7f46a805",
+      "label": "Inverse operations: multiplication and division",
+      "group": "Number & Operations",
+      "title": "Understanding division as the inverse of multiplication",
+      "broader_concept": "Properties of arithmetic",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "2de0a65d-0382-40a5-80c3-739cb458351f",
+      "label": "Relationship between addition and subtraction",
+      "group": "Number & Operations",
+      "title": "Using fact families and balance to connect addition and subtraction",
+      "broader_concept": "Inverse operations: addition and subtraction",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "48ba40e0-aca9-4d48-8bb7-97f07229ed93",
+      "label": "Relationship between multiplication and division",
+      "group": "Number & Operations",
+      "title": "Using fact families and equal groups to connect multiplication and division",
+      "broader_concept": "Inverse operations: multiplication and division",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "fd6be7fb-35e9-4f2e-b47f-2d8d1ca2a4d5",
+      "label": "Decomposition model for addition and subtraction",
+      "group": "Number & Operations",
+      "title": "Breaking numbers into parts to make addition and subtraction easier",
+      "broader_concept": "Models of arithmetic operations",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "aa6909eb-bb57-4dc2-a0ec-f6686b6577ec",
+      "label": "Skip counting as repeated addition",
+      "group": "Number & Operations",
+      "title": "Counting by equal increments to model multiplication",
+      "broader_concept": "Models of arithmetic operations",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "d0a48f42-49eb-4a38-b785-bd1dc155c859",
+      "label": "Array model for multiplication",
+      "group": "Number & Operations",
+      "title": "Arranging items in rows and columns to represent products",
+      "broader_concept": "Models of arithmetic operations",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "729a8742-fe77-44bb-a1f6-486368da5d11",
+      "label": "Equal groups model for multiplication",
+      "group": "Number & Operations",
+      "title": "Accumulating groups of equal size to represent multiplication",
+      "broader_concept": "Models of arithmetic operations",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1885cbdd-e68f-4350-9bc1-4774cdea24d8",
+      "label": "Properties of arithmetic",
+      "group": "Number & Operations",
+      "title": "General properties including commutative, associative, and distributive laws",
+      "broader_concept": "Arithmetic",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "10a81e23-6d62-46d7-ac94-f2c592e656fb",
+      "label": "Commutative property",
+      "group": "Number & Operations",
+      "title": "Order of operands does not change the result (for addition and multiplication)",
+      "broader_concept": "Properties of arithmetic",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "7197dbdb-f059-46a5-bf23-f601948b6ac8",
+      "label": "Associative property",
+      "group": "Number & Operations",
+      "title": "Grouping of operands does not change the result (for addition and multiplication)",
+      "broader_concept": "Properties of arithmetic",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "8e9c4686-0634-4067-9cd4-2a7885f9ba1c",
+      "label": "Distributive property",
+      "group": "Number & Operations",
+      "title": "Multiplication distributes over addition or subtraction",
+      "broader_concept": "Properties of arithmetic",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "276668dc-1ac2-4cf3-b2b9-90321aa2c9e4",
+      "label": "Order of operations with brackets",
+      "group": "Number & Operations",
+      "title": "Evaluating expressions using agreed precedence and parentheses",
+      "broader_concept": "Arithmetic procedures",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "55cfdc54-586c-4ba9-b88d-e9d76a4d7693",
+      "label": "Integer operations",
+      "group": "Number & Operations",
+      "title": "Addition, subtraction, multiplication, and division with integers, including negatives",
+      "broader_concept": "Integers (Z)",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "f21b396d-deea-4148-b32c-1d197fd4ec0a",
+      "label": "Number line model for integer operations",
+      "group": "Number & Operations",
+      "title": "Using directed movement and arrows on the number line to perform integer operations",
+      "broader_concept": "Integer operations",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "27aeca74-dc83-4f85-94ec-215476f16a14",
+      "label": "Addition and subtraction with negative numbers",
+      "group": "Number & Operations",
+      "title": "Applying direction and distance ideas to add and subtract integers",
+      "broader_concept": "Integer operations",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "88fb39bc-adfe-40a5-9aeb-f23e28856c4c",
+      "label": "Multiplication and division with negative numbers",
+      "group": "Number & Operations",
+      "title": "Applying sign rules to compute products and quotients with negatives",
+      "broader_concept": "Integer operations",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "c2d89487-f487-47ad-82f7-713c9076187f",
+      "label": "Sign rules for multiplying and dividing negatives",
+      "group": "Number & Operations",
+      "title": "Understanding when results are positive or negative based on operand signs",
+      "broader_concept": "Multiplication and division with negative numbers",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "5d7de21e-9cbe-4d2d-9e82-cbae04733ded",
+      "label": "Real-world contexts for negative numbers",
+      "group": "Mathematical Modeling",
+      "title": "Interpreting negatives via contexts like debts and temperatures below zero",
+      "broader_concept": "Integer operations",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "3c9853c8-f123-4e91-8162-55c1fa0d706d",
+      "label": "Rational number operations",
+      "group": "Number & Operations",
+      "title": "Addition, subtraction, multiplication, and division with fractions, decimals, and percentages",
+      "broader_concept": "Rational numbers (Q)",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "33689f6e-fcdd-4883-a025-8393582fc0d5",
+      "label": "Models for operations with rational numbers",
+      "group": "Mathematical Modeling",
+      "title": "Using visual and contextual models to reason about operations on rational numbers",
+      "broader_concept": "Rational number operations",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "52111e44-3b3a-40e3-b527-1b78309ff702",
+      "label": "Extending whole-number understanding to rational numbers",
+      "group": "Number & Operations",
+      "title": "Transferring properties and operation meanings from whole numbers to rationals",
+      "broader_concept": "Rational number operations",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "26732faf-ead3-4c82-968f-9b4e7f0f205b",
+      "label": "Representing problems with diagrams",
+      "group": "Mathematical Modeling",
+      "title": "Using visual representations to model and solve contextual arithmetic problems",
+      "broader_concept": "Problem solving strategies",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "59b32070-82ca-4e93-9a24-4c31064032f1",
+      "label": "Solving problems with fractional amounts in context",
+      "group": "Mathematical Modeling",
+      "title": "Applying fraction operations to real-world scenarios",
+      "broader_concept": "Rational number operations",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "c1de404c-04c1-4dd7-88a6-e993150b669f",
+      "label": "Generalising and articulating arithmetic patterns",
+      "group": "Number & Operations",
+      "title": "Observing regularities in operations and expressing them as general statements",
+      "broader_concept": "Properties of arithmetic",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "0f25e69f-8d8c-4daa-8b42-7a55b1cd81ba",
+      "label": "Irrational numbers",
+      "group": "Number",
+      "title": "Real numbers that cannot be expressed as a ratio of two integers; have non-terminating, non-repeating decimal expansions.",
+      "broader_concept": "Real number system",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "8d885020-95e4-4509-87dd-dc9a00f2876b",
+      "label": "Real numbers vs rational numbers (R ≠ Q)",
+      "group": "Number",
+      "title": "Understanding that the set of real numbers strictly contains the rationals; not all real numbers are rational.",
+      "broader_concept": "Real number system",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1d7a1d22-aee9-4cbb-ae17-95573f7dab67",
+      "label": "Working with irrational numbers",
+      "group": "Number",
+      "title": "Performing arithmetic, estimation, and simplification with numbers involving radicals and other irrationals.",
+      "broader_concept": "Irrational numbers",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "48c4f228-0489-4681-a1a0-02c1b9da3489",
+      "label": "Arithmetic operations in natural numbers (N)",
+      "group": "Number",
+      "title": "Using addition and multiplication within the natural numbers and recognizing closure and basic properties.",
+      "broader_concept": "Number operations",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "033e2941-46e9-4c9d-bfbc-28b35e4edbae",
+      "label": "Arithmetic operations in integers (Z)",
+      "group": "Number",
+      "title": "Addition, subtraction, multiplication, and division (with remainders) in the domain of integers and closure properties.",
+      "broader_concept": "Number operations",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "c1d87ad5-f121-4704-9296-c6df7e1364b5",
+      "label": "Arithmetic operations in rational numbers (Q)",
+      "group": "Number",
+      "title": "Adding, subtracting, multiplying, and dividing fractions and mixed numbers, including simplification.",
+      "broader_concept": "Number operations",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "2b895b6e-0727-43ef-be97-31c11faeda2e",
+      "label": "Arithmetic operations in real numbers (R)",
+      "group": "Number",
+      "title": "Carrying out the four operations with decimals, radicals, and other real numbers while maintaining precision.",
+      "broader_concept": "Number operations",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "62de3ac2-f532-4782-acc5-27bb9400190c",
+      "label": "Number line representation of real numbers",
+      "group": "Number",
+      "title": "Locating and interpreting real numbers on a continuous line, including intervals and distances.",
+      "broader_concept": "Real number system",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "df16a3c2-fa35-4b5a-bf1b-b4c1245adeab",
+      "label": "Complex numbers in rectangular form (a + ib)",
+      "group": "Algebra",
+      "title": "Representing complex numbers with real and imaginary parts in a + ib form.",
+      "broader_concept": "Complex numbers",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "d73d0657-a4d5-4b1d-b378-004a735ac000",
+      "label": "Addition of complex numbers (rectangular form)",
+      "group": "Algebra",
+      "title": "Adding complex numbers by combining real parts and imaginary parts separately.",
+      "broader_concept": "Complex numbers",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "5a1299c4-7b72-4408-9578-7868446ec98c",
+      "label": "Subtraction of complex numbers (rectangular form)",
+      "group": "Algebra",
+      "title": "Subtracting complex numbers by subtracting real and imaginary parts separately.",
+      "broader_concept": "Complex numbers",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "7e3ba2b6-781e-4b20-b418-b35a0849d4b3",
+      "label": "Multiplication of complex numbers (rectangular form)",
+      "group": "Algebra",
+      "title": "Multiplying complex numbers using distributive property and the identity i^2 = -1.",
+      "broader_concept": "Complex numbers",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "8a7e95da-a546-4e2e-85c9-2fb9c61e95a2",
+      "label": "Division of complex numbers (rectangular form)",
+      "group": "Algebra",
+      "title": "Dividing complex numbers by multiplying numerator and denominator by the conjugate of the denominator.",
+      "broader_concept": "Complex numbers",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "d64c5aab-4427-423d-958d-9e8dd24b887e",
+      "label": "Argand diagram",
+      "group": "Geometry",
+      "title": "Graphical representation of complex numbers on the plane with real and imaginary axes.",
+      "broader_concept": "Complex numbers",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "6b704be2-2c53-4f6a-9bad-df9ccf0d7d38",
+      "label": "Modulus of a complex number",
+      "group": "Geometry",
+      "title": "The distance of a complex number from the origin in the Argand plane, |a+ib| = sqrt(a^2 + b^2).",
+      "broader_concept": "Complex numbers",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "759de6bd-8a29-4ff1-b67c-c51f5f667bfe",
+      "label": "Complex conjugate",
+      "group": "Algebra",
+      "title": "For z = a + ib, the conjugate is a − ib; used in division and to find moduli.",
+      "broader_concept": "Complex numbers",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "af87ca2e-9067-4aae-8125-128a4e0ad426",
+      "label": "Conjugate identities for sums and products",
+      "group": "Algebra",
+      "title": "Properties: conj(z + w) = conj(z) + conj(w) and conj(zw) = conj(z)·conj(w).",
+      "broader_concept": "Complex conjugate",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "57a6fc99-d1e6-420e-b969-9f502d75e58b",
+      "label": "Geometric construction of sqrt(2)",
+      "group": "Geometry",
+      "title": "Constructing a length of sqrt(2) using right triangles and compass-straightedge methods.",
+      "broader_concept": "Classical constructions",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "e9f4468c-4be5-464e-9682-7c18d80f57e0",
+      "label": "Geometric construction of sqrt(3)",
+      "group": "Geometry",
+      "title": "Constructing a length of sqrt(3) via equilateral triangles or Pythagorean methods.",
+      "broader_concept": "Classical constructions",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "629de8eb-42ae-4cd2-a03b-7fd9600ceb74",
+      "label": "Proof that sqrt(2) is irrational",
+      "group": "Number Theory",
+      "title": "Demonstrating that sqrt(2) cannot be written as a ratio of integers, typically by contradiction.",
+      "broader_concept": "Irrational numbers",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "ec7f1541-18de-44a0-8334-126643a6f646",
+      "label": "Decimals as equivalent fractions",
+      "group": "Number",
+      "title": "Interpreting terminating and recurring decimals as rational numbers and converting between forms.",
+      "broader_concept": "Decimal representation",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "d16dda0e-3614-41dc-8a24-bf5bafd6c893",
+      "label": "Place value in the decimal system",
+      "group": "Number",
+      "title": "Understanding digit value by position to read, write, and operate with decimals.",
+      "broader_concept": "Decimal representation",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "27ee4025-2862-4309-bfb1-8d003de109df",
+      "label": "Factors and multiples",
+      "group": "Number Theory",
+      "title": "Determining divisors and multiples of natural numbers and using them in problem solving.",
+      "broader_concept": "Number properties",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "836ba8ea-31f2-4dec-8ce6-653bd53d42b5",
+      "label": "Prime numbers",
+      "group": "Number Theory",
+      "title": "Natural numbers greater than 1 with exactly two distinct positive divisors: 1 and itself.",
+      "broader_concept": "Number properties",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "227e6571-f08d-475b-b727-9d2a0562f849",
+      "label": "Prime factorization",
+      "group": "Number Theory",
+      "title": "Expressing a number as a product of prime factors, unique up to order.",
+      "broader_concept": "Number properties",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "10961151-4935-4779-99df-d9dff51583d8",
+      "label": "Scientific notation (standard form)",
+      "group": "Number",
+      "title": "Writing numbers as a × 10^n with 1 ≤ a < 10 and n ∈ Z for efficient representation of magnitude.",
+      "broader_concept": "Decimal representation",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "d622b61c-b107-4d40-9af4-de55076a14d7",
+      "label": "Arithmetic with numbers in scientific notation",
+      "group": "Number",
+      "title": "Performing addition, subtraction, multiplication, and division while maintaining standard form.",
+      "broader_concept": "Scientific notation",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "1fee74d4-ff23-4ec1-9a4d-dd8dd7010c26",
+      "label": "Verifying formulae from number patterns",
+      "group": "Algebra",
+      "title": "Observing patterns, conjecturing general formulas, and justifying them with appropriate reasoning.",
+      "broader_concept": "Generalization and proof",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "e58fc283-fdec-40f7-89b6-97736995292b",
+      "label": "Geometric sequences",
+      "group": "Algebra",
+      "title": "Sequences with constant ratio between successive terms; nth term formula a r^(n−1).",
+      "broader_concept": "Sequences and series",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "03a7d2ed-0464-430b-91fc-1ffc55c2f901",
+      "label": "Geometric series (finite)",
+      "group": "Algebra",
+      "title": "Sum of a finite number of terms of a geometric sequence; S_n = a(1 − r^n)/(1 − r) for r ≠ 1.",
+      "broader_concept": "Sequences and series",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "a3c643eb-e45f-4f8a-bdae-b85217cc5016",
+      "label": "Sum of first n natural numbers",
+      "group": "Algebra",
+      "title": "Formula 1 + 2 + ... + n = n(n + 1)/2 and its derivations.",
+      "broader_concept": "Number patterns",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "33e3f838-fb60-4b3f-8e3b-1e33a5a0518b",
+      "label": "Proof by mathematical induction",
+      "group": "Algebra",
+      "title": "Proof technique using a base case and inductive step to establish statements for all integers n.",
+      "broader_concept": "Mathematical proof",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "a1d2c273-88e0-489d-bf12-845361436d95",
+      "label": "Inductive proof of finite geometric series formula",
+      "group": "Algebra",
+      "title": "Using induction to prove S_n = a(1 − r^n)/(1 − r) for r ≠ 1.",
+      "broader_concept": "Proof by mathematical induction",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "06d495dc-500d-49c4-ae36-5fc3692148a1",
+      "label": "Inductive proof: 2^n ≥ n^2 for n ≥ 4",
+      "group": "Algebra",
+      "title": "Using induction to establish an exponential function eventually dominates a quadratic.",
+      "broader_concept": "Proof by mathematical induction",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "fe5d1850-3516-47ed-ae3c-fe57ec51d8f6",
+      "label": "Inductive proof: Bernoulli’s inequality (1 + x)^n ≥ 1 + nx for x > −1",
+      "group": "Algebra",
+      "title": "Applying induction to prove Bernoulli’s inequality for real x > −1 and integer n ≥ 1.",
+      "broader_concept": "Proof by mathematical induction",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "adc32bf3-e942-4c5c-90a0-8d662500f97f",
+      "label": "Inductive proof: n! > 2^n (for sufficiently large n)",
+      "group": "Algebra",
+      "title": "Demonstrating factorial growth outpaces exponential base 2 via induction.",
+      "broader_concept": "Proof by mathematical induction",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "b768a760-1280-44fa-b852-849310b05135",
+      "label": "Inductive proof of divisibility: 3 | (4^n − 1)",
+      "group": "Number Theory",
+      "title": "Using induction to show 4^n − 1 is divisible by 3 for all natural numbers n.",
+      "broader_concept": "Proof by mathematical induction",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "b7c96a92-8bf3-4439-83b0-803e4e13f64e",
+      "label": "Limit laws (sums, products, quotients)",
+      "group": "Calculus",
+      "title": "Rules for computing limits of sequences or functions by combining known limits.",
+      "broader_concept": "Limits of sequences",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "b4eaa080-b989-4431-87bc-afcf3ba9209f",
+      "label": "Finding limits of sequences by inspection",
+      "group": "Calculus",
+      "title": "Recognizing standard forms (e.g., 1/n → 0, r^n → 0 for |r| < 1) without formal computation.",
+      "broader_concept": "Limits of sequences",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "95545496-a83f-46f1-9688-86ba3c4de300",
+      "label": "Limit of 1/n as n → ∞",
+      "group": "Calculus",
+      "title": "The sequence 1/n converges to 0 as n grows without bound.",
+      "broader_concept": "Finding limits of sequences by inspection",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "344847e6-bc4d-414b-8ade-6e6dd42c816e",
+      "label": "Limit of r^n for |r| < 1 as n → ∞",
+      "group": "Calculus",
+      "title": "A geometric sequence with |r| < 1 converges to 0 as n increases.",
+      "broader_concept": "Finding limits of sequences by inspection",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "6d553512-e621-4542-88f3-13454177d503",
+      "label": "Sum to infinity of a geometric series",
+      "group": "Algebra",
+      "title": "For |r| < 1, S_∞ = a/(1 − r) obtained as the limit of S_n.",
+      "broader_concept": "Geometric series",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "8311e0bf-0b43-46c4-a7ef-e7fa4a67d1a3",
+      "label": "Deriving infinite geometric sum via limit of partial sums",
+      "group": "Algebra",
+      "title": "Proving S_∞ by taking the limit of S_n = a(1 − r^n)/(1 − r) as n → ∞ for |r| < 1.",
+      "broader_concept": "Sum to infinity of a geometric series",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "0d56c83c-0c51-450d-b8f9-7452f30a48d9",
+      "label": "Recurring decimals as geometric series",
+      "group": "Number",
+      "title": "Modeling repeating decimals as sums of geometric series to convert to fractions.",
+      "broader_concept": "Decimals as equivalent fractions",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "26f5e0b6-45c3-4dc3-93f5-41e1db44fef1",
+      "label": "Mortgage repayment formula (geometric series application)",
+      "group": "Algebra",
+      "title": "Deriving the annuity payment formula using the sum of a finite geometric series.",
+      "broader_concept": "Financial mathematics",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "1803acaf-daad-4b59-a2a3-6e757d6f27a5",
+      "label": "Closure properties of number sets (N, Z, Q, R)",
+      "group": "Number",
+      "title": "Determining which operations keep results within a given set (e.g., subtraction not closed in N).",
+      "broader_concept": "Number systems",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "805e8c81-6b90-4fca-bd24-90e02b1fb3fe",
+      "label": "Equality as a relationship between expressions",
+      "group": "Algebra",
+      "title": "Understanding that the equality symbol denotes two expressions having the same value.",
+      "broader_concept": "Equations and identities",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1f4d72d8-3ac4-4b03-a28d-92ef7bd99b33",
+      "label": "Equivalent numerical expressions",
+      "group": "Algebra",
+      "title": "Recognizing and justifying when different numerical expressions represent the same value.",
+      "broader_concept": "Equations and identities",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "a74b1671-7802-40cb-9bdc-b78bbc2878d2",
+      "label": "Analysis of solution strategies",
+      "group": "Mathematical Practices",
+      "title": "Evaluating and comparing different methods for solving a mathematical problem.",
+      "broader_concept": "Mathematical reasoning and proof",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "4863c298-4e77-4056-a9b6-87e73a52e914",
+      "label": "Percentage calculation",
+      "group": "Number and Operations",
+      "title": "Finding a percentage of a quantity and expressing a quantity as a percentage of another.",
+      "broader_concept": "Percents",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "7a266a12-f1d5-48e8-b68c-39f31d3cecad",
+      "label": "Comparing proportions using equivalent forms",
+      "group": "Ratios and Proportional Relationships",
+      "title": "Using fractions, decimals, or percentages to determine which of two or more proportions is larger or smaller.",
+      "broader_concept": "Proportional reasoning",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "aa0c9e85-4705-4573-a394-f1de88a1004b",
+      "label": "Factors in the natural numbers (N)",
+      "group": "Number Theory",
+      "title": "Identifying whole-number factors of a given natural number.",
+      "broader_concept": "Divisibility and factorization",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "98b7161d-92e9-475e-be6b-00c5ff742c92",
+      "label": "Multiples in the natural numbers (N)",
+      "group": "Number Theory",
+      "title": "Recognizing and generating multiples of a given natural number.",
+      "broader_concept": "Divisibility and multiples",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "c2ed99ad-1958-48d2-893a-80d5d8db21e1",
+      "label": "Prime numbers in the natural numbers (N)",
+      "group": "Number Theory",
+      "title": "Identifying prime numbers and distinguishing them from composite numbers.",
+      "broader_concept": "Primes and compositeness",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "6fd07da4-7421-4038-93e7-92b56764e07a",
+      "label": "Relationship between ratio and proportion",
+      "group": "Ratios and Proportional Relationships",
+      "title": "Understanding that a proportion is an equality of two ratios and using this relationship to solve problems.",
+      "broader_concept": "Proportional relationships",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "98b593ca-bbc5-4b31-a4bb-1b279b647836",
+      "label": "Order of magnitude check",
+      "group": "Number and Operations",
+      "title": "Assessing whether a result is reasonable by comparing its size to expected powers of ten or benchmark values.",
+      "broader_concept": "Estimation and reasonableness",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "7654805c-26a9-402f-865f-1c5c7b090d4f",
+      "label": "Working backwards (inverse reasoning)",
+      "group": "Mathematical Practices",
+      "title": "Solving problems by reversing the steps of a process to check or find a solution.",
+      "broader_concept": "Problem-solving strategies",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "d56163e7-e37d-4ef7-a1f3-04cce7560108",
+      "label": "Rounding results to a specified degree of accuracy",
+      "group": "Number and Operations",
+      "title": "Adjusting a numerical answer to a required precision before reporting it.",
+      "broader_concept": "Rounding and approximation",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "2c14ad1c-6881-46ba-a067-e1f743c3de00",
+      "label": "Rounding to decimal places",
+      "group": "Number and Operations",
+      "title": "Rounding a decimal number to a specified number of places to the right of the decimal point.",
+      "broader_concept": "Rounding and approximation",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "a8cc5b24-2a4f-42fa-a721-fa9ed85c9237",
+      "label": "Rounding to significant figures",
+      "group": "Measurement",
+      "title": "Expressing a number with a specified number of meaningful digits to reflect measurement precision.",
+      "broader_concept": "Measurement precision",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "50170f26-8928-401d-a8b5-58246ab5452f",
+      "label": "Estimation of calculations",
+      "group": "Number and Operations",
+      "title": "Making quick, approximate computations to gauge the size or reasonableness of results.",
+      "broader_concept": "Estimation and reasonableness",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "c8f89a71-9f15-4487-9722-ef0b05d865c3",
+      "label": "Approximation methods",
+      "group": "Number and Operations",
+      "title": "Using simplified values or methods to obtain near-exact results when exact calculation is unnecessary.",
+      "broader_concept": "Rounding and approximation",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "164290ae-5ad8-4a63-ad48-8eea502c3ce1",
+      "label": "Presenting numerical answers with specified accuracy",
+      "group": "Mathematical Practices",
+      "title": "Reporting results clearly with the precision requested (e.g., to a given number of decimal places or significant figures).",
+      "broader_concept": "Communication of mathematical results",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "9ffa0dcc-06a8-4ed4-98c8-665c63c253c0",
+      "label": "Expressing non-zero positive rational numbers in scientific notation",
+      "group": "Number and Operations",
+      "title": "Converting positive rational numbers to the normalized form a*10^n where n is an integer and 1 ≤ a < 10.",
+      "broader_concept": "Scientific notation",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "e61f57f8-3006-4b1d-87a2-c74c54ab4512",
+      "label": "Powers of ten with integer exponents",
+      "group": "Number and Operations",
+      "title": "Understanding and using 10^n for integer n to scale numbers and interpret place value shifts.",
+      "broader_concept": "Exponents",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "f2ded017-bb4b-475a-8c8f-9c3498c43a3e",
+      "label": "Square numbers (a^2)",
+      "group": "Number",
+      "title": "Representing and computing the square of a number as a × a.",
+      "broader_concept": "Exponents (Indices)",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "0d7740ed-29fa-4142-b4da-cfe89cc7319f",
+      "label": "Cube numbers (a^3)",
+      "group": "Number",
+      "title": "Representing and computing the cube of a number as a × a × a.",
+      "broader_concept": "Exponents (Indices)",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "a283bd2b-2ba0-47f3-9853-404cb8a51c07",
+      "label": "Square root of a number (√a or a^{1/2})",
+      "group": "Algebra",
+      "title": "Interpreting and calculating the principal square root and linking it to fractional indices.",
+      "broader_concept": "Radicals and Exponents",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "68e15c1d-2ed0-444f-888c-8fdbc3ccdb37",
+      "label": "Reciprocal of a number (1/a or a^{-1})",
+      "group": "Number",
+      "title": "Understanding and computing the multiplicative inverse of a nonzero number and its expression using negative indices.",
+      "broader_concept": "Exponents (Indices)",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "6421a65d-5fa0-4874-a147-bab765fd59d6",
+      "label": "Index (exponent) notation",
+      "group": "Algebra",
+      "title": "Using powers to represent repeated multiplication and to encode squares, cubes, roots, and reciprocals.",
+      "broader_concept": "Exponents (Indices)",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "d4ab728f-09d5-4bd4-816a-f13495130aba",
+      "label": "Fractional indices (a^{1/2})",
+      "group": "Algebra",
+      "title": "Interpreting fractional exponents as roots, specifically that a^{1/2} equals √a.",
+      "broader_concept": "Radicals and Exponents",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "418b0198-3c64-45d3-94bf-56f3b2ace70e",
+      "label": "Negative indices (a^{-1})",
+      "group": "Algebra",
+      "title": "Understanding that negative exponents represent reciprocals, e.g., a^{-1} = 1/a for a ≠ 0.",
+      "broader_concept": "Exponents (Indices)",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "ef00fbe7-e4b8-4884-bdf4-5e5be7fefa99",
+      "label": "Converting between radical and exponential forms",
+      "group": "Algebra",
+      "title": "Rewriting expressions like √a as a^{1/2} and 1/a as a^{-1} to switch between radicals and indices.",
+      "broader_concept": "Radicals and Exponents",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "7147c33b-0628-4cf8-9a6a-97c4936d09fc",
+      "label": "Evaluating squares, cubes, and square roots of integers",
+      "group": "Number",
+      "title": "Calculating exact values for a^2, a^3, and √a (when a is a perfect square), and recognizing common results.",
+      "broader_concept": "Number Operations",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "e4b77289-b05d-4f6b-8667-281b3de2023c",
+      "label": "Solving contextual problems with powers, roots, and reciprocals",
+      "group": "Algebra",
+      "title": "Applying squares, cubes, square roots, and reciprocals to real-world and word problems.",
+      "broader_concept": "Mathematical Modeling",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "55293439-78fa-4024-aa38-1a3a12cd8f81",
+      "label": "Rule-based generation of sequences",
+      "group": "Algebra",
+      "title": "Understanding that a process or rule (algorithm) can generate a sequence of numbers or objects.",
+      "broader_concept": "Sequences and Series",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "59a847fa-c80b-413e-bd20-2094cfc66ddc",
+      "label": "Pattern investigation in sequences",
+      "group": "Algebra",
+      "title": "Exploring and analyzing regularities in sequences, including examining differences, ratios, and structure.",
+      "broader_concept": "Pattern Recognition",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "62a69410-c2df-4692-970e-cb89ccc14478",
+      "label": "Sequence continuation using patterns",
+      "group": "Algebra",
+      "title": "Extending a sequence by applying the identified rule or pattern to find subsequent terms.",
+      "broader_concept": "Sequences and Series",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "3f8a7b6e-1e9b-45dc-8f50-5e0dff1fb2ba",
+      "label": "Algebraic generalisation of patterns",
+      "group": "Algebra",
+      "title": "Expressing observed patterns using variables and algebraic expressions or formulas.",
+      "broader_concept": "Algebraic Modelling",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "45161d05-a7b8-43c7-97e3-0f2c67f07cdc",
+      "label": "Position-to-term rule (explicit nth-term formula)",
+      "group": "Algebra",
+      "title": "Writing a formula a_n that gives the nth term of a sequence directly as a function of n.",
+      "broader_concept": "Sequences and Series",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "3c0942e1-0cc0-410e-8910-19e247b3d40c",
+      "label": "Term-to-term rule (recursive definition)",
+      "group": "Algebra",
+      "title": "Defining each term of a sequence based on previous term(s), e.g., a_{n+1} in terms of a_n.",
+      "broader_concept": "Sequences and Series",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "12cf378f-e9ca-41af-881d-7ac9378a3363",
+      "label": "Arithmetic sequence (arithmetic progression)",
+      "group": "Algebra",
+      "title": "A sequence where consecutive terms differ by a constant difference d; a_n = a_1 + (n−1)d.",
+      "broader_concept": "Sequences and Series",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "029b2936-8dcf-4132-b94e-ad136377c31d",
+      "label": "Common difference of an arithmetic sequence",
+      "group": "Algebra",
+      "title": "The constant amount d added to each term to get the next in an arithmetic sequence.",
+      "broader_concept": "Arithmetic Sequences",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "ebc1005e-c55d-4cd7-a2e2-3ccab068f894",
+      "label": "Geometric sequence (geometric progression)",
+      "group": "Algebra",
+      "title": "A sequence where each term is obtained by multiplying the previous term by a constant ratio r; a_n = a_1 r^{n−1}.",
+      "broader_concept": "Sequences and Series",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "7d0f4ca6-fb6b-47f3-8d81-3994f7f1887b",
+      "label": "Common ratio of a geometric sequence",
+      "group": "Algebra",
+      "title": "The constant factor r by which each term is multiplied to obtain the next term in a geometric sequence.",
+      "broader_concept": "Geometric Sequences",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "c52b5520-de04-4996-9e8f-db366c8d5bd1",
+      "label": "Classifying sequences as arithmetic, geometric, or neither",
+      "group": "Algebra",
+      "title": "Determining the type of a sequence by testing for constant differences (arithmetic) or constant ratios (geometric).",
+      "broader_concept": "Sequences and Series",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "53ed2e35-4c22-45a7-a615-18b69a367654",
+      "label": "Arithmetic series",
+      "group": "Algebra",
+      "title": "The sum of the terms of an arithmetic sequence.",
+      "broader_concept": "Series",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "cdb82562-ef08-400c-85fc-609299aab859",
+      "label": "Sum to n terms of an arithmetic series (S_n)",
+      "group": "Algebra",
+      "title": "Computing S_n using S_n = n/2 [2a_1 + (n−1)d].",
+      "broader_concept": "Arithmetic Series",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "d4d7e07f-6a4d-47f3-ac26-437b4bff65c4",
+      "label": "Sum to n terms using first and last terms",
+      "group": "Algebra",
+      "title": "Using S_n = n/2 (first term + nth term) to compute the partial sum of an arithmetic series.",
+      "broader_concept": "Arithmetic Series",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "078b4697-1791-4466-8980-8e2d4a3baeea",
+      "label": "Partial sum notation (S_n)",
+      "group": "Algebra",
+      "title": "Using S_n to denote the sum of the first n terms of a sequence or series.",
+      "broader_concept": "Series",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "34b24e0b-4ba8-4724-9142-6dccac70f089",
+      "label": "Product of Powers (Same Base)",
+      "group": "Algebra",
+      "title": "Multiply powers with the same base by adding exponents: a^p · a^q = a^(p+q).",
+      "broader_concept": "Laws of Indices",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "311ddd66-829b-45ee-b9f3-62e3ae749ffd",
+      "label": "Quotient of Powers (Same Base)",
+      "group": "Algebra",
+      "title": "Divide powers with the same base by subtracting exponents: a^p / a^q = a^(p−q).",
+      "broader_concept": "Laws of Indices",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "f55954be-65e0-4f0d-a545-91e751ca7ed3",
+      "label": "Zero Exponent Rule",
+      "group": "Algebra",
+      "title": "Any nonzero base raised to the zero power equals 1: a^0 = 1.",
+      "broader_concept": "Laws of Indices",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "489b861a-8fd1-4622-b5b1-b21bda3b874b",
+      "label": "Power of a Power",
+      "group": "Algebra",
+      "title": "Raise a power to a power by multiplying exponents: (a^p)^q = a^(pq).",
+      "broader_concept": "Laws of Indices",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "80ee0ba7-e6f7-4efa-8e40-e81eccedef53",
+      "label": "Negative Exponents",
+      "group": "Algebra",
+      "title": "A negative exponent denotes a reciprocal: a^(−p) = 1/a^p.",
+      "broader_concept": "Laws of Indices",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "a19ff765-fd71-457b-9533-874da79cf136",
+      "label": "Power of a Product",
+      "group": "Algebra",
+      "title": "Distribute the exponent over a product: (ab)^p = a^p b^p.",
+      "broader_concept": "Laws of Indices",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "e74ab3f2-26e1-4042-ba4c-f9611aac990f",
+      "label": "Power of a Quotient",
+      "group": "Algebra",
+      "title": "Distribute the exponent over a quotient: (a/b)^p = a^p / b^p.",
+      "broader_concept": "Laws of Indices",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "d1427778-989d-44d1-9615-0f5ed750ad8f",
+      "label": "Fractional Exponents as Roots",
+      "group": "Algebra",
+      "title": "A fractional index of 1/q denotes a q-th root: a^(1/q) = √[q]{a} (for a > 0).",
+      "broader_concept": "Rational Exponents",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "9f8ec95b-ecf7-4de5-88c7-b9a62ddda5ec",
+      "label": "Rational Exponents",
+      "group": "Algebra",
+      "title": "Interpret a^(p/q) as q-th root of a^p and as (q-th root of a)^p: a^(p/q) = √[q]{a^p} = (√[q]{a})^p.",
+      "broader_concept": "Rational Exponents",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "203e8b39-3192-453d-b2b5-6b06a007718b",
+      "label": "Domain Restrictions for Indices",
+      "group": "Algebra",
+      "title": "Understand when expressions with exponents are real, e.g., a ≠ 0 for negative exponents; a > 0 for fractional exponents with even denominators; p,q ∈ ℚ as specified.",
+      "broader_concept": "Laws of Indices",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "5b12d891-2bd9-4037-8b22-2df8c80cf23f",
+      "label": "Simplifying Expressions Using Index Laws",
+      "group": "Algebra",
+      "title": "Apply exponent rules to simplify algebraic expressions involving powers.",
+      "broader_concept": "Algebraic Manipulation",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "503684c9-025d-4f93-a656-65e123a8e854",
+      "label": "Logarithm Product Rule",
+      "group": "Algebra",
+      "title": "Logarithm of a product is the sum of logarithms: log_a(xy) = log_a x + log_a y.",
+      "broader_concept": "Logarithm Laws",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "dec5fdd7-ffa2-49cf-a779-9ad69787fbef",
+      "label": "Logarithm Quotient Rule",
+      "group": "Algebra",
+      "title": "Logarithm of a quotient is the difference of logarithms: log_a(x/y) = log_a x − log_a y.",
+      "broader_concept": "Logarithm Laws",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "6f95447c-fecf-4a19-9eb9-979419103bcb",
+      "label": "Logarithm Power Rule",
+      "group": "Algebra",
+      "title": "An exponent becomes a multiplier: log_a(x^q) = q · log_a x.",
+      "broader_concept": "Logarithm Laws",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "831311c2-4423-4da6-860d-15aff54325e1",
+      "label": "Logarithm of Base and One",
+      "group": "Algebra",
+      "title": "Evaluate key logarithms: log_a a = 1 and log_a 1 = 0.",
+      "broader_concept": "Logarithm Laws",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "3fe2fd42-226f-49d2-bd24-0d8f2908f5e2",
+      "label": "Change of Base Formula",
+      "group": "Algebra",
+      "title": "Convert between logarithm bases: log_a x = (log_b x)/(log_b a).",
+      "broader_concept": "Logarithm Laws",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "4006e09c-cd62-49d3-8fa2-596f76ab5961",
+      "label": "Domain and Base Restrictions for Logarithms",
+      "group": "Algebra",
+      "title": "Recognize valid inputs: base a > 0, a ≠ 1; argument x > 0.",
+      "broader_concept": "Logarithm Laws",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "9f65d08c-f93f-4bce-9e02-85980a7965ce",
+      "label": "Solving Problems Using Logarithm and Exponent Laws",
+      "group": "Algebra",
+      "title": "Use laws of indices and logarithms to simplify expressions and solve equations.",
+      "broader_concept": "Algebraic Problem Solving",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "4f7357fa-f075-405e-ad0a-23fa96b20d14",
+      "label": "Number sequences",
+      "group": "Algebra",
+      "title": "Ordered lists of numbers generated by a rule or process.",
+      "broader_concept": "Sequences",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "d9afd271-8dac-4191-88a7-2a3f0b8ad4dc",
+      "label": "Sequence generation by processes",
+      "group": "Algebra",
+      "title": "Creating sequences from iterative rules or procedures applied repeatedly.",
+      "broader_concept": "Sequences",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "851c260f-ab77-4e59-9b62-026be465feba",
+      "label": "Pattern recognition in sequences",
+      "group": "Algebra",
+      "title": "Identifying regularities or relationships among terms in a sequence.",
+      "broader_concept": "Mathematical reasoning",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1d115261-a350-406c-867a-356fd5bb42a8",
+      "label": "Continuing a sequence using a pattern",
+      "group": "Algebra",
+      "title": "Using identified rules to predict and extend subsequent terms.",
+      "broader_concept": "Sequences",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "63ebf8a0-bc22-4d24-8996-a1af0f649b59",
+      "label": "Algebraic generalization of patterns",
+      "group": "Algebra",
+      "title": "Expressing observed patterns using variables and algebraic expressions.",
+      "broader_concept": "Generalization",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "69d9748c-e2f4-4278-afc2-4b8d3df74a0f",
+      "label": "nth-term formula for a sequence",
+      "group": "Algebra",
+      "title": "An explicit expression that gives the nth term of a sequence.",
+      "broader_concept": "Sequences",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "0616c084-2c64-42bf-9647-efbd6dff7179",
+      "label": "Arithmetic sequence",
+      "group": "Algebra",
+      "title": "A sequence where consecutive terms differ by a constant common difference.",
+      "broader_concept": "Sequences",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "5dd5a286-0c70-4c7d-b4f9-ea858cbcfc43",
+      "label": "Common difference",
+      "group": "Algebra",
+      "title": "The fixed amount added to each term to obtain the next term in an arithmetic sequence.",
+      "broader_concept": "Arithmetic sequence",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "ce3012d9-f5e8-4522-a007-c942210e41f5",
+      "label": "Explicit formula for arithmetic sequence",
+      "group": "Algebra",
+      "title": "Formula a_n = a_1 + (n − 1)d giving the nth term from first term and common difference.",
+      "broader_concept": "Arithmetic sequence",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "8b1eac93-fbe2-4e17-ad4f-011c921b3807",
+      "label": "Geometric sequence",
+      "group": "Algebra",
+      "title": "A sequence where each term is obtained by multiplying the previous term by a constant common ratio.",
+      "broader_concept": "Sequences",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "9247585b-a23f-4eda-b622-98bd20041a19",
+      "label": "Common ratio",
+      "group": "Algebra",
+      "title": "The fixed factor by which consecutive terms of a geometric sequence differ.",
+      "broader_concept": "Geometric sequence",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "d930ed5e-2e9c-4c77-a75e-eed2b4ff98cb",
+      "label": "Explicit formula for geometric sequence",
+      "group": "Algebra",
+      "title": "Formula a_n = a_1 r^(n − 1) giving the nth term from first term and common ratio.",
+      "broader_concept": "Geometric sequence",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "6f3676fe-a6c2-4f6e-92ab-42f88b95649c",
+      "label": "Series and partial sums",
+      "group": "Algebra",
+      "title": "The sum of terms of a sequence, especially the sum of the first n terms.",
+      "broader_concept": "Series",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "541734cb-d1ca-407b-959a-963ff351c468",
+      "label": "Sum to n terms of an arithmetic series",
+      "group": "Algebra",
+      "title": "Using S_n = n/2 [2a_1 + (n − 1)d] to find the partial sum of an arithmetic series.",
+      "broader_concept": "Arithmetic series",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "9abad201-263a-47e5-bf1a-13a51503d2f3",
+      "label": "Recursive definition of a sequence",
+      "group": "Algebra",
+      "title": "Defining each term based on previous term(s) and an initial value.",
+      "broader_concept": "Sequences",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "a3de8837-faf1-4fbc-97f9-89120b47cb05",
+      "label": "Pattern generalization with variables",
+      "group": "Algebra",
+      "title": "Using variables to write rules that model numerical or visual patterns.",
+      "broader_concept": "Algebraic reasoning",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "4fd7dd86-11df-4169-9e0b-16e3d730a39d",
+      "label": "Visual or object sequences",
+      "group": "Algebra",
+      "title": "Sequences formed by arrangements of shapes or objects following a rule.",
+      "broader_concept": "Patterns",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "e3bc8801-495c-438e-9626-72be111b273a",
+      "label": "Predicting future terms of a sequence",
+      "group": "Algebra",
+      "title": "Using the identified rule or formula to determine later terms.",
+      "broader_concept": "Sequences",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "c80a8313-64e6-46bd-9095-092affdbbec4",
+      "label": "Product rule for exponents (a^p · a^q = a^(p+q))",
+      "group": "Algebra",
+      "title": "When multiplying powers with the same base, add the exponents.",
+      "broader_concept": "Exponent laws",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "0291f187-6912-4127-9b54-395598b9b908",
+      "label": "Quotient rule for exponents (a^p / a^q = a^(p−q))",
+      "group": "Algebra",
+      "title": "When dividing powers with the same base, subtract the exponents.",
+      "broader_concept": "Exponent laws",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "423b0464-c495-4bc5-8657-f36d2ab7ea98",
+      "label": "Zero exponent rule (a^0 = 1, a ≠ 0)",
+      "group": "Algebra",
+      "title": "Any nonzero base raised to the zero power equals one.",
+      "broader_concept": "Exponent laws",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "0eaab1e4-781a-405d-af74-15d8998845cc",
+      "label": "Power of a power rule ((a^p)^q = a^(pq))",
+      "group": "Algebra",
+      "title": "When raising a power to another power, multiply the exponents.",
+      "broader_concept": "Exponent laws",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "a3aaf5f2-d334-4139-8cb0-5ff3e0fe2a58",
+      "label": "Negative exponent rule (a^(−p) = 1/a^p)",
+      "group": "Algebra",
+      "title": "A negative exponent represents the reciprocal of the positive exponent.",
+      "broader_concept": "Exponent laws",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "d4c2010b-3bc6-46ac-ba1d-845a3613584d",
+      "label": "Power of a product rule ((ab)^p = a^p b^p)",
+      "group": "Algebra",
+      "title": "A product raised to a power equals the product of each factor raised to that power.",
+      "broader_concept": "Exponent laws",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "33cf0a90-a6da-449c-9627-e2e00a824985",
+      "label": "Power of a quotient rule ((a/b)^p = a^p / b^p, b ≠ 0)",
+      "group": "Algebra",
+      "title": "A quotient raised to a power equals the quotient of each term raised to that power.",
+      "broader_concept": "Exponent laws",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "ea8e5b16-2686-4170-9d65-2fe29eb7fb84",
+      "label": "Fractional exponent as root (a^(1/q) is the qth root of a)",
+      "group": "Algebra",
+      "title": "A power with exponent 1/q equals the qth root of the base (for real numbers, typically a > 0, q ≠ 0).",
+      "broader_concept": "Exponent laws",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "4d39c215-585e-47b3-893c-51d86850d6f6",
+      "label": "Rational exponents (a^(p/q) = (qth root of a)^p = qth root of a^p)",
+      "group": "Algebra",
+      "title": "A rational exponent represents a root and a power, with domain restrictions such as a > 0 for real roots when q is even.",
+      "broader_concept": "Exponent laws",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "64ec98a5-4d1e-422f-b3d8-289d9451e256",
+      "label": "Domain restrictions for exponent rules",
+      "group": "Algebra",
+      "title": "Understanding conditions like a, b ≠ 0; q ≠ 0; and a > 0 when roots or logarithms are involved, to ensure results are real.",
+      "broader_concept": "Exponents and logarithms",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "8d95202c-1d62-456b-b9e3-0b5a64bef72b",
+      "label": "Product rule for logarithms (log_a(xy) = log_a x + log_a y)",
+      "group": "Algebra",
+      "title": "The logarithm of a product is the sum of the logarithms.",
+      "broader_concept": "Logarithmic laws",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "07949f60-6b7e-46ce-870b-f89b56b3a907",
+      "label": "Quotient rule for logarithms (log_a(x/y) = log_a x − log_a y)",
+      "group": "Algebra",
+      "title": "The logarithm of a quotient is the difference of the logarithms.",
+      "broader_concept": "Logarithmic laws",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "d9812745-c8bf-46c4-84a6-052731f9b717",
+      "label": "Power rule for logarithms (log_a(x^q) = q log_a x)",
+      "group": "Algebra",
+      "title": "An exponent on the argument can be brought down as a multiplier.",
+      "broader_concept": "Logarithmic laws",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "2663de23-f234-47b8-af17-a574a0c1abbe",
+      "label": "Special logarithm values (log_a a = 1 and log_a 1 = 0)",
+      "group": "Algebra",
+      "title": "Logarithm of the base equals one; logarithm of one equals zero for any valid base a.",
+      "broader_concept": "Logarithmic laws",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "05267d0c-6da6-4664-8626-e0975c6ddc7e",
+      "label": "Change of base formula (log_a x = log_b x / log_b a)",
+      "group": "Algebra",
+      "title": "Allows computation of logarithms in any base using a different base, such as common or natural logs.",
+      "broader_concept": "Logarithmic laws",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "69b5a610-9129-4119-b8a5-d02967e19a3d",
+      "label": "Applying exponent laws in problem solving",
+      "group": "Algebra",
+      "title": "Use index rules to simplify expressions and solve equations involving powers.",
+      "broader_concept": "Exponents and powers",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "5312ef82-fec1-46a8-b8ca-c071224b423e",
+      "label": "Applying logarithm laws in problem solving",
+      "group": "Algebra",
+      "title": "Use logarithmic identities to simplify expressions and solve logarithmic and exponential equations.",
+      "broader_concept": "Logarithms",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "d79011a3-19f7-4d84-8f34-acca5d34ffb0",
+      "label": "Profit and loss calculation",
+      "group": "Number & Operations",
+      "title": "Compute profit or loss as the difference between selling price and cost price.",
+      "broader_concept": "Financial arithmetic",
+      "grade_level": "High School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1d7df242-9b10-4823-aaea-8795d0a17bd3",
+      "label": "Percentage profit (on cost price)",
+      "group": "Number & Operations",
+      "title": "Calculate profit as a percentage of cost price using (profit ÷ cost price) × 100%.",
+      "broader_concept": "Percentage calculations",
+      "grade_level": "High School",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "befcbba3-840a-4a80-a2c4-c66db340fc50",
+      "label": "Percentage loss (on cost price)",
+      "group": "Number & Operations",
+      "title": "Calculate loss as a percentage of cost price using (loss ÷ cost price) × 100%.",
+      "broader_concept": "Percentage calculations",
+      "grade_level": "High School",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "4eded4c1-d96d-45ce-90af-d53fdb5ba752",
+      "label": "Selling price from cost and profit/loss",
+      "group": "Number & Operations",
+      "title": "Determine selling price given cost price and profit or loss amount/percentage.",
+      "broader_concept": "Profit and loss calculation",
+      "grade_level": "High School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "7238d001-9419-4951-8904-44563ca6c06e",
+      "label": "Discount amount calculation",
+      "group": "Number & Operations",
+      "title": "Find the discount in currency units from a marked price and a discount rate.",
+      "broader_concept": "Percentage calculations",
+      "grade_level": "High School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "6c0bce83-abc9-4dc4-ad02-2f3a34d9506f",
+      "label": "Percentage discount",
+      "group": "Number & Operations",
+      "title": "Compute the percentage reduction relative to the marked price.",
+      "broader_concept": "Percentage calculations",
+      "grade_level": "High School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1044dc26-dd1e-4e40-9d17-1c8b3b9b16e1",
+      "label": "Selling price after discount",
+      "group": "Number & Operations",
+      "title": "Calculate the final price after applying a discount to the marked price.",
+      "broader_concept": "Discount calculation",
+      "grade_level": "High School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "6003dccf-86f8-42d2-aa49-aa948608b7ae",
+      "label": "Value-added tax (VAT) calculation",
+      "group": "Financial Mathematics",
+      "title": "Apply a VAT rate to compute tax amount and VAT-inclusive or VAT-exclusive prices.",
+      "broader_concept": "Sales tax and VAT",
+      "grade_level": "High School",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "74bf0f31-a06a-4940-81e1-13164d627e88",
+      "label": "Reverse percentage for pre-tax/pre-discount price",
+      "group": "Number & Operations",
+      "title": "Find the original price before a known percentage increase (VAT) or decrease (discount).",
+      "broader_concept": "Percentage calculations",
+      "grade_level": "High School",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "a0febd0b-a743-46d2-8750-7014e7ac96c7",
+      "label": "Currency conversion with exchange rates and commission",
+      "group": "Financial Mathematics",
+      "title": "Convert between currencies using exchange rates and include fees or commission.",
+      "broader_concept": "Rates and proportional reasoning",
+      "grade_level": "High School",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "3acc0fe5-e5ec-4042-a48b-e3f0cafee48b",
+      "label": "Two-part tariff pricing (fixed fee plus per-unit rate)",
+      "group": "Financial Mathematics",
+      "title": "Model bills with a fixed charge plus a variable per-minute or per-unit cost, common in mobile plans.",
+      "broader_concept": "Financial arithmetic",
+      "grade_level": "High School",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "069db0b2-cdeb-472c-946c-2af20ef5f253",
+      "label": "Unit rate and best buy comparison",
+      "group": "Ratios & Proportional Relationships",
+      "title": "Compute cost per unit to compare options and judge value for money.",
+      "broader_concept": "Proportional reasoning",
+      "grade_level": "Middle School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "52dd48fa-22d0-4f3e-9492-c3715c715ee0",
+      "label": "Ratio simplification",
+      "group": "Ratios & Proportional Relationships",
+      "title": "Express ratios in simplest form by dividing by the greatest common factor.",
+      "broader_concept": "Ratios",
+      "grade_level": "Middle School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "a9703975-5969-4cc8-9b4a-82c7b3ce61c5",
+      "label": "Unitary method for proportion problems",
+      "group": "Ratios & Proportional Relationships",
+      "title": "Find the value for one unit and scale up or down to solve ratio and rate problems.",
+      "broader_concept": "Proportional reasoning",
+      "grade_level": "Middle School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "d1a5f4d6-8430-4d19-9992-282cfcf83bee",
+      "label": "Direct proportion problems",
+      "group": "Ratios & Proportional Relationships",
+      "title": "Model relationships of the form y = kx and solve for unknowns using constant ratios.",
+      "broader_concept": "Proportional reasoning",
+      "grade_level": "Middle School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "613d3819-39c1-4367-8620-a2bc1b739589",
+      "label": "Measurement unit conversion (metric)",
+      "group": "Measurement",
+      "title": "Convert between metric units of length, mass, and capacity using powers of 10.",
+      "broader_concept": "Measurement",
+      "grade_level": "Middle School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "efdfae49-dcd3-4d37-af87-7303448d3166",
+      "label": "Time conversions (12-hour/24-hour; h–min–s)",
+      "group": "Measurement",
+      "title": "Convert between time formats and units such as hours, minutes, and seconds.",
+      "broader_concept": "Measurement of time",
+      "grade_level": "Middle School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "b1405aa8-d699-4522-acad-97204f916092",
+      "label": "Timetable interpretation and elapsed time",
+      "group": "Measurement",
+      "title": "Read timetables and calculate departure, arrival, and duration of journeys.",
+      "broader_concept": "Measurement of time",
+      "grade_level": "Middle School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "3af2691f-b1fc-4b9d-a99a-62959b448696",
+      "label": "Speed, distance, and time calculations",
+      "group": "Measurement",
+      "title": "Use relationships speed = distance ÷ time, distance = speed × time, and time = distance ÷ speed.",
+      "broader_concept": "Rates and proportional reasoning",
+      "grade_level": "Middle School",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "7fb907a1-6f73-49fd-a71c-c10aa49d9ef9",
+      "label": "Rate unit conversion (e.g., km/h to m/s)",
+      "group": "Measurement",
+      "title": "Convert rate units to maintain consistency when solving speed–distance–time problems.",
+      "broader_concept": "Measurement of rate",
+      "grade_level": "Middle School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "8de1459d-ed5b-4b46-920a-3b5dc7cfec29",
+      "label": "Compound interest (up to 3 years)",
+      "group": "Financial Mathematics",
+      "title": "Apply A = P(1 + r)^n to compute accumulated amount for up to three compounding periods.",
+      "broader_concept": "Financial arithmetic",
+      "grade_level": "High School",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "7fff0cad-0c74-4048-b507-4a1a94df0948",
+      "label": "Income tax at standard rate",
+      "group": "Financial Mathematics",
+      "title": "Calculate tax payable by applying a single flat rate to taxable income.",
+      "broader_concept": "Taxation",
+      "grade_level": "High School",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "e22bdf79-f6fc-4994-af0e-48273f8cf6e6",
+      "label": "Net pay calculation with fixed deductions",
+      "group": "Financial Mathematics",
+      "title": "Find net pay from gross pay by subtracting income tax and specified deductions.",
+      "broader_concept": "Payroll calculations",
+      "grade_level": "High School",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "55477adc-2d0e-484a-9513-15fb8a99fae8",
+      "label": "Meter reading and consumption cost calculation",
+      "group": "Financial Mathematics",
+      "title": "Compute utility usage from meter readings and determine cost using given rates.",
+      "broader_concept": "Utility billing calculations",
+      "grade_level": "High School",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "c59c8c0d-3d9b-4e10-ac5d-9d43f91af5e5",
+      "label": "Shopping total cost calculation",
+      "group": "Number & Operations",
+      "title": "Calculate the total cost of multiple items, incorporating discounts or taxes when applicable.",
+      "broader_concept": "Financial arithmetic",
+      "grade_level": "Middle School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "f5e1eb41-1eca-466d-8904-c80292a6887f",
+      "label": "Nets of Rectangular Prisms",
+      "group": "Geometry",
+      "title": "Flattened 2D layouts of a rectangular solid that fold to form the 3D prism; used to analyze faces and compute surface area.",
+      "broader_concept": "Nets of Solids",
+      "grade_level": "Middle School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "43b0b961-4798-4de2-8dc1-f6922b1450bc",
+      "label": "Nets of Cylinders",
+      "group": "Geometry",
+      "title": "A rectangle (lateral surface) with two congruent circles (bases) that fold to form a cylinder; supports surface area calculations.",
+      "broader_concept": "Nets of Solids",
+      "grade_level": "Middle School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "e79beb06-f2f0-4f1f-92db-1a5e8fe1d3f6",
+      "label": "Using Nets to Compute Surface Area",
+      "group": "Measurement",
+      "title": "Procedure of laying out all faces of a solid as a net, finding each face’s area, and summing to get total surface area.",
+      "broader_concept": "Surface Area",
+      "grade_level": "Middle School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "93c03a80-6da3-4f93-b4dc-30bc3c77c512",
+      "label": "Distinguishing Surface Area and Volume",
+      "group": "Measurement",
+      "title": "Understanding that surface area measures the total exterior area of a 3D object while volume measures the space it occupies.",
+      "broader_concept": "Measurement Concepts",
+      "grade_level": "Middle School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "96ab9550-ee68-4ed5-b7bd-ec2770e007f3",
+      "label": "Distinguishing Perimeter and Area",
+      "group": "Measurement",
+      "title": "Recognizing perimeter as the length around a 2D figure and area as the measure of the region it covers.",
+      "broader_concept": "Measurement Concepts",
+      "grade_level": "Middle School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "88e4d381-e433-415b-923f-bec9d7fda7d1",
+      "label": "Perimeter of a Triangle",
+      "group": "Measurement",
+      "title": "Sum of the lengths of the three sides of a triangle.",
+      "broader_concept": "Perimeter",
+      "grade_level": "Middle School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "51cf77b9-5181-40b3-955d-98b3e46386dd",
+      "label": "Perimeter of a Rectangle",
+      "group": "Measurement",
+      "title": "P = 2(l + w) for a rectangle with length l and width w.",
+      "broader_concept": "Perimeter",
+      "grade_level": "Middle School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "6cdb6c86-5c60-4090-81e8-391017b5f731",
+      "label": "Perimeter of a Square",
+      "group": "Measurement",
+      "title": "P = 4s for a square with side length s.",
+      "broader_concept": "Perimeter",
+      "grade_level": "Middle School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "d49e8936-53b3-43a6-87a6-d909aef0fb11",
+      "label": "Circumference of a Circle",
+      "group": "Measurement",
+      "title": "The perimeter of a circle; C = 2πr or C = πd.",
+      "broader_concept": "Perimeter",
+      "grade_level": "Middle School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "bb2a1fba-803f-4b97-ab9a-4fc7b8e2a7b0",
+      "label": "Pi (π) as Circumference–Diameter Ratio",
+      "group": "Geometry",
+      "title": "The constant π is the ratio of a circle’s circumference to its diameter.",
+      "broader_concept": "Circle Geometry",
+      "grade_level": "Middle School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "13f77ae9-ae8f-4004-aea2-be38db201e58",
+      "label": "Area of a Triangle",
+      "group": "Measurement",
+      "title": "A = 1/2 bh, where b is base and h is corresponding height.",
+      "broader_concept": "Area",
+      "grade_level": "Middle School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "51617cfc-8ba3-4e99-9201-35df4b871986",
+      "label": "Area of a Rectangle",
+      "group": "Measurement",
+      "title": "A = l × w for a rectangle with length l and width w.",
+      "broader_concept": "Area",
+      "grade_level": "Middle School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "04b7518c-95f7-4095-8b38-992543c726f4",
+      "label": "Area of a Square",
+      "group": "Measurement",
+      "title": "A = s^2 for a square with side length s.",
+      "broader_concept": "Area",
+      "grade_level": "Middle School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "e5aec87e-7ee8-4ea0-bc48-4f910282aa66",
+      "label": "Area of a Circle (Disc)",
+      "group": "Measurement",
+      "title": "A = πr^2 for a circle of radius r.",
+      "broader_concept": "Area",
+      "grade_level": "Middle School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "66600360-b675-4d8a-974a-f46873d44734",
+      "label": "Area of Composite Shapes by Decomposition",
+      "group": "Measurement",
+      "title": "Finding the area of figures composed of basic shapes by partitioning into known shapes and summing areas.",
+      "broader_concept": "Area",
+      "grade_level": "Middle School",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "59676823-8d2a-4ac6-90cd-c129a4f02454",
+      "label": "Perimeter of Composite Figures",
+      "group": "Measurement",
+      "title": "Determining the total boundary length of shapes formed by combining basic figures, accounting for shared edges.",
+      "broader_concept": "Perimeter",
+      "grade_level": "Middle School",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "b518ea90-3cd3-4488-88d8-ea4f6834c374",
+      "label": "Estimating Area of Irregular Shapes",
+      "group": "Measurement",
+      "title": "Using strategies such as grid approximation and decomposition to approximate area when formulas do not directly apply.",
+      "broader_concept": "Estimation in Measurement",
+      "grade_level": "Middle School",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "dbae62c2-a15b-4dd3-897e-11c0a1c20900",
+      "label": "Volume of a Rectangular Prism",
+      "group": "Measurement",
+      "title": "V = lwh, the product of length, width, and height.",
+      "broader_concept": "Volume",
+      "grade_level": "Middle School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1e65ad16-1ea3-4b6b-9a98-d83266a22e00",
+      "label": "Surface Area of a Rectangular Prism",
+      "group": "Measurement",
+      "title": "SA = 2(lw + lh + wh), the sum of the areas of all six faces.",
+      "broader_concept": "Surface Area",
+      "grade_level": "Middle School",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "8f4ea83d-6644-4933-b6f9-dc2c5848ff75",
+      "label": "Volume of a Cylinder",
+      "group": "Measurement",
+      "title": "V = πr^2h, where r is the radius of the base and h is height.",
+      "broader_concept": "Volume",
+      "grade_level": "Middle School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1a068c99-6306-44b0-a2f4-9192f9522385",
+      "label": "Surface Area of a Cylinder",
+      "group": "Measurement",
+      "title": "SA = 2πrh + 2πr^2, sum of lateral area and areas of two bases.",
+      "broader_concept": "Surface Area",
+      "grade_level": "Middle School",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "8b422ba1-0b49-45d1-9ab9-c6828625bc10",
+      "label": "Volume of a Sphere",
+      "group": "Measurement",
+      "title": "V = 4/3 πr^3 for a sphere of radius r.",
+      "broader_concept": "Volume",
+      "grade_level": "Middle School",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "d479eaa9-3f20-40b6-b8e4-5ed4d8ff2901",
+      "label": "Surface Area of a Sphere",
+      "group": "Measurement",
+      "title": "SA = 4πr^2 for a sphere of radius r.",
+      "broader_concept": "Surface Area",
+      "grade_level": "Middle School",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "8b5f6d7c-37eb-4d2b-abb9-8eed827a5c1c",
+      "label": "Scaled Diagrams and Scale Factor",
+      "group": "Geometry",
+      "title": "Drawing and interpreting diagrams to scale, using a constant scale factor to relate drawing measurements to real sizes.",
+      "broader_concept": "Similarity and Scale",
+      "grade_level": "Middle School",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "395426c3-64d7-41d3-9288-cee5a048d5c8",
+      "label": "Mathematical Modeling with Surface Area and Volume",
+      "group": "Applications",
+      "title": "Formulating and solving real-world problems that involve selecting appropriate formulas and units for surface area and volume.",
+      "broader_concept": "Mathematical Modeling",
+      "grade_level": "Middle School",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "ec9472ad-737f-46dc-b699-3fac617cbe11",
+      "label": "Multi-step Problem Solving in Measurement",
+      "group": "Mathematical Practices",
+      "title": "Solving problems requiring multiple stages, such as combining area and perimeter or linking nets, surface area, and volume.",
+      "broader_concept": "Problem Solving Strategies",
+      "grade_level": "Middle School",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "b95632ac-fee4-4959-8137-8b73679bdef6",
+      "label": "Working backwards to verify solutions",
+      "group": "Mathematical Reasoning",
+      "title": "Use inverse operations or reverse reasoning to confirm the correctness of a result.",
+      "broader_concept": "Problem-solving strategies",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "dfa8ae26-e85b-4931-9132-068950f34cf3",
+      "label": "Rounding of numerical results",
+      "group": "Number & Operations",
+      "title": "Round answers to a specified degree of accuracy to simplify or report results appropriately.",
+      "broader_concept": "Estimation and approximation",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "4eadb348-8309-4b69-b690-54279edfcc7b",
+      "label": "Error accumulation in sums and differences",
+      "group": "Measurement",
+      "title": "Propagate measurement errors when adding or subtracting quantities by adding absolute errors.",
+      "broader_concept": "Error analysis",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "2a9d16df-69f2-49c8-b1c1-48ab498ca613",
+      "label": "Estimation and approximation of calculations",
+      "group": "Number & Operations",
+      "title": "Make and justify rough calculations to obtain quick, reasonable answers.",
+      "broader_concept": "Estimation and approximation",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "f4b2b8ed-7d8a-4b50-bfe5-8d4b89e71b3b",
+      "label": "Percentage error",
+      "group": "Measurement",
+      "title": "Compute the relative error as a percentage of the true or accepted value.",
+      "broader_concept": "Error analysis",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "999e5a2a-43a2-4660-b7ae-8ce8fe248707",
+      "label": "Tolerance in measurements",
+      "group": "Measurement",
+      "title": "Specify acceptable limits of variation around a target measurement.",
+      "broader_concept": "Measurement accuracy",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "9870b2aa-90be-4d25-bceb-aa7adf3b2069",
+      "label": "Average rate of change with respect to time",
+      "group": "Algebra",
+      "title": "Calculate change in a quantity per unit time using Δquantity/Δtime.",
+      "broader_concept": "Rates and proportional reasoning",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "f4e38f75-bfbd-4c0c-8e21-ef95640ba16a",
+      "label": "Cost price calculation",
+      "group": "Financial Mathematics",
+      "title": "Determine the original cost of goods before profit, loss, or discounts.",
+      "broader_concept": "Financial mathematics",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "43280beb-7cae-485e-b035-75b87cb9530f",
+      "label": "Selling price calculation",
+      "group": "Financial Mathematics",
+      "title": "Compute the final price at which goods are sold, including adjustments like markups or discounts.",
+      "broader_concept": "Financial mathematics",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "d75ae5c9-c5e0-4947-b506-95349d05cf98",
+      "label": "Discount calculation",
+      "group": "Financial Mathematics",
+      "title": "Find the reduction from list price using a percentage discount and compute the discounted price.",
+      "broader_concept": "Pricing strategies",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "36dc99cc-2709-4510-ab6e-95ebe7659a8e",
+      "label": "Markup (profit as percentage of cost price)",
+      "group": "Financial Mathematics",
+      "title": "Express profit as a percentage of cost to set a selling price.",
+      "broader_concept": "Pricing strategies",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "47de3d1b-a5d1-497c-8d13-2e0ed5d96799",
+      "label": "Margin (profit as percentage of selling price)",
+      "group": "Financial Mathematics",
+      "title": "Express profit as a percentage of the selling price to assess profitability.",
+      "broader_concept": "Pricing strategies",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "9d981fcb-e97e-446a-a406-5c34aa968927",
+      "label": "Compound interest calculations",
+      "group": "Financial Mathematics",
+      "title": "Calculate accumulated value using repeated percentage growth, typically A = P(1 + r/n)^(nt).",
+      "broader_concept": "Time value of money",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "81e6f115-4104-4f16-af28-299d9fd6e166",
+      "label": "Reducing balance (declining balance) depreciation",
+      "group": "Financial Mathematics",
+      "title": "Model asset value decreasing by a fixed percentage each period.",
+      "broader_concept": "Depreciation methods",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "6c7d5581-21c5-4033-aca9-8f7013a00983",
+      "label": "Income tax calculation",
+      "group": "Financial Mathematics",
+      "title": "Compute tax owed based on income and applicable rates or brackets.",
+      "broader_concept": "Taxation",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "74ec3740-d45b-4aff-8476-f05b94e11837",
+      "label": "Net pay calculation with deductions",
+      "group": "Financial Mathematics",
+      "title": "Determine take-home pay after income tax and other deductions.",
+      "broader_concept": "Payroll mathematics",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "42c4b2e6-51af-4ecf-8895-0a97d366d536",
+      "label": "Materials costing",
+      "group": "Financial Mathematics",
+      "title": "Estimate total material costs based on quantities, unit prices, and waste factors.",
+      "broader_concept": "Project costing",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "a736b227-41fa-469c-800c-2ed5bfa9bbbe",
+      "label": "Labour costing",
+      "group": "Financial Mathematics",
+      "title": "Calculate labour costs using hours worked and wage rates, including overtime if applicable.",
+      "broader_concept": "Project costing",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "c29003a1-9cdb-4cf7-9f7f-674f1e2619fd",
+      "label": "Wastage allowance in costing",
+      "group": "Financial Mathematics",
+      "title": "Include an additional percentage or amount to account for expected waste of materials.",
+      "broader_concept": "Project costing",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "2e83353f-d94c-41f5-a568-158268b27670",
+      "label": "Metric system units",
+      "group": "Measurement",
+      "title": "Use SI base and derived units and their prefixes for measurement.",
+      "broader_concept": "Measurement systems",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "df479c42-0fc1-4b5b-a4f7-0639bcc98f67",
+      "label": "Unit conversion (metric and imperial)",
+      "group": "Measurement",
+      "title": "Convert quantities between units using provided conversion factors.",
+      "broader_concept": "Measurement and units",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "5e925fb7-e816-49b3-9051-cb40b171a3f5",
+      "label": "Estimation of real-world measures",
+      "group": "Measurement",
+      "title": "Make reasonable estimates of lengths, masses, times, and other physical quantities in context.",
+      "broader_concept": "Measurement estimation",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "6675df35-3d90-4f1e-add6-1c8ce7320f97",
+      "label": "Present value",
+      "group": "Financial Mathematics",
+      "title": "Determine the current worth of a future amount of money using a discount rate.",
+      "broader_concept": "Time value of money",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "6ab097aa-50cd-46b8-b9de-4da0422cfb99",
+      "label": "Loan repayment using present value (annuity method)",
+      "group": "Financial Mathematics",
+      "title": "Use present value of an annuity to compute periodic loan repayments.",
+      "broader_concept": "Annuities",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "b44e21aa-2948-4a9e-adb6-dab9620ad432",
+      "label": "Investment valuation using present value",
+      "group": "Financial Mathematics",
+      "title": "Apply discounting to evaluate the present value of future investment cash flows.",
+      "broader_concept": "Time value of money",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "ea2fef7c-08f5-49ea-8f15-9c5556f63806",
+      "label": "Nets of prisms",
+      "group": "Geometry",
+      "title": "2D layouts that fold to form prisms; used to visualize and compute surface area.",
+      "broader_concept": "Nets of 3D solids",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "c81b455e-2e93-484b-a6df-d25771320df3",
+      "label": "Net of a cylinder",
+      "group": "Geometry",
+      "title": "Unfolded form of a cylinder consisting of a rectangle and two congruent circles.",
+      "broader_concept": "Nets of 3D solids",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "7bfcfdcb-e2f1-4877-bed2-5fb219094183",
+      "label": "Net of a right cone",
+      "group": "Geometry",
+      "title": "Unfolded form of a right cone consisting of a sector and a circle.",
+      "broader_concept": "Nets of 3D solids",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "15a0925f-763d-419b-a4a5-986301104c9e",
+      "label": "Perimeter of a parallelogram",
+      "group": "Geometry",
+      "title": "P = 2(a + b) for adjacent side lengths a and b.",
+      "broader_concept": "Perimeter of plane figures",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "a283316a-79f2-45ec-823c-a76f9014aa24",
+      "label": "Perimeter of a trapezium",
+      "group": "Geometry",
+      "title": "Sum of all four side lengths of a trapezium.",
+      "broader_concept": "Perimeter of plane figures",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "962b4f9e-44f4-4007-b93c-46af2a46dd9c",
+      "label": "Perimeter of a sector of a circle",
+      "group": "Geometry",
+      "title": "Sum of arc length and two radii: P = rθ + 2r (radians) or P = (θ/360)·2πr + 2r (degrees).",
+      "broader_concept": "Perimeter of plane figures",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "af95ea0b-b9c3-4312-86ea-82a764ca580d",
+      "label": "Area of a parallelogram",
+      "group": "Geometry",
+      "title": "A = b·h where h is the perpendicular height to base b.",
+      "broader_concept": "Area of plane figures",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "cc5e5137-d2b8-4530-a42c-91fafdf0ced6",
+      "label": "Area of a trapezium",
+      "group": "Geometry",
+      "title": "A = 1/2·(a + b)·h where a and b are parallel sides and h is height.",
+      "broader_concept": "Area of plane figures",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "e363c6d4-45a9-4ff3-a1b3-d29342140abc",
+      "label": "Arc length of a sector",
+      "group": "Geometry",
+      "title": "L = rθ (radians) or L = (θ/360)·2πr (degrees).",
+      "broader_concept": "Circle geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "0f535496-5c29-4eb3-bcff-57a45611f795",
+      "label": "Area and perimeter of composite plane figures",
+      "group": "Geometry",
+      "title": "Decompose or combine standard shapes to find total area and perimeter.",
+      "broader_concept": "Measurement of 2D shapes",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "76721de6-1bb3-4a26-9d86-a89b4059d7f1",
+      "label": "Surface area of a rectangular block (cuboid)",
+      "group": "Geometry",
+      "title": "Sum of areas of six rectangular faces; SA = 2(lw + lh + wh).",
+      "broader_concept": "Surface area of solids",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "4de5d375-ea00-4796-9b51-8b6c681e8963",
+      "label": "Volume of a rectangular block (cuboid)",
+      "group": "Geometry",
+      "title": "V = l·w·h.",
+      "broader_concept": "Volume of solids",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "9bc53445-2a5e-42d8-9e7a-3bcd6992bf37",
+      "label": "Surface area of a right cone",
+      "group": "Geometry",
+      "title": "Total SA = πrl + πr^2; curved area = πrl where l is slant height.",
+      "broader_concept": "Surface area of solids",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "efe10d38-aa97-4aab-b7e8-c88af8a19205",
+      "label": "Volume of a right cone",
+      "group": "Geometry",
+      "title": "V = (1/3)πr^2h.",
+      "broader_concept": "Volume of solids",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "bf6c2975-e9ba-4adb-b0b6-7c73eefc2277",
+      "label": "Surface area of a triangular prism",
+      "group": "Geometry",
+      "title": "Sum of areas of two triangular bases and three rectangular faces.",
+      "broader_concept": "Surface area of solids",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "763b02dc-7763-4072-8738-fe8ba9f14e8a",
+      "label": "Volume of a triangular prism",
+      "group": "Geometry",
+      "title": "V = (area of triangular base) × (prism length).",
+      "broader_concept": "Volume of solids",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1e2f28e5-25bc-4fd9-8d97-a436d7b2f302",
+      "label": "Surface area of a hemisphere",
+      "group": "Geometry",
+      "title": "Total SA = 3πr^2; curved area = 2πr^2.",
+      "broader_concept": "Surface area of solids",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "aa43819f-23dd-4578-a58b-13fe5a99250d",
+      "label": "Volume of a hemisphere",
+      "group": "Geometry",
+      "title": "V = (2/3)πr^3.",
+      "broader_concept": "Volume of solids",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "5c754eff-86ba-45df-986b-ddee1fb7dec4",
+      "label": "Surface area and volume of composite solids",
+      "group": "Geometry",
+      "title": "Decompose or combine standard solids to compute total surface area and volume.",
+      "broader_concept": "Measurement of 3D shapes",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "779c8d08-4d2f-49fd-949d-d9d4040025fb",
+      "label": "Trapezoidal rule for area approximation",
+      "group": "Calculus",
+      "title": "Numerical method approximating area under a curve using trapezia; A ≈ h/2 [y0 + 2Σy_i + y_n].",
+      "broader_concept": "Numerical integration",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "5132902f-123d-441d-87f6-988c2378d192",
+      "label": "Investigate nets to determine surface area",
+      "group": "Geometry",
+      "title": "Use and analyze nets to derive and justify surface area formulas of solids.",
+      "broader_concept": "Nets of 3D solids",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "750ae4aa-8b54-4e9e-a7d5-d6c1bb937c8a",
+      "label": "Identifying triangle types: right, isosceles, equilateral",
+      "group": "Geometry",
+      "title": "Classify triangles by side and angle properties to select appropriate formulas in problems.",
+      "broader_concept": "Triangle geometry",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "ef468788-215b-40f1-b703-32d2edc8937c",
+      "label": "Polynomial expression",
+      "group": "Algebra",
+      "title": "Algebraic expressions consisting of sums of terms with variables raised to non-negative integer powers.",
+      "broader_concept": "Algebraic expressions",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "eeaac97d-ac2d-4a74-90f2-b5c294255946",
+      "label": "Degree of a polynomial",
+      "group": "Algebra",
+      "title": "The highest power (exponent) of the variable in a polynomial expression.",
+      "broader_concept": "Polynomial expressions",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "5e561eef-7767-41d9-b41f-9f8d43ef55cd",
+      "label": "Binomial",
+      "group": "Algebra",
+      "title": "A polynomial expression with exactly two terms.",
+      "broader_concept": "Polynomial expressions",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "4846ba00-7e72-47f5-86bd-27befdf95497",
+      "label": "Trinomial",
+      "group": "Algebra",
+      "title": "A polynomial expression with exactly three terms.",
+      "broader_concept": "Polynomial expressions",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "40780f3c-ed87-48fc-90ac-f12aa7263062",
+      "label": "Coefficient",
+      "group": "Algebra",
+      "title": "The numerical factor multiplied by the variable term in an algebraic expression.",
+      "broader_concept": "Polynomial expressions",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1d03be3a-0a22-48dc-a6dd-99100c6f76c9",
+      "label": "Addition and subtraction of polynomials",
+      "group": "Algebra",
+      "title": "Combining like terms by adding or subtracting their coefficients.",
+      "broader_concept": "Polynomial operations",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "60133217-3e2e-43dc-ad76-cacc265b5f9a",
+      "label": "Multiplying polynomial expressions",
+      "group": "Algebra",
+      "title": "Applying distributive property to multiply each term in one polynomial by each term in another.",
+      "broader_concept": "Polynomial operations",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "b56efa6d-8325-4d14-81ac-44164eb31e79",
+      "label": "Expansion of bracketed polynomial expressions",
+      "group": "Algebra",
+      "title": "Expressing products of polynomials as sums by multiplying out parentheses.",
+      "broader_concept": "Polynomial operations",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "338eef2b-406b-4bdd-b790-a1eb293087e3",
+      "label": "Perfect square trinomial",
+      "group": "Algebra",
+      "title": "A trinomial that is the square of a binomial of the form $(x \\pm a)^2$.",
+      "broader_concept": "Polynomial factorization",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "79297c3e-09d9-4298-8d80-7b05ca23675b",
+      "label": "Difference of two squares",
+      "group": "Algebra",
+      "title": "Identity stating that $(x - a)(x + a) = x^2 - a^2$.",
+      "broader_concept": "Polynomial factorization",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "d569119e-d9df-4fc8-805b-9efe35312446",
+      "label": "Dividing algebraic expressions",
+      "group": "Algebra",
+      "title": "Simplifying algebraic fractions by factoring and performing polynomial division where necessary.",
+      "broader_concept": "Rational expressions",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "92fceab5-a5ce-479d-84ba-0e4938b65f24",
+      "label": "Polynomial long division",
+      "group": "Algebra",
+      "title": "Algorithm for dividing polynomials similar to numerical long division.",
+      "broader_concept": "Polynomial operations",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "fe4c3eae-871e-4304-a97d-efacba133da4",
+      "label": "Polynomial functions",
+      "group": "Algebra",
+      "title": "Functions defined by polynomial expressions where the input is substituted into the polynomial.",
+      "broader_concept": "Functions",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "49b686a1-e705-447b-a5d3-986a85b8a05b",
+      "label": "Evaluating polynomial functions",
+      "group": "Algebra",
+      "title": "Determining the value of a polynomial function by substituting a numerical input.",
+      "broader_concept": "Functions",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "105a708e-d108-444b-85f9-c81ef228fa19",
+      "label": "Algebraic factor",
+      "group": "Algebra",
+      "title": "An expression that divides a polynomial evenly leaving no remainder.",
+      "broader_concept": "Polynomial factorization",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "9c82eb71-ae9b-4ff6-a79a-85e8ce0924f1",
+      "label": "Highest common factor (HCF)",
+      "group": "Algebra",
+      "title": "The largest algebraic expression which divides two or more expressions.",
+      "broader_concept": "Polynomial factorization",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "8e59af56-da75-4a56-b3a9-6c74e5be8749",
+      "label": "Factorization by grouping",
+      "group": "Algebra",
+      "title": "Technique to factorize polynomials by grouping terms with common factors.",
+      "broader_concept": "Polynomial factorization",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "9138d4c6-cdf9-4823-8cbc-eefa69c92901",
+      "label": "Factorization of difference of two squares",
+      "group": "Algebra",
+      "title": "Factoring expressions of the form $a^2 - b^2$ as $(a-b)(a+b)$.",
+      "broader_concept": "Polynomial factorization",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "45319add-e070-4968-ad30-60a67ba32ae7",
+      "label": "Factorizing quadratic polynomials",
+      "group": "Algebra",
+      "title": "Writing quadratic polynomials in factored form as product of two binomials.",
+      "broader_concept": "Polynomial factorization",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "16a00775-7a6c-46f3-8913-88686f4a328e",
+      "label": "Factor theorem",
+      "group": "Algebra",
+      "title": "If $f(k)=0$, then $(x-k)$ is a factor of the polynomial $f(x)$.",
+      "broader_concept": "Polynomial factorization",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "4a8c31c6-8a5f-4c5b-bc20-64b63dce78b6",
+      "label": "Partial fractions",
+      "group": "Algebra",
+      "title": "Expressing rational algebraic expressions as sum of simpler fractions.",
+      "broader_concept": "Rational expressions",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "45d8e97f-1a0b-4aee-a9d0-1801d722a77b",
+      "label": "Manipulating formulae",
+      "group": "Algebra",
+      "title": "Rearranging formulae to make a specified variable the subject.",
+      "broader_concept": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "e22a7834-6e47-4c1c-9ba2-b73b5cc59212",
+      "label": "Algebraic inequalities",
+      "group": "Algebra",
+      "title": "Inequalities involving algebraic expressions and their solution sets.",
+      "broader_concept": "Inequalities",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "835cbc5c-3360-43c6-bdaf-e4bb406abcd8",
+      "label": "Solving linear equations",
+      "group": "Algebra",
+      "title": "Finding the value(s) of variables that satisfy linear equations.",
+      "broader_concept": "Equations",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "210c6603-80dc-407a-9db8-3086a42d8425",
+      "label": "Solving quadratic equations",
+      "group": "Algebra",
+      "title": "Finding roots of quadratic equations using factorization, formula, or graphing.",
+      "broader_concept": "Equations",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "4513d9b7-9c83-4181-80ae-c7e396c1ff72",
+      "label": "Simultaneous linear equations with two variables",
+      "group": "Algebra",
+      "title": "Solving systems of two linear equations to find values of two unknowns.",
+      "broader_concept": "Systems of equations",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "aa7fd343-bbd6-412e-bb50-3324b4b5da6b",
+      "label": "Simultaneous linear equations with three variables",
+      "group": "Algebra",
+      "title": "Solving systems of three linear equations to find three unknowns.",
+      "broader_concept": "Systems of equations",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "55adfba3-b895-4e6a-a129-3d38166dd74e",
+      "label": "Radian measure",
+      "group": "Trigonometry",
+      "title": "Measurement of angles as ratio of arc length to radius in a circle.",
+      "broader_concept": "Angles",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "4512f642-7691-4311-909a-a9e54e80f56f",
+      "label": "Trigonometric ratios",
+      "group": "Trigonometry",
+      "title": "Ratios of sides in right triangles: sine, cosine, tangent.",
+      "broader_concept": "Right-angled triangles",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "0afe6c3e-be68-40f6-9933-c67b09d5bb49",
+      "label": "Trigonometric functions",
+      "group": "Trigonometry",
+      "title": "Functions sine, cosine, tangent defined over angles.",
+      "broader_concept": "Trigonometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "e6473d7f-c221-4982-b0e2-468cbc9d24c0",
+      "label": "The Sine Rule",
+      "group": "Trigonometry",
+      "title": "Relationship between sides and sines of opposite angles of any triangle: $a/\\sin A = b/\\sin B = c/\\sin C$.",
+      "broader_concept": "Trigonometric identities",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "86b6d270-8543-4364-8c5b-03304a9ed825",
+      "label": "The Cosine Rule",
+      "group": "Trigonometry",
+      "title": "Law relating sides and included angle of triangle: $a^2 = b^2 + c^2 - 2bc \\cos A$.",
+      "broader_concept": "Trigonometric identities",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "cb275dff-c80f-4aae-8aec-004969935f85",
+      "label": "Graphs of trigonometric functions",
+      "group": "Trigonometry",
+      "title": "Plots of sine, cosine and tangent showing periodic behavior, amplitude, range and asymptotes.",
+      "broader_concept": "Functions",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "5cc41904-57fe-4b8b-a098-dfea93e39c2f",
+      "label": "Related trigonometric graphs",
+      "group": "Trigonometry",
+      "title": "Transformations affecting amplitude, period, phase shift and midline of trig graphs.",
+      "broader_concept": "Functions",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "264b2baf-0460-485c-abe0-066e42f98a21",
+      "label": "Sequences",
+      "group": "Sequences and Series",
+      "title": "Ordered lists of numbers defined by patterns or formulas.",
+      "broader_concept": "Number patterns",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "b7b24cab-9070-434a-81ef-0e2780ba8722",
+      "label": "Arithmetic sequences",
+      "group": "Sequences and Series",
+      "title": "Sequences with a constant difference between consecutive terms.",
+      "broader_concept": "Sequences",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "5117df8f-0c8f-49d8-9b24-9402d4b302bd",
+      "label": "Geometric series",
+      "group": "Sequences and Series",
+      "title": "Sum of terms of a geometric sequence, with formula for finite n terms and sum to infinity when $|r|<1$.",
+      "broader_concept": "Series",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "62c4c89f-999a-4ae2-8e57-380bff2971c3",
+      "label": "Recurrence relations",
+      "group": "Sequences and Series",
+      "title": "Sequences where each term is defined as a function of preceding terms.",
+      "broader_concept": "Sequences",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "ef520433-5527-4b53-ba3d-0c91aa71c10d",
+      "label": "Number patterns",
+      "group": "Sequences and Series",
+      "title": "Identifying sequence growth via finite differences and matching to polynomial functions (linear/quadratic/cubic).",
+      "broader_concept": "Sequences",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "caa8857f-95bc-49dd-8848-9d508f0030ea",
+      "label": "Equation of a line - slope-intercept form",
+      "group": "Coordinate Geometry",
+      "title": "Line expressed as $y = mx + c$, with slope $m$ and $y$-intercept $c$.",
+      "broader_concept": "Coordinate geometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "040a4fd1-78d6-4c4d-aaaa-27d2d3289c43",
+      "label": "Equation of a line - point-slope form",
+      "group": "Coordinate Geometry",
+      "title": "Equation of a line given a point and slope: $y - y_1 = m(x - x_1)$.",
+      "broader_concept": "Coordinate geometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "6339dd79-0f5e-429a-9885-838c2d6576a3",
+      "label": "Parallel lines and slopes",
+      "group": "Coordinate Geometry",
+      "title": "Lines are parallel if they have equal slopes.",
+      "broader_concept": "Coordinate geometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "c145226c-0cc6-4b5f-af24-03a5bb83a295",
+      "label": "Perpendicular lines and slopes",
+      "group": "Coordinate Geometry",
+      "title": "Two lines are perpendicular if the product of their slopes is -1.",
+      "broader_concept": "Coordinate geometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "a7693620-a62c-4dd6-a69d-f79a0a987e1f",
+      "label": "Distance between two points",
+      "group": "Coordinate Geometry",
+      "title": "Distance formula: $\\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$.",
+      "broader_concept": "Coordinate geometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1fddcbb0-0083-43e0-845b-3044af4d52eb",
+      "label": "Midpoint of a line segment",
+      "group": "Coordinate Geometry",
+      "title": "Coordinates of midpoint: $\\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right)$.",
+      "broader_concept": "Coordinate geometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "f42add7e-4182-469a-b88d-3d1f21170185",
+      "label": "Angle between two lines",
+      "group": "Coordinate Geometry",
+      "title": "The angle $\\theta$ between lines with slopes $m_1$ and $m_2$ is given by $\\tan \\theta = |(m_1 - m_2)/(1 + m_1 m_2)|$.",
+      "broader_concept": "Coordinate geometry",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "c37bcc86-7610-4599-8149-5a423344cdc1",
+      "label": "Internal division of a line segment",
+      "group": "Coordinate Geometry",
+      "title": "Point dividing segment $AB$ internally in ratio $a:b$ has coordinates $\\left(\\frac{b x_1 + a x_2}{a+b}, \\frac{b y_1 + a y_2}{a+b}\\right)$.",
+      "broader_concept": "Coordinate geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "676814d1-23f4-44cc-94bd-833dc0a7f707",
+      "label": "Median of a triangle",
+      "group": "Geometry",
+      "title": "Segment joining a vertex to the midpoint of the opposite side.",
+      "broader_concept": "Triangle properties",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "f56ca319-d38d-48c4-bb1c-aca40704b621",
+      "label": "Centroid of a triangle",
+      "group": "Geometry",
+      "title": "Intersection point of the medians, located at the average of vertices' coordinates.",
+      "broader_concept": "Triangle properties",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "e22af617-20e0-401e-b251-86b3fffaf41b",
+      "label": "Circumcentre of a triangle",
+      "group": "Geometry",
+      "title": "Point of concurrency of perpendicular bisectors of sides, center of circumscribed circle.",
+      "broader_concept": "Triangle properties",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "911583bc-ab8d-4102-a4c8-49c5a2f7f493",
+      "label": "Orthocentre of a triangle",
+      "group": "Geometry",
+      "title": "Point of concurrency of altitudes (perpendiculars from vertices to opposite sides).",
+      "broader_concept": "Triangle properties",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "0a32b8c3-2054-4af5-82ca-5bb538cdade9",
+      "label": "Area of a triangle using coordinate vertices",
+      "group": "Geometry",
+      "title": "Area = $1/2 |x_1 y_2 - x_2 y_1|$ when one vertex is at origin, with translation as needed.",
+      "broader_concept": "Coordinate geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "765cf91e-3a32-4d3c-b2ec-1cb1d5bb130b",
+      "label": "Equation of a circle centered at $(h,k)$",
+      "group": "Geometry",
+      "title": "Equation $(x - h)^2 + (y - k)^2 = r^2$ defines circle with center $(h,k)$ and radius $r$.",
+      "broader_concept": "Coordinate geometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "52bd31a4-c53a-483a-8df6-caa7eff5396a",
+      "label": "Equation of a circle in general form",
+      "group": "Geometry",
+      "title": "Form $x^2 + y^2 + 2gx + 2fy + c=0$, center $(-g,-f)$, radius $\\sqrt{g^2 + f^2 - c}$.",
+      "broader_concept": "Coordinate geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "8f102db0-5269-4b42-83bb-6504ad33052f",
+      "label": "Points relative to circle (inside, on, outside)",
+      "group": "Geometry",
+      "title": "Determined by comparing distance from center to point against radius.",
+      "broader_concept": "Coordinate geometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "c8a852fb-4eab-4341-a7c5-41a4aff0dc5a",
+      "label": "Equation of tangent to circle at a point",
+      "group": "Geometry",
+      "title": "Line perpendicular to radius at point of tangency, slope is negative reciprocal of radius slope.",
+      "broader_concept": "Coordinate geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "df685aa0-0c0a-469a-a478-bdea531a6d0e",
+      "label": "Equation of tangent lines parallel/perpendicular to a given line",
+      "group": "Geometry",
+      "title": "Lines parallel share slope; perpendicular slopes are negative reciprocals.",
+      "broader_concept": "Coordinate geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "9c5f28d9-db60-4fce-ae5b-8fc148d92fce",
+      "label": "Tangents to circle from an external point",
+      "group": "Geometry",
+      "title": "Two tangents possible; their slopes satisfy perpendicular distance equal to radius.",
+      "broader_concept": "Coordinate geometry",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "25d3fdbe-b463-4d3c-a40b-c7b808419a8c",
+      "label": "Length of tangent from a point to a circle",
+      "group": "Geometry",
+      "title": "Length calculated via Pythagorean theorem using radius and distance from point to center.",
+      "broader_concept": "Coordinate geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "0bbf899f-4f9d-40e1-a28b-562ccde5ed78",
+      "label": "Tangents to two circles: external and internal touching",
+      "group": "Geometry",
+      "title": "Condition for touching: distance between centers equals sum or difference of radii.",
+      "broader_concept": "Coordinate geometry",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "4f6d9c63-26d5-407a-9c80-88745cd11daa",
+      "label": "Common chord of two circles",
+      "group": "Geometry",
+      "title": "Line given by difference of circle equations passes through intersection points of circles.",
+      "broader_concept": "Coordinate geometry",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "724e6cb0-7957-4b05-828c-f35bb2d3313d",
+      "label": "Average rate of change",
+      "group": "Calculus",
+      "title": "Slope of the secant line between two points on a function over an interval.",
+      "broader_concept": "Calculus",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "c0931968-73a8-418b-bb9c-89c9565f1cca",
+      "label": "Limit of a function",
+      "group": "Calculus",
+      "title": "The value that a function approaches as the input approaches a certain point.",
+      "broader_concept": "Calculus",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "4b16db9b-426b-49ac-bee5-c66e9d8870c7",
+      "label": "Continuity of a function",
+      "group": "Calculus",
+      "title": "Function is continuous at $x = a$ if $\\lim_{x \\to a} f(x) = f(a)$ and graph is unbroken there.",
+      "broader_concept": "Calculus",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "53c13214-2eb1-4485-89e7-b91ea402151c",
+      "label": "Derivative from first principles",
+      "group": "Calculus",
+      "title": "Limit definition of derivative: $\\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$.",
+      "broader_concept": "Calculus",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "d2370a12-fe89-481f-ad3f-0d3f30ba3e25",
+      "label": "Differentiation rules: power rule",
+      "group": "Calculus",
+      "title": "Derivative of $x^n$ is $n x^{n-1}$ for real $n$.",
+      "broader_concept": "Calculus differentiation",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "9007e379-e9eb-4496-bc13-f3d51abd7cfb",
+      "label": "Differentiation rules: sum and difference",
+      "group": "Calculus",
+      "title": "Derivative of sum/difference is sum/difference of derivatives.",
+      "broader_concept": "Calculus differentiation",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "5a2fcaac-4c87-4706-862a-cb79eeaa1a6a",
+      "label": "Product rule",
+      "group": "Calculus",
+      "title": "Derivative of $uv$ is $u \\frac{dv}{dx} + v \\frac{du}{dx}$.",
+      "broader_concept": "Calculus differentiation",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "af2771c9-4642-4e5e-a2d4-f310d96d90bc",
+      "label": "Quotient rule",
+      "group": "Calculus",
+      "title": "Derivative of $\\frac{u}{v}$ is $\\frac{v \\frac{du}{dx} - u \\frac{dv}{dx}}{v^2}$.",
+      "broader_concept": "Calculus differentiation",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "985410b2-17b9-4e35-82aa-319f44fc3aa5",
+      "label": "Chain rule",
+      "group": "Calculus",
+      "title": "Derivative of composite $y=f(g(x))$ is $f'(g(x)) \\cdot g'(x)$.",
+      "broader_concept": "Calculus differentiation",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "f18b6f11-0a6b-43c2-b313-f4011573e00f",
+      "label": "Second derivatives",
+      "group": "Calculus",
+      "title": "The derivative of the first derivative, representing rate of change of slope.",
+      "broader_concept": "Calculus differentiation",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "44a2e97a-a0f2-4d33-ad71-4785c77116dd",
+      "label": "Derivatives of trigonometric functions",
+      "group": "Trigonometry & Calculus",
+      "title": "Basic derivatives: $\\frac{d}{dx}(\\sin x)=\\cos x$, $\\frac{d}{dx}(\\cos x)= -\\sin x$, $\\frac{d}{dx}(\\tan x)=\\sec^2 x$.",
+      "broader_concept": "Calculus differentiation",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "cead01e9-e3a9-4095-837e-f5afee2e96e7",
+      "label": "Derivatives of inverse trigonometric functions",
+      "group": "Trigonometry & Calculus",
+      "title": "Derivatives of arcsin, arccos, arctan functions with standard formulas involving square roots and denominators.",
+      "broader_concept": "Calculus differentiation",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "f18d2752-3359-46b4-8bcf-5194dcd74419",
+      "label": "Derivatives of exponential functions",
+      "group": "Calculus",
+      "title": "For $y=e^x$, derivative is $e^x$; for $y=a^x$, derivative involves $a^x \\ln a$.",
+      "broader_concept": "Calculus differentiation",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "b5a4d2ce-4935-4cf5-af20-5216c1c2f999",
+      "label": "Derivatives of logarithmic functions",
+      "group": "Calculus",
+      "title": "Derivative of $\\ln x$ is $1/x$, and of $\\log_a x$ involves natural logs and chain rule.",
+      "broader_concept": "Calculus differentiation",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "5c32f571-08b5-4fd4-8605-55ae4296d962",
+      "label": "Trigonometric identities",
+      "group": "Trigonometry",
+      "title": "Basic identities including Pythagorean, reciprocal, quotient identities.",
+      "broader_concept": "Trigonometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "6b21b427-0f71-4cad-9fcd-eb579bc27713",
+      "label": "Compound angle formulae",
+      "group": "Trigonometry",
+      "title": "Formulas for $\\sin (A \\pm B), \\cos (A \\pm B), \\tan (A \\pm B)$ expressed via trigonometric functions of angles $A$ and $B$.",
+      "broader_concept": "Trigonometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "af4cbba1-66e0-416f-810f-881c9767035c",
+      "label": "Double angle formulae",
+      "group": "Trigonometry",
+      "title": "Formulas for $\\sin 2A, \\cos 2A, \\tan 2A$ derived from compound angle identities.",
+      "broader_concept": "Trigonometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "f68677ee-d468-4b68-a165-82b519e2f65b",
+      "label": "Sum to product and product to sum formulae",
+      "group": "Trigonometry",
+      "title": "Transformations expressing sums/differences of sines/cosines as products and vice versa.",
+      "broader_concept": "Trigonometry",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "63ffea12-0c3e-4c31-8131-258e578275f7",
+      "label": "Inverse trigonometric functions",
+      "group": "Trigonometry",
+      "title": "Functions $\\sin^{-1}, \\cos^{-1}, \\tan^{-1}$ mapping ratios back to angles.",
+      "broader_concept": "Trigonometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "e869d150-7fb8-4299-834e-ee9cfa4a7cff",
+      "label": "Permutation",
+      "group": "Probability",
+      "title": "Counting arrangements of objects where order matters.",
+      "broader_concept": "Counting methods",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "3935ff38-19fd-44ec-b35c-36549e27d987",
+      "label": "Factorial notation",
+      "group": "Probability",
+      "title": "Notation $n!$ representing product of all positive integers up to $n$.",
+      "broader_concept": "Counting methods",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "13a31ebd-fd0e-484e-9dc8-c16ffca978cc",
+      "label": "Combination",
+      "group": "Probability",
+      "title": "Counting selections of objects where order does not matter, given by $C(n,r)$ or $\\binom{n}{r}$.",
+      "broader_concept": "Counting methods",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "2de9a716-7b21-4e24-8084-820dd571e5a7",
+      "label": "Fundamental principle of counting",
+      "group": "Probability",
+      "title": "If one task can be done in $m$ ways and another in $n$ ways, then both can be done in $m \\times n$ ways.",
+      "broader_concept": "Counting methods",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "e65f8234-d933-47df-851c-6d4f78eab346",
+      "label": "Elementary probability",
+      "group": "Probability",
+      "title": "Calculation of probability as favorable outcomes over total possible outcomes.",
+      "broader_concept": "Probability",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "9eb30077-1011-4e85-8cb1-b80052e2c831",
+      "label": "Sample space",
+      "group": "Probability",
+      "title": "The set of all possible outcomes of an experiment.",
+      "broader_concept": "Probability",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "b10c2cb5-2fed-4595-b217-8a9fbee1899f",
+      "label": "Mutually exclusive events",
+      "group": "Probability",
+      "title": "Events that cannot occur simultaneously; probability of union is sum of probabilities.",
+      "broader_concept": "Probability",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "eb80c05f-7586-4e86-82f4-8cfc7ffb1fc7",
+      "label": "Addition rule for probability",
+      "group": "Probability",
+      "title": "Probability of $A$ or $B$ is $P(A) + P(B) - P(A \\cap B)$ for overlapping events.",
+      "broader_concept": "Probability rules",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "8c029832-7dd6-47e3-b49b-1692b3923e92",
+      "label": "Exhaustive events",
+      "group": "Probability",
+      "title": "A set of events that covers all possible outcomes; sum of probabilities equals 1.",
+      "broader_concept": "Probability",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "047904f6-8f6f-4ba5-9907-fdff03f9d5bf",
+      "label": "Venn diagrams in probability",
+      "group": "Probability",
+      "title": "Visual representation of events and their intersections and unions.",
+      "broader_concept": "Probability",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "c78a419c-c471-425f-9cbc-f080ad79c74a",
+      "label": "Independent events",
+      "group": "Probability",
+      "title": "Events where occurrence of one does not affect the probability of the other.",
+      "broader_concept": "Probability",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "61c2bb12-a4ca-44c9-972f-7b5ba2efe7c1",
+      "label": "Multiplication law for independent events",
+      "group": "Probability",
+      "title": "Probability of both $A$ and $B$ occurring is $P(A) \\times P(B)$ if independent.",
+      "broader_concept": "Probability rules",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "a3b589a1-c34c-46f7-959a-01a8114931a6",
+      "label": "Conditional probability",
+      "group": "Probability",
+      "title": "Probability of event $A$ occurring given event $B$ has occurred: $P(A|B) = P(A \\cap B)/P(B)$.",
+      "broader_concept": "Probability rules",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    }
+  ],
+  "edges": []
+}

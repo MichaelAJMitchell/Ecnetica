@@ -173,10 +173,9 @@ class LLMClient:
                     {"role": "system", "content": "You are a mathematical education expert."},
                     {"role": "user", "content": prompt.format(text=text, context=context)}
                 ],
-                temperature=0.3,
-                max_tokens=32768
+                temperature=1,
+                max_completion_tokens=32768
             )
-            
             content = response.choices[0].message.content.strip()
             result = self._extract_json_from_response(content)
             
@@ -206,8 +205,8 @@ class LLMClient:
                     {"role": "system", "content": "You are a mathematical education expert."},
                     {"role": "user", "content": prompt.format(text=text, concepts=concepts, context=context)}
                 ],
-                temperature=0.3,
-                max_tokens=32768
+                temperature=1,
+                max_completion_tokens=32768
             )
             
             content = response.choices[0].message.content.strip()
@@ -239,8 +238,8 @@ class LLMClient:
                     {"role": "system", "content": "You are a mathematical education expert."},
                     {"role": "user", "content": prompt.format(context=context)}
                 ],
-                temperature=0.1,
-                max_tokens=32768
+                temperature=1,
+                max_completion_tokens=32768
             )
             
             content = response.choices[0].message.content.strip()
@@ -307,8 +306,8 @@ Return ONLY the valid JSON, no other text.
                     {"role": "system", "content": "You are a JSON formatting expert."},
                     {"role": "user", "content": reformat_prompt}
                 ],
-                temperature=0.1,  # Low temperature for consistent formatting
-                max_tokens=32768
+                temperature=1,  # Low temperature for consistent formatting
+                max_completion_tokens=32768
             )
             
             content = response.choices[0].message.content.strip()

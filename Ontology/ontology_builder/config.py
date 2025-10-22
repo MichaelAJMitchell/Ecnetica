@@ -38,8 +38,16 @@ DEFAULT_OUTPUT_FILE = "graph-data.json"  # Default JSON output filename
 # You can customize these prompts to improve extraction quality
 
 CONCEPT_EXTRACTION_PROMPT = """
-You are a mathematical education expert. Extract mathematical concepts from the given text.
+### INSTRUCTION
+You are a mathematics education expert specializing in curriculum design and concept mapping.
+Your job is to extract **atomic mathematical learning concepts** from the input text.  
+Follow the rules and output exactly in the required format (no extra text).
+First, **think step by step**:
+1. Identify candidate mathematical ideas (operations, theorems, definitions, procedures, skills).
+2. Filter out those that are too broad, vague, or duplicative (only keep clear, teachable units).
+3. For each remaining concept, generate the fields with consistency and internal validation.
 
+### INPUT
 TEXT TO ANALYZE:
 {text}
 
@@ -54,7 +62,8 @@ Focus on:
 - Mathematical operations, formulas, theorems, and procedures
 - Educational concepts that students need to learn
 
-Return as a JSON array of concepts, where each concept has this exact structure:
+### OUTPUT FORMAT
+Return exactly a JSON **array** of concept objects (no additional commentary), where each concept has this exact structure:  
 [
   {{
     "name": "concept_name_here",
@@ -63,10 +72,61 @@ Return as a JSON array of concepts, where each concept has this exact structure:
     "strand": "mathematical_strand_e.g._Algebra_Geometry_Number_Theory",
     "grade_level": "educational_level_e.g._Elementary_Middle_High_College",
     "difficulty": "complexity_level_e.g._Basic_Intermediate_Advanced"
+    (Optional) "confidence_score": a number between 0 and 1 indicating your confidence  
   }}
 ]
 
+Rules:
+- If a candidate is vague or covers multiple distinct ideas, **omit it** rather than produce a low-quality entry.  
+- Do not output duplicates — only one object per concept name.  
+- Ensure each object is valid JSON, no trailing commas, consistent types.
+
 IMPORTANT: Every concept MUST have a "name" field. All other fields are optional but recommended.
+
+### EXAMPLES  
+The following are **good examples** tio be used as inspiration for what should be extracted:
+
+Example 1:
+  "name": "Circle Construction with Given Radius",
+  "strand": "Geometry",
+  "explanation": "Drawing a circle with a specified radius using a compass.",
+  "broader_concept": "Geometric Constructions",
+  "grade_level": "Middle_High",
+  "difficulty": "Basic"
+
+Example 2:
+  "name": "Internal Division of a Line Segment",
+  "strand": "Geometry",
+  "explanation": "Dividing a line segment into a given ratio m:n internally, and finding the coordinates of the dividing point.",
+  "broader_concept": "Coordinate Geometry",
+  "grade_level": "High",
+  "difficulty": "Intermediate"
+
+Bad examples (and why):
+Bad Example 1:
+  "name": "theorems 7, 8, 11, 12, 13, 16, 17, 18, 20, 21",
+  "strand": "Geometry",
+  "explanation": "Specific geometric theorems outlined in the curriculum…",
+  "broader_concept": "Theorem",
+  "grade_level": "High",
+  "difficulty": "Intermediate"
+
+Reason: Too broad and non-descriptive.
+
+Bad Example 2:
+  "name": "Contextual problem solving with numbers",
+  "strand": "Number",
+  "explanation": "Applying arithmetic operations to real-life situations and interpreting results.",
+  "broader_concept": "Problem solving",
+  "grade_level": "Elementary",
+  "difficulty": "Basic"
+
+Reason: Too general; not a discrete concept.
+
+ADDITIONAL REQUESTS
+Rank the concepts in descending priority (most central first).
+If confident, include a "confidence_score" field (0 = low, 1 = high).
+Do not output any prose outside the JSON array.
 """
 
 RELATIONSHIP_EXTRACTION_PROMPT = """

@@ -1,0 +1,5145 @@
+{
+  "nodes": [
+    {
+      "id": "539468eb-000c-4e4b-a0bf-3df4a4347e77",
+      "label": "Circle Construction with Given Radius",
+      "group": "Geometry",
+      "title": "Drawing a circle with a specified radius using a compass.",
+      "broader_concept": "Geometric Constructions",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1f8feaf5-540b-4bf3-888f-18f2d730ed63",
+      "label": "Compass Use: Transferring Distances",
+      "group": "Geometry",
+      "title": "Using a compass to copy a given length between locations and to draw arcs.",
+      "broader_concept": "Geometric Constructions",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "f4ad307f-33dc-4175-8294-97dbbad1cb4a",
+      "label": "Drawing Straight Lines with a Straightedge",
+      "group": "Geometry",
+      "title": "Constructing straight lines through given points without measurement marks.",
+      "broader_concept": "Geometric Constructions",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1e081198-89d1-4805-b985-1768a165b21d",
+      "label": "Measuring Line Segments with a Ruler",
+      "group": "Geometry",
+      "title": "Determining the length of a line segment to a required precision using a ruler.",
+      "broader_concept": "Geometric Measurement",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "71e8cc4c-867d-44df-a350-0b79211b1e7c",
+      "label": "Drawing Line Segments of Specified Length with a Ruler",
+      "group": "Geometry",
+      "title": "Constructing a line segment of a given length using a ruler and appropriate scale.",
+      "broader_concept": "Geometric Constructions",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "e7679f76-9445-44f6-b0b5-5a6edfddb156",
+      "label": "Measuring Angles with a Protractor",
+      "group": "Geometry",
+      "title": "Reading and recording angle measures accurately using a protractor.",
+      "broader_concept": "Geometric Measurement",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "5c77edcb-b457-4177-a201-20433977f981",
+      "label": "Constructing Angles of Given Measure with a Protractor",
+      "group": "Geometry",
+      "title": "Drawing an angle with a specified measure using a protractor.",
+      "broader_concept": "Geometric Constructions",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "b5d2753e-ac4b-4d03-a53f-5254bd09b93c",
+      "label": "Drawing Perpendicular Lines with a Set Square",
+      "group": "Geometry",
+      "title": "Using a set square to construct a line perpendicular to a given line through a point.",
+      "broader_concept": "Geometric Constructions",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "156c6b83-7ee9-47bf-9ee4-7cdb0ba4cf54",
+      "label": "Drawing Parallel Lines with a Set Square",
+      "group": "Geometry",
+      "title": "Using a set square and straightedge to construct a line parallel to a given line through a point.",
+      "broader_concept": "Geometric Constructions",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "664dcf0e-c9e3-4207-a05b-58a9c4d220aa",
+      "label": "Basic Constructions in Dynamic Geometry Software",
+      "group": "Geometry",
+      "title": "Performing foundational constructions such as lines, circles, and perpendiculars using dynamic geometry tools.",
+      "broader_concept": "Dynamic Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "d958b81d-9158-4261-a57b-69382031accf",
+      "label": "Instrument Selection for Geometric Constructions",
+      "group": "Geometry",
+      "title": "Choosing the appropriate instrument—straightedge, compass, ruler, protractor, or set square—for a specified construction task.",
+      "broader_concept": "Geometric Constructions",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "50f9993f-e289-49e4-b031-db198e526b3c",
+      "label": "Interpreting Slope as Rate of Change",
+      "group": "Algebra",
+      "title": "Understanding that the slope of a linear graph represents the constant rate of change (unit rate) in context.",
+      "broader_concept": "Linear Functions",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "37c11cdc-1f6b-4bef-8438-bace24cc442c",
+      "label": "Interpreting the y-Intercept as Start Value",
+      "group": "Algebra",
+      "title": "Recognizing the y-intercept of a linear relationship as the initial value or starting amount in context.",
+      "broader_concept": "Linear Functions",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "224be160-d3f4-42cf-a18c-c01898dc58ee",
+      "label": "Comparing Linear Relationships by Slope and Intercept",
+      "group": "Algebra",
+      "title": "Analyzing and contrasting linear relationships using rate of change (slope) and start value (y-intercept).",
+      "broader_concept": "Linear Models",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "65bf756d-2528-4ebf-a978-101cbb39bd00",
+      "label": "Finding the Point of Intersection of Two Linear Relationships Graphically",
+      "group": "Algebra",
+      "title": "Graphing two linear relationships and identifying their intersection as the common solution.",
+      "broader_concept": "Systems of Linear Equations",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "04ccf547-6592-4d99-9f7f-dafcf5b025f1",
+      "label": "Interpreting the Point of Intersection in Real-World Context",
+      "group": "Algebra",
+      "title": "Explaining the intersection as the point where two quantities are equal or conditions balance in a given context.",
+      "broader_concept": "Systems of Linear Equations",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "154fca1c-a9fd-41bc-8dca-974b09f8e949",
+      "label": "Graphing Linear Relationships on the Cartesian Plane",
+      "group": "Algebra",
+      "title": "Producing straight-line graphs from linear equations or rules on a coordinate grid.",
+      "broader_concept": "Linear Functions",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "7d5e1711-ee88-4e9b-8ca6-2084a7e5629a",
+      "label": "Constructing a Table of Values for a Linear Relationship",
+      "group": "Algebra",
+      "title": "Generating input-output pairs that follow a linear rule to support graphing or analysis.",
+      "broader_concept": "Linear Functions",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1f7cbe6b-326f-45f8-a157-59eb58a4bdea",
+      "label": "Formulating Linear Models from Real-World Contexts",
+      "group": "Algebra",
+      "title": "Translating contextual information into a linear model by identifying the rate of change and initial value.",
+      "broader_concept": "Mathematical Modeling",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "767e6dc6-2e9c-4ed4-8123-9f58ac18e926",
+      "label": "Calculating Slope from a Table of Values",
+      "group": "Algebra",
+      "title": "Determining the constant rate of change from differences in y over differences in x in tabular data.",
+      "broader_concept": "Slope",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "0e5fb8c5-50cf-4ab8-bde8-8c95d584f226",
+      "label": "Plotting Points in the Cartesian Plane",
+      "group": "Geometry",
+      "title": "Locating and marking points using ordered pairs (x, y) on a coordinate grid.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "353a1864-cfa1-4bd8-be5c-751cccabc440",
+      "label": "Using Trigonometric Ratios to Find Unknown Side Lengths",
+      "group": "Trigonometry",
+      "title": "Solve for a missing side in a right triangle by selecting and rearranging SOH-CAH-TOA given one acute angle and one side.",
+      "broader_concept": "Right Triangle Trigonometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "f780f809-0fac-46a1-b21e-aa366eb0ee89",
+      "label": "Using Inverse Trigonometric Functions to Find Unknown Angles",
+      "group": "Trigonometry",
+      "title": "Determine an acute angle in a right triangle from given side lengths using arcsin, arccos, or arctan.",
+      "broader_concept": "Right Triangle Trigonometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "f431a629-7791-40c6-9d1c-644b11c15144",
+      "label": "Applying the Pythagorean Theorem to Height and Distance Problems",
+      "group": "Geometry",
+      "title": "Model real-life scenarios as right triangles and use a^2 + b^2 = c^2 to find unknown heights or horizontal distances.",
+      "broader_concept": "Pythagorean Theorem",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "12260dc1-579a-4ba7-b3ea-9531a4844c84",
+      "label": "Sine Ratio in a Right Triangle",
+      "group": "Trigonometry",
+      "title": "Use sinθ = opposite/hypotenuse to relate an acute angle to the ratio of two sides.",
+      "broader_concept": "Trigonometric Ratios",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "21573a4b-cdd8-4a7f-a680-bca6b81b4b5a",
+      "label": "Cosine Ratio in a Right Triangle",
+      "group": "Trigonometry",
+      "title": "Use cosθ = adjacent/hypotenuse to relate an acute angle to the ratio of two sides.",
+      "broader_concept": "Trigonometric Ratios",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "7daef625-8dd8-4b61-beea-cd3d533c3a76",
+      "label": "Tangent Ratio in a Right Triangle",
+      "group": "Trigonometry",
+      "title": "Use tanθ = opposite/adjacent to relate an acute angle to the ratio of two sides.",
+      "broader_concept": "Trigonometric Ratios",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "07818778-ae38-4e60-8aa3-a140d89480b3",
+      "label": "Angles of Elevation and Depression",
+      "group": "Trigonometry",
+      "title": "Interpret angles measured from the horizontal in real-world contexts to set up right triangle models.",
+      "broader_concept": "Applied Trigonometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "dfb5ce39-94c9-4ebf-8c5e-3d43173ae686",
+      "label": "Identifying Opposite, Adjacent, and Hypotenuse in Right Triangles",
+      "group": "Trigonometry",
+      "title": "Determine side names relative to a reference acute angle to correctly choose a trig ratio.",
+      "broader_concept": "Right Triangle Trigonometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "0b4f85b9-5c58-42ee-a552-8fff0f149596",
+      "label": "Right Triangle Modelling from Word Problems",
+      "group": "Trigonometry",
+      "title": "Translate context about heights, distances, and angles into a labeled right-triangle diagram before computation.",
+      "broader_concept": "Applied Trigonometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "935f1242-f9b9-4e76-83e7-e55d23f65969",
+      "label": "Dilation (Enlargement) with Center and Scale Factor",
+      "group": "Geometry",
+      "title": "A similarity transformation mapping each point to a new point along the ray from a fixed center, with distance multiplied by scale factor k.",
+      "broader_concept": "Geometric Transformations",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "2e4fd40d-3cf9-4797-bae4-58df2b42bdd3",
+      "label": "Area Scaling under Dilation",
+      "group": "Geometry",
+      "title": "Under a dilation with scale factor k, areas of plane figures are multiplied by k^2.",
+      "broader_concept": "Similarity and Scaling",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "1b0d2074-fb6a-45db-a58d-fe7fc0180407",
+      "label": "Centre of Enlargement",
+      "group": "Geometry",
+      "title": "The fixed point from which all distances are scaled and directions preserved in a dilation.",
+      "broader_concept": "Dilation (Enlargement) with Center and Scale Factor",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "e5af2a7f-e996-431f-a23f-0898c3b04eb5",
+      "label": "Scale Factor in Dilation",
+      "group": "Geometry",
+      "title": "The ratio k determining size change in a dilation; k>1 enlarges, 0<k<1 reduces; commonly taken as rational in school tasks.",
+      "broader_concept": "Dilation (Enlargement) with Center and Scale Factor",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "674fe710-ca56-4097-afc7-521b279770a3",
+      "label": "Constructing a Dilation of a Polygon",
+      "group": "Geometry",
+      "title": "Producing the image of a polygon given a center and scale factor by extending rays from the center through vertices and scaling lengths by k.",
+      "broader_concept": "Dilation (Enlargement) with Center and Scale Factor",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "6383772b-8239-4923-a4b6-a3ba0495f7b2",
+      "label": "Reflection in a Line (Axial Symmetry)",
+      "group": "Geometry",
+      "title": "An isometry mapping each point to its mirror image across a given line, which is the perpendicular bisector of each segment joining a point to its image.",
+      "broader_concept": "Geometric Transformations",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "fe57633a-23b8-41d3-abea-7c567454ee5c",
+      "label": "Rotation about a Point",
+      "group": "Geometry",
+      "title": "An isometry turning a figure around a fixed center by a specified angle and direction.",
+      "broader_concept": "Geometric Transformations",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "89446eb1-5174-4806-befc-501205c7e80c",
+      "label": "Translation by a Vector",
+      "group": "Geometry",
+      "title": "An isometry shifting every point of a figure by the same directed distance (vector).",
+      "broader_concept": "Geometric Transformations",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "3617bdc0-0493-4e11-bafb-cfe7d3bc106f",
+      "label": "Central Symmetry (Point Reflection)",
+      "group": "Geometry",
+      "title": "An isometry mapping each point to the point opposite with respect to a center so that the center is the midpoint of each preimage–image segment.",
+      "broader_concept": "Geometric Transformations",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "3c819865-eb0c-4de6-b0bb-8eaf129cf4cd",
+      "label": "Identifying Axes of Symmetry in 2D Shapes",
+      "group": "Geometry",
+      "title": "Locating all lines of symmetry in simple plane figures such as polygons and common shapes.",
+      "broader_concept": "Symmetry",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "09b56603-e1ff-4173-8c3d-49979286fcca",
+      "label": "Deductive Reasoning in Geometry",
+      "group": "Geometry",
+      "title": "Using logical inference from axioms and proven results to justify geometric claims.",
+      "broader_concept": "Logic and Proof",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "173a5c0f-892b-4fcd-9cf7-a2a4487625cb",
+      "label": "Proof",
+      "group": "Logic",
+      "title": "A logically coherent argument that establishes the truth of a mathematical statement.",
+      "broader_concept": "Logic and Proof",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "a9eff4ed-0ee4-43d9-a2ae-12dc2f799d95",
+      "label": "Theorem",
+      "group": "Logic",
+      "title": "A mathematical statement proven true based on axioms and previously established results.",
+      "broader_concept": "Logic and Proof",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "83f8d1d9-23d3-4293-bfb2-3582c926ebab",
+      "label": "Axiom",
+      "group": "Logic",
+      "title": "A fundamental assumption accepted without proof, used as a starting point for deductions.",
+      "broader_concept": "Logic and Proof",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "03e3ec65-df01-4e33-803b-0d0c122c431f",
+      "label": "Corollary",
+      "group": "Logic",
+      "title": "A proposition that follows directly from a theorem with little or no additional proof.",
+      "broader_concept": "Logic and Proof",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "89435975-99a8-410f-80e6-93861f714e7d",
+      "label": "Logical Implication (implies)",
+      "group": "Logic",
+      "title": "Using p ⇒ q to express that one statement logically leads to another.",
+      "broader_concept": "Propositional Logic",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "ec450352-bab7-41ca-a7fd-1359db5b77a4",
+      "label": "Converse of a Statement",
+      "group": "Logic",
+      "title": "Forming q ⇒ p from an implication p ⇒ q and analyzing its truth independently of the original statement.",
+      "broader_concept": "Propositional Logic",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "c6af2423-086f-4c64-ab0f-cc893bd5cc01",
+      "label": "Biconditional (if and only if)",
+      "group": "Logic",
+      "title": "Using p ⇔ q to state that each condition is both necessary and sufficient for the other.",
+      "broader_concept": "Propositional Logic",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "4eeeebc7-5cef-4b26-86ea-ce7d85a3b173",
+      "label": "Logical Equivalence (is equivalent to)",
+      "group": "Logic",
+      "title": "Recognizing when two statements always share the same truth value and denoting this with ⇔ or ≡.",
+      "broader_concept": "Propositional Logic",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "27bcf4a8-c094-410b-95e2-2452018a0993",
+      "label": "Proof by Contradiction",
+      "group": "Logic",
+      "title": "Establishing a statement by assuming its negation and deriving a contradiction.",
+      "broader_concept": "Proof Methods",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "a9324146-1d8b-4393-bd03-a31d3138c932",
+      "label": "Pythagorean Theorem",
+      "group": "Geometry",
+      "title": "In a right triangle, the square of the hypotenuse equals the sum of the squares of the other two sides.",
+      "broader_concept": "Right Triangle Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "11d11d30-38fb-4c6b-822d-ed4dce59c292",
+      "label": "Slope of a Line",
+      "group": "Geometry",
+      "title": "The rate of change of y with respect to x; computed from two points or from y = mx + c.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "66fdbef8-fab9-4810-87d8-3e93f4f14523",
+      "label": "Parallel Lines via Equal Slopes",
+      "group": "Geometry",
+      "title": "Two non-vertical lines are parallel if and only if their slopes are equal.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1d12c3bf-f0e6-4746-b482-93e6ca81d55c",
+      "label": "Perpendicular Lines via Negative Reciprocal Slopes",
+      "group": "Geometry",
+      "title": "Two lines are perpendicular if their slopes are negative reciprocals, equivalently m1*m2 = -1 when defined.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "a8afa72a-11a7-40c0-b768-57dd5b6c7fe5",
+      "label": "General Form of a Linear Equation (ax + by + c = 0)",
+      "group": "Geometry",
+      "title": "Recognizing and using ax + by + c = 0 as the equation of a straight line in the plane.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "38a9e93a-63eb-47f4-97fc-605acf41dde0",
+      "label": "Angle Between Two Lines from Slopes",
+      "group": "Geometry",
+      "title": "Computing the angle between lines with slopes m1 and m2 using tan(theta) = |(m1 - m2)/(1 + m1*m2)|.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "3fe26974-7c77-4302-be59-a997e67eea50",
+      "label": "Perpendicular Distance from a Point to a Line",
+      "group": "Geometry",
+      "title": "Using d = |A*x0 + B*y0 + C| / sqrt(A^2 + B^2) for the line A x + B y + C = 0.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "35905a34-e045-44fe-997f-02f57ee921c7",
+      "label": "Internal Division of a Line Segment (Section Formula)",
+      "group": "Geometry",
+      "title": "Finding the point that divides a segment in ratio m:n internally: ((m*x2 + n*x1)/(m+n), (m*y2 + n*y1)/(m+n)).",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "02ed1b46-1f1b-4bff-bb9a-5de19703033a",
+      "label": "Circle Equation in Center-Radius Form",
+      "group": "Geometry",
+      "title": "(x - h)^2 + (y - k)^2 = r^2 represents a circle with center (h, k) and radius r.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "75a88f0a-35e6-4513-9d34-d860b94472e0",
+      "label": "Circle Equation in General Form and Parameter Extraction",
+      "group": "Geometry",
+      "title": "For x^2 + y^2 + 2g x + 2f y + c = 0, the center is (-g, -f) and the radius is r = sqrt(g^2 + f^2 - c).",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "c9fae78a-6e5c-4b14-99bb-87ea32f5c666",
+      "label": "Intersection of a Line and a Circle",
+      "group": "Geometry",
+      "title": "Solving a linear-quadratic system to find intersection points; the discriminant determines 0, 1, or 2 solutions.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "308208b3-8ef1-4ef9-8902-e1302308451f",
+      "label": "Area of a Triangle from Coordinates",
+      "group": "Geometry",
+      "title": "Using Area = 1/2 * |x1(y2 - y3) + x2(y3 - y1) + x3(y1 - y2)| for vertices (x1, y1), (x2, y2), (x3, y3).",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "84e0c597-fd17-4d9f-8853-c774153de124",
+      "label": "Definition of Sine for All Real Angles",
+      "group": "Trigonometry",
+      "title": "Define sin θ for any real θ using the unit circle, including signs by quadrant and periodicity.",
+      "broader_concept": "Trigonometric Functions",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "f0a3a05a-01f3-44e4-ba0d-821c12ddbe58",
+      "label": "Definition of Cosine for All Real Angles",
+      "group": "Trigonometry",
+      "title": "Define cos θ for any real θ using the unit circle, including signs by quadrant and periodicity.",
+      "broader_concept": "Trigonometric Functions",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "ce71fbb4-260e-4a3a-bfcb-12342e4e5895",
+      "label": "Definition of Tangent for All Real Angles",
+      "group": "Trigonometry",
+      "title": "Define tan θ as sin θ / cos θ with domain restrictions where cos θ ≠ 0, including period π.",
+      "broader_concept": "Trigonometric Functions",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "3f321adc-02d2-4f95-932e-29af03e82c19",
+      "label": "Radian Measure of Angles",
+      "group": "Trigonometry",
+      "title": "Measure angles in radians; relate arc length s = rθ and convert between degrees and radians.",
+      "broader_concept": "Angle Measure",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "7700b9da-52e3-4998-856d-bcbd4fd55aa6",
+      "label": "Graph of the Sine Function",
+      "group": "Trigonometry",
+      "title": "Plot y = sin θ, identifying amplitude 1, period 2π, phase, and key points and intercepts.",
+      "broader_concept": "Function Graphs",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "e862c6c0-048c-43ba-98f9-f0839ccbcafb",
+      "label": "Graph of the Cosine Function",
+      "group": "Trigonometry",
+      "title": "Plot y = cos θ, identifying amplitude 1, period 2π, phase, and key points and intercepts.",
+      "broader_concept": "Function Graphs",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "40318fa6-7c02-4376-8a39-b542b6f28d41",
+      "label": "Graph of the Tangent Function",
+      "group": "Trigonometry",
+      "title": "Plot y = tan θ, showing period π and vertical asymptotes at odd multiples of π/2.",
+      "broader_concept": "Function Graphs",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "b27676a4-27c5-40ae-a2d8-0fdad2a9f667",
+      "label": "Graphing y = a + b sin(cθ)",
+      "group": "Trigonometry",
+      "title": "Graph sine functions with vertical shift a, amplitude |b|, and period 2π/|c|.",
+      "broader_concept": "Transformations of Trigonometric Functions",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "0b23c848-70b2-43ab-9d7f-3d393531ac89",
+      "label": "Graphing y = a + b cos(cθ)",
+      "group": "Trigonometry",
+      "title": "Graph cosine functions with vertical shift a, amplitude |b|, and period 2π/|c|.",
+      "broader_concept": "Transformations of Trigonometric Functions",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "b07077d9-dbd2-4c04-8afc-af115481822c",
+      "label": "Solving Trigonometric Equations with Multiple-Angle Arguments",
+      "group": "Trigonometry",
+      "title": "Find all solutions to equations like sin(nθ)=0 or cos(nθ)=1/2 using reference angles and periodicity.",
+      "broader_concept": "Trigonometric Equations",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "e1039c6c-b4e5-4685-ba5a-ea5d8fb40b26",
+      "label": "Law of Sines (2D)",
+      "group": "Trigonometry",
+      "title": "Use the sine rule a/sin A = b/sin B = c/sin C to solve non-right triangles.",
+      "broader_concept": "Triangle Trigonometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "68eeb7b5-ae19-4ffb-b249-b610b3bcad7d",
+      "label": "Law of Cosines (2D)",
+      "group": "Trigonometry",
+      "title": "Use the cosine rule c^2 = a^2 + b^2 − 2ab cos C to solve non-right triangles.",
+      "broader_concept": "Triangle Trigonometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "a87c4b64-5000-4093-8925-9227e4a9b5fc",
+      "label": "Area of a Triangle Using Trigonometry",
+      "group": "Trigonometry",
+      "title": "Compute triangle area with A = 1/2 ab sin C when two sides and the included angle are known.",
+      "broader_concept": "Triangle Trigonometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "9de77b05-0dee-45d0-9dd0-a361e493fdf1",
+      "label": "Applying Pythagoras' Theorem in 2D",
+      "group": "Geometry",
+      "title": "Use a^2 + b^2 = c^2 to find unknown side lengths in right triangles and solve 2D problems.",
+      "broader_concept": "Right Triangle Geometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "87ee25c0-c648-4570-9d6e-b1b0df1e3996",
+      "label": "Trigonometry in 3D Problem Solving",
+      "group": "Trigonometry",
+      "title": "Apply right-triangle trigonometry and triangle laws to three-dimensional contexts, including line-of-sight and distances.",
+      "broader_concept": "Spatial Trigonometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "33f60905-afef-4b7f-9d2e-07ad8b298c3e",
+      "label": "Arc Length of a Circle",
+      "group": "Geometry",
+      "title": "Calculate arc length using s = rθ for θ in radians.",
+      "broader_concept": "Circle Geometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "5c1f1e22-9b5c-432b-bb79-1e16ac41723e",
+      "label": "Area of a Sector of a Circle",
+      "group": "Geometry",
+      "title": "Calculate sector area using A = 1/2 r^2 θ for θ in radians.",
+      "broader_concept": "Circle Geometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "23e2fb91-f8a2-476f-b2dd-efca130c3d93",
+      "label": "Trigonometric Ratios in Surd Form",
+      "group": "Trigonometry",
+      "title": "Express exact values of sine, cosine, and tangent for special angles (e.g., 30°, 45°, 60°) using surds.",
+      "broader_concept": "Trigonometric Values",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "b19b9dca-9d8e-40c8-9c8e-c5aac4ba25d2",
+      "label": "Enlargement (Dilation) with Given Centre and Scale Factor",
+      "group": "Geometry",
+      "title": "A similarity transformation about a fixed centre that maps each point along the ray from the centre, multiplying its distance from the centre by a positive scale factor k.",
+      "broader_concept": "Transformation Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "8e715b71-c16f-4bc5-8e98-c2dff0cbfa9a",
+      "label": "Area Scaling Under Enlargement",
+      "group": "Geometry",
+      "title": "Under an enlargement with scale factor k, the area of any planar figure is multiplied by k^2.",
+      "broader_concept": "Transformation Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "96fd77d7-1dbf-458f-8fea-1f28991ab8d2",
+      "label": "Scale Factor of Enlargement (Positive Rational k)",
+      "group": "Geometry",
+      "title": "The ratio k by which all distances from the centre are multiplied during enlargement, restricted here to k ∈ Q with k > 0.",
+      "broader_concept": "Transformation Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "74c6c401-ffbb-41ef-9f88-a7f31d059aca",
+      "label": "Finding the Image Under Enlargement",
+      "group": "Geometry",
+      "title": "Given a centre and scale factor k, compute or construct the image of a point or shape by scaling distances from the centre by k along the corresponding rays.",
+      "broader_concept": "Transformation Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "21f9a619-2a2e-4363-b69e-acda92fa2162",
+      "label": "Determining the Scale Factor from Preimage and Image",
+      "group": "Geometry",
+      "title": "Calculate k by comparing corresponding lengths or distances from the centre between a figure and its image.",
+      "broader_concept": "Transformation Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "6cefe1c0-2372-45c3-906c-5209fa0935f0",
+      "label": "Classifying Enlargements as Reductions or Magnifications",
+      "group": "Geometry",
+      "title": "Identify whether an enlargement shrinks a figure (0 < k < 1) or enlarges it (k > 1).",
+      "broader_concept": "Transformation Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "800000c0-4bb9-4a5f-aa2c-ab9e52a19f3c",
+      "label": "Rational Numbers (Q)",
+      "group": "Number Systems",
+      "title": "Numbers that can be expressed as a quotient of two integers with nonzero denominator; include terminating and repeating decimals and percentages.",
+      "broader_concept": "Number Systems",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "77cea974-1e0a-4ac4-9c66-8f1ee25375a4",
+      "label": "Converting Between Fractions, Decimals, and Percentages",
+      "group": "Number & Operations",
+      "title": "Translate a rational number among fraction, decimal, and percent forms to show their equivalence.",
+      "broader_concept": "Rational Number Representations",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1c72c160-6aea-4767-833f-9653a04afe3d",
+      "label": "Terminating and Repeating Decimals as Rational Numbers",
+      "group": "Number Systems",
+      "title": "Identify that decimals that end or repeat represent rational numbers and convert them to fractions.",
+      "broader_concept": "Rational Number Representations",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "c9b6186d-a591-458f-a61b-5a1cfa94f685",
+      "label": "Addition of Rational Numbers",
+      "group": "Number & Operations",
+      "title": "Compute sums of rational numbers, including fractions and decimals, using common denominators or place value.",
+      "broader_concept": "Rational Number Operations",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "db400c3b-f183-43cc-a193-fa52f358fab5",
+      "label": "Subtraction of Rational Numbers",
+      "group": "Number & Operations",
+      "title": "Compute differences of rational numbers by adding the additive inverse or aligning place value/denominators.",
+      "broader_concept": "Rational Number Operations",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "f33a6cfe-42cc-4eb6-9df7-57d20a995606",
+      "label": "Multiplication of Rational Numbers",
+      "group": "Number & Operations",
+      "title": "Multiply rational numbers using fraction multiplication or decimal place-value methods and interpret scaling.",
+      "broader_concept": "Rational Number Operations",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "14fcaddd-228a-4703-8367-6db92d04f79c",
+      "label": "Division of Rational Numbers",
+      "group": "Number & Operations",
+      "title": "Divide rational numbers by multiplying by the reciprocal (for nonzero divisors) or using decimal algorithms.",
+      "broader_concept": "Rational Number Operations",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "edc89b91-c80d-47e0-b524-8f1381c29af9",
+      "label": "Integers (Z)",
+      "group": "Number Systems",
+      "title": "The set of whole numbers and their opposites, including zero.",
+      "broader_concept": "Number Systems",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "809128ff-974e-4152-88e3-38828be4f2e8",
+      "label": "Addition of Integers (Signed Numbers)",
+      "group": "Number & Operations",
+      "title": "Add positive and negative integers using opposites, absolute value, and vector/number line models.",
+      "broader_concept": "Integer Operations",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "5c0ab32e-c25c-495e-b6de-40e3a0345bb0",
+      "label": "Subtraction of Integers (Signed Numbers)",
+      "group": "Number & Operations",
+      "title": "Subtract integers by adding the additive inverse and interpret differences on a number line.",
+      "broader_concept": "Integer Operations",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "bda37ea8-fef9-482d-ac94-6497a40560fc",
+      "label": "Multiplication of Integers (Signed Numbers)",
+      "group": "Number & Operations",
+      "title": "Multiply integers using sign rules derived from properties and patterns (positive×negative, etc.).",
+      "broader_concept": "Integer Operations",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "8fc0ee4e-a926-435c-b776-8d2bd1b17786",
+      "label": "Division of Integers (Signed Numbers)",
+      "group": "Number & Operations",
+      "title": "Divide integers using sign rules consistent with multiplication and quotients.",
+      "broader_concept": "Integer Operations",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "5f10b0a6-de72-48c0-94b0-e36d56398e65",
+      "label": "Natural Numbers (N)",
+      "group": "Number Systems",
+      "title": "The set of counting numbers starting at 1 (1, 2, 3, ...).",
+      "broader_concept": "Number Systems",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "20fbfc76-173f-4774-bafa-c5d61fc0badf",
+      "label": "Decomposition Strategy for Addition and Subtraction",
+      "group": "Number & Operations",
+      "title": "Break numbers into place-value parts to simplify addition and subtraction in whole numbers.",
+      "broader_concept": "Computation Strategies",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "c0ed42f1-6a95-4784-8510-72cd649733e7",
+      "label": "Skip Counting as a Model for Multiplication",
+      "group": "Number & Operations",
+      "title": "Use repeated counting by equal intervals to represent and compute multiplication facts.",
+      "broader_concept": "Models of Multiplication",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "d4155bf9-6498-42be-a59e-1151ba507894",
+      "label": "Array Model of Multiplication",
+      "group": "Number & Operations",
+      "title": "Represent multiplication as rows and columns to visualize equal groups and area.",
+      "broader_concept": "Models of Multiplication",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "8cf5fdac-8a3c-4efd-a092-73f956997ecf",
+      "label": "Equal Groups Model for Multiplication and Division",
+      "group": "Number & Operations",
+      "title": "Interpret multiplication as combining equal groups and division as partitioning or measuring equal groups.",
+      "broader_concept": "Models of Operations",
+      "grade_level": "Elementary",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "f6d2dd92-6106-401c-9d03-b2cf4891c742",
+      "label": "Ordering Rational Numbers on the Number Line",
+      "group": "Number Systems",
+      "title": "Place and compare rational numbers on a number line using value and common benchmarks.",
+      "broader_concept": "Rational Number Representations",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "fb622362-22cf-4fa8-9439-6ec59f349a7a",
+      "label": "Number Line Model for Integer Addition and Subtraction",
+      "group": "Number & Operations",
+      "title": "Use directed moves on a number line to model addition and subtraction with integers.",
+      "broader_concept": "Integer Operations",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "dd386861-47f8-4019-ab18-88b3025de5c7",
+      "label": "Inverse Relationship Between Addition and Subtraction",
+      "group": "Number & Operations",
+      "title": "Recognize subtraction as adding the additive inverse and use this relationship to solve problems.",
+      "broader_concept": "Properties of Operations",
+      "grade_level": "Elementary_Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "49dbeafa-ad8f-49a4-aaa6-e767860cc825",
+      "label": "Inverse Relationship Between Multiplication and Division",
+      "group": "Number & Operations",
+      "title": "Understand division as the inverse of multiplication and apply to fact families and equations.",
+      "broader_concept": "Properties of Operations",
+      "grade_level": "Elementary_Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "e3a417a2-16ea-4457-beae-bdd652c8ce81",
+      "label": "Commutative Property of Addition and Multiplication",
+      "group": "Number & Operations",
+      "title": "Changing the order of addends or factors does not change the sum or product.",
+      "broader_concept": "Properties of Operations",
+      "grade_level": "Elementary_Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "8b4816b1-8826-4198-83b2-c2b6d15f5fc8",
+      "label": "Associative Property of Addition and Multiplication",
+      "group": "Number & Operations",
+      "title": "Changing the grouping of addends or factors does not change the sum or product.",
+      "broader_concept": "Properties of Operations",
+      "grade_level": "Elementary_Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "0798820f-15ad-40e3-bfae-7f037ba0dcdd",
+      "label": "Distributive Property of Multiplication over Addition",
+      "group": "Number & Operations",
+      "title": "Multiply a sum by distributing the factor across addends (a(b+c)=ab+ac) and use for computation.",
+      "broader_concept": "Properties of Operations",
+      "grade_level": "Elementary_Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "1d6b00e2-1a54-4a5b-a6dc-9c6db481015f",
+      "label": "Order of Operations with Brackets",
+      "group": "Number & Operations",
+      "title": "Evaluate numerical expressions using agreed order (parentheses, exponents if present, multiplication/division, addition/subtraction).",
+      "broader_concept": "Arithmetic Conventions",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1f1b6746-64f3-40df-81d6-cc08dacdea6c",
+      "label": "Interpreting Negative Numbers in Real-World Contexts",
+      "group": "Number Systems",
+      "title": "Model and interpret negative quantities such as debts or temperatures below zero.",
+      "broader_concept": "Integer Concepts",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "31fd8a7e-ebc0-491c-956d-cfff905d01dc",
+      "label": "Finding a Fraction of a Quantity",
+      "group": "Number & Operations",
+      "title": "Calculate a part of a whole by multiplying a fraction by a whole number amount in context.",
+      "broader_concept": "Fraction Applications",
+      "grade_level": "Elementary_Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "ed30b92e-6a8b-4df4-8e3c-965343a46a63",
+      "label": "Reciprocal of a Nonzero Rational Number",
+      "group": "Number & Operations",
+      "title": "Identify the multiplicative inverse of a nonzero rational number and use it to perform division.",
+      "broader_concept": "Rational Number Operations",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "9a440caa-53b0-4abe-a824-982110ff0315",
+      "label": "Irrational Numbers: Definition and Recognition",
+      "group": "Number",
+      "title": "Identify real numbers that cannot be expressed as a ratio of integers, e.g., non-terminating, non-repeating decimals like √2 and π.",
+      "broader_concept": "Number Systems",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "3b0cd2d3-45d1-48e3-8b0f-62db4d16b361",
+      "label": "Real vs Rational Numbers Distinction (R ≠ Q)",
+      "group": "Number",
+      "title": "Understand that the set of real numbers strictly contains the rationals, implying the existence of irrational numbers.",
+      "broader_concept": "Number Systems",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "f4933981-6735-43ab-bd67-b46c92546767",
+      "label": "Complex Numbers in Rectangular Form (a+ib)",
+      "group": "Algebra",
+      "title": "Represent complex numbers as a+ib with real and imaginary parts, enabling algebraic operations.",
+      "broader_concept": "Complex Numbers",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "5b38f69a-b0b0-46ad-81fb-ebf47a207f63",
+      "label": "Arithmetic of Complex Numbers in Rectangular Form",
+      "group": "Algebra",
+      "title": "Perform addition, subtraction, multiplication, and division with complex numbers using a+ib and conjugates.",
+      "broader_concept": "Complex Numbers",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "efc13468-d606-46a3-a0e6-2f342a89ee2d",
+      "label": "Argand Diagram: Plotting Complex Numbers",
+      "group": "Algebra",
+      "title": "Plot complex numbers on the complex plane with real axis horizontal and imaginary axis vertical.",
+      "broader_concept": "Complex Numbers",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "56a5f81a-c36d-4e7d-b83b-78f14ec9e2e4",
+      "label": "Modulus of a Complex Number as Distance",
+      "group": "Algebra",
+      "title": "Interpret |a+ib| = √(a²+b²) as the distance from the origin in the Argand plane.",
+      "broader_concept": "Complex Numbers",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "4b7c2511-7739-4767-82a9-ba3aee9639a6",
+      "label": "Complex Conjugate and Its Properties",
+      "group": "Algebra",
+      "title": "Use conjugation z↦z̄ with z̄=a−ib; know that (z+w)̄=z̄+w̄ and (zw)̄=z̄w̄, and zz̄=|z|².",
+      "broader_concept": "Complex Numbers",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "3c782d40-e921-4158-8280-b1abd02d1663",
+      "label": "Representing Real Numbers on the Number Line",
+      "group": "Number",
+      "title": "Locate natural, integer, rational, and irrational numbers on a continuous number line.",
+      "broader_concept": "Real Numbers",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "160d2cb6-7386-492a-a4ca-f7ac31cd456c",
+      "label": "Scientific Notation (a×10^n) Representation",
+      "group": "Number",
+      "title": "Express non-zero positive rational numbers as a×10^n with 1 ≤ a < 10 and n ∈ ℤ.",
+      "broader_concept": "Number Representation",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "d25a245a-6ef2-4363-adb8-2f54a77e726a",
+      "label": "Arithmetic with Scientific Notation",
+      "group": "Number",
+      "title": "Perform multiplication, division, addition, and subtraction on numbers in a×10^n form with exponent adjustments.",
+      "broader_concept": "Number Representation",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "4bbd3c9b-a7f4-425d-b71e-fee8da8184f5",
+      "label": "Prime Factorization of Natural Numbers",
+      "group": "Number Theory",
+      "title": "Express natural numbers uniquely (up to order) as a product of prime powers.",
+      "broader_concept": "Number Theory",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "e0911fa7-4d7b-4263-abe0-f811bb65e22f",
+      "label": "Factors and Multiples in Natural Numbers",
+      "group": "Number Theory",
+      "title": "Determine all divisors and multiples of a natural number and use divisibility properties.",
+      "broader_concept": "Number Theory",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "817a9c2f-0a63-42d5-8ad8-18909b7dea86",
+      "label": "Prime Numbers: Identification and Properties",
+      "group": "Number Theory",
+      "title": "Recognize primes and apply basic properties including tests of divisibility and primality in N.",
+      "broader_concept": "Number Theory",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "b56ac4b5-bdd1-40ac-8e78-ad50cb013468",
+      "label": "Decimals as Equivalent Fractions",
+      "group": "Number",
+      "title": "Convert terminating and recurring decimals to fractions by using place value or geometric series.",
+      "broader_concept": "Number Representation",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "6a933c2c-d6a1-4f47-9cad-ad47245061e6",
+      "label": "Geometric Construction of √2",
+      "group": "Geometry",
+      "title": "Construct √2 using compass and straightedge, e.g., as the diagonal of a unit square.",
+      "broader_concept": "Geometric Constructions",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "db67af10-753b-4b6f-b800-cfb99ce24970",
+      "label": "Geometric Construction of √3",
+      "group": "Geometry",
+      "title": "Construct √3 via 30-60-90 triangle or using an equilateral triangle of side 1.",
+      "broader_concept": "Geometric Constructions",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "f8bb8816-4df6-47da-95bb-0dfd1362b676",
+      "label": "Proof that √2 is Irrational",
+      "group": "Number Theory",
+      "title": "Show √2 ∉ ℚ using proof by contradiction (parity argument) or infinite descent.",
+      "broader_concept": "Irrational Numbers",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "a8bae583-9eaf-4c85-a2d5-6d2b9da55c83",
+      "label": "Mathematical Induction",
+      "group": "Algebra",
+      "title": "Prove statements indexed by natural numbers using base case and inductive step.",
+      "broader_concept": "Proof Techniques",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "2eef8459-1573-4179-98d8-cd974b5484d3",
+      "label": "Inductive Proof: Sum of First n Natural Numbers",
+      "group": "Algebra",
+      "title": "Prove 1+2+…+n = n(n+1)/2 using induction.",
+      "broader_concept": "Mathematical Induction",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "0d5be106-2cd1-44bd-82fb-7138eebb3420",
+      "label": "Inductive Proof: Sum of a Finite Geometric Series",
+      "group": "Algebra",
+      "title": "Prove S_n = a(1−r^n)/(1−r) for r≠1 by induction.",
+      "broader_concept": "Mathematical Induction",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "e5ec1301-ab8a-49db-a5fd-873d351d33d5",
+      "label": "Bernoulli’s Inequality",
+      "group": "Algebra",
+      "title": "Show (1+x)^n ≥ 1+nx for x > −1 and n ∈ ℕ, e.g., by induction.",
+      "broader_concept": "Inequalities",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "bce4c2f3-7ab9-47bc-8180-c975c57ad1ee",
+      "label": "Inductive Inequality: 2^n ≥ n^2 (n ≥ 4)",
+      "group": "Algebra",
+      "title": "Use induction to prove exponential growth dominates quadratic for n≥4.",
+      "broader_concept": "Inequalities",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "1ff3abb5-011c-488d-aa80-1e2afbd79144",
+      "label": "Divisibility Result: 3 divides 4^n − 1",
+      "group": "Number Theory",
+      "title": "Prove 3|(4^n−1) for all n∈ℕ using induction or modular arithmetic.",
+      "broader_concept": "Divisibility",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "83fbb4fe-6561-4f72-9c7e-d030ff76ad0a",
+      "label": "Geometric Sequence: Definition and General Term",
+      "group": "Algebra",
+      "title": "Define a_n = ar^{n−1} and identify the common ratio r.",
+      "broader_concept": "Sequences and Series",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "a08329e6-4bba-47dd-aa55-124217ef310e",
+      "label": "Finite Geometric Series: Sum Formula",
+      "group": "Algebra",
+      "title": "Use S_n = a(1−r^n)/(1−r) (r≠1) to compute sums.",
+      "broader_concept": "Sequences and Series",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "2700feb5-feb6-40b2-87fa-d8064aceb635",
+      "label": "Infinite Geometric Series: Sum to Infinity",
+      "group": "Algebra",
+      "title": "For |r|<1, compute S_∞ = a/(1−r).",
+      "broader_concept": "Sequences and Series",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "b676b7ae-f2af-4db9-8895-a7b5c60da50f",
+      "label": "Sum to Infinity via Limit of Partial Sums",
+      "group": "Calculus",
+      "title": "Derive S_∞ by taking the limit of S_n as n→∞ when |r|<1.",
+      "broader_concept": "Sequences and Series",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "607ed87f-1edb-4e4c-be9b-42535400a69f",
+      "label": "Algebra of Limits (Sums, Products, Quotients)",
+      "group": "Calculus",
+      "title": "Apply limit laws for sum, product, and quotient when limits exist and denominators are nonzero.",
+      "broader_concept": "Limits",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "1e60c571-31fd-44d0-b5ca-638d5121a82e",
+      "label": "Limit of 1/n as n→∞",
+      "group": "Calculus",
+      "title": "Recognize that lim_{n→∞} 1/n = 0 by basic limit reasoning.",
+      "broader_concept": "Limits of Sequences",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "b8316599-fdce-46e1-be4a-123cd71bc951",
+      "label": "Limit of r^n for |r|<1",
+      "group": "Calculus",
+      "title": "Know that lim_{n→∞} r^n = 0 when the common ratio satisfies |r|<1.",
+      "broader_concept": "Limits of Sequences",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "fb0cb7ea-f86e-4c3a-aa35-28e9e0c5b351",
+      "label": "Recurring Decimals as Geometric Series",
+      "group": "Algebra",
+      "title": "Model repeating decimals as infinite geometric series to convert them to exact fractions.",
+      "broader_concept": "Sequences and Series",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "d8371625-5c2b-455f-b182-14d5928b03bc",
+      "label": "Mortgage Repayment Formula via Geometric Series",
+      "group": "Algebra",
+      "title": "Derive the annuity payment formula using present value of a finite geometric series.",
+      "broader_concept": "Financial Mathematics",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "05b86f16-b6f1-4311-8306-4c5b4aa810e8",
+      "label": "Integer Arithmetic in Z",
+      "group": "Number",
+      "title": "Carry out addition, subtraction, multiplication, and division with integers, noting closure and non-closure under division.",
+      "broader_concept": "Arithmetic",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "724cd90b-0afa-4ad2-bb50-b7781b8fc3ed",
+      "label": "Rational Number Arithmetic in Q",
+      "group": "Number",
+      "title": "Perform the four operations on rational numbers using fraction rules and simplification.",
+      "broader_concept": "Arithmetic",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "ae83e6a6-a083-4ae9-b159-50b2c01edfe1",
+      "label": "Real Number Arithmetic in R",
+      "group": "Number",
+      "title": "Apply arithmetic operations to real numbers, including surd manipulation where appropriate.",
+      "broader_concept": "Arithmetic",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "80f3dbae-20c9-4ac8-9ae5-ddbdcba77183",
+      "label": "Equivalence of Fractions, Decimals, and Percentages",
+      "group": "Number",
+      "title": "Recognizing and converting between equivalent representations of the same proportion as a fraction, decimal, or percent.",
+      "broader_concept": "Rational Number Representations",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "5db49e6c-ad04-46b2-866f-f517df8ddc19",
+      "label": "Calculating Percentages",
+      "group": "Ratio and Proportion",
+      "title": "Finding a given percentage of a quantity and expressing one quantity as a percentage of another.",
+      "broader_concept": "Percentages",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "b8929a01-65ad-4ff8-8e67-b8a5ab38899d",
+      "label": "Proportion as Equality of Ratios",
+      "group": "Ratio and Proportion",
+      "title": "Understanding that a proportion states two ratios are equal and using this relationship to solve problems.",
+      "broader_concept": "Proportional Reasoning",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "9d09bd41-6373-47cd-b4b2-7b2248aa4aa2",
+      "label": "Comparing Proportions Using FDP Equivalence",
+      "group": "Ratio and Proportion",
+      "title": "Comparing ratios or parts of a whole by converting them to a common representation such as fraction, decimal, or percent.",
+      "broader_concept": "Proportional Reasoning",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1d7b25e5-b000-4706-816d-1eeb83e6cfa8",
+      "label": "Prime Number Identification",
+      "group": "Number Theory",
+      "title": "Determining whether a natural number greater than 1 has exactly two distinct factors, 1 and itself.",
+      "broader_concept": "Number Theory",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "8ead464d-2b8f-4a91-88e9-37eeae0b2948",
+      "label": "Finding Factors of a Natural Number",
+      "group": "Number Theory",
+      "title": "Listing all integers that divide a given natural number without remainder and identifying factor pairs.",
+      "broader_concept": "Divisibility and Factors",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "2eaf4487-7140-4329-a173-40b14a2f87e0",
+      "label": "Identifying Multiples and Common Multiples",
+      "group": "Number Theory",
+      "title": "Generating multiples of a number and finding common multiples of two or more numbers.",
+      "broader_concept": "Divisibility and Multiples",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "a48906ff-73a1-49eb-a51c-b1c403b7fb90",
+      "label": "Scientific Notation for Positive Rational Numbers",
+      "group": "Number",
+      "title": "Expressing non-zero positive rational numbers in the form a×10^n with 1≤a<10 and n an integer.",
+      "broader_concept": "Number Representations",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "6a12361d-aa6d-4426-b980-737744271169",
+      "label": "Equality as a Relationship Between Expressions",
+      "group": "Algebra",
+      "title": "Interpreting the equals sign as stating that two expressions have the same value and applying properties of equality.",
+      "broader_concept": "Algebraic Reasoning",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "c8f621a8-7fb9-4fc8-a571-45dfa2013876",
+      "label": "Rounding to a Specified Degree of Accuracy",
+      "group": "Number",
+      "title": "Rounding numbers to a required number of decimal places or significant figures to present final answers.",
+      "broader_concept": "Approximation and Rounding",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "ee91b723-74d8-4a15-8391-e37f528cf695",
+      "label": "Order-of-Magnitude Check of Results",
+      "group": "Number",
+      "title": "Assessing whether an answer is reasonable by comparing its scale to an estimated order of magnitude using powers of ten.",
+      "broader_concept": "Estimation and Reasonableness",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "54d13589-b7af-44d9-be08-0e1cc4015230",
+      "label": "Using Inverse Operations to Verify Solutions",
+      "group": "Algebra",
+      "title": "Checking results by reversing operations to see if the original conditions are satisfied (working backwards).",
+      "broader_concept": "Solution Verification",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "d793700c-eb4c-40cd-a543-7ee7e127bceb",
+      "label": "Estimation and Approximation of Calculations",
+      "group": "Number",
+      "title": "Making and justifying approximate calculations to obtain quick, reasonable results when exact answers are unnecessary.",
+      "broader_concept": "Estimation Strategies",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "a7ca12fb-50e9-4189-8643-1b8db0e5581b",
+      "label": "Index Notation for Integer Powers",
+      "group": "Number",
+      "title": "Representing repeated multiplication using exponents, interpreting a^n for natural numbers n.",
+      "broader_concept": "Exponents and Powers",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "e4d7c299-7d55-4d76-81bf-1debcc70add5",
+      "label": "Square of a Number",
+      "group": "Number",
+      "title": "Calculating and interpreting a^2 as the product of a number with itself.",
+      "broader_concept": "Index Notation for Integer Powers",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "3d12389b-ad64-4a1c-bab5-e54d0ab540f5",
+      "label": "Cube of a Number",
+      "group": "Number",
+      "title": "Calculating and interpreting a^3 as the product of a number with itself three times.",
+      "broader_concept": "Index Notation for Integer Powers",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "8a2b8dea-d910-40ca-9a3c-68811099c6ac",
+      "label": "Square Root of a Number",
+      "group": "Number",
+      "title": "Interpreting √a as the principal number whose square equals a (for a ≥ 0 in real numbers).",
+      "broader_concept": "Radicals and Roots",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "bda9f821-a2fc-4236-934d-3659109c300e",
+      "label": "Reciprocal of a Number",
+      "group": "Number",
+      "title": "Finding the multiplicative inverse of a nonzero number, 1/a.",
+      "broader_concept": "Multiplicative Inverse",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "20a4cde9-870c-45c2-b3b4-e4032aa9baf7",
+      "label": "Negative Exponent as Reciprocal",
+      "group": "Number",
+      "title": "Interpreting a^-1 as 1/a (and, more generally, a^-n as 1/a^n for n ∈ N).",
+      "broader_concept": "Exponents and Powers",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "81dbbf77-b3f8-4116-84de-024621acb8e3",
+      "label": "Fractional Exponent 1/2 as Square Root",
+      "group": "Number",
+      "title": "Interpreting a^(1/2) as √a for a ≥ 0 in the real number system.",
+      "broader_concept": "Exponents and Powers",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "4fb67059-7273-4639-9345-d4197a06a656",
+      "label": "Convert Between Radical and Exponential Form",
+      "group": "Number",
+      "title": "Rewriting expressions such as √a as a^(1/2) and vice versa.",
+      "broader_concept": "Exponents and Powers",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "10913e65-3e9f-4c1f-989c-272527f806d0",
+      "label": "Classifying Sequences as Arithmetic, Geometric, or Neither",
+      "group": "Algebra",
+      "title": "Determine whether a sequence has a constant difference, a constant ratio, or neither based on its terms.",
+      "broader_concept": "Sequences and Series",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "55defcce-03a7-440b-afaa-51e9f1a61885",
+      "label": "Nth Term of an Arithmetic Sequence",
+      "group": "Algebra",
+      "title": "Find and use the explicit formula a_n = a_1 + (n−1)d to describe the nth term of an arithmetic sequence.",
+      "broader_concept": "Sequences and Series",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "04e12f46-a35d-43fa-9851-47a2914ba19e",
+      "label": "Nth Term of a Geometric Sequence",
+      "group": "Algebra",
+      "title": "Find and use the explicit formula a_n = a_1 r^(n−1) to describe the nth term of a geometric sequence.",
+      "broader_concept": "Sequences and Series",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "fba197ce-279f-4667-9648-04f6f56eb736",
+      "label": "Sum of First n Terms of an Arithmetic Series",
+      "group": "Algebra",
+      "title": "Calculate S_n using S_n = n/2 (2a + (n−1)d) or S_n = n/2 (a + l) for an arithmetic series.",
+      "broader_concept": "Sequences and Series",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "65f70997-e1c4-4357-aefa-a22f918fc306",
+      "label": "Finding the Common Difference of an Arithmetic Sequence",
+      "group": "Algebra",
+      "title": "Compute the constant difference d by subtracting consecutive terms in an arithmetic sequence.",
+      "broader_concept": "Sequences and Series",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "2745e411-bb2d-40e7-bf95-099d18c31217",
+      "label": "Finding the Common Ratio of a Geometric Sequence",
+      "group": "Algebra",
+      "title": "Compute the constant ratio r by dividing consecutive terms in a geometric sequence.",
+      "broader_concept": "Sequences and Series",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "e7df7f0a-565e-4be4-8eeb-0dce3c75ea7d",
+      "label": "Extending a Sequence from a Given Rule",
+      "group": "Algebra",
+      "title": "Continue a sequence by applying its explicit or recursive rule to generate subsequent terms.",
+      "broader_concept": "Sequences and Series",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "7babfd8b-7260-4e48-b7f0-bfc0024cf43b",
+      "label": "Generating a Sequence from a Recursive Rule",
+      "group": "Algebra",
+      "title": "Use a recurrence relation to produce successive terms of a sequence from initial values.",
+      "broader_concept": "Sequences and Series",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "65636a63-4648-43b3-8158-84497cbeca2e",
+      "label": "Generalising Patterns into Algebraic Form",
+      "group": "Algebra",
+      "title": "Express observed numeric patterns using variables and formulas, such as deriving an nth term expression.",
+      "broader_concept": "Algebraic Generalization",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "e833c230-b7a3-4923-85e3-2b3e840e033e",
+      "label": "Product of Powers with Same Base",
+      "group": "Algebra",
+      "title": "a^p · a^q = a^(p+q) for the same nonzero base a.",
+      "broader_concept": "Exponent Laws",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "c7ebd8ec-484c-4d1f-9ff6-7925556904fc",
+      "label": "Quotient of Powers with Same Base",
+      "group": "Algebra",
+      "title": "a^p / a^q = a^(p−q) for a ≠ 0.",
+      "broader_concept": "Exponent Laws",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "7992918f-34f8-4836-9cde-1652a55c632c",
+      "label": "Power of a Power Rule",
+      "group": "Algebra",
+      "title": "(a^p)^q = a^(pq).",
+      "broader_concept": "Exponent Laws",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "0729dc55-b848-484d-bbea-0474a043d307",
+      "label": "Zero Exponent Rule",
+      "group": "Algebra",
+      "title": "For a ≠ 0, a^0 = 1.",
+      "broader_concept": "Exponent Laws",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "4200c3e9-cfed-48ff-9899-2468344389d3",
+      "label": "Negative Exponent Rule",
+      "group": "Algebra",
+      "title": "For a ≠ 0, a^(−p) = 1/a^p.",
+      "broader_concept": "Exponent Laws",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1a556a4a-9ed5-4377-b3dd-5421b36fba3e",
+      "label": "Power of a Product Rule",
+      "group": "Algebra",
+      "title": "(ab)^p = a^p b^p.",
+      "broader_concept": "Exponent Laws",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "9f622529-e6e0-4b5b-ae50-864885a5d9d4",
+      "label": "Power of a Quotient Rule",
+      "group": "Algebra",
+      "title": "(a/b)^p = a^p / b^p for b ≠ 0.",
+      "broader_concept": "Exponent Laws",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "04776eb5-1553-4c7f-9b3a-f66423ef44ab",
+      "label": "Fractional Exponents as Roots",
+      "group": "Algebra",
+      "title": "For a > 0 and integer q > 0, a^(1/q) equals the qth root of a.",
+      "broader_concept": "Exponent Laws",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "26b1844b-b6ae-448b-8b85-8c39854ade04",
+      "label": "Rational Exponents Equivalence",
+      "group": "Algebra",
+      "title": "For a > 0 and integers p, q with q > 0, a^(p/q) = (qth root of a)^p = qth root of (a^p).",
+      "broader_concept": "Exponent Laws",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "39cf15c4-d589-4315-a112-855f48aee303",
+      "label": "Logarithm Product Rule",
+      "group": "Algebra",
+      "title": "log_a(xy) = log_a x + log_a y for a > 0, a ≠ 1.",
+      "broader_concept": "Logarithm Laws",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "4e208b58-cc99-483f-859a-c96fe7fcbec5",
+      "label": "Logarithm Quotient Rule",
+      "group": "Algebra",
+      "title": "log_a(x/y) = log_a x − log_a y for a > 0, a ≠ 1.",
+      "broader_concept": "Logarithm Laws",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "9b5b5dcc-ad86-4bc6-8ea9-81a45cece7d9",
+      "label": "Logarithm Power Rule",
+      "group": "Algebra",
+      "title": "log_a(x^q) = q log_a x for a > 0, a ≠ 1.",
+      "broader_concept": "Logarithm Laws",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "d6398d20-cdf5-4090-9e47-9adfd1c6759d",
+      "label": "Change of Base Formula for Logarithms",
+      "group": "Algebra",
+      "title": "log_a x = (log_b x) / (log_b a) for valid bases a, b.",
+      "broader_concept": "Logarithm Laws",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "adc85892-9ac2-4dad-9f96-28df1a7492d6",
+      "label": "Logarithm of Base Equals One",
+      "group": "Algebra",
+      "title": "log_a a = 1 for a > 0, a ≠ 1.",
+      "broader_concept": "Logarithm Laws",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "65db243b-6906-4a4b-adf4-4d65bfab0f58",
+      "label": "Logarithm of One Equals Zero",
+      "group": "Algebra",
+      "title": "log_a 1 = 0 for a > 0, a ≠ 1.",
+      "broader_concept": "Logarithm Laws",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "ff918a81-0859-4d6c-80b1-bb95a52848ef",
+      "label": "Sum to n Terms of an Arithmetic Series",
+      "group": "Algebra",
+      "title": "Calculate the sum of the first n terms using S_n = n/2 [2a + (n−1)d] or S_n = n/2 (first term + last term).",
+      "broader_concept": "Series",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "41ce7ef2-9310-4908-8281-7bc54626f69d",
+      "label": "Finding the nth Term of a Sequence",
+      "group": "Algebra",
+      "title": "Express the general term a_n of a sequence in algebraic form as a function of n.",
+      "broader_concept": "Sequences",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "8ee420ab-2035-47cc-8c88-51260a4cca7b",
+      "label": "Extending a Sequence Using Its Pattern",
+      "group": "Algebra",
+      "title": "Use the identified rule of a sequence to generate subsequent terms.",
+      "broader_concept": "Sequences",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "126461c7-1cfd-46bf-ab12-b4159456166b",
+      "label": "Determining the Term-to-Term Rule of a Sequence",
+      "group": "Algebra",
+      "title": "Identify the operation mapping each term to the next, such as adding a constant difference or multiplying by a constant ratio.",
+      "broader_concept": "Sequences",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "d0353892-c9d6-4fa0-afc9-51548f3240bb",
+      "label": "Fractional Exponents as Radicals",
+      "group": "Algebra",
+      "title": "Interpret rational exponents using roots: a^(1/q) = q-th root of a and a^(p/q) = (q-th root of a)^p = q-th root of (a^p), with a > 0 and q ≠ 0.",
+      "broader_concept": "Laws of Exponents",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "e824a55d-ed53-47e7-881b-850c7a90f197",
+      "label": "Logarithm of the Base",
+      "group": "Algebra",
+      "title": "The logarithm of the base equals 1: log_a a = 1, for a>0 and a≠1.",
+      "broader_concept": "Logarithm Laws",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "2443548b-67ff-4675-8f2e-846baa06fb2e",
+      "label": "Logarithm of 1",
+      "group": "Algebra",
+      "title": "The logarithm of 1 is zero for any valid base: log_a 1 = 0, for a>0 and a≠1.",
+      "broader_concept": "Logarithm Laws",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "ed332e4b-07b1-482c-bf9e-60f0cd12f55c",
+      "label": "Profit or Loss Calculation",
+      "group": "Number",
+      "title": "Determine profit or loss amount from cost price and selling price.",
+      "broader_concept": "Financial Arithmetic",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "d295554d-19b1-4704-be37-4ba5a23a8bbf",
+      "label": "Percentage Profit on Cost Price",
+      "group": "Number",
+      "title": "Compute percent profit as (selling price − cost price) ÷ cost price × 100%.",
+      "broader_concept": "Percentages",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "3b06a6e4-0296-474f-9341-a6433e002e09",
+      "label": "Percentage Loss on Cost Price",
+      "group": "Number",
+      "title": "Compute percent loss as (cost price − selling price) ÷ cost price × 100%.",
+      "broader_concept": "Percentages",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "d3f3059a-93ff-46f7-8749-837354617aef",
+      "label": "Percentage Discount Calculation",
+      "group": "Number",
+      "title": "Find the discount amount or rate given a marked price and a percentage discount.",
+      "broader_concept": "Percentages",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "b37d66ab-b5cf-440a-81bd-1f88b97eab7e",
+      "label": "Selling Price after Discount",
+      "group": "Number",
+      "title": "Calculate the final selling price after applying a single percentage discount to the marked price.",
+      "broader_concept": "Financial Arithmetic",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "688785d7-cdb4-4a87-acaf-1cf75d783f8e",
+      "label": "VAT Calculation on Purchases",
+      "group": "Number",
+      "title": "Compute VAT amount and total price given a VAT rate and pre-tax price.",
+      "broader_concept": "Financial Arithmetic",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "dcecd5c0-3513-4adf-86d0-5dc07ab23cdb",
+      "label": "Compound Interest Calculation (≤3 Years)",
+      "group": "Number",
+      "title": "Use A = P(1 + r)^n to find the amount or interest for up to three compounding periods.",
+      "broader_concept": "Interest Calculations",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "f443f2a1-00ad-44a1-8a6f-971a08a3ef4e",
+      "label": "Income Tax Calculation at Standard Rate",
+      "group": "Number",
+      "title": "Calculate tax as a flat percentage of taxable income using the standard rate.",
+      "broader_concept": "Financial Arithmetic",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "be2572ba-166c-4491-824a-7b06ffd6dc07",
+      "label": "Net Pay Calculation with Fixed Deductions",
+      "group": "Number",
+      "title": "Determine take-home pay by subtracting income tax and specified fixed deductions from gross pay.",
+      "broader_concept": "Financial Arithmetic",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "667a2328-1da9-4cef-a0df-84dce95280b0",
+      "label": "Currency Conversion Using Exchange Rates",
+      "group": "Number",
+      "title": "Convert between currencies by multiplying or dividing by the given exchange rate.",
+      "broader_concept": "Financial Arithmetic",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "b48baa7a-de32-4cee-a84f-98e3d9cbc34a",
+      "label": "Unit Price Comparison for Value for Money",
+      "group": "Number",
+      "title": "Compute cost per unit (e.g., per kg or per litre) to compare and judge better buys.",
+      "broader_concept": "Ratios and Proportional Reasoning",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "81983e1b-2285-4fee-9641-ebda460b6f9b",
+      "label": "Mobile Phone Tariff Cost Calculation",
+      "group": "Number",
+      "title": "Calculate total cost from fixed charges and per-unit rates for calls, texts, or data.",
+      "broader_concept": "Financial Arithmetic",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "36ec079b-6f38-4671-820d-045b15aaaeca",
+      "label": "Utility Bill Calculation from Meter Readings",
+      "group": "Number",
+      "title": "Find consumption from initial and final readings and compute charges using unit rates and standing fees.",
+      "broader_concept": "Financial Arithmetic",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "767d904d-0862-420f-a0ba-5188775100b1",
+      "label": "Time Conversion (Hours, Minutes, Seconds)",
+      "group": "Measurement",
+      "title": "Convert between hours, minutes, and seconds and compute time intervals.",
+      "broader_concept": "Time Measurement",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "f29ee67b-3a32-497f-869f-22b4cbd866b8",
+      "label": "Metric Unit Conversion (Length, Mass, Volume)",
+      "group": "Measurement",
+      "title": "Convert between common metric units such as mm–cm–m–km, g–kg, and mL–L.",
+      "broader_concept": "Units and Measurement",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "ea692878-2851-428d-bb90-08adb51a3897",
+      "label": "Average Speed Calculation",
+      "group": "Measurement",
+      "title": "Compute average speed using v = distance ÷ time.",
+      "broader_concept": "Rates and Proportional Reasoning",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "656cdd6e-b529-4e0c-a209-39c53e5124fb",
+      "label": "Distance Calculation from Speed and Time",
+      "group": "Measurement",
+      "title": "Find distance using d = speed × time.",
+      "broader_concept": "Rates and Proportional Reasoning",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "a70061f6-e5e9-44e7-b7b1-8aee578f5be2",
+      "label": "Time Calculation from Distance and Speed",
+      "group": "Measurement",
+      "title": "Find time using t = distance ÷ speed.",
+      "broader_concept": "Rates and Proportional Reasoning",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "0ac3bf48-df90-4468-a39e-396436febd95",
+      "label": "Dividing a Quantity in a Given Ratio",
+      "group": "Number",
+      "title": "Split a total into parts proportional to a stated ratio m:n.",
+      "broader_concept": "Ratios",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "3d7c3272-a03a-4ed1-bfe5-cb50a0f884ab",
+      "label": "Unitary Method for Direct Proportion",
+      "group": "Number",
+      "title": "Solve proportion problems by finding the per-unit value and scaling.",
+      "broader_concept": "Proportional Reasoning",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "848a1c1b-f943-4f34-b962-2a3515cd1e39",
+      "label": "Timetable Interpretation and Time Interval Calculation",
+      "group": "Measurement",
+      "title": "Read timetables to determine departure/arrival times and durations between events.",
+      "broader_concept": "Time Measurement",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1c85dc71-79a7-48a1-bc2b-b6dbf551a4d0",
+      "label": "Surface Area vs Volume: Conceptual Distinction",
+      "group": "Measurement",
+      "title": "Understanding surface area as the 2D measure of a solid’s exterior and volume as the 3D measure of space it occupies, including appropriate units and when each is used.",
+      "broader_concept": "Geometric Measurement",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "37dc29ea-027b-46b3-8e06-6939920e9ff7",
+      "label": "Surface Area of Rectangular Prisms",
+      "group": "Geometry",
+      "title": "Calculating total surface area of a rectangular solid using 2(lw + lh + wh) or by summing areas of all faces.",
+      "broader_concept": "Surface Area of Solids",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "635f0823-e034-42de-9a4c-78886dbe984a",
+      "label": "Volume of Rectangular Prisms",
+      "group": "Geometry",
+      "title": "Finding the volume of a rectangular solid using V = lwh and appropriate cubic units.",
+      "broader_concept": "Volume of Solids",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "4d83339b-fd9a-4cb2-97f1-80ccc83ae290",
+      "label": "Surface Area of Cylinders",
+      "group": "Geometry",
+      "title": "Computing lateral and total surface area of a cylinder using 2πrh and 2πr(r + h).",
+      "broader_concept": "Surface Area of Solids",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "a4435489-7ad7-47c3-982b-0a0a7c83845f",
+      "label": "Volume of Cylinders",
+      "group": "Geometry",
+      "title": "Calculating cylinder volume using V = πr^2h with consistent units.",
+      "broader_concept": "Volume of Solids",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "3ecf7546-7333-4183-b867-50dc8015d7bc",
+      "label": "Surface Area of Spheres",
+      "group": "Geometry",
+      "title": "Using the formula SA = 4πr^2 to find the surface area of spheres.",
+      "broader_concept": "Surface Area of Solids",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "daa8d34b-3cb7-4b0c-8ff4-9e867e67a39e",
+      "label": "Volume of Spheres",
+      "group": "Geometry",
+      "title": "Using V = (4/3)πr^3 to calculate the volume of spheres.",
+      "broader_concept": "Volume of Solids",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "06314486-e47a-44f2-9e45-7fb7419d835f",
+      "label": "Nets of Rectangular Prisms",
+      "group": "Geometry",
+      "title": "Identifying and constructing nets of rectangular solids and using them to reason about faces and surface area.",
+      "broader_concept": "Geometric Nets",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "dd1a4dbf-7caf-40fc-8c2b-513652b5d9df",
+      "label": "Nets of Cylinders",
+      "group": "Geometry",
+      "title": "Recognizing a cylinder’s net as a rectangle with two congruent circles and applying it to surface area calculations.",
+      "broader_concept": "Geometric Nets",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "bab6b7c2-816c-43e3-9f07-852199293481",
+      "label": "Circumference of a Circle",
+      "group": "Geometry",
+      "title": "Understanding the relationship C = πd = 2πr and π as the ratio of circumference to diameter.",
+      "broader_concept": "Circle Properties",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1ad625d1-ea20-41e8-8bb1-95ac7c29bb8f",
+      "label": "Area of Circles (Discs)",
+      "group": "Geometry",
+      "title": "Using A = πr^2 to compute the area of a circular region.",
+      "broader_concept": "Area of Plane Figures",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "7bb1711e-316f-4737-8939-efcec5f15a3b",
+      "label": "Area of Rectangles and Squares",
+      "group": "Geometry",
+      "title": "Calculating area with A = lw for rectangles and A = s^2 for squares.",
+      "broader_concept": "Area of Plane Figures",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "f33aa1a9-34ef-4bb0-a3cb-b68957e6679a",
+      "label": "Area of Triangles",
+      "group": "Geometry",
+      "title": "Finding area using A = 1/2 bh and related strategies.",
+      "broader_concept": "Area of Plane Figures",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "8c45cf3d-e21a-44fa-9eb0-5f58bc91f790",
+      "label": "Perimeter of Triangles, Rectangles, and Squares",
+      "group": "Geometry",
+      "title": "Computing perimeter by summing side lengths; for rectangles P = 2(l + w) and for squares P = 4s.",
+      "broader_concept": "Perimeter of Plane Figures",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "3d50c49d-b058-4f25-80b6-3168f50f281c",
+      "label": "Area of Composite Plane Figures",
+      "group": "Geometry",
+      "title": "Decomposing combinations of circles, triangles, rectangles, and squares into simpler parts to compute total area.",
+      "broader_concept": "Area of Plane Figures",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "e7a3c67e-9811-41f2-9e9a-a8b9bfb380cb",
+      "label": "Perimeter of Composite Plane Figures",
+      "group": "Geometry",
+      "title": "Finding total boundary length of shapes formed by combining basic figures by adding relevant side lengths and arc lengths.",
+      "broader_concept": "Perimeter of Plane Figures",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "f9b55a34-5178-495b-b50b-8b6da5431669",
+      "label": "Area Estimation for Irregular Shapes",
+      "group": "Measurement",
+      "title": "Estimating area using strategies such as grid approximation, decomposition, and bounding shapes.",
+      "broader_concept": "Measurement Estimation",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "176de9f1-cbf3-47a8-b66c-13e675c1e150",
+      "label": "Drawing and Interpreting Scale Drawings",
+      "group": "Geometry",
+      "title": "Creating and reading scaled diagrams using scale factors to determine actual or diagram lengths.",
+      "broader_concept": "Similarity and Scale",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "57e4f0ec-eee2-4c91-80be-9ebd9601fcb2",
+      "label": "Real-World Applications of Surface Area and Volume (Prisms and Cylinders)",
+      "group": "Geometry",
+      "title": "Modeling and solving multi-step contextual problems involving surface areas and volumes of rectangular prisms and cylinders.",
+      "broader_concept": "Applied Geometric Measurement",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "3fe2574a-19b5-48d7-a1da-594aa5be1b80",
+      "label": "Present Value of Annuities for Loans and Investments",
+      "group": "Number",
+      "title": "Computing the present value of a stream of equal periodic payments to solve loan repayment and investment problems.",
+      "broader_concept": "Financial Mathematics",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "f4eae9f0-38ba-4b0c-b145-702804d5f49f",
+      "label": "Compound Interest Calculations",
+      "group": "Number",
+      "title": "Calculating future value or accumulated amount using compound interest formulas for given principal, rate, compounding frequency, and time.",
+      "broader_concept": "Financial Mathematics",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "c5c3dd66-f6bd-43db-b764-ee422bc9dccd",
+      "label": "Reducing Balance Depreciation",
+      "group": "Number",
+      "title": "Applying a constant percentage rate to the diminishing book value of an asset to compute its depreciation over time.",
+      "broader_concept": "Financial Mathematics",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "ce8077c1-b422-4397-aeb3-6ed8dbcc8d0a",
+      "label": "Income Tax and Net Pay Calculations",
+      "group": "Number",
+      "title": "Determining gross pay, deductions (including taxes and other withholdings), and computing net pay.",
+      "broader_concept": "Personal Finance Mathematics",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "76288a8b-1431-4243-ad90-da7b7a6bb767",
+      "label": "Markup Percentage (Profit as Percent of Cost Price)",
+      "group": "Number",
+      "title": "Computing profit as a percentage of cost price and using it to find selling price or profit.",
+      "broader_concept": "Business Mathematics",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1a54a669-77b3-44d0-b592-d0e31be8e46f",
+      "label": "Gross Margin Percentage (Profit as Percent of Selling Price)",
+      "group": "Number",
+      "title": "Calculating profit as a percentage of selling price to analyze pricing and profitability.",
+      "broader_concept": "Business Mathematics",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "e6ba3f23-0aee-4375-b7e7-221144b3c07e",
+      "label": "Percentage Discount Calculations",
+      "group": "Number",
+      "title": "Finding discount amounts and discounted selling prices, or determining the discount rate from prices.",
+      "broader_concept": "Business Mathematics",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "3bb8c7c8-8ff7-4e1e-8fba-c458fa64fbf8",
+      "label": "Loss Calculation in Sales Transactions",
+      "group": "Number",
+      "title": "Determining monetary loss and loss percentage when the selling price is less than the cost price.",
+      "broader_concept": "Business Mathematics",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "9b6135b9-ab0f-4e30-afdb-22c8c925b05b",
+      "label": "Average Rate of Change with Respect to Time",
+      "group": "Algebra",
+      "title": "Computing change in a quantity per unit time, such as average speed, using Δquantity/Δtime.",
+      "broader_concept": "Rates and Proportional Reasoning",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "114efdcb-a68f-40ab-9fd7-6f7a59d25f0b",
+      "label": "Error Propagation under Addition and Subtraction",
+      "group": "Measurement",
+      "title": "Estimating accumulated absolute error when combining measurements by adding or subtracting their errors.",
+      "broader_concept": "Measurement Uncertainty",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "6d606746-7ba7-421a-b573-ef0b7120b2d8",
+      "label": "Percentage Error Computation",
+      "group": "Measurement",
+      "title": "Calculating the relative error as a percentage of the true or accepted value.",
+      "broader_concept": "Measurement Uncertainty",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "e9e68959-8d60-412a-b2c5-3d1d766a4f5a",
+      "label": "Measurement Tolerance Interpretation",
+      "group": "Measurement",
+      "title": "Interpreting and applying allowable variation bounds (tolerances) around a nominal measurement.",
+      "broader_concept": "Measurement Uncertainty",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "912779da-0154-49f0-882e-9a2f7b680661",
+      "label": "Metric–Imperial Unit Conversion (Given Factors)",
+      "group": "Measurement",
+      "title": "Converting quantities between metric and everyday imperial units using provided conversion factors.",
+      "broader_concept": "Units and Measurement",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "258d9c37-1444-47c2-a76b-850cb404c22d",
+      "label": "Metric Unit Conversion",
+      "group": "Measurement",
+      "title": "Converting within the metric system across prefixes (e.g., mm–cm–m–km) for length, mass, and volume.",
+      "broader_concept": "Units and Measurement",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "b262bfc8-0355-4d86-93c2-896023776d9b",
+      "label": "Rounding to Significant Figures and Decimal Places",
+      "group": "Number",
+      "title": "Approximating numerical results to a specified number of significant figures or decimal places.",
+      "broader_concept": "Numerical Approximation",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "4fcf713f-fe52-4af4-9c59-0e8775b5925a",
+      "label": "Order of Magnitude Estimation",
+      "group": "Number",
+      "title": "Checking plausibility by comparing a result to a rough power-of-ten scale or expected size.",
+      "broader_concept": "Numerical Estimation",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "ebe2265f-cc17-4477-81d9-3927c6f9dccc",
+      "label": "Checking Solutions by Working Backwards",
+      "group": "Number",
+      "title": "Verifying results by reversing the operations of a problem to recover the original values.",
+      "broader_concept": "Problem-Solving Strategies",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "800d5409-c82b-4376-8786-9c520be451f7",
+      "label": "Estimating Physical Measurements",
+      "group": "Measurement",
+      "title": "Making reasonable estimates of real-world lengths, masses, times, and capacities without precise tools.",
+      "broader_concept": "Measurement Estimation",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "461f7d87-c895-4af5-bead-0601fe106819",
+      "label": "Costing Calculations for Materials, Labour, and Wastage",
+      "group": "Number",
+      "title": "Computing total cost by aggregating material costs, labour charges, and allowances for wastage.",
+      "broader_concept": "Business Mathematics",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "7305f0f0-bc2f-48db-85d4-19356e98b519",
+      "label": "Area of a Circle",
+      "group": "Geometry",
+      "title": "Using A = πr^2 to find the area of a disc given its radius or diameter.",
+      "broader_concept": "Mensuration",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "70bb9623-9832-47ce-9574-b70690901eba",
+      "label": "Area of a Triangle",
+      "group": "Geometry",
+      "title": "Applying A = 1/2 bh to find the area from a base and corresponding height.",
+      "broader_concept": "Mensuration",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "d21fb948-c93d-4e77-b06e-574ba86eaaf6",
+      "label": "Area of a Rectangle",
+      "group": "Geometry",
+      "title": "Using A = lw for rectangles from length and width.",
+      "broader_concept": "Mensuration",
+      "grade_level": "Elementary_Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "f61e01a1-f306-4ff0-ad4d-e95c56a8e3a2",
+      "label": "Area of a Square",
+      "group": "Geometry",
+      "title": "Using A = s^2 to find the area from side length.",
+      "broader_concept": "Mensuration",
+      "grade_level": "Elementary_Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1b52c5ea-edf8-4827-a04a-0b2cab337db6",
+      "label": "Area of a Parallelogram",
+      "group": "Geometry",
+      "title": "Using A = bh with base and perpendicular height.",
+      "broader_concept": "Mensuration",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "6481c651-e2fb-45f4-9511-94aa9dba484d",
+      "label": "Area of a Trapezium",
+      "group": "Geometry",
+      "title": "Applying A = 1/2 (a + b) h where a and b are parallel sides and h is height.",
+      "broader_concept": "Mensuration",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "2ce27d9f-f24a-4742-98de-46996a1f3710",
+      "label": "Arc Length of a Sector",
+      "group": "Geometry",
+      "title": "Computing s = θr for θ in radians (or s = (θ/360°) 2πr for degrees).",
+      "broader_concept": "Mensuration",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "78db4396-7726-4605-a8ee-6027407eddd6",
+      "label": "Perimeter of a Sector of a Circle",
+      "group": "Geometry",
+      "title": "Finding the boundary length of a sector as P = s + 2r, where s is the arc length.",
+      "broader_concept": "Mensuration",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "02c9cce0-82cf-451e-89c2-ff3704762df9",
+      "label": "Volume of Composite Solids",
+      "group": "Geometry",
+      "title": "Calculating total volume by decomposing a solid into standard solids and summing or subtracting volumes.",
+      "broader_concept": "Mensuration",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "79b049bb-b493-42bd-a179-148de81a60bd",
+      "label": "Surface Area of Composite Solids",
+      "group": "Geometry",
+      "title": "Determining the exposed surface area of combined solids by accounting for shared or removed faces.",
+      "broader_concept": "Mensuration",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "f9041f61-f5e5-44e8-857c-da325698c419",
+      "label": "Volume of a Rectangular Prism",
+      "group": "Geometry",
+      "title": "Using V = lwh to find volume from length, width, and height.",
+      "broader_concept": "Mensuration",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "f7cc725f-42c3-423f-bf87-31c6f43990b2",
+      "label": "Surface Area of a Rectangular Prism",
+      "group": "Geometry",
+      "title": "Summing areas of all six faces: SA = 2(lw + lh + wh).",
+      "broader_concept": "Mensuration",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "c13ab6f0-f49a-4583-adce-2d61f7d2c6eb",
+      "label": "Volume of a Cylinder",
+      "group": "Geometry",
+      "title": "Using V = πr^2 h for right circular cylinders.",
+      "broader_concept": "Mensuration",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "c6ed117e-e2d7-463c-8bea-80e3e935818f",
+      "label": "Surface Area of a Cylinder",
+      "group": "Geometry",
+      "title": "Using SA = 2πr^2 + 2πrh for closed right circular cylinders.",
+      "broader_concept": "Mensuration",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "2798b74e-9df0-40f5-9882-b24081c93c97",
+      "label": "Volume of a Right Circular Cone",
+      "group": "Geometry",
+      "title": "Using V = (1/3) πr^2 h for right cones.",
+      "broader_concept": "Mensuration",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "266be993-41d0-4100-8a1f-6f86bc6c0f8a",
+      "label": "Surface Area of a Right Circular Cone",
+      "group": "Geometry",
+      "title": "Using SA = πr^2 + πrl where l is slant height l = √(r^2 + h^2).",
+      "broader_concept": "Mensuration",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "290a0200-fe87-48ff-893d-50f540b4f3e0",
+      "label": "Volume of a Triangular Prism",
+      "group": "Geometry",
+      "title": "Using V = (Area of triangular base) × length, for any triangle type.",
+      "broader_concept": "Mensuration",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "b5a45a3f-bf46-4726-8c87-bfa5a3df0377",
+      "label": "Surface Area of a Triangular Prism",
+      "group": "Geometry",
+      "title": "Summing areas of two triangular bases and three rectangular faces.",
+      "broader_concept": "Mensuration",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "0de1b9ce-32f8-42ac-92ca-3bed3fa52c95",
+      "label": "Volume of a Sphere",
+      "group": "Geometry",
+      "title": "Using V = (4/3) πr^3 for spheres.",
+      "broader_concept": "Mensuration",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "26462d22-3972-43e5-8cca-d5bc5132e132",
+      "label": "Surface Area of a Sphere",
+      "group": "Geometry",
+      "title": "Using SA = 4πr^2 for spheres.",
+      "broader_concept": "Mensuration",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "d2cbadea-1cd8-45e1-b5b0-2293b2a01db5",
+      "label": "Volume of a Hemisphere",
+      "group": "Geometry",
+      "title": "Using V = (2/3) πr^3 for hemispheres.",
+      "broader_concept": "Mensuration",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "5d595af5-b1a6-47f4-998f-5ddd9e205f60",
+      "label": "Surface Area of a Hemisphere",
+      "group": "Geometry",
+      "title": "For a closed hemisphere SA = 3πr^2; for open hemisphere SA = 2πr^2.",
+      "broader_concept": "Mensuration",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "b88468af-3c75-4566-bdf1-5a145be84405",
+      "label": "Trapezoidal Rule for Area Approximation",
+      "group": "Numerical Methods",
+      "title": "Approximating area under a curve or irregular boundary by summing areas of adjacent trapezoids.",
+      "broader_concept": "Numerical Integration",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "807ec1c0-76f6-4cc2-a0ca-d3779041858c",
+      "label": "Nets of Prisms",
+      "group": "Geometry",
+      "title": "Unfolding a prism into a two-dimensional net to analyze faces and surface area.",
+      "broader_concept": "Solid Geometry",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "f795c43d-f864-413a-84a4-bd81db033680",
+      "label": "Net of a Cylinder",
+      "group": "Geometry",
+      "title": "Representing a cylinder as a rectangle (lateral surface) and two circles (bases).",
+      "broader_concept": "Solid Geometry",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "5ba7b34c-a163-4d19-855f-da1a6cfb1e01",
+      "label": "Net of a Right Circular Cone",
+      "group": "Geometry",
+      "title": "Representing a cone as a sector of a circle (lateral surface) plus a circle (base).",
+      "broader_concept": "Solid Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    }
+  ],
+  "edges": [
+    {
+      "from": "1e081198-89d1-4805-b985-1768a165b21d",
+      "to": "71e8cc4c-867d-44df-a350-0b79211b1e7c",
+      "strength": 0.9
+    },
+    {
+      "from": "1f8feaf5-540b-4bf3-888f-18f2d730ed63",
+      "to": "539468eb-000c-4e4b-a0bf-3df4a4347e77",
+      "strength": 0.95
+    },
+    {
+      "from": "1e081198-89d1-4805-b985-1768a165b21d",
+      "to": "539468eb-000c-4e4b-a0bf-3df4a4347e77",
+      "strength": 0.8
+    },
+    {
+      "from": "e7679f76-9445-44f6-b0b5-5a6edfddb156",
+      "to": "5c77edcb-b457-4177-a201-20433977f981",
+      "strength": 0.9
+    },
+    {
+      "from": "f4ad307f-33dc-4175-8294-97dbbad1cb4a",
+      "to": "b5d2753e-ac4b-4d03-a53f-5254bd09b93c",
+      "strength": 0.8
+    },
+    {
+      "from": "f4ad307f-33dc-4175-8294-97dbbad1cb4a",
+      "to": "156c6b83-7ee9-47bf-9ee4-7cdb0ba4cf54",
+      "strength": 0.8
+    },
+    {
+      "from": "f4ad307f-33dc-4175-8294-97dbbad1cb4a",
+      "to": "5c77edcb-b457-4177-a201-20433977f981",
+      "strength": 0.6
+    },
+    {
+      "from": "b5d2753e-ac4b-4d03-a53f-5254bd09b93c",
+      "to": "156c6b83-7ee9-47bf-9ee4-7cdb0ba4cf54",
+      "strength": 0.6
+    },
+    {
+      "from": "156c6b83-7ee9-47bf-9ee4-7cdb0ba4cf54",
+      "to": "b5d2753e-ac4b-4d03-a53f-5254bd09b93c",
+      "strength": 0.6
+    },
+    {
+      "from": "f4ad307f-33dc-4175-8294-97dbbad1cb4a",
+      "to": "664dcf0e-c9e3-4207-a05b-58a9c4d220aa",
+      "strength": 0.7
+    },
+    {
+      "from": "539468eb-000c-4e4b-a0bf-3df4a4347e77",
+      "to": "664dcf0e-c9e3-4207-a05b-58a9c4d220aa",
+      "strength": 0.7
+    },
+    {
+      "from": "b5d2753e-ac4b-4d03-a53f-5254bd09b93c",
+      "to": "664dcf0e-c9e3-4207-a05b-58a9c4d220aa",
+      "strength": 0.7
+    },
+    {
+      "from": "156c6b83-7ee9-47bf-9ee4-7cdb0ba4cf54",
+      "to": "664dcf0e-c9e3-4207-a05b-58a9c4d220aa",
+      "strength": 0.6
+    },
+    {
+      "from": "5c77edcb-b457-4177-a201-20433977f981",
+      "to": "664dcf0e-c9e3-4207-a05b-58a9c4d220aa",
+      "strength": 0.6
+    },
+    {
+      "from": "1f8feaf5-540b-4bf3-888f-18f2d730ed63",
+      "to": "664dcf0e-c9e3-4207-a05b-58a9c4d220aa",
+      "strength": 0.6
+    },
+    {
+      "from": "1e081198-89d1-4805-b985-1768a165b21d",
+      "to": "d958b81d-9158-4261-a57b-69382031accf",
+      "strength": 0.7
+    },
+    {
+      "from": "71e8cc4c-867d-44df-a350-0b79211b1e7c",
+      "to": "d958b81d-9158-4261-a57b-69382031accf",
+      "strength": 0.6
+    },
+    {
+      "from": "e7679f76-9445-44f6-b0b5-5a6edfddb156",
+      "to": "d958b81d-9158-4261-a57b-69382031accf",
+      "strength": 0.7
+    },
+    {
+      "from": "5c77edcb-b457-4177-a201-20433977f981",
+      "to": "d958b81d-9158-4261-a57b-69382031accf",
+      "strength": 0.6
+    },
+    {
+      "from": "1f8feaf5-540b-4bf3-888f-18f2d730ed63",
+      "to": "d958b81d-9158-4261-a57b-69382031accf",
+      "strength": 0.8
+    },
+    {
+      "from": "f4ad307f-33dc-4175-8294-97dbbad1cb4a",
+      "to": "d958b81d-9158-4261-a57b-69382031accf",
+      "strength": 0.7
+    },
+    {
+      "from": "b5d2753e-ac4b-4d03-a53f-5254bd09b93c",
+      "to": "d958b81d-9158-4261-a57b-69382031accf",
+      "strength": 0.7
+    },
+    {
+      "from": "156c6b83-7ee9-47bf-9ee4-7cdb0ba4cf54",
+      "to": "d958b81d-9158-4261-a57b-69382031accf",
+      "strength": 0.7
+    },
+    {
+      "from": "d958b81d-9158-4261-a57b-69382031accf",
+      "to": "664dcf0e-c9e3-4207-a05b-58a9c4d220aa",
+      "strength": 0.5
+    },
+    {
+      "from": "0e5fb8c5-50cf-4ab8-bde8-8c95d584f226",
+      "to": "154fca1c-a9fd-41bc-8dca-974b09f8e949",
+      "strength": 0.9
+    },
+    {
+      "from": "7d5e1711-ee88-4e9b-8ca6-2084a7e5629a",
+      "to": "154fca1c-a9fd-41bc-8dca-974b09f8e949",
+      "strength": 0.85
+    },
+    {
+      "from": "154fca1c-a9fd-41bc-8dca-974b09f8e949",
+      "to": "65bf756d-2528-4ebf-a978-101cbb39bd00",
+      "strength": 0.9
+    },
+    {
+      "from": "7d5e1711-ee88-4e9b-8ca6-2084a7e5629a",
+      "to": "767e6dc6-2e9c-4ed4-8123-9f58ac18e926",
+      "strength": 0.92
+    },
+    {
+      "from": "767e6dc6-2e9c-4ed4-8123-9f58ac18e926",
+      "to": "50f9993f-e289-49e4-b031-db198e526b3c",
+      "strength": 0.85
+    },
+    {
+      "from": "50f9993f-e289-49e4-b031-db198e526b3c",
+      "to": "1f7cbe6b-326f-45f8-a157-59eb58a4bdea",
+      "strength": 0.82
+    },
+    {
+      "from": "37c11cdc-1f6b-4bef-8438-bace24cc442c",
+      "to": "1f7cbe6b-326f-45f8-a157-59eb58a4bdea",
+      "strength": 0.82
+    },
+    {
+      "from": "1f7cbe6b-326f-45f8-a157-59eb58a4bdea",
+      "to": "154fca1c-a9fd-41bc-8dca-974b09f8e949",
+      "strength": 0.6
+    },
+    {
+      "from": "50f9993f-e289-49e4-b031-db198e526b3c",
+      "to": "224be160-d3f4-42cf-a18c-c01898dc58ee",
+      "strength": 0.9
+    },
+    {
+      "from": "37c11cdc-1f6b-4bef-8438-bace24cc442c",
+      "to": "224be160-d3f4-42cf-a18c-c01898dc58ee",
+      "strength": 0.9
+    },
+    {
+      "from": "154fca1c-a9fd-41bc-8dca-974b09f8e949",
+      "to": "37c11cdc-1f6b-4bef-8438-bace24cc442c",
+      "strength": 0.7
+    },
+    {
+      "from": "767e6dc6-2e9c-4ed4-8123-9f58ac18e926",
+      "to": "224be160-d3f4-42cf-a18c-c01898dc58ee",
+      "strength": 0.78
+    },
+    {
+      "from": "1f7cbe6b-326f-45f8-a157-59eb58a4bdea",
+      "to": "65bf756d-2528-4ebf-a978-101cbb39bd00",
+      "strength": 0.8
+    },
+    {
+      "from": "65bf756d-2528-4ebf-a978-101cbb39bd00",
+      "to": "04ccf547-6592-4d99-9f7f-dafcf5b025f1",
+      "strength": 0.88
+    },
+    {
+      "from": "224be160-d3f4-42cf-a18c-c01898dc58ee",
+      "to": "04ccf547-6592-4d99-9f7f-dafcf5b025f1",
+      "strength": 0.72
+    },
+    {
+      "from": "1f7cbe6b-326f-45f8-a157-59eb58a4bdea",
+      "to": "04ccf547-6592-4d99-9f7f-dafcf5b025f1",
+      "strength": 0.86
+    },
+    {
+      "from": "767e6dc6-2e9c-4ed4-8123-9f58ac18e926",
+      "to": "154fca1c-a9fd-41bc-8dca-974b09f8e949",
+      "strength": 0.65
+    },
+    {
+      "from": "0e5fb8c5-50cf-4ab8-bde8-8c95d584f226",
+      "to": "65bf756d-2528-4ebf-a978-101cbb39bd00",
+      "strength": 0.8
+    },
+    {
+      "from": "7d5e1711-ee88-4e9b-8ca6-2084a7e5629a",
+      "to": "50f9993f-e289-49e4-b031-db198e526b3c",
+      "strength": 0.7
+    },
+    {
+      "from": "154fca1c-a9fd-41bc-8dca-974b09f8e949",
+      "to": "50f9993f-e289-49e4-b031-db198e526b3c",
+      "strength": 0.7
+    },
+    {
+      "from": "154fca1c-a9fd-41bc-8dca-974b09f8e949",
+      "to": "224be160-d3f4-42cf-a18c-c01898dc58ee",
+      "strength": 0.68
+    },
+    {
+      "from": "dfb5ce39-94c9-4ebf-8c5e-3d43173ae686",
+      "to": "12260dc1-579a-4ba7-b3ea-9531a4844c84",
+      "strength": 0.9
+    },
+    {
+      "from": "dfb5ce39-94c9-4ebf-8c5e-3d43173ae686",
+      "to": "21573a4b-cdd8-4a7f-a680-bca6b81b4b5a",
+      "strength": 0.9
+    },
+    {
+      "from": "dfb5ce39-94c9-4ebf-8c5e-3d43173ae686",
+      "to": "7daef625-8dd8-4b61-beea-cd3d533c3a76",
+      "strength": 0.9
+    },
+    {
+      "from": "12260dc1-579a-4ba7-b3ea-9531a4844c84",
+      "to": "353a1864-cfa1-4bd8-be5c-751cccabc440",
+      "strength": 0.85
+    },
+    {
+      "from": "21573a4b-cdd8-4a7f-a680-bca6b81b4b5a",
+      "to": "353a1864-cfa1-4bd8-be5c-751cccabc440",
+      "strength": 0.85
+    },
+    {
+      "from": "7daef625-8dd8-4b61-beea-cd3d533c3a76",
+      "to": "353a1864-cfa1-4bd8-be5c-751cccabc440",
+      "strength": 0.85
+    },
+    {
+      "from": "12260dc1-579a-4ba7-b3ea-9531a4844c84",
+      "to": "f780f809-0fac-46a1-b21e-aa366eb0ee89",
+      "strength": 0.8
+    },
+    {
+      "from": "21573a4b-cdd8-4a7f-a680-bca6b81b4b5a",
+      "to": "f780f809-0fac-46a1-b21e-aa366eb0ee89",
+      "strength": 0.8
+    },
+    {
+      "from": "7daef625-8dd8-4b61-beea-cd3d533c3a76",
+      "to": "f780f809-0fac-46a1-b21e-aa366eb0ee89",
+      "strength": 0.8
+    },
+    {
+      "from": "dfb5ce39-94c9-4ebf-8c5e-3d43173ae686",
+      "to": "353a1864-cfa1-4bd8-be5c-751cccabc440",
+      "strength": 0.9
+    },
+    {
+      "from": "dfb5ce39-94c9-4ebf-8c5e-3d43173ae686",
+      "to": "f780f809-0fac-46a1-b21e-aa366eb0ee89",
+      "strength": 0.9
+    },
+    {
+      "from": "07818778-ae38-4e60-8aa3-a140d89480b3",
+      "to": "0b4f85b9-5c58-42ee-a552-8fff0f149596",
+      "strength": 0.85
+    },
+    {
+      "from": "0b4f85b9-5c58-42ee-a552-8fff0f149596",
+      "to": "f431a629-7791-40c6-9d1c-644b11c15144",
+      "strength": 0.9
+    },
+    {
+      "from": "07818778-ae38-4e60-8aa3-a140d89480b3",
+      "to": "353a1864-cfa1-4bd8-be5c-751cccabc440",
+      "strength": 0.6
+    },
+    {
+      "from": "07818778-ae38-4e60-8aa3-a140d89480b3",
+      "to": "f780f809-0fac-46a1-b21e-aa366eb0ee89",
+      "strength": 0.6
+    },
+    {
+      "from": "0b4f85b9-5c58-42ee-a552-8fff0f149596",
+      "to": "353a1864-cfa1-4bd8-be5c-751cccabc440",
+      "strength": 0.75
+    },
+    {
+      "from": "0b4f85b9-5c58-42ee-a552-8fff0f149596",
+      "to": "f780f809-0fac-46a1-b21e-aa366eb0ee89",
+      "strength": 0.75
+    },
+    {
+      "from": "f431a629-7791-40c6-9d1c-644b11c15144",
+      "to": "353a1864-cfa1-4bd8-be5c-751cccabc440",
+      "strength": 0.6
+    },
+    {
+      "from": "353a1864-cfa1-4bd8-be5c-751cccabc440",
+      "to": "f431a629-7791-40c6-9d1c-644b11c15144",
+      "strength": 0.6
+    },
+    {
+      "from": "f780f809-0fac-46a1-b21e-aa366eb0ee89",
+      "to": "353a1864-cfa1-4bd8-be5c-751cccabc440",
+      "strength": 0.7
+    },
+    {
+      "from": "353a1864-cfa1-4bd8-be5c-751cccabc440",
+      "to": "f780f809-0fac-46a1-b21e-aa366eb0ee89",
+      "strength": 0.7
+    },
+    {
+      "from": "dfb5ce39-94c9-4ebf-8c5e-3d43173ae686",
+      "to": "f431a629-7791-40c6-9d1c-644b11c15144",
+      "strength": 0.7
+    },
+    {
+      "from": "1b0d2074-fb6a-45db-a58d-fe7fc0180407",
+      "to": "935f1242-f9b9-4e76-83e7-e55d23f65969",
+      "strength": 0.9
+    },
+    {
+      "from": "e5af2a7f-e996-431f-a23f-0898c3b04eb5",
+      "to": "935f1242-f9b9-4e76-83e7-e55d23f65969",
+      "strength": 0.95
+    },
+    {
+      "from": "935f1242-f9b9-4e76-83e7-e55d23f65969",
+      "to": "674fe710-ca56-4097-afc7-521b279770a3",
+      "strength": 0.9
+    },
+    {
+      "from": "1b0d2074-fb6a-45db-a58d-fe7fc0180407",
+      "to": "674fe710-ca56-4097-afc7-521b279770a3",
+      "strength": 0.9
+    },
+    {
+      "from": "e5af2a7f-e996-431f-a23f-0898c3b04eb5",
+      "to": "674fe710-ca56-4097-afc7-521b279770a3",
+      "strength": 0.9
+    },
+    {
+      "from": "935f1242-f9b9-4e76-83e7-e55d23f65969",
+      "to": "2e4fd40d-3cf9-4797-bae4-58df2b42bdd3",
+      "strength": 0.85
+    },
+    {
+      "from": "e5af2a7f-e996-431f-a23f-0898c3b04eb5",
+      "to": "2e4fd40d-3cf9-4797-bae4-58df2b42bdd3",
+      "strength": 0.8
+    },
+    {
+      "from": "674fe710-ca56-4097-afc7-521b279770a3",
+      "to": "2e4fd40d-3cf9-4797-bae4-58df2b42bdd3",
+      "strength": 0.6
+    },
+    {
+      "from": "3c819865-eb0c-4de6-b0bb-8eaf129cf4cd",
+      "to": "6383772b-8239-4923-a4b6-a3ba0495f7b2",
+      "strength": 0.7
+    },
+    {
+      "from": "fe57633a-23b8-41d3-abea-7c567454ee5c",
+      "to": "3617bdc0-0493-4e11-bafb-cfe7d3bc106f",
+      "strength": 0.85
+    },
+    {
+      "from": "6383772b-8239-4923-a4b6-a3ba0495f7b2",
+      "to": "3617bdc0-0493-4e11-bafb-cfe7d3bc106f",
+      "strength": 0.65
+    },
+    {
+      "from": "89446eb1-5174-4806-befc-501205c7e80c",
+      "to": "fe57633a-23b8-41d3-abea-7c567454ee5c",
+      "strength": 0.5
+    },
+    {
+      "from": "89446eb1-5174-4806-befc-501205c7e80c",
+      "to": "6383772b-8239-4923-a4b6-a3ba0495f7b2",
+      "strength": 0.5
+    },
+    {
+      "from": "89446eb1-5174-4806-befc-501205c7e80c",
+      "to": "3617bdc0-0493-4e11-bafb-cfe7d3bc106f",
+      "strength": 0.5
+    },
+    {
+      "from": "6383772b-8239-4923-a4b6-a3ba0495f7b2",
+      "to": "fe57633a-23b8-41d3-abea-7c567454ee5c",
+      "strength": 0.6
+    },
+    {
+      "from": "83f8d1d9-23d3-4293-bfb2-3582c926ebab",
+      "to": "173a5c0f-892b-4fcd-9cf7-a2a4487625cb",
+      "strength": 0.85
+    },
+    {
+      "from": "83f8d1d9-23d3-4293-bfb2-3582c926ebab",
+      "to": "a9eff4ed-0ee4-43d9-a2ae-12dc2f799d95",
+      "strength": 0.9
+    },
+    {
+      "from": "83f8d1d9-23d3-4293-bfb2-3582c926ebab",
+      "to": "09b56603-e1ff-4173-8c3d-49979286fcca",
+      "strength": 0.8
+    },
+    {
+      "from": "09b56603-e1ff-4173-8c3d-49979286fcca",
+      "to": "173a5c0f-892b-4fcd-9cf7-a2a4487625cb",
+      "strength": 0.85
+    },
+    {
+      "from": "89435975-99a8-410f-80e6-93861f714e7d",
+      "to": "ec450352-bab7-41ca-a7fd-1359db5b77a4",
+      "strength": 0.85
+    },
+    {
+      "from": "89435975-99a8-410f-80e6-93861f714e7d",
+      "to": "c6af2423-086f-4c64-ab0f-cc893bd5cc01",
+      "strength": 0.8
+    },
+    {
+      "from": "c6af2423-086f-4c64-ab0f-cc893bd5cc01",
+      "to": "4eeeebc7-5cef-4b26-86ea-ce7d85a3b173",
+      "strength": 0.8
+    },
+    {
+      "from": "89435975-99a8-410f-80e6-93861f714e7d",
+      "to": "173a5c0f-892b-4fcd-9cf7-a2a4487625cb",
+      "strength": 0.8
+    },
+    {
+      "from": "4eeeebc7-5cef-4b26-86ea-ce7d85a3b173",
+      "to": "173a5c0f-892b-4fcd-9cf7-a2a4487625cb",
+      "strength": 0.7
+    },
+    {
+      "from": "c6af2423-086f-4c64-ab0f-cc893bd5cc01",
+      "to": "173a5c0f-892b-4fcd-9cf7-a2a4487625cb",
+      "strength": 0.65
+    },
+    {
+      "from": "173a5c0f-892b-4fcd-9cf7-a2a4487625cb",
+      "to": "a9eff4ed-0ee4-43d9-a2ae-12dc2f799d95",
+      "strength": 0.9
+    },
+    {
+      "from": "a9eff4ed-0ee4-43d9-a2ae-12dc2f799d95",
+      "to": "03e3ec65-df01-4e33-803b-0d0c122c431f",
+      "strength": 0.9
+    },
+    {
+      "from": "173a5c0f-892b-4fcd-9cf7-a2a4487625cb",
+      "to": "03e3ec65-df01-4e33-803b-0d0c122c431f",
+      "strength": 0.8
+    },
+    {
+      "from": "89435975-99a8-410f-80e6-93861f714e7d",
+      "to": "09b56603-e1ff-4173-8c3d-49979286fcca",
+      "strength": 0.85
+    },
+    {
+      "from": "ec450352-bab7-41ca-a7fd-1359db5b77a4",
+      "to": "09b56603-e1ff-4173-8c3d-49979286fcca",
+      "strength": 0.7
+    },
+    {
+      "from": "c6af2423-086f-4c64-ab0f-cc893bd5cc01",
+      "to": "09b56603-e1ff-4173-8c3d-49979286fcca",
+      "strength": 0.75
+    },
+    {
+      "from": "4eeeebc7-5cef-4b26-86ea-ce7d85a3b173",
+      "to": "09b56603-e1ff-4173-8c3d-49979286fcca",
+      "strength": 0.75
+    },
+    {
+      "from": "173a5c0f-892b-4fcd-9cf7-a2a4487625cb",
+      "to": "27bcf4a8-c094-410b-95e2-2452018a0993",
+      "strength": 0.85
+    },
+    {
+      "from": "09b56603-e1ff-4173-8c3d-49979286fcca",
+      "to": "27bcf4a8-c094-410b-95e2-2452018a0993",
+      "strength": 0.8
+    },
+    {
+      "from": "89435975-99a8-410f-80e6-93861f714e7d",
+      "to": "27bcf4a8-c094-410b-95e2-2452018a0993",
+      "strength": 0.65
+    },
+    {
+      "from": "a9eff4ed-0ee4-43d9-a2ae-12dc2f799d95",
+      "to": "a9324146-1d8b-4393-bd03-a31d3138c932",
+      "strength": 0.7
+    },
+    {
+      "from": "173a5c0f-892b-4fcd-9cf7-a2a4487625cb",
+      "to": "a9324146-1d8b-4393-bd03-a31d3138c932",
+      "strength": 0.75
+    },
+    {
+      "from": "09b56603-e1ff-4173-8c3d-49979286fcca",
+      "to": "a9324146-1d8b-4393-bd03-a31d3138c932",
+      "strength": 0.6
+    },
+    {
+      "from": "27bcf4a8-c094-410b-95e2-2452018a0993",
+      "to": "a9324146-1d8b-4393-bd03-a31d3138c932",
+      "strength": 0.4
+    },
+    {
+      "from": "ec450352-bab7-41ca-a7fd-1359db5b77a4",
+      "to": "a9eff4ed-0ee4-43d9-a2ae-12dc2f799d95",
+      "strength": 0.6
+    },
+    {
+      "from": "ec450352-bab7-41ca-a7fd-1359db5b77a4",
+      "to": "c6af2423-086f-4c64-ab0f-cc893bd5cc01",
+      "strength": 0.8
+    },
+    {
+      "from": "ec450352-bab7-41ca-a7fd-1359db5b77a4",
+      "to": "4eeeebc7-5cef-4b26-86ea-ce7d85a3b173",
+      "strength": 0.7
+    },
+    {
+      "from": "11d11d30-38fb-4c6b-822d-ed4dce59c292",
+      "to": "66fdbef8-fab9-4810-87d8-3e93f4f14523",
+      "strength": 0.95
+    },
+    {
+      "from": "11d11d30-38fb-4c6b-822d-ed4dce59c292",
+      "to": "1d12c3bf-f0e6-4746-b482-93e6ca81d55c",
+      "strength": 0.95
+    },
+    {
+      "from": "11d11d30-38fb-4c6b-822d-ed4dce59c292",
+      "to": "38a9e93a-63eb-47f4-97fc-605acf41dde0",
+      "strength": 0.92
+    },
+    {
+      "from": "a8afa72a-11a7-40c0-b768-57dd5b6c7fe5",
+      "to": "3fe26974-7c77-4302-be59-a997e67eea50",
+      "strength": 0.93
+    },
+    {
+      "from": "a8afa72a-11a7-40c0-b768-57dd5b6c7fe5",
+      "to": "38a9e93a-63eb-47f4-97fc-605acf41dde0",
+      "strength": 0.6
+    },
+    {
+      "from": "a8afa72a-11a7-40c0-b768-57dd5b6c7fe5",
+      "to": "66fdbef8-fab9-4810-87d8-3e93f4f14523",
+      "strength": 0.6
+    },
+    {
+      "from": "a8afa72a-11a7-40c0-b768-57dd5b6c7fe5",
+      "to": "1d12c3bf-f0e6-4746-b482-93e6ca81d55c",
+      "strength": 0.6
+    },
+    {
+      "from": "02ed1b46-1f1b-4bff-bb9a-5de19703033a",
+      "to": "75a88f0a-35e6-4513-9d34-d860b94472e0",
+      "strength": 0.9
+    },
+    {
+      "from": "02ed1b46-1f1b-4bff-bb9a-5de19703033a",
+      "to": "c9fae78a-6e5c-4b14-99bb-87ea32f5c666",
+      "strength": 0.85
+    },
+    {
+      "from": "75a88f0a-35e6-4513-9d34-d860b94472e0",
+      "to": "c9fae78a-6e5c-4b14-99bb-87ea32f5c666",
+      "strength": 0.72
+    },
+    {
+      "from": "a8afa72a-11a7-40c0-b768-57dd5b6c7fe5",
+      "to": "c9fae78a-6e5c-4b14-99bb-87ea32f5c666",
+      "strength": 0.7
+    },
+    {
+      "from": "3fe26974-7c77-4302-be59-a997e67eea50",
+      "to": "308208b3-8ef1-4ef9-8902-e1302308451f",
+      "strength": 0.62
+    },
+    {
+      "from": "38a9e93a-63eb-47f4-97fc-605acf41dde0",
+      "to": "1d12c3bf-f0e6-4746-b482-93e6ca81d55c",
+      "strength": 0.65
+    },
+    {
+      "from": "a8afa72a-11a7-40c0-b768-57dd5b6c7fe5",
+      "to": "11d11d30-38fb-4c6b-822d-ed4dce59c292",
+      "strength": 0.55
+    },
+    {
+      "from": "84e0c597-fd17-4d9f-8853-c774153de124",
+      "to": "7700b9da-52e3-4998-856d-bcbd4fd55aa6",
+      "strength": 0.9
+    },
+    {
+      "from": "f0a3a05a-01f3-44e4-ba0d-821c12ddbe58",
+      "to": "e862c6c0-048c-43ba-98f9-f0839ccbcafb",
+      "strength": 0.9
+    },
+    {
+      "from": "ce71fbb4-260e-4a3a-bfcb-12342e4e5895",
+      "to": "40318fa6-7c02-4376-8a39-b542b6f28d41",
+      "strength": 0.9
+    },
+    {
+      "from": "84e0c597-fd17-4d9f-8853-c774153de124",
+      "to": "ce71fbb4-260e-4a3a-bfcb-12342e4e5895",
+      "strength": 0.95
+    },
+    {
+      "from": "f0a3a05a-01f3-44e4-ba0d-821c12ddbe58",
+      "to": "ce71fbb4-260e-4a3a-bfcb-12342e4e5895",
+      "strength": 0.95
+    },
+    {
+      "from": "7700b9da-52e3-4998-856d-bcbd4fd55aa6",
+      "to": "b27676a4-27c5-40ae-a2d8-0fdad2a9f667",
+      "strength": 0.85
+    },
+    {
+      "from": "e862c6c0-048c-43ba-98f9-f0839ccbcafb",
+      "to": "0b23c848-70b2-43ab-9d7f-3d393531ac89",
+      "strength": 0.85
+    },
+    {
+      "from": "3f321adc-02d2-4f95-932e-29af03e82c19",
+      "to": "33f60905-afef-4b7f-9d2e-07ad8b298c3e",
+      "strength": 0.95
+    },
+    {
+      "from": "3f321adc-02d2-4f95-932e-29af03e82c19",
+      "to": "5c1f1e22-9b5c-432b-bb79-1e16ac41723e",
+      "strength": 0.95
+    },
+    {
+      "from": "9de77b05-0dee-45d0-9dd0-a361e493fdf1",
+      "to": "68eeb7b5-ae19-4ffb-b249-b610b3bcad7d",
+      "strength": 0.85
+    },
+    {
+      "from": "f0a3a05a-01f3-44e4-ba0d-821c12ddbe58",
+      "to": "68eeb7b5-ae19-4ffb-b249-b610b3bcad7d",
+      "strength": 0.7
+    },
+    {
+      "from": "84e0c597-fd17-4d9f-8853-c774153de124",
+      "to": "a87c4b64-5000-4093-8925-9227e4a9b5fc",
+      "strength": 0.85
+    },
+    {
+      "from": "a87c4b64-5000-4093-8925-9227e4a9b5fc",
+      "to": "e1039c6c-b4e5-4685-ba5a-ea5d8fb40b26",
+      "strength": 0.75
+    },
+    {
+      "from": "84e0c597-fd17-4d9f-8853-c774153de124",
+      "to": "e1039c6c-b4e5-4685-ba5a-ea5d8fb40b26",
+      "strength": 0.7
+    },
+    {
+      "from": "e1039c6c-b4e5-4685-ba5a-ea5d8fb40b26",
+      "to": "87ee25c0-c648-4570-9d6e-b1b0df1e3996",
+      "strength": 0.85
+    },
+    {
+      "from": "68eeb7b5-ae19-4ffb-b249-b610b3bcad7d",
+      "to": "87ee25c0-c648-4570-9d6e-b1b0df1e3996",
+      "strength": 0.85
+    },
+    {
+      "from": "9de77b05-0dee-45d0-9dd0-a361e493fdf1",
+      "to": "87ee25c0-c648-4570-9d6e-b1b0df1e3996",
+      "strength": 0.8
+    },
+    {
+      "from": "23e2fb91-f8a2-476f-b2dd-efca130c3d93",
+      "to": "b07077d9-dbd2-4c04-8afc-af115481822c",
+      "strength": 0.8
+    },
+    {
+      "from": "7700b9da-52e3-4998-856d-bcbd4fd55aa6",
+      "to": "b07077d9-dbd2-4c04-8afc-af115481822c",
+      "strength": 0.75
+    },
+    {
+      "from": "e862c6c0-048c-43ba-98f9-f0839ccbcafb",
+      "to": "b07077d9-dbd2-4c04-8afc-af115481822c",
+      "strength": 0.75
+    },
+    {
+      "from": "3f321adc-02d2-4f95-932e-29af03e82c19",
+      "to": "7700b9da-52e3-4998-856d-bcbd4fd55aa6",
+      "strength": 0.6
+    },
+    {
+      "from": "3f321adc-02d2-4f95-932e-29af03e82c19",
+      "to": "e862c6c0-048c-43ba-98f9-f0839ccbcafb",
+      "strength": 0.6
+    },
+    {
+      "from": "3f321adc-02d2-4f95-932e-29af03e82c19",
+      "to": "40318fa6-7c02-4376-8a39-b542b6f28d41",
+      "strength": 0.6
+    },
+    {
+      "from": "7700b9da-52e3-4998-856d-bcbd4fd55aa6",
+      "to": "e862c6c0-048c-43ba-98f9-f0839ccbcafb",
+      "strength": 0.6
+    },
+    {
+      "from": "33f60905-afef-4b7f-9d2e-07ad8b298c3e",
+      "to": "5c1f1e22-9b5c-432b-bb79-1e16ac41723e",
+      "strength": 0.6
+    },
+    {
+      "from": "9de77b05-0dee-45d0-9dd0-a361e493fdf1",
+      "to": "23e2fb91-f8a2-476f-b2dd-efca130c3d93",
+      "strength": 0.8
+    },
+    {
+      "from": "84e0c597-fd17-4d9f-8853-c774153de124",
+      "to": "23e2fb91-f8a2-476f-b2dd-efca130c3d93",
+      "strength": 0.7
+    },
+    {
+      "from": "f0a3a05a-01f3-44e4-ba0d-821c12ddbe58",
+      "to": "23e2fb91-f8a2-476f-b2dd-efca130c3d93",
+      "strength": 0.7
+    },
+    {
+      "from": "84e0c597-fd17-4d9f-8853-c774153de124",
+      "to": "87ee25c0-c648-4570-9d6e-b1b0df1e3996",
+      "strength": 0.75
+    },
+    {
+      "from": "f0a3a05a-01f3-44e4-ba0d-821c12ddbe58",
+      "to": "87ee25c0-c648-4570-9d6e-b1b0df1e3996",
+      "strength": 0.75
+    },
+    {
+      "from": "ce71fbb4-260e-4a3a-bfcb-12342e4e5895",
+      "to": "87ee25c0-c648-4570-9d6e-b1b0df1e3996",
+      "strength": 0.7
+    },
+    {
+      "from": "3f321adc-02d2-4f95-932e-29af03e82c19",
+      "to": "b27676a4-27c5-40ae-a2d8-0fdad2a9f667",
+      "strength": 0.6
+    },
+    {
+      "from": "3f321adc-02d2-4f95-932e-29af03e82c19",
+      "to": "0b23c848-70b2-43ab-9d7f-3d393531ac89",
+      "strength": 0.6
+    },
+    {
+      "from": "1b0d2074-fb6a-45db-a58d-fe7fc0180407",
+      "to": "b19b9dca-9d8e-40c8-9c8e-c5aac4ba25d2",
+      "strength": 0.95
+    },
+    {
+      "from": "96fd77d7-1dbf-458f-8fea-1f28991ab8d2",
+      "to": "b19b9dca-9d8e-40c8-9c8e-c5aac4ba25d2",
+      "strength": 0.95
+    },
+    {
+      "from": "96fd77d7-1dbf-458f-8fea-1f28991ab8d2",
+      "to": "6cefe1c0-2372-45c3-906c-5209fa0935f0",
+      "strength": 0.9
+    },
+    {
+      "from": "b19b9dca-9d8e-40c8-9c8e-c5aac4ba25d2",
+      "to": "74c6c401-ffbb-41ef-9f88-a7f31d059aca",
+      "strength": 0.9
+    },
+    {
+      "from": "1b0d2074-fb6a-45db-a58d-fe7fc0180407",
+      "to": "74c6c401-ffbb-41ef-9f88-a7f31d059aca",
+      "strength": 0.9
+    },
+    {
+      "from": "96fd77d7-1dbf-458f-8fea-1f28991ab8d2",
+      "to": "74c6c401-ffbb-41ef-9f88-a7f31d059aca",
+      "strength": 0.9
+    },
+    {
+      "from": "b19b9dca-9d8e-40c8-9c8e-c5aac4ba25d2",
+      "to": "21f9a619-2a2e-4363-b69e-acda92fa2162",
+      "strength": 0.85
+    },
+    {
+      "from": "1b0d2074-fb6a-45db-a58d-fe7fc0180407",
+      "to": "21f9a619-2a2e-4363-b69e-acda92fa2162",
+      "strength": 0.85
+    },
+    {
+      "from": "96fd77d7-1dbf-458f-8fea-1f28991ab8d2",
+      "to": "21f9a619-2a2e-4363-b69e-acda92fa2162",
+      "strength": 0.85
+    },
+    {
+      "from": "b19b9dca-9d8e-40c8-9c8e-c5aac4ba25d2",
+      "to": "8e715b71-c16f-4bc5-8e98-c2dff0cbfa9a",
+      "strength": 0.9
+    },
+    {
+      "from": "96fd77d7-1dbf-458f-8fea-1f28991ab8d2",
+      "to": "8e715b71-c16f-4bc5-8e98-c2dff0cbfa9a",
+      "strength": 0.9
+    },
+    {
+      "from": "6cefe1c0-2372-45c3-906c-5209fa0935f0",
+      "to": "8e715b71-c16f-4bc5-8e98-c2dff0cbfa9a",
+      "strength": 0.6
+    },
+    {
+      "from": "74c6c401-ffbb-41ef-9f88-a7f31d059aca",
+      "to": "21f9a619-2a2e-4363-b69e-acda92fa2162",
+      "strength": 0.7
+    },
+    {
+      "from": "21f9a619-2a2e-4363-b69e-acda92fa2162",
+      "to": "74c6c401-ffbb-41ef-9f88-a7f31d059aca",
+      "strength": 0.7
+    },
+    {
+      "from": "5f10b0a6-de72-48c0-94b0-e36d56398e65",
+      "to": "edc89b91-c80d-47e0-b524-8f1381c29af9",
+      "strength": 0.95
+    },
+    {
+      "from": "edc89b91-c80d-47e0-b524-8f1381c29af9",
+      "to": "800000c0-4bb9-4a5f-aa2c-ab9e52a19f3c",
+      "strength": 0.95
+    },
+    {
+      "from": "5f10b0a6-de72-48c0-94b0-e36d56398e65",
+      "to": "c0ed42f1-6a95-4784-8510-72cd649733e7",
+      "strength": 0.85
+    },
+    {
+      "from": "5f10b0a6-de72-48c0-94b0-e36d56398e65",
+      "to": "d4155bf9-6498-42be-a59e-1151ba507894",
+      "strength": 0.85
+    },
+    {
+      "from": "5f10b0a6-de72-48c0-94b0-e36d56398e65",
+      "to": "8cf5fdac-8a3c-4efd-a092-73f956997ecf",
+      "strength": 0.85
+    },
+    {
+      "from": "5f10b0a6-de72-48c0-94b0-e36d56398e65",
+      "to": "20fbfc76-173f-4774-bafa-c5d61fc0badf",
+      "strength": 0.85
+    },
+    {
+      "from": "5f10b0a6-de72-48c0-94b0-e36d56398e65",
+      "to": "e3a417a2-16ea-4457-beae-bdd652c8ce81",
+      "strength": 0.8
+    },
+    {
+      "from": "5f10b0a6-de72-48c0-94b0-e36d56398e65",
+      "to": "8b4816b1-8826-4198-83b2-c2b6d15f5fc8",
+      "strength": 0.8
+    },
+    {
+      "from": "5f10b0a6-de72-48c0-94b0-e36d56398e65",
+      "to": "0798820f-15ad-40e3-bfae-7f037ba0dcdd",
+      "strength": 0.8
+    },
+    {
+      "from": "d4155bf9-6498-42be-a59e-1151ba507894",
+      "to": "e3a417a2-16ea-4457-beae-bdd652c8ce81",
+      "strength": 0.8
+    },
+    {
+      "from": "d4155bf9-6498-42be-a59e-1151ba507894",
+      "to": "0798820f-15ad-40e3-bfae-7f037ba0dcdd",
+      "strength": 0.9
+    },
+    {
+      "from": "8cf5fdac-8a3c-4efd-a092-73f956997ecf",
+      "to": "49dbeafa-ad8f-49a4-aaa6-e767860cc825",
+      "strength": 0.85
+    },
+    {
+      "from": "c0ed42f1-6a95-4784-8510-72cd649733e7",
+      "to": "d4155bf9-6498-42be-a59e-1151ba507894",
+      "strength": 0.7
+    },
+    {
+      "from": "c0ed42f1-6a95-4784-8510-72cd649733e7",
+      "to": "8cf5fdac-8a3c-4efd-a092-73f956997ecf",
+      "strength": 0.75
+    },
+    {
+      "from": "edc89b91-c80d-47e0-b524-8f1381c29af9",
+      "to": "fb622362-22cf-4fa8-9439-6ec59f349a7a",
+      "strength": 0.8
+    },
+    {
+      "from": "fb622362-22cf-4fa8-9439-6ec59f349a7a",
+      "to": "809128ff-974e-4152-88e3-38828be4f2e8",
+      "strength": 0.85
+    },
+    {
+      "from": "fb622362-22cf-4fa8-9439-6ec59f349a7a",
+      "to": "5c0ab32e-c25c-495e-b6de-40e3a0345bb0",
+      "strength": 0.85
+    },
+    {
+      "from": "e3a417a2-16ea-4457-beae-bdd652c8ce81",
+      "to": "809128ff-974e-4152-88e3-38828be4f2e8",
+      "strength": 0.8
+    },
+    {
+      "from": "8b4816b1-8826-4198-83b2-c2b6d15f5fc8",
+      "to": "809128ff-974e-4152-88e3-38828be4f2e8",
+      "strength": 0.8
+    },
+    {
+      "from": "e3a417a2-16ea-4457-beae-bdd652c8ce81",
+      "to": "bda37ea8-fef9-482d-ac94-6497a40560fc",
+      "strength": 0.85
+    },
+    {
+      "from": "8b4816b1-8826-4198-83b2-c2b6d15f5fc8",
+      "to": "bda37ea8-fef9-482d-ac94-6497a40560fc",
+      "strength": 0.8
+    },
+    {
+      "from": "0798820f-15ad-40e3-bfae-7f037ba0dcdd",
+      "to": "bda37ea8-fef9-482d-ac94-6497a40560fc",
+      "strength": 0.85
+    },
+    {
+      "from": "dd386861-47f8-4019-ab18-88b3025de5c7",
+      "to": "5c0ab32e-c25c-495e-b6de-40e3a0345bb0",
+      "strength": 0.9
+    },
+    {
+      "from": "49dbeafa-ad8f-49a4-aaa6-e767860cc825",
+      "to": "8fc0ee4e-a926-435c-b776-8d2bd1b17786",
+      "strength": 0.9
+    },
+    {
+      "from": "bda37ea8-fef9-482d-ac94-6497a40560fc",
+      "to": "8fc0ee4e-a926-435c-b776-8d2bd1b17786",
+      "strength": 0.8
+    },
+    {
+      "from": "1f1b6746-64f3-40df-81d6-cc08dacdea6c",
+      "to": "809128ff-974e-4152-88e3-38828be4f2e8",
+      "strength": 0.8
+    },
+    {
+      "from": "1f1b6746-64f3-40df-81d6-cc08dacdea6c",
+      "to": "5c0ab32e-c25c-495e-b6de-40e3a0345bb0",
+      "strength": 0.8
+    },
+    {
+      "from": "1f1b6746-64f3-40df-81d6-cc08dacdea6c",
+      "to": "bda37ea8-fef9-482d-ac94-6497a40560fc",
+      "strength": 0.7
+    },
+    {
+      "from": "1f1b6746-64f3-40df-81d6-cc08dacdea6c",
+      "to": "8fc0ee4e-a926-435c-b776-8d2bd1b17786",
+      "strength": 0.7
+    },
+    {
+      "from": "800000c0-4bb9-4a5f-aa2c-ab9e52a19f3c",
+      "to": "77cea974-1e0a-4ac4-9c66-8f1ee25375a4",
+      "strength": 0.9
+    },
+    {
+      "from": "800000c0-4bb9-4a5f-aa2c-ab9e52a19f3c",
+      "to": "1c72c160-6aea-4767-833f-9653a04afe3d",
+      "strength": 0.85
+    },
+    {
+      "from": "800000c0-4bb9-4a5f-aa2c-ab9e52a19f3c",
+      "to": "f6d2dd92-6106-401c-9d03-b2cf4891c742",
+      "strength": 0.85
+    },
+    {
+      "from": "800000c0-4bb9-4a5f-aa2c-ab9e52a19f3c",
+      "to": "c9b6186d-a591-458f-a61b-5a1cfa94f685",
+      "strength": 0.95
+    },
+    {
+      "from": "800000c0-4bb9-4a5f-aa2c-ab9e52a19f3c",
+      "to": "db400c3b-f183-43cc-a193-fa52f358fab5",
+      "strength": 0.95
+    },
+    {
+      "from": "800000c0-4bb9-4a5f-aa2c-ab9e52a19f3c",
+      "to": "f33a6cfe-42cc-4eb6-9df7-57d20a995606",
+      "strength": 0.95
+    },
+    {
+      "from": "800000c0-4bb9-4a5f-aa2c-ab9e52a19f3c",
+      "to": "14fcaddd-228a-4703-8367-6db92d04f79c",
+      "strength": 0.95
+    },
+    {
+      "from": "800000c0-4bb9-4a5f-aa2c-ab9e52a19f3c",
+      "to": "ed30b92e-6a8b-4df4-8e3c-965343a46a63",
+      "strength": 0.9
+    },
+    {
+      "from": "800000c0-4bb9-4a5f-aa2c-ab9e52a19f3c",
+      "to": "31fd8a7e-ebc0-491c-956d-cfff905d01dc",
+      "strength": 0.9
+    },
+    {
+      "from": "809128ff-974e-4152-88e3-38828be4f2e8",
+      "to": "c9b6186d-a591-458f-a61b-5a1cfa94f685",
+      "strength": 0.8
+    },
+    {
+      "from": "5c0ab32e-c25c-495e-b6de-40e3a0345bb0",
+      "to": "db400c3b-f183-43cc-a193-fa52f358fab5",
+      "strength": 0.8
+    },
+    {
+      "from": "bda37ea8-fef9-482d-ac94-6497a40560fc",
+      "to": "f33a6cfe-42cc-4eb6-9df7-57d20a995606",
+      "strength": 0.8
+    },
+    {
+      "from": "8fc0ee4e-a926-435c-b776-8d2bd1b17786",
+      "to": "14fcaddd-228a-4703-8367-6db92d04f79c",
+      "strength": 0.8
+    },
+    {
+      "from": "dd386861-47f8-4019-ab18-88b3025de5c7",
+      "to": "db400c3b-f183-43cc-a193-fa52f358fab5",
+      "strength": 0.9
+    },
+    {
+      "from": "49dbeafa-ad8f-49a4-aaa6-e767860cc825",
+      "to": "14fcaddd-228a-4703-8367-6db92d04f79c",
+      "strength": 0.9
+    },
+    {
+      "from": "ed30b92e-6a8b-4df4-8e3c-965343a46a63",
+      "to": "14fcaddd-228a-4703-8367-6db92d04f79c",
+      "strength": 0.95
+    },
+    {
+      "from": "e3a417a2-16ea-4457-beae-bdd652c8ce81",
+      "to": "c9b6186d-a591-458f-a61b-5a1cfa94f685",
+      "strength": 0.8
+    },
+    {
+      "from": "8b4816b1-8826-4198-83b2-c2b6d15f5fc8",
+      "to": "c9b6186d-a591-458f-a61b-5a1cfa94f685",
+      "strength": 0.8
+    },
+    {
+      "from": "e3a417a2-16ea-4457-beae-bdd652c8ce81",
+      "to": "f33a6cfe-42cc-4eb6-9df7-57d20a995606",
+      "strength": 0.85
+    },
+    {
+      "from": "8b4816b1-8826-4198-83b2-c2b6d15f5fc8",
+      "to": "f33a6cfe-42cc-4eb6-9df7-57d20a995606",
+      "strength": 0.8
+    },
+    {
+      "from": "0798820f-15ad-40e3-bfae-7f037ba0dcdd",
+      "to": "f33a6cfe-42cc-4eb6-9df7-57d20a995606",
+      "strength": 0.9
+    },
+    {
+      "from": "77cea974-1e0a-4ac4-9c66-8f1ee25375a4",
+      "to": "f6d2dd92-6106-401c-9d03-b2cf4891c742",
+      "strength": 0.75
+    },
+    {
+      "from": "1c72c160-6aea-4767-833f-9653a04afe3d",
+      "to": "77cea974-1e0a-4ac4-9c66-8f1ee25375a4",
+      "strength": 0.8
+    },
+    {
+      "from": "fb622362-22cf-4fa8-9439-6ec59f349a7a",
+      "to": "f6d2dd92-6106-401c-9d03-b2cf4891c742",
+      "strength": 0.75
+    },
+    {
+      "from": "c9b6186d-a591-458f-a61b-5a1cfa94f685",
+      "to": "1d6b00e2-1a54-4a5b-a6dc-9c6db481015f",
+      "strength": 0.8
+    },
+    {
+      "from": "db400c3b-f183-43cc-a193-fa52f358fab5",
+      "to": "1d6b00e2-1a54-4a5b-a6dc-9c6db481015f",
+      "strength": 0.8
+    },
+    {
+      "from": "f33a6cfe-42cc-4eb6-9df7-57d20a995606",
+      "to": "1d6b00e2-1a54-4a5b-a6dc-9c6db481015f",
+      "strength": 0.85
+    },
+    {
+      "from": "14fcaddd-228a-4703-8367-6db92d04f79c",
+      "to": "1d6b00e2-1a54-4a5b-a6dc-9c6db481015f",
+      "strength": 0.85
+    },
+    {
+      "from": "8cf5fdac-8a3c-4efd-a092-73f956997ecf",
+      "to": "bda37ea8-fef9-482d-ac94-6497a40560fc",
+      "strength": 0.8
+    },
+    {
+      "from": "8cf5fdac-8a3c-4efd-a092-73f956997ecf",
+      "to": "8fc0ee4e-a926-435c-b776-8d2bd1b17786",
+      "strength": 0.8
+    },
+    {
+      "from": "8cf5fdac-8a3c-4efd-a092-73f956997ecf",
+      "to": "f33a6cfe-42cc-4eb6-9df7-57d20a995606",
+      "strength": 0.75
+    },
+    {
+      "from": "8cf5fdac-8a3c-4efd-a092-73f956997ecf",
+      "to": "14fcaddd-228a-4703-8367-6db92d04f79c",
+      "strength": 0.75
+    },
+    {
+      "from": "f33a6cfe-42cc-4eb6-9df7-57d20a995606",
+      "to": "31fd8a7e-ebc0-491c-956d-cfff905d01dc",
+      "strength": 0.9
+    },
+    {
+      "from": "77cea974-1e0a-4ac4-9c66-8f1ee25375a4",
+      "to": "31fd8a7e-ebc0-491c-956d-cfff905d01dc",
+      "strength": 0.8
+    },
+    {
+      "from": "8fc0ee4e-a926-435c-b776-8d2bd1b17786",
+      "to": "1c72c160-6aea-4767-833f-9653a04afe3d",
+      "strength": 0.7
+    },
+    {
+      "from": "e3a417a2-16ea-4457-beae-bdd652c8ce81",
+      "to": "1d6b00e2-1a54-4a5b-a6dc-9c6db481015f",
+      "strength": 0.65
+    },
+    {
+      "from": "8b4816b1-8826-4198-83b2-c2b6d15f5fc8",
+      "to": "1d6b00e2-1a54-4a5b-a6dc-9c6db481015f",
+      "strength": 0.7
+    },
+    {
+      "from": "1d6b00e2-1a54-4a5b-a6dc-9c6db481015f",
+      "to": "05b86f16-b6f1-4311-8306-4c5b4aa810e8",
+      "strength": 0.8
+    },
+    {
+      "from": "05b86f16-b6f1-4311-8306-4c5b4aa810e8",
+      "to": "724cd90b-0afa-4ad2-bb50-b7781b8fc3ed",
+      "strength": 0.9
+    },
+    {
+      "from": "724cd90b-0afa-4ad2-bb50-b7781b8fc3ed",
+      "to": "ae83e6a6-a083-4ae9-b159-50b2c01edfe1",
+      "strength": 0.85
+    },
+    {
+      "from": "ae83e6a6-a083-4ae9-b159-50b2c01edfe1",
+      "to": "f4933981-6735-43ab-bd67-b46c92546767",
+      "strength": 0.85
+    },
+    {
+      "from": "f4933981-6735-43ab-bd67-b46c92546767",
+      "to": "efc13468-d606-46a3-a0e6-2f342a89ee2d",
+      "strength": 0.9
+    },
+    {
+      "from": "efc13468-d606-46a3-a0e6-2f342a89ee2d",
+      "to": "56a5f81a-c36d-4e7d-b83b-78f14ec9e2e4",
+      "strength": 0.9
+    },
+    {
+      "from": "f4933981-6735-43ab-bd67-b46c92546767",
+      "to": "4b7c2511-7739-4767-82a9-ba3aee9639a6",
+      "strength": 0.85
+    },
+    {
+      "from": "4b7c2511-7739-4767-82a9-ba3aee9639a6",
+      "to": "5b38f69a-b0b0-46ad-81fb-ebf47a207f63",
+      "strength": 0.9
+    },
+    {
+      "from": "f4933981-6735-43ab-bd67-b46c92546767",
+      "to": "5b38f69a-b0b0-46ad-81fb-ebf47a207f63",
+      "strength": 0.9
+    },
+    {
+      "from": "1d6b00e2-1a54-4a5b-a6dc-9c6db481015f",
+      "to": "5b38f69a-b0b0-46ad-81fb-ebf47a207f63",
+      "strength": 0.75
+    },
+    {
+      "from": "56a5f81a-c36d-4e7d-b83b-78f14ec9e2e4",
+      "to": "5b38f69a-b0b0-46ad-81fb-ebf47a207f63",
+      "strength": 0.5
+    },
+    {
+      "from": "ae83e6a6-a083-4ae9-b159-50b2c01edfe1",
+      "to": "56a5f81a-c36d-4e7d-b83b-78f14ec9e2e4",
+      "strength": 0.7
+    },
+    {
+      "from": "ae83e6a6-a083-4ae9-b159-50b2c01edfe1",
+      "to": "4b7c2511-7739-4767-82a9-ba3aee9639a6",
+      "strength": 0.6
+    },
+    {
+      "from": "3c782d40-e921-4158-8280-b1abd02d1663",
+      "to": "9a440caa-53b0-4abe-a824-982110ff0315",
+      "strength": 0.7
+    },
+    {
+      "from": "9a440caa-53b0-4abe-a824-982110ff0315",
+      "to": "3b0cd2d3-45d1-48e3-8b0f-62db4d16b361",
+      "strength": 0.9
+    },
+    {
+      "from": "f8bb8816-4df6-47da-95bb-0dfd1362b676",
+      "to": "9a440caa-53b0-4abe-a824-982110ff0315",
+      "strength": 0.8
+    },
+    {
+      "from": "6a933c2c-d6a1-4f47-9cad-ad47245061e6",
+      "to": "9a440caa-53b0-4abe-a824-982110ff0315",
+      "strength": 0.6
+    },
+    {
+      "from": "db67af10-753b-4b6f-b800-cfb99ce24970",
+      "to": "9a440caa-53b0-4abe-a824-982110ff0315",
+      "strength": 0.5
+    },
+    {
+      "from": "3c782d40-e921-4158-8280-b1abd02d1663",
+      "to": "3b0cd2d3-45d1-48e3-8b0f-62db4d16b361",
+      "strength": 0.8
+    },
+    {
+      "from": "e0911fa7-4d7b-4263-abe0-f811bb65e22f",
+      "to": "817a9c2f-0a63-42d5-8ad8-18909b7dea86",
+      "strength": 0.8
+    },
+    {
+      "from": "817a9c2f-0a63-42d5-8ad8-18909b7dea86",
+      "to": "4bbd3c9b-a7f4-425d-b71e-fee8da8184f5",
+      "strength": 0.9
+    },
+    {
+      "from": "e0911fa7-4d7b-4263-abe0-f811bb65e22f",
+      "to": "4bbd3c9b-a7f4-425d-b71e-fee8da8184f5",
+      "strength": 0.8
+    },
+    {
+      "from": "4bbd3c9b-a7f4-425d-b71e-fee8da8184f5",
+      "to": "724cd90b-0afa-4ad2-bb50-b7781b8fc3ed",
+      "strength": 0.75
+    },
+    {
+      "from": "e0911fa7-4d7b-4263-abe0-f811bb65e22f",
+      "to": "724cd90b-0afa-4ad2-bb50-b7781b8fc3ed",
+      "strength": 0.7
+    },
+    {
+      "from": "1d6b00e2-1a54-4a5b-a6dc-9c6db481015f",
+      "to": "724cd90b-0afa-4ad2-bb50-b7781b8fc3ed",
+      "strength": 0.7
+    },
+    {
+      "from": "1d6b00e2-1a54-4a5b-a6dc-9c6db481015f",
+      "to": "ae83e6a6-a083-4ae9-b159-50b2c01edfe1",
+      "strength": 0.7
+    },
+    {
+      "from": "724cd90b-0afa-4ad2-bb50-b7781b8fc3ed",
+      "to": "b56ac4b5-bdd1-40ac-8e78-ad50cb013468",
+      "strength": 0.7
+    },
+    {
+      "from": "b56ac4b5-bdd1-40ac-8e78-ad50cb013468",
+      "to": "160d2cb6-7386-492a-a4ca-f7ac31cd456c",
+      "strength": 0.6
+    },
+    {
+      "from": "160d2cb6-7386-492a-a4ca-f7ac31cd456c",
+      "to": "d25a245a-6ef2-4363-adb8-2f54a77e726a",
+      "strength": 0.9
+    },
+    {
+      "from": "1d6b00e2-1a54-4a5b-a6dc-9c6db481015f",
+      "to": "d25a245a-6ef2-4363-adb8-2f54a77e726a",
+      "strength": 0.75
+    },
+    {
+      "from": "83fbb4fe-6561-4f72-9c7e-d030ff76ad0a",
+      "to": "a08329e6-4bba-47dd-aa55-124217ef310e",
+      "strength": 0.85
+    },
+    {
+      "from": "a08329e6-4bba-47dd-aa55-124217ef310e",
+      "to": "2700feb5-feb6-40b2-87fa-d8064aceb635",
+      "strength": 0.7
+    },
+    {
+      "from": "b8316599-fdce-46e1-be4a-123cd71bc951",
+      "to": "2700feb5-feb6-40b2-87fa-d8064aceb635",
+      "strength": 0.9
+    },
+    {
+      "from": "a08329e6-4bba-47dd-aa55-124217ef310e",
+      "to": "b676b7ae-f2af-4db9-8895-a7b5c60da50f",
+      "strength": 0.8
+    },
+    {
+      "from": "607ed87f-1edb-4e4c-be9b-42535400a69f",
+      "to": "b676b7ae-f2af-4db9-8895-a7b5c60da50f",
+      "strength": 0.85
+    },
+    {
+      "from": "b8316599-fdce-46e1-be4a-123cd71bc951",
+      "to": "b676b7ae-f2af-4db9-8895-a7b5c60da50f",
+      "strength": 0.9
+    },
+    {
+      "from": "2700feb5-feb6-40b2-87fa-d8064aceb635",
+      "to": "fb0cb7ea-f86e-4c3a-aa35-28e9e0c5b351",
+      "strength": 0.85
+    },
+    {
+      "from": "fb0cb7ea-f86e-4c3a-aa35-28e9e0c5b351",
+      "to": "b56ac4b5-bdd1-40ac-8e78-ad50cb013468",
+      "strength": 0.8
+    },
+    {
+      "from": "a08329e6-4bba-47dd-aa55-124217ef310e",
+      "to": "d8371625-5c2b-455f-b182-14d5928b03bc",
+      "strength": 0.9
+    },
+    {
+      "from": "83fbb4fe-6561-4f72-9c7e-d030ff76ad0a",
+      "to": "d8371625-5c2b-455f-b182-14d5928b03bc",
+      "strength": 0.7
+    },
+    {
+      "from": "ae83e6a6-a083-4ae9-b159-50b2c01edfe1",
+      "to": "d8371625-5c2b-455f-b182-14d5928b03bc",
+      "strength": 0.6
+    },
+    {
+      "from": "a8bae583-9eaf-4c85-a2d5-6d2b9da55c83",
+      "to": "2eef8459-1573-4179-98d8-cd974b5484d3",
+      "strength": 0.95
+    },
+    {
+      "from": "a8bae583-9eaf-4c85-a2d5-6d2b9da55c83",
+      "to": "0d5be106-2cd1-44bd-82fb-7138eebb3420",
+      "strength": 0.95
+    },
+    {
+      "from": "a8bae583-9eaf-4c85-a2d5-6d2b9da55c83",
+      "to": "e5ec1301-ab8a-49db-a5fd-873d351d33d5",
+      "strength": 0.9
+    },
+    {
+      "from": "a8bae583-9eaf-4c85-a2d5-6d2b9da55c83",
+      "to": "bce4c2f3-7ab9-47bc-8180-c975c57ad1ee",
+      "strength": 0.9
+    },
+    {
+      "from": "a8bae583-9eaf-4c85-a2d5-6d2b9da55c83",
+      "to": "1ff3abb5-011c-488d-aa80-1e2afbd79144",
+      "strength": 0.9
+    },
+    {
+      "from": "83fbb4fe-6561-4f72-9c7e-d030ff76ad0a",
+      "to": "0d5be106-2cd1-44bd-82fb-7138eebb3420",
+      "strength": 0.6
+    },
+    {
+      "from": "e0911fa7-4d7b-4263-abe0-f811bb65e22f",
+      "to": "1ff3abb5-011c-488d-aa80-1e2afbd79144",
+      "strength": 0.7
+    },
+    {
+      "from": "817a9c2f-0a63-42d5-8ad8-18909b7dea86",
+      "to": "1ff3abb5-011c-488d-aa80-1e2afbd79144",
+      "strength": 0.6
+    },
+    {
+      "from": "1d6b00e2-1a54-4a5b-a6dc-9c6db481015f",
+      "to": "a8bae583-9eaf-4c85-a2d5-6d2b9da55c83",
+      "strength": 0.6
+    },
+    {
+      "from": "607ed87f-1edb-4e4c-be9b-42535400a69f",
+      "to": "1e60c571-31fd-44d0-b5ca-638d5121a82e",
+      "strength": 0.4
+    },
+    {
+      "from": "607ed87f-1edb-4e4c-be9b-42535400a69f",
+      "to": "b8316599-fdce-46e1-be4a-123cd71bc951",
+      "strength": 0.4
+    },
+    {
+      "from": "3c782d40-e921-4158-8280-b1abd02d1663",
+      "to": "160d2cb6-7386-492a-a4ca-f7ac31cd456c",
+      "strength": 0.5
+    },
+    {
+      "from": "6a933c2c-d6a1-4f47-9cad-ad47245061e6",
+      "to": "f8bb8816-4df6-47da-95bb-0dfd1362b676",
+      "strength": 0.5
+    },
+    {
+      "from": "6a12361d-aa6d-4426-b980-737744271169",
+      "to": "b8929a01-65ad-4ff8-8e67-b8a5ab38899d",
+      "strength": 0.9
+    },
+    {
+      "from": "6a12361d-aa6d-4426-b980-737744271169",
+      "to": "80f3dbae-20c9-4ac8-9ae5-ddbdcba77183",
+      "strength": 0.7
+    },
+    {
+      "from": "6a12361d-aa6d-4426-b980-737744271169",
+      "to": "54d13589-b7af-44d9-be08-0e1cc4015230",
+      "strength": 0.85
+    },
+    {
+      "from": "b8929a01-65ad-4ff8-8e67-b8a5ab38899d",
+      "to": "5db49e6c-ad04-46b2-866f-f517df8ddc19",
+      "strength": 0.8
+    },
+    {
+      "from": "80f3dbae-20c9-4ac8-9ae5-ddbdcba77183",
+      "to": "5db49e6c-ad04-46b2-866f-f517df8ddc19",
+      "strength": 0.7
+    },
+    {
+      "from": "80f3dbae-20c9-4ac8-9ae5-ddbdcba77183",
+      "to": "9d09bd41-6373-47cd-b4b2-7b2248aa4aa2",
+      "strength": 0.9
+    },
+    {
+      "from": "b8929a01-65ad-4ff8-8e67-b8a5ab38899d",
+      "to": "9d09bd41-6373-47cd-b4b2-7b2248aa4aa2",
+      "strength": 0.85
+    },
+    {
+      "from": "5db49e6c-ad04-46b2-866f-f517df8ddc19",
+      "to": "9d09bd41-6373-47cd-b4b2-7b2248aa4aa2",
+      "strength": 0.75
+    },
+    {
+      "from": "54d13589-b7af-44d9-be08-0e1cc4015230",
+      "to": "5db49e6c-ad04-46b2-866f-f517df8ddc19",
+      "strength": 0.6
+    },
+    {
+      "from": "2eaf4487-7140-4329-a173-40b14a2f87e0",
+      "to": "8ead464d-2b8f-4a91-88e9-37eeae0b2948",
+      "strength": 0.7
+    },
+    {
+      "from": "8ead464d-2b8f-4a91-88e9-37eeae0b2948",
+      "to": "1d7b25e5-b000-4706-816d-1eeb83e6cfa8",
+      "strength": 0.9
+    },
+    {
+      "from": "2eaf4487-7140-4329-a173-40b14a2f87e0",
+      "to": "1d7b25e5-b000-4706-816d-1eeb83e6cfa8",
+      "strength": 0.65
+    },
+    {
+      "from": "c8f621a8-7fb9-4fc8-a571-45dfa2013876",
+      "to": "d793700c-eb4c-40cd-a543-7ee7e127bceb",
+      "strength": 0.65
+    },
+    {
+      "from": "d793700c-eb4c-40cd-a543-7ee7e127bceb",
+      "to": "ee91b723-74d8-4a15-8391-e37f528cf695",
+      "strength": 0.85
+    },
+    {
+      "from": "a48906ff-73a1-49eb-a51c-b1c403b7fb90",
+      "to": "ee91b723-74d8-4a15-8391-e37f528cf695",
+      "strength": 0.8
+    },
+    {
+      "from": "c8f621a8-7fb9-4fc8-a571-45dfa2013876",
+      "to": "a48906ff-73a1-49eb-a51c-b1c403b7fb90",
+      "strength": 0.75
+    },
+    {
+      "from": "c8f621a8-7fb9-4fc8-a571-45dfa2013876",
+      "to": "ee91b723-74d8-4a15-8391-e37f528cf695",
+      "strength": 0.6
+    },
+    {
+      "from": "a7ca12fb-50e9-4189-8643-1b8db0e5581b",
+      "to": "e4d7c299-7d55-4d76-81bf-1debcc70add5",
+      "strength": 0.95
+    },
+    {
+      "from": "a7ca12fb-50e9-4189-8643-1b8db0e5581b",
+      "to": "3d12389b-ad64-4a1c-bab5-e54d0ab540f5",
+      "strength": 0.95
+    },
+    {
+      "from": "e4d7c299-7d55-4d76-81bf-1debcc70add5",
+      "to": "8a2b8dea-d910-40ca-9a3c-68811099c6ac",
+      "strength": 0.9
+    },
+    {
+      "from": "bda9f821-a2fc-4236-934d-3659109c300e",
+      "to": "20a4cde9-870c-45c2-b3b4-e4032aa9baf7",
+      "strength": 0.95
+    },
+    {
+      "from": "a7ca12fb-50e9-4189-8643-1b8db0e5581b",
+      "to": "20a4cde9-870c-45c2-b3b4-e4032aa9baf7",
+      "strength": 0.9
+    },
+    {
+      "from": "8a2b8dea-d910-40ca-9a3c-68811099c6ac",
+      "to": "81dbbf77-b3f8-4116-84de-024621acb8e3",
+      "strength": 0.9
+    },
+    {
+      "from": "a7ca12fb-50e9-4189-8643-1b8db0e5581b",
+      "to": "81dbbf77-b3f8-4116-84de-024621acb8e3",
+      "strength": 0.85
+    },
+    {
+      "from": "8a2b8dea-d910-40ca-9a3c-68811099c6ac",
+      "to": "4fb67059-7273-4639-9345-d4197a06a656",
+      "strength": 0.9
+    },
+    {
+      "from": "81dbbf77-b3f8-4116-84de-024621acb8e3",
+      "to": "4fb67059-7273-4639-9345-d4197a06a656",
+      "strength": 0.95
+    },
+    {
+      "from": "a7ca12fb-50e9-4189-8643-1b8db0e5581b",
+      "to": "4fb67059-7273-4639-9345-d4197a06a656",
+      "strength": 0.9
+    },
+    {
+      "from": "e4d7c299-7d55-4d76-81bf-1debcc70add5",
+      "to": "81dbbf77-b3f8-4116-84de-024621acb8e3",
+      "strength": 0.7
+    },
+    {
+      "from": "e4d7c299-7d55-4d76-81bf-1debcc70add5",
+      "to": "3d12389b-ad64-4a1c-bab5-e54d0ab540f5",
+      "strength": 0.6
+    },
+    {
+      "from": "a7ca12fb-50e9-4189-8643-1b8db0e5581b",
+      "to": "8a2b8dea-d910-40ca-9a3c-68811099c6ac",
+      "strength": 0.6
+    },
+    {
+      "from": "65f70997-e1c4-4357-aefa-a22f918fc306",
+      "to": "10913e65-3e9f-4c1f-989c-272527f806d0",
+      "strength": 0.75
+    },
+    {
+      "from": "2745e411-bb2d-40e7-bf95-099d18c31217",
+      "to": "10913e65-3e9f-4c1f-989c-272527f806d0",
+      "strength": 0.75
+    },
+    {
+      "from": "65f70997-e1c4-4357-aefa-a22f918fc306",
+      "to": "55defcce-03a7-440b-afaa-51e9f1a61885",
+      "strength": 0.85
+    },
+    {
+      "from": "2745e411-bb2d-40e7-bf95-099d18c31217",
+      "to": "04e12f46-a35d-43fa-9851-47a2914ba19e",
+      "strength": 0.85
+    },
+    {
+      "from": "10913e65-3e9f-4c1f-989c-272527f806d0",
+      "to": "e7df7f0a-565e-4be4-8eeb-0dce3c75ea7d",
+      "strength": 0.65
+    },
+    {
+      "from": "55defcce-03a7-440b-afaa-51e9f1a61885",
+      "to": "e7df7f0a-565e-4be4-8eeb-0dce3c75ea7d",
+      "strength": 0.8
+    },
+    {
+      "from": "04e12f46-a35d-43fa-9851-47a2914ba19e",
+      "to": "e7df7f0a-565e-4be4-8eeb-0dce3c75ea7d",
+      "strength": 0.8
+    },
+    {
+      "from": "7babfd8b-7260-4e48-b7f0-bfc0024cf43b",
+      "to": "e7df7f0a-565e-4be4-8eeb-0dce3c75ea7d",
+      "strength": 0.85
+    },
+    {
+      "from": "65636a63-4648-43b3-8158-84497cbeca2e",
+      "to": "55defcce-03a7-440b-afaa-51e9f1a61885",
+      "strength": 0.8
+    },
+    {
+      "from": "65636a63-4648-43b3-8158-84497cbeca2e",
+      "to": "04e12f46-a35d-43fa-9851-47a2914ba19e",
+      "strength": 0.8
+    },
+    {
+      "from": "10913e65-3e9f-4c1f-989c-272527f806d0",
+      "to": "fba197ce-279f-4667-9648-04f6f56eb736",
+      "strength": 0.6
+    },
+    {
+      "from": "55defcce-03a7-440b-afaa-51e9f1a61885",
+      "to": "fba197ce-279f-4667-9648-04f6f56eb736",
+      "strength": 0.65
+    },
+    {
+      "from": "65f70997-e1c4-4357-aefa-a22f918fc306",
+      "to": "fba197ce-279f-4667-9648-04f6f56eb736",
+      "strength": 0.75
+    },
+    {
+      "from": "e7df7f0a-565e-4be4-8eeb-0dce3c75ea7d",
+      "to": "65636a63-4648-43b3-8158-84497cbeca2e",
+      "strength": 0.55
+    },
+    {
+      "from": "7babfd8b-7260-4e48-b7f0-bfc0024cf43b",
+      "to": "65636a63-4648-43b3-8158-84497cbeca2e",
+      "strength": 0.65
+    },
+    {
+      "from": "10913e65-3e9f-4c1f-989c-272527f806d0",
+      "to": "65636a63-4648-43b3-8158-84497cbeca2e",
+      "strength": 0.6
+    },
+    {
+      "from": "e833c230-b7a3-4923-85e3-2b3e840e033e",
+      "to": "7992918f-34f8-4836-9cde-1652a55c632c",
+      "strength": 0.8
+    },
+    {
+      "from": "e833c230-b7a3-4923-85e3-2b3e840e033e",
+      "to": "c7ebd8ec-484c-4d1f-9ff6-7925556904fc",
+      "strength": 0.7
+    },
+    {
+      "from": "c7ebd8ec-484c-4d1f-9ff6-7925556904fc",
+      "to": "0729dc55-b848-484d-bbea-0474a043d307",
+      "strength": 0.9
+    },
+    {
+      "from": "c7ebd8ec-484c-4d1f-9ff6-7925556904fc",
+      "to": "4200c3e9-cfed-48ff-9899-2468344389d3",
+      "strength": 0.85
+    },
+    {
+      "from": "0729dc55-b848-484d-bbea-0474a043d307",
+      "to": "4200c3e9-cfed-48ff-9899-2468344389d3",
+      "strength": 0.6
+    },
+    {
+      "from": "1a556a4a-9ed5-4377-b3dd-5421b36fba3e",
+      "to": "9f622529-e6e0-4b5b-ae50-864885a5d9d4",
+      "strength": 0.7
+    },
+    {
+      "from": "4200c3e9-cfed-48ff-9899-2468344389d3",
+      "to": "9f622529-e6e0-4b5b-ae50-864885a5d9d4",
+      "strength": 0.7
+    },
+    {
+      "from": "7992918f-34f8-4836-9cde-1652a55c632c",
+      "to": "04776eb5-1553-4c7f-9b3a-f66423ef44ab",
+      "strength": 0.8
+    },
+    {
+      "from": "04776eb5-1553-4c7f-9b3a-f66423ef44ab",
+      "to": "26b1844b-b6ae-448b-8b85-8c39854ade04",
+      "strength": 0.9
+    },
+    {
+      "from": "7992918f-34f8-4836-9cde-1652a55c632c",
+      "to": "26b1844b-b6ae-448b-8b85-8c39854ade04",
+      "strength": 0.7
+    },
+    {
+      "from": "e833c230-b7a3-4923-85e3-2b3e840e033e",
+      "to": "39cf15c4-d589-4315-a112-855f48aee303",
+      "strength": 0.8
+    },
+    {
+      "from": "c7ebd8ec-484c-4d1f-9ff6-7925556904fc",
+      "to": "4e208b58-cc99-483f-859a-c96fe7fcbec5",
+      "strength": 0.8
+    },
+    {
+      "from": "7992918f-34f8-4836-9cde-1652a55c632c",
+      "to": "9b5b5dcc-ad86-4bc6-8ea9-81a45cece7d9",
+      "strength": 0.8
+    },
+    {
+      "from": "0729dc55-b848-484d-bbea-0474a043d307",
+      "to": "65db243b-6906-4a4b-adf4-4d65bfab0f58",
+      "strength": 0.95
+    },
+    {
+      "from": "39cf15c4-d589-4315-a112-855f48aee303",
+      "to": "4e208b58-cc99-483f-859a-c96fe7fcbec5",
+      "strength": 0.6
+    },
+    {
+      "from": "9b5b5dcc-ad86-4bc6-8ea9-81a45cece7d9",
+      "to": "4e208b58-cc99-483f-859a-c96fe7fcbec5",
+      "strength": 0.6
+    },
+    {
+      "from": "39cf15c4-d589-4315-a112-855f48aee303",
+      "to": "d6398d20-cdf5-4090-9e47-9adfd1c6759d",
+      "strength": 0.7
+    },
+    {
+      "from": "4e208b58-cc99-483f-859a-c96fe7fcbec5",
+      "to": "d6398d20-cdf5-4090-9e47-9adfd1c6759d",
+      "strength": 0.8
+    },
+    {
+      "from": "9b5b5dcc-ad86-4bc6-8ea9-81a45cece7d9",
+      "to": "d6398d20-cdf5-4090-9e47-9adfd1c6759d",
+      "strength": 0.8
+    },
+    {
+      "from": "126461c7-1cfd-46bf-ab12-b4159456166b",
+      "to": "10913e65-3e9f-4c1f-989c-272527f806d0",
+      "strength": 0.88
+    },
+    {
+      "from": "126461c7-1cfd-46bf-ab12-b4159456166b",
+      "to": "8ee420ab-2035-47cc-8c88-51260a4cca7b",
+      "strength": 0.95
+    },
+    {
+      "from": "10913e65-3e9f-4c1f-989c-272527f806d0",
+      "to": "41ce7ef2-9310-4908-8281-7bc54626f69d",
+      "strength": 0.82
+    },
+    {
+      "from": "126461c7-1cfd-46bf-ab12-b4159456166b",
+      "to": "41ce7ef2-9310-4908-8281-7bc54626f69d",
+      "strength": 0.78
+    },
+    {
+      "from": "7babfd8b-7260-4e48-b7f0-bfc0024cf43b",
+      "to": "8ee420ab-2035-47cc-8c88-51260a4cca7b",
+      "strength": 0.72
+    },
+    {
+      "from": "126461c7-1cfd-46bf-ab12-b4159456166b",
+      "to": "7babfd8b-7260-4e48-b7f0-bfc0024cf43b",
+      "strength": 0.8
+    },
+    {
+      "from": "10913e65-3e9f-4c1f-989c-272527f806d0",
+      "to": "ff918a81-0859-4d6c-80b1-bb95a52848ef",
+      "strength": 0.9
+    },
+    {
+      "from": "126461c7-1cfd-46bf-ab12-b4159456166b",
+      "to": "ff918a81-0859-4d6c-80b1-bb95a52848ef",
+      "strength": 0.8
+    },
+    {
+      "from": "41ce7ef2-9310-4908-8281-7bc54626f69d",
+      "to": "ff918a81-0859-4d6c-80b1-bb95a52848ef",
+      "strength": 0.76
+    },
+    {
+      "from": "41ce7ef2-9310-4908-8281-7bc54626f69d",
+      "to": "8ee420ab-2035-47cc-8c88-51260a4cca7b",
+      "strength": 0.7
+    },
+    {
+      "from": "10913e65-3e9f-4c1f-989c-272527f806d0",
+      "to": "8ee420ab-2035-47cc-8c88-51260a4cca7b",
+      "strength": 0.6
+    },
+    {
+      "from": "7992918f-34f8-4836-9cde-1652a55c632c",
+      "to": "d0353892-c9d6-4fa0-afc9-51548f3240bb",
+      "strength": 0.8
+    },
+    {
+      "from": "4200c3e9-cfed-48ff-9899-2468344389d3",
+      "to": "d0353892-c9d6-4fa0-afc9-51548f3240bb",
+      "strength": 0.7
+    },
+    {
+      "from": "0729dc55-b848-484d-bbea-0474a043d307",
+      "to": "2443548b-67ff-4675-8f2e-846baa06fb2e",
+      "strength": 0.9
+    },
+    {
+      "from": "39cf15c4-d589-4315-a112-855f48aee303",
+      "to": "9b5b5dcc-ad86-4bc6-8ea9-81a45cece7d9",
+      "strength": 0.75
+    },
+    {
+      "from": "9b5b5dcc-ad86-4bc6-8ea9-81a45cece7d9",
+      "to": "e824a55d-ed53-47e7-881b-850c7a90f197",
+      "strength": 0.6
+    },
+    {
+      "from": "ed332e4b-07b1-482c-bf9e-60f0cd12f55c",
+      "to": "d295554d-19b1-4704-be37-4ba5a23a8bbf",
+      "strength": 0.9
+    },
+    {
+      "from": "ed332e4b-07b1-482c-bf9e-60f0cd12f55c",
+      "to": "3b06a6e4-0296-474f-9341-a6433e002e09",
+      "strength": 0.9
+    },
+    {
+      "from": "d3f3059a-93ff-46f7-8749-837354617aef",
+      "to": "b37d66ab-b5cf-440a-81bd-1f88b97eab7e",
+      "strength": 0.95
+    },
+    {
+      "from": "b37d66ab-b5cf-440a-81bd-1f88b97eab7e",
+      "to": "ed332e4b-07b1-482c-bf9e-60f0cd12f55c",
+      "strength": 0.7
+    },
+    {
+      "from": "d3f3059a-93ff-46f7-8749-837354617aef",
+      "to": "688785d7-cdb4-4a87-acaf-1cf75d783f8e",
+      "strength": 0.6
+    },
+    {
+      "from": "688785d7-cdb4-4a87-acaf-1cf75d783f8e",
+      "to": "f443f2a1-00ad-44a1-8a6f-971a08a3ef4e",
+      "strength": 0.6
+    },
+    {
+      "from": "3d7c3272-a03a-4ed1-bfe5-cb50a0f884ab",
+      "to": "667a2328-1da9-4cef-a0df-84dce95280b0",
+      "strength": 0.9
+    },
+    {
+      "from": "3d7c3272-a03a-4ed1-bfe5-cb50a0f884ab",
+      "to": "b48baa7a-de32-4cee-a84f-98e3d9cbc34a",
+      "strength": 0.9
+    },
+    {
+      "from": "3d7c3272-a03a-4ed1-bfe5-cb50a0f884ab",
+      "to": "81983e1b-2285-4fee-9641-ebda460b6f9b",
+      "strength": 0.85
+    },
+    {
+      "from": "3d7c3272-a03a-4ed1-bfe5-cb50a0f884ab",
+      "to": "36ec079b-6f38-4671-820d-045b15aaaeca",
+      "strength": 0.85
+    },
+    {
+      "from": "0ac3bf48-df90-4468-a39e-396436febd95",
+      "to": "3d7c3272-a03a-4ed1-bfe5-cb50a0f884ab",
+      "strength": 0.6
+    },
+    {
+      "from": "f443f2a1-00ad-44a1-8a6f-971a08a3ef4e",
+      "to": "be2572ba-166c-4491-824a-7b06ffd6dc07",
+      "strength": 0.95
+    },
+    {
+      "from": "667a2328-1da9-4cef-a0df-84dce95280b0",
+      "to": "b48baa7a-de32-4cee-a84f-98e3d9cbc34a",
+      "strength": 0.6
+    },
+    {
+      "from": "f29ee67b-3a32-497f-869f-22b4cbd866b8",
+      "to": "b48baa7a-de32-4cee-a84f-98e3d9cbc34a",
+      "strength": 0.85
+    },
+    {
+      "from": "f29ee67b-3a32-497f-869f-22b4cbd866b8",
+      "to": "ea692878-2851-428d-bb90-08adb51a3897",
+      "strength": 0.85
+    },
+    {
+      "from": "767d904d-0862-420f-a0ba-5188775100b1",
+      "to": "ea692878-2851-428d-bb90-08adb51a3897",
+      "strength": 0.9
+    },
+    {
+      "from": "767d904d-0862-420f-a0ba-5188775100b1",
+      "to": "a70061f6-e5e9-44e7-b7b1-8aee578f5be2",
+      "strength": 0.9
+    },
+    {
+      "from": "767d904d-0862-420f-a0ba-5188775100b1",
+      "to": "656cdd6e-b529-4e0c-a209-39c53e5124fb",
+      "strength": 0.85
+    },
+    {
+      "from": "ea692878-2851-428d-bb90-08adb51a3897",
+      "to": "656cdd6e-b529-4e0c-a209-39c53e5124fb",
+      "strength": 0.9
+    },
+    {
+      "from": "ea692878-2851-428d-bb90-08adb51a3897",
+      "to": "a70061f6-e5e9-44e7-b7b1-8aee578f5be2",
+      "strength": 0.9
+    },
+    {
+      "from": "848a1c1b-f943-4f34-b962-2a3515cd1e39",
+      "to": "ea692878-2851-428d-bb90-08adb51a3897",
+      "strength": 0.7
+    },
+    {
+      "from": "767d904d-0862-420f-a0ba-5188775100b1",
+      "to": "848a1c1b-f943-4f34-b962-2a3515cd1e39",
+      "strength": 0.9
+    },
+    {
+      "from": "f29ee67b-3a32-497f-869f-22b4cbd866b8",
+      "to": "36ec079b-6f38-4671-820d-045b15aaaeca",
+      "strength": 0.6
+    },
+    {
+      "from": "81983e1b-2285-4fee-9641-ebda460b6f9b",
+      "to": "b48baa7a-de32-4cee-a84f-98e3d9cbc34a",
+      "strength": 0.6
+    },
+    {
+      "from": "36ec079b-6f38-4671-820d-045b15aaaeca",
+      "to": "b48baa7a-de32-4cee-a84f-98e3d9cbc34a",
+      "strength": 0.6
+    },
+    {
+      "from": "d3f3059a-93ff-46f7-8749-837354617aef",
+      "to": "dcecd5c0-3513-4adf-86d0-5dc07ab23cdb",
+      "strength": 0.6
+    },
+    {
+      "from": "688785d7-cdb4-4a87-acaf-1cf75d783f8e",
+      "to": "dcecd5c0-3513-4adf-86d0-5dc07ab23cdb",
+      "strength": 0.5
+    },
+    {
+      "from": "d295554d-19b1-4704-be37-4ba5a23a8bbf",
+      "to": "3b06a6e4-0296-474f-9341-a6433e002e09",
+      "strength": 0.8
+    },
+    {
+      "from": "848a1c1b-f943-4f34-b962-2a3515cd1e39",
+      "to": "a70061f6-e5e9-44e7-b7b1-8aee578f5be2",
+      "strength": 0.65
+    },
+    {
+      "from": "1c85dc71-79a7-48a1-bc2b-b6dbf551a4d0",
+      "to": "37dc29ea-027b-46b3-8e06-6939920e9ff7",
+      "strength": 0.9
+    },
+    {
+      "from": "1c85dc71-79a7-48a1-bc2b-b6dbf551a4d0",
+      "to": "635f0823-e034-42de-9a4c-78886dbe984a",
+      "strength": 0.9
+    },
+    {
+      "from": "1c85dc71-79a7-48a1-bc2b-b6dbf551a4d0",
+      "to": "4d83339b-fd9a-4cb2-97f1-80ccc83ae290",
+      "strength": 0.9
+    },
+    {
+      "from": "1c85dc71-79a7-48a1-bc2b-b6dbf551a4d0",
+      "to": "a4435489-7ad7-47c3-982b-0a0a7c83845f",
+      "strength": 0.9
+    },
+    {
+      "from": "1c85dc71-79a7-48a1-bc2b-b6dbf551a4d0",
+      "to": "3ecf7546-7333-4183-b867-50dc8015d7bc",
+      "strength": 0.85
+    },
+    {
+      "from": "1c85dc71-79a7-48a1-bc2b-b6dbf551a4d0",
+      "to": "daa8d34b-3cb7-4b0c-8ff4-9e867e67a39e",
+      "strength": 0.85
+    },
+    {
+      "from": "1c85dc71-79a7-48a1-bc2b-b6dbf551a4d0",
+      "to": "57e4f0ec-eee2-4c91-80be-9ebd9601fcb2",
+      "strength": 0.95
+    },
+    {
+      "from": "06314486-e47a-44f2-9e45-7fb7419d835f",
+      "to": "37dc29ea-027b-46b3-8e06-6939920e9ff7",
+      "strength": 0.9
+    },
+    {
+      "from": "dd1a4dbf-7caf-40fc-8c2b-513652b5d9df",
+      "to": "4d83339b-fd9a-4cb2-97f1-80ccc83ae290",
+      "strength": 0.9
+    },
+    {
+      "from": "bab6b7c2-816c-43e3-9f07-852199293481",
+      "to": "dd1a4dbf-7caf-40fc-8c2b-513652b5d9df",
+      "strength": 0.85
+    },
+    {
+      "from": "bab6b7c2-816c-43e3-9f07-852199293481",
+      "to": "4d83339b-fd9a-4cb2-97f1-80ccc83ae290",
+      "strength": 0.9
+    },
+    {
+      "from": "1ad625d1-ea20-41e8-8bb1-95ac7c29bb8f",
+      "to": "4d83339b-fd9a-4cb2-97f1-80ccc83ae290",
+      "strength": 0.9
+    },
+    {
+      "from": "1ad625d1-ea20-41e8-8bb1-95ac7c29bb8f",
+      "to": "a4435489-7ad7-47c3-982b-0a0a7c83845f",
+      "strength": 0.95
+    },
+    {
+      "from": "7bb1711e-316f-4737-8939-efcec5f15a3b",
+      "to": "37dc29ea-027b-46b3-8e06-6939920e9ff7",
+      "strength": 0.9
+    },
+    {
+      "from": "7bb1711e-316f-4737-8939-efcec5f15a3b",
+      "to": "635f0823-e034-42de-9a4c-78886dbe984a",
+      "strength": 0.85
+    },
+    {
+      "from": "8c45cf3d-e21a-44fa-9eb0-5f58bc91f790",
+      "to": "e7a3c67e-9811-41f2-9e9a-a8b9bfb380cb",
+      "strength": 0.9
+    },
+    {
+      "from": "bab6b7c2-816c-43e3-9f07-852199293481",
+      "to": "e7a3c67e-9811-41f2-9e9a-a8b9bfb380cb",
+      "strength": 0.85
+    },
+    {
+      "from": "7bb1711e-316f-4737-8939-efcec5f15a3b",
+      "to": "3d50c49d-b058-4f25-80b6-3168f50f281c",
+      "strength": 0.9
+    },
+    {
+      "from": "f33aa1a9-34ef-4bb0-a3cb-b68957e6679a",
+      "to": "3d50c49d-b058-4f25-80b6-3168f50f281c",
+      "strength": 0.85
+    },
+    {
+      "from": "1ad625d1-ea20-41e8-8bb1-95ac7c29bb8f",
+      "to": "3d50c49d-b058-4f25-80b6-3168f50f281c",
+      "strength": 0.85
+    },
+    {
+      "from": "7bb1711e-316f-4737-8939-efcec5f15a3b",
+      "to": "f9b55a34-5178-495b-b50b-8b6da5431669",
+      "strength": 0.7
+    },
+    {
+      "from": "f33aa1a9-34ef-4bb0-a3cb-b68957e6679a",
+      "to": "f9b55a34-5178-495b-b50b-8b6da5431669",
+      "strength": 0.7
+    },
+    {
+      "from": "1ad625d1-ea20-41e8-8bb1-95ac7c29bb8f",
+      "to": "f9b55a34-5178-495b-b50b-8b6da5431669",
+      "strength": 0.7
+    },
+    {
+      "from": "176de9f1-cbf3-47a8-b66c-13e675c1e150",
+      "to": "57e4f0ec-eee2-4c91-80be-9ebd9601fcb2",
+      "strength": 0.8
+    },
+    {
+      "from": "176de9f1-cbf3-47a8-b66c-13e675c1e150",
+      "to": "e7a3c67e-9811-41f2-9e9a-a8b9bfb380cb",
+      "strength": 0.65
+    },
+    {
+      "from": "176de9f1-cbf3-47a8-b66c-13e675c1e150",
+      "to": "3d50c49d-b058-4f25-80b6-3168f50f281c",
+      "strength": 0.6
+    },
+    {
+      "from": "37dc29ea-027b-46b3-8e06-6939920e9ff7",
+      "to": "57e4f0ec-eee2-4c91-80be-9ebd9601fcb2",
+      "strength": 0.9
+    },
+    {
+      "from": "635f0823-e034-42de-9a4c-78886dbe984a",
+      "to": "57e4f0ec-eee2-4c91-80be-9ebd9601fcb2",
+      "strength": 0.9
+    },
+    {
+      "from": "4d83339b-fd9a-4cb2-97f1-80ccc83ae290",
+      "to": "57e4f0ec-eee2-4c91-80be-9ebd9601fcb2",
+      "strength": 0.9
+    },
+    {
+      "from": "a4435489-7ad7-47c3-982b-0a0a7c83845f",
+      "to": "57e4f0ec-eee2-4c91-80be-9ebd9601fcb2",
+      "strength": 0.9
+    },
+    {
+      "from": "bab6b7c2-816c-43e3-9f07-852199293481",
+      "to": "1ad625d1-ea20-41e8-8bb1-95ac7c29bb8f",
+      "strength": 0.7
+    },
+    {
+      "from": "1ad625d1-ea20-41e8-8bb1-95ac7c29bb8f",
+      "to": "daa8d34b-3cb7-4b0c-8ff4-9e867e67a39e",
+      "strength": 0.6
+    },
+    {
+      "from": "bab6b7c2-816c-43e3-9f07-852199293481",
+      "to": "3ecf7546-7333-4183-b867-50dc8015d7bc",
+      "strength": 0.6
+    },
+    {
+      "from": "1ad625d1-ea20-41e8-8bb1-95ac7c29bb8f",
+      "to": "3ecf7546-7333-4183-b867-50dc8015d7bc",
+      "strength": 0.6
+    },
+    {
+      "from": "06314486-e47a-44f2-9e45-7fb7419d835f",
+      "to": "57e4f0ec-eee2-4c91-80be-9ebd9601fcb2",
+      "strength": 0.6
+    },
+    {
+      "from": "dd1a4dbf-7caf-40fc-8c2b-513652b5d9df",
+      "to": "57e4f0ec-eee2-4c91-80be-9ebd9601fcb2",
+      "strength": 0.6
+    },
+    {
+      "from": "f4eae9f0-38ba-4b0c-b145-702804d5f49f",
+      "to": "3fe2574a-19b5-48d7-a1da-594aa5be1b80",
+      "strength": 0.9
+    },
+    {
+      "from": "f4eae9f0-38ba-4b0c-b145-702804d5f49f",
+      "to": "c5c3dd66-f6bd-43db-b764-ee422bc9dccd",
+      "strength": 0.85
+    },
+    {
+      "from": "b262bfc8-0355-4d86-93c2-896023776d9b",
+      "to": "f4eae9f0-38ba-4b0c-b145-702804d5f49f",
+      "strength": 0.6
+    },
+    {
+      "from": "b262bfc8-0355-4d86-93c2-896023776d9b",
+      "to": "6d606746-7ba7-421a-b573-ef0b7120b2d8",
+      "strength": 0.8
+    },
+    {
+      "from": "e9e68959-8d60-412a-b2c5-3d1d766a4f5a",
+      "to": "114efdcb-a68f-40ab-9fd7-6f7a59d25f0b",
+      "strength": 0.75
+    },
+    {
+      "from": "114efdcb-a68f-40ab-9fd7-6f7a59d25f0b",
+      "to": "6d606746-7ba7-421a-b573-ef0b7120b2d8",
+      "strength": 0.7
+    },
+    {
+      "from": "b262bfc8-0355-4d86-93c2-896023776d9b",
+      "to": "e9e68959-8d60-412a-b2c5-3d1d766a4f5a",
+      "strength": 0.6
+    },
+    {
+      "from": "4fcf713f-fe52-4af4-9c59-0e8775b5925a",
+      "to": "ebe2265f-cc17-4477-81d9-3927c6f9dccc",
+      "strength": 0.6
+    },
+    {
+      "from": "800d5409-c82b-4376-8786-9c520be451f7",
+      "to": "4fcf713f-fe52-4af4-9c59-0e8775b5925a",
+      "strength": 0.6
+    },
+    {
+      "from": "258d9c37-1444-47c2-a76b-850cb404c22d",
+      "to": "912779da-0154-49f0-882e-9a2f7b680661",
+      "strength": 0.7
+    },
+    {
+      "from": "258d9c37-1444-47c2-a76b-850cb404c22d",
+      "to": "9b6135b9-ab0f-4e30-afdb-22c8c925b05b",
+      "strength": 0.6
+    },
+    {
+      "from": "912779da-0154-49f0-882e-9a2f7b680661",
+      "to": "9b6135b9-ab0f-4e30-afdb-22c8c925b05b",
+      "strength": 0.5
+    },
+    {
+      "from": "258d9c37-1444-47c2-a76b-850cb404c22d",
+      "to": "800d5409-c82b-4376-8786-9c520be451f7",
+      "strength": 0.5
+    },
+    {
+      "from": "461f7d87-c895-4af5-bead-0601fe106819",
+      "to": "76288a8b-1431-4243-ad90-da7b7a6bb767",
+      "strength": 0.8
+    },
+    {
+      "from": "461f7d87-c895-4af5-bead-0601fe106819",
+      "to": "1a54a669-77b3-44d0-b592-d0e31be8e46f",
+      "strength": 0.75
+    },
+    {
+      "from": "461f7d87-c895-4af5-bead-0601fe106819",
+      "to": "3bb8c7c8-8ff7-4e1e-8fba-c458fa64fbf8",
+      "strength": 0.7
+    },
+    {
+      "from": "76288a8b-1431-4243-ad90-da7b7a6bb767",
+      "to": "1a54a669-77b3-44d0-b592-d0e31be8e46f",
+      "strength": 0.7
+    },
+    {
+      "from": "e6ba3f23-0aee-4375-b7e7-221144b3c07e",
+      "to": "76288a8b-1431-4243-ad90-da7b7a6bb767",
+      "strength": 0.6
+    },
+    {
+      "from": "e6ba3f23-0aee-4375-b7e7-221144b3c07e",
+      "to": "1a54a669-77b3-44d0-b592-d0e31be8e46f",
+      "strength": 0.6
+    },
+    {
+      "from": "3bb8c7c8-8ff7-4e1e-8fba-c458fa64fbf8",
+      "to": "1a54a669-77b3-44d0-b592-d0e31be8e46f",
+      "strength": 0.6
+    },
+    {
+      "from": "ebe2265f-cc17-4477-81d9-3927c6f9dccc",
+      "to": "e6ba3f23-0aee-4375-b7e7-221144b3c07e",
+      "strength": 0.5
+    },
+    {
+      "from": "ebe2265f-cc17-4477-81d9-3927c6f9dccc",
+      "to": "f4eae9f0-38ba-4b0c-b145-702804d5f49f",
+      "strength": 0.5
+    },
+    {
+      "from": "b262bfc8-0355-4d86-93c2-896023776d9b",
+      "to": "ce8077c1-b422-4397-aeb3-6ed8dbcc8d0a",
+      "strength": 0.65
+    },
+    {
+      "from": "e9e68959-8d60-412a-b2c5-3d1d766a4f5a",
+      "to": "6d606746-7ba7-421a-b573-ef0b7120b2d8",
+      "strength": 0.6
+    },
+    {
+      "from": "ebe2265f-cc17-4477-81d9-3927c6f9dccc",
+      "to": "ce8077c1-b422-4397-aeb3-6ed8dbcc8d0a",
+      "strength": 0.5
+    },
+    {
+      "from": "d21fb948-c93d-4e77-b06e-574ba86eaaf6",
+      "to": "3d50c49d-b058-4f25-80b6-3168f50f281c",
+      "strength": 0.95
+    },
+    {
+      "from": "f61e01a1-f306-4ff0-ad4d-e95c56a8e3a2",
+      "to": "3d50c49d-b058-4f25-80b6-3168f50f281c",
+      "strength": 0.9
+    },
+    {
+      "from": "70bb9623-9832-47ce-9574-b70690901eba",
+      "to": "3d50c49d-b058-4f25-80b6-3168f50f281c",
+      "strength": 0.95
+    },
+    {
+      "from": "1b52c5ea-edf8-4827-a04a-0b2cab337db6",
+      "to": "3d50c49d-b058-4f25-80b6-3168f50f281c",
+      "strength": 0.9
+    },
+    {
+      "from": "6481c651-e2fb-45f4-9511-94aa9dba484d",
+      "to": "3d50c49d-b058-4f25-80b6-3168f50f281c",
+      "strength": 0.9
+    },
+    {
+      "from": "7305f0f0-bc2f-48db-85d4-19356e98b519",
+      "to": "3d50c49d-b058-4f25-80b6-3168f50f281c",
+      "strength": 0.95
+    },
+    {
+      "from": "5c1f1e22-9b5c-432b-bb79-1e16ac41723e",
+      "to": "3d50c49d-b058-4f25-80b6-3168f50f281c",
+      "strength": 0.9
+    },
+    {
+      "from": "2ce27d9f-f24a-4742-98de-46996a1f3710",
+      "to": "e7a3c67e-9811-41f2-9e9a-a8b9bfb380cb",
+      "strength": 0.9
+    },
+    {
+      "from": "78db4396-7726-4605-a8ee-6027407eddd6",
+      "to": "e7a3c67e-9811-41f2-9e9a-a8b9bfb380cb",
+      "strength": 0.85
+    },
+    {
+      "from": "7305f0f0-bc2f-48db-85d4-19356e98b519",
+      "to": "5c1f1e22-9b5c-432b-bb79-1e16ac41723e",
+      "strength": 0.9
+    },
+    {
+      "from": "bab6b7c2-816c-43e3-9f07-852199293481",
+      "to": "2ce27d9f-f24a-4742-98de-46996a1f3710",
+      "strength": 0.95
+    },
+    {
+      "from": "2ce27d9f-f24a-4742-98de-46996a1f3710",
+      "to": "78db4396-7726-4605-a8ee-6027407eddd6",
+      "strength": 0.95
+    },
+    {
+      "from": "7305f0f0-bc2f-48db-85d4-19356e98b519",
+      "to": "c13ab6f0-f49a-4583-adce-2d61f7d2c6eb",
+      "strength": 0.95
+    },
+    {
+      "from": "7305f0f0-bc2f-48db-85d4-19356e98b519",
+      "to": "c6ed117e-e2d7-463c-8bea-80e3e935818f",
+      "strength": 0.9
+    },
+    {
+      "from": "bab6b7c2-816c-43e3-9f07-852199293481",
+      "to": "c6ed117e-e2d7-463c-8bea-80e3e935818f",
+      "strength": 0.85
+    },
+    {
+      "from": "f795c43d-f864-413a-84a4-bd81db033680",
+      "to": "c6ed117e-e2d7-463c-8bea-80e3e935818f",
+      "strength": 0.9
+    },
+    {
+      "from": "bab6b7c2-816c-43e3-9f07-852199293481",
+      "to": "f795c43d-f864-413a-84a4-bd81db033680",
+      "strength": 0.8
+    },
+    {
+      "from": "7305f0f0-bc2f-48db-85d4-19356e98b519",
+      "to": "2798b74e-9df0-40f5-9882-b24081c93c97",
+      "strength": 0.9
+    },
+    {
+      "from": "c13ab6f0-f49a-4583-adce-2d61f7d2c6eb",
+      "to": "2798b74e-9df0-40f5-9882-b24081c93c97",
+      "strength": 0.7
+    },
+    {
+      "from": "5ba7b34c-a163-4d19-855f-da1a6cfb1e01",
+      "to": "266be993-41d0-4100-8a1f-6f86bc6c0f8a",
+      "strength": 0.9
+    },
+    {
+      "from": "5c1f1e22-9b5c-432b-bb79-1e16ac41723e",
+      "to": "266be993-41d0-4100-8a1f-6f86bc6c0f8a",
+      "strength": 0.8
+    },
+    {
+      "from": "2ce27d9f-f24a-4742-98de-46996a1f3710",
+      "to": "5ba7b34c-a163-4d19-855f-da1a6cfb1e01",
+      "strength": 0.8
+    },
+    {
+      "from": "bab6b7c2-816c-43e3-9f07-852199293481",
+      "to": "5ba7b34c-a163-4d19-855f-da1a6cfb1e01",
+      "strength": 0.8
+    },
+    {
+      "from": "70bb9623-9832-47ce-9574-b70690901eba",
+      "to": "290a0200-fe87-48ff-893d-50f540b4f3e0",
+      "strength": 0.95
+    },
+    {
+      "from": "70bb9623-9832-47ce-9574-b70690901eba",
+      "to": "b5a45a3f-bf46-4726-8c87-bfa5a3df0377",
+      "strength": 0.85
+    },
+    {
+      "from": "d21fb948-c93d-4e77-b06e-574ba86eaaf6",
+      "to": "b5a45a3f-bf46-4726-8c87-bfa5a3df0377",
+      "strength": 0.8
+    },
+    {
+      "from": "807ec1c0-76f6-4cc2-a0ca-d3779041858c",
+      "to": "b5a45a3f-bf46-4726-8c87-bfa5a3df0377",
+      "strength": 0.9
+    },
+    {
+      "from": "807ec1c0-76f6-4cc2-a0ca-d3779041858c",
+      "to": "f7cc725f-42c3-423f-bf87-31c6f43990b2",
+      "strength": 0.9
+    },
+    {
+      "from": "d21fb948-c93d-4e77-b06e-574ba86eaaf6",
+      "to": "f7cc725f-42c3-423f-bf87-31c6f43990b2",
+      "strength": 0.9
+    },
+    {
+      "from": "d21fb948-c93d-4e77-b06e-574ba86eaaf6",
+      "to": "f9041f61-f5e5-44e8-857c-da325698c419",
+      "strength": 0.8
+    },
+    {
+      "from": "0de1b9ce-32f8-42ac-92ca-3bed3fa52c95",
+      "to": "d2cbadea-1cd8-45e1-b5b0-2293b2a01db5",
+      "strength": 0.9
+    },
+    {
+      "from": "26462d22-3972-43e5-8cca-d5bc5132e132",
+      "to": "5d595af5-b1a6-47f4-998f-5ddd9e205f60",
+      "strength": 0.85
+    },
+    {
+      "from": "f9041f61-f5e5-44e8-857c-da325698c419",
+      "to": "02c9cce0-82cf-451e-89c2-ff3704762df9",
+      "strength": 0.95
+    },
+    {
+      "from": "c13ab6f0-f49a-4583-adce-2d61f7d2c6eb",
+      "to": "02c9cce0-82cf-451e-89c2-ff3704762df9",
+      "strength": 0.95
+    },
+    {
+      "from": "2798b74e-9df0-40f5-9882-b24081c93c97",
+      "to": "02c9cce0-82cf-451e-89c2-ff3704762df9",
+      "strength": 0.9
+    },
+    {
+      "from": "290a0200-fe87-48ff-893d-50f540b4f3e0",
+      "to": "02c9cce0-82cf-451e-89c2-ff3704762df9",
+      "strength": 0.9
+    },
+    {
+      "from": "0de1b9ce-32f8-42ac-92ca-3bed3fa52c95",
+      "to": "02c9cce0-82cf-451e-89c2-ff3704762df9",
+      "strength": 0.9
+    },
+    {
+      "from": "d2cbadea-1cd8-45e1-b5b0-2293b2a01db5",
+      "to": "02c9cce0-82cf-451e-89c2-ff3704762df9",
+      "strength": 0.9
+    },
+    {
+      "from": "f7cc725f-42c3-423f-bf87-31c6f43990b2",
+      "to": "79b049bb-b493-42bd-a179-148de81a60bd",
+      "strength": 0.9
+    },
+    {
+      "from": "c6ed117e-e2d7-463c-8bea-80e3e935818f",
+      "to": "79b049bb-b493-42bd-a179-148de81a60bd",
+      "strength": 0.9
+    },
+    {
+      "from": "266be993-41d0-4100-8a1f-6f86bc6c0f8a",
+      "to": "79b049bb-b493-42bd-a179-148de81a60bd",
+      "strength": 0.9
+    },
+    {
+      "from": "b5a45a3f-bf46-4726-8c87-bfa5a3df0377",
+      "to": "79b049bb-b493-42bd-a179-148de81a60bd",
+      "strength": 0.9
+    },
+    {
+      "from": "26462d22-3972-43e5-8cca-d5bc5132e132",
+      "to": "79b049bb-b493-42bd-a179-148de81a60bd",
+      "strength": 0.9
+    },
+    {
+      "from": "5d595af5-b1a6-47f4-998f-5ddd9e205f60",
+      "to": "79b049bb-b493-42bd-a179-148de81a60bd",
+      "strength": 0.9
+    },
+    {
+      "from": "6481c651-e2fb-45f4-9511-94aa9dba484d",
+      "to": "b88468af-3c75-4566-bdf1-5a145be84405",
+      "strength": 0.95
+    },
+    {
+      "from": "b88468af-3c75-4566-bdf1-5a145be84405",
+      "to": "3d50c49d-b058-4f25-80b6-3168f50f281c",
+      "strength": 0.4
+    },
+    {
+      "from": "d21fb948-c93d-4e77-b06e-574ba86eaaf6",
+      "to": "1b52c5ea-edf8-4827-a04a-0b2cab337db6",
+      "strength": 0.7
+    },
+    {
+      "from": "70bb9623-9832-47ce-9574-b70690901eba",
+      "to": "6481c651-e2fb-45f4-9511-94aa9dba484d",
+      "strength": 0.8
+    },
+    {
+      "from": "d21fb948-c93d-4e77-b06e-574ba86eaaf6",
+      "to": "6481c651-e2fb-45f4-9511-94aa9dba484d",
+      "strength": 0.7
+    },
+    {
+      "from": "5ba7b34c-a163-4d19-855f-da1a6cfb1e01",
+      "to": "79b049bb-b493-42bd-a179-148de81a60bd",
+      "strength": 0.6
+    },
+    {
+      "from": "f795c43d-f864-413a-84a4-bd81db033680",
+      "to": "79b049bb-b493-42bd-a179-148de81a60bd",
+      "strength": 0.6
+    },
+    {
+      "from": "807ec1c0-76f6-4cc2-a0ca-d3779041858c",
+      "to": "79b049bb-b493-42bd-a179-148de81a60bd",
+      "strength": 0.6
+    }
+  ]
+}

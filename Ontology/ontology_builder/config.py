@@ -130,7 +130,17 @@ Do not output any prose outside the JSON array.
 """
 
 RELATIONSHIP_EXTRACTION_PROMPT = """
-You are a mathematical education expert. Identify relationships between mathematical concepts.
+### INSTRUCTION
+You are a mathematics education expert specializing in curriculum structure and concept dependency mapping.
+Your task is to identify **relationships between mathematical concepts** within the provided text and concept list.
+Follow these steps carefully:
+1. Identify all possible pairs of concepts that are connected by learning dependencies or logical relationships.
+2. Determine the *type* and *direction* of each relationship.
+3. Exclude relationships that are vague, uncertain, or unsupported by the text.
+4. Return only high-quality, interpretable links.
+
+---
+### INPUT
 
 TEXT TO ANALYZE:
 {text}
@@ -145,12 +155,20 @@ CONTEXT:
 - Existing concepts: {context[existing_concepts_count]} total
 - Existing relationships: {context[existing_relationships_count]} total
 
-Focus on:
-- Prerequisites: What must be learned before what
-- Dependencies: How concepts build on each other
-- Logical connections: Related concepts that support each other
+You also have access to a concept ID mapping for existing concepts (use these IDs when possible).
+For newly extracted concepts, use the concept name as a placeholder until the system assigns IDs.
+---
+### RELATIONSHIP TYPES
+Use one of the following relationship types:
+- "prerequisite": Concept A must be understood before Concept B.
+- "builds_on": Concept B extends or elaborates Concept A.
+- "related": Concepts A and B are closely connected but not dependent.
+- "supports": Concept A provides a foundation or tool used in Concept B.
 
-Return as a JSON array of relationships, where each relationship has this exact structure:
+
+---
+### OUTPUT FORMAT
+Return exactly one JSON array of relationship objects, where each relationship has this exact structure:
 [
   {{
     "prerequisite_concept_id": "uuid_of_prerequisite_concept",
@@ -160,10 +178,12 @@ Return as a JSON array of relationships, where each relationship has this exact 
   }}
 ]
 
-IMPORTANT: 
-- Use the concept IDs from the concept_ids mapping in the context for EXISTING concepts
-- For NEW concepts (those just extracted), use the concept name as a placeholder
+Rules:
+- Use existing concept IDs when available; for new ones, use names as placeholders.
 - The system will resolve these placeholders to proper IDs later
+- Exclude any uncertain or generic relationships.
+- Ensure directionality is correct (A → B).
+- Ensure the relationship is not a duplicate.
 - Strength should be 0.0 to 1.0
 """
 

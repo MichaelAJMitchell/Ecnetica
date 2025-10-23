@@ -280,7 +280,7 @@ html_theme.sidebar_secondary.remove: true
           // Load JSON files
           const files = [
             { name: "config.json", url: "../../_static/config.json" },
-            { name: "small-graph-kg.json", url: "../../_static/small-graph-kg.json" },
+            { name: "graph-data.json", url: "../../_static/graph-data.json" },
             { name: "small-graph-mcqs.json", url: "../../_static/small-graph-mcqs.json" },
             { name: "small-graph-computed_mcqs.json", url: "../../_static/small-graph-computed_mcqs.json" }
           ];

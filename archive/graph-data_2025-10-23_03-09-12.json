@@ -1,0 +1,1326 @@
+{
+  "nodes": [
+    {
+      "id": "15472859-ff55-4e7b-8826-eb7fb50a9cb9",
+      "label": "Circle Construction with Given Radius",
+      "group": "Geometry",
+      "title": "Drawing a circle with a specified radius using a compass.",
+      "broader_concept": "Geometric Constructions",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "412ee8e1-f372-45ea-9abc-ac17349278f4",
+      "label": "Transferring a Length with a Compass",
+      "group": "Geometry",
+      "title": "Using a compass to copy a given distance from one location to another.",
+      "broader_concept": "Instrument Use in Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "bed95adb-28da-4305-99af-a2b414ed3ae2",
+      "label": "Constructing an Angle of Given Measure with a Protractor",
+      "group": "Geometry",
+      "title": "Drawing an angle with a specified degree measure using a protractor.",
+      "broader_concept": "Geometric Constructions",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "08eb6249-1228-4945-acbb-b61ec66aa6de",
+      "label": "Drawing Perpendicular Lines with a Set Square",
+      "group": "Geometry",
+      "title": "Using a set square to construct a line perpendicular to a given line.",
+      "broader_concept": "Instrument Use in Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "6497781a-b33a-470a-8cd2-70b55c1f3bab",
+      "label": "Drawing Parallel Lines with a Set Square",
+      "group": "Geometry",
+      "title": "Using a set square to construct a line parallel to a given line.",
+      "broader_concept": "Instrument Use in Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "806d051d-8211-4501-be23-02451805cebc",
+      "label": "Drawing a Straight Line Through Two Points with a Straightedge",
+      "group": "Geometry",
+      "title": "Using a straightedge to join two points with a straight line segment.",
+      "broader_concept": "Instrument Use in Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "efc32632-3571-461e-ab1d-4cfa15c56612",
+      "label": "Measuring Line Segments with a Ruler",
+      "group": "Geometry",
+      "title": "Using a ruler to measure the length of a segment to a specified unit and precision.",
+      "broader_concept": "Geometric Measurement",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "03a78842-7861-46fa-84e5-a5ae4437761d",
+      "label": "Measuring Angles with a Protractor",
+      "group": "Geometry",
+      "title": "Using a protractor to determine the degree measure of an angle.",
+      "broader_concept": "Geometric Measurement",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "938f1d69-4f58-446b-9492-122ece27acfd",
+      "label": "Geometric Constructions in Dynamic Geometry Software",
+      "group": "Geometry",
+      "title": "Constructing and manipulating geometric figures using dynamic geometry tools while preserving constraints.",
+      "broader_concept": "Geometric Constructions",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "f38b6b40-a633-437a-81b0-b099dd3e6641",
+      "label": "Interpreting Slope as Rate of Change",
+      "group": "Algebra",
+      "title": "Recognizing that the slope of a linear graph equals the rate of change of the dependent variable per unit change in the independent variable, with contextual units.",
+      "broader_concept": "Linear Functions",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "edae54cc-da9f-40fa-80d3-88bd081da4a1",
+      "label": "Interpreting y-Intercept as Start Value",
+      "group": "Algebra",
+      "title": "Identifying the y-intercept as the initial value when the independent variable is zero and interpreting its meaning in context.",
+      "broader_concept": "Linear Functions",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "c377d378-132c-40ae-8b3b-1fdf39f23c30",
+      "label": "Point of Intersection of Two Linear Graphs as Common Solution",
+      "group": "Algebra",
+      "title": "Understanding that the intersection of two linear graphs gives the values that satisfy both relationships and interpreting that solution in real-life contexts.",
+      "broader_concept": "Systems of Linear Equations",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "390c0a87-2e68-4875-a88f-c1b1caffc1b0",
+      "label": "Graphing Linear Relationships",
+      "group": "Coordinate Geometry",
+      "title": "Plotting points and drawing straight-line graphs from a table or slope-intercept form to represent a linear relationship.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "eaa3d54b-f032-46ed-9f75-28968c0d7634",
+      "label": "Representing Linear Relationships in Tables",
+      "group": "Algebra",
+      "title": "Creating or reading tables of input-output pairs that model a linear rule derived from a context or equation.",
+      "broader_concept": "Linear Functions",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "455f6387-a6d9-4efc-8cce-bbb608f23700",
+      "label": "Calculating Slope from Two Points",
+      "group": "Algebra",
+      "title": "Computing slope using m = (y2 − y1)/(x2 − x1) from coordinates or tabular data and interpreting the result.",
+      "broader_concept": "Linear Functions",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "e79a09dd-2f88-4c29-a5f1-aac3ed934deb",
+      "label": "Comparing Linear Relationships by Rate of Change and Start Value",
+      "group": "Algebra",
+      "title": "Using slopes and y-intercepts to compare which relationship changes faster and which has a higher initial value.",
+      "broader_concept": "Linear Functions",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "a909e279-6f50-4cd5-b490-04e78de39e83",
+      "label": "Constructing Linear Models from Real-Life Contexts",
+      "group": "Algebra",
+      "title": "Determining the rate of change and start value from a situation and expressing the relationship in y = mx + b form.",
+      "broader_concept": "Mathematical Modeling",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "d3f54adf-adab-49a5-8cf9-d342ae04efdd",
+      "label": "Solving a System of Two Linear Equations by Graphing",
+      "group": "Algebra",
+      "title": "Graphing both linear relationships and reading their point of intersection to find the simultaneous solution.",
+      "broader_concept": "Systems of Linear Equations",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "5fd71828-6d8a-4f9a-8290-43134480ec6e",
+      "label": "Solving Linear Problems Using Tables (Numeric Strategy)",
+      "group": "Algebra",
+      "title": "Using tabulated values to compute outputs, compare relationships, and locate approximate intersections numerically.",
+      "broader_concept": "Problem-Solving Strategies in Algebra",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "052dd62c-b46d-4c16-aced-980187ef2441",
+      "label": "Plotting Points in the Cartesian Plane",
+      "group": "Coordinate Geometry",
+      "title": "Placing ordered pairs on the coordinate axes and reading coordinates accurately to support graphing.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "8bbfeba3-b82f-4ec3-ac65-c0a8d9e308d6",
+      "label": "Mental Estimation in Linear Contexts",
+      "group": "Algebra",
+      "title": "Estimating values, rates, or intersection points using slopes and intercepts without full computation.",
+      "broader_concept": "Estimation Strategies",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "c06d204c-e106-4728-ab2d-ee1e33d7e200",
+      "label": "Applying the Pythagorean Theorem to Right Triangles",
+      "group": "Geometry",
+      "title": "Using a^2 + b^2 = c^2 to determine unknown side lengths and distances in right-angled triangle problems, including simple heights-and-distances contexts.",
+      "broader_concept": "Pythagorean Theorem",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "c476b80a-4600-4e19-a97e-5d3da189b727",
+      "label": "Solving Right Triangle Word Problems with Trigonometric Ratios",
+      "group": "Trigonometry",
+      "title": "Modeling real-world situations involving angles as right triangles and selecting sine, cosine, or tangent to find unknown sides or angles.",
+      "broader_concept": "Applications of Trigonometric Ratios",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "877a1a74-0e1e-4e6c-b129-a39eaf68cd82",
+      "label": "Sine Ratio in Right Triangles",
+      "group": "Trigonometry",
+      "title": "Defining and using sin(θ) = opposite/hypotenuse for an acute angle in a right triangle.",
+      "broader_concept": "Trigonometric Ratios",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "fe29c8f6-f2a2-4f61-9c07-f8e78d277f4d",
+      "label": "Cosine Ratio in Right Triangles",
+      "group": "Trigonometry",
+      "title": "Defining and using cos(θ) = adjacent/hypotenuse for an acute angle in a right triangle.",
+      "broader_concept": "Trigonometric Ratios",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "99a0ec03-33d0-4dc2-9812-5d9ac0abaf70",
+      "label": "Tangent Ratio in Right Triangles",
+      "group": "Trigonometry",
+      "title": "Defining and using tan(θ) = opposite/adjacent for an acute angle in a right triangle.",
+      "broader_concept": "Trigonometric Ratios",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "cc0aea9c-1796-4862-b813-bbc98d23862d",
+      "label": "Inverse Trigonometric Functions for Angle Calculation",
+      "group": "Trigonometry",
+      "title": "Using arcsin, arccos, and arctan to find acute angles from given side ratios in right triangles.",
+      "broader_concept": "Trigonometric Functions",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "b5bf0ebc-e63e-417b-bdd4-99dcbc1d297a",
+      "label": "Angles of Elevation and Depression",
+      "group": "Trigonometry",
+      "title": "Interpreting and defining angles measured from the horizontal line of sight to set up trigonometric models for height and distance problems.",
+      "broader_concept": "Applications of Trigonometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "47c8339a-8655-4111-ab66-6bcccbf32607",
+      "label": "Identifying Opposite, Adjacent, and Hypotenuse",
+      "group": "Trigonometry",
+      "title": "Determining triangle sides relative to a given acute angle in a right triangle to choose the appropriate trigonometric ratio.",
+      "broader_concept": "Right Triangle Trigonometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "2b577ae8-e52e-4dc1-9d28-33058c2c98c7",
+      "label": "Enlargement (Dilation) in the Plane",
+      "group": "Geometry",
+      "title": "Transforming a figure by scaling distances from a fixed center by a rational factor k, with k>1 enlarging and 0<k<1 reducing.",
+      "broader_concept": "Similarity Transformations",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "ca88c243-de0e-40ec-9c9b-af25078fa606",
+      "label": "Center of Enlargement",
+      "group": "Geometry",
+      "title": "The fixed point from which all points are scaled radially during a dilation.",
+      "broader_concept": "Enlargement (Dilation) in the Plane",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "c02a6b59-4b59-4d24-8bbc-15b8bbf3bec1",
+      "label": "Scale Factor of an Enlargement",
+      "group": "Geometry",
+      "title": "The rational constant k that determines the ratio of image to preimage lengths in a dilation (k>1 enlarges, 0<k<1 reduces).",
+      "broader_concept": "Enlargement (Dilation) in the Plane",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "f05ebbc0-6e5d-4b66-a0ad-86bcf13aabf3",
+      "label": "Area Scaling Under Enlargement",
+      "group": "Geometry",
+      "title": "Under a dilation with scale factor k, the area of a figure is multiplied by k^2.",
+      "broader_concept": "Enlargement (Dilation) in the Plane",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "05be8713-0e23-4df2-be0d-50df854f032f",
+      "label": "Translation in the Plane",
+      "group": "Geometry",
+      "title": "An isometry that slides every point of a figure by a given vector without rotation or reflection.",
+      "broader_concept": "Transformational Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "ff2b652c-829c-42b8-b474-85ae17bccc7a",
+      "label": "Rotation about a Point",
+      "group": "Geometry",
+      "title": "An isometry that turns a figure through a specified angle and direction around a fixed center.",
+      "broader_concept": "Transformational Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "3d4c5d68-e6ae-4764-98c8-f3813017aefa",
+      "label": "Axial Symmetry (Reflection Across a Line)",
+      "group": "Geometry",
+      "title": "Reflecting a point or figure across a line so that the line is the perpendicular bisector of each segment joining corresponding points.",
+      "broader_concept": "Transformational Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "9aeb731b-cf81-4654-b045-3f594380b031",
+      "label": "Central Symmetry (Point Reflection)",
+      "group": "Geometry",
+      "title": "Reflecting a point or figure through a center so that the center is the midpoint of each segment joining corresponding points.",
+      "broader_concept": "Transformational Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "4ede5cef-20d8-4dca-8167-a543d234af24",
+      "label": "Locating Axes of Symmetry in Simple Shapes",
+      "group": "Geometry",
+      "title": "Identifying lines that map a shape onto itself under reflection.",
+      "broader_concept": "Symmetry in Plane Figures",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "bcaca31e-d0bf-49b0-9fa0-42e2e01c15b5",
+      "label": "Mathematical Proof",
+      "group": "Geometry",
+      "title": "A logical argument that demonstrates the truth of a geometric statement from axioms and previously proven results.",
+      "broader_concept": "Deductive Reasoning",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "0faea2bd-9593-4a3a-90e1-a7a1fdc9fbf3",
+      "label": "Proof by Contradiction",
+      "group": "Geometry",
+      "title": "A proof technique that assumes the negation of the desired statement and derives a contradiction, thereby proving the original statement.",
+      "broader_concept": "Proof Techniques",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "cbba1837-a6ea-40a0-ab8b-c7b86a248253",
+      "label": "Theorem",
+      "group": "Geometry",
+      "title": "A mathematical statement proven true using axioms, definitions, and prior theorems.",
+      "broader_concept": "Mathematical Statements",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "92c9c5bd-9d18-4d3a-9e73-14362fd45f8c",
+      "label": "Axiom",
+      "group": "Geometry",
+      "title": "A fundamental assumption accepted without proof, serving as a starting point for geometric reasoning.",
+      "broader_concept": "Foundations of Geometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "2c82fe81-a743-4ead-8e05-e094e1797820",
+      "label": "Corollary",
+      "group": "Geometry",
+      "title": "A result that follows readily from a theorem, often requiring little or no additional proof.",
+      "broader_concept": "Mathematical Statements",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "380928cc-8066-42ab-b465-8cb5aa75a803",
+      "label": "Converse of a Theorem",
+      "group": "Geometry",
+      "title": "The statement formed by reversing the hypothesis and conclusion of an implication; may or may not be true.",
+      "broader_concept": "Logical Relationships Between Statements",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "24019f65-9aa0-498f-a4b8-f9e5d4940413",
+      "label": "If and Only If (Biconditional)",
+      "group": "Geometry",
+      "title": "A statement asserting two implications hold, establishing logical equivalence between conditions.",
+      "broader_concept": "Propositional Logic",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "c3fe3673-f774-4a78-a09a-cd08714a07b6",
+      "label": "Logical Implication",
+      "group": "Geometry",
+      "title": "The relationship where one statement guarantees the truth of another, typically written as 'if P, then Q'.",
+      "broader_concept": "Propositional Logic",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "2979976e-ee90-4a88-93d9-2124308a6e84",
+      "label": "Slope of a Line",
+      "group": "Geometry",
+      "title": "Calculating the gradient of a line from two points as (y2−y1)/(x2−x1) or from ax+by+c=0 as −a/b when b≠0.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "f66e1956-f4ca-46ef-a03b-c8ebc89a9a20",
+      "label": "Slope Criteria for Parallel Lines",
+      "group": "Geometry",
+      "title": "Two non-vertical lines are parallel if and only if their slopes are equal; vertical lines are parallel to each other.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "683cc7a9-ec11-4ffe-9200-ccb5a7771feb",
+      "label": "Slope Criteria for Perpendicular Lines",
+      "group": "Geometry",
+      "title": "Two non-vertical lines are perpendicular if and only if the product of their slopes is −1; vertical lines are perpendicular to horizontal lines.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "914d7752-a79d-474a-9113-81f9df2d47e6",
+      "label": "Angle Between Two Lines",
+      "group": "Geometry",
+      "title": "Finding the acute angle θ between lines with slopes m1 and m2 using tanθ = |(m2−m1)/(1+m1m2)|, with special handling for vertical lines.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "77a6fe71-43f6-407d-9574-7f62efa646c0",
+      "label": "Perpendicular Distance from a Point to a Line",
+      "group": "Geometry",
+      "title": "Computing the shortest distance from (x0,y0) to ax+by+c=0 using |ax0+by0+c|/√(a^2+b^2).",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "85444606-d02d-4501-aed8-2fbc1d0dd430",
+      "label": "General Form of a Linear Equation",
+      "group": "Geometry",
+      "title": "Recognizing and using ax+by+c=0 as the equation of a straight line and converting between general and slope-intercept forms.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "12f4dc1a-e6b3-4da0-9303-cf3488bf3498",
+      "label": "Circle Equation in Center-Radius Form",
+      "group": "Geometry",
+      "title": "Representing a circle with center (h,k) and radius r by (x−h)^2+(y−k)^2=r^2 and identifying points on the circle.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "573a3d48-78b7-48a1-b53d-4351ecc3d996",
+      "label": "General Form of a Circle Equation",
+      "group": "Geometry",
+      "title": "Recognizing x^2+y^2+2gx+2fy+c=0 as a circle with center (−g,−f) and radius r=√(g^2+f^2−c).",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "3bc0d396-849e-4387-86d1-113dead79b58",
+      "label": "Intersection of a Line and a Circle",
+      "group": "Geometry",
+      "title": "Solving a line–circle system by substitution to find 0, 1, or 2 intersection points; using the discriminant to determine the number of solutions.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "07cda7a3-3ba2-4956-8544-830b6a8019ea",
+      "label": "Internal Division of a Line Segment",
+      "group": "Geometry",
+      "title": "Finding the coordinates of the point that divides a segment joining (x1,y1) and (x2,y2) internally in the ratio m:n.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "24367aec-1e97-4038-b5fb-98d98433639a",
+      "label": "Area of a Triangle in the Coordinate Plane",
+      "group": "Geometry",
+      "title": "Computing area from vertices (x1,y1), (x2,y2), (x3,y3) using the determinant formula A=1/2|x1(y2−y3)+x2(y3−y1)+x3(y1−y2)|.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "e813381c-197f-40c1-baf8-cf3e979251c6",
+      "label": "Unit Circle Definition of Sine and Cosine",
+      "group": "Trigonometry",
+      "title": "Defines sinθ and cosθ for all real θ using the x- and y-coordinates of a point on the unit circle, establishing periodicity and quadrant signs.",
+      "broader_concept": "Trigonometric Functions",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "9a14f69d-7295-4650-a0b0-b88d75db1478",
+      "label": "Definition of Tangent Function",
+      "group": "Trigonometry",
+      "title": "Defines tanθ as sinθ/cosθ with domain restrictions where cosθ = 0, and relates tangent to slope on the unit circle.",
+      "broader_concept": "Trigonometric Functions",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "b654c337-332a-4007-a6f1-0c3f7b7201b3",
+      "label": "Radian Measure of Angles",
+      "group": "Trigonometry",
+      "title": "Uses radians as the natural unit for angle measure and converts between degrees and radians; connects arc length via θ = s/r.",
+      "broader_concept": "Circular Measure",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "14901eb7-03d1-4eb6-9580-7ca75d496521",
+      "label": "Sine Rule",
+      "group": "Trigonometry",
+      "title": "Applies a/sin A = b/sin B = c/sin C to find unknown sides or angles in any triangle, including ambiguous cases.",
+      "broader_concept": "Triangle Trigonometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "a3ac4964-1c18-4800-9e53-27aaa4b650d7",
+      "label": "Cosine Rule",
+      "group": "Trigonometry",
+      "title": "Uses c^2 = a^2 + b^2 − 2ab cos C (and cyclic forms) to determine unknown sides or angles in any triangle.",
+      "broader_concept": "Triangle Trigonometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "1152e47f-195e-4420-a3ad-9d7c5ba63fab",
+      "label": "Area of a Triangle via Trigonometry",
+      "group": "Trigonometry",
+      "title": "Computes area using K = 1/2 ab sin C (or cyclic variants) when two sides and the included angle are known.",
+      "broader_concept": "Triangle Trigonometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "c8ea3ab8-5a7c-4110-994a-90c1d2b022da",
+      "label": "Arc Length in Radians",
+      "group": "Trigonometry",
+      "title": "Calculates arc length of a circle sector with s = rθ when θ is in radians.",
+      "broader_concept": "Circular Measure",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "188172a5-00fb-4b56-aca8-fce9b656f3b6",
+      "label": "Area of a Sector",
+      "group": "Trigonometry",
+      "title": "Finds the area of a sector using A = 1/2 r^2 θ for θ in radians.",
+      "broader_concept": "Circular Measure",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "4723a6e4-f285-40e4-ae9b-e28d46aa9cf3",
+      "label": "Graphing Sine Function",
+      "group": "Trigonometry",
+      "title": "Plots y = sin θ, identifying amplitude, period 2π, intercepts, symmetry, and key points.",
+      "broader_concept": "Graphing Trigonometric Functions",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "defa24e6-11a2-4e80-9e51-9f3808681a0c",
+      "label": "Graphing Cosine Function",
+      "group": "Trigonometry",
+      "title": "Plots y = cos θ, identifying amplitude, period 2π, intercepts, symmetry, and key points.",
+      "broader_concept": "Graphing Trigonometric Functions",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "4533647a-8ab0-433b-b5c7-c23ce5147dc1",
+      "label": "Graphing Tangent Function",
+      "group": "Trigonometry",
+      "title": "Plots y = tan θ with period π, vertical asymptotes at θ = π/2 + kπ, and symmetry properties.",
+      "broader_concept": "Graphing Trigonometric Functions",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "cfd39a73-6620-4cd9-82e2-74deccd8fcaf",
+      "label": "Graphing y = a + b sin(cθ)",
+      "group": "Trigonometry",
+      "title": "Graphs transformed sine functions with vertical shift a, amplitude |b|, and period 2π/|c|.",
+      "broader_concept": "Transformations of Trigonometric Functions",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "2aa38f29-8f2a-4e11-8fc3-680ed4a2d8c8",
+      "label": "Graphing y = a + b cos(cθ)",
+      "group": "Trigonometry",
+      "title": "Graphs transformed cosine functions with vertical shift a, amplitude |b|, and period 2π/|c|.",
+      "broader_concept": "Transformations of Trigonometric Functions",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "7ba28b0b-e608-415e-ace5-72d2ad9c567e",
+      "label": "Solving sin(nθ) = 0 (All Solutions)",
+      "group": "Trigonometry",
+      "title": "Finds the general solution θ = kπ/n for integer k, accounting for the periodicity of sine.",
+      "broader_concept": "Trigonometric Equations",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "7c87d32e-912a-4ead-9e41-cbb0e85818d2",
+      "label": "Solving cos(nθ) = 1/2 (All Solutions)",
+      "group": "Trigonometry",
+      "title": "Finds general solutions using reference angles: nθ = ±π/3 + 2kπ, hence θ = (±π/3 + 2kπ)/n.",
+      "broader_concept": "Trigonometric Equations",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "29c5e168-b86d-468a-90e6-5b8400566f46",
+      "label": "Trigonometric Problem Solving in 3D",
+      "group": "Trigonometry",
+      "title": "Applies right-triangle trigonometry and Pythagoras in three dimensions to determine distances, heights, and angles.",
+      "broader_concept": "Applied Trigonometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "aac0c5b9-0320-4894-b6e7-4e147e778d67",
+      "label": "Pythagoras' Theorem in 2D Problem Solving",
+      "group": "Geometry",
+      "title": "Uses a^2 + b^2 = c^2 to find unknown side lengths and to verify right angles in plane figures.",
+      "broader_concept": "Right Triangle Geometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "88690fb5-8965-48ab-8cab-4f1973011d09",
+      "label": "Exact Trigonometric Values in Surd Form",
+      "group": "Trigonometry",
+      "title": "Works with exact values of trig ratios for special angles (e.g., 30°, 45°, 60°) expressed using radicals.",
+      "broader_concept": "Exact Values of Trigonometric Functions",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "3971334a-5cf7-497d-8310-bfbe5cefa1af",
+      "label": "Enlargement (Dilation) Transformation",
+      "group": "Geometry",
+      "title": "A similarity transformation that maps a figure to a proportional image using a specified center and positive scale factor k.",
+      "broader_concept": "Geometric Transformations",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "a913da74-786b-4279-9f56-596a1686c8b5",
+      "label": "Centre of Enlargement",
+      "group": "Geometry",
+      "title": "The fixed point from which all distances to points on a figure are multiplied by the scale factor during an enlargement.",
+      "broader_concept": "Enlargement (Dilation) Transformation",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "bde8d2e7-27a0-4750-bbc1-9087289cc92c",
+      "label": "Scale Factor in Enlargement",
+      "group": "Geometry",
+      "title": "A positive number k that multiplies distances from the center to produce the image; determines whether the image is a magnification or reduction.",
+      "broader_concept": "Enlargement (Dilation) Transformation",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "78e36bbb-cf3e-4477-b8ed-907517c27125",
+      "label": "Area Scale Factor under Enlargement",
+      "group": "Geometry",
+      "title": "In two dimensions, the area of the image is k^2 times the area of the original when enlarged by scale factor k.",
+      "broader_concept": "Enlargement (Dilation) Transformation",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "d8c90cbc-8b31-450c-95c4-2c75a88b1fc5",
+      "label": "Enlargements with Scale Factor k>1",
+      "group": "Geometry",
+      "title": "Magnifications where k>1 produce an image larger than the original while preserving shape.",
+      "broader_concept": "Scale Factor in Enlargement",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "3816926f-72c5-453e-94e1-6985f26a5f67",
+      "label": "Reductions with Scale Factor 0<k<1",
+      "group": "Geometry",
+      "title": "Reductions where 0<k<1 produce an image smaller than the original while preserving shape.",
+      "broader_concept": "Scale Factor in Enlargement",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "2b0cf3e1-419f-4c43-9d32-a66dd3ef5490",
+      "label": "Using Rational Scale Factors in Enlargements",
+      "group": "Geometry",
+      "title": "Applying enlargements with k ∈ Q, including computing corresponding lengths and areas with fractional scale factors.",
+      "broader_concept": "Scale Factor in Enlargement",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "13f89214-7d4f-426c-a5cb-993730833536",
+      "label": "Constructing an Enlargement Given Centre and Scale Factor",
+      "group": "Geometry",
+      "title": "Produce the image by joining points to the center and multiplying each center-to-point distance by k.",
+      "broader_concept": "Enlargement (Dilation) Transformation",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "cdf8700a-17ab-46de-83cb-1717353db6ce",
+      "label": "Determining the Scale Factor from Object and Image",
+      "group": "Geometry",
+      "title": "Calculate k as the ratio of corresponding lengths (or distances from the center) between the image and the original.",
+      "broader_concept": "Scale Factor in Enlargement",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "a05f3aa2-63ad-4c02-9ef7-5c5378bebe68",
+      "label": "Locating the Centre of Enlargement from Object and Image",
+      "group": "Geometry",
+      "title": "Find the center as the intersection point of lines through pairs of corresponding points of the object and its image.",
+      "broader_concept": "Centre of Enlargement",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    }
+  ],
+  "edges": [
+    {
+      "from": "03a78842-7861-46fa-84e5-a5ae4437761d",
+      "to": "bed95adb-28da-4305-99af-a2b414ed3ae2",
+      "strength": 0.9
+    },
+    {
+      "from": "806d051d-8211-4501-be23-02451805cebc",
+      "to": "bed95adb-28da-4305-99af-a2b414ed3ae2",
+      "strength": 0.7
+    },
+    {
+      "from": "806d051d-8211-4501-be23-02451805cebc",
+      "to": "08eb6249-1228-4945-acbb-b61ec66aa6de",
+      "strength": 0.7
+    },
+    {
+      "from": "806d051d-8211-4501-be23-02451805cebc",
+      "to": "6497781a-b33a-470a-8cd2-70b55c1f3bab",
+      "strength": 0.7
+    },
+    {
+      "from": "412ee8e1-f372-45ea-9abc-ac17349278f4",
+      "to": "15472859-ff55-4e7b-8826-eb7fb50a9cb9",
+      "strength": 0.9
+    },
+    {
+      "from": "efc32632-3571-461e-ab1d-4cfa15c56612",
+      "to": "15472859-ff55-4e7b-8826-eb7fb50a9cb9",
+      "strength": 0.75
+    },
+    {
+      "from": "6497781a-b33a-470a-8cd2-70b55c1f3bab",
+      "to": "08eb6249-1228-4945-acbb-b61ec66aa6de",
+      "strength": 0.6
+    },
+    {
+      "from": "15472859-ff55-4e7b-8826-eb7fb50a9cb9",
+      "to": "938f1d69-4f58-446b-9492-122ece27acfd",
+      "strength": 0.65
+    },
+    {
+      "from": "bed95adb-28da-4305-99af-a2b414ed3ae2",
+      "to": "938f1d69-4f58-446b-9492-122ece27acfd",
+      "strength": 0.65
+    },
+    {
+      "from": "6497781a-b33a-470a-8cd2-70b55c1f3bab",
+      "to": "938f1d69-4f58-446b-9492-122ece27acfd",
+      "strength": 0.6
+    },
+    {
+      "from": "08eb6249-1228-4945-acbb-b61ec66aa6de",
+      "to": "938f1d69-4f58-446b-9492-122ece27acfd",
+      "strength": 0.6
+    },
+    {
+      "from": "052dd62c-b46d-4c16-aced-980187ef2441",
+      "to": "390c0a87-2e68-4875-a88f-c1b1caffc1b0",
+      "strength": 0.95
+    },
+    {
+      "from": "eaa3d54b-f032-46ed-9f75-28968c0d7634",
+      "to": "390c0a87-2e68-4875-a88f-c1b1caffc1b0",
+      "strength": 0.86
+    },
+    {
+      "from": "eaa3d54b-f032-46ed-9f75-28968c0d7634",
+      "to": "5fd71828-6d8a-4f9a-8290-43134480ec6e",
+      "strength": 0.9
+    },
+    {
+      "from": "455f6387-a6d9-4efc-8cce-bbb608f23700",
+      "to": "f38b6b40-a633-437a-81b0-b099dd3e6641",
+      "strength": 0.84
+    },
+    {
+      "from": "eaa3d54b-f032-46ed-9f75-28968c0d7634",
+      "to": "f38b6b40-a633-437a-81b0-b099dd3e6641",
+      "strength": 0.82
+    },
+    {
+      "from": "edae54cc-da9f-40fa-80d3-88bd081da4a1",
+      "to": "e79a09dd-2f88-4c29-a5f1-aac3ed934deb",
+      "strength": 0.95
+    },
+    {
+      "from": "f38b6b40-a633-437a-81b0-b099dd3e6641",
+      "to": "e79a09dd-2f88-4c29-a5f1-aac3ed934deb",
+      "strength": 0.95
+    },
+    {
+      "from": "edae54cc-da9f-40fa-80d3-88bd081da4a1",
+      "to": "a909e279-6f50-4cd5-b490-04e78de39e83",
+      "strength": 0.9
+    },
+    {
+      "from": "f38b6b40-a633-437a-81b0-b099dd3e6641",
+      "to": "a909e279-6f50-4cd5-b490-04e78de39e83",
+      "strength": 0.9
+    },
+    {
+      "from": "455f6387-a6d9-4efc-8cce-bbb608f23700",
+      "to": "a909e279-6f50-4cd5-b490-04e78de39e83",
+      "strength": 0.85
+    },
+    {
+      "from": "390c0a87-2e68-4875-a88f-c1b1caffc1b0",
+      "to": "c377d378-132c-40ae-8b3b-1fdf39f23c30",
+      "strength": 0.85
+    },
+    {
+      "from": "c377d378-132c-40ae-8b3b-1fdf39f23c30",
+      "to": "d3f54adf-adab-49a5-8cf9-d342ae04efdd",
+      "strength": 0.92
+    },
+    {
+      "from": "390c0a87-2e68-4875-a88f-c1b1caffc1b0",
+      "to": "d3f54adf-adab-49a5-8cf9-d342ae04efdd",
+      "strength": 0.95
+    },
+    {
+      "from": "5fd71828-6d8a-4f9a-8290-43134480ec6e",
+      "to": "e79a09dd-2f88-4c29-a5f1-aac3ed934deb",
+      "strength": 0.82
+    },
+    {
+      "from": "8bbfeba3-b82f-4ec3-ac65-c0a8d9e308d6",
+      "to": "e79a09dd-2f88-4c29-a5f1-aac3ed934deb",
+      "strength": 0.82
+    },
+    {
+      "from": "8bbfeba3-b82f-4ec3-ac65-c0a8d9e308d6",
+      "to": "d3f54adf-adab-49a5-8cf9-d342ae04efdd",
+      "strength": 0.8
+    },
+    {
+      "from": "052dd62c-b46d-4c16-aced-980187ef2441",
+      "to": "455f6387-a6d9-4efc-8cce-bbb608f23700",
+      "strength": 0.8
+    },
+    {
+      "from": "eaa3d54b-f032-46ed-9f75-28968c0d7634",
+      "to": "455f6387-a6d9-4efc-8cce-bbb608f23700",
+      "strength": 0.83
+    },
+    {
+      "from": "390c0a87-2e68-4875-a88f-c1b1caffc1b0",
+      "to": "e79a09dd-2f88-4c29-a5f1-aac3ed934deb",
+      "strength": 0.82
+    },
+    {
+      "from": "47c8339a-8655-4111-ab66-6bcccbf32607",
+      "to": "877a1a74-0e1e-4e6c-b129-a39eaf68cd82",
+      "strength": 0.9
+    },
+    {
+      "from": "47c8339a-8655-4111-ab66-6bcccbf32607",
+      "to": "fe29c8f6-f2a2-4f61-9c07-f8e78d277f4d",
+      "strength": 0.9
+    },
+    {
+      "from": "47c8339a-8655-4111-ab66-6bcccbf32607",
+      "to": "99a0ec03-33d0-4dc2-9812-5d9ac0abaf70",
+      "strength": 0.9
+    },
+    {
+      "from": "877a1a74-0e1e-4e6c-b129-a39eaf68cd82",
+      "to": "cc0aea9c-1796-4862-b813-bbc98d23862d",
+      "strength": 0.85
+    },
+    {
+      "from": "fe29c8f6-f2a2-4f61-9c07-f8e78d277f4d",
+      "to": "cc0aea9c-1796-4862-b813-bbc98d23862d",
+      "strength": 0.85
+    },
+    {
+      "from": "99a0ec03-33d0-4dc2-9812-5d9ac0abaf70",
+      "to": "cc0aea9c-1796-4862-b813-bbc98d23862d",
+      "strength": 0.85
+    },
+    {
+      "from": "47c8339a-8655-4111-ab66-6bcccbf32607",
+      "to": "cc0aea9c-1796-4862-b813-bbc98d23862d",
+      "strength": 0.8
+    },
+    {
+      "from": "877a1a74-0e1e-4e6c-b129-a39eaf68cd82",
+      "to": "c476b80a-4600-4e19-a97e-5d3da189b727",
+      "strength": 0.9
+    },
+    {
+      "from": "fe29c8f6-f2a2-4f61-9c07-f8e78d277f4d",
+      "to": "c476b80a-4600-4e19-a97e-5d3da189b727",
+      "strength": 0.9
+    },
+    {
+      "from": "99a0ec03-33d0-4dc2-9812-5d9ac0abaf70",
+      "to": "c476b80a-4600-4e19-a97e-5d3da189b727",
+      "strength": 0.9
+    },
+    {
+      "from": "cc0aea9c-1796-4862-b813-bbc98d23862d",
+      "to": "c476b80a-4600-4e19-a97e-5d3da189b727",
+      "strength": 0.88
+    },
+    {
+      "from": "47c8339a-8655-4111-ab66-6bcccbf32607",
+      "to": "c476b80a-4600-4e19-a97e-5d3da189b727",
+      "strength": 0.9
+    },
+    {
+      "from": "b5bf0ebc-e63e-417b-bdd4-99dcbc1d297a",
+      "to": "c476b80a-4600-4e19-a97e-5d3da189b727",
+      "strength": 0.88
+    },
+    {
+      "from": "c06d204c-e106-4728-ab2d-ee1e33d7e200",
+      "to": "c476b80a-4600-4e19-a97e-5d3da189b727",
+      "strength": 0.8
+    },
+    {
+      "from": "47c8339a-8655-4111-ab66-6bcccbf32607",
+      "to": "c06d204c-e106-4728-ab2d-ee1e33d7e200",
+      "strength": 0.7
+    },
+    {
+      "from": "c02a6b59-4b59-4d24-8bbc-15b8bbf3bec1",
+      "to": "2b577ae8-e52e-4dc1-9d28-33058c2c98c7",
+      "strength": 0.9
+    },
+    {
+      "from": "ca88c243-de0e-40ec-9c9b-af25078fa606",
+      "to": "2b577ae8-e52e-4dc1-9d28-33058c2c98c7",
+      "strength": 0.85
+    },
+    {
+      "from": "2b577ae8-e52e-4dc1-9d28-33058c2c98c7",
+      "to": "f05ebbc0-6e5d-4b66-a0ad-86bcf13aabf3",
+      "strength": 0.9
+    },
+    {
+      "from": "c02a6b59-4b59-4d24-8bbc-15b8bbf3bec1",
+      "to": "f05ebbc0-6e5d-4b66-a0ad-86bcf13aabf3",
+      "strength": 0.92
+    },
+    {
+      "from": "ff2b652c-829c-42b8-b474-85ae17bccc7a",
+      "to": "9aeb731b-cf81-4654-b045-3f594380b031",
+      "strength": 0.9
+    },
+    {
+      "from": "3d4c5d68-e6ae-4764-98c8-f3813017aefa",
+      "to": "4ede5cef-20d8-4dca-8167-a543d234af24",
+      "strength": 0.88
+    },
+    {
+      "from": "92c9c5bd-9d18-4d3a-9e73-14362fd45f8c",
+      "to": "bcaca31e-d0bf-49b0-9fa0-42e2e01c15b5",
+      "strength": 0.9
+    },
+    {
+      "from": "92c9c5bd-9d18-4d3a-9e73-14362fd45f8c",
+      "to": "cbba1837-a6ea-40a0-ab8b-c7b86a248253",
+      "strength": 0.9
+    },
+    {
+      "from": "bcaca31e-d0bf-49b0-9fa0-42e2e01c15b5",
+      "to": "cbba1837-a6ea-40a0-ab8b-c7b86a248253",
+      "strength": 0.95
+    },
+    {
+      "from": "cbba1837-a6ea-40a0-ab8b-c7b86a248253",
+      "to": "2c82fe81-a743-4ead-8e05-e094e1797820",
+      "strength": 0.95
+    },
+    {
+      "from": "bcaca31e-d0bf-49b0-9fa0-42e2e01c15b5",
+      "to": "2c82fe81-a743-4ead-8e05-e094e1797820",
+      "strength": 0.85
+    },
+    {
+      "from": "c3fe3673-f774-4a78-a09a-cd08714a07b6",
+      "to": "24019f65-9aa0-498f-a4b8-f9e5d4940413",
+      "strength": 0.95
+    },
+    {
+      "from": "c3fe3673-f774-4a78-a09a-cd08714a07b6",
+      "to": "380928cc-8066-42ab-b465-8cb5aa75a803",
+      "strength": 0.9
+    },
+    {
+      "from": "cbba1837-a6ea-40a0-ab8b-c7b86a248253",
+      "to": "380928cc-8066-42ab-b465-8cb5aa75a803",
+      "strength": 0.85
+    },
+    {
+      "from": "380928cc-8066-42ab-b465-8cb5aa75a803",
+      "to": "24019f65-9aa0-498f-a4b8-f9e5d4940413",
+      "strength": 0.85
+    },
+    {
+      "from": "c3fe3673-f774-4a78-a09a-cd08714a07b6",
+      "to": "bcaca31e-d0bf-49b0-9fa0-42e2e01c15b5",
+      "strength": 0.9
+    },
+    {
+      "from": "bcaca31e-d0bf-49b0-9fa0-42e2e01c15b5",
+      "to": "0faea2bd-9593-4a3a-90e1-a7a1fdc9fbf3",
+      "strength": 0.9
+    },
+    {
+      "from": "c3fe3673-f774-4a78-a09a-cd08714a07b6",
+      "to": "0faea2bd-9593-4a3a-90e1-a7a1fdc9fbf3",
+      "strength": 0.85
+    },
+    {
+      "from": "0faea2bd-9593-4a3a-90e1-a7a1fdc9fbf3",
+      "to": "cbba1837-a6ea-40a0-ab8b-c7b86a248253",
+      "strength": 0.85
+    },
+    {
+      "from": "85444606-d02d-4501-aed8-2fbc1d0dd430",
+      "to": "2979976e-ee90-4a88-93d9-2124308a6e84",
+      "strength": 0.85
+    },
+    {
+      "from": "2979976e-ee90-4a88-93d9-2124308a6e84",
+      "to": "f66e1956-f4ca-46ef-a03b-c8ebc89a9a20",
+      "strength": 0.95
+    },
+    {
+      "from": "2979976e-ee90-4a88-93d9-2124308a6e84",
+      "to": "683cc7a9-ec11-4ffe-9200-ccb5a7771feb",
+      "strength": 0.95
+    },
+    {
+      "from": "2979976e-ee90-4a88-93d9-2124308a6e84",
+      "to": "914d7752-a79d-474a-9113-81f9df2d47e6",
+      "strength": 0.9
+    },
+    {
+      "from": "85444606-d02d-4501-aed8-2fbc1d0dd430",
+      "to": "914d7752-a79d-474a-9113-81f9df2d47e6",
+      "strength": 0.7
+    },
+    {
+      "from": "f66e1956-f4ca-46ef-a03b-c8ebc89a9a20",
+      "to": "683cc7a9-ec11-4ffe-9200-ccb5a7771feb",
+      "strength": 0.7
+    },
+    {
+      "from": "85444606-d02d-4501-aed8-2fbc1d0dd430",
+      "to": "77a6fe71-43f6-407d-9574-7f62efa646c0",
+      "strength": 0.95
+    },
+    {
+      "from": "12f4dc1a-e6b3-4da0-9303-cf3488bf3498",
+      "to": "573a3d48-78b7-48a1-b53d-4351ecc3d996",
+      "strength": 0.9
+    },
+    {
+      "from": "12f4dc1a-e6b3-4da0-9303-cf3488bf3498",
+      "to": "3bc0d396-849e-4387-86d1-113dead79b58",
+      "strength": 0.9
+    },
+    {
+      "from": "573a3d48-78b7-48a1-b53d-4351ecc3d996",
+      "to": "3bc0d396-849e-4387-86d1-113dead79b58",
+      "strength": 0.9
+    },
+    {
+      "from": "85444606-d02d-4501-aed8-2fbc1d0dd430",
+      "to": "3bc0d396-849e-4387-86d1-113dead79b58",
+      "strength": 0.85
+    },
+    {
+      "from": "85444606-d02d-4501-aed8-2fbc1d0dd430",
+      "to": "f66e1956-f4ca-46ef-a03b-c8ebc89a9a20",
+      "strength": 0.75
+    },
+    {
+      "from": "85444606-d02d-4501-aed8-2fbc1d0dd430",
+      "to": "683cc7a9-ec11-4ffe-9200-ccb5a7771feb",
+      "strength": 0.75
+    },
+    {
+      "from": "e813381c-197f-40c1-baf8-cf3e979251c6",
+      "to": "9a14f69d-7295-4650-a0b0-b88d75db1478",
+      "strength": 0.95
+    },
+    {
+      "from": "e813381c-197f-40c1-baf8-cf3e979251c6",
+      "to": "4723a6e4-f285-40e4-ae9b-e28d46aa9cf3",
+      "strength": 0.85
+    },
+    {
+      "from": "e813381c-197f-40c1-baf8-cf3e979251c6",
+      "to": "defa24e6-11a2-4e80-9e51-9f3808681a0c",
+      "strength": 0.85
+    },
+    {
+      "from": "9a14f69d-7295-4650-a0b0-b88d75db1478",
+      "to": "4533647a-8ab0-433b-b5c7-c23ce5147dc1",
+      "strength": 0.9
+    },
+    {
+      "from": "e813381c-197f-40c1-baf8-cf3e979251c6",
+      "to": "7ba28b0b-e608-415e-ace5-72d2ad9c567e",
+      "strength": 0.85
+    },
+    {
+      "from": "e813381c-197f-40c1-baf8-cf3e979251c6",
+      "to": "7c87d32e-912a-4ead-9e41-cbb0e85818d2",
+      "strength": 0.85
+    },
+    {
+      "from": "b654c337-332a-4007-a6f1-0c3f7b7201b3",
+      "to": "c8ea3ab8-5a7c-4110-994a-90c1d2b022da",
+      "strength": 0.95
+    },
+    {
+      "from": "b654c337-332a-4007-a6f1-0c3f7b7201b3",
+      "to": "188172a5-00fb-4b56-aca8-fce9b656f3b6",
+      "strength": 0.95
+    },
+    {
+      "from": "c8ea3ab8-5a7c-4110-994a-90c1d2b022da",
+      "to": "188172a5-00fb-4b56-aca8-fce9b656f3b6",
+      "strength": 0.7
+    },
+    {
+      "from": "4723a6e4-f285-40e4-ae9b-e28d46aa9cf3",
+      "to": "cfd39a73-6620-4cd9-82e2-74deccd8fcaf",
+      "strength": 0.9
+    },
+    {
+      "from": "defa24e6-11a2-4e80-9e51-9f3808681a0c",
+      "to": "2aa38f29-8f2a-4e11-8fc3-680ed4a2d8c8",
+      "strength": 0.9
+    },
+    {
+      "from": "88690fb5-8965-48ab-8cab-4f1973011d09",
+      "to": "4723a6e4-f285-40e4-ae9b-e28d46aa9cf3",
+      "strength": 0.8
+    },
+    {
+      "from": "88690fb5-8965-48ab-8cab-4f1973011d09",
+      "to": "defa24e6-11a2-4e80-9e51-9f3808681a0c",
+      "strength": 0.8
+    },
+    {
+      "from": "88690fb5-8965-48ab-8cab-4f1973011d09",
+      "to": "4533647a-8ab0-433b-b5c7-c23ce5147dc1",
+      "strength": 0.75
+    },
+    {
+      "from": "88690fb5-8965-48ab-8cab-4f1973011d09",
+      "to": "7c87d32e-912a-4ead-9e41-cbb0e85818d2",
+      "strength": 0.85
+    },
+    {
+      "from": "aac0c5b9-0320-4894-b6e7-4e147e778d67",
+      "to": "29c5e168-b86d-468a-90e6-5b8400566f46",
+      "strength": 0.9
+    },
+    {
+      "from": "aac0c5b9-0320-4894-b6e7-4e147e778d67",
+      "to": "a3ac4964-1c18-4800-9e53-27aaa4b650d7",
+      "strength": 0.9
+    },
+    {
+      "from": "1152e47f-195e-4420-a3ad-9d7c5ba63fab",
+      "to": "14901eb7-03d1-4eb6-9580-7ca75d496521",
+      "strength": 0.8
+    },
+    {
+      "from": "b654c337-332a-4007-a6f1-0c3f7b7201b3",
+      "to": "7ba28b0b-e608-415e-ace5-72d2ad9c567e",
+      "strength": 0.85
+    },
+    {
+      "from": "b654c337-332a-4007-a6f1-0c3f7b7201b3",
+      "to": "7c87d32e-912a-4ead-9e41-cbb0e85818d2",
+      "strength": 0.9
+    },
+    {
+      "from": "a913da74-786b-4279-9f56-596a1686c8b5",
+      "to": "3971334a-5cf7-497d-8310-bfbe5cefa1af",
+      "strength": 0.85
+    },
+    {
+      "from": "bde8d2e7-27a0-4750-bbc1-9087289cc92c",
+      "to": "3971334a-5cf7-497d-8310-bfbe5cefa1af",
+      "strength": 0.9
+    },
+    {
+      "from": "3971334a-5cf7-497d-8310-bfbe5cefa1af",
+      "to": "78e36bbb-cf3e-4477-b8ed-907517c27125",
+      "strength": 0.9
+    },
+    {
+      "from": "bde8d2e7-27a0-4750-bbc1-9087289cc92c",
+      "to": "78e36bbb-cf3e-4477-b8ed-907517c27125",
+      "strength": 0.95
+    },
+    {
+      "from": "bde8d2e7-27a0-4750-bbc1-9087289cc92c",
+      "to": "d8c90cbc-8b31-450c-95c4-2c75a88b1fc5",
+      "strength": 0.85
+    },
+    {
+      "from": "bde8d2e7-27a0-4750-bbc1-9087289cc92c",
+      "to": "3816926f-72c5-453e-94e1-6985f26a5f67",
+      "strength": 0.85
+    },
+    {
+      "from": "bde8d2e7-27a0-4750-bbc1-9087289cc92c",
+      "to": "2b0cf3e1-419f-4c43-9d32-a66dd3ef5490",
+      "strength": 0.82
+    },
+    {
+      "from": "bde8d2e7-27a0-4750-bbc1-9087289cc92c",
+      "to": "cdf8700a-17ab-46de-83cb-1717353db6ce",
+      "strength": 0.9
+    },
+    {
+      "from": "a913da74-786b-4279-9f56-596a1686c8b5",
+      "to": "13f89214-7d4f-426c-a5cb-993730833536",
+      "strength": 0.9
+    },
+    {
+      "from": "bde8d2e7-27a0-4750-bbc1-9087289cc92c",
+      "to": "13f89214-7d4f-426c-a5cb-993730833536",
+      "strength": 0.9
+    },
+    {
+      "from": "3971334a-5cf7-497d-8310-bfbe5cefa1af",
+      "to": "13f89214-7d4f-426c-a5cb-993730833536",
+      "strength": 0.85
+    },
+    {
+      "from": "a913da74-786b-4279-9f56-596a1686c8b5",
+      "to": "a05f3aa2-63ad-4c02-9ef7-5c5378bebe68",
+      "strength": 0.9
+    },
+    {
+      "from": "cdf8700a-17ab-46de-83cb-1717353db6ce",
+      "to": "78e36bbb-cf3e-4477-b8ed-907517c27125",
+      "strength": 0.82
+    },
+    {
+      "from": "2b0cf3e1-419f-4c43-9d32-a66dd3ef5490",
+      "to": "78e36bbb-cf3e-4477-b8ed-907517c27125",
+      "strength": 0.8
+    }
+  ]
+}

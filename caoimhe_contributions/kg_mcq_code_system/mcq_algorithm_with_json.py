@@ -569,7 +569,7 @@ class KnowledgeGraph:
     Core knowledge structure representing relationships between learning topics.
     Uses a directed graph where edges represent prerequisite relationships.
     """
-    def __init__(self, nodes_file: str = 'kg.json',
+    def __init__(self, nodes_file: str = 'Ontology/ontology_builder/graph-data.json',
                  mcqs_file: str = 'computed_mcqs.json',
                  config_file: str = 'config.json'):
 
@@ -593,7 +593,7 @@ class KnowledgeGraph:
         self._build_graph()
 
     def _load_nodes_from_json(self, nodes_file: str):
-        """Load knowledge graph nodes from JSON file"""
+        """Load knowledge graph nodes from JSON file (supports both old kg.json and new graph-data.json formats)"""
         try:
             with open(nodes_file, 'r') as f:
                 data = json.load(f)
@@ -609,6 +609,51 @@ class KnowledgeGraph:
         # Clear existing nodes
         self.nodes.clear()
         
+        # Check if this is the new graph-data.json format (has 'edges' key and string IDs)
+        if 'edges' in data and data['nodes'] and isinstance(data['nodes'][0]['id'], str):
+            self._load_from_graph_data_format(data)
+        else:
+            # Legacy kg.json format
+            self._load_from_legacy_format(data)
+        
+        print(f"✅ Successfully loaded {len(self.nodes)} nodes from {nodes_file}")
+
+    def _load_from_graph_data_format(self, data):
+        """Load nodes from graph-data.json format"""
+        # Create mapping from UUID to integer index
+        uuid_to_index = {}
+        index = 0
+        
+        # First pass: create UUID to index mapping
+        for node_data in data['nodes']:
+            uuid_to_index[node_data['id']] = index
+            index += 1
+        
+        # Second pass: load nodes with converted dependencies
+        for node_data in data['nodes']:
+            node_id = uuid_to_index[node_data['id']]
+            topic = node_data['label']
+            chapter = node_data['group']
+            
+            # Convert edges to dependencies format
+            dependencies = []
+            for edge in data['edges']:
+                if edge['from'] == node_data['id']:
+                    target_index = uuid_to_index.get(edge['to'])
+                    if target_index is not None:
+                        dependencies.append((target_index, edge['strength']))
+            
+            # Create and store node
+            node = Node(topic, chapter, dependencies)
+            self.nodes[node_id] = node
+            
+            # Update topic to index mapping
+            self.topic_to_index[topic] = node_id
+        
+        self._next_index = len(data['nodes'])
+
+    def _load_from_legacy_format(self, data):
+        """Load nodes from legacy kg.json format"""
         # Load each node
         for node_data in data['nodes']:
             # Validate required fields
@@ -632,10 +677,11 @@ class KnowledgeGraph:
             node = Node(topic, chapter, dependencies)
             self.nodes[node_id] = node
             
+            # Update topic to index mapping
+            self.topic_to_index[topic] = node_id
+            
             # Update next index
             self._next_index = max(self._next_index, node_id + 1)
-        
-        print(f"✅ Successfully loaded {len(self.nodes)} nodes from {nodes_file}")
 
     def _initialize_nodes(self):
         # nodes with (topic, chapter, dependencies[destination node, weight])

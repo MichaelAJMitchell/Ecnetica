@@ -82,8 +82,13 @@ class ConceptExtractor:
         if not os.path.exists(directory_path):
             raise FileNotFoundError(f"Directory not found: {directory_path}")
         
-        # Archive existing data before starting new extraction
-        self.data_manager.archive_previous_data(output_file)
+        # Load existing data instead of archiving to prevent data loss
+        if os.path.exists(output_file):
+            print(f"Loading existing data from {output_file}")
+            # Initialize data manager with existing data
+            self.data_manager = DataManager(output_file)
+        else:
+            print("Starting with fresh data")
         
         supported_files = []
         for root, dirs, files in os.walk(directory_path):

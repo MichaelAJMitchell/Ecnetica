@@ -109,42 +109,30 @@ class DataManager:
     
     def save_to_json(self, output_file: str):
         """
-        Save all extracted data to JSON format matching graph-data.json structure.
+        Save all extracted data to JSON format, appending to existing file if it exists.
         
-        This method converts the internal data structures to the exact JSON format
-        expected by your graph visualization system. It creates the nodes and edges
-        structure with all required fields and metadata.
+        This method now works incrementally - it loads existing data and appends new data.
+        This allows for continuous saving during multi-file processing.
         
         Args:
             output_file: Path where the JSON file should be saved
-            
-        The output JSON will have this structure:
-            {
-                "nodes": [
-                    {
-                        "id": "uuid",
-                        "label": "concept_name",
-                        "group": "strand",
-                        "title": "explanation",
-                        "broader_concept": "category",
-                        "grade_level": "level",
-                        "difficulty": "complexity"
-                    }
-                ],
-                "edges": [
-                    {
-                        "from": "prerequisite_id",
-                        "to": "dependent_id",
-                        "strength": "relationship_strength"
-                    }
-                ]
-            }
         """
-        # Archive previous data if it exists
-        self.archive_previous_data(output_file)
+        # Load existing data if file exists
+        existing_nodes = []
+        existing_edges = []
+        
+        if os.path.exists(output_file):
+            try:
+                with open(output_file, 'r', encoding='utf-8') as f:
+                    existing_data = json.load(f)
+                    existing_nodes = existing_data.get('nodes', [])
+                    existing_edges = existing_data.get('edges', [])
+            except (json.JSONDecodeError, KeyError) as e:
+                print(f"Warning: Could not load existing data from {output_file}: {e}")
+                print("Starting fresh...")
         
         # Convert concepts to nodes format
-        nodes = []
+        new_nodes = []
         for concept in self.concepts:
             node = {
                 'id': concept['id'],
@@ -155,29 +143,34 @@ class DataManager:
                 'grade_level': concept.get('grade_level', ''),
                 'difficulty': concept.get('difficulty', '')
             }
-            nodes.append(node)
+            new_nodes.append(node)
         
         # Convert relationships to edges format using IDs directly
-        edges = []
+        new_edges = []
         for relationship in self.relationships:
             edge = {
                 'from': relationship.get('prerequisite_concept_id', ''),  # Direct ID reference
                 'to': relationship.get('dependent_concept_id', ''),       # Direct ID reference
                 'strength': relationship.get('strength', 0.5)
             }
-            edges.append(edge)
+            new_edges.append(edge)
+        
+        # Combine existing and new data
+        all_nodes = existing_nodes + new_nodes
+        all_edges = existing_edges + new_edges
         
         # Create final JSON structure
         output_data = {
-            'nodes': nodes,
-            'edges': edges
+            'nodes': all_nodes,
+            'edges': all_edges
         }
         
         # Write to file
         with open(output_file, 'w', encoding='utf-8') as f:
             json.dump(output_data, f, indent=2, ensure_ascii=False)
         
-        print(f"Saved {len(nodes)} concepts and {len(edges)} relationships to {output_file}")
+        print(f"Saved {len(new_nodes)} new concepts and {len(new_edges)} new relationships to {output_file}")
+        print(f"Total: {len(all_nodes)} concepts and {len(all_edges)} relationships")
     
     def archive_previous_data(self, output_file: str):
         """

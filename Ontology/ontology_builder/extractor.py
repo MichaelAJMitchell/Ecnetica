@@ -33,6 +33,9 @@ class ConceptExtractor:
     
     def process_file(self, file_path: str, output_file: str):
         """Process a single file."""
+        # Archive existing data before starting new extraction
+        self.data_manager.archive_previous_data(output_file)
+        
         print(f"Processing file: {file_path}")
         
         # Extract content and file type
@@ -70,14 +73,17 @@ class ConceptExtractor:
             if new_relationships:
                 self.data_manager.add_relationships(new_relationships)
                 existing_relationships = self.data_manager.get_relationships()  # Update for next iteration        
-        # Save final results
+        # Save incremental progress after each file
         self.data_manager.save_to_json(output_file)
-        print(f"Processing complete. Results saved to {output_file}")
+        print(f"Processing complete for {file_path}")
     
     def process_directory(self, directory_path: str, output_file: str):
         """Process all supported files in a directory."""
         if not os.path.exists(directory_path):
             raise FileNotFoundError(f"Directory not found: {directory_path}")
+        
+        # Archive existing data before starting new extraction
+        self.data_manager.archive_previous_data(output_file)
         
         supported_files = []
         for root, dirs, files in os.walk(directory_path):
@@ -94,6 +100,8 @@ class ConceptExtractor:
             except Exception as e:
                 print(f"Error processing {file_path}: {str(e)}")
                 continue
+        
+        print(f"All files processed. Final results in {output_file}")
     
     def _extract_concepts(self, chunk: str, existing_concepts: list, existing_relationships: list, 
                          source: str, chunk_index: int, total_chunks: int) -> list:

@@ -1,0 +1,1211 @@
+{
+  "analysis_summary": {
+    "total_nodes": 568,
+    "unique_broader_concepts": 228,
+    "unique_groups": 12,
+    "most_common_concept": [
+      "Mensuration",
+      23
+    ],
+    "most_common_group": [
+      "Algebra",
+      233
+    ]
+  },
+  "concept_group_mapping": {
+    "Geometric Constructions": [
+      "Geometry"
+    ],
+    "Instrument Use in Geometry": [
+      "Geometry"
+    ],
+    "Geometric Measurement": [
+      "Geometry"
+    ],
+    "Linear Functions": [
+      "Algebra"
+    ],
+    "Systems of Linear Equations": [
+      "Algebra"
+    ],
+    "Coordinate Geometry": [
+      "Coordinate Geometry",
+      "Geometry"
+    ],
+    "Mathematical Modeling": [
+      "Algebra"
+    ],
+    "Problem-Solving Strategies in Algebra": [
+      "Algebra"
+    ],
+    "Estimation Strategies": [
+      "Algebra"
+    ],
+    "Pythagorean Theorem": [
+      "Geometry"
+    ],
+    "Applications of Trigonometric Ratios": [
+      "Trigonometry"
+    ],
+    "Trigonometric Ratios": [
+      "Trigonometry"
+    ],
+    "Trigonometric Functions": [
+      "Trigonometry"
+    ],
+    "Applications of Trigonometry": [
+      "Trigonometry"
+    ],
+    "Right Triangle Trigonometry": [
+      "Trigonometry"
+    ],
+    "Similarity Transformations": [
+      "Geometry"
+    ],
+    "Enlargement (Dilation) in the Plane": [
+      "Geometry"
+    ],
+    "Transformational Geometry": [
+      "Geometry"
+    ],
+    "Symmetry in Plane Figures": [
+      "Geometry"
+    ],
+    "Deductive Reasoning": [
+      "Geometry"
+    ],
+    "Proof Techniques": [
+      "Geometry",
+      "Algebra"
+    ],
+    "Mathematical Statements": [
+      "Geometry"
+    ],
+    "Foundations of Geometry": [
+      "Geometry"
+    ],
+    "Logical Relationships Between Statements": [
+      "Geometry"
+    ],
+    "Propositional Logic": [
+      "Geometry"
+    ],
+    "Circular Measure": [
+      "Trigonometry"
+    ],
+    "Triangle Trigonometry": [
+      "Trigonometry"
+    ],
+    "Graphing Trigonometric Functions": [
+      "Trigonometry"
+    ],
+    "Transformations of Trigonometric Functions": [
+      "Trigonometry"
+    ],
+    "Trigonometric Equations": [
+      "Trigonometry"
+    ],
+    "Applied Trigonometry": [
+      "Trigonometry"
+    ],
+    "Right Triangle Geometry": [
+      "Geometry"
+    ],
+    "Exact Values of Trigonometric Functions": [
+      "Trigonometry"
+    ],
+    "Geometric Transformations": [
+      "Geometry"
+    ],
+    "Enlargement (Dilation) Transformation": [
+      "Geometry"
+    ],
+    "Scale Factor in Enlargement": [
+      "Geometry"
+    ],
+    "Centre of Enlargement": [
+      "Geometry"
+    ],
+    "Number Systems": [
+      "Number Theory",
+      "Number"
+    ],
+    "Rational Number Representations": [
+      "Number"
+    ],
+    "Rational Number Operations": [
+      "Number"
+    ],
+    "Arithmetic Models": [
+      "Number"
+    ],
+    "Integer Arithmetic": [
+      "Number"
+    ],
+    "Properties of Operations": [
+      "Number"
+    ],
+    "Arithmetic Foundations": [
+      "Number"
+    ],
+    "Arithmetic Strategies": [
+      "Number"
+    ],
+    "Rational Number Applications": [
+      "Number"
+    ],
+    "Number Representation": [
+      "Number"
+    ],
+    "Complex Numbers": [
+      "Algebra"
+    ],
+    "Arithmetic": [
+      "Number"
+    ],
+    "Prime Factorization": [
+      "Number Theory"
+    ],
+    "Number Properties": [
+      "Number Theory"
+    ],
+    "Scientific Notation": [
+      "Number"
+    ],
+    "Rational Numbers": [
+      "Number"
+    ],
+    "Irrational Numbers": [
+      "Number Theory"
+    ],
+    "Series Identities": [
+      "Algebra"
+    ],
+    "Sequences": [
+      "Algebra"
+    ],
+    "Series": [
+      "Algebra"
+    ],
+    "Infinite Series": [
+      "Algebra"
+    ],
+    "Limits": [
+      "Calculus"
+    ],
+    "Basic Sequence Limits": [
+      "Calculus"
+    ],
+    "Geometric Series Applications": [
+      "Algebra"
+    ],
+    "Financial Mathematics": [
+      "Financial Mathematics",
+      "Algebra"
+    ],
+    "Inequalities": [
+      "Algebra"
+    ],
+    "Divisibility": [
+      "Number Theory"
+    ],
+    "Percent": [
+      "Number"
+    ],
+    "Proportional Reasoning": [
+      "Number"
+    ],
+    "Number Theory": [
+      "Number Theory"
+    ],
+    "Powers of Ten Representation": [
+      "Number"
+    ],
+    "Approximation and Rounding": [
+      "Number"
+    ],
+    "Estimation and Reasonableness": [
+      "Number"
+    ],
+    "Solution Verification": [
+      "Algebra"
+    ],
+    "Equality and Equivalence": [
+      "Algebra"
+    ],
+    "Indices": [
+      "Number"
+    ],
+    "Sequences and Series": [
+      "Algebra"
+    ],
+    "Laws of Exponents": [
+      "Algebra",
+      "Number"
+    ],
+    "Properties of Logarithms": [
+      "Algebra"
+    ],
+    "Profit and Loss": [
+      "Financial Mathematics"
+    ],
+    "Percentages": [
+      "Financial Mathematics"
+    ],
+    "Discount": [
+      "Financial Mathematics"
+    ],
+    "Interest Calculations": [
+      "Financial Mathematics"
+    ],
+    "Taxation": [
+      "Financial Mathematics"
+    ],
+    "Payroll Calculations": [
+      "Financial Mathematics"
+    ],
+    "Unit Conversion": [
+      "Measurement"
+    ],
+    "Time Calculations": [
+      "Measurement"
+    ],
+    "Rate Problems": [
+      "Measurement"
+    ],
+    "Rates and Proportion": [
+      "Financial Mathematics"
+    ],
+    "Measurement Applications": [
+      "Measurement"
+    ],
+    "Ratio and Proportion": [
+      "Number"
+    ],
+    "Volume": [
+      "Geometry"
+    ],
+    "Surface Area": [
+      "Geometry"
+    ],
+    "Nets of Solids": [
+      "Geometry"
+    ],
+    "Circle Geometry": [
+      "Geometry"
+    ],
+    "Perimeter": [
+      "Geometry"
+    ],
+    "Area": [
+      "Geometry"
+    ],
+    "Composite Figures": [
+      "Geometry"
+    ],
+    "Estimation": [
+      "Geometry"
+    ],
+    "Scale and Proportion": [
+      "Geometry"
+    ],
+    "Problem Solving in Geometry": [
+      "Geometry"
+    ],
+    "Time Value of Money": [
+      "Financial Mathematics"
+    ],
+    "Personal Finance Mathematics": [
+      "Financial Mathematics"
+    ],
+    "Profit, Loss, and Pricing": [
+      "Financial Mathematics"
+    ],
+    "Units and Measurement": [
+      "Measurement"
+    ],
+    "Rates and Proportional Reasoning": [
+      "Algebra"
+    ],
+    "Error Analysis": [
+      "Measurement"
+    ],
+    "Estimation and Approximation": [
+      "Number"
+    ],
+    "Problem Solving Strategies": [
+      "Number"
+    ],
+    "Costing and Budgeting": [
+      "Financial Mathematics"
+    ],
+    "Measurement": [
+      "Geometry",
+      "Measurement"
+    ],
+    "Mensuration": [
+      "Geometry"
+    ],
+    "Numerical Integration": [
+      "Geometry"
+    ],
+    "Geometric Nets": [
+      "Geometry"
+    ],
+    "Algebra": [
+      "Algebra"
+    ],
+    "Functions": [
+      "Algebra"
+    ],
+    "Algebraic Manipulation": [
+      "Algebra"
+    ],
+    "Algebraic Reasoning": [
+      "Algebra"
+    ],
+    "Sequences and Patterns": [
+      "Algebra"
+    ],
+    "Angles and Measurement": [
+      "Trigonometry"
+    ],
+    "Triangle Geometry": [
+      "Geometry"
+    ],
+    "Spatial Geometry & Trigonometry": [
+      "Trigonometry"
+    ],
+    "Calculus": [
+      "Differential Calculus"
+    ],
+    "Sampling Distributions": [
+      "Statistics"
+    ],
+    "Statistical Inference": [
+      "Statistics"
+    ],
+    "Confidence Intervals": [
+      "Statistics"
+    ],
+    "Hypothesis Testing": [
+      "Statistics"
+    ],
+    "Normal Distribution": [
+      "Statistics"
+    ],
+    "Bivariate Data": [
+      "Statistics"
+    ],
+    "Correlation and Regression": [
+      "Statistics"
+    ],
+    "Statistical Reasoning": [
+      "Statistics"
+    ],
+    "Discrete Probability Distributions": [
+      "Probability"
+    ],
+    "Probability Models": [
+      "Probability"
+    ],
+    "Probability Rules": [
+      "Probability"
+    ],
+    "Counting and Probability": [
+      "Probability"
+    ],
+    "Random Variables": [
+      "Probability"
+    ],
+    "Expected Value": [
+      "Probability"
+    ],
+    "Experimental Probability": [
+      "Probability"
+    ],
+    "Complex Number Arithmetic": [
+      "Algebra"
+    ],
+    "Complex Numbers in the Plane": [
+      "Algebra"
+    ],
+    "Polynomial Equations": [
+      "Algebra"
+    ],
+    "Quadratic Functions": [
+      "Algebra"
+    ],
+    "Polynomial Functions": [
+      "Algebra"
+    ],
+    "Function Transformations": [
+      "Algebra"
+    ],
+    "Exponential and Logarithmic Functions": [
+      "Algebra"
+    ],
+    "Integration Techniques": [
+      "Calculus"
+    ],
+    "Integration Properties": [
+      "Calculus"
+    ],
+    "Initial Value Problems": [
+      "Calculus"
+    ],
+    "Integration": [
+      "Calculus"
+    ],
+    "Applications of Integration": [
+      "Calculus"
+    ],
+    "Differential Calculus": [
+      "Calculus"
+    ],
+    "Applications of Differential Calculus": [
+      "Calculus"
+    ],
+    "Applications of Calculus": [
+      "Calculus"
+    ],
+    "Interest Rates": [
+      "Financial Mathematics"
+    ],
+    "Depreciation Methods": [
+      "Financial Mathematics"
+    ],
+    "Annuities": [
+      "Financial Mathematics"
+    ],
+    "Loans and Amortization": [
+      "Financial Mathematics"
+    ],
+    "Circle Measurement": [
+      "Measurement"
+    ],
+    "3D Geometry": [
+      "Measurement"
+    ],
+    "Measurement Accuracy": [
+      "Measurement"
+    ],
+    "Triangle Centers": [
+      "Geometry"
+    ],
+    "Function Graphing": [
+      "Algebra"
+    ],
+    "Graphical Equation Solving": [
+      "Algebra"
+    ],
+    "Function Properties": [
+      "Algebra"
+    ],
+    "Inverse Functions": [
+      "Algebra"
+    ],
+    "Limits and Continuity": [
+      "Calculus"
+    ],
+    "Differentiation": [
+      "Calculus"
+    ],
+    "Derivative Rules": [
+      "Calculus"
+    ],
+    "Differentiation of Elementary Functions": [
+      "Calculus"
+    ],
+    "Differentiation Techniques": [
+      "Calculus"
+    ],
+    "Applications of Differentiation": [
+      "Calculus"
+    ],
+    "Representations of Functions": [
+      "Algebra"
+    ],
+    "Mathematical Generalization": [
+      "Algebra"
+    ],
+    "Multiple Representations of Linear Relationships": [
+      "Algebra"
+    ],
+    "Graphing Linear Functions": [
+      "Algebra"
+    ],
+    "Linear Relationships": [
+      "Algebra"
+    ],
+    "Sequences and Linear Functions": [
+      "Algebra"
+    ],
+    "Visual Models for Algebraic Patterns": [
+      "Algebra"
+    ],
+    "Linear Sequences": [
+      "Algebra"
+    ],
+    "Mathematical Modeling with Linear Functions": [
+      "Algebra"
+    ],
+    "Graph Interpretation": [
+      "Algebra"
+    ],
+    "Algebraic Modeling": [
+      "Algebra"
+    ],
+    "Expressions and Equations": [
+      "Algebra"
+    ],
+    "Linear Modeling": [
+      "Algebra"
+    ],
+    "Multiple Representations": [
+      "Algebra"
+    ],
+    "Proportional Relationships": [
+      "Algebra"
+    ],
+    "Functions and Graphs": [
+      "Algebra"
+    ],
+    "Rates of Change": [
+      "Algebra"
+    ],
+    "Mathematical Modeling with Graphs": [
+      "Algebra"
+    ],
+    "Motion Graphs": [
+      "Algebra"
+    ],
+    "Algebraic Expressions": [
+      "Algebra"
+    ],
+    "Formulas": [
+      "Algebra"
+    ],
+    "Order of Operations": [
+      "Algebra"
+    ],
+    "Expression Evaluation": [
+      "Algebra"
+    ],
+    "Linear Expressions": [
+      "Algebra"
+    ],
+    "Substitution in Algebra": [
+      "Algebra"
+    ],
+    "Polynomial Operations": [
+      "Algebra"
+    ],
+    "Rational Expressions": [
+      "Algebra"
+    ],
+    "Algebraic Expansion": [
+      "Algebra"
+    ],
+    "Simplification of Algebraic Expressions": [
+      "Algebra"
+    ],
+    "Polynomial Factorisation": [
+      "Algebra"
+    ],
+    "Algebraic Evaluation": [
+      "Algebra"
+    ],
+    "Algebraic Properties": [
+      "Algebra"
+    ],
+    "Polynomial Expansion": [
+      "Algebra"
+    ],
+    "Algebraic Notation and Structure": [
+      "Algebra"
+    ],
+    "Radicals and Surds": [
+      "Algebra"
+    ],
+    "Linear Equations": [
+      "Algebra"
+    ],
+    "Graphical Methods for Equation Solving": [
+      "Algebra"
+    ],
+    "Numerical Methods for Equation Solving": [
+      "Algebra"
+    ],
+    "Mental Calculation Strategies": [
+      "Algebra"
+    ],
+    "Mathematical Modeling Interpretation": [
+      "Algebra"
+    ],
+    "Properties of Linear Equations": [
+      "Algebra"
+    ],
+    "Problem-Solving Strategy Selection": [
+      "Algebra"
+    ],
+    "Linear Inequalities": [
+      "Algebra"
+    ],
+    "Modeling with Inequalities": [
+      "Algebra"
+    ],
+    "Properties of Inequalities": [
+      "Algebra"
+    ],
+    "Problem-Solving Strategies": [
+      "Algebra"
+    ],
+    "Quadratic Equations": [
+      "Algebra"
+    ],
+    "Polynomial Factorization": [
+      "Algebra"
+    ],
+    "Cubic Equations": [
+      "Algebra"
+    ],
+    "Systems of Equations": [
+      "Algebra"
+    ],
+    "Rational Equations": [
+      "Algebra"
+    ],
+    "Equation Solving Strategies": [
+      "Algebra"
+    ],
+    "Numerical Methods": [
+      "Algebra"
+    ],
+    "Inequalities in One Variable": [
+      "Algebra"
+    ],
+    "Absolute Value Inequalities": [
+      "Algebra"
+    ],
+    "Absolute Value": [
+      "Algebra"
+    ],
+    "Rational Inequalities": [
+      "Algebra"
+    ],
+    "Mathematical Induction": [
+      "Algebra"
+    ],
+    "Complex Number Equations": [
+      "Algebra"
+    ],
+    "Trigonometric Identities": [
+      "Trigonometry"
+    ]
+  },
+  "group_concept_mapping": {
+    "Geometry": [
+      "Measurement",
+      "Transformational Geometry",
+      "Composite Figures",
+      "Surface Area",
+      "Perimeter",
+      "Circle Geometry",
+      "Nets of Solids",
+      "Estimation",
+      "Problem Solving in Geometry",
+      "Geometric Measurement",
+      "Coordinate Geometry",
+      "Scale Factor in Enlargement",
+      "Enlargement (Dilation) in the Plane",
+      "Enlargement (Dilation) Transformation",
+      "Triangle Geometry",
+      "Foundations of Geometry",
+      "Pythagorean Theorem",
+      "Logical Relationships Between Statements",
+      "Volume",
+      "Mensuration",
+      "Geometric Constructions",
+      "Triangle Centers",
+      "Instrument Use in Geometry",
+      "Numerical Integration",
+      "Centre of Enlargement",
+      "Deductive Reasoning",
+      "Area",
+      "Mathematical Statements",
+      "Geometric Transformations",
+      "Geometric Nets",
+      "Similarity Transformations",
+      "Proof Techniques",
+      "Propositional Logic",
+      "Scale and Proportion",
+      "Symmetry in Plane Figures",
+      "Right Triangle Geometry"
+    ],
+    "Algebra": [
+      "Rates and Proportional Reasoning",
+      "Mathematical Modeling Interpretation",
+      "Polynomial Equations",
+      "Polynomial Functions",
+      "Complex Numbers in the Plane",
+      "Visual Models for Algebraic Patterns",
+      "Graphical Equation Solving",
+      "Properties of Inequalities",
+      "Absolute Value Inequalities",
+      "Geometric Series Applications",
+      "Laws of Exponents",
+      "Multiple Representations of Linear Relationships",
+      "Quadratic Functions",
+      "Linear Modeling",
+      "Rates of Change",
+      "Expression Evaluation",
+      "Radicals and Surds",
+      "Motion Graphs",
+      "Algebraic Reasoning",
+      "Functions and Graphs",
+      "Sequences and Patterns",
+      "Numerical Methods for Equation Solving",
+      "Properties of Linear Equations",
+      "Mathematical Modeling with Linear Functions",
+      "Problem-Solving Strategies in Algebra",
+      "Rational Equations",
+      "Proportional Relationships",
+      "Cubic Equations",
+      "Graphical Methods for Equation Solving",
+      "Algebra",
+      "Infinite Series",
+      "Linear Equations",
+      "Sequences",
+      "Absolute Value",
+      "Rational Inequalities",
+      "Order of Operations",
+      "Equality and Equivalence",
+      "Polynomial Factorisation",
+      "Systems of Equations",
+      "Formulas",
+      "Mathematical Induction",
+      "Mathematical Modeling",
+      "Financial Mathematics",
+      "Multiple Representations",
+      "Mental Calculation Strategies",
+      "Graph Interpretation",
+      "Function Properties",
+      "Estimation Strategies",
+      "Inequalities in One Variable",
+      "Polynomial Expansion",
+      "Algebraic Expansion",
+      "Linear Sequences",
+      "Series",
+      "Algebraic Evaluation",
+      "Numerical Methods",
+      "Sequences and Series",
+      "Algebraic Notation and Structure",
+      "Representations of Functions",
+      "Polynomial Operations",
+      "Mathematical Generalization",
+      "Mathematical Modeling with Graphs",
+      "Inequalities",
+      "Graphing Linear Functions",
+      "Problem-Solving Strategies",
+      "Substitution in Algebra",
+      "Algebraic Expressions",
+      "Properties of Logarithms",
+      "Rational Expressions",
+      "Algebraic Properties",
+      "Complex Numbers",
+      "Proof Techniques",
+      "Function Transformations",
+      "Quadratic Equations",
+      "Linear Expressions",
+      "Sequences and Linear Functions",
+      "Solution Verification",
+      "Algebraic Manipulation",
+      "Complex Number Arithmetic",
+      "Polynomial Factorization",
+      "Expressions and Equations",
+      "Function Graphing",
+      "Functions",
+      "Algebraic Modeling",
+      "Linear Inequalities",
+      "Simplification of Algebraic Expressions",
+      "Linear Functions",
+      "Modeling with Inequalities",
+      "Linear Relationships",
+      "Complex Number Equations",
+      "Systems of Linear Equations",
+      "Exponential and Logarithmic Functions",
+      "Series Identities",
+      "Problem-Solving Strategy Selection",
+      "Inverse Functions",
+      "Equation Solving Strategies"
+    ],
+    "Coordinate Geometry": [
+      "Coordinate Geometry"
+    ],
+    "Trigonometry": [
+      "Applications of Trigonometry",
+      "Trigonometric Ratios",
+      "Transformations of Trigonometric Functions",
+      "Trigonometric Functions",
+      "Applications of Trigonometric Ratios",
+      "Graphing Trigonometric Functions",
+      "Right Triangle Trigonometry",
+      "Trigonometric Equations",
+      "Triangle Trigonometry",
+      "Exact Values of Trigonometric Functions",
+      "Angles and Measurement",
+      "Spatial Geometry & Trigonometry",
+      "Applied Trigonometry",
+      "Trigonometric Identities",
+      "Circular Measure"
+    ],
+    "Number": [
+      "Rational Number Representations",
+      "Integer Arithmetic",
+      "Rational Number Operations",
+      "Number Systems",
+      "Scientific Notation",
+      "Proportional Reasoning",
+      "Ratio and Proportion",
+      "Approximation and Rounding",
+      "Powers of Ten Representation",
+      "Arithmetic Models",
+      "Laws of Exponents",
+      "Arithmetic Strategies",
+      "Percent",
+      "Number Representation",
+      "Arithmetic",
+      "Estimation and Approximation",
+      "Problem Solving Strategies",
+      "Estimation and Reasonableness",
+      "Arithmetic Foundations",
+      "Properties of Operations",
+      "Rational Number Applications",
+      "Rational Numbers",
+      "Indices"
+    ],
+    "Number Theory": [
+      "Number Properties",
+      "Irrational Numbers",
+      "Prime Factorization",
+      "Number Theory",
+      "Number Systems",
+      "Divisibility"
+    ],
+    "Calculus": [
+      "Integration",
+      "Differential Calculus",
+      "Applications of Differential Calculus",
+      "Differentiation Techniques",
+      "Basic Sequence Limits",
+      "Initial Value Problems",
+      "Integration Techniques",
+      "Limits and Continuity",
+      "Differentiation",
+      "Integration Properties",
+      "Limits",
+      "Differentiation of Elementary Functions",
+      "Applications of Differentiation",
+      "Applications of Integration",
+      "Applications of Calculus",
+      "Derivative Rules"
+    ],
+    "Financial Mathematics": [
+      "Personal Finance Mathematics",
+      "Depreciation Methods",
+      "Profit, Loss, and Pricing",
+      "Time Value of Money",
+      "Taxation",
+      "Annuities",
+      "Interest Rates",
+      "Percentages",
+      "Profit and Loss",
+      "Payroll Calculations",
+      "Loans and Amortization",
+      "Rates and Proportion",
+      "Costing and Budgeting",
+      "Interest Calculations",
+      "Financial Mathematics",
+      "Discount"
+    ],
+    "Measurement": [
+      "Unit Conversion",
+      "Measurement",
+      "Time Calculations",
+      "3D Geometry",
+      "Measurement Applications",
+      "Measurement Accuracy",
+      "Circle Measurement",
+      "Rate Problems",
+      "Units and Measurement",
+      "Error Analysis"
+    ],
+    "Differential Calculus": [
+      "Calculus"
+    ],
+    "Statistics": [
+      "Hypothesis Testing",
+      "Statistical Reasoning",
+      "Correlation and Regression",
+      "Statistical Inference",
+      "Sampling Distributions",
+      "Normal Distribution",
+      "Confidence Intervals",
+      "Bivariate Data"
+    ],
+    "Probability": [
+      "Random Variables",
+      "Probability Models",
+      "Discrete Probability Distributions",
+      "Experimental Probability",
+      "Counting and Probability",
+      "Expected Value",
+      "Probability Rules"
+    ]
+  },
+  "concept_counts": {
+    "Geometric Constructions": 6,
+    "Instrument Use in Geometry": 4,
+    "Geometric Measurement": 3,
+    "Linear Functions": 16,
+    "Systems of Linear Equations": 5,
+    "Coordinate Geometry": 13,
+    "Mathematical Modeling": 1,
+    "Problem-Solving Strategies in Algebra": 1,
+    "Estimation Strategies": 1,
+    "Pythagorean Theorem": 1,
+    "Applications of Trigonometric Ratios": 1,
+    "Trigonometric Ratios": 3,
+    "Trigonometric Functions": 9,
+    "Applications of Trigonometry": 1,
+    "Right Triangle Trigonometry": 1,
+    "Similarity Transformations": 2,
+    "Enlargement (Dilation) in the Plane": 3,
+    "Transformational Geometry": 4,
+    "Symmetry in Plane Figures": 1,
+    "Deductive Reasoning": 1,
+    "Proof Techniques": 2,
+    "Mathematical Statements": 2,
+    "Foundations of Geometry": 1,
+    "Logical Relationships Between Statements": 1,
+    "Propositional Logic": 2,
+    "Circular Measure": 3,
+    "Triangle Trigonometry": 3,
+    "Graphing Trigonometric Functions": 3,
+    "Transformations of Trigonometric Functions": 2,
+    "Trigonometric Equations": 3,
+    "Applied Trigonometry": 1,
+    "Right Triangle Geometry": 1,
+    "Exact Values of Trigonometric Functions": 1,
+    "Geometric Transformations": 1,
+    "Enlargement (Dilation) Transformation": 4,
+    "Scale Factor in Enlargement": 4,
+    "Centre of Enlargement": 1,
+    "Number Systems": 6,
+    "Rational Number Representations": 6,
+    "Rational Number Operations": 2,
+    "Arithmetic Models": 5,
+    "Integer Arithmetic": 5,
+    "Properties of Operations": 6,
+    "Arithmetic Foundations": 1,
+    "Arithmetic Strategies": 1,
+    "Rational Number Applications": 1,
+    "Number Representation": 2,
+    "Complex Numbers": 12,
+    "Arithmetic": 1,
+    "Prime Factorization": 1,
+    "Number Properties": 1,
+    "Scientific Notation": 1,
+    "Rational Numbers": 1,
+    "Irrational Numbers": 1,
+    "Series Identities": 1,
+    "Sequences": 1,
+    "Series": 1,
+    "Infinite Series": 1,
+    "Limits": 1,
+    "Basic Sequence Limits": 2,
+    "Geometric Series Applications": 1,
+    "Financial Mathematics": 2,
+    "Inequalities": 1,
+    "Divisibility": 1,
+    "Percent": 1,
+    "Proportional Reasoning": 2,
+    "Number Theory": 3,
+    "Powers of Ten Representation": 1,
+    "Approximation and Rounding": 1,
+    "Estimation and Reasonableness": 2,
+    "Solution Verification": 1,
+    "Equality and Equivalence": 1,
+    "Indices": 6,
+    "Sequences and Series": 11,
+    "Laws of Exponents": 16,
+    "Properties of Logarithms": 7,
+    "Profit and Loss": 3,
+    "Percentages": 1,
+    "Discount": 1,
+    "Interest Calculations": 1,
+    "Taxation": 2,
+    "Payroll Calculations": 1,
+    "Unit Conversion": 1,
+    "Time Calculations": 2,
+    "Rate Problems": 1,
+    "Rates and Proportion": 2,
+    "Measurement Applications": 1,
+    "Ratio and Proportion": 3,
+    "Volume": 3,
+    "Surface Area": 3,
+    "Nets of Solids": 3,
+    "Circle Geometry": 1,
+    "Perimeter": 4,
+    "Area": 4,
+    "Composite Figures": 2,
+    "Estimation": 1,
+    "Scale and Proportion": 1,
+    "Problem Solving in Geometry": 1,
+    "Time Value of Money": 4,
+    "Personal Finance Mathematics": 1,
+    "Profit, Loss, and Pricing": 4,
+    "Units and Measurement": 1,
+    "Rates and Proportional Reasoning": 1,
+    "Error Analysis": 3,
+    "Estimation and Approximation": 3,
+    "Problem Solving Strategies": 1,
+    "Costing and Budgeting": 1,
+    "Measurement": 2,
+    "Mensuration": 23,
+    "Numerical Integration": 1,
+    "Geometric Nets": 3,
+    "Algebra": 1,
+    "Functions": 12,
+    "Algebraic Manipulation": 5,
+    "Algebraic Reasoning": 12,
+    "Sequences and Patterns": 6,
+    "Angles and Measurement": 1,
+    "Triangle Geometry": 1,
+    "Spatial Geometry & Trigonometry": 1,
+    "Calculus": 13,
+    "Sampling Distributions": 1,
+    "Statistical Inference": 2,
+    "Confidence Intervals": 1,
+    "Hypothesis Testing": 3,
+    "Normal Distribution": 4,
+    "Bivariate Data": 1,
+    "Correlation and Regression": 2,
+    "Statistical Reasoning": 1,
+    "Discrete Probability Distributions": 3,
+    "Probability Models": 1,
+    "Probability Rules": 2,
+    "Counting and Probability": 1,
+    "Random Variables": 1,
+    "Expected Value": 1,
+    "Experimental Probability": 1,
+    "Complex Number Arithmetic": 3,
+    "Complex Numbers in the Plane": 5,
+    "Polynomial Equations": 2,
+    "Quadratic Functions": 6,
+    "Polynomial Functions": 2,
+    "Function Transformations": 1,
+    "Exponential and Logarithmic Functions": 4,
+    "Integration Techniques": 5,
+    "Integration Properties": 1,
+    "Initial Value Problems": 1,
+    "Integration": 2,
+    "Applications of Integration": 3,
+    "Differential Calculus": 4,
+    "Applications of Differential Calculus": 2,
+    "Applications of Calculus": 1,
+    "Interest Rates": 1,
+    "Depreciation Methods": 1,
+    "Annuities": 2,
+    "Loans and Amortization": 1,
+    "Circle Measurement": 1,
+    "3D Geometry": 2,
+    "Measurement Accuracy": 1,
+    "Triangle Centers": 4,
+    "Function Graphing": 2,
+    "Graphical Equation Solving": 4,
+    "Function Properties": 3,
+    "Inverse Functions": 2,
+    "Limits and Continuity": 2,
+    "Differentiation": 2,
+    "Derivative Rules": 4,
+    "Differentiation of Elementary Functions": 2,
+    "Differentiation Techniques": 1,
+    "Applications of Differentiation": 5,
+    "Representations of Functions": 1,
+    "Mathematical Generalization": 1,
+    "Multiple Representations of Linear Relationships": 2,
+    "Graphing Linear Functions": 1,
+    "Linear Relationships": 1,
+    "Sequences and Linear Functions": 1,
+    "Visual Models for Algebraic Patterns": 1,
+    "Linear Sequences": 1,
+    "Mathematical Modeling with Linear Functions": 1,
+    "Graph Interpretation": 1,
+    "Algebraic Modeling": 1,
+    "Expressions and Equations": 1,
+    "Linear Modeling": 2,
+    "Multiple Representations": 1,
+    "Proportional Relationships": 2,
+    "Functions and Graphs": 5,
+    "Rates of Change": 2,
+    "Mathematical Modeling with Graphs": 1,
+    "Motion Graphs": 1,
+    "Algebraic Expressions": 1,
+    "Formulas": 1,
+    "Order of Operations": 1,
+    "Expression Evaluation": 1,
+    "Linear Expressions": 1,
+    "Substitution in Algebra": 1,
+    "Polynomial Operations": 3,
+    "Rational Expressions": 2,
+    "Algebraic Expansion": 2,
+    "Simplification of Algebraic Expressions": 1,
+    "Polynomial Factorisation": 1,
+    "Algebraic Evaluation": 1,
+    "Algebraic Properties": 1,
+    "Polynomial Expansion": 1,
+    "Algebraic Notation and Structure": 1,
+    "Radicals and Surds": 1,
+    "Linear Equations": 2,
+    "Graphical Methods for Equation Solving": 1,
+    "Numerical Methods for Equation Solving": 1,
+    "Mental Calculation Strategies": 1,
+    "Mathematical Modeling Interpretation": 1,
+    "Properties of Linear Equations": 1,
+    "Problem-Solving Strategy Selection": 1,
+    "Linear Inequalities": 4,
+    "Modeling with Inequalities": 2,
+    "Properties of Inequalities": 2,
+    "Problem-Solving Strategies": 1,
+    "Quadratic Equations": 3,
+    "Polynomial Factorization": 1,
+    "Cubic Equations": 1,
+    "Systems of Equations": 1,
+    "Rational Equations": 1,
+    "Equation Solving Strategies": 3,
+    "Numerical Methods": 1,
+    "Inequalities in One Variable": 8,
+    "Absolute Value Inequalities": 2,
+    "Absolute Value": 1,
+    "Rational Inequalities": 1,
+    "Mathematical Induction": 1,
+    "Complex Number Equations": 1,
+    "Trigonometric Identities": 1
+  },
+  "group_counts": {
+    "Geometry": 110,
+    "Algebra": 233,
+    "Coordinate Geometry": 2,
+    "Trigonometry": 34,
+    "Number": 63,
+    "Number Theory": 9,
+    "Calculus": 38,
+    "Financial Mathematics": 27,
+    "Measurement": 14,
+    "Differential Calculus": 13,
+    "Statistics": 15,
+    "Probability": 10
+  }
+}

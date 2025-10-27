@@ -1,0 +1,569 @@
+id,label,broader_concept,group
+15472859-ff55-4e7b-8826-eb7fb50a9cb9,Circle Construction with Given Radius,Geometric Constructions,Geometry
+412ee8e1-f372-45ea-9abc-ac17349278f4,Transferring a Length with a Compass,Instrument Use in Geometry,Geometry
+bed95adb-28da-4305-99af-a2b414ed3ae2,Constructing an Angle of Given Measure with a Protractor,Geometric Constructions,Geometry
+08eb6249-1228-4945-acbb-b61ec66aa6de,Drawing Perpendicular Lines with a Set Square,Instrument Use in Geometry,Geometry
+6497781a-b33a-470a-8cd2-70b55c1f3bab,Drawing Parallel Lines with a Set Square,Instrument Use in Geometry,Geometry
+806d051d-8211-4501-be23-02451805cebc,Drawing a Straight Line Through Two Points with a Straightedge,Instrument Use in Geometry,Geometry
+efc32632-3571-461e-ab1d-4cfa15c56612,Measuring Line Segments with a Ruler,Geometric Measurement,Geometry
+03a78842-7861-46fa-84e5-a5ae4437761d,Measuring Angles with a Protractor,Geometric Measurement,Geometry
+938f1d69-4f58-446b-9492-122ece27acfd,Geometric Constructions in Dynamic Geometry Software,Geometric Constructions,Geometry
+f38b6b40-a633-437a-81b0-b099dd3e6641,Interpreting Slope as Rate of Change,Linear Functions,Algebra
+edae54cc-da9f-40fa-80d3-88bd081da4a1,Interpreting y-Intercept as Start Value,Linear Functions,Algebra
+c377d378-132c-40ae-8b3b-1fdf39f23c30,Point of Intersection of Two Linear Graphs as Common Solution,Systems of Linear Equations,Algebra
+390c0a87-2e68-4875-a88f-c1b1caffc1b0,Graphing Linear Relationships,Coordinate Geometry,Coordinate Geometry
+eaa3d54b-f032-46ed-9f75-28968c0d7634,Representing Linear Relationships in Tables,Linear Functions,Algebra
+455f6387-a6d9-4efc-8cce-bbb608f23700,Calculating Slope from Two Points,Linear Functions,Algebra
+e79a09dd-2f88-4c29-a5f1-aac3ed934deb,Comparing Linear Relationships by Rate of Change and Start Value,Linear Functions,Algebra
+a909e279-6f50-4cd5-b490-04e78de39e83,Constructing Linear Models from Real-Life Contexts,Mathematical Modeling,Algebra
+d3f54adf-adab-49a5-8cf9-d342ae04efdd,Solving a System of Two Linear Equations by Graphing,Systems of Linear Equations,Algebra
+5fd71828-6d8a-4f9a-8290-43134480ec6e,Solving Linear Problems Using Tables (Numeric Strategy),Problem-Solving Strategies in Algebra,Algebra
+052dd62c-b46d-4c16-aced-980187ef2441,Plotting Points in the Cartesian Plane,Coordinate Geometry,Coordinate Geometry
+8bbfeba3-b82f-4ec3-ac65-c0a8d9e308d6,Mental Estimation in Linear Contexts,Estimation Strategies,Algebra
+c06d204c-e106-4728-ab2d-ee1e33d7e200,Applying the Pythagorean Theorem to Right Triangles,Pythagorean Theorem,Geometry
+c476b80a-4600-4e19-a97e-5d3da189b727,Solving Right Triangle Word Problems with Trigonometric Ratios,Applications of Trigonometric Ratios,Trigonometry
+877a1a74-0e1e-4e6c-b129-a39eaf68cd82,Sine Ratio in Right Triangles,Trigonometric Ratios,Trigonometry
+fe29c8f6-f2a2-4f61-9c07-f8e78d277f4d,Cosine Ratio in Right Triangles,Trigonometric Ratios,Trigonometry
+99a0ec03-33d0-4dc2-9812-5d9ac0abaf70,Tangent Ratio in Right Triangles,Trigonometric Ratios,Trigonometry
+cc0aea9c-1796-4862-b813-bbc98d23862d,Inverse Trigonometric Functions for Angle Calculation,Trigonometric Functions,Trigonometry
+b5bf0ebc-e63e-417b-bdd4-99dcbc1d297a,Angles of Elevation and Depression,Applications of Trigonometry,Trigonometry
+47c8339a-8655-4111-ab66-6bcccbf32607,"Identifying Opposite, Adjacent, and Hypotenuse",Right Triangle Trigonometry,Trigonometry
+2b577ae8-e52e-4dc1-9d28-33058c2c98c7,Enlargement (Dilation) in the Plane,Similarity Transformations,Geometry
+ca88c243-de0e-40ec-9c9b-af25078fa606,Center of Enlargement,Enlargement (Dilation) in the Plane,Geometry
+c02a6b59-4b59-4d24-8bbc-15b8bbf3bec1,Scale Factor of an Enlargement,Enlargement (Dilation) in the Plane,Geometry
+f05ebbc0-6e5d-4b66-a0ad-86bcf13aabf3,Area Scaling Under Enlargement,Enlargement (Dilation) in the Plane,Geometry
+05be8713-0e23-4df2-be0d-50df854f032f,Translation in the Plane,Transformational Geometry,Geometry
+ff2b652c-829c-42b8-b474-85ae17bccc7a,Rotation about a Point,Transformational Geometry,Geometry
+3d4c5d68-e6ae-4764-98c8-f3813017aefa,Axial Symmetry (Reflection Across a Line),Transformational Geometry,Geometry
+9aeb731b-cf81-4654-b045-3f594380b031,Central Symmetry (Point Reflection),Transformational Geometry,Geometry
+4ede5cef-20d8-4dca-8167-a543d234af24,Locating Axes of Symmetry in Simple Shapes,Symmetry in Plane Figures,Geometry
+bcaca31e-d0bf-49b0-9fa0-42e2e01c15b5,Mathematical Proof,Deductive Reasoning,Geometry
+0faea2bd-9593-4a3a-90e1-a7a1fdc9fbf3,Proof by Contradiction,Proof Techniques,Geometry
+cbba1837-a6ea-40a0-ab8b-c7b86a248253,Theorem,Mathematical Statements,Geometry
+92c9c5bd-9d18-4d3a-9e73-14362fd45f8c,Axiom,Foundations of Geometry,Geometry
+2c82fe81-a743-4ead-8e05-e094e1797820,Corollary,Mathematical Statements,Geometry
+380928cc-8066-42ab-b465-8cb5aa75a803,Converse of a Theorem,Logical Relationships Between Statements,Geometry
+24019f65-9aa0-498f-a4b8-f9e5d4940413,If and Only If (Biconditional),Propositional Logic,Geometry
+c3fe3673-f774-4a78-a09a-cd08714a07b6,Logical Implication,Propositional Logic,Geometry
+2979976e-ee90-4a88-93d9-2124308a6e84,Slope of a Line,Coordinate Geometry,Geometry
+f66e1956-f4ca-46ef-a03b-c8ebc89a9a20,Slope Criteria for Parallel Lines,Coordinate Geometry,Geometry
+683cc7a9-ec11-4ffe-9200-ccb5a7771feb,Slope Criteria for Perpendicular Lines,Coordinate Geometry,Geometry
+914d7752-a79d-474a-9113-81f9df2d47e6,Angle Between Two Lines,Coordinate Geometry,Geometry
+77a6fe71-43f6-407d-9574-7f62efa646c0,Perpendicular Distance from a Point to a Line,Coordinate Geometry,Geometry
+85444606-d02d-4501-aed8-2fbc1d0dd430,General Form of a Linear Equation,Coordinate Geometry,Geometry
+12f4dc1a-e6b3-4da0-9303-cf3488bf3498,Circle Equation in Center-Radius Form,Coordinate Geometry,Geometry
+573a3d48-78b7-48a1-b53d-4351ecc3d996,General Form of a Circle Equation,Coordinate Geometry,Geometry
+3bc0d396-849e-4387-86d1-113dead79b58,Intersection of a Line and a Circle,Coordinate Geometry,Geometry
+07cda7a3-3ba2-4956-8544-830b6a8019ea,Internal Division of a Line Segment,Coordinate Geometry,Geometry
+24367aec-1e97-4038-b5fb-98d98433639a,Area of a Triangle in the Coordinate Plane,Coordinate Geometry,Geometry
+e813381c-197f-40c1-baf8-cf3e979251c6,Unit Circle Definition of Sine and Cosine,Trigonometric Functions,Trigonometry
+9a14f69d-7295-4650-a0b0-b88d75db1478,Definition of Tangent Function,Trigonometric Functions,Trigonometry
+b654c337-332a-4007-a6f1-0c3f7b7201b3,Radian Measure of Angles,Circular Measure,Trigonometry
+14901eb7-03d1-4eb6-9580-7ca75d496521,Sine Rule,Triangle Trigonometry,Trigonometry
+a3ac4964-1c18-4800-9e53-27aaa4b650d7,Cosine Rule,Triangle Trigonometry,Trigonometry
+1152e47f-195e-4420-a3ad-9d7c5ba63fab,Area of a Triangle via Trigonometry,Triangle Trigonometry,Trigonometry
+c8ea3ab8-5a7c-4110-994a-90c1d2b022da,Arc Length in Radians,Circular Measure,Trigonometry
+188172a5-00fb-4b56-aca8-fce9b656f3b6,Area of a Sector,Circular Measure,Trigonometry
+4723a6e4-f285-40e4-ae9b-e28d46aa9cf3,Graphing Sine Function,Graphing Trigonometric Functions,Trigonometry
+defa24e6-11a2-4e80-9e51-9f3808681a0c,Graphing Cosine Function,Graphing Trigonometric Functions,Trigonometry
+4533647a-8ab0-433b-b5c7-c23ce5147dc1,Graphing Tangent Function,Graphing Trigonometric Functions,Trigonometry
+cfd39a73-6620-4cd9-82e2-74deccd8fcaf,Graphing y = a + b sin(cθ),Transformations of Trigonometric Functions,Trigonometry
+2aa38f29-8f2a-4e11-8fc3-680ed4a2d8c8,Graphing y = a + b cos(cθ),Transformations of Trigonometric Functions,Trigonometry
+7ba28b0b-e608-415e-ace5-72d2ad9c567e,Solving sin(nθ) = 0 (All Solutions),Trigonometric Equations,Trigonometry
+7c87d32e-912a-4ead-9e41-cbb0e85818d2,Solving cos(nθ) = 1/2 (All Solutions),Trigonometric Equations,Trigonometry
+29c5e168-b86d-468a-90e6-5b8400566f46,Trigonometric Problem Solving in 3D,Applied Trigonometry,Trigonometry
+aac0c5b9-0320-4894-b6e7-4e147e778d67,Pythagoras' Theorem in 2D Problem Solving,Right Triangle Geometry,Geometry
+88690fb5-8965-48ab-8cab-4f1973011d09,Exact Trigonometric Values in Surd Form,Exact Values of Trigonometric Functions,Trigonometry
+3971334a-5cf7-497d-8310-bfbe5cefa1af,Enlargement (Dilation) Transformation,Geometric Transformations,Geometry
+a913da74-786b-4279-9f56-596a1686c8b5,Centre of Enlargement,Enlargement (Dilation) Transformation,Geometry
+bde8d2e7-27a0-4750-bbc1-9087289cc92c,Scale Factor in Enlargement,Enlargement (Dilation) Transformation,Geometry
+78e36bbb-cf3e-4477-b8ed-907517c27125,Area Scale Factor under Enlargement,Enlargement (Dilation) Transformation,Geometry
+d8c90cbc-8b31-450c-95c4-2c75a88b1fc5,Enlargements with Scale Factor k>1,Scale Factor in Enlargement,Geometry
+3816926f-72c5-453e-94e1-6985f26a5f67,Reductions with Scale Factor 0<k<1,Scale Factor in Enlargement,Geometry
+2b0cf3e1-419f-4c43-9d32-a66dd3ef5490,Using Rational Scale Factors in Enlargements,Scale Factor in Enlargement,Geometry
+13f89214-7d4f-426c-a5cb-993730833536,Constructing an Enlargement Given Centre and Scale Factor,Enlargement (Dilation) Transformation,Geometry
+cdf8700a-17ab-46de-83cb-1717353db6ce,Determining the Scale Factor from Object and Image,Scale Factor in Enlargement,Geometry
+a05f3aa2-63ad-4c02-9ef7-5c5378bebe68,Locating the Centre of Enlargement from Object and Image,Centre of Enlargement,Geometry
+8e5898e3-e79d-4795-95ce-7686c4ea09e8,Set of Rational Numbers (Q),Number Systems,Number
+fb80293b-5c4b-4eb6-9918-3c4056c0edb5,"Equivalence of Fractions, Decimals, and Percentages",Rational Number Representations,Number
+3e74650e-b36b-44e5-a99c-b43d9d29277a,Addition and Subtraction of Rational Numbers,Rational Number Operations,Number
+ba552805-33f8-47d7-adad-09dd87cf7d31,Multiplication and Division of Rational Numbers,Rational Number Operations,Number
+be898a74-320e-45bc-a726-2ac5dfdf35a7,Ordering Rational Numbers on the Number Line,Rational Number Representations,Number
+b9ef3bb5-ba88-4d9d-b827-bb037264d7a3,Number Line Models for Rational Addition and Subtraction,Arithmetic Models,Number
+a46302ca-e48d-4f59-842f-34fb06f33c1b,Set of Integers (Z),Number Systems,Number
+3969be5c-89fc-47bd-9705-924acdb1043b,Integer Addition with Negative Numbers,Integer Arithmetic,Number
+86bfb6d7-1805-4131-80e8-4cf29de277eb,Integer Subtraction with Negative Numbers,Integer Arithmetic,Number
+fe86f94f-5594-432e-a1fa-cf89b1cbc11d,Integer Multiplication with Negative Numbers (Sign Rules),Integer Arithmetic,Number
+081a37d7-fb5d-4426-8966-47cc1301cdd4,Integer Division with Negative Numbers (Sign Rules),Integer Arithmetic,Number
+8b624e39-ef1f-479b-a80f-384a0d2ce148,Justifying Integer Sign Rules Using Properties of Arithmetic,Properties of Operations,Number
+954a64ca-429a-4afe-85f4-ccaeb354c2d9,Order of Operations with Brackets,Arithmetic Foundations,Number
+4edeafc6-06e0-4062-a630-a1990841f7c4,Commutative Property of Addition and Multiplication,Properties of Operations,Number
+ad036e5a-3c82-477e-b120-ef6a21932bf9,Associative Property of Addition and Multiplication,Properties of Operations,Number
+52e70dfc-d859-4126-b6dc-f50a729ef3d9,Distributive Law of Multiplication over Addition,Properties of Operations,Number
+09d81aaf-0a2f-4bff-a843-2de3e13d9c6e,Number Line Models for Integer Operations,Arithmetic Models,Number
+6315bc16-c705-4bc0-9440-c31f1e71aefe,Set of Natural Numbers (N),Number Systems,Number
+517a275b-12ee-4858-b841-117c965045b7,Decomposition Strategy for Addition and Subtraction in N,Arithmetic Strategies,Number
+d3839b4a-63b4-4e35-b2e8-cb25109297fa,Skip Counting as a Model for Multiplication in N,Arithmetic Models,Number
+1f1b793b-a6a5-4365-aeff-9a0784e1f50f,Array Model for Multiplication in N,Arithmetic Models,Number
+aac958f7-be41-4486-889d-fe8a1e8604d7,Equal Groups Model for Multiplication and Division in N,Arithmetic Models,Number
+473d9e22-bd83-4eaf-9326-382f323f6c47,Inverse Relationships: Addition–Subtraction,Properties of Operations,Number
+c743099a-d8ab-47be-ae66-451c2e8724d2,Inverse Relationships: Multiplication–Division,Properties of Operations,Number
+7e788618-1537-4f32-b7e2-0f7d4f81d11b,Terminating Decimals as Rational Numbers,Rational Number Representations,Number
+7f8e92cd-e4c4-4f87-9395-b44766eb83fe,Repeating Decimals as Rational Numbers,Rational Number Representations,Number
+8a8d2d91-f98e-460e-b75d-fa3e0335508f,Percentages as Rational Numbers,Rational Number Representations,Number
+9aa4c8d2-14e3-4cae-8ea6-0d81b7dc08f5,"Contextual Interpretation of Negative Numbers (Debt, Temperature)",Integer Arithmetic,Number
+e3a3c7dd-d447-46f1-a57f-d77494125b7a,Solving Contextual Problems with Fractional Amounts,Rational Number Applications,Number
+0e46aa64-0988-4a91-ace5-3267f7da4269,"Hierarchy of Number Systems (N, Z, Q, R, C)",Number Systems,Number Theory
+5a74ac17-df89-4e23-8c57-5dd391cb34e1,Recognizing Irrational Numbers,Number Systems,Number Theory
+bce0f356-1b9d-467e-8110-80fa6fa52589,Representing Real Numbers on the Number Line,Number Representation,Number
+0a2675ea-fde5-4015-991e-32c84414bd08,Complex Number Arithmetic in Rectangular Form,Complex Numbers,Algebra
+129511e2-19fc-419a-9175-bb4035722d93,Plotting Complex Numbers on an Argand Diagram,Complex Numbers,Algebra
+ed4344df-4c4e-409d-bba1-0ee1fa9d513b,Complex Number Modulus as Distance,Complex Numbers,Algebra
+e0807cde-40d0-41b6-a40c-749ea50f900e,Complex Conjugate and Algebraic Properties,Complex Numbers,Algebra
+daafb72d-c873-4c61-a79e-c36d37a00a74,Order of Operations (Including Brackets),Arithmetic,Number
+1d20035b-3cd1-4c95-85b5-02866378ff81,Expressing Numbers as Products of Prime Factors,Prime Factorization,Number Theory
+ce3cc85c-1961-4581-8778-bca454f19fa4,Determining Factors and Multiples in N,Number Properties,Number Theory
+5ed49771-e39e-4218-b345-e7d4091e9c4c,"Scientific Notation a×10^n (1 ≤ a < 10, n ∈ Z)",Number Representation,Number
+89196647-2bf8-4d5a-815f-09ae287b3c65,Operations with Scientific Notation,Scientific Notation,Number
+8111161b-f95e-4e1b-bc86-24722834f2a0,Expressing Decimals as Equivalent Fractions,Rational Numbers,Number
+b2ed3e0c-a75e-4ac4-bbca-49012033293f,Geometric Construction of √2,Geometric Constructions,Geometry
+c8a6e161-4068-485e-a228-6066db226cb5,Geometric Construction of √3,Geometric Constructions,Geometry
+3de15f2b-932a-4200-a756-6b18f3428413,Proof of Irrationality of √2,Irrational Numbers,Number Theory
+5c265639-47ac-4ddd-9976-8f3c455c4b56,Mathematical Induction Proof Method,Proof Techniques,Algebra
+17dd4c39-b880-4896-ab4f-66c3f4276f26,Sum of the First n Natural Numbers Formula,Series Identities,Algebra
+88a70d7d-3d56-480a-84cb-17ef2ae6fdc0,Geometric Sequences and nth Term,Sequences,Algebra
+c01b780c-4f9e-473b-b4e3-70b77c8723a4,Sum of a Finite Geometric Series,Series,Algebra
+b641c5b7-1982-4520-93a0-6e7cb9086742,Sum to Infinity of a Geometric Series by Limits,Infinite Series,Algebra
+8be9ba60-7b33-4e35-9c0d-380d422a565e,Limit Laws for Sequences,Limits,Calculus
+7f5df8fd-c98a-43a7-b92c-72aa832db4a7,Limit of 1/n Approaches 0,Basic Sequence Limits,Calculus
+b4042231-7d42-4f69-adc4-9308fb7ae1c6,Limit of r^n for |r| < 1,Basic Sequence Limits,Calculus
+b3d9d2d9-d017-4625-a7f5-4eb8b38ced2a,Converting Recurring Decimals to Fractions via Geometric Series,Geometric Series Applications,Algebra
+ec9cec28-0365-49e7-8133-3760ffa977a0,Derivation of Mortgage Repayment (Annuity) Formula,Financial Mathematics,Algebra
+0c1c0d12-2dc2-424f-8600-dba257db28f9,Bernoulli's Inequality (1+x)^n ≥ 1+nx for x > −1,Inequalities,Algebra
+0e4d1ade-d83b-419d-9552-aaefbede20b6,Divisibility of 4^n − 1 by 3,Divisibility,Number Theory
+bfe75d68-77a9-4d86-a296-323269e9e82e,"Converting Between Fractions, Decimals, and Percentages",Rational Number Representations,Number
+a04f5ca9-d853-405e-8284-c78b429e9f13,Calculating Percentages,Percent,Number
+eb6500f7-de2f-4f78-9c8f-4ab9a3b45a59,Comparing Proportions Using Equivalent Representations,Proportional Reasoning,Number
+fbe25af5-b7b1-49cd-b6f4-50ee1b9de283,Relationship Between Ratio and Proportion,Proportional Reasoning,Number
+5e753b5b-a10c-4411-b771-65cff55ced72,Recognizing Prime Numbers in N,Number Theory,Number Theory
+52056a2c-0214-422b-9edc-a50fbc800554,Identifying Factors of Natural Numbers,Number Theory,Number Theory
+66e1c1c8-b31d-4c9b-a719-3eb77dbd608c,Identifying Multiples of Natural Numbers,Number Theory,Number Theory
+8b51b23f-e1cb-4e0c-89b6-185defea4972,Scientific Notation for Positive Rational Numbers,Powers of Ten Representation,Number
+82b0bce3-ab19-49e1-8340-607bed439d26,Rounding to a Specified Degree of Accuracy,Approximation and Rounding,Number
+7b2b3cc4-3649-425c-a419-4fda960a9d84,Estimation and Approximation of Calculations,Estimation and Reasonableness,Number
+e81feb31-b987-4ca5-9a06-7ffe138f5905,Order-of-Magnitude Check for Results,Estimation and Reasonableness,Number
+1f56cbb6-3aef-4360-9f7c-02bad3a3f942,Verifying Solutions by Working Backwards,Solution Verification,Algebra
+2f802dd6-6357-4cd6-8080-505f4dff8359,Equality as a Relation Between Expressions,Equality and Equivalence,Algebra
+f5c7f36c-7920-49eb-82db-9f7d0bdaf51e,Square of a Number (Exponent 2),Indices,Number
+4c59ba35-98d0-4759-9d92-a949307c9855,Cube of a Number (Exponent 3),Indices,Number
+c33c6242-39f7-4a5c-be63-8b20831d275e,Square Root of a Number,Indices,Number
+090063d8-9673-491f-81f0-75315797ddd7,Reciprocal of a Number,Indices,Number
+e0f3239e-1662-45b5-aa80-863d49d22cee,Negative Index as Reciprocal (Exponent −1),Indices,Number
+77a30d23-625c-4acd-9ecd-211511b094d0,Fractional Index 1/2 as Square Root,Indices,Number
+66c13c06-e1f8-463b-add3-a11c03f49eb3,Sum of First n Terms of an Arithmetic Series,Sequences and Series,Algebra
+037d971f-aa32-48ba-9439-025f50dccab9,"Classifying Sequences as Arithmetic, Geometric, or Neither",Sequences and Series,Algebra
+3f701d32-a1ac-4491-a1bd-643b6c75eb31,Finding the nth Term of an Arithmetic Sequence,Sequences and Series,Algebra
+4186bcd5-b59b-41c8-a991-95f5ed5dd195,Finding the nth Term of a Geometric Sequence,Sequences and Series,Algebra
+e40e082b-d61b-4abb-886b-29e45e9a3d41,Expressing Sequence Patterns in Algebraic Form,Sequences and Series,Algebra
+20222c90-019e-4dff-a5aa-3c992d5acac8,Extending a Sequence Based on a Given Pattern,Sequences and Series,Algebra
+090fb3f1-6683-41cc-99ea-72cb0fcd4f7e,Generating Sequences from Term-to-Term Rules,Sequences and Series,Algebra
+a6ece5dd-003a-4919-862d-fbea9c01e6d1,Product of Powers with Same Base,Laws of Exponents,Algebra
+bb24e076-da96-430e-b5f6-05c4f05f8210,Quotient of Powers with Same Base,Laws of Exponents,Algebra
+0d2735ad-66e4-4a30-9edb-3374e2353a7f,Zero Exponent Rule,Laws of Exponents,Algebra
+9744d0b6-85cf-43f6-9f87-c2b45996fe63,Power of a Power Rule,Laws of Exponents,Algebra
+bd9d7050-3f5e-4df3-96d8-3427d535536d,Negative Exponent Rule,Laws of Exponents,Algebra
+af5bb267-e15e-4271-87b6-e0f95654f126,Power of a Product,Laws of Exponents,Algebra
+c1ead597-420a-46af-83b1-ca54fa365160,Power of a Quotient,Laws of Exponents,Algebra
+c0d000f0-7989-4d20-9891-ec20ca9d9970,Definition of Rational Exponent 1/q,Laws of Exponents,Algebra
+b0a9f482-ad9b-4de9-85c8-1bc45a531c52,Rational Exponent p/q Forms,Laws of Exponents,Algebra
+dfcb43c7-d0e1-4875-bf63-8d275ca59981,Logarithm Product Rule,Properties of Logarithms,Algebra
+325efd1a-43bc-4f56-890b-14de2c4c3ef3,Logarithm Quotient Rule,Properties of Logarithms,Algebra
+bef56514-2cce-4796-ad47-0cd8cbe56393,Logarithm Power Rule,Properties of Logarithms,Algebra
+a1d30606-44ec-4527-97d1-1463eb84b227,Logarithm Base and One Identities,Properties of Logarithms,Algebra
+2c57ac55-a3e3-48e3-a139-7e8b34dcb268,Change of Base Formula for Logarithms,Properties of Logarithms,Algebra
+c6c660bf-8895-4a62-ae33-a38490a9c7e8,Nth-Term Formula of a Sequence,Sequences and Series,Algebra
+d10672e7-6e74-4187-9539-6f6afb3c2cff,Extending a Sequence Using Its Pattern,Sequences and Series,Algebra
+d6606564-7855-42ab-991c-7b7c8b33b45f,Generating a Sequence from a Given Rule,Sequences and Series,Algebra
+750b3e79-23a7-446b-8191-ca8219399644,Exponent Product Rule,Laws of Exponents,Number
+da99dc91-208c-4adc-8990-e20dd70821bd,Exponent Quotient Rule,Laws of Exponents,Number
+d7fc538c-1708-4d79-a244-a810b265913e,Power of a Product Rule,Laws of Exponents,Number
+874d28c6-84fd-4bb3-9a0b-3c4a401da8ef,Power of a Quotient Rule,Laws of Exponents,Number
+92a30043-bf84-4edb-b62d-e51b77ba3c91,Negative Exponent,Laws of Exponents,Number
+4dbbe302-eaa5-4418-b3bc-9fb6dfaf8c88,Zero Exponent,Laws of Exponents,Number
+5d682207-9695-4a61-b396-1656a297183e,Rational Exponents as Radicals,Laws of Exponents,Number
+07fea58d-afa4-4469-aa81-2ff17f26a45f,Logarithm of the Base Equals 1,Properties of Logarithms,Algebra
+17fbd488-c86a-448c-947a-28143ead4eda,Logarithm of 1 Equals 0,Properties of Logarithms,Algebra
+fd1f016a-81f9-4acc-998f-235a13fb687b,Percentage Profit or Loss on Cost Price,Profit and Loss,Financial Mathematics
+badf1a04-3412-47c9-8e12-b1a5c48ab875,Profit or Loss Amount from Cost and Selling Price,Profit and Loss,Financial Mathematics
+ad87b721-2d3f-4f49-9463-a0b02f7b225c,Selling Price from Cost Price and Percentage Profit or Loss,Profit and Loss,Financial Mathematics
+ed325e92-71e1-4768-8504-d148768cb735,Percentage Discount Calculation,Percentages,Financial Mathematics
+2d158697-6c84-41f9-8a54-2385a0e49bfb,Final Price after Discount,Discount,Financial Mathematics
+a7f34bbd-bc68-4641-93cf-a81207a71c50,Compound Interest Calculation (up to 3 periods),Interest Calculations,Financial Mathematics
+82b3072c-dffe-47c1-99ea-f64ab10a8347,Income Tax Calculation at Standard Rate,Taxation,Financial Mathematics
+a7a7d9e5-00d8-4783-97e0-61f1d7157cf3,Net Pay Calculation with Fixed and Percentage Deductions,Payroll Calculations,Financial Mathematics
+c986b947-a533-4a9b-a1b2-16e0d4ea32b3,Metric Unit Conversion,Unit Conversion,Measurement
+0b5a6e84-fcf9-4ece-beec-d9c1fce90e41,Time Conversion and Interval Calculation,Time Calculations,Measurement
+c0155759-01a3-43f8-8486-cec0cdbfadb8,"Average Speed, Distance, and Time Calculations",Rate Problems,Measurement
+0589dcd2-82ce-4a88-add7-85f999c4554a,Value-Added Tax (VAT) Calculation,Taxation,Financial Mathematics
+3c05c988-69eb-4b4e-8821-ce24d26dc67b,Currency Conversion Using Exchange Rates,Rates and Proportion,Financial Mathematics
+2f4bbbc6-55c5-4b86-9c8d-87a8d544a6f4,Tariff Cost Calculation with Fixed and Usage Charges,Rates and Proportion,Financial Mathematics
+76fabc1f-c62f-4137-aabc-a40a1374785f,Consumption Calculation from Meter Readings,Measurement Applications,Measurement
+0b01b957-659f-4c0f-94bf-9783fba40b44,Timetable Interpretation for Travel Planning,Time Calculations,Measurement
+9a20f1f9-8edb-4198-8aa3-07df3e9d031d,Unit Price Comparison for Best Value,Ratio and Proportion,Number
+73d0bf2b-c8b8-4f24-b37f-fe766c125ed8,Direct Proportion Problem Solving (Unitary Method),Ratio and Proportion,Number
+a1c67fce-fa5c-46f8-a084-a82277754889,Simplifying Ratios,Ratio and Proportion,Number
+e594d769-18e3-4806-9d75-16b581736416,Volume of Rectangular Prisms,Volume,Geometry
+0a4b8e5c-fd01-48c8-897e-a499d3b27f03,Surface Area of Rectangular Prisms,Surface Area,Geometry
+65a42f27-6df0-4f2d-9b09-ab45a6707a89,Volume of Cylinders,Volume,Geometry
+e38d6614-322a-417f-a0e4-7557317206d0,Surface Area of Cylinders,Surface Area,Geometry
+60a7b5eb-fb17-408f-b60a-fc04f3bd8124,Volume of Spheres,Volume,Geometry
+d5a040a4-04b9-4b5d-815d-e1fdd60a2b52,Surface Area of Spheres,Surface Area,Geometry
+fddd398d-6e67-497e-a96a-f6144bd25722,Distinguishing Surface Area and Volume,Geometric Measurement,Geometry
+496e48cc-dcfd-4b92-a656-dc6535a5997d,Using Nets to Compute Surface Area,Nets of Solids,Geometry
+20a99ec9-653a-4755-9bb0-e100c967cfc9,Nets of Rectangular Prisms,Nets of Solids,Geometry
+fb25894e-002d-4a65-8759-a6d4a4d7d7db,Nets of Cylinders,Nets of Solids,Geometry
+3e09d3b0-c083-4a72-b73f-e6188307fce2,"Relationship Between Circumference, Diameter, and Pi",Circle Geometry,Geometry
+c9417df8-28bd-4f4e-aa1d-e1451d9770b9,Circumference of a Circle,Perimeter,Geometry
+30af8678-4796-4c3b-83cd-4d3ed19bc16d,Area of a Circle,Area,Geometry
+0e2709da-8c60-4e92-8967-9c91d6bfaaa1,Area of a Triangle,Area,Geometry
+56601cc9-742b-4879-9676-4a49db9aa56a,Area of a Rectangle,Area,Geometry
+4e77072b-7a6b-4da6-a4d0-0703f69c4bbb,Area of a Square,Area,Geometry
+9ce80232-bdaf-4d53-ad13-8dcc42f6ab78,Perimeter of a Rectangle,Perimeter,Geometry
+6fd538c4-6799-4dc3-9fda-23342b5be3e1,Perimeter of a Square,Perimeter,Geometry
+85c67fe4-cbb7-46a3-874c-52e453af3fe9,Perimeter of a Triangle,Perimeter,Geometry
+117aa0f8-ab76-42b4-becb-277e6757ab0c,Area of Composite Shapes,Composite Figures,Geometry
+2e3c872b-cde5-47ef-b2f3-c8e6d678cc26,Perimeter of Composite Shapes,Composite Figures,Geometry
+b129dd8f-0f52-4fff-ab5e-2383163779de,Estimating Area of Irregular Shapes,Estimation,Geometry
+2c60aadc-1e30-4cd5-90be-0cb3b0eb64dd,Drawing and Interpreting Scale Diagrams,Scale and Proportion,Geometry
+d0dad422-33e4-41df-9e86-7784bb781415,Multi-Step Problems with Surface Area and Volume of Prisms and Cylinders,Problem Solving in Geometry,Geometry
+4cb5a689-d76e-4825-9eaa-c72876c4f991,Present Value Calculations for Loans and Investments,Time Value of Money,Financial Mathematics
+5b14be40-fc3d-4c1e-9975-a48de3700cb1,Compound Interest Computation,Time Value of Money,Financial Mathematics
+90465da0-0887-4ed6-87a1-5f73d610d155,Reducing Balance Depreciation,Financial Mathematics,Financial Mathematics
+b7bc598d-5fe3-4b54-9f01-62f5e1263126,Net Pay Calculation with Income Tax and Deductions,Personal Finance Mathematics,Financial Mathematics
+4d6aa8e6-3c09-491b-a1c5-a22639b2c70c,Selling Price Calculation with Markup or Discount,"Profit, Loss, and Pricing",Financial Mathematics
+6a9cf772-f08c-4bf1-9ef5-cf6839a028e4,Margin Calculation (Profit as Percentage of Selling Price),"Profit, Loss, and Pricing",Financial Mathematics
+b565bfdb-6479-4583-aa66-916646637295,Markup Calculation (Profit as Percentage of Cost Price),"Profit, Loss, and Pricing",Financial Mathematics
+2fe2e17d-8df0-4701-8e3c-aa401413c926,Loss Calculation from Cost and Selling Price,"Profit, Loss, and Pricing",Financial Mathematics
+e99dc0a8-7fae-4d24-903b-6ac5c0719669,Imperial-to-Metric Conversion Using Provided Factors,Units and Measurement,Measurement
+ecb8e2a2-222a-432d-84f1-88a5324d3f49,Average Rate of Change with Respect to Time,Rates and Proportional Reasoning,Algebra
+091f0cd6-9991-4ab8-bd4e-e5ebdb7393f8,Percentage Error Calculation,Error Analysis,Measurement
+63006442-de29-45da-a1c4-452f487f94ec,Tolerance Intervals in Measurement,Error Analysis,Measurement
+13c07a7a-4423-4e01-852c-42f2337690cb,Error Propagation under Addition and Subtraction,Error Analysis,Measurement
+a76ac669-8905-409b-9c5e-ca6ee93d5980,Rounding to Specified Precision,Estimation and Approximation,Number
+6b652897-f5cf-46c1-84cb-1396cd5222fa,Estimation and Approximation in Calculations,Estimation and Approximation,Number
+9f0fb16d-43bf-49af-a0ce-b1c967f98111,Reasonableness Check by Order of Magnitude,Estimation and Approximation,Number
+15b63f8b-083d-46ce-b2b0-ce0f75318c43,Check Solutions by Working Backwards,Problem Solving Strategies,Number
+8e010428-74ba-4d89-ae1e-9fb9deaa791e,"Job Costing with Materials, Labour, and Wastage",Costing and Budgeting,Financial Mathematics
+0bbc3292-6a70-4a5a-8d35-e102544aca81,Estimation of Physical Measures,Measurement,Measurement
+99c891a6-50a6-4c9b-9ea6-a8d72f85cb28,Area of a Circle (Disc),Mensuration,Geometry
+292307f4-e25e-4fd4-82f5-6f546f5cb830,Area of a Parallelogram,Mensuration,Geometry
+b2ca63aa-1f83-4217-b519-5028c05bb8e0,Perimeter of a Parallelogram,Mensuration,Geometry
+5acfc2fd-8780-4e44-b72b-31b165cd8561,Area of a Trapezium,Mensuration,Geometry
+558f3afc-8c16-4d8f-a5c5-5a76f503feb8,Perimeter of a Trapezium,Mensuration,Geometry
+ff452a0b-c23c-4604-8820-b76bbc8cb328,Area of a Circular Sector,Mensuration,Geometry
+82dc5b83-4621-4f42-a740-ac92c5317080,Perimeter of a Circular Sector,Mensuration,Geometry
+27820c0d-329a-4668-91b3-f6f73dd87e9f,Area of Composite Plane Figures,Mensuration,Geometry
+5d191511-92f6-4b4b-8068-d3006ad1b6b4,Perimeter of Composite Plane Figures,Mensuration,Geometry
+56a67d0b-7940-4981-9705-61b049b72eb5,Trapezoidal Rule for Area Approximation,Numerical Integration,Geometry
+b2dd47d1-227c-42d7-8e29-97af556c39c1,Surface Area of a Rectangular Prism,Mensuration,Geometry
+4e102427-9665-4231-999f-8c4d25986845,Volume of a Rectangular Prism,Mensuration,Geometry
+798dfeb5-e5d2-476d-adaf-1f8132cd15b0,Surface Area of a Cylinder,Mensuration,Geometry
+eaac22fe-f315-4f13-81fa-6cd113723944,Volume of a Cylinder,Mensuration,Geometry
+9e90d96d-aa7d-449e-8e3f-8d366965a3c2,Surface Area of a Right Circular Cone,Mensuration,Geometry
+f421b62f-ed01-4223-bc07-698b1f38edac,Volume of a Right Circular Cone,Mensuration,Geometry
+24f73c27-c503-45b3-a246-90505a0b9064,Surface Area of a Triangular Prism,Mensuration,Geometry
+32aac1fc-e9ac-4e75-b3f9-e023b57cacb5,Volume of a Triangular Prism,Mensuration,Geometry
+49026043-95e9-452f-8148-503081922ef0,Surface Area of a Sphere,Mensuration,Geometry
+8dd16119-a4bd-4c58-9ba8-4821f011795c,Volume of a Sphere,Mensuration,Geometry
+a8304342-11cf-4ce8-80b4-9cfef9ca9916,Surface Area of a Hemisphere,Mensuration,Geometry
+1417c9a8-64c7-4eb4-ac2d-df0b4ac6a2fd,Volume of a Hemisphere,Mensuration,Geometry
+5c89b474-3a2e-45b5-9271-e0bfc5494c00,Surface Area of Composite Solids,Mensuration,Geometry
+01422219-dd34-44fb-a836-86413651b86a,Volume of Composite Solids,Mensuration,Geometry
+8bf4fa54-3ee2-4569-a9b6-dfee6acced69,Constructing Nets of Right Prisms,Geometric Nets,Geometry
+f7b78dbc-3a82-4738-8427-c39a781e7c2c,Constructing the Net of a Cylinder,Geometric Nets,Geometry
+fa4d35fe-e076-4850-89c6-88dd59d34876,Constructing the Net of a Right Circular Cone,Geometric Nets,Geometry
+546a8759-9b50-4010-8be4-aaf3f7718a53,Polynomial Expressions,Algebra,Algebra
+3891ee0d-1fc0-46e3-aac7-8c59e6742722,Polynomial Functions,Functions,Algebra
+550c8b04-256e-48aa-a29d-1eec5d8b6e33,Factorising Algebraic Expressions,Algebraic Manipulation,Algebra
+2e9b0fbc-033a-4591-b929-61443c03a118,Simplifying Algebraic Fractions,Algebraic Manipulation,Algebra
+2e0ff60c-68b2-462a-be30-89506d70b133,Binomial Expansion,Algebraic Manipulation,Algebra
+039ec44c-11ba-46fe-be08-1a141cc4bc18,Algebraic Identities,Algebraic Reasoning,Algebra
+18f590e1-a388-49b3-8e30-f39a41141618,Manipulating Formulae,Algebraic Manipulation,Algebra
+e27fe4e6-cbfd-4456-a1cf-45bb8388265f,Linear Number Patterns,Sequences and Patterns,Algebra
+ca71604b-690e-495e-ac2f-bfeb2a2d36f8,Quadratic Number Patterns,Sequences and Patterns,Algebra
+4104e4a1-4d5e-4e10-b4ad-34f9eb7236be,Solving Linear Equations,Algebraic Reasoning,Algebra
+f986be53-04b6-456d-9844-caedb6da5d86,Solving Simultaneous Linear Equations,Algebraic Reasoning,Algebra
+2a6b1215-df94-4fdb-8b2c-1f18c60ba1b7,Solving Quadratic Equations by Factorisation,Algebraic Reasoning,Algebra
+08453721-67c4-4d72-831e-efd3919ca117,Quadratic Formula,Algebraic Reasoning,Algebra
+5a2fd62e-02e3-498b-8b98-9d17d726a479,Nature of Quadratic Roots and Discriminant,Algebraic Reasoning,Algebra
+eb4dab6c-d6bb-4144-9e80-6a8a6565ad79,Solving Quadratic and Linear Equations Simultaneously,Algebraic Reasoning,Algebra
+a7f50236-f652-4d34-ac25-d66f3a74ea80,Forming Quadratic Equations from Given Roots,Algebraic Reasoning,Algebra
+64b18b92-b991-49ba-8f74-802625e3b23d,Completing the Square,Algebraic Reasoning,Algebra
+bfbe51c3-4f8b-4839-9799-d9a0aabbb8b4,Surds and Simplifying Surds,Number Systems,Number
+42894982-f19e-4546-a9c6-b8f3cbda3dd5,Solving Algebraic Surd Equations,Algebraic Reasoning,Algebra
+dde812fb-5432-4a9b-abe6-d2d8702c74b7,Factor Theorem,Algebraic Reasoning,Algebra
+98770a1a-3431-4b33-a2f0-92304feaa475,Factorising Cubic Polynomials Using Factor Theorem,Algebraic Reasoning,Algebra
+c73483d1-dee0-42c0-aa00-17101884c728,Graphs of Cubic Polynomials,Functions,Algebra
+ca462cfd-a8ff-451c-91f9-db47649e58f4,Radian Measure,Angles and Measurement,Trigonometry
+58ddf944-4efe-4650-b873-9a04e144165e,Length of Arc and Area of Sector of a Circle,Measurement,Geometry
+c6702a0e-04a6-46bf-9b46-fb02b87582ab,Basic Trigonometric Ratios,Trigonometric Functions,Trigonometry
+77ae159f-ab88-4bb1-9100-2f9ae0c86319,Trigonometric Functions of Special Angles,Trigonometric Functions,Trigonometry
+4f15285b-ec98-4a7f-9779-952029be7e2a,Trigonometric Functions for Angles above 90° (Unit Circle and Quadrants),Trigonometric Functions,Trigonometry
+43b36c36-809e-4afc-bb4d-d2be9d45d563,Area of a Triangle Using Sine,Triangle Geometry,Geometry
+abc7e7dc-fc7f-43bf-a023-6dd6c3ffb1b9,3D Trigonometric Problem Solving,Spatial Geometry & Trigonometry,Trigonometry
+e5edcf76-5bba-4c94-a8ab-2b5e013d9649,Graphs of Trigonometric Functions,Trigonometric Functions,Trigonometry
+66f2f87f-b6bd-4280-9c3f-b732cb338a87,Amplitude and Period Changes in Trigonometric Graphs,Trigonometric Functions,Trigonometry
+b74585e5-6c84-4abd-83eb-3fdeef9c4c6b,General Solutions of Trigonometric Equations,Trigonometric Equations,Trigonometry
+ecdfdff9-4a35-4018-8a85-2794b5c313f5,Differential Calculus: Average Rate of Change,Calculus,Differential Calculus
+0a3a7ba8-bbc5-43e2-8deb-788a8e892de4,Limits of Functions,Calculus,Differential Calculus
+f30dd883-7593-4982-b28f-4b057e08d155,Differentiation from First Principles,Calculus,Differential Calculus
+c647d1b6-a3be-4391-a826-9e8461c5f52c,Power Rule for Differentiation,Calculus,Differential Calculus
+4f35463f-1600-4e29-a928-6b03111dbcd8,Sum and Difference Rule for Differentiation,Calculus,Differential Calculus
+86dc10d5-372d-4d47-8b52-9bae8536f0a9,Product Rule of Differentiation,Calculus,Differential Calculus
+5720080d-428c-4437-a366-26200c51328f,Quotient Rule of Differentiation,Calculus,Differential Calculus
+6035f82e-3d99-41c9-9acd-b43aad453a14,Chain Rule of Differentiation,Calculus,Differential Calculus
+f4dcb3b3-bbbb-4601-b494-71965c1607f2,Second Derivative,Calculus,Differential Calculus
+ba11c8d1-3166-41fe-99d4-f013a32c49b6,Derivatives of Basic Trigonometric Functions,Calculus,Differential Calculus
+559c1e56-3cf5-4221-a7a7-dd96306eb2ea,Derivatives of Inverse Trigonometric Functions,Calculus,Differential Calculus
+b475b176-412a-4b3b-be01-466b248e601a,Derivatives of Exponential Functions,Calculus,Differential Calculus
+88fbd9a8-24ac-41ce-a9d9-c54af57ef8f8,Derivatives of Logarithmic Functions,Calculus,Differential Calculus
+afdb6495-f301-482c-b597-e6286802ca54,Central Limit Theorem,Sampling Distributions,Statistics
+eccb287a-5ea0-447c-8c74-0d80a3c54b01,Confidence Interval for a Population Mean (σ known),Statistical Inference,Statistics
+672b7dc6-73d3-4a45-a729-e7e8c7ef2b67,Confidence Interval for a Population Proportion,Statistical Inference,Statistics
+126b57b5-6054-41b3-b2b6-d548bced48b0,Margin of Error Approximation for Proportions,Confidence Intervals,Statistics
+504d192d-142d-4df9-956b-9dc51d9d3feb,Hypothesis Test for a Population Mean (z-test),Hypothesis Testing,Statistics
+30ce4191-a073-4f37-a94c-94f63aa54619,Hypothesis Test for a Population Proportion,Hypothesis Testing,Statistics
+79b4412f-5b19-488e-97ab-6944a0e7fe17,p-value Interpretation in Hypothesis Testing,Hypothesis Testing,Statistics
+e0d7fa65-9366-4c2f-a8b4-92f0260a0e4c,Standard Score (z-score),Normal Distribution,Statistics
+0f6550cc-fe61-49c8-b9bd-3733d45a116b,Standard Normal Distribution (Z Distribution),Normal Distribution,Statistics
+86dd563d-bcb2-4a52-b855-c67b932802f5,Transforming Normal Variables to Z,Normal Distribution,Statistics
+2bb4e524-fb6a-4200-9ff9-c3c274c649e2,Empirical Rule (68-95-99.7 Rule),Normal Distribution,Statistics
+7a97b2f5-f269-48f1-884d-d7b30a3f3478,Scatter Plot Interpretation,Bivariate Data,Statistics
+29129ce4-f7d8-4eb3-8622-e8a59c9f52ae,Correlation Coefficient (Pearson’s r),Correlation and Regression,Statistics
+3cf846df-1d95-4748-acc4-99bf7f08db94,Line of Best Fit (Least Squares Line) by Eye,Correlation and Regression,Statistics
+58e83c99-099e-4ce5-80b9-3c0e556802a4,Correlation vs Causation,Statistical Reasoning,Statistics
+b42369d7-8939-40af-83e5-1cd2d8d77363,Binomial Distribution,Discrete Probability Distributions,Probability
+07478eae-fc57-40fa-b494-e00d57b06668,Bernoulli Trials Model,Probability Models,Probability
+202b1c9a-d03c-4691-adec-c1a30213b83a,Geometric Probability of First Success,Discrete Probability Distributions,Probability
+f1fb7aac-79ed-4e3e-9477-65f49e418af7,Negative Binomial: kth Success on nth Trial,Discrete Probability Distributions,Probability
+58c1dc66-9813-4e10-b31f-b4dd9f22c63c,Independence of Events,Probability Rules,Probability
+efbe9291-55d0-431e-8afc-de340d23033c,Tree Diagrams for Compound Events,Counting and Probability,Probability
+f5b0e0de-61ec-4734-ad5b-1fe7a7a49c70,Expected Value of a Discrete Random Variable,Random Variables,Probability
+7c1809d7-1fd5-4cd6-ba86-2afd575c3433,Fair Game Criterion,Expected Value,Probability
+9cad5e68-8100-4dc7-817f-92568a4c4e94,Probability Simulations,Experimental Probability,Probability
+4f56af92-8df9-4ccf-b731-381706a53f81,Complement Rule for 'At Least One',Probability Rules,Probability
+d8f12d34-7466-4715-9b8f-910accf521b0,Complex Numbers in Rectangular Form,Complex Numbers,Algebra
+534c5c2f-6767-4b21-80a8-e39b7717e5ff,Imaginary Unit and Powers of i,Complex Numbers,Algebra
+af27e479-4c5a-4a16-a821-a77cce52b3d1,Addition and Subtraction of Complex Numbers,Complex Number Arithmetic,Algebra
+698f4958-82a5-4c31-a85f-61b97edfa344,Multiplication of Complex Numbers,Complex Number Arithmetic,Algebra
+9df2d3f2-32ef-492b-a2da-a17d7233901f,Complex Conjugate and Division,Complex Number Arithmetic,Algebra
+75df1af5-6d9e-41dd-8251-7c55311879d6,Equality of Complex Numbers,Complex Numbers,Algebra
+97b6e63b-77b0-452e-bc76-42fb8ee2d1a2,Modulus and Argument of a Complex Number,Complex Numbers in the Plane,Algebra
+9fbb387f-32f4-4237-8c09-fe924c68e55f,Argand Diagram,Complex Numbers in the Plane,Algebra
+57f65719-683e-4853-9ab4-682be5dbbec8,Polar (Modulus-Argument) Form,Complex Numbers in the Plane,Algebra
+2a55e273-4af0-489f-8754-86bdb8232d89,Product and Quotient in Polar Form,Complex Numbers in the Plane,Algebra
+24cf077f-8306-48c3-8362-e227b67c6c4b,De Moivre’s Theorem,Complex Numbers in the Plane,Algebra
+0566b438-dfdf-4d04-93bd-73e3fdf2c46e,nth Roots of a Complex Number,Complex Numbers,Algebra
+726c74c5-7872-407e-8453-d87387e94ff9,Conjugate Roots Theorem,Polynomial Equations,Algebra
+81a860c6-903c-4f0e-ac81-e06b30136418,"Function, Domain, Codomain, and Range",Functions,Algebra
+d6679d51-862b-4429-8efe-0ff385d16a5f,Vertical Line Test,Functions,Algebra
+7c41320d-9003-45c1-be0d-a5fa24ffbd72,Composite Functions,Functions,Algebra
+2664b5e4-9caf-499e-8298-c1c2b4e9d1bf,"Injective, Surjective, and Bijective Functions",Functions,Algebra
+5d93f1eb-19e0-4238-846a-d8b57d6e8ac0,Inverse Function and Reflection in y=x,Functions,Algebra
+879eff70-6568-4e6d-a1f5-f34eedbcd37c,Quadratic Sketching by Completing the Square,Quadratic Functions,Algebra
+211380fb-318b-442d-9102-66fb74d7092b,Cubic Graph Features and Turning Points,Polynomial Functions,Algebra
+6cca521d-018c-479d-8f44-08f7c73c38fd,Graph Transformations: Translations and Reflections,Function Transformations,Algebra
+fbd37fba-ee9c-4383-a5f0-17b4f5e32cae,Exponential Functions and Asymptotes,Exponential and Logarithmic Functions,Algebra
+45bac66b-5fce-4acd-a6c0-82ca86e49864,Natural Exponential and Natural Logarithm,Exponential and Logarithmic Functions,Algebra
+3eef931a-db11-4890-ab6d-137aba328b0d,Power Rule for Antiderivatives,Integration Techniques,Calculus
+579122bf-9afd-49a6-8a20-b29b5903b86e,Linearity of Integration,Integration Properties,Calculus
+3e9d4ede-1f21-4855-9bfc-59ff240ef2f8,Integrating Exponential and Trigonometric Functions,Integration Techniques,Calculus
+2002c542-f6e3-4ef7-b5d0-36a7a5e5413a,Antiderivative with Initial Condition,Initial Value Problems,Calculus
+eb3a992f-a8f6-41de-998b-67230dd06000,Definite Integral and Fundamental Theorem,Integration,Calculus
+8a91c0b6-6ba7-44eb-9245-c1773f68f313,Area Under a Curve and Between Curves,Applications of Integration,Calculus
+97d3d1e8-a304-4216-8a07-d5b076711ba3,Average Value of a Function on an Interval,Applications of Integration,Calculus
+a4ea93a2-d2f6-428e-bd43-e1fd7e449658,Tangent Line Using the Derivative,Differential Calculus,Calculus
+44163cc5-51aa-4026-8f42-0e82e573522f,Increasing and Decreasing Functions Test,Differential Calculus,Calculus
+29bd6263-fe32-45a2-88a1-25790f179aa5,Stationary Points and Second Derivative Test,Differential Calculus,Calculus
+b9e164b7-3f1f-4bf2-9287-2ddb8817b660,Points of Inflection,Differential Calculus,Calculus
+70daba89-138a-4a6e-aaf7-b76dff88c262,Optimization via Calculus,Applications of Differential Calculus,Calculus
+1ed94cee-1ba0-4d9f-ad50-63b56e93d5e1,Related Rates Problems,Applications of Differential Calculus,Calculus
+b0e36b61-e6d8-4a23-ab78-14c453561df6,"Linear Motion with Calculus (s, v, a)",Applications of Calculus,Calculus
+025d3958-49b8-4141-a02f-02bc1dda8041,Compound Interest Future Value,Time Value of Money,Financial Mathematics
+806f963a-e2ad-4268-be0a-d7e35ae55b6c,Present Value of a Single Sum,Time Value of Money,Financial Mathematics
+2cddbdb1-096a-4515-bbeb-c7cf5c494fe7,Effective Periodic Rate from AER,Interest Rates,Financial Mathematics
+0a988737-292f-4c26-8c66-ff4b9e8528c5,Reducing-Balance Depreciation,Depreciation Methods,Financial Mathematics
+bb7aa840-d982-4f41-8a96-5095354a7aae,Future Value of Instalment Savings (Annuity Due),Annuities,Financial Mathematics
+54d5129b-85a4-4864-b6b8-705d3b3c3c51,Present Value of an Annuity,Annuities,Financial Mathematics
+0f959ae2-659c-4024-a473-f48dfe68d5f7,Loan/Mortgage Level Payment Formula,Loans and Amortization,Financial Mathematics
+3e04500b-c5c0-4336-9dcc-b1630b4c4d99,Sector Area and Arc Length (Radians),Circle Measurement,Measurement
+4d1f87eb-cdbb-4f05-8aa8-f55a43523780,"Volume and Surface Area of Cylinder, Cone, and Sphere",3D Geometry,Measurement
+c7581be3-f313-4769-a657-1a69c1fa90f7,Frustum of a Cone Volume by Subtraction,3D Geometry,Measurement
+a077f6c4-b9bb-4a20-93cf-d01e1eb47cef,Percentage Error and Tolerance,Measurement Accuracy,Measurement
+c54613f4-bf3f-4ab9-a280-22db8fa87605,Geometric Enlargement with Centre and Scale Factor,Similarity Transformations,Geometry
+aab07ae2-4f10-43ce-aa90-280182f1965d,Constructing a Tangent to a Circle at a Point,Geometric Constructions,Geometry
+1e859a28-64a0-4f00-a6a1-e211c0eab288,Circumcircle and Circumcenter of a Triangle,Triangle Centers,Geometry
+7da853e0-d5f7-4219-b4f6-12be6dc8815a,Incircle and Incenter of a Triangle,Triangle Centers,Geometry
+8a54f186-5e02-4c7a-8b17-fbf2943f7f98,Centroid of a Triangle via Medians,Triangle Centers,Geometry
+3de6d931-4688-4353-ac18-b7476fa9845d,Orthocenter of a Triangle via Altitudes,Triangle Centers,Geometry
+8d66f1a3-b30b-45a2-a69a-c9cf2f6e9e62,Graphing Linear Functions f(x) = ax + b,Function Graphing,Algebra
+526697e7-5966-4f1a-b841-a3a2e247813d,Function: Unique Output for Each Input,Functions,Algebra
+a2609620-dabb-4347-a19f-9178bfc16250,Identifying Functions Among Relations,Functions,Algebra
+025e8e1f-0683-4cef-9ee6-a35e2db1de90,Graphing Contextual Linear Relationships,Function Graphing,Algebra
+be8c286b-3550-4f68-8f5f-ebed254165e9,Function as a Well-Defined Mapping,Functions,Algebra
+b9f09357-d4ef-4b9b-bb83-874e81730bcd,Function Composition (Forming Composite Functions),Functions,Algebra
+cf615837-8a49-4cfd-b263-0cd2268052b7,Graphing Linear Functions y = ax + b,Linear Functions,Algebra
+2af4a0f3-f2b4-4703-aa57-29a53bf68106,Graphing Quadratic Functions y = ax^2 + bx + c,Quadratic Functions,Algebra
+c6025a4f-7c96-47b3-89bd-6fe6b6ad22d4,Completing the Square (Quadratic Functions),Quadratic Functions,Algebra
+879d59fe-e031-42fc-9964-a68c850a1bad,Finding Quadratic Vertex from Completed Square Form,Quadratic Functions,Algebra
+5a952a87-e43d-4867-b9cd-41a26f3a5695,Finding Quadratic Roots from Completed Square Form,Quadratic Functions,Algebra
+2deefa1f-41ab-40ae-b75a-70d165ab0471,Sketching Quadratic Functions Using Vertex Form,Quadratic Functions,Algebra
+30c38d9d-8070-4877-8076-57af5edbd07b,Graphing Cubic Polynomial Functions y = ax^3 + bx^2 + cx + d,Polynomial Functions,Algebra
+b689f085-1a25-41d9-8c87-43c462636d6c,Graphing Exponential Functions y = a b^x,Exponential and Logarithmic Functions,Algebra
+2705490e-be4a-4b8b-a450-9b6363c718e8,Graphing Logarithmic Functions,Exponential and Logarithmic Functions,Algebra
+29cb6255-4ee4-47f4-a92b-ddf0d779adb7,Graphing Basic Trigonometric Functions,Trigonometric Functions,Trigonometry
+6f480eb5-353e-4526-a286-cc63199d8e7c,Interpreting f(x) = g(x) as Graph Intersection,Graphical Equation Solving,Algebra
+4373cddc-d4af-498c-9a98-90f456ba95f5,Graphical Solution of f(x) = 0,Graphical Equation Solving,Algebra
+e556a84a-3c90-4c20-9673-744d84da68fe,Graphical Solution of f(x) = k,Graphical Equation Solving,Algebra
+16f3ae34-7dad-4932-b6ec-20ca9c7d7c2f,Graphical Solution of f(x) = g(x),Graphical Equation Solving,Algebra
+3be312de-2df7-48f0-af85-7e900e7bb9e6,Identifying Injective Functions,Function Properties,Algebra
+26eeee4b-fae8-4e75-a777-ce2eaef57ed1,Identifying Surjective Functions,Function Properties,Algebra
+11104fc3-2052-4ae4-8edf-92817d8817f5,Identifying Bijective Functions,Function Properties,Algebra
+e7ddd211-5a59-4abb-885f-a1c175356269,Finding the Inverse of a Bijective Function,Inverse Functions,Algebra
+2338f4f6-8a01-4be1-b9fd-b48aff3bfc62,Sketching the Graph of an Inverse Function,Inverse Functions,Algebra
+2135d57f-eff9-4fcd-8631-0b3ffc436761,Informal Concept of the Limit of a Function,Limits and Continuity,Calculus
+6ffcd7bd-94e3-4ed9-bdd4-67dacf4b91e6,Informal Concept of Continuity of a Function,Limits and Continuity,Calculus
+8ba58984-5bc9-4701-a458-b3883b1d5c9d,Limit Definition of the Derivative (First Principles),Differentiation,Calculus
+d8deb9f5-03b0-4fcc-acf7-b88f6d2c604f,Power Rule for Differentiation (Rational Exponents),Derivative Rules,Calculus
+7d7de501-d90c-4670-969e-5bbdc4315638,Chain Rule,Derivative Rules,Calculus
+a58e1821-09ae-4fbc-b385-de00d2416003,Product Rule,Derivative Rules,Calculus
+e339e453-65df-49b8-a32b-a8ac3fa54b14,Quotient Rule,Derivative Rules,Calculus
+8c3dd843-52d1-4ceb-97f0-1a67084677da,Derivative of Exponential Functions,Differentiation of Elementary Functions,Calculus
+23ef0d5f-b6cd-41d4-961a-582ff5dd6fee,Derivative of Logarithmic Functions,Differentiation of Elementary Functions,Calculus
+d1d7e76d-8ed7-477e-9c82-978b9269acf8,Derivative of Inverse Functions,Differentiation Techniques,Calculus
+6e31870c-b189-4731-8614-c2f1c7bd880e,Derivative as Slope of a Tangent Line,Applications of Differentiation,Calculus
+be91ffd7-52ae-453d-921d-27c2940cd976,Rates of Change via Derivatives,Applications of Differentiation,Calculus
+7f9f7fbe-967a-4176-a929-591c9c550b17,Finding Local Maxima and Minima Using Derivatives,Applications of Differentiation,Calculus
+ff64e222-9131-41e8-83c3-1cfbd99ddb45,Curve Sketching Using First and Second Derivatives,Applications of Differentiation,Calculus
+e5f332cc-2a67-4308-b23f-6aa87d16ec20,Computing Second Derivatives of Polynomial Functions,Differentiation,Calculus
+3da96e54-d98e-495a-b424-1b3a5b305066,Tangent Slope to a Circle via Differentiation,Applications of Differentiation,Calculus
+dfc4664f-9ad3-4dc3-adce-24788510f482,Integration as the Reverse Process of Differentiation,Integration,Calculus
+2108716f-b667-4050-9d93-8b6e7720a851,Power Rule for Integration (Rational Exponents),Integration Techniques,Calculus
+fc373dc2-4a76-478c-9ac7-a0b9167120a9,Integral of Exponential Functions,Integration Techniques,Calculus
+1b73756e-9206-43c2-8f57-3738f4c64abb,Integrals of Sine and Cosine with Linear Argument,Integration Techniques,Calculus
+172fefd2-ce3c-4c84-ac1c-df0c0aa68c83,Area of Plane Regions via Definite Integrals,Applications of Integration,Calculus
+22b420d9-850c-4bea-80b1-a4613789693a,Writing Arithmetic Expressions for Sequence Terms,Sequences and Patterns,Algebra
+ea46a80c-dd02-4026-85d4-3b2596e3fab7,Using Input-Output Tables for Repeating Patterns,Representations of Functions,Algebra
+9c22a4b5-1dff-473f-aa08-4cf9aab76351,Identifying the Repeating Unit of a Pattern,Sequences and Patterns,Algebra
+ba45170f-9a04-426a-8961-4e9ddd278c89,Generalizing Pattern Rules from Examples,Mathematical Generalization,Algebra
+7419cff7-4da8-4415-a124-af01fe2b5edc,Explaining Pattern Rules in Words,Sequences and Patterns,Algebra
+7a786f9e-6c66-4ca6-b13b-ff2314f31621,Function as Input-Output Correspondence,Functions,Algebra
+a18817bf-26f5-4d36-ba18-49937e8b149e,Translating Repeating Visual Patterns into Numeric Sequences,Sequences and Patterns,Algebra
+908b1513-17f1-4326-a902-e6a5ba1b7c7a,Constructing a Table of Values for a Linear Relationship,Multiple Representations of Linear Relationships,Algebra
+e2f0abec-df56-4185-8cb6-6270360709db,Graphing a Linear Relationship from a Table of Values,Graphing Linear Functions,Algebra
+8b135932-07f3-4981-aa40-c24a732d0e7f,Identifying Constant Rate of Change from a Table,Linear Relationships,Algebra
+130c2fe7-f513-4ac6-af27-6ea3f30dbcea,"Translating Between Diagrams, Tables, and Graphs for Linear Patterns",Multiple Representations of Linear Relationships,Algebra
+c6be6473-dd45-4097-a85e-1daf0f304744,Deriving an Explicit nth-Term Formula for a Linear Pattern,Sequences and Linear Functions,Algebra
+337c8a32-d646-4ae6-9ad8-b8f3f0156986,Determining the Equation of a Linear Relationship from a Table,Linear Functions,Algebra
+80b87bfd-1a4a-4819-9714-2b0ebcee1532,Interpreting Slope as Rate of Change in Context,Linear Functions,Algebra
+78c23f2d-6099-4ac6-ab03-599999faca1c,Interpreting the y-Intercept as Initial Value in Context,Linear Functions,Algebra
+a4532e5c-2bcf-463d-85e7-8c47060ffaa8,Modeling Linear Patterns with Tile or Block Arrangements,Visual Models for Algebraic Patterns,Algebra
+d9cac6c1-d41a-4082-8e26-8a1927914738,Determining the Next Term in a Linear Pattern,Linear Sequences,Algebra
+d96a8004-b7ec-474a-9fea-3dca1671736f,Making Predictions Using a Linear Model,Mathematical Modeling with Linear Functions,Algebra
+dacf4b45-fe21-4d89-aaad-d0b73fda5381,Interpreting Points on a Linear Graph in Context,Graph Interpretation,Algebra
+99e3972c-ad45-4d95-8c85-a0f7357f53d4,Deriving Linear Formula from Data,Linear Functions,Algebra
+478e4a66-4e70-4edc-9bcb-0f618156a216,Constructing Linear Model from Context,Algebraic Modeling,Algebra
+c009d0c2-f3ee-4b69-b320-2dd8172ff4cb,Translating Verbal Linear Rule to Algebraic Formula,Expressions and Equations,Algebra
+90f82318-b425-4416-ab40-70ec382a372e,Identifying Constant Rate of Change in a Pattern,Linear Functions,Algebra
+e3a91f7a-c17a-4325-9e24-23091cf1cf95,Finding y-Intercept from Data,Linear Functions,Algebra
+cc41bcf4-bc68-4646-b914-06106b7ac64c,Nth-Term Formula for an Arithmetic Sequence,Sequences and Series,Algebra
+ebb703c0-85ea-4231-b0af-aec3c4ec0924,Constant Rate of Change in Linear Functions,Linear Functions,Algebra
+0ff5e218-8afc-4b6b-abcb-59d263bf7901,Interpreting Slope and Y-Intercept in Context,Linear Modeling,Algebra
+562a3ea9-896e-46e4-8ec9-9d6e2cd7a9f4,Identifying Slope and Y-Intercept from Graphs and Tables,Linear Functions,Algebra
+990115ad-e577-4719-9344-ecbc69cda099,Translating Between Representations of Linear Relationships,Multiple Representations,Algebra
+78292634-6205-4825-8730-b11a5207e013,Using Tables to Verify Linearity,Linear Functions,Algebra
+43037dda-8015-4c23-8e4a-072d65139203,Finding Intersection of Two Linear Functions,Systems of Linear Equations,Algebra
+0611dee3-41d0-4d9e-82e6-b871e4ef2ad8,Recognizing Directly Proportional Relationships,Proportional Relationships,Algebra
+7cd2d265-cf56-45af-916f-93b85b13d64b,Determining the Constant of Proportionality,Proportional Relationships,Algebra
+303a0cdd-fc91-4ac2-8561-197ae59b7a08,Interpreting Linear Relationships from Verbal Descriptions,Linear Modeling,Algebra
+bd4fcc8c-641f-44ba-b420-a427c6aad97f,Interpreting Distance–Time Graphs,Functions and Graphs,Algebra
+22a15273-ce61-461d-9f8b-f7ac42e63e5f,Interpreting Slope Qualitatively as Rate of Change,Rates of Change,Algebra
+8b04dc5a-7041-4c91-99b9-5409d733bd82,Matching Graphs to Real-World Scenarios,Functions and Graphs,Algebra
+5e379385-5fb7-4392-b5d9-ccd3fb2e47de,"Identifying Increasing, Decreasing, and Constant Intervals on Graphs",Functions and Graphs,Algebra
+46c796c7-7161-4180-83f2-788d8ac7bf31,Reading Function Values from Graphs,Functions and Graphs,Algebra
+2d78f45a-7fab-4f0e-9bd9-eed5b1386657,Sketching Qualitative Graphs from Verbal Descriptions,Mathematical Modeling with Graphs,Algebra
+fa8f0930-0a08-4a9b-b1d2-9de15f687752,Interpreting Speed–Time Graphs,Functions and Graphs,Algebra
+d4da265d-15dd-4b7c-bd4f-dfd0763af085,Estimating Average Rate of Change from a Graph,Rates of Change,Algebra
+92f7e185-54e2-4c27-98f8-6cd3e3215c23,Identifying Intervals of Rest from Motion Graphs,Motion Graphs,Algebra
+27a3de77-b92e-43f8-85eb-12ff44c851af,Substitution in Algebraic Expressions,Algebraic Expressions,Algebra
+fb962ebb-28de-44f4-a4c6-d242dd94a65d,Evaluating Formulas from Real-World Contexts,Formulas,Algebra
+26505c19-acdf-4fea-8bef-d75322ff6830,Order of Operations in Expression Evaluation,Order of Operations,Algebra
+9ac45a53-bd49-48af-9c2f-d4a5b0a9e2f0,Evaluating Multivariable Expressions with Given Values,Expression Evaluation,Algebra
+d9298164-8672-4a7b-b57a-c167bff805af,Evaluating Linear Expressions at a Given Value,Linear Expressions,Algebra
+5bdb7601-d82a-4fa8-b4fa-edfc8f503320,Using Parentheses When Substituting Negative Numbers,Substitution in Algebra,Algebra
+c061a87d-dc48-44af-9212-212932902db5,Addition and Subtraction of Polynomials,Polynomial Operations,Algebra
+f13cf6a0-f47c-4762-88de-2f8156f3352a,Multiplication of Polynomials,Polynomial Operations,Algebra
+c49ca6c7-eb5b-40e0-926c-473b1508d488,Division of Polynomials,Polynomial Operations,Algebra
+656111ec-efd1-4532-974f-ee43b9747f7a,Addition and Subtraction of Rational Expressions with Linear Denominators,Rational Expressions,Algebra
+6f78b3fd-afe1-41fb-af04-ecdbd84cee5a,Multiplication and Division of Rational Algebraic Expressions,Rational Expressions,Algebra
+d395c2ae-ca2b-47e5-9c47-26f046963264,Expanding a Scalar Multiple over a Linear Expression,Algebraic Expansion,Algebra
+7c344103-3b0c-4dd9-8e85-db978c6b7cab,Expanding the Product of Two Binomials,Algebraic Expansion,Algebra
+4f45498f-9c2f-4e52-867f-55ab7caf33b2,Collecting Like Terms in Multivariable Expressions,Simplification of Algebraic Expressions,Algebra
+34723e9f-758c-4c80-ad50-e805192f9d73,Factorisation of Quadratic Expressions over Integers,Polynomial Factorisation,Algebra
+ee33b53c-0e6d-4f42-b6d2-65d250aea2d8,Evaluating Algebraic Expressions by Substitution,Algebraic Evaluation,Algebra
+90940c3a-388f-4fe1-bb34-f859ada1d57b,Rearranging Formulas (Change of Subject),Algebraic Manipulation,Algebra
+ac0f5ca6-b21f-4871-8aea-5db0307e9e8d,Distributive Property of Multiplication over Addition,Algebraic Properties,Algebra
+bc6a626f-169c-4778-a874-5af887fe482b,Binomial Theorem for Expanding (a + b)^n,Polynomial Expansion,Algebra
+81b676bb-8578-4120-b1ea-b59afee57745,Use of Parentheses to Control Order of Operations in Algebra,Algebraic Notation and Structure,Algebra
+007062c8-d9fe-4193-bf32-a81d36493cf3,Operations with Surds in Algebraic Expressions,Radicals and Surds,Algebra
+7b4c1df5-dd39-4122-a65c-1086bdab01f9,Solving Linear Equations ax + b = cx + d,Linear Equations,Algebra
+aa3b6c59-a6e0-4422-8728-82a156b4e727,Graphical Solution of ax + b = cx + d via Line Intersection,Graphical Methods for Equation Solving,Algebra
+3d3217ec-cd32-44e3-8cd4-565707b0ca61,Numeric Solution of Linear Equations using Tables or Trial Values,Numerical Methods for Equation Solving,Algebra
+28af7d62-50d1-45fa-871c-e4eb814db278,Mental Strategies for Solving ax + b = cx + d,Mental Calculation Strategies,Algebra
+e4353148-ecf2-4c9f-9696-cf3ab0cd48db,Interpreting Solutions of Linear Equations in Context,Mathematical Modeling Interpretation,Algebra
+086814ff-7b17-4f79-920a-04bf76e2db1a,Determining Number of Solutions for ax + b = cx + d,Properties of Linear Equations,Algebra
+fd79084f-2ca6-4340-b146-809849f2d16e,Selecting an Appropriate Strategy to Solve Linear Equations,Problem-Solving Strategy Selection,Algebra
+59cf82bb-0f98-4c1d-b948-60eca9aaf577,Solving Linear Inequalities of the Form ax + b (</>/≤/≥) k,Linear Inequalities,Algebra
+72576396-18fb-4bdc-9bd8-3b782c8c834a,Formulating Linear Inequalities from Context,Modeling with Inequalities,Algebra
+bdc7f1ed-6bc4-4a40-9adc-8b43666b1f98,Interpreting Solution Sets of Linear Inequalities in Context,Modeling with Inequalities,Algebra
+3bb4b7fc-91e4-495f-aeb0-f733109144d4,Reversing Inequality When Multiplying or Dividing by a Negative,Properties of Inequalities,Algebra
+fb3d3797-0f1c-478e-aaf9-fac9e2a3ce1f,Graphical Solution of Linear Inequalities g(x) (</>/≤/≥) k,Linear Inequalities,Algebra
+6996f68e-91be-4a69-ada3-60aa2b22b394,Number Line Representation of Linear Inequality Solutions,Linear Inequalities,Algebra
+9d4049dd-0bd6-4c41-9bfa-bf734c470011,Strict vs Non-Strict Inequalities and Endpoint Inclusion,Properties of Inequalities,Algebra
+0a1c92be-51e7-4cdb-8e1d-fcf763da4181,Numeric Methods for Solving Linear Inequalities,Linear Inequalities,Algebra
+130ead71-90e4-4b52-bc0f-523e19601e4c,Mental Strategies for Simple Linear Inequalities,Problem-Solving Strategies,Algebra
+09edd89c-5d74-4c0b-8c28-919a82e134a4,Using Function Notation in Inequalities g(x) (</>/≤/≥) k,Linear Functions,Algebra
+d307918a-3ffa-4569-a93d-d4af06f2b3f3,Solving Quadratic Equations Using the Quadratic Formula,Quadratic Equations,Algebra
+d60e2f9b-5feb-41ef-93c3-6dcfc1fe4676,Solving Simultaneous Linear Equations in Two Variables,Systems of Linear Equations,Algebra
+48fac478-d573-406c-b7bf-d76c427e9c79,Factor Theorem for Polynomials,Polynomial Factorization,Algebra
+79d333d7-eb31-4a46-9934-ef12ac544139,Solving Cubic Equations with an Integer Root,Cubic Equations,Algebra
+f387f544-b3a5-4bbc-b7cf-af3d08989246,Solving a Linear-Quadratic System in Two Variables,Systems of Equations,Algebra
+b1d108b7-dbcf-4396-af60-0b04f2bda23b,Solving Simultaneous Linear Equations in Three Variables,Systems of Linear Equations,Algebra
+76f462a7-8575-4efa-8897-6a2eabc4a473,Solving Linear Equations by Equating Two Linear Functions,Linear Equations,Algebra
+b83ffab8-a2e0-4009-91cd-b19beaba6358,Solving Equations Involving Linear Fractional Expressions,Rational Equations,Algebra
+62366e9e-ed7a-44bd-b44d-fa4faa13ef9c,Forming a Quadratic Equation from Given Integer Roots,Quadratic Equations,Algebra
+d0204358-6f85-484d-8342-2cdc534de9f1,Graphical Solution of Equations,Equation Solving Strategies,Algebra
+01c236f1-bd7c-4cb2-ae8e-f445a14cccd8,Numeric Trial-and-Improvement for Equation Solving,Numerical Methods,Algebra
+6c8b36df-80e9-419c-b39f-9ff6cdfba1ca,Algebraic Manipulation for Solving Equations,Equation Solving Strategies,Algebra
+b9e5d4de-b085-4827-87b6-fdc79bd083a0,Mental Strategies for Solving Simple Equations,Equation Solving Strategies,Algebra
+eed3440a-7af2-4b04-81b0-649472b6e402,"Solving Linear Inequalities ax + b (≤, ≥, <, >) k",Inequalities in One Variable,Algebra
+7ba438ea-a5dc-471c-b7a7-f71e322e0df8,"Solving Quadratic Inequalities ax^2 + bx + c (≤, ≥, <, >) k",Inequalities in One Variable,Algebra
+4179210a-89b0-4ab0-b754-099fafad2f58,"Solving Rational Inequalities (ax + b)/(cx + d) (≤, ≥, <, >) k",Inequalities in One Variable,Algebra
+ba174cc9-97db-42ea-819c-038ebe7545ff,Solving Absolute Value Inequalities |x − a| < b and |x − a| > b,Absolute Value Inequalities,Algebra
+822c98ec-6d4f-4dd4-bb0c-11804a1ce468,Absolute Value Notation |x|,Absolute Value,Algebra
+0e441ac9-8b57-4b17-9d1c-c8b7e90f18b5,Strict vs Non-Strict Inequalities and Boundary Points,Inequalities in One Variable,Algebra
+ea0495b3-56a5-4899-bed5-9e4e990d203e,"Graphical Solution of Inequalities g(x) (≤, ≥, <, >) k",Inequalities in One Variable,Algebra
+aed43be4-cbe6-4cd9-a8fe-5ecb8246879c,Algebraic Manipulation of Inequalities,Inequalities in One Variable,Algebra
+ba54d6b0-388b-42c7-91d9-1caa8a6fc6da,Domain Restrictions in Rational Inequalities,Rational Inequalities,Algebra
+0701cba8-be60-4d5e-a791-feb1dfcb5b7f,Compound Inequalities from Absolute Value,Absolute Value Inequalities,Algebra
+6bae2a56-0fd1-4fc6-b93f-d78a001fc3a8,Numeric (Table-of-Values) Strategy for Inequalities,Inequalities in One Variable,Algebra
+fc54287c-1afa-44a5-b43e-e3b046298c49,Interval Testing for Quadratic and Rational Inequalities,Inequalities in One Variable,Algebra
+3e4bb3b7-30b4-4ed4-96ce-15af3e2d6e3b,De Moivre's Theorem,Complex Numbers,Algebra
+59c8dd7b-7927-4ed1-b29f-19bccb253b06,Proof of De Moivre's Theorem by Mathematical Induction,Mathematical Induction,Algebra
+c55fe31c-f3a0-4fe6-90c3-8559250eb178,Solving Equations of the Form z^n = a (Complex Numbers),Complex Number Equations,Algebra
+e43df25c-2254-495b-a344-d24db0360b54,Polar Form of a Complex Number,Complex Numbers,Algebra
+e837bfcb-1e13-4652-af91-c556888261fd,Conversion Between Rectangular and Polar Forms of Complex Numbers,Complex Numbers,Algebra
+416553d2-7c21-4752-b0e2-c689f6fa78ef,nth Roots of Unity,Complex Numbers,Algebra
+4a759e51-acc2-46e6-9b98-6165a089ea0a,Conjugate Root Theorem for Polynomials with Real Coefficients,Polynomial Equations,Algebra
+69892f9b-fd07-4c78-970d-470d6a5864c6,Solving Quadratic Equations over the Complex Numbers,Quadratic Equations,Algebra
+c92bd910-5bdc-4d24-b6b2-4406f0a173cf,Cosine Triple-Angle Identity,Trigonometric Identities,Trigonometry

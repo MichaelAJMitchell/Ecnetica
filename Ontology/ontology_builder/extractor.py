@@ -33,8 +33,7 @@ class ConceptExtractor:
     
     def process_file(self, file_path: str, output_file: str):
         """Process a single file."""
-        # Archive existing data before starting new extraction
-        self.data_manager.archive_previous_data(output_file)
+
         
         print(f"Processing file: {file_path}")
         
@@ -82,13 +81,8 @@ class ConceptExtractor:
         if not os.path.exists(directory_path):
             raise FileNotFoundError(f"Directory not found: {directory_path}")
         
-        # Load existing data instead of archiving to prevent data loss
-        if os.path.exists(output_file):
-            print(f"Loading existing data from {output_file}")
-            # Initialize data manager with existing data
-            self.data_manager = DataManager(output_file)
-        else:
-            print("Starting with fresh data")
+        # Archive existing data before starting new extraction
+        self.data_manager.archive_previous_data(output_file)
         
         supported_files = []
         for root, dirs, files in os.walk(directory_path):
@@ -101,7 +95,14 @@ class ConceptExtractor:
         
         for file_path in supported_files:
             try:
+                # Load existing data from disk for context (first file loads empty or archived data, subsequent files load from previous saves)
+                self.data_manager.load_from_disk(output_file)
+                
+                # Process the file
                 self.process_file(file_path, output_file)
+                
+                # Clear memory after saving to prevent accumulation across files
+                self.data_manager.clear_memory()
             except Exception as e:
                 print(f"Error processing {file_path}: {str(e)}")
                 continue

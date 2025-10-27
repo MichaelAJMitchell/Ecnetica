@@ -2,8 +2,8 @@
 Data Manager - Handles JSON output and archiving
 
 This module manages all extracted data, providing storage, organization, and
-output functionality. It handles the conversion to the required JSON format
-and implements a modular archiving system to preserve previous results.
+output functionality. It stores data in the native format specified in config.py
+(concepts and relationships) and implements a modular archiving system to preserve previous results.
 """
 
 import os
@@ -17,8 +17,12 @@ class DataManager:
     Manages the storage, organization, and output of extracted concepts and relationships.
     
     This class serves as the data hub, collecting all extracted information and
-    converting it to the required JSON format that matches your existing graph-data.json
-    structure. It also handles archiving to prevent data loss during updates.
+    storing it in the native format as specified in config.py (concepts and relationships).
+    It also handles archiving to prevent data loss during updates.
+    
+    Data is stored in native format:
+    - concepts: List of concept objects with fields from config.py (name, explanation, etc.)
+    - relationships: List of relationship objects with fields from config.py (prerequisite_concept_id, etc.)
     """
     
     def __init__(self):
@@ -28,8 +32,6 @@ class DataManager:
         The data manager maintains two main collections:
         - concepts: All extracted mathematical concepts with detailed metadata
         - relationships: All identified relationships between concepts
-        
-        These are built up during processing and then converted to the final JSON format.
         """
         self.concepts = []
         self.relationships = []
@@ -39,8 +41,7 @@ class DataManager:
         Add new concepts to the internal data structure.
         
         This method processes newly extracted concepts, ensuring they don't duplicate
-        existing ones and maintaining consistent data structure. It handles the
-        conversion from LLM output format to internal storage format.
+        existing ones and maintaining consistent data structure.
         
         Args:
             concepts: List of concept dictionaries from the LLM extraction
@@ -78,7 +79,7 @@ class DataManager:
         Each relationship should contain:
             - prerequisite_concept_id: ID or name of the prerequisite concept
             - dependent_concept_id: ID or name of the dependent concept
-            - relationship_type: Nature of the relationship
+            - relationship_type: Nature of the relationship (prerequisite, builds_on, etc.)
             - strength: Confidence level (0.0 to 1.0)
         """
         for relationship in relationships:
@@ -107,9 +108,41 @@ class DataManager:
         """Get all relationships for context in prompts."""
         return self.relationships
     
+    def load_from_disk(self, output_file: str):
+        """
+        Load concepts and relationships from disk into memory.
+        
+        This is used when processing multiple files to reload data from the previous file.
+        
+        Args:
+            output_file: Path to the JSON file to load from
+        """
+        if os.path.exists(output_file):
+            try:
+                with open(output_file, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    self.concepts = data.get('concepts', [])
+                    self.relationships = data.get('relationships', [])
+                    print(f"Loaded {len(self.concepts)} concepts and {len(self.relationships)} relationships from disk")
+            except (json.JSONDecodeError, KeyError) as e:
+                print(f"Warning: Could not load data from {output_file}: {e}")
+                self.concepts = []
+                self.relationships = []
+        else:
+            self.concepts = []
+            self.relationships = []
+    
+    def clear_memory(self):
+        """
+        Clear all concepts and relationships from memory.
+        Used after saving to prevent memory accumulation across files.
+        """
+        self.concepts = []
+        self.relationships = []
+    
     def save_to_json(self, output_file: str):
         """
-        Save all extracted data to JSON format, appending to existing file if it exists.
+        Save all extracted data to JSON format in native structure, appending to existing file if it exists.
         
         This method now works incrementally - it loads existing data and appends new data.
         This allows for continuous saving during multi-file processing.
@@ -118,59 +151,43 @@ class DataManager:
             output_file: Path where the JSON file should be saved
         """
         # Load existing data if file exists
-        existing_nodes = []
-        existing_edges = []
+        existing_concepts = []
+        existing_relationships = []
         
         if os.path.exists(output_file):
             try:
                 with open(output_file, 'r', encoding='utf-8') as f:
                     existing_data = json.load(f)
-                    existing_nodes = existing_data.get('nodes', [])
-                    existing_edges = existing_data.get('edges', [])
+                    existing_concepts = existing_data.get('concepts', [])
+                    existing_relationships = existing_data.get('relationships', [])
             except (json.JSONDecodeError, KeyError) as e:
                 print(f"Warning: Could not load existing data from {output_file}: {e}")
                 print("Starting fresh...")
         
-        # Convert concepts to nodes format
-        new_nodes = []
-        for concept in self.concepts:
-            node = {
-                'id': concept['id'],
-                'label': concept['name'],
-                'group': concept.get('strand', 'Unknown'),
-                'title': concept.get('explanation', ''),
-                'broader_concept': concept.get('broader_concept', ''),
-                'grade_level': concept.get('grade_level', ''),
-                'difficulty': concept.get('difficulty', '')
-            }
-            new_nodes.append(node)
+        # Only save concepts/relationships that aren't already on disk
+        # This prevents duplicates when processing multiple files while keeping context in memory
+        existing_concept_ids = {c.get('id') for c in existing_concepts}
+        existing_relationship_ids = {r.get('id') for r in existing_relationships}
         
-        # Convert relationships to edges format using IDs directly
-        new_edges = []
-        for relationship in self.relationships:
-            edge = {
-                'from': relationship.get('prerequisite_concept_id', ''),  # Direct ID reference
-                'to': relationship.get('dependent_concept_id', ''),       # Direct ID reference
-                'strength': relationship.get('strength', 0.5)
-            }
-            new_edges.append(edge)
+        new_concepts = [c for c in self.concepts if c.get('id') not in existing_concept_ids]
+        new_relationships = [r for r in self.relationships if r.get('id') not in existing_relationship_ids]
         
         # Combine existing and new data
-        all_nodes = existing_nodes + new_nodes
-        all_edges = existing_edges + new_edges
+        all_concepts = existing_concepts + new_concepts
+        all_relationships = existing_relationships + new_relationships
         
         # Create final JSON structure
         output_data = {
-            'nodes': all_nodes,
-            'edges': all_edges
+            'concepts': all_concepts,
+            'relationships': all_relationships
         }
         
         # Write to file
         with open(output_file, 'w', encoding='utf-8') as f:
             json.dump(output_data, f, indent=2, ensure_ascii=False)
         
-        print(f"Saved {len(new_nodes)} new concepts and {len(new_edges)} new relationships to {output_file}")
-        print(f"Total: {len(all_nodes)} concepts and {len(all_edges)} relationships")
+        print(f"Saved {len(new_concepts)} new concepts and {len(new_relationships)} new relationships to {output_file}")
+        print(f"Total: {len(all_concepts)} concepts and {len(all_relationships)} relationships")
     
     def archive_previous_data(self, output_file: str):
         """

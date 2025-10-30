@@ -1,229 +1,282 @@
 Broader_Concept,Node_Count,Groups,Group_Count
-Mensuration,23,Geometry,1
-Linear Functions,16,Algebra,1
-Laws of Exponents,16,"Algebra, Number",2
-Coordinate Geometry,13,"Coordinate Geometry, Geometry",2
-Calculus,13,Differential Calculus,1
-Complex Numbers,12,Algebra,1
-Functions,12,Algebra,1
-Algebraic Reasoning,12,Algebra,1
-Sequences and Series,11,Algebra,1
-Trigonometric Functions,9,Trigonometry,1
-Inequalities in One Variable,8,Algebra,1
-Properties of Logarithms,7,Algebra,1
-Geometric Constructions,6,Geometry,1
-Number Systems,6,"Number, Number Theory",2
-Rational Number Representations,6,Number,1
-Properties of Operations,6,Number,1
-Indices,6,Number,1
-Sequences and Patterns,6,Algebra,1
-Quadratic Functions,6,Algebra,1
-Systems of Linear Equations,5,Algebra,1
-Arithmetic Models,5,Number,1
-Integer Arithmetic,5,Number,1
-Algebraic Manipulation,5,Algebra,1
-Complex Numbers in the Plane,5,Algebra,1
-Integration Techniques,5,Calculus,1
-Applications of Differentiation,5,Calculus,1
-Functions and Graphs,5,Algebra,1
-Instrument Use in Geometry,4,Geometry,1
-Transformational Geometry,4,Geometry,1
-Enlargement (Dilation) Transformation,4,Geometry,1
-Scale Factor in Enlargement,4,Geometry,1
-Perimeter,4,Geometry,1
-Area,4,Geometry,1
-Time Value of Money,4,Financial Mathematics,1
-"Profit, Loss, and Pricing",4,Financial Mathematics,1
+Mensuration,27,Geometry,1
+Linear Functions,23,Algebra,1
+Coordinate Geometry,19,Geometry,1
+Laws of Exponents,14,Algebra,1
+Geometric Constructions,12,Geometry,1
+Complex Numbers,10,Algebra,1
+Calculus,10,Differential Calculus,1
+Sequences and Series,9,Algebra,1
+Laws of Logarithms,8,Algebra,1
+Functions,8,Algebra,1
+Correlation and Regression,8,Statistics,1
+Mathematical Modeling,8,Algebra,1
+Descriptive Statistics,8,Statistics,1
+Financial Mathematics,7,Number,1
+Sampling,7,Statistics,1
+Systems of Linear Equations,6,Algebra,1
+Geometric Enlargement (Dilation),6,Geometry,1
+Exponents and Indices,6,Number,1
+Commercial Arithmetic,6,Financial Mathematics,1
+Algebraic Expressions,6,Algebra,1
+Exploratory Data Analysis,6,Statistics,1
+Differential Calculus,6,Calculus,1
+Functions and Graphs,6,Algebra,1
+Graphical Data Representation,6,Statistics,1
+Circle Geometry,5,Geometry,1
+Area Measurement,5,Geometry,1
+Sequences and Patterns,5,Algebra,1
+Equations,5,Algebra,1
+Quadratic Equations,5,Algebra,1
+Trigonometry,5,Trigonometry,1
+Statistical Inference,5,Statistics,1
+Integral Calculus,5,Calculus,1
+Discrete Probability Distributions,5,Probability,1
+Inequalities in One Variable,5,Algebra,1
+Right Triangle Trigonometry,4,Trigonometry,1
+Geometric Transformations,4,Geometry,1
+Proof and Reasoning,4,Geometry,1
+Propositional Logic,4,Geometry,1
+Trigonometric Functions,4,"Algebra, Trigonometry",2
+Function Transformations,4,"Algebra, Trigonometry",2
+Number Systems,4,"Number, Number and Operations",2
+Percentages,4,"Number, Ratios and Proportional Relationships",2
+Perimeter Measurement,4,Geometry,1
+Algebraic Manipulations,4,Algebra,1
 Normal Distribution,4,Statistics,1
-Exponential and Logarithmic Functions,4,Algebra,1
-Differential Calculus,4,Calculus,1
-Triangle Centers,4,Geometry,1
-Graphical Equation Solving,4,Algebra,1
-Derivative Rules,4,Calculus,1
-Linear Inequalities,4,Algebra,1
-Geometric Measurement,3,Geometry,1
-Trigonometric Ratios,3,Trigonometry,1
-Enlargement (Dilation) in the Plane,3,Geometry,1
-Circular Measure,3,Trigonometry,1
+Statistical Reasoning,4,Statistics,1
+Quadratic Functions,4,Algebra,1
+Statistical Literacy,4,Statistics,1
+Bivariate Data Analysis,4,Statistics,1
+Data Visualization,4,Statistics,1
+Proof Techniques,3,"Algebra, Geometry",2
 Triangle Trigonometry,3,Trigonometry,1
-Graphing Trigonometric Functions,3,Trigonometry,1
-Trigonometric Equations,3,Trigonometry,1
-Number Theory,3,Number Theory,1
-Profit and Loss,3,Financial Mathematics,1
-Ratio and Proportion,3,Number,1
-Volume,3,Geometry,1
-Surface Area,3,Geometry,1
-Nets of Solids,3,Geometry,1
-Error Analysis,3,Measurement,1
-Estimation and Approximation,3,Number,1
+Rational Number Operations,3,"Number, Number and Operations",2
+Rational Number Concepts,3,Number and Operations,1
+Arithmetic Properties,3,Algebra,1
+Divisibility,3,Number Theory,1
+Proportional Reasoning,3,"Number, Ratios and Proportional Relationships",2
+Numerical Approximation,3,"Geometry, Number",2
+Estimation and Reasonableness,3,Number,1
+Rates and Proportional Relationships,3,"Measurement, Number",2
+Volume of Solids,3,Geometry,1
+Surface Area of Solids,3,Geometry,1
+Time Value of Money,3,Financial Mathematics,1
+Approximation and Error,3,Measurement,1
 Geometric Nets,3,Geometry,1
-Hypothesis Testing,3,Statistics,1
-Discrete Probability Distributions,3,Probability,1
-Complex Number Arithmetic,3,Algebra,1
-Applications of Integration,3,Calculus,1
-Function Properties,3,Algebra,1
 Polynomial Operations,3,Algebra,1
-Quadratic Equations,3,Algebra,1
-Equation Solving Strategies,3,Algebra,1
-Similarity Transformations,2,Geometry,1
-Proof Techniques,2,"Algebra, Geometry",2
-Mathematical Statements,2,Geometry,1
-Propositional Logic,2,Geometry,1
-Transformations of Trigonometric Functions,2,Trigonometry,1
-Rational Number Operations,2,Number,1
+Data Representation,3,Statistics,1
+Sampling Distributions,3,Statistics,1
+Hypothesis Testing,3,Statistics,1
+Differential Calculus Applications,3,Calculus,1
+Polynomial Equations,3,Algebra,1
+Function Properties,3,Algebra,1
+Graphical Solution Methods,3,Algebra,1
+Derivatives of Elementary Functions,3,Calculus,1
+Optimization,3,Calculus,1
+Sequences,3,Algebra,1
+Pattern Generalization,3,Algebra,1
+Polynomial Algebra,3,Algebra,1
+Linear Inequalities in One Variable,3,Algebra,1
+Theoretical Probability,3,"Probability, Statistics and Probability",2
+Types of Data,3,Statistics,1
+Measures of Central Tendency,3,Statistics,1
+Measures of Variability,3,Statistics,1
+Sampling Methods,3,Statistics,1
+Statistical Study Types,3,Statistics,1
+Measurement in Geometry,2,Geometry,1
+Enlargement (Dilation),2,Geometry,1
+Trigonometric Equations,2,Trigonometry,1
+Integer Arithmetic,2,Number and Operations,1
+Numerical Representations,2,Number and Operations,1
+Operation Relationships,2,Number and Operations,1
+Computation Strategies,2,Number and Operations,1
+Integer Concepts,2,Number and Operations,1
+Real Number System,2,Number,1
 Number Representation,2,Number,1
-Basic Sequence Limits,2,Calculus,1
-Financial Mathematics,2,"Algebra, Financial Mathematics",2
-Proportional Reasoning,2,Number,1
-Estimation and Reasonableness,2,Number,1
-Taxation,2,Financial Mathematics,1
+Geometric Series,2,Algebra,1
+Geometric Series Applications,2,Algebra,1
+Sequence Limits,2,Calculus,1
 Time Calculations,2,Measurement,1
-Rates and Proportion,2,Financial Mathematics,1
-Composite Figures,2,Geometry,1
-Measurement,2,"Geometry, Measurement",2
-Statistical Inference,2,Statistics,1
-Correlation and Regression,2,Statistics,1
-Probability Rules,2,Probability,1
-Polynomial Equations,2,Algebra,1
-Polynomial Functions,2,Algebra,1
-Integration,2,Calculus,1
-Applications of Differential Calculus,2,Calculus,1
+Nets of 3D Solids,2,Geometry,1
+Similarity and Scale,2,Geometry,1
+Personal Finance Arithmetic,2,Financial Mathematics,1
+Estimation and Approximation,2,Number,1
+Units and Conversions,2,Measurement,1
+Algebraic Identities,2,Algebra,1
+Trigonometric Laws,2,Trigonometry,1
+Trigonometric Applications,2,Trigonometry,1
+Algebraic Techniques,2,Algebra,1
+Mathematical Proof,2,Mathematical Reasoning,1
+Data Analysis,2,Statistics,1
+Complex Numbers (Polar Form),2,Algebra,1
+Exponential and Logarithmic Functions,2,Algebra,1
 Annuities,2,Financial Mathematics,1
-3D Geometry,2,Measurement,1
-Function Graphing,2,Algebra,1
+Probability Models,2,Probability,1
+Probability Rules,2,Probability,1
 Inverse Functions,2,Algebra,1
-Limits and Continuity,2,Calculus,1
-Differentiation,2,Calculus,1
-Differentiation of Elementary Functions,2,Calculus,1
-Multiple Representations of Linear Relationships,2,Algebra,1
-Linear Modeling,2,Algebra,1
+Limits and Derivatives,2,Calculus,1
+Differentiation Rules,2,Calculus,1
+Implicit and Inverse Function Differentiation,2,Calculus,1
+Function Representation,2,Algebra,1
+Functional Relationships,2,Algebra,1
+Multiple Representations of Functions,2,Algebra,1
 Proportional Relationships,2,Algebra,1
-Rates of Change,2,Algebra,1
+Graph Interpretation,2,Algebra,1
 Rational Expressions,2,Algebra,1
-Algebraic Expansion,2,Algebra,1
 Linear Equations,2,Algebra,1
-Modeling with Inequalities,2,Algebra,1
-Properties of Inequalities,2,Algebra,1
-Absolute Value Inequalities,2,Algebra,1
-Mathematical Modeling,1,Algebra,1
-Problem-Solving Strategies in Algebra,1,Algebra,1
-Estimation Strategies,1,Algebra,1
+Problem-Solving Strategies for Inequalities,2,Algebra,1
+Inequality Notation,2,Algebra,1
+Equation Solving Strategies,2,Algebra,1
+Absolute Value,2,Algebra,1
+Complex Number Representations,2,Algebra,1
+Counting Principles,2,"Combinatorics, Probability and Statistics",2
+Probability Foundations,2,"Probability, Statistics and Probability",2
+Data Quality Assessment,2,Statistics,1
+Categorical Data,2,Statistics,1
+Numerical Data,2,Statistics,1
+Permutations,2,Combinatorics,1
+Conditional Probability,2,Probability,1
+Probability Concepts,2,Probability,1
+Sampling Models,2,Probability,1
+Set Theory in Probability,2,Probability,1
+Sampling and Surveys,2,Statistics,1
+Statistical Investigation,2,Statistics,1
+Data Collection,2,Statistics,1
+Experimental Design,2,Statistics,1
+Linear Modeling,1,Algebra,1
+Coordinate Graphing,1,Algebra,1
 Pythagorean Theorem,1,Geometry,1
-Applications of Trigonometric Ratios,1,Trigonometry,1
 Applications of Trigonometry,1,Trigonometry,1
-Right Triangle Trigonometry,1,Trigonometry,1
-Symmetry in Plane Figures,1,Geometry,1
-Deductive Reasoning,1,Geometry,1
-Foundations of Geometry,1,Geometry,1
-Logical Relationships Between Statements,1,Geometry,1
-Applied Trigonometry,1,Trigonometry,1
+Similarity Transformations,1,Geometry,1
+Similarity,1,Geometry,1
+Symmetry,1,Geometry,1
+Axiomatic Systems,1,Geometry,1
+Angle Measurement,1,Trigonometry,1
+Function Graphs,1,Trigonometry,1
+Exact Trigonometric Values,1,Trigonometry,1
 Right Triangle Geometry,1,Geometry,1
-Exact Values of Trigonometric Functions,1,Trigonometry,1
-Geometric Transformations,1,Geometry,1
-Centre of Enlargement,1,Geometry,1
-Arithmetic Foundations,1,Number,1
-Arithmetic Strategies,1,Number,1
-Rational Number Applications,1,Number,1
-Arithmetic,1,Number,1
-Prime Factorization,1,Number Theory,1
-Number Properties,1,Number Theory,1
-Scientific Notation,1,Number,1
-Rational Numbers,1,Number,1
+Spatial Trigonometry,1,Trigonometry,1
+Transformation Geometry,1,Geometry,1
+Arithmetic Procedures,1,Algebra,1
+Multiplication Models,1,Number and Operations,1
+Multiplication and Division Models,1,Number and Operations,1
+Division Models,1,Number and Operations,1
+Rational Number Applications,1,Number and Operations,1
 Irrational Numbers,1,Number Theory,1
-Series Identities,1,Algebra,1
-Sequences,1,Algebra,1
-Series,1,Algebra,1
-Infinite Series,1,Algebra,1
-Limits,1,Calculus,1
-Geometric Series Applications,1,Algebra,1
-Inequalities,1,Algebra,1
-Divisibility,1,Number Theory,1
-Percent,1,Number,1
-Powers of Ten Representation,1,Number,1
-Approximation and Rounding,1,Number,1
-Solution Verification,1,Algebra,1
-Equality and Equivalence,1,Algebra,1
-Percentages,1,Financial Mathematics,1
-Discount,1,Financial Mathematics,1
-Interest Calculations,1,Financial Mathematics,1
-Payroll Calculations,1,Financial Mathematics,1
-Unit Conversion,1,Measurement,1
-Rate Problems,1,Measurement,1
-Measurement Applications,1,Measurement,1
-Circle Geometry,1,Geometry,1
-Estimation,1,Geometry,1
-Scale and Proportion,1,Geometry,1
-Problem Solving in Geometry,1,Geometry,1
-Personal Finance Mathematics,1,Financial Mathematics,1
-Units and Measurement,1,Measurement,1
-Rates and Proportional Reasoning,1,Algebra,1
-Problem Solving Strategies,1,Number,1
-Costing and Budgeting,1,Financial Mathematics,1
-Numerical Integration,1,Geometry,1
-Algebra,1,Algebra,1
-Angles and Measurement,1,Trigonometry,1
-Triangle Geometry,1,Geometry,1
-Spatial Geometry & Trigonometry,1,Trigonometry,1
-Sampling Distributions,1,Statistics,1
-Confidence Intervals,1,Statistics,1
-Bivariate Data,1,Statistics,1
-Statistical Reasoning,1,Statistics,1
-Probability Models,1,Probability,1
-Counting and Probability,1,Probability,1
-Random Variables,1,Probability,1
-Expected Value,1,Probability,1
-Experimental Probability,1,Probability,1
-Function Transformations,1,Algebra,1
-Integration Properties,1,Calculus,1
-Initial Value Problems,1,Calculus,1
-Applications of Calculus,1,Calculus,1
-Interest Rates,1,Financial Mathematics,1
+Rational Numbers,1,Number,1
+Number Theory,1,Number Theory,1
+Arithmetic,1,Number,1
+Rational Number Representation,1,Number,1
+Fundamental Algebraic Concepts,1,Algebra,1
+Prime and Composite Numbers,1,Number Theory,1
+Numerical Communication,1,Number,1
+Problem-Solving Strategies,1,Mathematical Reasoning,1
+Arithmetic Series,1,Algebra,1
+Recursive Sequences,1,Algebra,1
+Pattern Recognition,1,Algebra,1
+Arithmetic Sequences,1,Algebra,1
+Geometric Sequences,1,Algebra,1
+Exponentiation,1,Algebra,1
+Measurement Conversions,1,Measurement,1
+Ratios,1,Number,1
+Measurement Concepts,1,Geometry,1
+Interest and Growth,1,Financial Mathematics,1
 Depreciation Methods,1,Financial Mathematics,1
-Loans and Amortization,1,Financial Mathematics,1
-Circle Measurement,1,Measurement,1
-Measurement Accuracy,1,Measurement,1
-Differentiation Techniques,1,Calculus,1
-Representations of Functions,1,Algebra,1
-Mathematical Generalization,1,Algebra,1
-Graphing Linear Functions,1,Algebra,1
-Linear Relationships,1,Algebra,1
-Sequences and Linear Functions,1,Algebra,1
-Visual Models for Algebraic Patterns,1,Algebra,1
-Linear Sequences,1,Algebra,1
-Mathematical Modeling with Linear Functions,1,Algebra,1
-Graph Interpretation,1,Algebra,1
-Algebraic Modeling,1,Algebra,1
-Expressions and Equations,1,Algebra,1
-Multiple Representations,1,Algebra,1
-Mathematical Modeling with Graphs,1,Algebra,1
-Motion Graphs,1,Algebra,1
-Algebraic Expressions,1,Algebra,1
-Formulas,1,Algebra,1
-Order of Operations,1,Algebra,1
-Expression Evaluation,1,Algebra,1
-Linear Expressions,1,Algebra,1
-Substitution in Algebra,1,Algebra,1
-Simplification of Algebraic Expressions,1,Algebra,1
+Rates and Proportionality,1,Algebra,1
+Estimation and Measurement,1,Measurement,1
+Polynomial Expressions,1,Algebra,1
 Polynomial Factorisation,1,Algebra,1
-Algebraic Evaluation,1,Algebra,1
-Algebraic Properties,1,Algebra,1
+Quadratic Expressions,1,Algebra,1
+Estimation,1,Statistics,1
+Antidifferentiation,1,Calculus,1
+Integral Applications,1,Calculus,1
+Exponential Growth,1,Financial Mathematics,1
+Interest Rates,1,Financial Mathematics,1
+Depreciation Models,1,Financial Mathematics,1
+Amortization,1,Financial Mathematics,1
+Circle Measure,1,Geometry,1
+Transformations,1,Geometry,1
+Combinatorics in Probability,1,Probability,1
+Graphing Functions,1,Algebra,1
+Polynomial Functions,1,Algebra,1
+Exponential Functions,1,Algebra,1
+Logarithmic Functions,1,Algebra,1
+Equations of Functions,1,Algebra,1
+Limits,1,Calculus,1
+Limits and Continuity,1,Calculus,1
+Derivatives of Trigonometric Functions,1,Calculus,1
+Higher-Order Derivatives,1,Calculus,1
+Graph Analysis,1,Calculus,1
+Implicit Differentiation,1,Calculus,1
+Antiderivatives,1,Calculus,1
+Antiderivatives of Elementary Functions,1,Calculus,1
+Antiderivatives of Trigonometric Functions,1,Calculus,1
+Applications of Integration,1,Calculus,1
+Applications of Definite Integrals,1,Calculus,1
+Pattern Representation,1,Algebra,1
+Patterns and Sequences,1,Algebra,1
+Modular Arithmetic,1,Number Theory,1
+Algebraic Modeling,1,Algebra,1
+Functions and Relations,1,Algebra,1
+Linear Relationships,1,Algebra,1
+Function Families,1,Algebra,1
+Data Interpretation,1,Algebra,1
+Mathematical Reasoning,1,Algebra,1
+Modeling and Reasoning,1,Algebra,1
+Algebraic Formulas,1,Algebra,1
+Arithmetic Operations,1,Algebra,1
+Linear Expressions,1,Algebra,1
+Exponents and Powers,1,Algebra,1
+Algebraic Simplification,1,Algebra,1
+Algebraic Expansion,1,Algebra,1
+Polynomial Multiplication,1,Algebra,1
 Polynomial Expansion,1,Algebra,1
+Polynomial Division,1,Algebra,1
+Algebraic Factorization,1,Algebra,1
+Quadratic Factorization,1,Algebra,1
+Rational Expressions Simplification,1,Algebra,1
+Algebraic Evaluation,1,Algebra,1
 Algebraic Notation and Structure,1,Algebra,1
-Radicals and Surds,1,Algebra,1
-Graphical Methods for Equation Solving,1,Algebra,1
-Numerical Methods for Equation Solving,1,Algebra,1
-Mental Calculation Strategies,1,Algebra,1
-Mathematical Modeling Interpretation,1,Algebra,1
-Properties of Linear Equations,1,Algebra,1
-Problem-Solving Strategy Selection,1,Algebra,1
-Problem-Solving Strategies,1,Algebra,1
-Polynomial Factorization,1,Algebra,1
-Cubic Equations,1,Algebra,1
-Systems of Equations,1,Algebra,1
-Rational Equations,1,Algebra,1
-Numerical Methods,1,Algebra,1
-Absolute Value,1,Algebra,1
-Rational Inequalities,1,Algebra,1
-Mathematical Induction,1,Algebra,1
-Complex Number Equations,1,Algebra,1
-Trigonometric Identities,1,Trigonometry,1
+Manipulation of Algebraic Equations,1,Algebra,1
+Radical Expressions,1,Algebra,1
+Solving Equations by Graphing,1,Algebra,1
+Solving Equations Numerically,1,Algebra,1
+Mental Mathematics,1,Algebra,1
+Mathematical Modelling,1,Algebra,1
+Operations with Rational Numbers,1,Number,1
+Properties of Inequalities,1,Algebra,1
+Mathematical Modeling with Inequalities,1,Algebra,1
+Graphing Linear Functions,1,Algebra,1
+Strategic Competence in Algebra,1,Algebra,1
+Systems of Nonlinear Equations,1,Algebra,1
+Rational Functions,1,Algebra,1
+Inequality Representation,1,Algebra,1
+Problem-Solving Strategies in Algebra,1,Algebra,1
+Complex Equations,1,Algebra,1
+Trigonometric Identities,1,Algebra,1
+Sample Space,1,Probability and Statistics,1
+Probability,1,Statistics and Probability,1
+Experimental Probability,1,Statistics and Probability,1
+Frequentist Probability,1,Statistics and Probability,1
+Sampling Variability,1,Statistics and Probability,1
+Random Variation,1,Statistics and Probability,1
+Sample Spaces and Events,1,Statistics and Probability,1
+Introductory Probability Reasoning,1,Statistics and Probability,1
+Sample Spaces,1,Probability,1
+Sample Space Representation,1,Probability,1
+Combinations,1,Combinatorics,1
+Binomial Coefficients,1,Combinatorics,1
+Random Variables,1,Probability,1
+Decision Theory,1,Probability,1
+Probability in Games,1,Probability,1
+Probability Representations,1,Probability,1
+Sample Space and Events,1,Probability,1
+Data Types,1,Statistics,1
+Data Management,1,Statistics,1
+Data Literacy,1,Statistics,1
+Sampling Principles,1,Statistics,1
+Statistical Bias,1,Statistics,1
+Research Ethics,1,Statistics,1
+Study Evaluation,1,Statistics,1
+Statistical Communication,1,Statistics,1

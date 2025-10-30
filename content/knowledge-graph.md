@@ -188,7 +188,24 @@ document.addEventListener('DOMContentLoaded', function() {
 function loadGraphData(filename) {
     fetch(filename)
         .then(response => response.json())
-        .then(data => {
+        .then(rawData => {
+            // Adapter: if data is in concepts/relationships format, transform to nodes/edges
+            let data = rawData;
+            if (rawData && Array.isArray(rawData.concepts) && Array.isArray(rawData.relationships)) {
+                const nodes = rawData.concepts.map(c => ({
+                    id: c.id,
+                    label: c.name,
+                    group: c.strand || 'Unknown',
+                    title: c.explanation || c.name
+                }));
+                const edges = rawData.relationships.map(r => ({
+                    from: r.prerequisite_concept_id,
+                    to: r.dependent_concept_id,
+                    title: r.relationship_type || 'Relationship',
+                    strength: r.strength
+                }));
+                data = { nodes, edges };
+            }
             // Add initial positioning based on groups
             const groupPositions = {
                 'Algebra': {x: -400, y: -200},

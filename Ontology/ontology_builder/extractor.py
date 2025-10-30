@@ -62,7 +62,7 @@ class ConceptExtractor:
             if new_concepts:
                 self.data_manager.add_concepts(new_concepts)
                 existing_concepts = self.data_manager.get_concepts()  # Now includes concepts with IDs
-            
+            """
             # Step 3: Extract relationships AFTER concepts have IDs
             new_relationships = self._extract_relationships(
                 chunk, new_concepts, existing_concepts, existing_relationships, file_path, i, len(chunks)
@@ -72,6 +72,7 @@ class ConceptExtractor:
             if new_relationships:
                 self.data_manager.add_relationships(new_relationships)
                 existing_relationships = self.data_manager.get_relationships()  # Update for next iteration        
+            """
         # Save incremental progress after each file
         self.data_manager.save_to_json(output_file)
         print(f"Processing complete for {file_path}")

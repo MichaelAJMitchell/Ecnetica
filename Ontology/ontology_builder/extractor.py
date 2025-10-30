@@ -93,6 +93,8 @@ class ConceptExtractor:
         
         print(f"Found {len(supported_files)} supported files to process")
         
+        supported_files.sort()
+
         for file_path in supported_files:
             try:
                 # Load existing data from disk for context (first file loads empty or archived data, subsequent files load from previous saves)

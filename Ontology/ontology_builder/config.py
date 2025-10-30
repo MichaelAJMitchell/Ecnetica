@@ -76,6 +76,25 @@ Return exactly a JSON **array** of concept objects (no additional commentary), w
   }}
 ]
 
+Strand should be one of the following:
+- Algebra
+- Geometry
+- Trigonometry
+- Calculus
+- Number
+- Statistics
+- Probability
+- Financial Mathematics
+- Measurement
+
+Broader_concept should encapsulate a number of smaller concepts or  individual learning steps, while still being a quite specific problem or concept.
+
+Examples of broader concepts:
+- Proof by induction
+- Volume of Solids
+- Binomial Coefficients
+- Rules of Exponents
+
 Rules:
 - If a candidate is vague or covers multiple distinct ideas, **omit it** rather than produce a low-quality entry.  
 - Do not output duplicates — only one object per concept name.  
@@ -83,7 +102,7 @@ Rules:
 
 IMPORTANT: Every concept MUST have a "name" field. All other fields are optional but recommended.
 
-### EXAMPLES  
+### EXAMPLES OF EXTRACTING CONCEPTS
 The following are **good examples** tio be used as inspiration for what should be extracted:
 
 Example 1:

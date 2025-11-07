@@ -141,7 +141,7 @@ O. D. Morris, Paul Cooke
 
 February 2018
 
-## Algebra 1
+# Algebra 1
 
 ## Key words
 
@@ -2266,7 +2266,7 @@ It costs $€ 40$ to manufacture each wheelbarrow.
 (vi) What is the minimum number of wheelbarrows that have to be sold to make a profit each year?
 (vii) Write a rule that determines the profit, $€ P$, from the manufacture and sale of $x$ wheelbarrows.
 
-## Algebra 2
+# Algebra 2
 
 ## Key words
 
@@ -4038,7 +4038,7 @@ Complete the following table.
 (b) once
 (c) not at all.
 
-## 3 Trigonometry 1
+# Trigonometry 1
 
 ## Key words
 
@@ -5804,6 +5804,8 @@ The angle of elevation of P from A is $25^{\circ}$ and the angle of elevation of
 (iii) Draw a sketch $T_{1}$ and $T_{2}$ on the same axes in the domain $0 \leq t \leq 24$.
 (iv) Find the times on this day when the temperatures inside and outside are equal.
 
+# Coordinate Geometry: The Line
+
 ## Key words
 
 equation origin perpendicular parallel intercept translation area collinear slope-intercept internal division ratio centroid circumcentre orthocentre linear relationship
@@ -6930,7 +6932,7 @@ The equation of the line AD is $y=4 x-26$.
 (iv) If C has coordinates ( $8, \mathrm{c}$ ), find the value of c .
 (v) Find the area of the quadrilateral ABCD .
 
-## Probability 1
+# Probability 1
 
 ## Key words
 
@@ -9058,7 +9060,7 @@ Hence find the probabilities that, in the competition, the height she jumps will
 (d) What fraction of the money bet on this game is kept by the charity?
 (e) Based on past experience the organisers know that the game will be played 300 times during the day. If they hope to make a profit of $€ 400.00$ for the day how much should they charge for each play.
 
-## Geometry 1
+# Geometry 1
 
 ## Key words
 
@@ -10209,7 +10211,7 @@ The funnel is filled with a viscous liquid and allowed to pour out through a hol
 Find the value of $x$ so that the area of $\mathrm{AEDF}=$ area of CBEF .
 ![](https://cdn.mathpix.com/cropped/2025_07_30_25efca13633dab4f44f5g-263.jpg?height=301&width=399&top_left_y=1198&top_left_x=1234)
 
-## 7 Differential Calculus
+# Differential Calculus
 
 ## Key words
 
@@ -11932,7 +11934,7 @@ Give your answer in $\mathrm{cm} /$ year, correct to the nearest cm .
 (iv) If the points found in (ii) above are $A$ and $B$, show that $A B$ intersects the curve at the midpoint of $[\mathrm{AB}]$.
 ![](https://cdn.mathpix.com/cropped/2025_07_30_25efca13633dab4f44f5g-307.jpg?height=360&width=418&top_left_y=1706&top_left_x=1078)
 
-## 8 Trigonometry 2
+# Trigonometry 2
 
 ## Key words
 
@@ -12928,7 +12930,7 @@ $[\mathrm{AC}]$ is a chord such that $|\angle \mathrm{CAB}|=\alpha$, where $\alp
 
 Show that $2 \alpha+\sin 2 \alpha=\frac{\pi}{2}$.
 
-## Sequences - Series - Patterns
+# Sequences - Series - Patterns
 
 ## Key words
 
@@ -14778,7 +14780,7 @@ At the start of each year, starting in 2010, a new barrel is filled with 160 lit
 (iii) To plan for the replacement, the company pays $€ 1000$ at the start of each year into a savings account. The interest rate on the account is $5 \%$ per annum. If the first payment is made when the machine was first bought, and the last payment made at the start of the year in which the machine is to be replaced, using your answer to part (ii), find the value of the account when the machine is replaced.
 (iv) If the amount saved is to fully cover the total cost of a new machine, calculate the upper limit on the average annual inflation rate over the period of the investment.
 
-## 10 Statistics 1
+# Statistics 1
 
 ## Key words
 
@@ -17048,7 +17050,7 @@ They make the following table, showing the number of earthquakes for which the t
 (iv) Based on the information presented in this question so far, what is the best estimate for the probability described in part (iii) above? Explain your reasoning.
 (v) As stated at the beginning, the students chose to analyse earthquake timings by looking at the time intervals between the occurrences of a particular type of earthquake. Suggest a different way that they could have looked at the data in the database in order to try to find patterns in the timing of earthquakes.
 
-## Coordinate Geometry: The Circle
+# Coordinate Geometry: The Circle
 
 ![](https://cdn.mathpix.com/cropped/2025_07_30_25efca13633dab4f44f5g-424.jpg?height=98&width=323&top_left_y=453&top_left_x=211)
 centre radius tangent chord perpendicular parallel intersection common chord point of contact internally externally common tangent
@@ -18589,7 +18591,7 @@ A perpendicular tangent touches the circle at
 (iii) Find the equations of the two circles that pass through the points $(1,2)$ and $(2,3)$ and which touch the $y$-axis.
 (iv) Find the distance between their centres.
 
-## 12 Algebra 3
+# Algebra 3
 
 ## Key words
 

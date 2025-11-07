@@ -93,7 +93,7 @@ O.D. Morris, Paul Cooke
 
 February 2018
 
-## Complex numbers
+# Complex numbers
 
 ## Key words
 
@@ -2103,7 +2103,7 @@ One of them lies on the imaginary axis, as shown.
 (iv) Show that $\cos ^{2} \theta \sin ^{2} \theta=\frac{-1}{16}\left(z^{2}-\frac{1}{z^{2}}\right)^{2}$.
 (v) Hence show that $\cos ^{2} \theta \sin ^{2} \theta=a+b \cos 4 \theta$, where $a$ and $b$ are constants.
 
-## Geometry 28 Enlargements and Constructions
+# Geometry 2: Enlargements and Constructions
 
 ## Key words
 
@@ -2803,7 +2803,7 @@ How far apart are the centres of the two circles?
 (b) $|\angle \mathrm{XAY}|=90^{\circ}$
 ![](https://cdn.mathpix.com/cropped/2025_07_30_8707c24399a8bd6d62d8g-069.jpg?height=340&width=534&top_left_y=938&top_left_x=1100)
 
-## 3 Integration
+# Integration
 
 ## Key words
 
@@ -3966,7 +3966,7 @@ Show that $f(x) \times f(-x)=f(x)+f(-x)$.
 
 Find the exact area enclosed by the curves and the line $x=2$.
 
-## Applications of Differential Calculus
+# Applications of Differential Calculus
 
 ## Key words
 
@@ -5282,7 +5282,7 @@ where $t$ is the number of years after observations began.
 (c) What does the model predict will be the limiting value (i.e. as $t$ approaches infinity) of the bird population?
 (d) The species will become eligible for inclusion in the WWF endangered species list when the population falls below 200 . When does the model predict that this will occur?
 
-## Financial Maths
+# Financial Maths
 
 ## Key words
 
@@ -6104,7 +6104,7 @@ Using the chart in (iv), complete the following table:
 (viii) This jackpot was won recently and the winner received $\$ 7.9$ million as the cashvalue option after tax.
 Using your answer to (vii), find the percentage of tax charged on her winnings. (Adapted from SEC Leaving Certificate 2011.)
 
-## Length - Area - Volume
+# Length - Area - Volume
 
 ## Key words
 
@@ -6972,7 +6972,7 @@ Write, in terms of $h$, the
 (vii) Is it possible to increase the capacity of the box by $10 \%$ using the same size piece of cardboard? Explain.
 (Adapted from SEC, Project Maths sample paper, 2012)
 
-## Probability 2
+# Probability 2
 
 ## Key words
 
@@ -8427,7 +8427,7 @@ The domain is the set $\{1,2,3,4\}$ and the range is the set $\{3,5,7,9\}$.
 The relation above may be represented by a mapping diagram, as shown.
 ![](https://cdn.mathpix.com/cropped/2025_07_30_8707c24399a8bd6d62d8g-234.jpg?height=352&width=390&top_left_y=1870&top_left_x=1189)
 
-## Functions
+# Functions
 
 Functions are special relations with individual properties.
 They are often referred to as "number machines", with inputs and outputs.
@@ -10464,7 +10464,7 @@ where $C_{0}$ and $k$ are constants, and $t$ is measured in years.
 
 How long must the farmer wait after the accident before the paddock can be used? Give your answer in years, correct to one decimal place.
 
-## 9 Statistics 2
+# Statistics 2
 
 ## Key words
 
@@ -11580,7 +11580,7 @@ Use the line of best fit to estimate the maximum heart rate of a 44-year-old per
 (vi) The researchers compared their new rule for estimating maximum heart rate to an older rule. The older rule is: $M H R=220$ - age. The two rules can give different estimates of a person's maximum heart rate. Describe how the level of agreement between the two rules varies according to the age of the person. Illustrate your answer with two examples.
 (vii) A particular exercise programme is based on the idea that a person will get most benefit by exercising at $75 \%$ of their estimated $M H R$. A 65-year-old man has been following this programme, using the old rule for estimating MHR. If he learns about the researchers' new rule for estimating $M H R$, how should he change what he is doing?
 
-## Inferential statistics
+# Inferential statistics
 
 ## Key words
 

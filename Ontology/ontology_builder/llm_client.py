@@ -12,7 +12,7 @@ import re
 import time
 import random
 from typing import List, Dict, Any, Optional
-from config import OPENAI_API_KEY, DEFAULT_MODEL, FALLBACK_MODELS
+from config_chem import OPENAI_API_KEY, DEFAULT_MODEL, FALLBACK_MODELS
 
 class LLMClient:
     """

@@ -33,6 +33,21 @@ OVERLAP_SIZE = 200000  # Characters to overlap between chunks (200K characters)
 # This setting controls the default output file name
 DEFAULT_OUTPUT_FILE = "graph-data.json"  # Default JSON output filename
 
+# Strand titles for PDF chunking
+# These are used to split PDFs at strand boundaries
+STRANDS = [
+    "Mechanics",
+    "Temperature",
+    "Heat",
+    "Waves",
+    "Vibrations and Sound",
+    "Light",
+    "Electricity",
+    "Modern Physics",
+    "Particle Physics",
+    "Applied Electricity",
+]
+
 # Prompt Templates
 # These prompts will be used by the LLM for each extraction step
 # You can customize these prompts to improve extraction quality
@@ -77,9 +92,12 @@ Return exactly a JSON **array** of concept objects (no additional commentary), w
 ]
 
 Strand should be one of the following:
-- Heat & Temperature
-- Waves, Light & Sound
 - Mechanics
+- Temperature
+- Heat
+- Waves
+- Vibrations and Sound
+- Light
 - Electricity
 - Modern Physics
 - Particle Physics

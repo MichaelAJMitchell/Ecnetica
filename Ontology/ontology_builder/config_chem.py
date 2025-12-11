@@ -33,6 +33,24 @@ OVERLAP_SIZE = 200000  # Characters to overlap between chunks (200K characters)
 # This setting controls the default output file name
 DEFAULT_OUTPUT_FILE = "graph-data.json"  # Default JSON output filename
 
+# Strand titles for PDF chunking
+# These are used to split PDFs at strand boundaries
+STRANDS = [
+    "Periodic Table and Atomic Structure",
+    "Chemical Bonding",
+    "Stoichiometry, Formulas and Equations",
+    "Volumetric Analysis",
+    "Fuels and Heats of Reaction",
+    "Rates of Reaction",
+    "Organic Chemistry",
+    "Chemical Equilibrium",
+    "Environmental Chemistry: Water",
+    "Industrial Chemistry",
+    "Atmospheric Chemistry",
+    "Materials",
+    "Electrochemistry and the Extraction of Metals",
+]
+
 # Prompt Templates
 # These prompts will be used by the LLM for each extraction step
 # You can customize these prompts to improve extraction quality
@@ -77,11 +95,19 @@ Return exactly a JSON **array** of concept objects (no additional commentary), w
 ]
 
 Strand should be one of the following:
-- General Chemistry
+- Periodic Table and Atomic Structure
+- Chemical Bonding
+- Stoichiometry, Formulas and Equations
+- Volumetric Analysis
+- Fuels and Heats of Reaction
+- Rates of Reaction
 - Organic Chemistry
-- Physical Chemistry
-- Industrial & Atmospheric Chemistry
-- Materials & Electrochemistry
+- Chemical Equilibrium
+- Environmental Chemistry: Water
+- Industrial Chemistry 
+- Atmospheric Chemistry
+- Materials
+- Electrochemistry and the Extraction of Metals
 
 Broader_concept should encapsulate a number of smaller concepts or  individual learning steps, while still being a quite specific problem or concept.
 

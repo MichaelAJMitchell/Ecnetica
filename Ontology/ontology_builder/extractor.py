@@ -11,7 +11,7 @@ from processor import FileProcessor
 from data_manager import DataManager
 from llm_client import LLMClient
 from chunker import TextChunker
-from config import CONCEPT_EXTRACTION_PROMPT, RELATIONSHIP_EXTRACTION_PROMPT, VERIFICATION_PROMPT
+from config_chem import CONCEPT_EXTRACTION_PROMPT, RELATIONSHIP_EXTRACTION_PROMPT, VERIFICATION_PROMPT, STRANDS
 
 class ConceptExtractor:
     """
@@ -24,12 +24,13 @@ class ConceptExtractor:
     4. Data management (storing and organizing extracted information)
     """
     
-    def __init__(self, chapters_per_chunk: int = 1, rows_per_chunk: int = 1):
+    def __init__(self, chapters_per_chunk: int = 1, rows_per_chunk: int = 1, strands: list = None):
         """Initialize extractor with configurable chunking parameters."""
         self.file_processor = FileProcessor()
         self.data_manager = DataManager()
         self.llm_client = LLMClient()
-        self.chunker = TextChunker(chapters_per_chunk, rows_per_chunk)
+        # Use provided strands or fall back to config strands
+        self.chunker = TextChunker(chapters_per_chunk, rows_per_chunk, strands or STRANDS)
     
     def process_file(self, file_path: str, output_file: str):
         """Process a single file."""

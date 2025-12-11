@@ -11,7 +11,7 @@ from processor import FileProcessor
 from data_manager import DataManager
 from llm_client import LLMClient
 from chunker import TextChunker
-from config_chem import CONCEPT_EXTRACTION_PROMPT, RELATIONSHIP_EXTRACTION_PROMPT, VERIFICATION_PROMPT, STRANDS
+from config_physics import CONCEPT_EXTRACTION_PROMPT, RELATIONSHIP_EXTRACTION_PROMPT, VERIFICATION_PROMPT, STRANDS
 
 class ConceptExtractor:
     """

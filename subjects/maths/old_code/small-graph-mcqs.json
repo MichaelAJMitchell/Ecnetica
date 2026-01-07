@@ -1,0 +1,650 @@
+{
+    "mcqs": [
+      {
+        "id": "mcq_variables_basic_001",
+        "text": "In the expression $3x + 7$, what does the letter $x$ represent?",
+        "options": [
+          "An unknown number that can vary or be solved for",
+          "The number 3 multiplied by itself",
+          "A constant that always equals 7",
+          "The operation of multiplication"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! Variables like $x$ represent unknown numbers that can change or be solved for.",
+          "Incorrect. The $x$ is a variable, not a repeated multiplication of 3.",
+          "Incorrect. Constants don't change, but variables can take different values.",
+          "Incorrect. The variable $x$ is not an operation, it's an unknown quantity."
+        ],
+        "main_topic_index": "a7f3d8e2-5b91-4c73-9a42-1e6f8d3c7b5a",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "a7f3d8e2-5b91-4c73-9a42-1e6f8d3c7b5a": 1.0
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.8,
+          "procedural_fluency": 0.2,
+          "problem_solving": 0.1,
+          "mathematical_communication": 0.4,
+          "memory": 0.6,
+          "spatial_reasoning": 0.0
+        }
+      },
+      {
+        "id": "mcq_coefficients_001",
+        "text": "What is the coefficient of $x$ in the expression $-5x + 2y - 8$?",
+        "options": [
+          "$-5$",
+          "$5$",
+          "$2$",
+          "$1$"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! The coefficient is the number multiplying the variable, which is $-5$.",
+          "Incorrect. Don't forget the negative sign; the coefficient is $-5$, not $5$.",
+          "Incorrect. $2$ is the coefficient of $y$, not $x$.",
+          "Incorrect. The coefficient of $x$ is explicitly shown as $-5$."
+        ],
+        "main_topic_index": "b2e9f7a1-8c64-4d15-b73e-9f2a5c8e1d47",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "b2e9f7a1-8c64-4d15-b73e-9f2a5c8e1d47": 0.9,
+          "a7f3d8e2-5b91-4c73-9a42-1e6f8d3c7b5a": 0.1
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.5,
+          "procedural_fluency": 0.7,
+          "problem_solving": 0.2,
+          "mathematical_communication": 0.3,
+          "memory": 0.4,
+          "spatial_reasoning": 0.0
+        }
+      },
+      {
+        "id": "mcq_like_terms_001",
+        "text": "Which terms can be combined in the expression $4x^2 + 3x - 2x^2 + 7x - 5$?",
+        "options": [
+          "$4x^2$ and $-2x^2$; $3x$ and $7x$",
+          "$4x^2$ and $3x$; $-2x^2$ and $7x$",
+          "All terms can be combined",
+          "No terms can be combined"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! Like terms have the same variable and same power: $x^2$ terms with $x^2$ terms, $x$ terms with $x$ terms.",
+          "Incorrect. Terms must have the same variable part to be combined.",
+          "Incorrect. Only terms with identical variable parts can be combined.",
+          "Incorrect. Terms with the same variable and power are like terms and can be combined."
+        ],
+        "main_topic_index": "e8f4a7b2-6d59-4e32-b95f-3c8a7e2b6d91",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "e8f4a7b2-6d59-4e32-b95f-3c8a7e2b6d91": 0.8,
+          "d6c2e5f8-9a73-4b16-c84d-7a3f6e9b4c28": 0.2
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.6,
+          "procedural_fluency": 0.5,
+          "problem_solving": 0.4,
+          "mathematical_communication": 0.3,
+          "memory": 0.3,
+          "spatial_reasoning": 0.0
+        }
+      },
+      {
+        "id": "mcq_distributive_001",
+        "text": "Expand $3(2x - 5)$ using the distributive property.",
+        "options": [
+          "$6x - 15$",
+          "$6x - 5$",
+          "$3x - 15$",
+          "$5x - 8$"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! $3(2x - 5) = 3 \\cdot 2x + 3 \\cdot (-5) = 6x - 15$",
+          "Incorrect. You must multiply 3 by both terms: $3 \\cdot 2x = 6x$ and $3 \\cdot (-5) = -15$.",
+          "Incorrect. $3 \\cdot 2x = 6x$, not $3x$.",
+          "Incorrect. This doesn't follow from the distributive property."
+        ],
+        "main_topic_index": "b5d9e6a4-7c28-4f53-a69d-2e8f5a9c3b74",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "b5d9e6a4-7c28-4f53-a69d-2e8f5a9c3b74": 0.9,
+          "a3c7f2d8-5e94-4b27-c85e-8f6a9b3d7e52": 0.1
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.5,
+          "procedural_fluency": 0.8,
+          "problem_solving": 0.3,
+          "mathematical_communication": 0.2,
+          "memory": 0.5,
+          "spatial_reasoning": 0.0
+        }
+      },
+      {
+        "id": "mcq_foil_001",
+        "text": "Expand $(x + 3)(x - 7)$ using the FOIL method.",
+        "options": [
+          "$x^2 - 4x - 21$",
+          "$x^2 + 4x - 21$",
+          "$x^2 - 4x + 21$",
+          "$x^2 - 21$"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! F: $x \\cdot x = x^2$, O: $x \\cdot (-7) = -7x$, I: $3 \\cdot x = 3x$, L: $3 \\cdot (-7) = -21$. Combined: $x^2 - 7x + 3x - 21 = x^2 - 4x - 21$",
+          "Incorrect. The middle term should be $-7x + 3x = -4x$, not $+4x$.",
+          "Incorrect. The constant term is $3 \\cdot (-7) = -21$, not $+21$.",
+          "Incorrect. You're missing the middle term from the outer and inner products."
+        ],
+        "main_topic_index": "d9e3b6c8-4a57-4f84-c92b-8e5a7f3d6c91",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "d9e3b6c8-4a57-4f84-c92b-8e5a7f3d6c91": 0.8,
+          "e2f8c5a9-6d73-4b18-a64f-3c9e8a2f7b58": 0.2
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.4,
+          "procedural_fluency": 0.9,
+          "problem_solving": 0.5,
+          "mathematical_communication": 0.3,
+          "memory": 0.6,
+          "spatial_reasoning": 0.1
+        }
+      },
+      {
+        "id": "mcq_factoring_gcf_001",
+        "text": "Factor out the greatest common factor from $12x^3 + 18x^2 - 6x$.",
+        "options": [
+          "$6x(2x^2 + 3x - 1)$",
+          "$6(2x^3 + 3x^2 - x)$",
+          "$3x(4x^2 + 6x - 2)$",
+          "$x(12x^2 + 18x - 6)$"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! The GCF is $6x$: $12x^3 + 18x^2 - 6x = 6x(2x^2 + 3x - 1)$",
+          "Incorrect. You need to factor out the variable $x$ as well as the numerical factor.",
+          "Incorrect. The GCF is $6x$, not $3x$.",
+          "Incorrect. The GCF includes the numerical factor 6, not just $x$."
+        ],
+        "main_topic_index": "b8c4f7a3-5e96-4b47-a82e-9f6c3b8e7a54",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "b8c4f7a3-5e96-4b47-a82e-9f6c3b8e7a54": 0.6,
+          "c9d6a5e8-7f23-4c58-b94a-6e8f2c9a5d76": 0.4
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.5,
+          "procedural_fluency": 0.7,
+          "problem_solving": 0.6,
+          "mathematical_communication": 0.2,
+          "memory": 0.4,
+          "spatial_reasoning": 0.0
+        }
+      },
+      {
+        "id": "mcq_quadratic_factoring_001",
+        "text": "Factor the quadratic $x^2 - 5x - 14$.",
+        "options": [
+          "$(x - 7)(x + 2)$",
+          "$(x + 7)(x - 2)$",
+          "$(x - 14)(x + 1)$",
+          "$(x - 2)(x + 7)$"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! We need two numbers that multiply to $-14$ and add to $-5$: $-7 \\times 2 = -14$ and $-7 + 2 = -5$.",
+          "Incorrect. Check: $(x + 7)(x - 2) = x^2 + 5x - 14$, not $x^2 - 5x - 14$.",
+          "Incorrect. Check: $-14 \\times 1 = -14$ but $-14 + 1 = -13 \\neq -5$.",
+          "Incorrect. This gives the same expansion as option A, but written in different order."
+        ],
+        "main_topic_index": "d7e4a1c8-3b65-4f84-c93f-8e7d4a1c8b59",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "d7e4a1c8-3b65-4f84-c93f-8e7d4a1c8b59": 1.0
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.4,
+          "procedural_fluency": 0.8,
+          "problem_solving": 0.7,
+          "mathematical_communication": 0.2,
+          "memory": 0.5,
+          "spatial_reasoning": 0.0
+        }
+      },
+      {
+        "id": "mcq_linear_equation_001",
+        "text": "Solve for $x$: $3x - 7 = 2x + 5$",
+        "options": [
+          "$x = 12$",
+          "$x = -12$",
+          "$x = 2$",
+          "$x = -2$"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! $3x - 7 = 2x + 5 \\Rightarrow 3x - 2x = 5 + 7 \\Rightarrow x = 12$",
+          "Incorrect. Check your signs when moving terms across the equals sign.",
+          "Incorrect. You may have made an error in collecting like terms.",
+          "Incorrect. Double-check your arithmetic when solving."
+        ],
+        "main_topic_index": "e7a4f6d2-3b85-4f54-a64b-7a4e7f6d2b86",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "e7a4f6d2-3b85-4f54-a64b-7a4e7f6d2b86": 0.7,
+          "d5f9c2e8-9a42-4b68-b73a-5f9d5c2e8a43": 0.3
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.3,
+          "procedural_fluency": 0.8,
+          "problem_solving": 0.5,
+          "mathematical_communication": 0.2,
+          "memory": 0.4,
+          "spatial_reasoning": 0.0
+        }
+      },
+      {
+        "id": "mcq_quadratic_vertex_001",
+        "text": "Find the vertex of the parabola $y = x^2 - 6x + 8$.",
+        "options": [
+          "$(3, -1)$",
+          "$(-3, -1)$",
+          "$(3, 1)$",
+          "$(6, 8)$"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! Using $x = -\\frac{b}{2a} = -\\frac{-6}{2(1)} = 3$, then $y = 3^2 - 6(3) + 8 = 9 - 18 + 8 = -1$.",
+          "Incorrect. The x-coordinate is $x = -\\frac{b}{2a} = 3$, not $-3$.",
+          "Incorrect. The y-coordinate should be $y = 3^2 - 6(3) + 8 = -1$, not $1$.",
+          "Incorrect. These are coefficients from the original equation, not the vertex coordinates."
+        ],
+        "main_topic_index": "e8a2f5d4-4c83-4f65-a74c-8a2e8f5d4c84",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "e8a2f5d4-4c83-4f65-a74c-8a2e8f5d4c84": 0.8,
+          "d6f3c9a7-7b58-4d72-b87b-6f3d6c9a7b59": 0.2
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.6,
+          "procedural_fluency": 0.7,
+          "problem_solving": 0.5,
+          "mathematical_communication": 0.3,
+          "memory": 0.5,
+          "spatial_reasoning": 0.4
+        }
+      },
+      {
+        "id": "mcq_discriminant_001",
+        "text": "What is the nature of the roots of $2x^2 + 3x + 5 = 0$?",
+        "options": [
+          "No real roots",
+          "One repeated real root",
+          "Two distinct real roots",
+          "Cannot be determined"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! $\\Delta = b^2 - 4ac = 3^2 - 4(2)(5) = 9 - 40 = -31 < 0$, so no real roots.",
+          "Incorrect. This would be the case if $\\Delta = 0$, but here $\\Delta = -31$.",
+          "Incorrect. This would be the case if $\\Delta > 0$, but here $\\Delta = -31 < 0$.",
+          "Incorrect. The discriminant clearly determines the nature of the roots."
+        ],
+        "main_topic_index": "d6f2c8a5-7b67-4d59-b67b-6f2d6c8a5b68",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "d6f2c8a5-7b67-4d59-b67b-6f2d6c8a5b68": 0.7,
+          "a9c5f8e4-5a65-4d48-b75a-9c5a9f8e4a66": 0.3
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.7,
+          "procedural_fluency": 0.6,
+          "problem_solving": 0.4,
+          "mathematical_communication": 0.4,
+          "memory": 0.5,
+          "spatial_reasoning": 0.0
+        }
+      },
+      {
+        "id": "mcq_slope_001",
+        "text": "Find the slope of the line passing through points $(2, 5)$ and $(-1, -7)$.",
+        "options": [
+          "$4$",
+          "$-4$",
+          "$\\frac{1}{4}$",
+          "$12$"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! Slope $= \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{-7 - 5}{-1 - 2} = \\frac{-12}{-3} = 4$",
+          "Incorrect. Check your signs: $\\frac{-12}{-3} = 4$, not $-4$.",
+          "Incorrect. You may have flipped the fraction: $\\frac{-12}{-3} = 4$, not $\\frac{1}{4}$.",
+          "Incorrect. This is the numerator before dividing by the denominator."
+        ],
+        "main_topic_index": "b3d9a6f5-9e54-4c67-a69e-3d9b3a6f5e55",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "b3d9a6f5-9e54-4c67-a69e-3d9b3a6f5e55": 0.8,
+          "a8c7f4e2-6f85-4b72-b86f-8c7a8f4e2f86": 0.2
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.4,
+          "procedural_fluency": 0.8,
+          "problem_solving": 0.3,
+          "mathematical_communication": 0.2,
+          "memory": 0.4,
+          "spatial_reasoning": 0.3
+        }
+      },
+      {
+        "id": "mcq_inequality_001",
+        "text": "Solve the inequality $-3x + 7 > 1$.",
+        "options": [
+          "$x < 2$",
+          "$x > 2$",
+          "$x < -2$",
+          "$x > -2$"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! $-3x + 7 > 1 \\Rightarrow -3x > -6 \\Rightarrow x < 2$ (inequality flips when dividing by negative)",
+          "Incorrect. The inequality sign flips when dividing by a negative number.",
+          "Incorrect. $-6 \\div (-3) = 2$, not $-2$.",
+          "Incorrect. Both the direction and the value are wrong."
+        ],
+        "main_topic_index": "d6f5c7a4-2b85-4f56-b82b-6f5d6c7a4b86",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "d6f5c7a4-2b85-4f56-b82b-6f5d6c7a4b86": 0.8,
+          "a9c6f3d2-8e46-4f84-b78e-9c6a9f3d2e47": 0.2
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.6,
+          "procedural_fluency": 0.7,
+          "problem_solving": 0.4,
+          "mathematical_communication": 0.3,
+          "memory": 0.6,
+          "spatial_reasoning": 0.1
+        }
+      },
+      {
+        "id": "mcq_absolute_value_001",
+        "text": "Solve $|2x - 3| = 7$.",
+        "options": [
+          "$x = 5$ or $x = -2$",
+          "$x = 5$ or $x = 2$",
+          "$x = -5$ or $x = 2$",
+          "$x = 10$ or $x = -4$"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! $2x - 3 = 7$ gives $x = 5$, and $2x - 3 = -7$ gives $x = -2$.",
+          "Incorrect. From $2x - 3 = -7$, we get $x = -2$, not $x = 2$.",
+          "Incorrect. From $2x - 3 = 7$, we get $x = 5$, not $x = -5$.",
+          "Incorrect. Check your arithmetic when solving the two cases."
+        ],
+        "main_topic_index": "99fa22b9-5ebb-4451-b9df-24cf66a78439",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "99fa22b9-5ebb-4451-b9df-24cf66a78439": 0.9,
+          "6361e577-655b-418e-9783-55668b6cdd15": 0.1
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.6,
+          "procedural_fluency": 0.7,
+          "problem_solving": 0.5,
+          "mathematical_communication": 0.3,
+          "memory": 0.4,
+          "spatial_reasoning": 0.0
+        }
+      },
+      {
+        "id": "mcq_simultaneous_substitution_001",
+        "text": "Solve the system using substitution: $y = 2x + 1$ and $x + y = 7$.",
+        "options": [
+          "$x = 2, y = 5$",
+          "$x = 3, y = 4$",
+          "$x = 1, y = 6$",
+          "$x = 4, y = 3$"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! Substituting: $x + (2x + 1) = 7 \\Rightarrow 3x + 1 = 7 \\Rightarrow x = 2$, then $y = 2(2) + 1 = 5$.",
+          "Incorrect. Check: if $x = 3$, then $y = 2(3) + 1 = 7$, but $3 + 7 = 10 \\neq 7$.",
+          "Incorrect. Check: if $x = 1$, then $y = 2(1) + 1 = 3$, not 6.",
+          "Incorrect. Check: if $x = 4$, then $y = 2(4) + 1 = 9$, but $4 + 9 = 13 \\neq 7$."
+        ],
+        "main_topic_index": "a7c3f6d4-5a86-4b49-b78a-7c3a7f6d4a87",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "a7c3f6d4-5a86-4b49-b78a-7c3a7f6d4a87": 0.8,
+          "f5b9e6c2-2e74-4f65-c87e-5b9f5e6c2e75": 0.2
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.5,
+          "procedural_fluency": 0.8,
+          "problem_solving": 0.7,
+          "mathematical_communication": 0.3,
+          "memory": 0.5,
+          "spatial_reasoning": 0.1
+        }
+      },
+      {
+        "id": "mcq_arithmetic_sequence_001",
+        "text": "Find the 10th term of the arithmetic sequence: $3, 7, 11, 15, ...$",
+        "options": [
+          "$39$",
+          "$43$",
+          "$35$",
+          "$41$"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! $a_1 = 3$, $d = 4$. Using $a_n = a_1 + (n-1)d$: $a_{10} = 3 + (10-1)(4) = 3 + 36 = 39$.",
+          "Incorrect. You may have used $n = 10$ instead of $(n-1) = 9$ in the formula.",
+          "Incorrect. Check your arithmetic: $3 + 9 \\times 4 = 3 + 36 = 39$.",
+          "Incorrect. This would be the 11th term, not the 10th."
+        ],
+        "main_topic_index": "c8e5b7d4-3a61-4f57-c73a-8e5c8b7d4a62",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "c8e5b7d4-3a61-4f57-c73a-8e5c8b7d4a62": 0.8,
+          "f2b8e5c7-4d72-4b89-c94d-2b8f2e5c7d73": 0.2
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.4,
+          "procedural_fluency": 0.8,
+          "problem_solving": 0.3,
+          "mathematical_communication": 0.2,
+          "memory": 0.6,
+          "spatial_reasoning": 0.0
+        }
+      },
+      {
+        "id": "mcq_exponential_equation_001",
+        "text": "Solve $2^{x+1} = 2^5$.",
+        "options": [
+          "$x = 4$",
+          "$x = 5$",
+          "$x = 6$",
+          "$x = 3$"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! Since the bases are equal, we can equate the exponents: $x + 1 = 5$, so $x = 4$.",
+          "Incorrect. You need to solve $x + 1 = 5$, which gives $x = 4$, not $x = 5$.",
+          "Incorrect. Don't add the exponents; solve $x + 1 = 5$.",
+          "Incorrect. $x + 1 = 5$ gives $x = 4$, not $x = 3$."
+        ],
+        "main_topic_index": "d7f4c9a6-5b93-4d57-b75b-7f4d7c9a6b94",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "d7f4c9a6-5b93-4d57-b75b-7f4d7c9a6b94": 0.9,
+          "b3d9a5f8-9e74-4c85-a69e-3d9b3a5f8e75": 0.1
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.6,
+          "procedural_fluency": 0.7,
+          "problem_solving": 0.4,
+          "mathematical_communication": 0.3,
+          "memory": 0.5,
+          "spatial_reasoning": 0.0
+        }
+      },
+      {
+        "id": "mcq_logarithm_basic_001",
+        "text": "Evaluate $\\log_2 8$.",
+        "options": [
+          "$3$",
+          "$2$",
+          "$4$",
+          "$8$"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! $\\log_2 8 = 3$ because $2^3 = 8$.",
+          "Incorrect. $2^2 = 4$, not $8$.",
+          "Incorrect. $2^4 = 16$, not $8$.",
+          "Incorrect. This is the argument of the logarithm, not its value."
+        ],
+        "main_topic_index": "b6d8a3f7-9e65-4c68-a89e-6d8b6a3f7e66",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "b6d8a3f7-9e65-4c68-a89e-6d8b6a3f7e66": 0.8,
+          "a4c6f9e2-6f42-4d45-b76f-4c6a4f9e2f43": 0.2
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.7,
+          "procedural_fluency": 0.5,
+          "problem_solving": 0.3,
+          "mathematical_communication": 0.4,
+          "memory": 0.6,
+          "spatial_reasoning": 0.0
+        }
+      },
+      {
+        "id": "mcq_completing_square_vertex_001",
+        "text": "Convert $y = x^2 + 4x - 1$ to vertex form.",
+        "options": [
+          "$y = (x + 2)^2 - 5$",
+          "$y = (x + 2)^2 + 3$",
+          "$y = (x - 2)^2 - 5$",
+          "$y = (x + 4)^2 - 17$"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! $y = x^2 + 4x - 1 = (x^2 + 4x + 4) - 4 - 1 = (x + 2)^2 - 5$",
+          "Incorrect. After completing the square, we have $(x + 2)^2 - 4 - 1 = (x + 2)^2 - 5$.",
+          "Incorrect. Half of the coefficient of $x$ is $4 \\div 2 = 2$, so we get $(x + 2)^2$, not $(x - 2)^2$.",
+          "Incorrect. We complete the square by taking half of 4, which is 2, not 4."
+        ],
+        "main_topic_index": "d7f3c6a9-6b65-4f58-b76b-7f3d7c6a9b66",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "d7f3c6a9-6b65-4f58-b76b-7f3d7c6a9b66": 0.7,
+          "f3b4e7c9-6d46-4b78-c96d-3b4f3e7c9d47": 0.3
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.6,
+          "procedural_fluency": 0.8,
+          "problem_solving": 0.5,
+          "mathematical_communication": 0.4,
+          "memory": 0.5,
+          "spatial_reasoning": 0.2
+        }
+      },
+      {
+        "id": "mcq_difference_squares_001",
+        "text": "Factor $x^2 - 25$.",
+        "options": [
+          "$(x - 5)(x + 5)$",
+          "$(x - 25)(x + 1)$",
+          "$(x^2 - 5)(x^2 + 5)$",
+          "Cannot be factored"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! This is a difference of squares: $x^2 - 25 = x^2 - 5^2 = (x - 5)(x + 5)$.",
+          "Incorrect. This would expand to $x^2 - 24x - 25$, not $x^2 - 25$.",
+          "Incorrect. We factor using square roots of the terms: $\\sqrt{x^2} = x$ and $\\sqrt{25} = 5$.",
+          "Incorrect. Difference of squares can always be factored as $(a - b)(a + b)$."
+        ],
+        "main_topic_index": "a9b6f2c7-5d84-4e63-b75c-8f2a9b6c7e54",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "a9b6f2c7-5d84-4e63-b75c-8f2a9b6c7e54": 0.8,
+          "f7a3d8e5-8c47-4b96-c84f-9e6a3f7d8c53": 0.2
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.5,
+          "procedural_fluency": 0.7,
+          "problem_solving": 0.4,
+          "mathematical_communication": 0.2,
+          "memory": 0.6,
+          "spatial_reasoning": 0.1
+        }
+      },
+      {
+        "id": "mcq_geometric_sequence_001",
+        "text": "In the geometric sequence $2, 6, 18, 54, ...$, what is the common ratio?",
+        "options": [
+          "$3$",
+          "$4$",
+          "$6$",
+          "$2$"
+        ],
+        "correctindex": 0,
+        "option_explanations": [
+          "Correct! The common ratio is $r = \\frac{6}{2} = \\frac{18}{6} = \\frac{54}{18} = 3$.",
+          "Incorrect. The ratio between consecutive terms is not 4.",
+          "Incorrect. 6 is the second term, not the common ratio.",
+          "Incorrect. 2 is the first term, not the common ratio."
+        ],
+        "main_topic_index": "f3b9e6c8-4d57-4f52-c94d-3b9f3e6c8d58",
+        "chapter": "Algebra",
+        "subtopic_weights": {
+          "f3b9e6c8-4d57-4f52-c94d-3b9f3e6c8d58": 0.8,
+          "e8a7f2d6-6c94-4b89-a76c-8a7e8f2d6c95": 0.2
+        },
+        "difficulty_breakdown": {
+          "conceptual_understanding": 0.5,
+          "procedural_fluency": 0.7,
+          "problem_solving": 0.3,
+          "mathematical_communication": 0.2,
+          "memory": 0.4,
+          "spatial_reasoning": 0.0
+        }
+      }
+    ],
+    "metadata": {
+      "total_mcqs": 20,
+      "chapters_covered": ["Algebra"],
+      "topics_covered": [
+        "a7f3d8e2-5b91-4c73-9a42-1e6f8d3c7b5a",
+        "b2e9f7a1-8c64-4d15-b73e-9f2a5c8e1d47",
+        "e8f4a7b2-6d59-4e32-b95f-3c8a7e2b6d91",
+        "b5d9e6a4-7c28-4f53-a69d-2e8f5a9c3b74",
+        "d9e3b6c8-4a57-4f84-c92b-8e5a7f3d6c91",
+        "b8c4f7a3-5e96-4b47-a82e-9f6c3b8e7a54",
+        "d7e4a1c8-3b65-4f84-c93f-8e7d4a1c8b59",
+        "e7a4f6d2-3b85-4f54-a64b-7a4e7f6d2b86",
+        "e8a2f5d4-4c83-4f65-a74c-8a2e8f5d4c84",
+        "d6f2c8a5-7b67-4d59-b67b-6f2d6c8a5b68",
+        "b3d9a6f5-9e54-4c67-a69e-3d9b3a6f5e55",
+        "d6f5c7a4-2b85-4f56-b82b-6f5d6c7a4b86",
+        "99fa22b9-5ebb-4451-b9df-24cf66a78439",
+        "a7c3f6d4-5a86-4b49-b78a-7c3a7f6d4a87",
+        "c8e5b7d4-3a61-4f57-c73a-8e5c8b7d4a62",
+        "d7f4c9a6-5b93-4d57-b75b-7f4d7c9a6b94",
+        "b6d8a3f7-9e65-4c68-a89e-6d8b6a3f7e66",
+        "d7f3c6a9-6b65-4f58-b76b-7f3d7c6a9b66",
+        "a9b6f2c7-5d84-4e63-b75c-8f2a9b6c7e54",
+        "f3b9e6c8-4d57-4f52-c94d-3b9f3e6c8d58"
+      ],
+      "difficulty_range": [0.1, 0.9],
+      "description": "Comprehensive MCQ bank covering fundamental to advanced algebra topics including variables, expressions, equations, quadratics, coordinate geometry, inequalities, sequences, exponentials, logarithms, and special algebraic forms"
+    }
+  }

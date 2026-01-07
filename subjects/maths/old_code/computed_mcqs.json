@@ -1,0 +1,180 @@
+{
+  "mcqs": [
+    {
+      "id": "dbd6dfe5-eea2-4a3b-a7b0-977ed01ed755",
+      "text": "What is the discriminant of the quadratic equation $2x^2 - 5x + 3 = 0$?",
+      "options": [
+        "$1$",
+        "$7$",
+        "$13$",
+        "$-1$"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! $\\Delta = b^2 - 4ac = (-5)^2 - 4(2)(3) = 25 - 24 = 1$",
+        "Incorrect. Remember the formula is $b^2 - 4ac$, not $b + 2ac$.",
+        "Incorrect. You may have calculated $b^2 + 4ac$ instead of $b^2 - 4ac$.",
+        "Incorrect. Check your arithmetic: $25 - 24 = 1$, not $-1$."
+      ],
+      "main_topic_index": 17,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "17": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.3,
+        "procedural_fluency": 0.7,
+        "problem_solving": 0.2,
+        "mathematical_communication": 0.1,
+        "memory": 0.4,
+        "spatial_reasoning": 0.0
+      },
+      "overall_difficulty": 0.2833333333333334,
+      "prerequisites": {
+        "16": 0.7
+      }
+    },
+    {
+      "id": "d8f6f656-c7d6-45a6-ab5d-c180e0e646f1",
+      "text": "Using the quadratic formula, solve $x^2 + 6x + 9 = 0$.",
+      "options": [
+        "$x = -3$ (repeated root)",
+        "$x = 3$ or $x = -3$",
+        "$x = 0$ or $x = -6$",
+        "No real solutions"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! $x = \\frac{-6 \\pm \\sqrt{36-36}}{2} = \\frac{-6}{2} = -3$ (discriminant = 0)",
+        "Incorrect. The discriminant is 0, so there's only one repeated root.",
+        "Incorrect. Substitute into the quadratic formula: $x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}$",
+        "Incorrect. The discriminant is 0, which means there is exactly one real solution."
+      ],
+      "main_topic_index": 15,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "15": 0.8,
+        "17": 0.2
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.4,
+        "procedural_fluency": 0.8,
+        "problem_solving": 0.5,
+        "mathematical_communication": 0.2,
+        "memory": 0.6,
+        "spatial_reasoning": 0.0
+      },
+      "overall_difficulty": 0.4166666666666667,
+      "prerequisites": {
+        "16": 0.6400000000000001,
+        "17": 0.5599999999999999
+      }
+    },
+    {
+      "id": "02e3fc4a-80e7-4ef4-8202-c37d1aff6e4c",
+      "text": "Complete the square for $x^2 + 8x + 7$.",
+      "options": [
+        "$(x + 4)^2 - 9$",
+        "$(x + 4)^2 + 9$",
+        "$(x + 8)^2 - 57$",
+        "$(x + 2)^2 + 3$"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! $x^2 + 8x + 7 = (x + 4)^2 - 16 + 7 = (x + 4)^2 - 9$",
+        "Incorrect. You need to subtract the constant term: $(x+4)^2 = x^2 + 8x + 16$, so we subtract 16 and add 7.",
+        "Incorrect. The coefficient of the linear term tells us the value inside the parentheses: $8 \\div 2 = 4$.",
+        "Incorrect. Half of 8 is 4, not 2."
+      ],
+      "main_topic_index": 9,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "9": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.6,
+        "procedural_fluency": 0.7,
+        "problem_solving": 0.4,
+        "mathematical_communication": 0.3,
+        "memory": 0.5,
+        "spatial_reasoning": 0.1
+      },
+      "overall_difficulty": 0.43333333333333335,
+      "prerequisites": {
+        "11": 0.9,
+        "13": 0.8
+      }
+    },
+    {
+      "id": "93d54eb9-5ead-4068-ade5-0482365c0dbe",
+      "text": "Factor the quadratic expression $x^2 + 7x + 12$.",
+      "options": [
+        "$(x + 3)(x + 4)$",
+        "$(x + 2)(x + 6)$",
+        "$(x + 1)(x + 12)$",
+        "$(x - 3)(x - 4)$"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! We need two numbers that multiply to 12 and add to 7: $3 \\times 4 = 12$ and $3 + 4 = 7$.",
+        "Incorrect. Check: $2 \\times 6 = 12$ but $2 + 6 = 8 \\neq 7$.",
+        "Incorrect. Check: $1 \\times 12 = 12$ but $1 + 12 = 13 \\neq 7$.",
+        "Incorrect. This would give $x^2 - 7x + 12$, not $x^2 + 7x + 12$."
+      ],
+      "main_topic_index": 6,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "6": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.4,
+        "procedural_fluency": 0.8,
+        "problem_solving": 0.6,
+        "mathematical_communication": 0.2,
+        "memory": 0.3,
+        "spatial_reasoning": 0.0
+      },
+      "overall_difficulty": 0.38333333333333336,
+      "prerequisites": {
+        "7": 0.8,
+        "12": 0.9
+      }
+    },
+    {
+      "id": "c462496d-3008-434b-ad2d-8260eb9633ab",
+      "text": "What is the vertex of the parabola $y = (x - 2)^2 + 3$?",
+      "options": [
+        "$(2, 3)$",
+        "$(-2, 3)$",
+        "$(2, -3)$",
+        "$(-2, -3)$"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "Correct! In vertex form $y = a(x - h)^2 + k$, the vertex is $(h, k) = (2, 3)$.",
+        "Incorrect. The vertex form is $y = a(x - h)^2 + k$ where $(h,k)$ is the vertex. Here $h = 2$, not $-2$.",
+        "Incorrect. The $k$ value is $+3$, not $-3$.",
+        "Incorrect. Both coordinates are wrong. The vertex is $(2, 3)$."
+      ],
+      "main_topic_index": 11,
+      "chapter": "algebra",
+      "subtopic_weights": {
+        "11": 0.8,
+        "9": 0.2
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.7,
+        "procedural_fluency": 0.4,
+        "problem_solving": 0.2,
+        "mathematical_communication": 0.3,
+        "memory": 0.6,
+        "spatial_reasoning": 0.5
+      },
+      "overall_difficulty": 0.45,
+      "prerequisites": {
+        "11": 0.18000000000000002,
+        "13": 0.16000000000000003
+      }
+    }
+  ]
+}

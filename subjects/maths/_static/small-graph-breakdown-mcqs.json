@@ -1,0 +1,3518 @@
+{
+  "mcqs": [
+    {
+      "text": "In the expression \\(3x + 5\\), what is the coefficient of \\(x\\)?",
+      "options": [
+        "\\(3\\)",
+        "\\(5\\)",
+        "\\(x\\)",
+        "\\(8\\)"
+      ],
+      "correctindex": 3,
+      "option_explanations": [
+        "\\text{Correct! The coefficient of } x \\text{ is the number multiplying the variable, which is } 3.",
+        "\\text{Incorrect. } 5 \\text{ is the constant term, not the coefficient of } x.",
+        "\\text{Incorrect. } x \\text{ is the variable itself, not its coefficient.}",
+        "\\text{Incorrect. } 8 \\text{ would be the sum of all terms, not the coefficient of } x."
+      ],
+      "main_topic_index": 1,
+      "subtopic_weights": {
+        "1": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.6,
+        "procedural_fluency": 0.2,
+        "problem_solving": 0.1,
+        "mathematical_communication": 0.4,
+        "memory": 0.7,
+        "spatial_reasoning": 0.0
+      }
+    },
+    {
+      "text": "Which of the following are like terms that can be combined?",
+      "options": [
+        "\\(2x \\text{ and } 5y\\)",
+        "\\(3x^2 \\text{ and } 7x^2\\)",
+        "\\(4x \\text{ and } 6\\)",
+        "\\(x^2 \\text{ and } x^3\\)"
+      ],
+      "correctindex": 1,
+      "option_explanations": [
+        "\\(\\text{Incorrect. These have different variables } (x \\text{ and } y) \\text{ so they are not like terms.}\\)",
+        "\\(\\text{Correct! Both terms have the same variable } x \\text{ raised to the same power } 2, \\text{ so they are like terms.}\\)",
+        "\\(\\text{Incorrect. One term has variable } x \\text{ and the other is a constant, so they are not like terms.}\\)",
+        "\\(\\text{Incorrect. These have the same variable but different powers, so they are not like terms.}\\)"
+      ],
+      "main_topic_index": 4,
+      "subtopic_weights": {
+        "4": 0.8,
+        "3": 0.2
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.7,
+        "procedural_fluency": 0.3,
+        "problem_solving": 0.2,
+        "mathematical_communication": 0.5,
+        "memory": 0.6,
+        "spatial_reasoning": 0.0
+      },
+      "breakdown": {
+        "concept_confusion": {
+          "answer_mapping": [0, 2, 3],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [4],
+              "step_type": "conceptual_understanding",
+              "text": "What makes two algebraic terms 'like terms'?",
+              "options": [
+                "\\text{They have the same coefficient}",
+                "\\text{They have the same variable(s) with the same power(s)}",
+                "\\text{They are both positive}",
+                "\\text{They are written next to each other}"
+              ],
+              "correctindex": 1,
+              "option_explanations": [
+                "\\text{Incorrect. Like terms can have different coefficients.}",
+                "\\text{Correct! Like terms have identical variable parts, like } 2x^2 \\text{ and } 5x^2.",
+                "\\text{Incorrect. Like terms can be positive or negative.}",
+                "\\text{Incorrect. Position doesn't determine if terms are like terms.}"
+              ]
+            },
+            {
+              "step_no": 2,
+              "prereq_topics": [],
+              "step_type": "conceptual_understanding",
+              "text": "Which pair represents the same variable part?",
+              "options": [
+                "\\(x \\text{ and } y\\)",
+                "\\(x^2 \\text{ and } x^3\\)",
+                "\\(3x^2 \\text{ and } 7x^2\\)",
+                "\\(x^2 \\text{ and } y^2\\)"
+              ],
+              "correctindex": 2,
+              "option_explanations": [
+                "\\text{Incorrect. Different variables } (x \\text{ vs } y) \\text{ mean different variable parts.}",
+                "\\text{Incorrect. Different powers } (x^2 \\text{ vs } x^3) \\text{ mean different variable parts.}",
+                "\\text{Correct! Both have the same variable part: } x^2. \\text{ The coefficients can be different.}",
+                "\\text{Incorrect. Different variables } (x \\text{ vs } y) \\text{ mean different variable parts, even with same power.}"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "Simplify the expression \\(${a}x + ${b}x\\).",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": 2,
+          "max": 9
+        },
+        "b": {
+          "type": "int",
+          "min": 1,
+          "max": 8
+        }
+      },
+      "calculated_parameters": {
+        "sum": "a + b",
+        "diff": "a - b",
+        "prod": "a * b"
+      },
+      "options": [
+        "\\(${diff}x\\)",
+        "\\(${prod}x\\)",
+        "\\(${a}x${b}x\\)",
+        "\\(${sum}x\\)"
+      ],
+      "correctindex": 3,
+      "option_explanations": [
+        "\\text{Incorrect. You subtracted instead of adding the coefficients.}",
+        "\\text{Incorrect. You multiplied the coefficients instead of adding them.}",
+        "\\text{Incorrect. You cannot leave the terms uncombined when they are like terms.}",
+        "\\text{Correct! When combining like terms, add the coefficients: } ${a} + ${b} = ${sum}."
+      ],
+      "main_topic_index": 5,
+      "subtopic_weights": {
+        "5": 0.9,
+        "4": 0.1
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.4,
+        "procedural_fluency": 0.8,
+        "problem_solving": 0.2,
+        "mathematical_communication": 0.3,
+        "memory": 0.5,
+        "spatial_reasoning": 0.0
+      },
+      "breakdown": {
+        "operation_confusion": {
+          "answer_mapping": [1, 2],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [],
+              "step_type": "conceptual_understanding",
+              "text": "When combining like terms such as \\(${a}x\\) and \\(${b}x\\), which operation should you use?",
+              "options": [
+                "\\text{Multiply the coefficients}",
+                "\\text{Add the coefficients}",
+                "\\text{Subtract the coefficients}",
+                "\\text{Divide the coefficients}"
+              ],
+              "correctindex": 1,
+              "option_explanations": [
+                "\\text{Incorrect. Multiplication is used for distributive property, not combining like terms.}",
+                "\\text{Correct! When combining like terms, you add the coefficients: } ${a}x + ${b}x = (${a} + ${b})x.",
+                "\\text{Incorrect. Subtraction would only be used if the second term were negative.}",
+                "\\text{Incorrect. Division is not used when combining like terms.}"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "Expand \\(${a}(x + ${b})\\) using the distributive property.",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": 2,
+          "max": 8
+        },
+        "b": {
+          "type": "int",
+          "min": 1,
+          "max": 9
+        }
+      },
+      "calculated_parameters": {
+        "correct_result": "str(a) + 'x + ' + str(a*b)",
+        "wrong1": "str(a) + 'x + ' + str(b)",
+        "wrong2": "str(a) + ' + ' + str(a*b)",
+        "wrong3": "str(a+b) + 'x'"
+      },
+      "options": [
+        "\\(${wrong1}\\)",
+        "\\(${wrong2}\\)",
+        "\\(${correct_result}\\)",
+        "\\(${wrong3}\\)"
+      ],
+      "correctindex": 2,
+      "option_explanations": [
+        "\\text{Incorrect. You forgot to multiply } ${a} \\text{ by } ${b}. \\text{ It should be } ${a} \\times ${b} = ${a*b}.",
+        "\\text{Incorrect. You forgot to distribute } ${a} \\text{ to the } x \\text{ term.}",
+        "\\text{Correct! Using the distributive property: } ${a}(x + ${b}) = ${a} \\cdot x + ${a} \\cdot ${b} = ${correct_result}.",
+        "\\text{Incorrect. You added the coefficients instead of distributing.}"
+      ],
+      "main_topic_index": 7,
+      "subtopic_weights": {
+        "7": 0.8,
+        "6": 0.2
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.5,
+        "procedural_fluency": 0.7,
+        "problem_solving": 0.3,
+        "mathematical_communication": 0.4,
+        "memory": 0.6,
+        "spatial_reasoning": 0.0
+      },
+      "breakdown": {
+        "distributive_error": {
+          "answer_mapping": [0, 1, 3],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [6],
+              "step_type": "memory",
+              "text": "What does the distributive property state?",
+              "options": [
+                "\\text{Multiply the first term by each term inside the parentheses}",
+                "\\text{Add the first term to each term inside the parentheses}",
+                "\\text{Only multiply by the first term inside the parentheses}",
+                "\\text{Square each term inside the parentheses}"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\text{Correct! The distributive property: } a(b + c) = ab + ac.",
+                "\\text{Incorrect. The distributive property uses multiplication, not addition.}",
+                "\\text{Incorrect. You must multiply by each term inside the parentheses.}",
+                "\\text{Incorrect. The distributive property doesn't involve squaring.}"
+              ]
+            },
+            {
+              "step_no": 2,
+              "prereq_topics": [],
+              "step_type": "procedural_fluency",
+              "text": "Apply the distributive property to \\(${a}(x + ${b})\\). What is \\(${a} \\times x\\)?",
+              "options": [
+                "\\(${a}x\\)",
+                "\\(x\\)",
+                "\\(${a}\\)",
+                "\\(${a} + x\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\text{Correct! } ${a} \\times x = ${a}x.",
+                "\\text{Incorrect. When multiplying } ${a} \\text{ by } x, \\text{ the coefficient becomes } ${a}.",
+                "\\text{Incorrect. This ignores the variable } x.",
+                "\\text{Incorrect. This is addition, not multiplication.}"
+              ]
+            },
+            {
+              "step_no": 3,
+              "prereq_topics": [],
+              "step_type": "procedural_fluency",
+              "text": "Now find \\(${a} \\times ${b}\\).",
+              "options": [
+                "\\(${a*b}\\)",
+                "\\(${a} + ${b}\\)",
+                "\\(${b}\\)",
+                "\\(${a}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\text{Correct! } ${a} \\times ${b} = ${a*b}.",
+                "\\text{Incorrect. This is addition, not multiplication.}",
+                "\\text{Incorrect. This ignores the first number.}",
+                "\\text{Incorrect. This ignores the second number.}"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "Expand \\((x + ${a})(x + ${b})\\) using the FOIL method.",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": 1,
+          "max": 6
+        },
+        "b": {
+          "type": "int",
+          "min": 1,
+          "max": 6
+        }
+      },
+      "calculated_parameters": {
+        "middle_term": "a + b",
+        "last_term": "a * b",
+        "wrong1": "a * b",
+        "wrong2": "(a + b)**2",
+        "wrong3": "2*(a + b)"
+      },
+      "options": [
+        "\\(x^2 + ${wrong1}x + ${middle_term}\\)",
+        "\\(x^2 + ${middle_term}x + ${last_term}\\)",
+        "\\(x^2 + ${wrong2}x + ${wrong3}\\)",
+        "\\(x^2 + ${wrong3}x + ${wrong1}\\)"
+      ],
+      "correctindex": 1,
+      "option_explanations": [
+        "\\text{Incorrect. The middle term coefficient should be } ${a} + ${b} = ${middle_term}, \\text{ not } ${a} \\times ${b}.",
+        "\\text{Correct! Using FOIL: First } = x^2, \\text{ Outer + Inner } = ${a}x + ${b}x = ${middle_term}x, \\text{ Last } = ${a} \\times ${b} = ${last_term}.",
+        "\\text{Incorrect. This doesn't follow the FOIL pattern correctly.}",
+        "\\text{Incorrect. You've mixed up the middle and last terms.}"
+      ],
+      "main_topic_index": 9,
+      "subtopic_weights": {
+        "9": 0.9,
+        "10": 0.1
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.6,
+        "procedural_fluency": 0.8,
+        "problem_solving": 0.4,
+        "mathematical_communication": 0.3,
+        "memory": 0.7,
+        "spatial_reasoning": 0.0
+      },
+      "breakdown": {
+        "foil_confusion": {
+          "answer_mapping": [0, 2, 3],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [9],
+              "step_type": "memory",
+              "text": "What does FOIL stand for when expanding \\((x + a)(x + b)\\)?",
+              "options": [
+                "\\text{First, Outer, Inner, Last}",
+                "\\text{Factor, Order, Isolate, List}",
+                "\\text{Find, Obtain, Include, Locate}",
+                "\\text{Forward, Outward, Inward, Leftward}"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\text{Correct! FOIL: First terms, Outer terms, Inner terms, Last terms.}",
+                "\\text{Incorrect. This is not what FOIL stands for.}",
+                "\\text{Incorrect. This is not what FOIL stands for.}",
+                "\\text{Incorrect. This is not what FOIL stands for.}"
+              ]
+            },
+            {
+              "step_no": 2,
+              "prereq_topics": [],
+              "step_type": "procedural_fluency",
+              "text": "In \\((x + ${a})(x + ${b})\\), what is the First terms product?",
+              "options": [
+                "\\(x^2\\)",
+                "\\(${a}x\\)",
+                "\\(${b}x\\)",
+                "\\(${a} \\cdot ${b}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\text{Correct! First terms: } x \\times x = x^2.",
+                "\\text{Incorrect. This would be from multiplying } x \\text{ by } ${a}.",
+                "\\text{Incorrect. This would be from multiplying } x \\text{ by } ${b}.",
+                "\\text{Incorrect. This is the Last terms product.}"
+              ]
+            },
+            {
+              "step_no": 3,
+              "prereq_topics": [],
+              "step_type": "procedural_fluency",
+              "text": "What is the sum of the Outer and Inner terms: \\(x \\cdot ${b} + ${a} \\cdot x\\)?",
+              "options": [
+                "\\(${middle_term}x\\)",
+                "\\(${a}x + ${b}x\\)",
+                "\\(${last_term}x\\)",
+                "\\(x^2\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\text{Correct! Outer + Inner: } ${b}x + ${a}x = (${a} + ${b})x = ${middle_term}x.",
+                "\\text{This is correct but not simplified. Combine the like terms.}",
+                "\\text{Incorrect. This uses the wrong coefficient.}",
+                "\\text{Incorrect. This is the First terms product.}"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "What is the greatest common factor of \\(${a}x^2\\) and \\(${b}x\\)?",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": 4,
+          "max": 20
+        },
+        "b": {
+          "type": "int",
+          "min": 6,
+          "max": 18
+        }
+      },
+      "calculated_parameters": {
+        "gcd_coeff": "gcd(a, b)",
+        "wrong1": "a",
+        "wrong2": "b",
+        "wrong3": "a * b"
+      },
+      "options": [
+        "\\(${wrong1}x\\)",
+        "\\(${wrong2}x^2\\)",
+        "\\(${wrong3}x\\)",
+        "\\(${gcd_coeff}x\\)"
+      ],
+      "correctindex": 3,
+      "option_explanations": [
+        "\\text{Incorrect. } ${a} \\text{ is not the GCF of } ${a} \\text{ and } ${b}.",
+        "\\text{Incorrect. The variable part should be } x, \\text{ not } x^2.",
+        "\\text{Incorrect. This is the product, not the greatest common factor.}",
+        "\\text{Correct! The GCF is } ${gcd_coeff}x \\text{ where } ${gcd_coeff} \\text{ is the GCF of } ${a} \\text{ and } ${b}, \\text{ and } x \\text{ is the lowest power.}"
+      ],
+      "main_topic_index": 12,
+      "subtopic_weights": {
+        "12": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.7,
+        "procedural_fluency": 0.6,
+        "problem_solving": 0.5,
+        "mathematical_communication": 0.4,
+        "memory": 0.5,
+        "spatial_reasoning": 0.0
+      },
+      "breakdown": {
+        "gcf_misunderstanding": {
+          "answer_mapping": [0, 1, 2],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [12],
+              "step_type": "conceptual_understanding",
+              "text": "What does 'greatest common factor' mean for algebraic terms?",
+              "options": [
+                "\\text{The largest number that multiplies both terms}",
+                "\\text{The largest expression that divides both terms exactly}",
+                "\\text{The sum of both terms}",
+                "\\text{The highest power in both terms}"
+              ],
+              "correctindex": 1,
+              "option_explanations": [
+                "\\text{Partially correct, but this only considers numerical coefficients, not variables.}",
+                "\\text{Correct! The GCF is the largest expression that is a factor of both terms.}",
+                "\\text{Incorrect. GCF involves factoring, not addition.}",
+                "\\text{Incorrect. We want the lowest power that appears in both terms.}"
+              ]
+            },
+            {
+              "step_no": 2,
+              "prereq_topics": [],
+              "step_type": "procedural_fluency",
+              "text": "For the coefficients ${a} and ${b}, what is their greatest common factor?",
+              "options": [
+                "\\(${gcd_coeff}\\)",
+                "\\(${a}\\)",
+                "\\(${b}\\)",
+                "\\(${a*b}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\text{Correct! The GCF of } ${a} \\text{ and } ${b} \\text{ is } ${gcd_coeff}.",
+                "\\text{Incorrect. } ${a} \\text{ doesn't divide } ${b} \\text{ evenly (unless } ${gcd_coeff} = ${a}).",
+                "\\text{Incorrect. } ${b} \\text{ doesn't divide } ${a} \\text{ evenly (unless } ${gcd_coeff} = ${b}).",
+                "\\text{Incorrect. This is the product, not the greatest common factor.}"
+              ]
+            },
+            {
+              "step_no": 3,
+              "prereq_topics": [],
+              "step_type": "procedural_fluency",
+              "text": "For the variable parts \\(x^2\\) and \\(x\\), what is the GCF?",
+              "options": [
+                "\\(x\\)",
+                "\\(x^2\\)",
+                "\\(x^3\\)",
+                "\\(1\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\text{Correct! The GCF takes the lowest power: } \\min(2,1) = 1, \\text{ so } x^1 = x.",
+                "\\text{Incorrect. } x^2 \\text{ doesn't divide } x \\text{ evenly.}",
+                "\\text{Incorrect. Neither term has } x^3.",
+                "\\text{Incorrect. Both terms contain the variable } x."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "Solve for \\(x\\): \\(${a}x + ${b} = ${c}\\)",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": 2,
+          "max": 8,
+          "exclude": 0
+        },
+        "b": {
+          "type": "int",
+          "min": -15,
+          "max": 15
+        },
+        "c": {
+          "type": "int",
+          "min": -20,
+          "max": 20
+        }
+      },
+      "calculated_parameters": {
+        "solution": "(c - b) / a",
+        "wrong1": "(b - c) / a",
+        "wrong2": "(c + b) / a",
+        "wrong3": "c - b"
+      },
+      "options": [
+        "\\(x = ${solution}\\)",
+        "\\(x = ${wrong1}\\)",
+        "\\(x = ${wrong2}\\)",
+        "\\(x = ${wrong3}\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\text{Correct! Subtract } ${b} \\text{ from both sides: } ${a}x = ${c} - ${b}, \\text{ then divide by } ${a}: x = \\frac{${c} - ${b}}{${a}} = ${solution}.",
+        "\\text{Incorrect. You subtracted in the wrong order. It should be } ${c} - ${b}, \\text{ not } ${b} - ${c}.",
+        "\\text{Incorrect. When moving } ${b} \\text{ to the right side, it becomes } -${b}, \\text{ so } ${c} - ${b}.",
+        "\\text{Incorrect. You forgot to divide by } ${a} \\text{ after isolating the } x \\text{ term.}"
+      ],
+      "main_topic_index": 37,
+      "subtopic_weights": {
+        "37": 0.9,
+        "38": 0.1
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.3,
+        "procedural_fluency": 0.8,
+        "problem_solving": 0.4,
+        "mathematical_communication": 0.2,
+        "memory": 0.6,
+        "spatial_reasoning": 0.0
+      },
+      "breakdown": {
+        "sign_error": {
+          "answer_mapping": [1, 2],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [],
+              "step_type": "memory",
+              "text": "To solve \\(${a}x + ${b} = ${c}\\), what is the first step?",
+              "options": [
+                "\\text{Divide both sides by } ${a}",
+                "\\text{Subtract } ${b} \\text{ from both sides}",
+                "\\text{Add } ${b} \\text{ to both sides}",
+                "\\text{Multiply both sides by } ${a}"
+              ],
+              "correctindex": 1,
+              "option_explanations": [
+                "\\text{Incorrect. First isolate the } ${a}x \\text{ term, then divide by } ${a}.",
+                "\\text{Correct! First step: subtract } ${b} \\text{ from both sides to isolate } ${a}x.",
+                "\\text{Incorrect. Since we have } +${b}, \\text{ we subtract } ${b} \\text{ to cancel it.}",
+                "\\text{Incorrect. Division by } ${a} \\text{ comes after isolating } ${a}x."
+              ]
+            },
+            {
+              "step_no": 2,
+              "prereq_topics": [],
+              "step_type": "procedural_fluency",
+              "text": "After subtracting ${b} from both sides, what equation do you get?",
+              "options": [
+                "\\(${a}x = ${c-b}\\)",
+                "\\(${a}x = ${b-c}\\)",
+                "\\(${a}x = ${c+b}\\)",
+                "\\(x = ${c-b}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\text{Correct! } ${a}x + ${b} - ${b} = ${c} - ${b} \\Rightarrow ${a}x = ${c-b}.",
+                "\\text{Incorrect. When subtracting } ${b} \\text{ from } ${c}, \\text{ you get } ${c} - ${b}, \\text{ not } ${b} - ${c}.",
+                "\\text{Incorrect. Subtracting } ${b} \\text{ gives } ${c} - ${b}, \\text{ not } ${c} + ${b}.",
+                "\\text{Incorrect. You haven't divided by } ${a} \\text{ yet.}"
+              ]
+            },
+            {
+              "step_no": 3,
+              "prereq_topics": [],
+              "step_type": "procedural_fluency",
+              "text": "Finally, divide both sides by ${a} to solve for \\(x\\).",
+              "options": [
+                "\\(x = ${solution}\\)",
+                "\\(x = ${c-b}\\)",
+                "\\(x = \\frac{${a}}{${c-b}}\\)",
+                "\\(x = ${a} \\times ${c-b}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\text{Correct! } \\frac{${a}x}{${a}} = \\frac{${c-b}}{${a}} \\Rightarrow x = \\frac{${c-b}}{${a}} = ${solution}.",
+                "\\text{Incorrect. You must divide by } ${a} \\text{ to isolate } x.",
+                "\\text{Incorrect. You have the fraction upside down.}",
+                "\\text{Incorrect. You multiply by the reciprocal, which means divide.}"
+              ]
+            }
+          ]
+        },
+        "order_error": {
+          "answer_mapping": [3],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [],
+              "step_type": "conceptual_understanding",
+              "text": "Why must we divide by the coefficient after isolating the variable term?",
+              "options": [
+                "\\text{To make the equation look cleaner}",
+                "\\text{To get the variable by itself with coefficient 1}",
+                "\\text{To check our work}",
+                "\\text{It's optional}"
+              ],
+              "correctindex": 1,
+              "option_explanations": [
+                "\\text{Incorrect. Division serves a mathematical purpose, not just cosmetic.}",
+                "\\text{Correct! We want } x = \\text{number}, \\text{ not } ${a}x = \\text{number}.",
+                "\\text{Incorrect. Division is part of the solution process, not checking.}",
+                "\\text{Incorrect. Division is required to fully solve for } x."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "Which inequality represents '\\(x\\) is greater than or equal to \\(${n}\\)'?",
+      "generated_parameters": {
+        "n": {
+          "type": "int",
+          "min": -10,
+          "max": 15
+        }
+      },
+      "options": [
+        "\\(x < ${n}\\)",
+        "\\(x \\leq ${n}\\)",
+        "\\(x > ${n}\\)",
+        "\\(x \\geq ${n}\\)"
+      ],
+      "correctindex": 3,
+      "option_explanations": [
+        "\\text{Incorrect. This symbol } < \\text{ means 'less than', but we need 'less than or equal to'.}",
+        "\\text{Incorrect. This symbol } \\leq \\text{ means 'less than or equal to', but the question asks about 'less than'.}",
+        "\\text{Incorrect. This symbol } > \\text{ means 'greater than', which is the opposite.}",
+        "\\text{Correct! The symbol } \\geq \\text{ means 'greater than or equal to'.}"
+      ],
+      "main_topic_index": 42,
+      "subtopic_weights": {
+        "42": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.8,
+        "procedural_fluency": 0.2,
+        "problem_solving": 0.1,
+        "mathematical_communication": 0.9,
+        "memory": 0.7,
+        "spatial_reasoning": 0.0
+      }
+    },
+    {
+      "text": "In the quadratic expression \\(ax^2 + bx + c\\), what does the term '\\(c\\)' represent?",
+      "options": [
+        "\\(\\text{The coefficient of } x^2\\)",
+        "\\(\\text{The coefficient of } x\\)",
+        "\\(\\text{The constant term}\\)",
+        "\\(\\text{The discriminant}\\)"
+      ],
+      "correctindex": 2,
+      "option_explanations": [
+        "\\text{Incorrect. The coefficient of } x^2 \\text{ is represented by } a.",
+        "\\text{Incorrect. The coefficient of } x \\text{ is represented by } b.",
+        "\\text{Correct! } c \\text{ is the constant term because it doesn't have any variable attached to it.}",
+        "\\text{Incorrect. The discriminant is } b^2 - 4ac, \\text{ not just } c."
+      ],
+      "main_topic_index": 2,
+      "subtopic_weights": {
+        "2": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.7,
+        "procedural_fluency": 0.1,
+        "problem_solving": 0.2,
+        "mathematical_communication": 0.8,
+        "memory": 0.8,
+        "spatial_reasoning": 0.0
+      }
+    },
+    {
+      "text": "When expanding \\(-(x + ${a})\\), what is the result?",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": 1,
+          "max": 12
+        }
+      },
+      "calculated_parameters": {
+        "neg_a": "-a"
+      },
+      "options": [
+        "\\(-x + ${a}\\)",
+        "\\(-x - ${a}\\)",
+        "\\(x - ${a}\\)",
+        "\\(-x + ${neg_a}\\)"
+      ],
+      "correctindex": 1,
+      "option_explanations": [
+        "\\text{Incorrect. When distributing the negative sign, } +${a} \\text{ becomes } -${a}, \\text{ not } +${a}.",
+        "\\text{Correct! Distributing the negative sign: } -(x + ${a}) = -x - ${a}.",
+        "\\text{Incorrect. You forgot to apply the negative sign to } x.",
+        "\\text{Incorrect. This is the same as option 1, just written differently.}"
+      ],
+      "main_topic_index": 8,
+      "subtopic_weights": {
+        "8": 0.9,
+        "7": 0.1
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.6,
+        "procedural_fluency": 0.7,
+        "problem_solving": 0.3,
+        "mathematical_communication": 0.3,
+        "memory": 0.5,
+        "spatial_reasoning": 0.0
+      },
+      "breakdown": {
+        "sign_error": {
+          "answer_mapping": [0, 2, 3],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [8],
+              "step_type": "conceptual_understanding",
+              "text": "When you have a negative sign in front of parentheses, what happens to each term inside?",
+              "options": [
+                "\\text{Only the first term changes sign}",
+                "\\text{Every term inside changes sign}",
+                "\\text{Only negative terms change sign}",
+                "\\text{The signs stay the same}"
+              ],
+              "correctindex": 1,
+              "option_explanations": [
+                "\\text{Incorrect. The negative distributes to every term inside.}",
+                "\\text{Correct! The negative sign distributes to each term: } -(a + b) = -a - b.",
+                "\\text{Incorrect. All terms change sign, regardless of their original sign.}",
+                "\\text{Incorrect. The negative sign must be distributed.}"
+              ]
+            },
+            {
+              "step_no": 2,
+              "prereq_topics": [],
+              "step_type": "procedural_fluency",
+              "text": "In \\(-(x + ${a})\\), what does \\(-x\\) become?",
+              "options": [
+                "\\(-x\\)",
+                "\\(x\\)",
+                "\\(-x^2\\)",
+                "\\(0\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\text{Correct! } -1 \\times x = -x.",
+                "\\text{Incorrect. The negative sign changes } x \\text{ to } -x.",
+                "\\text{Incorrect. This would square the variable.}",
+                "\\text{Incorrect. } x \\text{ doesn't disappear.}"
+              ]
+            },
+            {
+              "step_no": 3,
+              "prereq_topics": [],
+              "step_type": "procedural_fluency",
+              "text": "What does \\(-(+${a})\\) become?",
+              "options": [
+                "\\(-${a}\\)",
+                "\\(${a}\\)",
+                "\\(0\\)",
+                "\\(${a}^2\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\text{Correct! } -1 \\times (+${a}) = -${a}.",
+                "\\text{Incorrect. The negative sign changes } +${a} \\text{ to } -${a}.",
+                "\\text{Incorrect. } ${a} \\text{ doesn't disappear.}",
+                "\\text{Incorrect. This would square the number.}"
+              ]
+            }
+          ]
+        }
+      }
+    },
+
+    {
+      "text": "Which of the following equations is in standard form for a quadratic equation?",
+      "options": [
+        "\\(y = ax^2 + bx + c\\)",
+        "\\(ax^2 + bx + c = 0\\)",
+        "\\((x - h)^2 = k\\)",
+        "\\(x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)"
+      ],
+      "correctindex": 1,
+      "option_explanations": [
+        "\\(\\text{Incorrect. This is the general form of a quadratic function, not the standard form of an equation.}\\)",
+        "\\(\\text{Correct! The standard form of a quadratic equation is } ax^2 + bx + c = 0 \\text{ where } a \\neq 0.\\)",
+        "\\(\\text{Incorrect. This is vertex form used in completing the square.}\\)",
+        "\\(\\text{Incorrect. This is the quadratic formula, not standard form.}\\)"
+      ],
+      "main_topic_index": 56,
+      "subtopic_weights": {
+        "56": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.8,
+        "procedural_fluency": 0.2,
+        "problem_solving": 0.1,
+        "mathematical_communication": 0.9,
+        "memory": 0.7,
+        "spatial_reasoning": 0.0
+      }
+    },
+    {
+      "text": "If \\((x - ${a})(${b}x + ${c}) = 0\\), what are the solutions for \\(x\\)?",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": 1,
+          "max": 8
+        },
+        "b": {
+          "type": "int",
+          "min": 2,
+          "max": 5
+        },
+        "c": {
+          "type": "int",
+          "min": 3,
+          "max": 12
+        }
+      },
+      "calculated_parameters": {
+        "solution1": "a",
+        "solution2": "-c/b",
+        "wrong1": "-a",
+        "wrong2": "c/b",
+        "wrong3": "a + (-c/b)"
+      },
+      "options": [
+        "\\(x = ${solution1} \\text{ or } x = ${solution2}\\)",
+        "\\(x = ${wrong1} \\text{ or } x = ${wrong2}\\)",
+        "\\(x = ${wrong1} \\text{ or } x = ${solution2}\\)",
+        "\\(x = ${solution1} \\text{ or } x = ${wrong2}\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\text{Correct! Using zero product property: } x - ${a} = 0 \\Rightarrow x = ${a}, \\text{ and } ${b}x + ${c} = 0 \\Rightarrow x = -\\frac{${c}}{${b}} = ${solution2}.",
+        "\\text{Incorrect. You got the signs wrong for both solutions.}",
+        "\\text{Incorrect. The first solution should be positive } ${a}, \\text{ not negative.}",
+        "\\text{Incorrect. The second solution should be } -\\frac{${c}}{${b}}, \\text{ not } \\frac{${c}}{${b}}."
+      ],
+      "main_topic_index": 59,
+      "subtopic_weights": {
+        "59": 0.8,
+        "58": 0.2
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.6,
+        "procedural_fluency": 0.8,
+        "problem_solving": 0.4,
+        "mathematical_communication": 0.3,
+        "memory": 0.7,
+        "spatial_reasoning": 0.0
+      },
+      "breakdown": {
+        "zero_product_misunderstanding": {
+          "answer_mapping": [1, 2, 3],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [59],
+              "step_type": "conceptual_understanding",
+              "text": "What does the zero product property state?",
+              "options": [
+                "\\text{If } ab = 0, \\text{ then } a = 0 \\text{ or } b = 0",
+                "\\text{If } ab = 0, \\text{ then } a = 0 \\text{ and } b = 0",
+                "\\text{If } ab = 0, \\text{ then } a = b = 0",
+                "\\text{If } ab = 0, \\text{ then } a + b = 0"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\text{Correct! If a product equals zero, at least one factor must be zero.}",
+                "\\text{Incorrect. Only one factor needs to be zero, not both.}",
+                "\\text{Incorrect. The factors don't need to equal each other.}",
+                "\\text{Incorrect. This is about products, not sums.}"
+              ]
+            },
+            {
+              "step_no": 2,
+              "prereq_topics": [],
+              "step_type": "procedural_fluency",
+              "text": "Set the first factor equal to zero: \\(x - ${a} = 0\\). Solve for \\(x\\).",
+              "options": [
+                "\\(x = ${a}\\)",
+                "\\(x = -${a}\\)",
+                "\\(x = ${a} + 0\\)",
+                "\\(x = 0 - ${a}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\text{Correct! Add } ${a} \\text{ to both sides: } x = ${a}.",
+                "\\text{Incorrect. Adding } ${a} \\text{ to both sides gives positive } ${a}.",
+                "\\text{This simplifies to } x = ${a}, \\text{ but use the simpler form.}",
+                "\\text{This equals } -${a}, \\text{ which is incorrect.}"
+              ]
+            },
+            {
+              "step_no": 3,
+              "prereq_topics": [],
+              "step_type": "procedural_fluency",
+              "text": "Set the second factor equal to zero: \\(${b}x + ${c} = 0\\). Solve for \\(x\\).",
+              "options": [
+                "\\(x = -\\frac{${c}}{${b}}\\)",
+                "\\(x = \\frac{${c}}{${b}}\\)",
+                "\\(x = -${c} \\cdot ${b}\\)",
+                "\\(x = \\frac{${b}}{${c}}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\text{Correct! Subtract } ${c}: ${b}x = -${c}, \\text{ then divide by } ${b}: x = -\\frac{${c}}{${b}}.",
+                "\\text{Incorrect. When moving } ${c} \\text{ to the right side, it becomes } -${c}.",
+                "\\text{Incorrect. You divide by } ${b}, \\text{ not multiply.}",
+                "\\text{Incorrect. You have the fraction upside down.}"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "Factor completely: \\(x^2 - ${sum} x + ${product} \\)",
+      "generated_parameters": {
+        "p": {
+          "type": "int",
+          "min": 1,
+          "max": 6
+        },
+        "q": {
+          "type": "int",
+          "min": 2,
+          "max": 7
+        }
+      },
+      "calculated_parameters": {
+        "sum": "p + q",
+        "product": "p * q",
+        "wrong1": "p - q",
+        "wrong2": "p",
+        "wrong3": "q"
+      },
+      "options": [
+        "\\((x - ${p})(x - ${q})\\)",
+        "\\((x + ${p})(x + ${q})\\)",
+        "\\((x - ${p})(x + ${q})\\)",
+        "\\((x + ${p})(x - ${q})\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\text{Correct! We need two numbers that multiply to } +${product} \\text{ and add to } -${sum}. \\text{ These are } -${p} \\text{ and } -${q}.",
+        "\\text{Incorrect. This would give } x^2 + ${sum}x + ${product}, \\text{ not } x^2 - ${sum}x + ${product}.",
+        "\\text{Incorrect. This would give } x^2 + ${wrong1}x - ${product}, \\text{ not our expression.}",
+        "\\text{Incorrect. This would give } x^2 - ${wrong1}x - ${product}, \\text{ not our expression.}"
+      ],
+      "main_topic_index": 60,
+      "subtopic_weights": {
+        "60": 0.9,
+        "21": 0.1
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.5,
+        "procedural_fluency": 0.8,
+        "problem_solving": 0.6,
+        "mathematical_communication": 0.2,
+        "memory": 0.4,
+        "spatial_reasoning": 0.0
+      },
+      "breakdown": {
+        "factoring_signs": {
+          "answer_mapping": [1, 2, 3],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [21],
+              "step_type": "conceptual_understanding",
+              "text": "For \\(x^2 - ${sum}x + ${product}\\), what signs do the factors need when the middle term is negative and the constant is positive?",
+              "options": [
+                "\\text{Both factors negative}",
+                "\\text{Both factors positive}",
+                "\\text{One positive, one negative}",
+                "\\text{Signs don't matter}"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\text{Correct! When the constant is positive (+) and middle term negative (-), both factors must be negative.}",
+                "\\text{Incorrect. Two positive factors would make the middle term positive.}",
+                "\\text{Incorrect. Mixed signs would make the constant term negative.}",
+                "\\text{Incorrect. Signs are crucial in determining the correct factorization.}"
+              ]
+            },
+            {
+              "step_no": 2,
+              "prereq_topics": [],
+              "step_type": "procedural_fluency",
+              "text": "Find two numbers that multiply to \\(${product}\\) and add to \\(${sum}\\).",
+              "options": [
+                "\\(${p} \\text{ and } ${q}\\)",
+                "\\(${product} \\text{ and } 1\\)",
+                "\\(${sum} \\text{ and } 1\\)",
+                "\\(${wrong1} \\text{ and } ${wrong2}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\text{Correct! } ${p} \\times ${q} = ${product} \\text{ and } ${p} + ${q} = ${sum}.",
+                "\\text{While } ${product} \\times 1 = ${product}, \\text{ we have } ${product} + 1 \\neq ${sum}.",
+                "\\text{While } ${sum} \\times 1 = ${sum}, \\text{ this doesn't equal } ${product}.",
+                "\\text{Check: does } ${wrong1} \\times ${wrong2} = ${product} \\text{ and } ${wrong1} + ${wrong2} = ${sum}?"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "In the quadratic formula \\(x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\), what does the expression \\(b^2 - 4ac\\) represent?",
+      "options": [
+        "\\text{The y-intercept}",
+        "\\text{The discriminant}",
+        "\\text{The axis of symmetry}",
+        "\\text{The vertex}"
+      ],
+      "correctindex": 1,
+      "option_explanations": [
+        "\\text{Incorrect. The y-intercept is the constant term } c \\text{ in } ax^2 + bx + c.",
+        "\\text{Correct! The discriminant } b^2 - 4ac \\text{ determines the nature of the roots.}",
+        "\\text{Incorrect. The axis of symmetry is } x = -\\frac{b}{2a}.",
+        "\\text{Incorrect. The vertex involves both x and y coordinates.}"
+      ],
+      "main_topic_index": 67,
+      "subtopic_weights": {
+        "67": 0.8,
+        "72": 0.2
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.9,
+        "procedural_fluency": 0.2,
+        "problem_solving": 0.3,
+        "mathematical_communication": 0.8,
+        "memory": 0.8,
+        "spatial_reasoning": 0.0
+      }
+    },
+    {
+      "text": "For the quadratic equation \\(${a}x^2 + ${b}x + ${c} = 0\\), calculate the discriminant.",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": 1,
+          "max": 3
+        },
+        "b": {
+          "type": "int",
+          "min": -6,
+          "max": 6,
+          "exclude": 0
+        },
+        "c": {
+          "type": "int",
+          "min": -5,
+          "max": 5
+        }
+      },
+      "calculated_parameters": {
+        "discriminant": "b**2 - 4*a*c",
+        "wrong1": "b**2 + 4*a*c",
+        "wrong2": "b - 4*a*c",
+        "wrong3": "4*a*c - b**2"
+      },
+      "options": [
+        "\\(${wrong1}\\)",
+        "\\(${wrong2}\\)",
+        "\\(${discriminant}\\)",
+        "\\(${wrong3}\\)"
+      ],
+      "correctindex": 2,
+      "option_explanations": [
+        "\\text{Incorrect. The discriminant is } b^2 - 4ac, \\text{ not } b^2 + 4ac.",
+        "\\text{Incorrect. You need } b^2, \\text{ not just } b.",
+        "\\text{Correct! Discriminant } = b^2 - 4ac = (${b})^2 - 4(${a})(${c}) = ${discriminant}.",
+        "\\text{Incorrect. You have the terms reversed: it should be } b^2 - 4ac, \\text{ not } 4ac - b^2."
+      ],
+      "main_topic_index": 72,
+      "subtopic_weights": {
+        "72": 0.9,
+        "71": 0.1
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.4,
+        "procedural_fluency": 0.9,
+        "problem_solving": 0.3,
+        "mathematical_communication": 0.2,
+        "memory": 0.7,
+        "spatial_reasoning": 0.0
+      },
+      "breakdown": {
+        "discriminant_formula": {
+          "answer_mapping": [0, 1, 3],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [67],
+              "step_type": "memory",
+              "text": "What is the formula for the discriminant?",
+              "options": [
+                "\\(b^2 - 4ac\\)",
+                "\\(b^2 + 4ac\\)",
+                "\\(-b \\pm \\sqrt{b^2 - 4ac}\\)",
+                "\\(4ac - b^2\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\text{Correct! The discriminant is } b^2 - 4ac.",
+                "\\text{Incorrect. It's subtraction, not addition.}",
+                "\\text{Incorrect. This is the quadratic formula, not just the discriminant.}",
+                "\\text{Incorrect. The order is } b^2 - 4ac, \\text{ not } 4ac - b^2."
+              ]
+            },
+            {
+              "step_no": 2,
+              "prereq_topics": [],
+              "step_type": "procedural_fluency",
+              "text": "Identify the values: \\(a = ${a}\\), \\(b = ${b}\\), \\(c = ${c}\\). Calculate \\(b^2\\).",
+              "options": [
+                "\\(${b**2}\\)",
+                "\\(${2*b}\\)",
+                "\\(${abs(b)}\\)",
+                "\\(${b}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\text{Correct! } b^2 = (${b})^2 = ${b**2}.",
+                "\\text{Incorrect. This is } 2b, \\text{ not } b^2.",
+                "\\text{Incorrect. This is the absolute value of } b, \\text{ not } b^2.",
+                "\\text{Incorrect. This is just } b, \\text{ not } b^2."
+              ]
+            },
+            {
+              "step_no": 3,
+              "prereq_topics": [],
+              "step_type": "procedural_fluency",
+              "text": "Calculate \\(4ac = 4 \\cdot ${a} \\cdot ${c}\\).",
+              "options": [
+                "\\(${4*a*c}\\)",
+                "\\(${4*a+c}\\)",
+                "\\(${a*c}\\)",
+                "\\(${4+a*c}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\text{Correct! } 4ac = 4 \\cdot ${a} \\cdot ${c} = ${4*a*c}.",
+                "\\text{Incorrect. This is } 4a + c, \\text{ not } 4ac.",
+                "\\text{Incorrect. You forgot to multiply by } 4.",
+                "\\text{Incorrect. This is } 4 + ac, \\text{ not } 4ac."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "Find the equation of the line passing through point \\((${x1}, ${y1})\\) with slope \\(m = ${slope}\\).",
+      "generated_parameters": {
+        "x1": {
+          "type": "int",
+          "min": -3,
+          "max": 5
+        },
+        "y1": {
+          "type": "int",
+          "min": -4,
+          "max": 6
+        },
+        "slope": {
+          "type": "int",
+          "min": 1,
+          "max": 4
+        }
+      },
+      "calculated_parameters": {
+        "b_correct": "y1 - slope * x1",
+        "wrong1": "y1 + slope * x1",
+        "wrong2": "y1",
+        "wrong3": "slope * x1"
+      },
+      "options": [
+        "\\(y = ${slope}x + ${b_correct}\\)",
+        "\\(y = ${slope}x + ${wrong1}\\)",
+        "\\(y = ${slope}x + ${wrong2}\\)",
+        "\\(y = ${slope}x + ${wrong3}\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\text{Correct! Using point-slope form: } y - ${y1} = ${slope}(x - ${x1}) \\Rightarrow y = ${slope}x + ${b_correct}.",
+        "\\text{Incorrect. When expanding } ${slope}(x - ${x1}), \\text{ you get } ${slope}x - ${slope * x1}, \\text{ not } ${slope}x + ${slope * x1}.",
+        "\\text{Incorrect. You forgot to account for the x-intercept adjustment.}",
+        "\\text{Incorrect. This doesn't follow the point-slope formula correctly.}"
+      ],
+      "main_topic_index": 95,
+      "subtopic_weights": {
+        "95": 0.8,
+        "94": 0.2
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.5,
+        "procedural_fluency": 0.8,
+        "problem_solving": 0.6,
+        "mathematical_communication": 0.4,
+        "memory": 0.6,
+        "spatial_reasoning": 0.2
+      },
+      "breakdown": {
+        "point_slope_error": {
+          "answer_mapping": [1, 2, 3],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [94],
+              "step_type": "memory",
+              "text": "What is the point-slope form of a line?",
+              "options": [
+                "\\(y - y_1 = m(x - x_1)\\)",
+                "\\(y + y_1 = m(x + x_1)\\)",
+                "\\(y = mx + b\\)",
+                "\\(ax + by = c\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\text{Correct! Point-slope form: } y - y_1 = m(x - x_1).",
+                "\\text{Incorrect. The signs should be } y - y_1 \\text{ and } x - x_1.",
+                "\\text{Incorrect. This is slope-intercept form, not point-slope form.}",
+                "\\text{Incorrect. This is standard form, not point-slope form.}"
+              ]
+            },
+            {
+              "step_no": 2,
+              "prereq_topics": [],
+              "step_type": "procedural_fluency",
+              "text": "Substitute the given point \\((${x1}, ${y1})\\) and slope \\(${slope}\\) into point-slope form.",
+              "options": [
+                "\\(y - ${y1} = ${slope}(x - ${x1})\\)",
+                "\\(y + ${y1} = ${slope}(x + ${x1})\\)",
+                "\\(y - ${x1} = ${slope}(x - ${y1})\\)",
+                "\\(y = ${slope}x + ${y1}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\text{Correct! Substitute } (x_1, y_1) = (${x1}, ${y1}) \\text{ and } m = ${slope}.",
+                "\\text{Incorrect. Use subtraction: } y - y_1 \\text{ and } x - x_1.",
+                "\\text{Incorrect. You've switched the x and y coordinates.}",
+                "\\text{Incorrect. This skips the point-slope substitution step.}"
+              ]
+            },
+            {
+              "step_no": 3,
+              "prereq_topics": [],
+              "step_type": "procedural_fluency",
+              "text": "Solve for \\(y\\) to get slope-intercept form.",
+              "options": [
+                "\\(y = ${slope}x + ${b_correct}\\)",
+                "\\(y = ${slope}x - ${b_correct}\\)",
+                "\\(y = ${slope}x + ${y1}\\)",
+                "\\(y = ${slope}x\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\text{Correct! } y = ${slope}x - ${slope * x1} + ${y1} = ${slope}x + ${b_correct}.",
+                "\\text{Incorrect. Check the arithmetic when combining constants.}",
+                "\\text{Incorrect. You need to distribute and combine like terms.}",
+                "\\text{Incorrect. You're missing the y-intercept term.}"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "Find the equation of the line passing through points \\((${x1}, ${y1})\\) and \\((${x2}, ${y2})\\).",
+      "generated_parameters": {
+        "x1": {
+          "type": "int",
+          "min": -2,
+          "max": 3
+        },
+        "y1": {
+          "type": "int",
+          "min": -3,
+          "max": 4
+        },
+        "x2": {
+          "type": "int",
+          "min": 4,
+          "max": 7
+        },
+        "y2": {
+          "type": "int",
+          "min": -2,
+          "max": 5
+        }
+      },
+      "calculated_parameters": {
+        "slope": "(y2 - y1) / (x2 - x1)",
+        "b": "y1 - slope * x1",
+        "wrong_slope1": "(x2 - x1) / (y2 - y1)",
+        "wrong_slope2": "(y2 + y1) / (x2 + x1)",
+        "wrong_b": "y1 + slope * x1"
+      },
+      "options": [
+        "\\(y = ${wrong_slope1}x + ${wrong_b}\\)",
+        "\\(y = ${slope}x + ${b}\\)",
+        "\\(y = ${wrong_slope2}x + ${b}\\)",
+        "\\(y = ${slope}x + ${wrong_b}\\)"
+      ],
+      "correctindex": 1,
+      "option_explanations": [
+        "\\text{Incorrect. The slope formula is } \\frac{y_2 - y_1}{x_2 - x_1}, \\text{ not } \\frac{x_2 - x_1}{y_2 - y_1}.",
+        "\\text{Correct! Slope } = \\frac{${y2} - ${y1}}{${x2} - ${x1}} = ${slope}, \\text{ then } y = ${slope}x + ${b}.",
+        "\\text{Incorrect. The slope should use subtraction, not addition: } \\frac{y_2 - y_1}{x_2 - x_1}.",
+        "\\text{Incorrect. The y-intercept should be } b = y_1 - mx_1, \\text{ not } y_1 + mx_1."
+      ],
+      "main_topic_index": 96,
+      "subtopic_weights": {
+        "96": 0.8,
+        "95": 0.2
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.4,
+        "procedural_fluency": 0.9,
+        "problem_solving": 0.7,
+        "mathematical_communication": 0.3,
+        "memory": 0.5,
+        "spatial_reasoning": 0.3
+      },
+      "breakdown": {
+        "slope_formula_error": {
+          "answer_mapping": [0, 2, 3],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [94],
+              "step_type": "memory",
+              "text": "What is the formula for slope between two points \\((x_1, y_1)\\) and \\((x_2, y_2)\\)?",
+              "options": [
+                "\\(m = \\frac{y_2 - y_1}{x_2 - x_1}\\)",
+                "\\(m = \\frac{x_2 - x_1}{y_2 - y_1}\\)",
+                "\\(m = \\frac{y_2 + y_1}{x_2 + x_1}\\)",
+                "\\(m = \\frac{y_2 \\cdot y_1}{x_2 \\cdot x_1}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\text{Correct! Slope } = \\frac{\\text{rise}}{\\text{run}} = \\frac{y_2 - y_1}{x_2 - x_1}.",
+                "\\text{Incorrect. This is the reciprocal of slope.}",
+                "\\text{Incorrect. Use subtraction, not addition.}",
+                "\\text{Incorrect. Use subtraction of coordinates, not multiplication.}"
+              ]
+            },
+            {
+              "step_no": 2,
+              "prereq_topics": [],
+              "step_type": "procedural_fluency",
+              "text": "Calculate the slope using points \\((${x1}, ${y1})\\) and \\((${x2}, ${y2})\\).",
+              "options": [
+                "\\(${slope}\\)",
+                "\\(${wrong_slope1}\\)",
+                "\\(${wrong_slope2}\\)",
+                "\\((${y1}-${y2})/(${x1}-${x2})\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\text{Correct! } m = \\frac{${y2} - ${y1}}{${x2} - ${x1}} = \\frac{${y2-y1}}{${x2-x1}} = ${slope}.",
+                "\\text{Incorrect. You have the fraction inverted.}",
+                "\\text{Incorrect. Use subtraction, not addition.}",
+                "\\text{Incorrect. Use } (x_2, y_2) - (x_1, y_1), \\text{ not } (x_1, y_1) - (x_2, y_2)."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "Two lines are parallel. If one line has slope \\(${m}\\), what is the slope of the other line?",
+      "generated_parameters": {
+        "m": {
+          "type": "int",
+          "min": -4,
+          "max": 6,
+          "exclude": 0
+        }
+      },
+      "calculated_parameters": {
+        "negative_reciprocal": "-1/m",
+        "reciprocal": "1/m",
+        "negative": "-m"
+      },
+      "options": [
+        "\\(${m}\\)",
+        "\\(${negative}\\)",
+        "\\(${reciprocal}\\)",
+        "\\(${negative_reciprocal}\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\text{Correct! Parallel lines have the same slope.}",
+        "\\text{Incorrect. This would be the slope of a line symmetric about the x-axis, not parallel.}",
+        "\\text{Incorrect. This is the reciprocal. Perpendicular lines have negative reciprocal slopes.}",
+        "\\text{Incorrect. This is the negative reciprocal, which is for perpendicular lines.}"
+      ],
+      "main_topic_index": 99,
+      "subtopic_weights": {
+        "99": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.8,
+        "procedural_fluency": 0.2,
+        "problem_solving": 0.3,
+        "mathematical_communication": 0.7,
+        "memory": 0.9,
+        "spatial_reasoning": 0.4
+      }
+    },
+    {
+      "text": "Two lines are perpendicular. If one line has slope \\(\\frac{${a}}{${b}}\\), what is the slope of the other line?",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": 1,
+          "max": 5
+        },
+        "b": {
+          "type": "int",
+          "min": 2,
+          "max": 6,
+          "exclude": [0]
+        }
+      },
+      "calculated_parameters": {
+        "perp_slope": "-b/a",
+        "same_slope": "a/b",
+        "reciprocal": "b/a",
+        "negative": "-a/b"
+      },
+      "options": [
+        "\\(${same_slope}\\)",
+        "\\(${reciprocal}\\)",
+        "\\(${negative}\\)",
+        "\\(${perp_slope}\\)"
+      ],
+      "correctindex": 3,
+      "option_explanations": [
+        "\\text{Incorrect. This is the same slope, which would make the lines parallel.}",
+        "\\text{Incorrect. This is the reciprocal, but not negative. Perpendicular lines need negative reciprocal slopes.}",
+        "\\text{Incorrect. This is just the negative, not the negative reciprocal.}",
+        "\\text{Correct! Perpendicular lines have negative reciprocal slopes: } -\\frac{${b}}{${a}}."
+      ],
+      "main_topic_index": 100,
+      "subtopic_weights": {
+        "100": 0.9,
+        "99": 0.1
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.7,
+        "procedural_fluency": 0.6,
+        "problem_solving": 0.4,
+        "mathematical_communication": 0.5,
+        "memory": 0.8,
+        "spatial_reasoning": 0.5
+      },
+      "breakdown": {
+        "perpendicular_slope_confusion": {
+          "answer_mapping": [0, 1, 2],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [100],
+              "step_type": "conceptual_understanding",
+              "text": "What is the relationship between the slopes of perpendicular lines?",
+              "options": [
+                "\\text{They are the same}",
+                "\\text{They are opposite (negative)}",
+                "\\text{They are reciprocals}",
+                "\\text{They are negative reciprocals}"
+              ],
+              "correctindex": 3,
+              "option_explanations": [
+                "\\text{Incorrect. Same slopes mean parallel lines.}",
+                "\\text{Incorrect. Just negating doesn't make lines perpendicular.}",
+                "\\text{Incorrect. Just reciprocals aren't enough for perpendicular lines.}",
+                "\\text{Correct! Perpendicular lines have slopes that are negative reciprocals of each other.}"
+              ]
+            },
+            {
+              "step_no": 2,
+              "prereq_topics": [],
+              "step_type": "procedural_fluency",
+              "text": "If one slope is \\(\\frac{${a}}{${b}}\\), what is its reciprocal?",
+              "options": [
+                "\\(\\frac{${b}}{${a}}\\)",
+                "\\(\\frac{${a}}{${b}}\\)",
+                "\\(-\\frac{${a}}{${b}}\\)",
+                "\\(-\\frac{${b}}{${a}}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\text{Correct! The reciprocal of } \\frac{${a}}{${b}} \\text{ is } \\frac{${b}}{${a}}.",
+                "\\text{Incorrect. This is the same fraction, not its reciprocal.}",
+                "\\text{Incorrect. This is the negative, but we need the reciprocal first.}",
+                "\\text{This is the negative reciprocal, which is the final answer, but we're just finding the reciprocal in this step.}"
+              ]
+            },
+            {
+              "step_no": 3,
+              "prereq_topics": [],
+              "step_type": "procedural_fluency",
+              "text": "What is the negative reciprocal of \\(\\frac{${a}}{${b}}\\)?",
+              "options": [
+                "\\(-\\frac{${b}}{${a}}\\)",
+                "\\(-\\frac{${a}}{${b}}\\)",
+                "\\(\\frac{${b}}{${a}}\\)",
+                "\\(\\frac{${a}}{${b}}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\text{Correct! Negative reciprocal: flip the fraction and change the sign: } -\\frac{${b}}{${a}}.",
+                "\\text{Incorrect. This is just the negative, not the negative reciprocal.}",
+                "\\text{Incorrect. This is just the reciprocal, missing the negative sign.}",
+                "\\text{Incorrect. This is the original fraction.}"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "Why might you choose to complete the square instead of using the quadratic formula to solve a quadratic equation?",
+      "options": [
+        "Completing the square is always faster",
+        "To find the vertex form or when the discriminant is negative",
+        "The quadratic formula doesn't work for all quadratics",
+        "To avoid fractions entirely"
+      ],
+      "correctindex": 1,
+      "option_explanations": [
+        "Incorrect. Completing the square is often more time-consuming than the quadratic formula.",
+        "\\(\\text{Correct! Completing the square is useful for finding vertex form } y = a(x - h)^2 + k \\text{ and understanding the graph's properties.}\\)",
+        "\\(\\text{Incorrect. The quadratic formula works for all quadratic equations where } a \\neq 0.\\)",
+        "Incorrect. Completing the square can still involve fractions."
+      ],
+      "main_topic_index": 62,
+      "subtopic_weights": {
+        "62": 0.8,
+        "107": 0.2
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.9,
+        "procedural_fluency": 0.1,
+        "problem_solving": 0.7,
+        "mathematical_communication": 0.8,
+        "memory": 0.6,
+        "spatial_reasoning": 0.3
+      }
+    },
+    {
+      "text": "Looking at the parabola \\(y = ${a}x^2 + ${b}x + ${c}\\), can you determine which direction it opens?",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": -4,
+          "max": 5,
+          "exclude": 0
+        },
+        "b": {
+          "type": "int",
+          "min": -6,
+          "max": 6
+        },
+        "c": {
+          "type": "int",
+          "min": -8,
+          "max": 8
+        }
+      },
+      "calculated_parameters": {
+        "direction": "'upward' if a > 0 else 'downward'",
+        "opposite": "'downward' if a > 0 else 'upward'",
+        "sign_text": "'positive' if a > 0 else 'negative'"
+      },
+      "options": [
+        "\\(\\text{Opens ${direction} because } a = ${a} \\text{ is ${sign_text}}\\)",
+        "\\(\\text{Opens ${opposite} because } a = ${a} \\text{ is ${sign_text}}\\)",
+        "\\(\\text{Opens ${direction} because } c = ${c}\\)",
+        "\\(\\text{Direction depends on both } a \\text{ and } c\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\(\\text{Excellent! You correctly identified that when } a > 0, \\text{ the parabola opens upward, and when } a < 0, \\text{ it opens downward. Great understanding!}\\)",
+        "\\(\\text{Great thinking about the coefficient } a! \\text{ However, check the relationship: positive } a \\text{ means upward, negative } a \\text{ means downward.}\\)",
+        "\\(\\text{You're observing the coefficients well! But the opening direction is determined by } a, \\text{ not } c. \\text{ Think about how } a \\text{ affects the parabola's curvature.}\\)",
+        "\\(\\text{Good question about multiple factors! Actually, just the coefficient } a \\text{ determines direction. The value of } c \\text{ affects position but not opening direction.}\\)"
+      ],
+      "main_topic_index": 103,
+      "subtopic_weights": {
+        "103": 0.9,
+        "102": 0.1
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.8,
+        "procedural_fluency": 0.3,
+        "problem_solving": 0.4,
+        "mathematical_communication": 0.6,
+        "memory": 0.7,
+        "spatial_reasoning": 0.5
+      },
+      "breakdown": {
+        "coefficient_sign_confusion": {
+          "answer_mapping": [1, 2, 3],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [103],
+              "step_type": "conceptual_understanding",
+              "text": "In a quadratic function \\(y = ax^2 + bx + c\\), which coefficient determines the direction the parabola opens?",
+              "options": [
+                "\\(\\text{The coefficient } a\\)",
+                "\\(\\text{The coefficient } b\\)",
+                "\\(\\text{The coefficient } c\\)",
+                "\\(\\text{All coefficients together}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\(\\text{Perfect! The coefficient } a \\text{ (the coefficient of } x^2\\text{) determines the parabola's opening direction.}\\)",
+                "\\(\\text{Good thinking! Coefficient } b \\text{ affects the parabola's position but not the opening direction.}\\)",
+                "\\(\\text{Nice attention to detail! But } c \\text{ determines the y-intercept, not the opening direction.}\\)",
+                "\\(\\text{Thoughtful reasoning! But specifically it's just the } a \\text{ coefficient that controls direction.}\\)"
+              ]
+            },
+            {
+              "step_no": 2,
+              "prereq_topics": [],
+              "step_type": "conceptual_understanding",
+              "text": "What's the rule for how the sign of \\(a\\) affects the parabola's direction?",
+              "options": [
+                "\\(\\text{If } a > 0, \\text{ opens upward; if } a < 0, \\text{ opens downward}\\)",
+                "\\(\\text{If } a > 0, \\text{ opens downward; if } a < 0, \\text{ opens upward}\\)",
+                "\\(\\text{If } a > 0, \\text{ opens left; if } a < 0, \\text{ opens right}\\)",
+                "\\(\\text{The sign doesn't affect direction}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\(\\text{Excellent! Positive } a \\text{ creates a U-shape (opens up), negative } a \\text{ creates an upside-down U (opens down).}\\)",
+                "\\(\\text{You've got the concept but the directions are reversed! Think of positive } a \\text{ as creating a happy U-shape.}\\)",
+                "\\(\\text{Great effort! But parabolas open vertically (up or down), not horizontally (left or right).}\\)",
+                "\\(\\text{Actually, the sign makes all the difference! It determines the entire shape orientation.}\\)"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "The vertex of a parabola is such a special point! What makes it so important?",
+      "options": [
+        "\\(\\text{It's where the parabola crosses the y-axis}\\)",
+        "\\(\\text{It's the turning point - the highest or lowest point on the parabola}\\)",
+        "\\(\\text{It's where the parabola crosses the x-axis}\\)",
+        "\\(\\text{It's always at the origin } (0, 0)\\)"
+      ],
+      "correctindex": 1,
+      "option_explanations": [
+        "\\(\\text{That's the y-intercept you're thinking of! The vertex has a different special role in the parabola's shape.}\\)",
+        "\\(\\text{Perfect understanding! The vertex is indeed the turning point - the maximum for downward-opening parabolas or minimum for upward-opening ones.}\\)",
+        "\\(\\text{Those are the x-intercepts or roots! The vertex is at a different location with its own special purpose.}\\)",
+        "\\(\\text{Good thinking about special points! But the vertex can be anywhere on the coordinate plane, not just at the origin.}\\)"
+      ],
+      "main_topic_index": 105,
+      "subtopic_weights": {
+        "105": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.9,
+        "procedural_fluency": 0.1,
+        "problem_solving": 0.3,
+        "mathematical_communication": 0.8,
+        "memory": 0.7,
+        "spatial_reasoning": 0.6
+      }
+    },
+    {
+      "text": "For the parabola \\(y = ${a}(x - ${h})^2 + ${k}\\), what are the coordinates of the vertex?",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": -3,
+          "max": 4,
+          "exclude": 0
+        },
+        "h": {
+          "type": "int",
+          "min": -4,
+          "max": 5
+        },
+        "k": {
+          "type": "int",
+          "min": -3,
+          "max": 6
+        }
+      },
+      "options": [
+        "\\((${h}, ${k})\\)",
+        "\\((-${h}, ${k})\\)",
+        "\\((${h}, -${k})\\)",
+        "\\((${a}, ${h})\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\(\\text{Brilliant! In vertex form } y = a(x - h)^2 + k, \\text{ the vertex is exactly } (h, k) = (${h}, ${k}). \\text{ You've mastered this concept!}\\)",
+        "\\(\\text{You're thinking about the structure correctly! Remember that in } (x - h), \\text{ the vertex x-coordinate is } +h, \\text{ not } -h.\\)",
+        "\\(\\text{Great focus on the vertex form pattern! The y-coordinate of the vertex is } +k, \\text{ not } -k.\\)",
+        "\\(\\text{I can see you're identifying the parameters! But the vertex uses } h \\text{ and } k, \\text{ not } a \\text{ and } h.\\)"
+      ],
+      "main_topic_index": 107,
+      "subtopic_weights": {
+        "107": 0.8,
+        "106": 0.2
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.7,
+        "procedural_fluency": 0.5,
+        "problem_solving": 0.3,
+        "mathematical_communication": 0.6,
+        "memory": 0.8,
+        "spatial_reasoning": 0.4
+      },
+      "breakdown": {
+        "vertex_form_confusion": {
+          "answer_mapping": [1, 2, 3],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [107],
+              "step_type": "memory",
+              "text": "What is the general vertex form of a parabola?",
+              "options": [
+                "\\(y = a(x - h)^2 + k\\)",
+                "\\(y = ax^2 + bx + c\\)",
+                "\\(y = a(x + h)^2 + k\\)",
+                "\\(y = (x - h)^2\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\(\\text{Perfect! The vertex form is } y = a(x - h)^2 + k \\text{ where } (h, k) \\text{ is the vertex.}\\)",
+                "\\(\\text{This is standard form, not vertex form! You're thinking of the right concept though.}\\)",
+                "\\(\\text{Very close! But it should be } (x - h), \\text{ not } (x + h).\\)",
+                "\\(\\text{You're on the right track with the squared term! But we need the full form with } a \\text{ and } k.\\)"
+              ]
+            },
+            {
+              "step_no": 2,
+              "prereq_topics": [],
+              "step_type": "conceptual_understanding",
+              "text": "In the vertex form \\(y = a(x - h)^2 + k\\), what do \\(h\\) and \\(k\\) represent?",
+              "options": [
+                "\\(h \\text{ is the x-coordinate and } k \\text{ is the y-coordinate of the vertex}\\)",
+                "\\(h \\text{ is the y-intercept and } k \\text{ is the slope}\\)",
+                "\\(h \\text{ and } k \\text{ are the x-intercepts}\\)",
+                "\\(h \\text{ controls width and } k \\text{ controls height}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\(\\text{Absolutely right! The vertex is located at } (h, k) \\text{ - that's the beauty of vertex form!}\\)",
+                "\\(\\text{Those are different features of parabolas! In vertex form, } h \\text{ and } k \\text{ specifically locate the vertex.}\\)",
+                "\\(\\text{Good thinking about important points! But } h \\text{ and } k \\text{ give us the vertex, not the x-intercepts.}\\)",
+                "\\(\\text{Interesting perspective! While } a \\text{ affects width, } h \\text{ and } k \\text{ actually give the exact vertex location.}\\)"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "You're building confidence with vertex coordinates! For the parabola \\(y = ${a}x^2 + ${b}x + ${c}\\), find the x-coordinate of the vertex.",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": 1,
+          "max": 3
+        },
+        "b": {
+          "type": "int",
+          "min": -6,
+          "max": 6,
+          "exclude": 0
+        },
+        "c": {
+          "type": "int",
+          "min": -4,
+          "max": 8
+        }
+      },
+      "calculated_parameters": {
+        "vertex_x": "-b/(2*a)",
+        "wrong1": "b/(2*a)",
+        "wrong2": "-b/a",
+        "wrong3": "-c/(2*a)"
+      },
+      "options": [
+        "\\(${vertex_x}\\)",
+        "\\(${wrong1}\\)",
+        "\\(${wrong2}\\)",
+        "\\(${wrong3}\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\(\\text{Wonderful! You correctly used } x = -\\frac{b}{2a} = -\\frac{${b}}{2(${a})} = ${vertex_x}. \\text{ Your formula application is spot-on!}\\)",
+        "\\(\\text{Excellent approach using the vertex formula! Remember to include the negative sign: } x = -\\frac{b}{2a}.\\)",
+        "\\(\\text{Great thinking with the negative } b! \\text{ But don't forget to divide by } 2a, \\text{ not just } a.\\)",
+        "\\(\\text{Good attempt with the formula structure! But we use coefficient } b, \\text{ not } c, \\text{ for the vertex x-coordinate.}\\)"
+      ],
+      "main_topic_index": 106,
+      "subtopic_weights": {
+        "106": 0.8,
+        "111": 0.2
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.4,
+        "procedural_fluency": 0.8,
+        "problem_solving": 0.3,
+        "mathematical_communication": 0.3,
+        "memory": 0.8,
+        "spatial_reasoning": 0.4
+      },
+      "breakdown": {
+        "vertex_coordinate_error": {
+          "answer_mapping": [1, 2, 3],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [106],
+              "step_type": "memory",
+              "text": "What formula gives the x-coordinate of the vertex for \\(y = ax^2 + bx + c\\)?",
+              "options": [
+                "\\(x = -\\frac{b}{2a}\\)",
+                "\\(x = \\frac{b}{2a}\\)",
+                "\\(x = -\\frac{c}{2a}\\)",
+                "\\(x = \\frac{a}{2b}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\(\\text{Perfect! The vertex x-coordinate formula is } x = -\\frac{b}{2a}.\\)",
+                "\\(\\text{Almost perfect! Don't forget the negative sign: } x = -\\frac{b}{2a}.\\)",
+                "\\(\\text{Good structure! But we use } b, \\text{ not } c, \\text{ in the vertex formula.}\\)",
+                "\\(\\text{Creative thinking! But the correct formula puts } b \\text{ in the numerator.}\\)"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "You're analyzing the quadratic function \\(f(x) = ${a}x^2 + ${b}x + ${c}\\). What is the y-intercept?",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": 1,
+          "max": 3
+        },
+        "b": {
+          "type": "int",
+          "min": -5,
+          "max": 5
+        },
+        "c": {
+          "type": "int",
+          "min": -6,
+          "max": 8
+        }
+      },
+      "options": [
+        "\\((0, ${c})\\)",
+        "\\((${c}, 0)\\)",
+        "\\((0, ${a})\\)",
+        "\\((${a}, ${c})\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\(\\text{Outstanding! The y-intercept occurs when } x = 0, \\text{ giving us } f(0) = ${c}, \\text{ so the point is } (0, ${c}). \\text{ You understand this perfectly!}\\)",
+        "\\(\\text{Great thinking about intercepts! Remember that y-intercept has x-coordinate 0, so it's } (0, y\\text{-value}), \\text{ not } (y\\text{-value}, 0).\\)",
+        "\\(\\text{You're identifying coefficients well! But the y-intercept is the constant term } c, \\text{ not the leading coefficient } a.\\)",
+        "\\(\\text{I can see you're working with the coefficients! The y-intercept is at } (0, c) \\text{ when we substitute } x = 0.\\)"
+      ],
+      "main_topic_index": 112,
+      "subtopic_weights": {
+        "112": 0.8,
+        "2": 0.2
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.6,
+        "procedural_fluency": 0.4,
+        "problem_solving": 0.3,
+        "mathematical_communication": 0.5,
+        "memory": 0.7,
+        "spatial_reasoning": 0.3
+      }
+    },
+    {
+      "text": "When solving the inequality \\(${a}x + ${b} > ${c}\\) where \\(a\\) is negative, what special rule must you remember when dividing by \\(${a}\\)?",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": -5,
+          "max": -2
+        },
+        "b": {
+          "type": "int",
+          "min": -8,
+          "max": 8
+        },
+        "c": {
+          "type": "int",
+          "min": -6,
+          "max": 10
+        }
+      },
+      "calculated_parameters": {
+        "solution": "(c - b) / a",
+        "wrong_same": "(c - b) / a"
+      },
+      "options": [
+        "\\(\\text{Flip the inequality sign: } x < ${solution}\\)",
+        "\\(\\text{Keep the inequality sign: } x > ${solution}\\)",
+        "\\(\\text{Change to an equation: } x = ${solution}\\)",
+        "\\(\\text{Cannot solve when } a \\text{ is negative}\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\(\\text{Excellent understanding! When dividing by a negative number, we must flip the inequality sign. You've mastered this important rule!}\\)",
+        "\\(\\text{You're applying division correctly, but remember the special rule: dividing by negative numbers flips the inequality sign!}\\)",
+        "\\(\\text{Great attempt! Division doesn't change inequalities to equations - we still have an inequality, just with a flipped sign.}\\)",
+        "\\(\\text{Don't worry - we can absolutely solve this! We just need to remember to flip the inequality sign when dividing by negative numbers.}\\)"
+      ],
+      "main_topic_index": 126,
+      "subtopic_weights": {
+        "126": 0.9,
+        "127": 0.1
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.8,
+        "procedural_fluency": 0.7,
+        "problem_solving": 0.5,
+        "mathematical_communication": 0.4,
+        "memory": 0.9,
+        "spatial_reasoning": 0.2
+      },
+      "breakdown": {
+        "negative_division_rule": {
+          "answer_mapping": [1, 2, 3],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [126],
+              "step_type": "memory",
+              "text": "What happens to an inequality when you multiply or divide both sides by a negative number?",
+              "options": [
+                "\\(\\text{The inequality sign flips}\\)",
+                "\\(\\text{The inequality sign stays the same}\\)",
+                "\\(\\text{The inequality becomes an equation}\\)",
+                "\\(\\text{The inequality becomes undefined}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\(\\text{Perfect! This is the fundamental rule - multiplying or dividing by negatives flips the inequality.}\\)",
+                "\\(\\text{This would be true for positive numbers, but negative numbers have a special rule!}\\)",
+                "\\(\\text{Good thinking, but inequalities stay as inequalities - they don't become equations.}\\)",
+                "\\(\\text{Not to worry! Inequalities are still well-defined, we just need to follow the flipping rule.}\\)"
+              ]
+            },
+            {
+              "step_no": 2,
+              "prereq_topics": [],
+              "step_type": "conceptual_understanding",
+              "text": "Why does the inequality sign flip when dividing by a negative number?",
+              "options": [
+                "\\(\\text{Because multiplying by negative numbers reverses the order on the number line}\\)",
+                "\\(\\text{It's just a rule we have to memorize}\\)",
+                "\\(\\text{Because negative numbers are smaller}\\)",
+                "\\(\\text{To make the math easier}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\(\\text{Brilliant insight! Negative multiplication flips the number line order: if } 2 > 1, \\text{ then } -2 < -1. \\text{ You understand the deeper reason!}\\)",
+                "\\(\\text{While it is a rule, there's actually a beautiful logical reason behind it involving number line ordering!}\\)",
+                "\\(\\text{Interesting thought! But it's about how multiplication by negatives affects ordering, not size.}\\)",
+                "\\(\\text{The rule actually makes math consistent with number line relationships - there's great logic behind it!}\\)"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "Looking at this sequence: \\(${first}, ${second}, ${third}, ${fourth}, ...\\) Can you identify what type of sequence this is?",
+      "generated_parameters": {
+        "start": {
+          "type": "int",
+          "min": 2,
+          "max": 8
+        },
+        "diff": {
+          "type": "int",
+          "min": 2,
+          "max": 6
+        }
+      },
+      "calculated_parameters": {
+        "first": "start",
+        "second": "start + diff",
+        "third": "start + 2*diff",
+        "fourth": "start + 3*diff"
+      },
+      "options": [
+        "\\(\\text{Arithmetic sequence - terms increase by the same amount each time}\\)",
+        "\\(\\text{Geometric sequence - terms are multiplied by the same ratio each time}\\)",
+        "\\(\\text{Quadratic sequence - terms follow a squared pattern}\\)",
+        "\\(\\text{Random sequence - no clear pattern}\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\(\\text{Fantastic observation! You correctly noticed that each term increases by } ${diff}, \\text{ making this an arithmetic sequence. Great pattern recognition!}\\)",
+        "\\(\\text{Excellent thinking about sequences! But check if terms are added to (arithmetic) or multiplied by (geometric) a constant.}\\)",
+        "\\(\\text{Good knowledge of sequence types! But look at the differences between consecutive terms - do you see a linear pattern?}\\)",
+        "\\(\\text{I understand it might look complex, but look closer - can you find a consistent difference between consecutive terms?}\\)"
+      ],
+      "main_topic_index": 142,
+      "subtopic_weights": {
+        "142": 0.8,
+        "143": 0.2
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.7,
+        "procedural_fluency": 0.3,
+        "problem_solving": 0.6,
+        "mathematical_communication": 0.5,
+        "memory": 0.5,
+        "spatial_reasoning": 0.4
+      },
+      "breakdown": {
+        "sequence_type_confusion": {
+          "answer_mapping": [1, 2, 3],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [142],
+              "step_type": "conceptual_understanding",
+              "text": "What's the key characteristic that defines an arithmetic sequence?",
+              "options": [
+                "\\(\\text{The difference between consecutive terms is constant}\\)",
+                "\\(\\text{The ratio between consecutive terms is constant}\\)",
+                "\\(\\text{Terms follow a squared pattern}\\)",
+                "\\(\\text{Terms are all positive}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\(\\text{Perfect! An arithmetic sequence has a constant common difference between consecutive terms.}\\)",
+                "\\(\\text{You're thinking of geometric sequences! That's when we multiply by a constant ratio.}\\)",
+                "\\(\\text{That would be a quadratic sequence! Arithmetic sequences use constant addition.}\\)",
+                "\\(\\text{Good thought, but arithmetic sequences can have negative terms too - it's about the constant difference!}\\)"
+              ]
+            },
+            {
+              "step_no": 2,
+              "prereq_topics": [],
+              "step_type": "procedural_fluency",
+              "text": "Calculate the differences: \\(${second} - ${first}\\), \\(${third} - ${second}\\), \\(${fourth} - ${third}\\). What do you notice?",
+              "options": [
+                "\\(\\text{All differences equal } ${diff}\\)",
+                "\\(\\text{Differences are } ${diff}, ${2*diff}, ${3*diff}\\)",
+                "\\(\\text{Differences are } ${diff}, ${diff + 1}, ${diff + 2}\\)",
+                "\\(\\text{No clear pattern in differences}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\(\\text{Excellent work! Each difference is } ${diff}, \\text{ confirming this is arithmetic with common difference } d = ${diff}.\\)",
+                "\\(\\text{Good calculation approach! But check your arithmetic - the differences should all be the same.}\\)",
+                "\\(\\text{Nice systematic checking! But look again - all differences should be identical for arithmetic sequences.}\\)",
+                "\\(\\text{Keep looking! Try subtracting each term from the next one - you'll find a beautiful pattern.}\\)"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "You're working with the arithmetic sequence formula \\(a_n = a_1 + (n-1)d\\). If the first term is \\(${a1}\\) and the common difference is \\(${d}\\), what is the \\(${n}\\)th term?",
+      "generated_parameters": {
+        "a1": {
+          "type": "int",
+          "min": 1,
+          "max": 8
+        },
+        "d": {
+          "type": "int",
+          "min": 2,
+          "max": 5
+        },
+        "n": {
+          "type": "int",
+          "min": 5,
+          "max": 12
+        }
+      },
+      "calculated_parameters": {
+        "nth_term": "a1 + (n-1)*d",
+        "wrong1": "a1 + n*d",
+        "wrong2": "a1 * n + d",
+        "wrong3": "a1 + d"
+      },
+      "options": [
+        "\\(${nth_term}\\)",
+        "\\(${wrong1}\\)",
+        "\\(${wrong2}\\)",
+        "\\(${wrong3}\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\(\\text{Wonderful work! You correctly applied } a_n = a_1 + (n-1)d = ${a1} + (${n}-1) \\cdot ${d} = ${nth_term}. \\text{ Your formula skills are excellent!}\\)",
+        "\\(\\text{Great start with the formula! Remember it's } (n-1)d, \\text{ not } nd. \\text{ Think about why we need } n-1 \\text{ steps to get to the } n\\text{th term.}\\)",
+        "\\(\\text{You're working with the right numbers! But the arithmetic sequence formula uses addition and multiplication differently than this.}\\)",
+        "\\(\\text{You've identified the first term and common difference correctly! But we need to account for how many steps of } d \\text{ we take to reach position } ${n}.\\)"
+      ],
+      "main_topic_index": 146,
+      "subtopic_weights": {
+        "146": 0.9,
+        "147": 0.1
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.5,
+        "procedural_fluency": 0.8,
+        "problem_solving": 0.6,
+        "mathematical_communication": 0.3,
+        "memory": 0.7,
+        "spatial_reasoning": 0.2
+      },
+      "breakdown": {
+        "formula_application_error": {
+          "answer_mapping": [1, 2, 3],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [146],
+              "step_type": "memory",
+              "text": "What is the correct formula for the nth term of an arithmetic sequence?",
+              "options": [
+                "\\(a_n = a_1 + (n-1)d\\)",
+                "\\(a_n = a_1 + nd\\)",
+                "\\(a_n = a_1 \\cdot n + d\\)",
+                "\\(a_n = a_1 + d\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\(\\text{Perfect! The formula is } a_n = a_1 + (n-1)d \\text{ - the } (n-1) \\text{ is key!}\\)",
+                "\\(\\text{Close! But we use } (n-1), \\text{ not } n. \\text{ Think: how many 'jumps' from position 1 to position } n\\text{?}\\)",
+                "\\(\\text{You're mixing up operations! Arithmetic sequences use addition of the common difference.}\\)",
+                "\\(\\text{This would only work for the 2nd term! We need to account for which position we want.}\\)"
+              ]
+            },
+            {
+              "step_no": 2,
+              "prereq_topics": [],
+              "step_type": "conceptual_understanding",
+              "text": "Why do we use \\((n-1)\\) instead of \\(n\\) in the formula?",
+              "options": [
+                "\\(\\text{Because it takes } (n-1) \\text{ steps to go from position 1 to position } n\\)",
+                "\\(\\text{Because } n \\text{ is too big}\\)",
+                "\\(\\text{Because we always subtract 1 in algebra}\\)",
+                "\\(\\text{It's just how the formula is written}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\(\\text{Brilliant reasoning! From position 1 to position } ${n}, \\text{ we take } ${n-1} \\text{ steps of size } d. \\text{ You understand the logic beautifully!}\\)",
+                "\\(\\text{Not about size! Think about how many 'jumps' of common difference we need to get from 1st to nth position.}\\)",
+                "\\(\\text{Not a general rule! There's a specific logical reason for } (n-1) \\text{ in this context.}\\)",
+                "\\(\\text{There's actually beautiful logic here! Count the steps needed to go from position 1 to any position } n.\\)"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "You're exploring the concept of compound inequalities! What does \\(${a} < x < ${b}\\) represent?",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": -5,
+          "max": 2
+        },
+        "b": {
+          "type": "int",
+          "min": 5,
+          "max": 12
+        }
+      },
+      "options": [
+        "\\(x > ${a} \\text{ and } x < ${b}\\)",
+        "\\(x > ${a} \\text{ or } x < ${b}\\)",
+        "\\(x < ${a} \\text{ and } x > ${b}\\)",
+        "\\(x < ${a} \\text{ or } x > ${b}\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\(\\text{Perfect interpretation! You correctly understand that } ${a} < x < ${b} \\text{ means x is between } ${a} \\text{ and } ${b}, \\text{ satisfying both conditions simultaneously.}\\)",
+        "\\(\\text{Great thinking about compound statements! But 'between' means BOTH conditions must be true, which requires 'and', not 'or'.}\\)",
+        "\\(\\text{You're working with the right structure! But check the direction of the inequalities - x should be greater than } ${a} \\text{ and less than } ${b}.\\)",
+        "\\(\\text{Good understanding of 'or' vs 'and'! But this compound inequality represents values between the bounds, not outside them.}\\)"
+      ],
+      "main_topic_index": 131,
+      "subtopic_weights": {
+        "131": 0.8,
+        "121": 0.2
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.8,
+        "procedural_fluency": 0.3,
+        "problem_solving": 0.4,
+        "mathematical_communication": 0.7,
+        "memory": 0.6,
+        "spatial_reasoning": 0.5
+      }
+    },
+    {
+      "text": "Understanding domain and range is so useful! For any quadratic function \\(f(x) = ax^2 + bx + c\\) where \\(a ≠ 0\\), what is the domain?",
+      "options": [
+        "\\(\\text{All real numbers}\\)",
+        "\\(x \\geq 0\\)",
+        "\\(y \\geq \\text{vertex y-coordinate}\\)",
+        "\\(\\text{It depends on the coefficients}\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\(\\text{Absolutely correct! You can substitute any real number for x in a quadratic function - there are no restrictions on the input values. Great conceptual understanding!}\\)",
+        "\\(\\text{Good thinking about restrictions! But quadratic functions accept negative x-values too. Try graphing } y = x^2 \\text{ and see!}\\)",
+        "\\(\\text{You're thinking of range! Domain is about x-values (inputs), while range is about y-values (outputs).}\\)",
+        "\\(\\text{Thoughtful consideration! But actually, quadratic functions always accept all real x-values regardless of the specific coefficients.}\\)"
+      ],
+      "main_topic_index": 116,
+      "subtopic_weights": {
+        "116": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.8,
+        "procedural_fluency": 0.2,
+        "problem_solving": 0.4,
+        "mathematical_communication": 0.8,
+        "memory": 0.6,
+        "spatial_reasoning": 0.4
+      }
+    },
+    {
+      "text": "When graphing parabolas, you can use the beautiful property of symmetry! If you know the vertex is at \\((${h}, ${k})\\) and one point is \\((${h} + ${dist}, ${y_val})\\), where is the symmetric point?",
+      "generated_parameters": {
+        "h": {
+          "type": "int",
+          "min": -2,
+          "max": 4
+        },
+        "k": {
+          "type": "int",
+          "min": 1,
+          "max": 6
+        },
+        "dist": {
+          "type": "int",
+          "min": 1,
+          "max": 3
+        },
+        "y_val": {
+          "type": "int",
+          "min": 2,
+          "max": 8
+        }
+      },
+      "calculated_parameters": {
+        "sym_x": "h - dist",
+        "wrong1": "h + dist",
+        "wrong2": "2*h - dist",
+        "wrong3": "h"
+      },
+      "options": [
+        "\\((${sym_x}, ${y_val})\\)",
+        "\\((${wrong1}, ${y_val})\\)",
+        "\\((${h}, ${y_val})\\)",
+        "\\((${h}, ${2*k - y_val})\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\(\\text{Outstanding! You understand symmetry perfectly! The point } (${sym_x}, ${y_val}) \\text{ is the same distance from the axis of symmetry } x = ${h} \\text{ but on the opposite side.}\\)",
+        "\\(\\text{You're thinking about the axis of symmetry! But this would be the same point, not its reflection.}\\)",
+        "\\(\\text{Great focus on the vertex! But symmetric points are equidistant from the axis of symmetry } x = ${h}.\\)",
+        "\\(\\text{Interesting approach! But parabola symmetry is about reflection across the vertical axis, keeping the same y-value.}\\)"
+      ],
+      "main_topic_index": 118,
+      "subtopic_weights": {
+        "118": 0.8,
+        "111": 0.2
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.7,
+        "procedural_fluency": 0.5,
+        "problem_solving": 0.6,
+        "mathematical_communication": 0.4,
+        "memory": 0.5,
+        "spatial_reasoning": 0.9
+      },
+      "breakdown": {
+        "symmetry_misunderstanding": {
+          "answer_mapping": [1, 2, 3],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [111],
+              "step_type": "conceptual_understanding",
+              "text": "What is the axis of symmetry for a parabola with vertex \\((${h}, ${k})\\)?",
+              "options": [
+                "\\(\\text{The vertical line } x = ${h}\\)",
+                "\\(\\text{The horizontal line } y = ${k}\\)",
+                "\\(\\text{The line } y = x\\)",
+                "\\(\\text{The vertex point itself}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\(\\text{Perfect! The axis of symmetry is the vertical line } x = ${h} \\text{ that passes through the vertex.}\\)",
+                "\\(\\text{You're thinking of an important line, but parabolas have vertical symmetry, not horizontal.}\\)",
+                "\\(\\text{That's a different type of symmetry! Parabolas are symmetric about a vertical line through their vertex.}\\)",
+                "\\(\\text{The vertex is on the axis, but the axis is a line, not just a point!}\\)"
+              ]
+            },
+            {
+              "step_no": 2,
+              "prereq_topics": [],
+              "step_type": "spatial_reasoning",
+              "text": "If a point is \\(${dist}\\) units to the right of the axis \\(x = ${h}\\), where is its symmetric point?",
+              "options": [
+                "\\(${dist} \\text{ units to the left of the axis}\\)",
+                "\\(${dist} \\text{ units to the right of the axis}\\)",
+                "\\(\\text{On the axis itself}\\)",
+                "\\(${2*dist} \\text{ units away from the axis}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\(\\text{Brilliant spatial reasoning! Symmetry means equal distances on opposite sides of the axis.}\\)",
+                "\\(\\text{That would be the same side! Symmetric points are on opposite sides of the axis.}\\)",
+                "\\(\\text{The axis is the 'mirror' - symmetric points are reflected across it, not on it.}\\)",
+                "\\(\\text{Good thinking about distances! But symmetric points are the same distance away, just on opposite sides.}\\)"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "Let's explore something wonderful about sequences and series! What's the key difference between a sequence and a series?",
+      "options": [
+        "\\(\\text{A sequence is a list of terms; a series is the sum of those terms}\\)",
+        "\\(\\text{A sequence uses addition; a series uses multiplication}\\)",
+        "\\(\\text{A sequence is finite; a series is infinite}\\)",
+        "\\(\\text{There is no difference - they're the same thing}\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\(\\text{Brilliant understanding! You've grasped the fundamental distinction: sequences list terms in order, while series add them up. This insight will serve you well!}\\)",
+        "\\(\\text{Thoughtful reasoning about operations! But both sequences and series can involve various operations - the key is listing vs. summing.}\\)",
+        "\\(\\text{Good thinking about mathematical concepts! But both sequences and series can be either finite or infinite.}\\)",
+        "\\(\\text{I understand the confusion - they're related! But there's a beautiful distinction: one is about listing, the other about adding.}\\)"
+      ],
+      "main_topic_index": 149,
+      "subtopic_weights": {
+        "149": 0.8,
+        "140": 0.2
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.9,
+        "procedural_fluency": 0.1,
+        "problem_solving": 0.2,
+        "mathematical_communication": 0.9,
+        "memory": 0.8,
+        "spatial_reasoning": 0.0
+      }
+    },
+    {
+      "text": "You're developing excellent intuition about parabolas! When does a quadratic function \\(f(x) = ax^2 + bx + c\\) have a minimum point rather than a maximum point?",
+      "options": [
+        "\\(\\text{When } a > 0 \\text{ (coefficient of } x^2 \\text{ is positive)}\\)",
+        "\\(\\text{When } a < 0 \\text{ (coefficient of } x^2 \\text{ is negative)}\\)",
+        "\\(\\text{When } c > 0 \\text{ (constant term is positive)}\\)",
+        "\\(\\text{When the discriminant is positive}\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\(\\text{Absolutely brilliant! When } a > 0, \\text{ the parabola opens upward like a smile, creating a minimum at the vertex. Your conceptual understanding is excellent!}\\)",
+        "\\(\\text{Great thinking about the coefficient } a! \\text{ When } a < 0, \\text{ the parabola opens downward, which actually creates a maximum point.}\\)",
+        "\\(\\text{Good attention to the constant term! But the direction (and min/max) is determined by } a, \\text{ the coefficient of } x^2.\\)",
+        "\\(\\text{Interesting connection to discriminant! But minimum vs. maximum depends on whether the parabola opens up or down, which } a \\text{ controls.}\\)"
+      ],
+      "main_topic_index": 109,
+      "subtopic_weights": {
+        "109": 0.8,
+        "103": 0.2
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.9,
+        "procedural_fluency": 0.2,
+        "problem_solving": 0.4,
+        "mathematical_communication": 0.7,
+        "memory": 0.7,
+        "spatial_reasoning": 0.8
+      },
+      "breakdown": {
+        "min_max_confusion": {
+          "answer_mapping": [1, 2, 3],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [103],
+              "step_type": "conceptual_understanding",
+              "text": "Think about parabola shapes: what shape opens upward and what shape opens downward?",
+              "options": [
+                "\\(\\text{Upward opening looks like U; downward opening looks like upside-down U}\\)",
+                "\\(\\text{Upward opening looks like upside-down U; downward opening looks like U}\\)",
+                "\\(\\text{Both look the same}\\)",
+                "\\(\\text{The opening direction doesn't affect the shape}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\(\\text{Perfect visualization! You can clearly picture how the parabola's orientation affects its shape.}\\)",
+                "\\(\\text{Good thinking about shapes! You've got the concept but the orientations are switched.}\\)",
+                "\\(\\text{Both are parabolas, but their orientations are beautifully different!}\\)",
+                "\\(\\text{The opening direction completely changes the visual appearance and mathematical properties!}\\)"
+              ]
+            },
+            {
+              "step_no": 2,
+              "prereq_topics": [],
+              "step_type": "conceptual_understanding",
+              "text": "If a parabola opens upward (U-shape), where is its extreme point - at the top or bottom of the U?",
+              "options": [
+                "\\(\\text{At the bottom - this is the minimum point}\\)",
+                "\\(\\text{At the top - this is the maximum point}\\)",
+                "\\(\\text{At both ends}\\)",
+                "\\(\\text{It doesn't have an extreme point}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\(\\text{Brilliant spatial reasoning! An upward-opening parabola has its lowest point (minimum) at the bottom of the U.}\\)",
+                "\\(\\text{Think about the U-shape: where is the 'turning point' - at the curved bottom or somewhere else?}\\)",
+                "\\(\\text{Good thinking about the entire shape! But the special point is at the 'turn' of the parabola.}\\)",
+                "\\(\\text{Every parabola has a special turning point called the vertex!}\\)"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "You're mastering the axis of symmetry concept! For the parabola \\(y = ${a}x^2 + ${b}x + ${c}\\), what is the equation of the axis of symmetry?",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": 1,
+          "max": 4
+        },
+        "b": {
+          "type": "int",
+          "min": -8,
+          "max": 8,
+          "exclude": 0
+        },
+        "c": {
+          "type": "int",
+          "min": -5,
+          "max": 5
+        }
+      },
+      "calculated_parameters": {
+        "axis": "-b/(2*a)",
+        "wrong1": "b/(2*a)",
+        "wrong2": "-b/a",
+        "wrong3": "c/(2*a)"
+      },
+      "options": [
+        "\\(x = ${axis}\\)",
+        "\\(x = ${wrong1}\\)",
+        "\\(x = ${wrong2}\\)",
+        "\\(y = ${axis}\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\(\\text{Superb! You correctly applied the formula } x = -\\frac{b}{2a} = -\\frac{${b}}{2(${a})} = ${axis}. \\text{ Your understanding of parabola structure is excellent!}\\)",
+        "\\(\\text{Wonderful use of the axis formula! Just remember it's } -\\frac{b}{2a}, \\text{ with a negative sign in front.}\\)",
+        "\\(\\text{Great thinking with the negative } b! \\text{ But don't forget to divide by } 2a, \\text{ not just } a.\\)",
+        "\\(\\text{You've got the right value! But the axis of symmetry is a vertical line, so it's } x = \\text{value}, \\text{ not } y = \\text{value}.\\)"
+      ],
+      "main_topic_index": 111,
+      "subtopic_weights": {
+        "111": 0.9,
+        "106": 0.1
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.5,
+        "procedural_fluency": 0.8,
+        "problem_solving": 0.4,
+        "mathematical_communication": 0.4,
+        "memory": 0.8,
+        "spatial_reasoning": 0.6
+      },
+      "breakdown": {
+        "axis_formula_error": {
+          "answer_mapping": [1, 2, 3],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [111],
+              "step_type": "memory",
+              "text": "What is the formula for the axis of symmetry of \\(y = ax^2 + bx + c\\)?",
+              "options": [
+                "\\(x = -\\frac{b}{2a}\\)",
+                "\\(x = \\frac{b}{2a}\\)",
+                "\\(x = -\\frac{b}{a}\\)",
+                "\\(y = -\\frac{b}{2a}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\(\\text{Perfect recall! The axis of symmetry is } x = -\\frac{b}{2a}.\\)",
+                "\\(\\text{Almost there! Just remember the negative sign: } x = -\\frac{b}{2a}.\\)",
+                "\\(\\text{You've got the negative } b \\text{ right! But divide by } 2a, \\text{ not just } a.\\)",
+                "\\(\\text{Right value, but it's } x = \\text{value} \\text{ for a vertical line!}\\)"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "Great progress with exponential functions! How can you tell the difference between \\(f(x) = x^${n}\\) (polynomial) and \\(g(x) = ${base}^x\\) (exponential)?",
+      "generated_parameters": {
+        "n": {
+          "type": "int",
+          "min": 2,
+          "max": 4
+        },
+        "base": {
+          "type": "int",
+          "min": 2,
+          "max": 5
+        }
+      },
+      "options": [
+        "\\(\\text{In polynomial functions, the variable is the base; in exponential functions, the variable is the exponent}\\)",
+        "\\(\\text{Polynomial functions grow faster than exponential functions}\\)",
+        "\\(\\text{Exponential functions use addition; polynomial functions use multiplication}\\)",
+        "\\(\\text{There's no significant difference in their behavior}\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\(\\text{Outstanding insight! You've identified the key structural difference: } x^${n} \\text{ has variable base, } ${base}^x \\text{ has variable exponent. This fundamental understanding will help you recognize these functions everywhere!}\\)",
+        "\\(\\text{Interesting growth comparison! Actually, exponential functions eventually grow much faster than polynomial functions, which is quite remarkable!}\\)",
+        "\\(\\text{Creative thinking about operations! But both function types can use various operations - the key is where the variable appears.}\\)",
+        "\\(\\text{These functions have dramatically different behaviors! Look at where the variable } x \\text{ appears in each function.}\\)"
+      ],
+      "main_topic_index": 164,
+      "subtopic_weights": {
+        "164": 0.9,
+        "163": 0.1
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.9,
+        "procedural_fluency": 0.2,
+        "problem_solving": 0.6,
+        "mathematical_communication": 0.8,
+        "memory": 0.5,
+        "spatial_reasoning": 0.4
+      }
+    },
+    {
+      "text": "For the first \\(${n}\\) terms of the arithmetic sequence \\(${a}, ${a+d}, ${a+2*d}, ...\\), what formula gives us the sum \\(S_n\\)?",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": 1,
+          "max": 6
+        },
+        "d": {
+          "type": "int",
+          "min": 2,
+          "max": 5
+        },
+        "n": {
+          "type": "int",
+          "min": 5,
+          "max": 10
+        }
+      },
+      "calculated_parameters": {
+        "last_term": "a + (n-1)*d",
+        "sum_formula1": "n/2 * (2*a + (n-1)*d)",
+        "sum_formula2": "n/2 * (a + last_term)",
+        "wrong1": "n * (a + d)",
+        "wrong2": "a + n*d"
+      },
+      "options": [
+        "\\(S_n = \\frac{n}{2}[2a + (n-1)d]\\)",
+        "\\(S_n = n(a + d)\\)",
+        "\\(S_n = a + nd\\)",
+        "\\(S_n = \\frac{n}{2}[a + (n-1)d]\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\(\\text{Brilliant! You've identified the correct arithmetic series formula. This formula works by recognizing that the sum is } \\frac{n}{2} \\text{ times the sum of the first and last terms, which expands to } \\frac{n}{2}[2a + (n-1)d]. \\text{ The beauty of this formula is that it comes from pairing terms from opposite ends of the sequence - each pair sums to the same value, making the calculation elegant and efficient.}\\)",
+        "\\(\\text{I can see you're thinking about the relationship between } n, a, \\text{ and } d! \\text{ However, this formula would only work if every term in the sequence were } (a + d), \\text{ which isn't the case. In an arithmetic series, we're adding many different terms, so we need a more sophisticated approach that accounts for the changing values of each term in the sequence.}\\)",
+        "\\(\\text{You're on the right track thinking about } a \\text{ and } d! \\text{ But this represents just the nth term of the sequence, not the sum of all terms from the first to the nth. For a series, we need to add up all the individual terms: } a + (a+d) + (a+2d) + ... + (a+(n-1)d), \\text{ which requires a special formula to calculate efficiently.}\\)",
+        "\\(\\text{Excellent understanding of the structure! You're very close to the correct formula. The issue here is subtle - you have } a + (n-1)d \\text{ instead of } 2a + (n-1)d. \\text{ The correct formula needs } 2a \\text{ because it represents } a + a_n \\text{ where } a_n = a + (n-1)d, \\text{ giving us the average of the first and last terms multiplied by the number of terms.}\\)"
+      ],
+      "main_topic_index": 152,
+      "subtopic_weights": {
+        "152": 0.9,
+        "151": 0.1
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.7,
+        "procedural_fluency": 0.5,
+        "problem_solving": 0.4,
+        "mathematical_communication": 0.6,
+        "memory": 0.8,
+        "spatial_reasoning": 0.2
+      },
+      "breakdown": {
+        "series_formula_confusion": {
+          "answer_mapping": [1, 2, 3],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [149],
+              "step_type": "conceptual_understanding",
+              "text": "What's the difference between finding a term in a sequence vs. finding the sum of a series?",
+              "options": [
+                "\\(\\text{A term is one value; a sum adds many values together}\\)",
+                "\\(\\text{There's no difference}\\)",
+                "\\(\\text{Terms use multiplication; sums use addition}\\)",
+                "\\(\\text{Sequences are harder than series}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\(\\text{Perfect understanding! A sequence gives us individual terms, while a series adds them all up.}\\)",
+                "\\(\\text{There's a beautiful distinction! One gives individual values, the other totals them.}\\)",
+                "\\(\\text{Both can use various operations - the key difference is individual vs. total.}\\)",
+                "\\(\\text{Both have their challenges! The difference is about individual terms vs. their sum.}\\)"
+              ]
+            },
+            {
+              "step_no": 2,
+              "prereq_topics": [152],
+              "step_type": "memory",
+              "text": "For arithmetic series, we use the formula \\(S_n = \\frac{n}{2}(\\text{first term} + \\text{last term})\\). How does this become \\(S_n = \\frac{n}{2}[2a + (n-1)d]\\)?",
+              "options": [
+                "\\(\\text{Because last term} = a + (n-1)d, \\text{ so first + last} = a + a + (n-1)d = 2a + (n-1)d\\)",
+                "\\(\\text{By substituting } n \\text{ for both terms}\\)",
+                "\\(\\text{By adding } d \\text{ to both terms}\\)",
+                "\\(\\text{It's a completely different formula}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\(\\text{Excellent reasoning! You understand how the general formula connects to the specific arithmetic sequence structure.}\\)",
+                "\\(\\text{Good attempt! But we need to use the actual values of first and last terms.}\\)",
+                "\\(\\text{Creative thinking! But the transformation involves the nth term formula.}\\)",
+                "\\(\\text{Actually, it's the same formula just expressed differently using arithmetic sequence properties!}\\)"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "You're mastering geometric sequences! Looking at the sequence \\(${first}, ${second}, ${third}, ${fourth}, ...\\), what is the common ratio?",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": 2,
+          "max": 6
+        },
+        "r": {
+          "type": "int",
+          "min": 2,
+          "max": 4
+        }
+      },
+      "calculated_parameters": {
+        "first": "a",
+        "second": "a * r",
+        "third": "a * r**2",
+        "fourth": "a * r**3",
+        "common_ratio": "r",
+        "wrong1": "r + 1",
+        "wrong2": "second - first",
+        "wrong3": "r**2"
+      },
+      "options": [
+        "\\(${common_ratio}\\)",
+        "\\(${wrong1}\\)",
+        "\\(${wrong2}\\)",
+        "\\(${wrong3}\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\(\\text{Outstanding work! You correctly identified that the common ratio is } ${r}. \\text{ You can verify this by checking that } \\frac{${second}}{${first}} = \\frac{${third}}{${second}} = \\frac{${fourth}}{${third}} = ${r}. \\text{ This consistent multiplicative relationship is what defines a geometric sequence - each term is obtained by multiplying the previous term by this same ratio } ${r}. \\text{ Understanding this ratio is crucial because it tells us how the sequence grows and allows us to find any term or sum formulas.}\\)",
+        "\\(\\text{I can see you're working with the ratio value! However, the common ratio should be } ${r}, \\text{ not } ${r+1}. \\text{ Remember that the common ratio is what we multiply each term by to get the next term. Try dividing any term by the previous term: } \\frac{${second}}{${first}} = \\frac{${a \\times r}}{${a}} = ${r}. \\text{ The ratio is the constant multiplicative factor, not an additive relationship.}\\)",
+        "\\(\\text{Excellent thinking about the relationship between consecutive terms! You correctly calculated } ${second} - ${first} = ${second - first}, \\text{ but this gives you the common difference, not the common ratio. Geometric sequences use multiplication, so we need } \\frac{${second}}{${first}} = ${r}. \\text{ The key insight is that geometric sequences grow by multiplying (ratio), while arithmetic sequences grow by adding (difference).}\\)",
+        "\\(\\text{Great attention to the ratio! You're thinking about powers of } ${r}, \\text{ which shows good understanding of geometric progression. However, } ${r^2} \\text{ would be the ratio between terms that are two positions apart. The common ratio is the factor between consecutive terms, which is just } ${r}. \\text{ Think of it this way: } \\frac{\\text{any term}}{\\text{previous term}} = ${r}, \\text{ consistently throughout the sequence.}\\)"
+      ],
+      "main_topic_index": 155,
+      "subtopic_weights": {
+        "155": 0.8,
+        "154": 0.2
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.6,
+        "procedural_fluency": 0.7,
+        "problem_solving": 0.5,
+        "mathematical_communication": 0.4,
+        "memory": 0.5,
+        "spatial_reasoning": 0.3
+      },
+      "breakdown": {
+        "ratio_vs_difference": {
+          "answer_mapping": [1, 2, 3],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [154],
+              "step_type": "conceptual_understanding",
+              "text": "How do you find the common ratio in a geometric sequence?",
+              "options": [
+                "\\(\\text{Divide any term by the previous term}\\)",
+                "\\(\\text{Subtract any term from the previous term}\\)",
+                "\\(\\text{Add consecutive terms together}\\)",
+                "\\(\\text{Square the first term}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\(\\text{Perfect! The common ratio is found by division: } r = \\frac{a_{n+1}}{a_n}.\\)",
+                "\\(\\text{That's for arithmetic sequences! Geometric sequences use division.}\\)",
+                "\\(\\text{Good thinking about operations! But geometric sequences use the ratio between terms.}\\)",
+                "\\(\\text{Creative idea! But the ratio comes from the relationship between consecutive terms.}\\)"
+              ]
+            },
+            {
+              "step_no": 2,
+              "prereq_topics": [],
+              "step_type": "procedural_fluency",
+              "text": "Calculate \\(\\frac{${second}}{${first}}\\) to find the common ratio.",
+              "options": [
+                "\\(${common_ratio}\\)",
+                "\\(${wrong2}\\)",
+                "\\(\\frac{${first}}{${second}}\\)",
+                "\\(${second} \\times ${first}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\(\\text{Excellent! } \\frac{${second}}{${first}} = \\frac{${a \\times r}}{${a}} = ${r}.\\)",
+                "\\(\\text{That's subtraction! For geometric sequences, we divide consecutive terms.}\\)",
+                "\\(\\text{Good division approach! But you have the fraction upside down.}\\)",
+                "\\(\\text{You're working with the right terms! But we divide, not multiply.}\\)"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "Understanding geometric growth is fascinating! If a population starts at \\(${initial}\\) and grows by a factor of \\(${rate}\\) each year, what will the population be after \\(${years}\\) years?",
+      "generated_parameters": {
+        "initial": {
+          "type": "int",
+          "min": 100,
+          "max": 500
+        },
+        "rate": {
+          "type": "choice",
+          "choices": [1.2, 1.5, 2, 2.5, 3]
+        },
+        "years": {
+          "type": "int",
+          "min": 2,
+          "max": 4
+        }
+      },
+      "calculated_parameters": {
+        "final_population": "initial * rate**years",
+        "wrong1": "initial * rate * years",
+        "wrong2": "initial + rate * years",
+        "wrong3": "initial * rate + years"
+      },
+      "options": [
+        "\\(${final_population}\\)",
+        "\\(${wrong1}\\)",
+        "\\(${wrong2}\\)",
+        "\\(${wrong3}\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\(\\text{Absolutely brilliant! You correctly applied exponential growth: } P(t) = P_0 \\times r^t = ${initial} \\times ${rate}^${years} = ${final_population}. \\text{ This demonstrates deep understanding of how geometric growth works - the population doesn't just grow by a fixed amount each year, but grows by a fixed proportion, meaning the actual increase gets larger each year. After year 1: } ${initial} \\times ${rate} = ${initial * rate}, \\text{ after year 2: } ${initial * rate} \\times ${rate} = ${initial * rate**2}, \\text{ and so on. This compound growth is what makes exponential functions so powerful in modeling real-world phenomena.}\\)",
+        "\\(\\text{Great thinking about involving all three values! However, this treats growth as if we multiply by the rate once and then by time, but that's linear thinking. Exponential growth means we multiply by the rate repeatedly - once for each time period. The correct approach is } ${initial} \\times ${rate} \\times ${rate} \\times ${rate}... \\text{ (${years} times), which equals } ${initial} \\times ${rate}^${years}. \\text{ The key insight is that growth compounds - each year's growth builds on the previous year's total.}\\)",
+        "\\(\\text{Excellent attention to the growth factor and time! This formula represents linear growth, where you add a fixed amount each year. But the problem states growth 'by a factor of ${rate}', which means multiplicative growth. Linear growth would give us } ${initial} + ${rate \\times years \\times initial} \\text{ if we added } ${rate} \\text{ times the current amount each year. The difference is profound: linear growth adds the same amount each period, while exponential growth adds an increasing amount each period.}\\)",
+        "\\(\\text{Good incorporation of the rate and years! You're recognizing that both matter for the final result. However, this formula mixes addition and multiplication in a way that doesn't match exponential growth patterns. The phrase 'grows by a factor of ${rate}' means each year the population becomes } ${rate} \\text{ times what it was before. So after year 1: } ${initial} \\times ${rate}, \\text{ year 2: } (${initial} \\times ${rate}) \\times ${rate} = ${initial} \\times ${rate}^2, \\text{ and so on.}\\)"
+      ],
+      "main_topic_index": 158,
+      "subtopic_weights": {
+        "158": 0.8,
+        "157": 0.2
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.8,
+        "procedural_fluency": 0.6,
+        "problem_solving": 0.7,
+        "mathematical_communication": 0.5,
+        "memory": 0.4,
+        "spatial_reasoning": 0.3
+      },
+      "breakdown": {
+        "exponential_vs_linear_growth": {
+          "answer_mapping": [1, 2, 3],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [158],
+              "step_type": "conceptual_understanding",
+              "text": "What does 'grows by a factor of \\(${rate}\\)' mean?",
+              "options": [
+                "\\(\\text{Each year, multiply the current amount by } ${rate}\\)",
+                "\\(\\text{Each year, add } ${rate} \\text{ to the current amount}\\)",
+                "\\(\\text{Each year, add } ${rate} \\text{ times the original amount}\\)",
+                "\\(\\text{Each year, divide by } ${rate}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\(\\text{Perfect! 'Factor of ${rate}' means multiplicative growth - each period multiplies by } ${rate}.\\)",
+                "\\(\\text{That would be linear growth! 'Factor' indicates multiplication, not addition.}\\)",
+                "\\(\\text{Close thinking about proportional growth! But it's based on current amount, not original.}\\)",
+                "\\(\\text{Good thinking about operations! But 'factor of ${rate}' means multiply by } ${rate}, \\text{ not divide.}\\)"
+              ]
+            },
+            {
+              "step_no": 2,
+              "prereq_topics": [],
+              "step_type": "procedural_fluency",
+              "text": "Starting with \\(${initial}\\), what is the population after 1 year?",
+              "options": [
+                "\\(${initial * rate}\\)",
+                "\\(${initial + rate}\\)",
+                "\\(${initial * years}\\)",
+                "\\(${initial}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\(\\text{Excellent! After 1 year: } ${initial} \\times ${rate} = ${initial * rate}.\\)",
+                "\\(\\text{That's linear growth! For exponential, we multiply by the factor.}\\)",
+                "\\(\\text{You're using years, but need to use the growth rate } ${rate}.\\)",
+                "\\(\\text{The population changes! It grows by the factor } ${rate}.\\)"
+              ]
+            },
+            {
+              "step_no": 3,
+              "prereq_topics": [],
+              "step_type": "procedural_fluency",
+              "text": "After \\(${years}\\) years of repeated multiplication by \\(${rate}\\), what's the result?",
+              "options": [
+                "\\(${initial} \\times ${rate}^${years}\\)",
+                "\\(${initial} \\times ${rate} \\times ${years}\\)",
+                "\\(${initial} + ${rate}^${years}\\)",
+                "\\((${initial} + ${rate})^${years}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\(\\text{Perfect! Repeated multiplication by } ${rate} \\text{ gives us } ${rate}^${years} \\text{ as the total factor.}\\)",
+                "\\(\\text{Almost! But repeated multiplication means exponents, not linear multiplication.}\\)",
+                "\\(\\text{Good thinking about powers! But exponential growth uses multiplication as the base operation.}\\)",
+                "\\(\\text{Creative use of exponents! But the base should be the growth rate applied to the initial amount.}\\)"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "Logarithms are the beautiful inverse of exponentials! If \\(${base}^x = ${value}\\), what does \\(x\\) equal in logarithmic form?",
+      "generated_parameters": {
+        "base": {
+          "type": "int",
+          "min": 2,
+          "max": 5
+        },
+        "power": {
+          "type": "int",
+          "min": 2,
+          "max": 4
+        }
+      },
+      "calculated_parameters": {
+        "value": "base**power",
+        "answer": "power",
+        "wrong1": "base",
+        "wrong2": "value",
+        "wrong3": "base * power"
+      },
+      "options": [
+        "\\(x = \\log_{${base}} ${value}\\)",
+        "\\(x = \\log_{${value}} ${base}\\)",
+        "\\(x = ${base} \\log ${value}\\)",
+        "\\(x = \\log ${base} + ${value}\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\(\\text{Magnificent understanding! You've correctly written the logarithmic form: if } ${base}^x = ${value}, \\text{ then } x = \\log_{${base}} ${value}. \\text{ This demonstrates the fundamental inverse relationship between exponentials and logarithms. The logarithm answers the question: 'To what power must I raise } ${base} \\text{ to get } ${value}\\text{?' The answer is } x = ${answer} \\text{ because } ${base}^${answer} = ${value}. \\text{ This inverse relationship is incredibly powerful for solving exponential equations and understanding exponential growth patterns.}\\)",
+        "\\(\\text{Great work setting up a logarithmic equation! However, you've swapped the base and the argument. In } ${base}^x = ${value}, \\text{ the base of the exponential } (${base}) \\text{ becomes the base of the logarithm, and the result } (${value}) \\text{ becomes the argument. Think of it as: 'To what power must } ${base} \\text{ be raised to equal } ${value}\\text{?' So we write } \\log_{${base}} ${value}, \\text{ not } \\log_{${value}} ${base}. \\text{ The base tells us what number is being repeatedly multiplied.}\\)",
+        "\\(\\text{Excellent recognition that logarithms are involved! You're incorporating both } ${base} \\text{ and } ${value}, \\text{ which shows good intuition. However, the standard logarithmic form doesn't multiply the base by the logarithm. Instead, the relationship is } x = \\log_{${base}} ${value}, \\text{ where } ${base} \\text{ is the base of the logarithm (in subscript) and } ${value} \\text{ is the argument. The logarithm itself equals } x = ${answer}, \\text{ which is the exponent we need.}\\)",
+        "\\(\\text{I appreciate your creative approach to involving both numbers! You're recognizing that } ${base} \\text{ and } ${value} \\text{ are both important in the relationship. However, logarithms don't work with addition like this. The correct form is } x = \\log_{${base}} ${value}, \\text{ which represents a single logarithm with base } ${base} \\text{ and argument } ${value}. \\text{ Remember that logarithms ask: 'What power gives us this result?' not 'What do we add together?'}\\)"
+      ],
+      "main_topic_index": 171,
+      "subtopic_weights": {
+        "171": 0.8,
+        "168": 0.2
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.9,
+        "procedural_fluency": 0.4,
+        "problem_solving": 0.6,
+        "mathematical_communication": 0.7,
+        "memory": 0.6,
+        "spatial_reasoning": 0.2
+      }
+    },
+    {
+      "text": "You're building mastery with logarithm laws! Using the product rule, how would you expand \\(\\log_${base}(${x} \\cdot ${y})\\)?",
+      "generated_parameters": {
+        "base": {
+          "type": "int",
+          "min": 2,
+          "max": 5
+        },
+        "x": {
+          "type": "choice",
+          "choices": ["a", "p", "m", "u"]
+        },
+        "y": {
+          "type": "choice",
+          "choices": ["b", "q", "n", "v"]
+        }
+      },
+      "options": [
+        "\\(\\log_{${base}} ${x} + \\log_{${base}} ${y}\\)",
+        "\\(\\log_{${base}} ${x} \\cdot \\log_{${base}} ${y}\\)",
+        "\\(\\log_{${base}} (${x} + ${y})\\)",
+        "\\((\\log_{${base}} ${x})^{\\log_{${base}} ${y}}\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\(\\text{Superb mastery of the logarithm product rule! You correctly identified that } \\log_b(xy) = \\log_b x + \\log_b y. \\text{ This rule is one of the most beautiful properties of logarithms and reflects the fundamental relationship between multiplication and addition. The deeper reason this works is that logarithms convert multiplication problems into addition problems - this is why logarithms were historically so useful for complex calculations before calculators. When we multiply numbers, their logarithms add, which makes complicated multiplication much simpler to handle.}\\)",
+        "\\(\\text{I can see you're thinking about how the logarithms of } ${x} \\text{ and } ${y} \\text{ should relate! However, the product rule converts multiplication inside the logarithm into addition outside. The key insight is that logarithms transform the nature of operations: multiplication becomes addition, division becomes subtraction, and powers become multiplication. So } \\log(xy) \\text{ becomes } \\log x + \\log y, \\text{ not } \\log x \\cdot \\log y. \\text{ This transformation property is what makes logarithms so powerful for simplifying complex expressions.}\\)",
+        "\\(\\text{Excellent intuition about logarithms involving addition! You're absolutely right that addition appears in the answer. However, the addition happens outside the logarithm, not inside. The product rule states that when we have multiplication inside a logarithm, it becomes addition of separate logarithms: } \\log_${base}(${x} \\cdot ${y}) = \\log_${base} ${x} + \\log_${base} ${y}. \\text{ The reason this works is that logarithms 'unpack' multiplication into addition, which is much easier to work with algebraically.}\\)",
+        "\\(\\text{Creative thinking about how logarithms might interact! You're exploring sophisticated combinations, which shows mathematical curiosity. However, the product rule has a much more elegant and useful form. Rather than complex exponentiation, logarithms follow a simple pattern: multiplication inside becomes addition outside. So } \\log_${base}(${x} \\cdot ${y}) = \\log_${base} ${x} + \\log_${base} ${y}. \\text{ This simplicity is what made logarithms so revolutionary for mathematical computation - they turn difficult multiplication into easy addition.}\\)"
+      ],
+      "main_topic_index": 172,
+      "subtopic_weights": {
+        "172": 1.0
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.8,
+        "procedural_fluency": 0.6,
+        "problem_solving": 0.4,
+        "mathematical_communication": 0.7,
+        "memory": 0.8,
+        "spatial_reasoning": 0.1
+      }
+    },
+    {
+      "text": "Absolute value represents distance, which is always positive! What is the solution set for \\(|x - ${center}| = ${distance}\\)?",
+      "generated_parameters": {
+        "center": {
+          "type": "int",
+          "min": -3,
+          "max": 5
+        },
+        "distance": {
+          "type": "int",
+          "min": 2,
+          "max": 6
+        }
+      },
+      "calculated_parameters": {
+        "solution1": "center + distance",
+        "solution2": "center - distance",
+        "wrong1": "center",
+        "wrong2": "distance"
+      },
+      "options": [
+        "\\(x = ${solution1} \\text{ or } x = ${solution2}\\)",
+        "\\(x = ${center} \\text{ only}\\)",
+        "\\(x = ${distance} \\text{ only}\\)",
+        "\\(x = ${solution1} \\text{ only}\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\(\\text{Outstanding conceptual understanding! You correctly recognized that } |x - ${center}| = ${distance} \\text{ means } x \\text{ is exactly } ${distance} \\text{ units away from } ${center}. \\text{ This gives us two solutions: } x = ${center} + ${distance} = ${solution1} \\text{ and } x = ${center} - ${distance} = ${solution2}. \\text{ The beauty of absolute value is that it captures the geometric idea of distance on the number line. Think of standing at position } ${center} \\text{ and walking } ${distance} \\text{ units in either direction - you end up at these two positions. This two-solution pattern appears whenever we have absolute value equations with positive constants.}\\)",
+        "\\(\\text{I can see you're identifying the center value } ${center}! \\text{ This shows good understanding that } ${center} \\text{ is special in this equation. However, } |x - ${center}| = ${distance} \\text{ means } x \\text{ is } ${distance} \\text{ units away from } ${center}, \\text{ not at } ${center} \\text{ itself. If } x = ${center}, \\text{ then } |${center} - ${center}| = 0, \\text{ not } ${distance}. \\text{ We need to find the two points that are exactly } ${distance} \\text{ units from } ${center}: \\text{ one } ${distance} \\text{ units to the right and one } ${distance} \\text{ units to the left.}\\)",
+        "\\(\\text{Great attention to the distance value! You're recognizing that } ${distance} \\text{ is important in this equation. However, } x = ${distance} \\text{ would mean the distance from } ${distance} \\text{ to } ${center} \\text{ equals } ${distance}, \\text{ which would only be true if } ${center} = 0. \\text{ The absolute value equation } |x - ${center}| = ${distance} \\text{ asks: 'What values of } x \\text{ are } ${distance} \\text{ units away from } ${center}\\text{?' This gives us } x = ${center} \\pm ${distance}, \\text{ meaning } x = ${solution1} \\text{ or } x = ${solution2}.\\)",
+        "\\(\\text{Excellent work finding one of the solutions! } x = ${solution1} \\text{ is indeed } ${distance} \\text{ units away from } ${center}. \\text{ However, absolute value equations typically have two solutions because distance can be measured in two directions on the number line. From } ${center}, \\text{ we can go } ${distance} \\text{ units to the right to reach } ${solution1}, \\text{ or } ${distance} \\text{ units to the left to reach } ${solution2}. \\text{ Both positions are exactly } ${distance} \\text{ units from } ${center}, \\text{ so both satisfy the equation.}\\)"
+      ],
+      "main_topic_index": 184,
+      "subtopic_weights": {
+        "184": 0.8,
+        "181": 0.2
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.8,
+        "procedural_fluency": 0.6,
+        "problem_solving": 0.5,
+        "mathematical_communication": 0.6,
+        "memory": 0.5,
+        "spatial_reasoning": 0.7
+      },
+      "breakdown": {
+        "absolute_value_interpretation": {
+          "answer_mapping": [1, 2, 3],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [181],
+              "step_type": "conceptual_understanding",
+              "text": "What does \\(|x - ${center}|\\) represent geometrically?",
+              "options": [
+                "\\(\\text{The distance from } x \\text{ to } ${center} \\text{ on the number line}\\)",
+                "\\(\\text{The value of } x \\text{ minus } ${center}\\)",
+                "\\(\\text{The sum of } x \\text{ and } ${center}\\)",
+                "\\(\\text{The midpoint between } x \\text{ and } ${center}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\(\\text{Perfect geometric understanding! Absolute value measures distance, always positive.}\\)",
+                "\\(\\text{That's just subtraction! Absolute value removes the sign to give distance.}\\)",
+                "\\(\\text{Good thinking about combining values! But absolute value uses subtraction for distance.}\\)",
+                "\\(\\text{Interesting geometric thinking! But absolute value gives distance, not midpoint.}\\)"
+              ]
+            },
+            {
+              "step_no": 2,
+              "prereq_topics": [],
+              "step_type": "conceptual_understanding",
+              "text": "If the distance from \\(x\\) to \\(${center}\\) is \\(${distance}\\), how many values of \\(x\\) satisfy this?",
+              "options": [
+                "\\(\\text{Two values - one on each side of } ${center}\\)",
+                "\\(\\text{One value only}\\)",
+                "\\(\\text{Infinitely many values}\\)",
+                "\\(\\text{No values}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\(\\text{Brilliant spatial reasoning! Two points are exactly } ${distance} \\text{ units from } ${center}.\\)",
+                "\\(\\text{Think about it geometrically - can you be } ${distance} \\text{ units away in two directions?}\\)",
+                "\\(\\text{Good mathematical thinking! But distance equations usually have specific solutions.}\\)",
+                "\\(\\text{Actually, there are solutions! Think about moving } ${distance} \\text{ units from } ${center}.\\)"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "You're developing polynomial expertise! In the polynomial \\(${coeff1}x^${power1} + ${coeff2}x^${power2} + ${coeff3}\\), which term has the highest degree?",
+      "generated_parameters": {
+        "coeff1": {
+          "type": "int",
+          "min": 1,
+          "max": 5
+        },
+        "power1": {
+          "type": "int",
+          "min": 2,
+          "max": 4
+        },
+        "coeff2": {
+          "type": "int",
+          "min": 1,
+          "max": 6
+        },
+        "power2": {
+          "type": "int",
+          "min": 1,
+          "max": 3
+        },
+        "coeff3": {
+          "type": "int",
+          "min": 1,
+          "max": 8
+        }
+      },
+      "calculated_parameters": {
+        "highest_power": "max(power1, power2, 0)",
+        "leading_term": "str(coeff1) + 'x^' + str(power1) if power1 >= power2 else str(coeff2) + 'x^' + str(power2)"
+      },
+      "options": [
+        "\\(${coeff1}x^${power1}\\)",
+        "\\(${coeff2}x^${power2}\\)",
+        "\\(${coeff3}\\)",
+        "\\(\\text{All terms have the same degree}\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\(\\text{Excellent analysis! You correctly identified that } ${coeff1}x^${power1} \\text{ has the highest degree of } ${power1}. \\text{ The degree of a term is determined solely by the exponent of the variable, not by the coefficient. In polynomial analysis, the term with the highest degree is called the leading term, and it determines the end behavior of the polynomial function. As } x \\text{ gets very large (positive or negative), this term dominates the polynomial's behavior because higher powers grow much faster than lower powers. This is why understanding degree is crucial for graphing and analyzing polynomial functions.}\\)",
+        "\\(\\text{Great systematic approach to examining each term! You're looking at } ${coeff2}x^${power2}, \\text{ which has degree } ${power2}. \\text{ However, we need to compare all the exponents to find the highest one. The term } ${coeff1}x^${power1} \\text{ has degree } ${power1}, \\text{ which is higher than } ${power2}. \\text{ Remember that degree is all about the power of the variable - the coefficient doesn't affect the degree. Think of degree as measuring 'how fast this term grows' as } x \\text{ increases, and higher powers always grow faster than lower ones.}\\)",
+        "\\(\\text{Good attention to the constant term! You're recognizing that } ${coeff3} \\text{ is also part of the polynomial. However, a constant term like } ${coeff3} \\text{ has degree 0 because it can be written as } ${coeff3}x^0 = ${coeff3}. \\text{ When comparing degrees, we have: } ${coeff1}x^${power1} \\text{ (degree ${power1}), } ${coeff2}x^${power2} \\text{ (degree ${power2}), and } ${coeff3} \\text{ (degree 0). The highest degree is } ${power1}, \\text{ so the leading term is } ${coeff1}x^${power1}.\\)",
+        "\\(\\text{I understand why this might seem possible! When terms look similar, it's natural to think they might have the same degree. However, let's examine each term carefully: } ${coeff1}x^${power1} \\text{ has degree } ${power1}, ${coeff2}x^${power2} \\text{ has degree } ${power2}, \\text{ and } ${coeff3} \\text{ has degree 0 (since it's a constant). These are three different degrees! The term with the highest degree, } ${power1}, \\text{ is the leading term. Different degrees give terms different growth rates, which is why they behave very differently as } x \\text{ changes.}\\)"
+      ],
+      "main_topic_index": 193,
+      "subtopic_weights": {
+        "193": 0.8,
+        "194": 0.2
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.7,
+        "procedural_fluency": 0.4,
+        "problem_solving": 0.5,
+        "mathematical_communication": 0.6,
+        "memory": 0.6,
+        "spatial_reasoning": 0.2
+      }
+    },
+    {
+      "text": "You're excelling with exponential equations! To solve \\(${base}^{${coeff}x + ${const}} = ${base}^{${target}}\\), what is your first strategic step?",
+      "generated_parameters": {
+        "base": {
+          "type": "int",
+          "min": 2,
+          "max": 5
+        },
+        "coeff": {
+          "type": "int",
+          "min": 2,
+          "max": 4
+        },
+        "const": {
+          "type": "int",
+          "min": 1,
+          "max": 6
+        },
+        "target": {
+          "type": "int",
+          "min": 6,
+          "max": 12
+        }
+      },
+      "calculated_parameters": {
+        "solution": "(target - const) / coeff"
+      },
+      "options": [
+        "\\(\\text{Set the exponents equal: } ${coeff}x + ${const} = ${target}\\)",
+        "\\(\\text{Take the logarithm of both sides}\\)",
+        "\\(\\text{Multiply both sides by } ${base}\\)",
+        "\\(\\text{Divide both sides by } ${base}\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\(\\text{Perfect strategic thinking! When you have the same base on both sides of an exponential equation, you can immediately set the exponents equal. This works because exponential functions are one-to-one: if } ${base}^a = ${base}^b, \\text{ then } a = b. \\text{ This gives us the linear equation } ${coeff}x + ${const} = ${target}, \\text{ which we can solve using familiar algebraic techniques. This approach is much more efficient than using logarithms when the bases are already the same, and it demonstrates deep understanding of exponential function properties.}\\)",
+        "\\(\\text{Excellent knowledge of logarithm techniques! Taking logarithms is indeed a powerful method for solving exponential equations, and you'd be absolutely correct to use this approach if the bases were different. However, when both sides already have the same base } (${base}), \\text{ we can use a more direct approach. Since exponential functions are one-to-one, if } ${base}^{\\text{something}} = ${base}^{\\text{something else}}, \\text{ then those 'somethings' must be equal. This allows us to skip the logarithm step and directly equate the exponents, making the solution process more streamlined.}\\)",
+        "\\(\\text{I appreciate your systematic thinking about equation-solving techniques! Multiplying both sides by the same value is indeed a standard algebraic approach. However, in this case, multiplying by } ${base} \\text{ would give us } ${base} \\cdot ${base}^{${coeff}x + ${const}} = ${base} \\cdot ${base}^{${target}}, \\text{ which simplifies to } ${base}^{${coeff}x + ${const} + 1} = ${base}^{${target} + 1}. \\text{ While this is still solvable, it's more complicated than necessary. The key insight is that when bases are already the same, we can directly work with the exponents.}\\)",
+        "\\(\\text{Good thinking about isolating terms! Division is certainly a useful algebraic technique. However, dividing exponential expressions doesn't simplify them the way we might hope. If we divide both sides by } ${base}, \\text{ we get } \\frac{${base}^{${coeff}x + ${const}}}{${base}} = \\frac{${base}^{${target}}}{${base}}, \\text{ which gives us } ${base}^{${coeff}x + ${const} - 1} = ${base}^{${target} - 1}. \\text{ This is still solvable but more complex than needed. The elegant approach is recognizing that equal bases allow us to equate exponents directly.}\\)"
+      ],
+      "main_topic_index": 165,
+      "subtopic_weights": {
+        "165": 0.9,
+        "166": 0.1
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.8,
+        "procedural_fluency": 0.6,
+        "problem_solving": 0.7,
+        "mathematical_communication": 0.5,
+        "memory": 0.6,
+        "spatial_reasoning": 0.2
+      },
+      "breakdown": {
+        "same_base_strategy": {
+          "answer_mapping": [1, 2, 3],
+          "steps": [
+            {
+              "step_no": 1,
+              "prereq_topics": [165],
+              "step_type": "conceptual_understanding",
+              "text": "When both sides of an exponential equation have the same base, what property allows us to equate the exponents?",
+              "options": [
+                "\\(\\text{Exponential functions are one-to-one}\\)",
+                "\\(\\text{Exponential functions are continuous}\\)",
+                "\\(\\text{Exponential functions are always positive}\\)",
+                "\\(\\text{Exponential functions grow quickly}\\)"
+              ],
+              "correctindex": 0,
+              "option_explanations": [
+                "\\(\\text{Perfect! One-to-one means if } b^x = b^y, \\text{ then } x = y.\\)",
+                "\\(\\text{True about exponentials! But continuity doesn't help us equate exponents.}\\)",
+                "\\(\\text{Also true! But positivity doesn't directly help with solving equations.}\\)",
+                "\\(\\text{Indeed they do! But growth rate doesn't help us equate exponents.}\\)"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "text": "Understanding convergence is a beautiful concept! For the infinite geometric series \\(${a} + ${a*r} + ${a*r**2} + ${a*r**3} + ...\\) where \\(|r| < 1\\), what is the sum?",
+      "generated_parameters": {
+        "a": {
+          "type": "int",
+          "min": 1,
+          "max": 8
+        },
+        "r_num": {
+          "type": "int",
+          "min": 1,
+          "max": 3
+        },
+        "r_den": {
+          "type": "int",
+          "min": 2,
+          "max": 5
+        }
+      },
+      "calculated_parameters": {
+        "r": "r_num / r_den",
+        "sum_infinite": "a / (1 - r)",
+        "wrong1": "a / r",
+        "wrong2": "a * (1 - r)",
+        "wrong3": "a / (1 + r)"
+      },
+      "options": [
+        "\\(\\frac{${a}}{1 - \\frac{${r_num}}{${r_den}}}\\)",
+        "\\(\\frac{${a}}{\\frac{${r_num}}{${r_den}}}\\)",
+        "\\(${a} \\left(1 - \\frac{${r_num}}{${r_den}}\\right)\\)",
+        "\\(\\frac{${a}}{1 + \\frac{${r_num}}{${r_den}}}\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\(\\text{Absolutely magnificent! You've mastered the infinite geometric series formula: } S = \\frac{a}{1-r} = \\frac{${a}}{1 - \\frac{${r_num}}{${r_den}}}. \\text{ This formula is one of the most remarkable results in mathematics - it shows that an infinite sum can have a finite value! The key insight is that when } |r| < 1, \\text{ the terms get smaller and smaller, approaching zero. The geometric series 'converges' because each successive term contributes less to the total. This concept is fundamental in calculus, physics, and engineering, where infinite processes often have finite, measurable results.}\\)",
+        "\\(\\text{Excellent recognition of the } a \\text{ and } r \\text{ relationship! You're absolutely right that the formula involves } \\frac{a}{\\text{something with } r}. \\text{ However, the denominator should be } (1-r), \\text{ not just } r. \\text{ The formula } S = \\frac{a}{1-r} \\text{ comes from the limit of the finite geometric series formula as the number of terms approaches infinity. The } (1-r) \\text{ in the denominator is what makes the infinite sum converge to a finite value when } |r| < 1. \\text{ Without the } 1 \\text{ in } (1-r), \\text{ the formula wouldn't capture the convergence behavior correctly.}\\)",
+        "\\(\\text{Great attention to the expression } (1-r)! \\text{ You're recognizing that this quantity is important in geometric series. However, this expression represents multiplication by } (1-r), \\text{ not division. The infinite geometric series formula is } S = \\frac{a}{1-r}, \\text{ where we divide by } (1-r). \\text{ The reason for division rather than multiplication comes from the derivation: we use the fact that } S = a + rS \\text{ for infinite series, leading to } S - rS = a, \\text{ so } S(1-r) = a, \\text{ and therefore } S = \\frac{a}{1-r}.\\)",
+        "\\(\\text{Wonderful attention to the structure involving } a \\text{ and expressions with } r! \\text{ You're very close to the correct formula. The issue is that you have } (1+r) \\text{ instead of } (1-r) \\text{ in the denominator. This might seem like a small detail, but it's crucial for convergence. When } |r| < 1, \\text{ the expression } (1-r) \\text{ is positive and greater than zero, making the series converge. The formula } \\frac{a}{1-r} \\text{ comes from solving } S = a + rS \\text{ for } S. \\text{ The subtraction in } (1-r) \\text{ is what makes infinite convergence possible.}\\)"
+      ],
+      "main_topic_index": 162,
+      "subtopic_weights": {
+        "162": 0.8,
+        "161": 0.2
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.9,
+        "procedural_fluency": 0.5,
+        "problem_solving": 0.6,
+        "mathematical_communication": 0.7,
+        "memory": 0.8,
+        "spatial_reasoning": 0.4
+      }
+    },
+    {
+      "text": "Converting between exponential and logarithmic forms is a key skill! How would you rewrite \\(\\log_${base} ${result} = ${exponent}\\) in exponential form?",
+      "generated_parameters": {
+        "base": {
+          "type": "int",
+          "min": 2,
+          "max": 5
+        },
+        "exponent": {
+          "type": "int",
+          "min": 2,
+          "max": 4
+        }
+      },
+      "calculated_parameters": {
+        "result": "base**exponent"
+      },
+      "options": [
+        "\\(${base}^${exponent} = ${result}\\)",
+        "\\(${result}^${exponent} = ${base}\\)",
+        "\\(${base}^${result} = ${exponent}\\)",
+        "\\(${exponent}^${base} = ${result}\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\(\\text{Exceptional understanding of the logarithm-exponential relationship! You correctly converted } \\log_${base} ${result} = ${exponent} \\text{ to } ${base}^${exponent} = ${result}. \\text{ This transformation demonstrates the inverse relationship perfectly: the logarithm asks 'To what power must } ${base} \\text{ be raised to get } ${result}\\text{?' and the answer is } ${exponent}. \\text{ The exponential form verifies this by showing that indeed } ${base}^${exponent} = ${result}. \\text{ Mastering this conversion is crucial because it allows you to move fluidly between logarithmic and exponential representations, which is essential for solving complex equations and understanding exponential phenomena.}\\)",
+        "\\(\\text{Great work identifying all the key components! You're incorporating the base } (${base}), \\text{ exponent } (${exponent}), \\text{ and result } (${result}) \\text{ correctly. However, you've rearranged them in a way that changes the mathematical meaning. In the original logarithm } \\log_${base} ${result} = ${exponent}, \\text{ the base } ${base} \\text{ is what gets raised to a power, not } ${result}. \\text{ Think of it this way: the logarithm tells us that } ${base} \\text{ raised to the } ${exponent} \\text{ power equals } ${result}. \\text{ So the exponential form should have } ${base} \\text{ as the base being raised to the power } ${exponent}.\\)",
+        "\\(\\text{Excellent attention to using } ${base} \\text{ as the base in the exponential! That's absolutely correct. However, you've switched the roles of the exponent and the result. In } \\log_${base} ${result} = ${exponent}, \\text{ the number } ${exponent} \\text{ is the power, and } ${result} \\text{ is what we get when we raise } ${base} \\text{ to that power. So the exponential form should show } ${base}^${exponent} = ${result}, \\text{ not } ${base}^${result} = ${exponent}. \\text{ Remember: the logarithm gives us the exponent, and the argument of the logarithm is the result.}\\)",
+        "\\(\\text{Creative thinking about the relationships between these numbers! You're exploring different ways to arrange } ${base}, ${exponent}, \\text{ and } ${result}, \\text{ which shows mathematical curiosity. However, the conversion follows a specific pattern based on the definition of logarithms. The logarithm } \\log_${base} ${result} = ${exponent} \\text{ means '${base} raised to what power gives ${result}?' The answer is ${exponent}. So in exponential form, we write } ${base}^{\\text{(the power)}} = \\text{(the result)}, \\text{ which gives us } ${base}^${exponent} = ${result}.\\)"
+      ],
+      "main_topic_index": 171,
+      "subtopic_weights": {
+        "171": 0.9,
+        "169": 0.1
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.8,
+        "procedural_fluency": 0.7,
+        "problem_solving": 0.5,
+        "mathematical_communication": 0.8,
+        "memory": 0.7,
+        "spatial_reasoning": 0.3
+      }
+    },
+    {
+      "text": "You're building sophisticated skills with polynomial organization! Which of these expressions is written in standard form?",
+      "options": [
+        "\\(3x^4 + 2x^2 - 5x + 7\\)",
+        "\\(-5x + 7 + 3x^4 + 2x^2\\)",
+        "\\(7 + 2x^2 - 5x + 3x^4\\)",
+        "\\(x^4 \\cdot 3 + x^2 \\cdot 2 - x \\cdot 5 + 7\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\(\\text{Perfect recognition of standard form! You correctly identified that } 3x^4 + 2x^2 - 5x + 7 \\text{ is arranged in descending order of degrees: degree 4, then 2, then 1, then 0. Standard form is crucial because it immediately shows us the polynomial's degree (4), leading coefficient (3), and makes it easy to identify missing terms (no } x^3 \\text{ term here). This organization is the mathematical equivalent of alphabetical order - it creates a consistent, logical structure that makes polynomials easier to analyze, compare, and work with in calculations.}\\)",
+        "\\(\\text{Excellent eye for recognizing that this contains all the same terms as the standard form! You're absolutely right that mathematically, this expression equals the first option due to the commutative property of addition. However, 'standard form' refers specifically to the conventional ordering where terms are arranged by decreasing degree. Just like how we could write words in any order but still prefer alphabetical organization for dictionaries, we arrange polynomial terms in degree order for clarity and convention. This makes it immediately obvious what the highest degree term is and helps in polynomial operations.}\\)",
+        "\\(\\text{Great observation that this also contains the same mathematical content! Your mathematical intuition is correct that the value of the polynomial is the same regardless of term order. However, standard form is about presentation and organization, not just mathematical equivalence. Starting with the constant term (degree 0) and working up to higher degrees is actually the reverse of standard form. Think of standard form as 'highest degree first' - we want to see the most significant term (highest power) at the beginning, just like how we write numbers with the most significant digit first.}\\)",
+        "\\(\\text{Wonderful understanding that multiplication is commutative! You're showing sophisticated algebraic thinking by recognizing that } x^4 \\cdot 3 = 3x^4. \\text{ All the mathematical content is correct here. However, standard form has specific conventions about how we write terms: coefficients come before variables, and we use addition/subtraction rather than explicit multiplication symbols. So } x^4 \\cdot 3 \\text{ should be written as } 3x^4, \\text{ and the terms should be ordered by decreasing degree. These conventions make polynomials easier to read and work with consistently across all mathematics.}\\)"
+      ],
+      "main_topic_index": 195,
+      "subtopic_weights": {
+        "195": 0.9,
+        "194": 0.1
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.6,
+        "procedural_fluency": 0.4,
+        "problem_solving": 0.3,
+        "mathematical_communication": 0.8,
+        "memory": 0.7,
+        "spatial_reasoning": 0.2
+      }
+    },
+    {
+      "text": "You're exploring the logarithm power rule! How would you simplify \\(\\log_${base} ${x}^${power}\\)?",
+      "generated_parameters": {
+        "base": {
+          "type": "int",
+          "min": 2,
+          "max": 5
+        },
+        "power": {
+          "type": "int",
+          "min": 2,
+          "max": 4
+        },
+        "x": {
+          "type": "choice",
+          "choices": ["a", "m", "p", "w"]
+        }
+      },
+      "options": [
+        "\\(${power} \\log_${base} ${x}\\)",
+        "\\(\\log_${base} ${x} + ${power}\\)",
+        "\\((\\log_${base} ${x})^${power}\\)",
+        "\\(\\log_${base} (${x} + ${power})\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\(\\text{Brilliant mastery of the logarithm power rule! You correctly applied } \\log_b(x^n) = n \\log_b x \\text{ to get } ${power} \\log_${base} ${x}. \\text{ This rule is profound because it transforms exponential relationships into linear ones - powers inside logarithms become coefficients outside. This transformation is why logarithms were historically so valuable for computation: they turned difficult exponentiation problems into simpler multiplication problems. In modern applications, this rule is essential for solving exponential equations, analyzing compound interest, and understanding scaling relationships in science and engineering.}\\)",
+        "\\(\\text{Excellent intuition about logarithms involving addition! You're right that logarithm rules often convert operations into addition. However, the power rule specifically converts exponents into multiplication, not addition. The product rule } \\log(xy) = \\log x + \\log y \\text{ uses addition, but the power rule } \\log(x^n) = n \\log x \\text{ uses multiplication. Think of it this way: if } x^${power} \\text{ means } x \\text{ multiplied by itself } ${power} \\text{ times, then } \\log(x^${power}) \\text{ should be } ${power} \\text{ times } \\log x, \\text{ which gives us } ${power} \\log_${base} ${x}.\\)",
+        "\\(\\text{Great thinking about how powers might interact with logarithms! You're exploring the idea that the power } ${power} \\text{ should affect the logarithm } \\log_${base} ${x}. \\text{ However, the power rule doesn't raise the entire logarithm to a power. Instead, it 'pulls out' the exponent as a multiplier. The key insight is that } \\log_${base} ${x}^${power} \\text{ asks 'To what power must } ${base} \\text{ be raised to get } ${x}^${power}\\text{?' If } ${base}^y = ${x}, \\text{ then } ${base}^{${power}y} = ${x}^${power}, \\text{ so the answer is } ${power}y = ${power} \\log_${base} ${x}.\\)",
+        "\\(\\text{Good recognition that the power } ${power} \\text{ should somehow combine with } ${x} \\text{ in the logarithm! You're thinking about how the components relate to each other. However, the power rule doesn't change what's inside the logarithm by adding the exponent. Instead, when we have } \\log_${base} ${x}^${power}, \\text{ the exponent } ${power} \\text{ 'comes out front' as a multiplier: } ${power} \\log_${base} ${x}. \\text{ This happens because logarithms convert repeated multiplication (which is what exponents represent) into simple multiplication of the logarithm itself.}\\)"
+      ],
+      "main_topic_index": 174,
+      "subtopic_weights": {
+        "174": 0.9,
+        "175": 0.1
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.8,
+        "procedural_fluency": 0.7,
+        "problem_solving": 0.4,
+        "mathematical_communication": 0.6,
+        "memory": 0.8,
+        "spatial_reasoning": 0.2
+      }
+    },
+    {
+      "text": "You're developing excellent skills with absolute value! What is \\(|${negative_num}|\\)?",
+      "generated_parameters": {
+        "negative_num": {
+          "type": "int",
+          "min": -8,
+          "max": -2
+        }
+      },
+      "calculated_parameters": {
+        "absolute_value": "-negative_num",
+        "wrong1": "negative_num",
+        "wrong2": "2 * negative_num",
+        "wrong3": "0"
+      },
+      "options": [
+        "\\(${absolute_value}\\)",
+        "\\(${wrong1}\\)",
+        "\\(0\\)",
+        "\\(\\text{Undefined}\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\(\\text{Perfect understanding of absolute value! You correctly found that } |${negative_num}| = ${absolute_value}. \\text{ Absolute value represents the distance from zero on the number line, and distance is always positive. Since } ${negative_num} \\text{ is } ${-negative_num} \\text{ units away from zero (in the negative direction), its absolute value is } ${-negative_num} \\text{ (the positive version of that distance). This concept is fundamental because it separates the 'size' or 'magnitude' of a number from its 'direction' (positive or negative). In real-world applications, absolute value helps us deal with situations where only the magnitude matters, like measuring physical distances, errors, or deviations.}\\)",
+        "\\(\\text{I can see you're thinking about the original number! However, absolute value always produces a non-negative result. The number } ${negative_num} \\text{ is negative, but } |${negative_num}| \\text{ must be positive because absolute value measures distance from zero. Think of it this way: if you're standing } ${-negative_num} \\text{ units to the left of zero on a number line, you're still } ${-negative_num} \\text{ units away from zero - that distance is positive. The absolute value 'removes' the negative sign, giving us the pure distance measurement of } ${-negative_num}.\\)",
+        "\\(\\text{Good thinking about special values! Zero is indeed the absolute value of zero: } |0| = 0. \\text{ However, } ${negative_num} \\text{ is not zero - it's a negative number that's } ${-negative_num} \\text{ units away from zero. The absolute value measures this distance, which is } ${-negative_num}. \\text{ Only zero has an absolute value of zero because zero is the only number that's exactly zero units away from itself. Every other number, whether positive or negative, has a positive absolute value equal to its distance from zero.}\\)",
+        "\\(\\text{Thoughtful consideration of when mathematical operations might be undefined! There are indeed cases in mathematics where expressions are undefined (like division by zero). However, absolute value is defined for all real numbers. The absolute value of any real number, including negative numbers like } ${negative_num}, \\text{ is simply the distance from that number to zero on the number line. Since } ${negative_num} \\text{ is a perfectly valid real number, its absolute value is well-defined and equals } ${-negative_num}. \\text{ Absolute value is one of the most 'well-behaved' operations in mathematics.}\\)"
+      ],
+      "main_topic_index": 182,
+      "subtopic_weights": {
+        "182": 0.9,
+        "181": 0.1
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.8,
+        "procedural_fluency": 0.5,
+        "problem_solving": 0.3,
+        "mathematical_communication": 0.6,
+        "memory": 0.7,
+        "spatial_reasoning": 0.6
+      }
+    },
+    {
+      "text": "You're mastering the distributive property with variables! Expand \\(${var}(${coeff1}${var2} + ${coeff2})\\) where both \\(${var}\\) and \\(${var2}\\) are variables.",
+      "generated_parameters": {
+        "var": {
+          "type": "choice",
+          "choices": ["a", "m", "p", "x"]
+        },
+        "var2": {
+          "type": "choice",
+          "choices": ["b", "n", "q", "y"]
+        },
+        "coeff1": {
+          "type": "int",
+          "min": 2,
+          "max": 6
+        },
+        "coeff2": {
+          "type": "int",
+          "min": 1,
+          "max": 8
+        }
+      },
+      "options": [
+        "\\(${coeff1}${var}${var2} + ${coeff2}${var}\\)",
+        "\\(${coeff1}${var} + ${coeff2}${var2}\\)",
+        "\\(${coeff1}${var2} + ${coeff2}\\)",
+        "\\(${var}(${coeff1} + ${coeff2})\\)"
+      ],
+      "correctindex": 0,
+      "option_explanations": [
+        "\\(\\text{Magnificent application of the distributive property! You correctly distributed } ${var} \\text{ to both terms: } ${var} \\times ${coeff1}${var2} = ${coeff1}${var}${var2} \\text{ and } ${var} \\times ${coeff2} = ${coeff2}${var}. \\text{ This demonstrates sophisticated understanding that the distributive property works with any algebraic expressions, not just numbers. When multiplying variables, we combine them by placing them adjacent to each other (like } ${var}${var2}\\text{), and when multiplying a variable by a constant, the variable follows the coefficient. Your work shows mastery of both the distributive property and algebraic notation conventions.}\\)",
+        "\\(\\text{Great recognition that both } ${var} \\text{ and the terms inside the parentheses are important! However, this doesn't show the effect of distributing } ${var} \\text{ to each term. When we distribute } ${var} \\text{ to } (${coeff1}${var2} + ${coeff2}), \\text{ we need } ${var} \\text{ to multiply each term inside: } ${var} \\times ${coeff1}${var2} \\text{ and } ${var} \\times ${coeff2}. \\text{ The result should be } ${coeff1}${var}${var2} + ${coeff2}${var}, \\text{ where both terms in the answer contain the distributed variable } ${var}. \\text{ Think of distribution as 'sharing' } ${var} \\text{ with each term inside the parentheses.}\\)",
+        "\\(\\text{I can see you're working with the terms inside the parentheses! However, this appears to ignore the variable } ${var} \\text{ that's being distributed. The distributive property requires that } ${var} \\text{ multiply each term inside: } ${var} \\times ${coeff1}${var2} \\text{ and } ${var} \\times ${coeff2}. \\text{ Without including } ${var} \\text{ in the result, we lose important information about the original expression. The correct result should be } ${coeff1}${var}${var2} + ${coeff2}${var}, \\text{ where } ${var} \\text{ appears in both terms because it was distributed to both terms inside the parentheses.}\\)",
+        "\\(\\text{Excellent recognition of the distributive structure! You're showing great algebraic intuition by keeping } ${var} \\text{ outside and working with what's inside the parentheses. However, this represents factoring the coefficients rather than distributing the outside variable. When we have } ${var}(${coeff1}${var2} + ${coeff2}), \\text{ the distributive property requires } ${var} \\text{ to multiply each term separately: } ${var} \\times ${coeff1}${var2} + ${var} \\times ${coeff2} = ${coeff1}${var}${var2} + ${coeff2}${var}. \\text{ The result should eliminate the parentheses entirely by showing what happens when each term gets multiplied by } ${var}.\\)"
+      ],
+      "main_topic_index": 200,
+      "subtopic_weights": {
+        "200": 0.8,
+        "7": 0.2
+      },
+      "difficulty_breakdown": {
+        "conceptual_understanding": 0.6,
+        "procedural_fluency": 0.8,
+        "problem_solving": 0.4,
+        "mathematical_communication": 0.5,
+        "memory": 0.5,
+        "spatial_reasoning": 0.3
+      }
+    }
+  ]
+}

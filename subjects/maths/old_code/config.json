@@ -1,0 +1,81 @@
+{
+  "bkt_parameters": {
+    "default": {
+      "prior_knowledge": 0.1,
+      "learning_rate": 0.3,
+      "slip_rate": 0.05,
+      "guess_rate": 0.15
+    },
+    "topic_specific": {
+      "17": {
+        "prior_knowledge": 0.05,
+        "learning_rate": 0.25,
+        "slip_rate": 0.03,
+        "guess_rate": 0.1,
+        "description": "Discriminant - requires more foundational knowledge"
+      },
+      "15": {
+        "prior_knowledge": 0.08,
+        "learning_rate": 0.35,
+        "slip_rate": 0.06,
+        "guess_rate": 0.12,
+        "description": "Quadratic formula - procedural skill"
+      }
+    }
+  },
+  "bkt_config": {
+    "enable_forgetting": true,
+    "enable_difficulty_adaptation": true,
+    "enable_time_decay": true,
+    "time_decay_lambda": 0.1,
+    "forgetting_halflife_days": 30.0,
+    "difficulty_learning_scaling": true,
+    "prerequisite_propagation": true,
+    "propagation_decay": 0.3,
+    "area_effect_enabled": true,
+    "area_effect_max_distance": 2,
+    "area_effect_decay_rate": 0.6,
+    "area_effect_min_effect": 0.01
+  },
+  "algorithm_config": {
+    "difficulty_range": 0.5,
+    "mastery_threshold": 0.7,
+    "chapter_mastery_threshold": 0.9,
+    "confidence_tolerance_factor": 0.5,
+    "learning_rate": 0.1,
+    "incorrect_penalty": 0.3,
+    "min_confidence": 0.1,
+    "max_confidence": 0.95,
+    "confidence_growth_rate": 0.02,
+    "attempts_for_full_confidence": 10,
+    "confidence_question_weight": 0.3,
+    "confidence_time_weight": 0.3,
+    "confidence_consistency_weight": 0.2,
+    "questions_for_full_factor": 100,
+    "hours_for_full_factor": 20.0,
+    "sessions_for_full_factor": 50,
+    "topic_attempt_weight": 0.7,
+    "topic_decay_weight": 0.3,
+    "confidence_decay_halflife": 30.0
+  },
+  "greedy_algorithm": {
+    "greedy_priority_weight": 2.0,
+    "greedy_subtopic_weight": 0.7,
+    "greedy_prereq_weight": 0.5,
+    "greedy_mastery_update_rate": 0.8,
+    "greedy_early_stopping": false,
+    "greedy_max_mcqs_to_evaluate": 50
+  },
+  "ui_settings": {
+    "default_questions_per_session": 5,
+    "max_questions_per_session": 20,
+    "enable_explanations": true,
+    "show_difficulty": false,
+    "enable_confidence_display": true
+  },
+  "metadata": {
+    "config_version": "1.0",
+    "created_date": "2025-01-01",
+    "description": "Configuration for adaptive learning system with Bayesian Knowledge Tracing"
+  }
+}

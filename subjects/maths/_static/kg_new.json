@@ -1,0 +1,132 @@
+{
+  "nodes": [
+    {
+      "id": 0,
+      "topic": "solving linear equations",
+      "chapter": "algebra",
+      "dependencies": [[6,  0.5 ],[14,  0.8 ],[15,  0.6 ]
+      ]
+    },
+    {
+      "id": 1,
+      "topic": "linear equations in standard form",
+      "chapter": "algebra",
+      "dependencies": [[0,  0.3 ],[2,  0.4 ]
+      ]
+    },
+    {
+      "id": 2,
+      "topic": "form of quadratic equations",
+      "chapter": "algebra",
+      "dependencies": [[5,  0.9 ],[6,  0.7 ],[9,  0.6 ],[10,  0.8 ],[12,  0.6 ],[14,  0.7 ],[15,  0.8 ],[17,  0.6 ]
+      ]
+    },
+    {
+      "id": 3,
+      "topic": "expanding brackets",
+      "chapter": "algebra",
+      "dependencies": [[0,  0.7 ],[9,  0.8 ],[14,  0.2 ]
+      ]
+    },
+    {
+      "id": 4,
+      "topic": "substitution",
+      "chapter": "algebra",
+      "dependencies": [[5,  0.9 ],[11,  0.3 ],[12,  0.3 ],[13,  0.4 ],[15,  0.9 ],[17,  0.8 ]
+      ]
+    },
+    {
+      "id": 5,
+      "topic": "using substitution to make equations in quadratic equations",
+      "chapter": "algebra",
+      "dependencies": [[9,  0.5 ],[11,  0.6 ],[12,  0.7 ],[13,  0.5 ]
+      ]
+    },
+    {
+      "id": 6,
+      "topic": "factorisation by inspection for a=1",
+      "chapter": "algebra",
+      "dependencies": [[7,  0.8 ],[12,  0.9 ]
+      ]
+    },
+    {
+      "id": 7,
+      "topic": "factorisation by inspection for a ne 1",
+      "chapter": "algebra",
+      "dependencies": [[12,  0.9 ]
+      ]
+    },
+    {
+      "id": 8,
+      "topic": "basic coordinate geometry",
+      "chapter": "geometry",
+      "dependencies": [[10,  0.8 ],[11,  0.6 ],[13,  0.7 ]
+      ]
+    },
+    {
+      "id": 9,
+      "topic": "writing quadratics in completed square form",
+      "chapter": "algebra",
+      "dependencies": [[11,  0.9 ],[13,  0.8 ]
+      ]
+    },
+    {
+      "id": 10,
+      "topic": "graph of quadratics",
+      "chapter": "algebra",
+      "dependencies": [[11,  0.7 ],[12,  0.5 ],[13,  0.6 ]
+      ]
+    },
+    {
+      "id": 11,
+      "topic": "vertex of parabola",
+      "chapter": "algebra",
+      "dependencies": []
+    },
+    {
+      "id": 12,
+      "topic": "x-intercept/roots",
+      "chapter": "algebra",
+      "dependencies": [[15,  0.4 ],[16,  0.6 ],[17,  0.5 ]
+      ]
+    },
+    {
+      "id": 13,
+      "topic": "interpreting completed square form",
+      "chapter": "algebra",
+      "dependencies": []
+    },
+    {
+      "id": 14,
+      "topic": "quadratic formula derivation",
+      "chapter": "algebra",
+      "dependencies": [[15,  0.9 ]
+      ]
+    },
+    {
+      "id": 15,
+      "topic": "using quadratic formula",
+      "chapter": "algebra",
+      "dependencies": [[16,  0.8 ],[17,  0.7 ]
+      ]
+    },
+    {
+      "id": 16,
+      "topic": "nature of roots",
+      "chapter": "algebra",
+      "dependencies": []
+    },
+    {
+      "id": 17,
+      "topic": "discriminant",
+      "chapter": "algebra",
+      "dependencies": [[16,  0.7 ]
+      ]
+    }
+  ],
+  "metadata": {
+    "total_nodes": 18,
+    "chapters": ["algebra", "geometry"],
+    "description": "Knowledge graph for quadratic equations and related algebra topics"
+  }
+}

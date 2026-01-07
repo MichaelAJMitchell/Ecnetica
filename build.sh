@@ -20,7 +20,8 @@ cd subjects/maths
 jupyter-book build . --path-output ../../_build/maths
 cd ../..
 mkdir -p _build/html/maths
-cp -r _build/maths/html/* _build/html/maths/
+# jupyter-book creates _build/maths/_build/html/ structure
+cp -r _build/maths/_build/html/* _build/html/maths/
 
 # Build Chemistry (if content exists)
 if [ -f "subjects/chemistry/content/index.md" ]; then
@@ -30,7 +31,7 @@ if [ -f "subjects/chemistry/content/index.md" ]; then
     jupyter-book build . --path-output ../../_build/chemistry
     cd ../..
     mkdir -p _build/html/chemistry
-    cp -r _build/chemistry/html/* _build/html/chemistry/
+    cp -r _build/chemistry/_build/html/* _build/html/chemistry/
 else
     echo ""
     echo "⚗️ Skipping Chemistry (no content yet)"
@@ -44,7 +45,7 @@ if [ -f "subjects/physics/content/index.md" ]; then
     jupyter-book build . --path-output ../../_build/physics
     cd ../..
     mkdir -p _build/html/physics
-    cp -r _build/physics/html/* _build/html/physics/
+    cp -r _build/physics/_build/html/* _build/html/physics/
 else
     echo ""
     echo "⚛️ Skipping Physics (no content yet)"

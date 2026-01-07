@@ -51,15 +51,18 @@ else
     echo "⚛️ Skipping Physics (no content yet)"
 fi
 
-# Copy landing page
+# Build Landing page
 echo ""
-echo "🏠 Setting up landing page..."
-if [ -f "landing.html" ]; then
-    cp landing.html _build/html/index.html
-else
-    echo "   (No landing.html found, maths will be the default)"
-    # Create a simple redirect to maths if no landing page
-    echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0;url=maths/"></head></html>' > _build/html/index.html
+echo "🏠 Building landing page..."
+cd subjects/landing
+jupyter-book build . --path-output ../../_build/landing
+cd ../..
+# Copy just the index.html and its assets from landing build
+cp _build/landing/_build/html/index.html _build/html/index.html
+# Copy landing CSS if it exists
+if [ -d "_build/landing/_build/html/_static" ]; then
+    mkdir -p _build/html/_static
+    cp -r _build/landing/_build/html/_static/* _build/html/_static/
 fi
 
 echo ""

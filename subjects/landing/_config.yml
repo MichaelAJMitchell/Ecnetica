@@ -1,0 +1,47 @@
+# Landing page settings
+title: Ecnetica — Choose Your Subject
+author: The Problem Solving Association C.L.G.
+logo: logo.png
+
+execute:
+  execute_notebooks: 'off'
+
+# HTML settings
+html:
+  extra_footer: "Copyright-info"
+  extra_css:
+    - "_static/landing.css"
+
+sphinx:
+  config:
+    html_theme: pydata_sphinx_theme
+    html_theme_options:
+      navbar_start: ["navbar-logo"]
+      navbar_center: []
+      navbar_end: ["search-button"]
+      navbar_persistent: []
+
+      # Logo and branding
+      logo:
+        image_light: "logo.png"
+        image_dark: "logo.png"
+        text: "Ecnetica"
+      
+      # Sidebar configuration - hide for landing page
+      primary_sidebar_end: []
+      secondary_sidebar_items: []
+      
+      # Search
+      search_bar_text: "Search..."
+      
+      # Source options disabled
+      use_edit_page_button: false
+      show_version_warning_banner: false
+      
+parse:
+  myst_enable_extensions:
+    - html_admonition
+    - html_image
+    - substitution
+  myst_url_schemes: [mailto, http, https]
+

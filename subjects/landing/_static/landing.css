@@ -1,0 +1,127 @@
+/* Landing page subject cards styling */
+.subject-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin: 2rem 0 3rem 0;
+  max-width: 1000px;
+}
+
+.subject-card {
+  background: var(--pst-color-background);
+  border: 1px solid var(--pst-color-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.subject-card.available {
+  cursor: pointer;
+}
+
+.subject-card.coming-soon {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.subject-card.available:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  text-decoration: none;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge.live {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.badge.soon {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.subject-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--pst-color-text-base);
+}
+
+.subject-desc {
+  margin: 0;
+  color: var(--pst-color-text-muted);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  flex-grow: 1;
+}
+
+.subject-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--pst-color-text-muted);
+  margin-top: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--pst-color-border);
+}
+
+.subject-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Make the main content area wider for landing page */
+.bd-main .bd-content {
+  max-width: 1100px;
+}
+
+/* Center the content */
+.bd-article-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Dark mode adjustments */
+html[data-theme="dark"] .badge.live {
+  background: #1e3a5f;
+  color: #60a5fa;
+}
+
+html[data-theme="dark"] .badge.soon {
+  background: #451a03;
+  color: #fbbf24;
+}
+
+html[data-theme="dark"] .subject-card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+html[data-theme="dark"] .subject-card.available:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+

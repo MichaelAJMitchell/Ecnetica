@@ -279,8 +279,8 @@
           const files = [
             { name: "config.json", url: "../../_static/config.json" },
             { name: "small-graph-kg.json", url: "../../_static/small-graph-kg.json" },
-            { name: "small-graph-mcqs.json", url: "../../_static/small-graph-mcqs.json" },
-            { name: "small-graph-computed_mcqs.json", url: "../../_static/small-graph-computed_mcqs.json" }
+            { name: "small-graph-mcqs.json", url: "../../_static/small-graph-breakdown-mcqs.json" },
+            { name: "small-graph-computed_mcqs.json", url: "../../_static/small-graph-breakdown-mcqs-computed.json" }
           ];
 
           for (const file of files) {
@@ -355,7 +355,7 @@
           // Step 6: Load knowledge graph after MCQ is ready
           updateStatus('Loading knowledge graph...', 'loading');
           loadGraphData('../../_static/small-graph.json');
-
+          
           // Mark as initialized
           isInitialized = true;
 
@@ -705,7 +705,7 @@
         });
 
         document.getElementById('load-full').addEventListener('click', function() {
-          loadGraphData('../../_static/graph-data.json');
+          loadGraphData('../../_static/small-graph.json');
         });
 
         // Start auto-initialization

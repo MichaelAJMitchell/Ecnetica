@@ -1,0 +1,162 @@
+{
+  "concepts": [
+    {
+      "name": "Derivatives",
+      "explanation": "The instantaneous rate of change of a function; includes limit definition and basic differentiation rules.",
+      "broader_concept": "Differential Calculus",
+      "strand": "Calculus",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.97,
+      "id": "74e42298-be09-4cd9-8da2-e778a8f10bf8"
+    },
+    {
+      "name": "Trigonometric Functions",
+      "explanation": "Sine, cosine, and tangent viewed as functions with domains, ranges, identities, and graphs.",
+      "broader_concept": "Trigonometry",
+      "strand": "Trigonometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.95,
+      "id": "302c2545-5c30-472b-bfa9-d3ae4d0bbb86"
+    },
+    {
+      "name": "Integration",
+      "explanation": "Antiderivatives and the accumulation of quantities, including area under a curve.",
+      "broader_concept": "Integral Calculus",
+      "strand": "Calculus",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.96,
+      "id": "7f1cf8b8-4999-4db4-8f58-be8e82740647"
+    },
+    {
+      "name": "Quadratic Equations",
+      "explanation": "Equations of the form ax^2 + bx + c = 0 and methods of solution such as factoring and the quadratic formula.",
+      "broader_concept": "Algebraic Equations",
+      "strand": "Algebra",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.95,
+      "id": "951cdd44-d20c-4dc3-ab4c-f549921aeea2"
+    },
+    {
+      "name": "Rational Numbers",
+      "explanation": "Numbers expressible as a fraction of two integers with nonzero denominator.",
+      "broader_concept": "Number Systems",
+      "strand": "Number",
+      "grade_level": "Elementary_Middle",
+      "difficulty": "Basic",
+      "confidence_score": 0.98,
+      "id": "67537a58-bee9-4e7e-b68d-de837730d677"
+    },
+    {
+      "name": "Integers",
+      "explanation": "The set of whole numbers, their negatives, and zero.",
+      "broader_concept": "Number Systems",
+      "strand": "Number",
+      "grade_level": "Elementary_Middle",
+      "difficulty": "Basic",
+      "confidence_score": 0.98,
+      "id": "462502fe-39d3-4843-8c6c-7b3f31f2f6fb"
+    },
+    {
+      "name": "Linear Equations",
+      "explanation": "First-degree equations in one variable and methods for solving them.",
+      "broader_concept": "Algebraic Equations",
+      "strand": "Algebra",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic",
+      "confidence_score": 0.96,
+      "id": "edbe1044-cb4f-4563-8095-ced312444603"
+    },
+    {
+      "name": "Natural Numbers",
+      "explanation": "Counting numbers starting at 1 (sometimes including 0).",
+      "broader_concept": "Number Systems",
+      "strand": "Number",
+      "grade_level": "Elementary",
+      "difficulty": "Basic",
+      "confidence_score": 0.98,
+      "id": "8ff9c7d5-56b4-4f6e-8320-f1ca43c76ff8"
+    },
+    {
+      "name": "Complex Numbers",
+      "explanation": "Numbers of the form a + bi with real part a and imaginary part b.",
+      "broader_concept": "Number Systems",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.97,
+      "id": "92dea9bb-48c8-4054-96a5-6ef1bd699f02"
+    },
+    {
+      "name": "Probability",
+      "explanation": "Numerical measure of the likelihood of events within a sample space.",
+      "broader_concept": "Probability Theory",
+      "strand": "Probability",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.9,
+      "id": "1c7c5a93-430f-4025-8462-76a072cddc28"
+    }
+  ],
+  "relationships": [
+    {
+      "prerequisite_concept_id": "8ff9c7d5-56b4-4f6e-8320-f1ca43c76ff8",
+      "dependent_concept_id": "462502fe-39d3-4843-8c6c-7b3f31f2f6fb",
+      "relationship_type": "builds_on",
+      "strength": 0.95,
+      "id": "5d5b8704-ff79-43ad-b8a9-01d3f966656c"
+    },
+    {
+      "prerequisite_concept_id": "462502fe-39d3-4843-8c6c-7b3f31f2f6fb",
+      "dependent_concept_id": "67537a58-bee9-4e7e-b68d-de837730d677",
+      "relationship_type": "builds_on",
+      "strength": 0.95,
+      "id": "8e42ddd7-e7ac-4df8-b5bb-5fa2db2a3485"
+    },
+    {
+      "prerequisite_concept_id": "67537a58-bee9-4e7e-b68d-de837730d677",
+      "dependent_concept_id": "92dea9bb-48c8-4054-96a5-6ef1bd699f02",
+      "relationship_type": "builds_on",
+      "strength": 0.8,
+      "id": "7fc27f3d-137f-496a-ae9f-e403e78b6ae4"
+    },
+    {
+      "prerequisite_concept_id": "edbe1044-cb4f-4563-8095-ced312444603",
+      "dependent_concept_id": "951cdd44-d20c-4dc3-ab4c-f549921aeea2",
+      "relationship_type": "prerequisite",
+      "strength": 0.9,
+      "id": "02f564f9-1332-441f-9d18-ed0892ebacd0"
+    },
+    {
+      "prerequisite_concept_id": "951cdd44-d20c-4dc3-ab4c-f549921aeea2",
+      "dependent_concept_id": "74e42298-be09-4cd9-8da2-e778a8f10bf8",
+      "relationship_type": "supports",
+      "strength": 0.7,
+      "id": "f7aeffe2-acac-4ac1-b3de-bdd115190751"
+    },
+    {
+      "prerequisite_concept_id": "302c2545-5c30-472b-bfa9-d3ae4d0bbb86",
+      "dependent_concept_id": "74e42298-be09-4cd9-8da2-e778a8f10bf8",
+      "relationship_type": "prerequisite",
+      "strength": 0.85,
+      "id": "63e67519-ecdc-46e5-a690-9f5b49aad68f"
+    },
+    {
+      "prerequisite_concept_id": "302c2545-5c30-472b-bfa9-d3ae4d0bbb86",
+      "dependent_concept_id": "7f1cf8b8-4999-4db4-8f58-be8e82740647",
+      "relationship_type": "prerequisite",
+      "strength": 0.8,
+      "id": "895354a8-15cd-4926-a049-87ed69cb016c"
+    },
+    {
+      "prerequisite_concept_id": "74e42298-be09-4cd9-8da2-e778a8f10bf8",
+      "dependent_concept_id": "7f1cf8b8-4999-4db4-8f58-be8e82740647",
+      "relationship_type": "prerequisite",
+      "strength": 0.9,
+      "id": "ce737af1-f0ef-451f-a97c-37602850fd6e"
+    }
+  ]
+}

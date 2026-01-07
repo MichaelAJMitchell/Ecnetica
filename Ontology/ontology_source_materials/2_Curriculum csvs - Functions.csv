@@ -1,0 +1,98 @@
+Topic,"Description of topic 
+ Students learn about","Learning outcomes 
+ Students should be able to"
+5.1 Functions,"Functions as a special type of relationship.
+ Representing linear functions set in context graphically.","– recognise that a function assigns a unique output to a given input 
+ 
+  – graph functions of the form ax+b where a,b ∈ Q, x ∈ R"
+5.1 Functions,"– recognise that a function assigns a unique output to a given input 
+ 
+  – form composite functions 
+ 
+  – graph functions of the form 
+   ax+b wherea,b∈Q,x∈R 
+ 
+  ax2+bx + c 
+ where a, b, c ∈ Z , x ∈ R 
+ 
+  ax3+bx2 + cx+d 
+ where a,b,c,d ∈ Z, x ∈ R 
+ 
+  abx where a ∈ N, b, x ∈ R 
+ 
+  
+  – interpret equations of the form f(x) = g(x) as a comparison of the above functions 
+ 
+  – use graphical methods to find approximate solutions to 
+   f(x) = 0 
+ 
+  f(x) = k 
+ 
+  f(x) = g(x)
+ where f(x) and g(x) are of the above form, or where graphs of f(x) and g(x) are provided 
+ 
+  
+  – investigate the concept of the limit of a function","– recognise surjective, injective and bijective functions 
+ 
+  – find the inverse of a bijective function 
+ 
+  – given a graph of a function sketch the graph 
+ of its inverse 
+ 
+  – express quadratic functions in complete 
+ square form 
+ 
+  – use the complete square form of a quadratic 
+ function to
+ • find the roots and turning points • sketch the function 
+ 
+  – graph functions of the form 
+   ax2+bx+cwherea,b,c∈Q,x∈R 
+ 
+  abx where a, b ∈ R 
+ 
+  logarithmic 
+ 
+  exponential 
+ 
+  trigonometric 
+ 
+  
+  – interpret equations of the form
+ f(x) = g(x) as a comparison of the above functions 
+ 
+  – informally explore limits and continuity of functions"
+5.2 Calculus,"– find first and second derivatives of linear, quadratic and cubic functions by rule 
+ 
+  – associate derivatives with slopes and tangent lines 
+ 
+  – apply differentiation to • rates of change
+ • maxima and minima • curve sketching","– differentiate linear and quadratic functions from first principles 
+ 
+  – differentiate the following functions • polynomial 
+ • exponential
+ • trigonometric
+ • rational powers
+ • inverse functions • logarithms 
+ 
+  – find the derivatives of sums, differences, products, quotients and compositions of functions of the above form 
+ 
+  – apply the differentiation of above functions to solve problems 
+ 
+  – use differentiation to find the slope of a tangent to a circle 
+ 
+  – recognise integration as the reverse process of differentiation 
+ 
+  – use integration to find the average value of a function over an interval 
+ 
+  – integrate sums, differences and constant multiples of functions of the form
+ • xa wherea∈Q
+ • ax wherea∈R,a>0 
+ • Sinaxwherea∈R 
+ • Cosaxwherea∈R 
+ 
+  – determine areas of plane regions bounded by 
+ 
+  
+ 
+   polynomial and exponential curves"

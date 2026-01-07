@@ -1,0 +1,3165 @@
+{
+  "concepts": [
+    {
+      "name": "Ideal Gas Equation Problem Solving",
+      "explanation": "Solve PV = nRT for an unknown state variable using consistent SI units.",
+      "broader_concept": "Gas Laws",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.95,
+      "id": "8381c98a-c0e2-4b4b-86ab-401ab197d451"
+    },
+    {
+      "name": "Mole-to-Mass Conversion",
+      "explanation": "Convert amount of substance in moles to mass in grams using m = nM.",
+      "broader_concept": "Mole Concept",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.98,
+      "id": "b965b031-1316-4839-b801-a8103536b980"
+    },
+    {
+      "name": "Mass-to-Mole Conversion",
+      "explanation": "Convert mass in grams to moles using n = m/M.",
+      "broader_concept": "Mole Concept",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.98,
+      "id": "f546712a-3387-40cc-9dcd-a75356125e2e"
+    },
+    {
+      "name": "Avogadro Constant Calculations",
+      "explanation": "Relate number of particles and moles using N = n·NA to find any one of N, n, or NA.",
+      "broader_concept": "Mole Concept",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.96,
+      "id": "a47e096e-666c-4025-997e-2b9f8ef78417"
+    },
+    {
+      "name": "Relative Atomic Mass from Isotopic Abundances",
+      "explanation": "Compute weighted mean atomic mass: Ar = Σ(mass_i × fractional_abundance_i).",
+      "broader_concept": "Weighted Averages",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.94,
+      "id": "daa473a8-6a97-4c1f-ab0f-ee64df457817"
+    },
+    {
+      "name": "Combined Gas Law Calculations",
+      "explanation": "Use P1V1/T1 = P2V2/T2 to solve for a missing variable when amount of gas is constant.",
+      "broader_concept": "Gas Laws",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.93,
+      "id": "373efc33-48cc-45ab-a6d6-81b8a614b61c"
+    },
+    {
+      "name": "Boyle's Law Calculations",
+      "explanation": "Apply P1V1 = P2V2 for processes at constant temperature to find pressure or volume.",
+      "broader_concept": "Gas Laws",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.93,
+      "id": "84428238-5921-431b-89ff-69cec4db0284"
+    },
+    {
+      "name": "Charles's Law Calculations",
+      "explanation": "Apply V1/T1 = V2/T2 for processes at constant pressure to find volume or temperature.",
+      "broader_concept": "Gas Laws",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.92,
+      "id": "d848fb57-1a47-41fa-a851-eab9e3852e08"
+    },
+    {
+      "name": "Gay-Lussac's Law Calculations",
+      "explanation": "Apply P1/T1 = P2/T2 for processes at constant volume to find pressure or temperature.",
+      "broader_concept": "Gas Laws",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.92,
+      "id": "ef96f0b4-b13e-4a9d-ade9-64eb2cae6c4d"
+    },
+    {
+      "name": "Charge Balance for Ionic Compound Formulas",
+      "explanation": "Determine subscripts that give zero net charge by using least common multiples of ion charges.",
+      "broader_concept": "Stoichiometric Ratios",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.9,
+      "id": "a4ab5e64-7940-491e-91fe-a703a09bf16a"
+    },
+    {
+      "name": "Temperature Conversion between Celsius and Kelvin",
+      "explanation": "Convert temperatures using K = °C + 273.15 for use in gas-law equations.",
+      "broader_concept": "Unit Conversion",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.97,
+      "id": "fcc2197b-5f5a-4f2f-bfd5-ce9ea7fabcd2"
+    },
+    {
+      "name": "Calculating Subatomic Particles from Atomic and Mass Numbers",
+      "explanation": "Find protons (Z), neutrons (A − Z), and electrons (Z adjusted for ion charge).",
+      "broader_concept": "Atomic Structure Calculations",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.95,
+      "id": "af3349f7-2c1f-4ae2-af2a-08e8315e5427"
+    },
+    {
+      "name": "Determining Relative Formula Mass from Chemical Formula",
+      "explanation": "Sum atomic relative masses multiplied by subscripts to compute Mr of a compound.",
+      "broader_concept": "Molar Mass Calculations",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.94,
+      "id": "c5bd7607-52c0-4304-a65f-ad46db39807b"
+    },
+    {
+      "name": "Photon Energy–Wavelength–Frequency Calculations",
+      "explanation": "Relate photon energy, frequency, and wavelength using E = hf and c = fλ.",
+      "broader_concept": "Wave-Particle Relations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.86,
+      "id": "3d533cbc-59f2-4fff-bab1-2e4f56d92f65"
+    },
+    {
+      "name": "Calculating Electronegativity Difference to Classify Bond Type",
+      "explanation": "Compute ΔEN and compare to thresholds to classify bonds as nonpolar covalent, polar covalent, or ionic.",
+      "broader_concept": "Bond Polarity Prediction",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.88,
+      "id": "75ea760b-5ef4-419e-8284-59d0d71efcf8"
+    },
+    {
+      "name": "Writing Electron Configurations of Ions",
+      "explanation": "Determine electron configurations for ions using Aufbau order and removing electrons according to charge.",
+      "broader_concept": "Electron Configuration Rules",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.78,
+      "id": "1d7d67ff-73c8-4adc-9c58-9cf21552ffad"
+    },
+    {
+      "name": "Mole–Mass Conversion (n = m/M)",
+      "explanation": "Compute moles from mass using molar mass, and vice versa.",
+      "broader_concept": "Stoichiometric Calculations",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.98,
+      "id": "659e53e9-3f62-4fc0-9481-c88a9fb7472a"
+    },
+    {
+      "name": "Stoichiometric Mass Calculation from Balanced Equations",
+      "explanation": "Use mole ratios from a balanced chemical equation to calculate masses of reactants or products.",
+      "broader_concept": "Stoichiometric Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.99,
+      "id": "f2f0bcd9-9685-4922-a813-5efe72906bc0"
+    },
+    {
+      "name": "Gas Volume Calculation Using Molar Gas Volume",
+      "explanation": "Relate moles of gas to volume via molar gas volume at specified conditions (e.g., STP).",
+      "broader_concept": "Stoichiometric Calculations",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.95,
+      "id": "889388ce-93a1-4295-a0cd-c55c4f79a106"
+    },
+    {
+      "name": "Limiting Reactant Determination",
+      "explanation": "Identify the reactant that limits product formation using mole ratios and initial amounts.",
+      "broader_concept": "Stoichiometric Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.98,
+      "id": "b2fa26ec-e865-404a-8497-650fed599fe1"
+    },
+    {
+      "name": "Percentage Yield Calculation",
+      "explanation": "Compute percentage yield as (actual yield ÷ theoretical yield) × 100%.",
+      "broader_concept": "Stoichiometric Calculations",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.98,
+      "id": "f11de0d6-d1a0-4dd5-ab0a-2882a57422af"
+    },
+    {
+      "name": "Percentage Composition by Mass",
+      "explanation": "Calculate the mass percent of each element in a compound from its formula or experimental data.",
+      "broader_concept": "Stoichiometric Calculations",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.97,
+      "id": "2b427a67-7785-48b8-baab-09237a1f5608"
+    },
+    {
+      "name": "Empirical Formula from Percent Composition",
+      "explanation": "Convert mass percentages to moles and find the simplest whole-number ratio of atoms.",
+      "broader_concept": "Stoichiometric Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.99,
+      "id": "60e65bcc-96d2-4cbe-8ec9-b28f36f8b093"
+    },
+    {
+      "name": "Empirical Formula from Masses of Reactants and Products",
+      "explanation": "Use masses consumed/formed to deduce mole ratios and determine an empirical formula.",
+      "broader_concept": "Stoichiometric Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.96,
+      "id": "b5298e3e-d1fa-4363-b918-83db34702d3b"
+    },
+    {
+      "name": "Molarity Calculation (C = n/V)",
+      "explanation": "Compute molar concentration from moles and volume, or solve for moles/volume.",
+      "broader_concept": "Solution Concentration Calculations",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.99,
+      "id": "c0cd6526-203f-4390-8a26-d31e7365ee98"
+    },
+    {
+      "name": "Convert Molarity to Grams per Litre",
+      "explanation": "Transform molarity to g/L using molar mass: g/L = M (mol/L) × Mr (g/mol).",
+      "broader_concept": "Solution Concentration Calculations",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.98,
+      "id": "b1201167-5ff4-4cd6-871a-90eb035e6548"
+    },
+    {
+      "name": "Convert Grams per Litre to Molarity",
+      "explanation": "Transform g/L to molarity using molar mass: M (mol/L) = (g/L) ÷ Mr (g/mol).",
+      "broader_concept": "Solution Concentration Calculations",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.98,
+      "id": "c7e1c101-4316-40ca-a553-b1ad6a42e499"
+    },
+    {
+      "name": "Moles from Volume and Molarity (n = C × V)",
+      "explanation": "Calculate moles present in a given volume of solution at known molarity.",
+      "broader_concept": "Solution Concentration Calculations",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.99,
+      "id": "df0d654e-53e9-4a4b-a683-a4687e318193"
+    },
+    {
+      "name": "Dilution Calculation (C1V1 = C2V2)",
+      "explanation": "Relate concentrations and volumes before and after dilution to find an unknown.",
+      "broader_concept": "Solution Concentration Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.99,
+      "id": "bf3b0493-e615-4a2d-8b14-7a58f2687981"
+    },
+    {
+      "name": "Serial Dilution Factor Calculation",
+      "explanation": "Compute overall dilution after repeated fixed-ratio dilutions (e.g., 1:10 series).",
+      "broader_concept": "Solution Concentration Calculations",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.94,
+      "id": "cf6315a6-a0e4-4639-9de4-c0fe798d94ab"
+    },
+    {
+      "name": "Standard Solution Preparation Calculation",
+      "explanation": "Determine the mass of solute needed to prepare a specified volume at a target molarity.",
+      "broader_concept": "Solution Concentration Calculations",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.98,
+      "id": "03faa479-d258-4ff9-8f9e-649a7d79a290"
+    },
+    {
+      "name": "Titration Concentration Calculation from Volume and Molarity",
+      "explanation": "Use n = C×V and stoichiometric ratios to compute an unknown concentration from titration data.",
+      "broader_concept": "Acid–Base and Redox Titration Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.99,
+      "id": "7715afe0-c34f-4749-9816-5f522d886cc8"
+    },
+    {
+      "name": "Redox Equation Balancing by Ion–Electron Method",
+      "explanation": "Balance oxidation–reduction equations using half-reactions, electron balance, and medium conditions.",
+      "broader_concept": "Redox Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Advanced",
+      "confidence_score": 0.96,
+      "id": "827a34a4-d56f-47f9-93fb-1cc187bcc0bf"
+    },
+    {
+      "name": "Equilibrium Constant Expression and Calculation (Kc)",
+      "explanation": "Write Kc from a balanced equation and calculate its value from equilibrium concentrations.",
+      "broader_concept": "Chemical Equilibrium Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.99,
+      "id": "7ea26598-6c5a-47b7-be50-cac5c1c38c26"
+    },
+    {
+      "name": "ICE Table Calculations for Equilibrium",
+      "explanation": "Set up Initial–Change–Equilibrium tables to solve for unknown concentrations using Kc.",
+      "broader_concept": "Chemical Equilibrium Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Advanced",
+      "confidence_score": 0.98,
+      "id": "e8162b12-8e2f-495d-aa5d-eb831bf850b8"
+    },
+    {
+      "name": "pH of Strong Acids and Bases",
+      "explanation": "Calculate pH or pOH from concentration using pH = −log10[H+] and pOH = −log10[OH−].",
+      "broader_concept": "Acid–Base Calculations",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.99,
+      "id": "dee3dde0-f842-44c7-a029-7ed43580625f"
+    },
+    {
+      "name": "pH of Weak Acids Using Ka",
+      "explanation": "Compute pH of a weak acid from Ka and initial concentration, using equilibrium approximations.",
+      "broader_concept": "Acid–Base Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.98,
+      "id": "fd9a795e-3a23-4afa-9e22-b6910b6599cf"
+    },
+    {
+      "name": "pH of Weak Bases Using Kb",
+      "explanation": "Compute pH via base hydrolysis using Kb and concentration, then convert from pOH.",
+      "broader_concept": "Acid–Base Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.97,
+      "id": "1ce437af-b0b1-4139-95db-f71513c2787f"
+    },
+    {
+      "name": "Water Ion Product (Kw) Calculations",
+      "explanation": "Use Kw = [H+][OH−] to interconvert [H+], [OH−], pH, and pOH at given temperature.",
+      "broader_concept": "Acid–Base Calculations",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.98,
+      "id": "a1b1d0a2-9822-49dc-8aae-c0cf61c63222"
+    },
+    {
+      "name": "Average Reaction Rate Calculation",
+      "explanation": "Determine reaction rate as change in concentration (or amount) divided by time interval.",
+      "broader_concept": "Rate Calculations",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.95,
+      "id": "b94d845f-b503-4949-9fae-b48d95cf0258"
+    },
+    {
+      "name": "Calorimetry: Enthalpy Change Using q = mcΔT",
+      "explanation": "Calculate heat absorbed/released and convert to molar enthalpy change for a reaction.",
+      "broader_concept": "Thermochemical Calculations",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.98,
+      "id": "b756053e-bf19-433d-a2db-2db485a5357c"
+    },
+    {
+      "name": "Enthalpy of Combustion per Mole from Calorimetry",
+      "explanation": "Determine molar heat of combustion from temperature rise, heat capacity, and moles burned.",
+      "broader_concept": "Thermochemical Calculations",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.96,
+      "id": "74c600a7-b121-4660-9a7b-b9b7fcb056ec"
+    },
+    {
+      "name": "Reaction Enthalpy from Bond Enthalpies",
+      "explanation": "Estimate ΔH by summing bond energies of bonds broken minus bonds formed.",
+      "broader_concept": "Thermochemical Calculations",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.97,
+      "id": "25ce6417-75d3-4a1d-8f66-ff38bdb4ea01"
+    },
+    {
+      "name": "Reaction Enthalpy from Standard Enthalpies of Formation",
+      "explanation": "Compute ΔH°rxn = ΣΔH°f(products) − ΣΔH°f(reactants).",
+      "broader_concept": "Thermochemical Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.98,
+      "id": "0a4e8506-b864-4575-8150-b2c114c83614"
+    },
+    {
+      "name": "Hess's Law Calculations",
+      "explanation": "Algebraically combine chemical equations and their enthalpy changes to find an unknown ΔH.",
+      "broader_concept": "Thermochemical Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Advanced",
+      "confidence_score": 0.98,
+      "id": "134c25d3-e1a8-4afc-9f95-70215a81184d"
+    },
+    {
+      "name": "Accuracy, Precision, and Error Classification",
+      "explanation": "Differentiate accuracy vs precision and identify random vs systematic errors in measurements.",
+      "broader_concept": "Error and Uncertainty Analysis",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.9,
+      "id": "08062a24-2656-47f3-8beb-c095b804cd8b"
+    },
+    {
+      "name": "Quantitative Data",
+      "explanation": "Numerical measurements collected in experiments, such as mass, volume, time, and temperature.",
+      "broader_concept": "Data Types in Statistics",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.98,
+      "id": "0e0394d9-8303-46ca-8b75-30f38b88af03"
+    },
+    {
+      "name": "Qualitative Data",
+      "explanation": "Non-numerical, descriptive observations from experiments, such as color changes, cloudiness, or gas production.",
+      "broader_concept": "Data Types in Statistics",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.98,
+      "id": "a58952c1-08de-4e22-9768-073e8fad076b"
+    },
+    {
+      "name": "Constructing and Interpreting Tables and Graphs of Experimental Data",
+      "explanation": "Organizing measurements in tables and representing them in graphs to identify patterns and relationships.",
+      "broader_concept": "Data Representation",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.95,
+      "id": "b609ac60-250a-4827-8108-af9bb2cc1432"
+    },
+    {
+      "name": "Reliability of Data",
+      "explanation": "Assessing the consistency of results across repeated trials to judge trustworthiness of measurements.",
+      "broader_concept": "Measurement Reliability",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.94,
+      "id": "0c392508-abb3-471b-bcdb-07446ca41a23"
+    },
+    {
+      "name": "Repeatability of Measurements",
+      "explanation": "Obtaining consistent results when the same person repeats an experiment using the same method.",
+      "broader_concept": "Measurement Reliability",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.96,
+      "id": "041ee648-8514-4cbb-a5e2-e2ab871b811d"
+    },
+    {
+      "name": "Reproducibility of Measurements",
+      "explanation": "Obtaining consistent results when different people in different labs repeat an experiment using the same method.",
+      "broader_concept": "Measurement Reliability",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.96,
+      "id": "e7e200af-2eae-487a-a613-ac58d73f310f"
+    },
+    {
+      "name": "Direct Proportionality Between Two Variables",
+      "explanation": "Understanding relationships of the form y ∝ x, where increasing one variable increases the other linearly (e.g., reaction rate vs. concentration).",
+      "broader_concept": "Proportional Relationships",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.9,
+      "id": "05827685-c45b-4251-b935-4f8481a2a955"
+    },
+    {
+      "name": "Inverse Proportionality Between Two Variables",
+      "explanation": "Understanding relationships where one variable increases as the other decreases in reciprocal fashion (e.g., gas pressure vs. volume).",
+      "broader_concept": "Proportional Relationships",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.88,
+      "id": "cfd71f68-16ca-4c3e-91fc-2768d95a45f7"
+    },
+    {
+      "name": "Formulating Testable Hypotheses (If–Then Statements)",
+      "explanation": "Writing predictive, falsifiable statements in the form 'If X, then Y' that can be evaluated with data.",
+      "broader_concept": "Experimental Design",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.92,
+      "id": "7efb0e2d-06c4-458b-bd2b-3dc4d92e63f7"
+    },
+    {
+      "name": "SI Units: Length, Mass, Time, Temperature",
+      "explanation": "Using standard international units to record and compare measurements consistently across studies.",
+      "broader_concept": "Measurement Units",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.93,
+      "id": "cd13aaeb-b94d-4758-9af9-22d365d6486a"
+    },
+    {
+      "name": "Interpreting Rate as Change per Unit Time",
+      "explanation": "Understanding rate as a measure of how a quantity changes over time, with appropriate units.",
+      "broader_concept": "Rates and Ratios",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.78,
+      "id": "d1d7eb8d-a4b0-419b-85e4-f5c8639e7ff5"
+    },
+    {
+      "name": "Conservation Equation for Mass in Chemical Reactions",
+      "explanation": "Expressing the law of conservation of mass as an equality: total mass of reactants equals total mass of products.",
+      "broader_concept": "Equations and Identities",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.8,
+      "id": "ea23fc84-ede0-4f0f-a6d6-2ef225a4e600"
+    },
+    {
+      "name": "Using Mathematical Models for Prediction",
+      "explanation": "Applying simplified mathematical relationships to forecast outcomes of physical or chemical processes.",
+      "broader_concept": "Mathematical Modeling",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.85,
+      "id": "41a92071-ebe8-4c4d-8996-01a4197c9f52"
+    },
+    {
+      "name": "Scientific Notation for Very Small Quantities",
+      "explanation": "Represent and compare extremely small physical quantities using a × 10^n form; convert between standard and scientific notation.",
+      "broader_concept": "Rules of Exponents",
+      "strand": "Number",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.95,
+      "id": "b603abb1-51aa-44bb-a708-859a024cdd07"
+    },
+    {
+      "name": "Orders of Magnitude Comparison",
+      "explanation": "Determine how many powers of ten separate two quantities and interpret the resulting factor difference.",
+      "broader_concept": "Powers of Ten",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.9,
+      "id": "fc1fae7d-62d1-4abf-83cd-9af6ffa1f3d8"
+    },
+    {
+      "name": "Interpreting Relative Mass and Charge",
+      "explanation": "Use unitless relative values (e.g., +1, 0, −1 charge; mass 1 vs 1/1838) to compare and reason about quantities.",
+      "broader_concept": "Ratios and Proportions",
+      "strand": "Number",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic",
+      "confidence_score": 0.9,
+      "id": "a735d571-2768-471f-a6b1-347e41e4e1aa"
+    },
+    {
+      "name": "Calculating Charge-to-Mass Ratio (e/m)",
+      "explanation": "Compute and interpret a particle’s charge-to-mass ratio given charge and mass measurements.",
+      "broader_concept": "Ratios and Proportional Reasoning",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.82,
+      "id": "06a9f539-4cd5-4ccd-bb10-bb7991cfc7ab"
+    },
+    {
+      "name": "Converting Fractions to Powers of Ten",
+      "explanation": "Express fractions such as 1/100000 as powers of ten (10^-5) and convert back to fractional or decimal form.",
+      "broader_concept": "Rules of Exponents",
+      "strand": "Number",
+      "grade_level": "Middle",
+      "difficulty": "Basic",
+      "confidence_score": 0.93,
+      "id": "cfe117b6-42f5-4dcc-907a-8d98fa905fa9"
+    },
+    {
+      "name": "Scale Modeling and Size Estimation",
+      "explanation": "Apply scale factors to compare sizes and make proportional size analogies (e.g., nucleus vs atom).",
+      "broader_concept": "Similarity and Scale",
+      "strand": "Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic",
+      "confidence_score": 0.84,
+      "id": "0daa3305-8128-42cb-af35-54df3d05c6e3"
+    },
+    {
+      "name": "Angle of Deflection Interpretation",
+      "explanation": "Interpret small and large scattering angles using angle measure to reason about direction changes.",
+      "broader_concept": "Angle Measurement",
+      "strand": "Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic",
+      "confidence_score": 0.78,
+      "id": "57a9bc94-32f7-40dc-8c10-e529f485c583"
+    },
+    {
+      "name": "Interpreting Experimental Frequencies and Proportions",
+      "explanation": "Describe qualitative frequencies (e.g., most, few, very few) and relate them to proportions or percentages.",
+      "broader_concept": "Descriptive Statistics",
+      "strand": "Statistics",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic",
+      "confidence_score": 0.76,
+      "id": "0c1bddc6-bd35-4cf5-b922-355bd85ca44a"
+    },
+    {
+      "name": "Planck's Relation: Calculating Photon Frequency from Energy Difference",
+      "explanation": "Given an electron transition with energy change ΔE = E2 − E1, compute the emitted photon's frequency using ΔE = h f.",
+      "broader_concept": "Algebraic Manipulation of Formulas",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.96,
+      "id": "95afc8c8-e3e0-4760-8698-3afa574bd1ee"
+    },
+    {
+      "name": "Photon Wavelength from Energy Transition (λ = hc/ΔE)",
+      "explanation": "Combine ΔE = h f and c = f λ to compute the wavelength of emitted light from an energy level transition: λ = hc/ΔE.",
+      "broader_concept": "Multi-step Algebraic Problem Solving",
+      "strand": "Algebra",
+      "grade_level": "High_College",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.95,
+      "id": "297a0ce4-1beb-446e-9eec-1a987cc51447"
+    },
+    {
+      "name": "Frequency–Wavelength Conversion Using c = f λ",
+      "explanation": "Convert between frequency and wavelength of light using the relation c = f λ, including isolating variables and solving for unknowns.",
+      "broader_concept": "Wave Relationships",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.95,
+      "id": "6cefb596-70e4-42f4-aee6-8cc457361a30"
+    },
+    {
+      "name": "Discrete vs Continuous Spectra Classification",
+      "explanation": "Distinguish and classify data as discrete (line spectra) or continuous (rainbow spectrum) based on the presence of gaps.",
+      "broader_concept": "Discrete and Continuous Data",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.9,
+      "id": "02ad87b5-842a-4610-8bd5-a6178202fcc2"
+    },
+    {
+      "name": "Defining a 95% Probability Region",
+      "explanation": "Interpret and define a spatial region that contains approximately 95% probability mass for a distribution (e.g., an orbital).",
+      "broader_concept": "Probability Distributions",
+      "strand": "Probability",
+      "grade_level": "High_College",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.88,
+      "id": "cfcd84cf-8332-40ee-947a-b6ef5ace7d79"
+    },
+    {
+      "name": "Reasoning with Direct and Inverse Proportionality in Physical Formulas",
+      "explanation": "Analyze how quantities change using relationships like E ∝ f and λ ∝ 1/f, and predict effects of varying one variable on another.",
+      "broader_concept": "Proportional Relationships",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.86,
+      "id": "7e131620-8ddb-476c-bbe0-30c16ceb29ca"
+    },
+    {
+      "name": "Wavelength Unit Conversion (nm to m and vice versa)",
+      "explanation": "Convert wavelengths between nanometers and meters when reporting or using spectral data in calculations.",
+      "broader_concept": "Unit Conversion",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.82,
+      "id": "fcc523c3-180b-4751-a1dc-131fb63759e5"
+    },
+    {
+      "name": "Weighted Average of Isotopic Masses",
+      "explanation": "Compute an element’s relative atomic mass by multiplying each isotope’s mass number by its percentage abundance and summing, then dividing by 100.",
+      "broader_concept": "Weighted Mean",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.98,
+      "id": "0e498e69-88d8-471f-a30c-b184f284beac"
+    },
+    {
+      "name": "Calculating Neutrons from Atomic and Mass Numbers",
+      "explanation": "Find the number of neutrons in an atom using n = A − Z, where A is mass number and Z is atomic number.",
+      "broader_concept": "Integer Arithmetic",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.99,
+      "id": "7d65cf82-6863-464c-9a04-c79c02ea6dfa"
+    },
+    {
+      "name": "Determining Electron Count for Ions from Charge",
+      "explanation": "Calculate electrons in an ion by adjusting the atomic number: electrons = Z − charge (for cations) or Z + |charge| (for anions).",
+      "broader_concept": "Operations with Integers",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.98,
+      "id": "10f2a7ee-ba5e-45ed-8a0d-75548801c61b"
+    },
+    {
+      "name": "Rounding Relative Atomic Mass to Nearest Integer",
+      "explanation": "Estimate an element’s mass number by rounding its tabulated relative atomic mass to the nearest whole number.",
+      "broader_concept": "Rounding and Estimation",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.95,
+      "id": "8cbdb28c-ea91-482b-9135-00cf7eaa3af7"
+    },
+    {
+      "name": "Applying the 2n^2 Formula for Electron Capacity",
+      "explanation": "Use the expression 2n^2 to compute the maximum number of electrons that can occupy the nth principal energy level.",
+      "broader_concept": "Evaluating Algebraic Expressions",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.96,
+      "id": "6e0d4be3-293b-4ce8-a27d-018b2162d4ca"
+    },
+    {
+      "name": "Counting Occupied Sublevels from Electron Configuration",
+      "explanation": "Given an s, p, d configuration, determine how many distinct sublevels contain electrons.",
+      "broader_concept": "Counting Principles",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.9,
+      "id": "41faebcb-2966-4622-8d82-e60513a9e22b"
+    },
+    {
+      "name": "Counting Occupied Orbitals Using Hund’s Rule",
+      "explanation": "Determine the number of orbitals occupied and electron distribution across degenerate orbitals by placing electrons singly before pairing.",
+      "broader_concept": "Counting Principles",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.9,
+      "id": "65aecf8b-b526-4b70-9986-e5dfcc0427c0"
+    },
+    {
+      "name": "Converting Atomic Mass Units to Grams Using Scientific Notation",
+      "explanation": "Convert mass in a.m.u. to grams using 1 a.m.u. = 1.66 × 10^-24 g and operations with scientific notation.",
+      "broader_concept": "Unit Conversion",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.88,
+      "id": "69727efd-df0f-4c5e-a2e0-8110fe95cc0b"
+    },
+    {
+      "name": "Dimensional Analysis of Relative Atomic Mass as a Unitless Ratio",
+      "explanation": "Validate that relative atomic mass has no units by analyzing the ratio of an atomic mass to 1/12 the mass of carbon-12.",
+      "broader_concept": "Dimensional Analysis",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.86,
+      "id": "717d3ab2-6b9a-4d38-b87b-641ef5e62344"
+    },
+    {
+      "name": "Charge Neutrality in Ionic Formula Writing",
+      "explanation": "Determine subscripts so total positive and negative charges sum to zero in an ionic compound (e.g., Ca2+ with Cl− gives CaCl2).",
+      "broader_concept": "Charge Balance in Compounds",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.95,
+      "id": "dd6c12bb-1cf4-4bf7-98e5-18f444e67880"
+    },
+    {
+      "name": "Using Lowest Common Multiple to Determine Ionic Compound Formula",
+      "explanation": "Use the LCM of ion charges to find the minimal whole-number subscripts that balance charges (e.g., Al3+ and O2− → LCM(3,2)=6 → Al2O3).",
+      "broader_concept": "Divisibility and LCM",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.95,
+      "id": "ad1b7ae4-eb58-462e-a8d3-56b16be8a2df"
+    },
+    {
+      "name": "Counting Valence Electrons for Lewis Structures",
+      "explanation": "Sum valence electrons to place shared pairs and lone pairs appropriately in Lewis dot diagrams.",
+      "broader_concept": "Counting Principles",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.9,
+      "id": "430f70cd-fa66-4e66-82e5-cb0f56fed3e1"
+    },
+    {
+      "name": "Predicting Molecular Shapes with VSEPR",
+      "explanation": "Determine electron-pair geometry and molecular shape by counting bonding and lone pairs around a central atom (AXnEm).",
+      "broader_concept": "Molecular Geometry",
+      "strand": "Geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.95,
+      "id": "1b6fa623-bc54-4d0a-a2dc-98e186102756"
+    },
+    {
+      "name": "Lone Pair Repulsion and Bond Angle Reduction",
+      "explanation": "Account for decreased bond angles from ideal geometries due to stronger repulsion by lone pairs (e.g., 109.5° → ~107° → ~104.5°).",
+      "broader_concept": "Angle Relationships in 3D Geometry",
+      "strand": "Geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.9,
+      "id": "9584e4aa-e367-4f59-8663-cfd1479e11e2"
+    },
+    {
+      "name": "Tetrahedral Bond Angle 109.5°",
+      "explanation": "Recognize and use the ideal tetrahedral angle of 109.5° in molecular geometry predictions and comparisons.",
+      "broader_concept": "Angle Measures in 3D Shapes",
+      "strand": "Geometry",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.88,
+      "id": "af234ddf-65fa-444a-8109-845520aa7e84"
+    },
+    {
+      "name": "Counting Sigma and Pi Bonds in Multiple Bonds",
+      "explanation": "Determine the number of sigma and pi bonds in single, double, and triple bonds (e.g., double = 1σ+1π; triple = 1σ+2π).",
+      "broader_concept": "Bond Multiplicity",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.92,
+      "id": "adec3a4e-d37c-4816-864a-a0def7c9c226"
+    },
+    {
+      "name": "Valency-Based Bond Count for H, O, N, C",
+      "explanation": "Use standard valencies (H=1, O=2, N=3, C=4) to determine feasible bond counts in structures.",
+      "broader_concept": "Valency and Bonding Rules",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.9,
+      "id": "8aa6172f-a208-4ba6-bf1c-d4f839bfe59b"
+    },
+    {
+      "name": "Parentheses and Multiplicity in Chemical Formulas",
+      "explanation": "Interpret and apply parentheses to indicate grouped units and their multiplicity (e.g., Ca(HCO3)2 has two hydrogencarbonate groups).",
+      "broader_concept": "Algebraic Notation and Grouping",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.85,
+      "id": "071bb774-3c32-439e-8c6a-ff09a9f63eeb"
+    },
+    {
+      "name": "Crystal Lattice and Unit Cell Repetition",
+      "explanation": "Model crystals as 3D periodic tilings of a unit cell repeated in all directions.",
+      "broader_concept": "Symmetry and Lattices",
+      "strand": "Geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.82,
+      "id": "c2ad45c5-dae7-4270-ab7d-f9d16fb98cc2"
+    },
+    {
+      "name": "Balancing Simple Ionic Equations by Charge and Atom Conservation",
+      "explanation": "Balance ionic equations ensuring both mass and net charge are conserved (e.g., CO3^2− + 2H+ → CO2 + H2O).",
+      "broader_concept": "Conservation Laws in Equations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.88,
+      "id": "030474d2-9efc-470d-8068-021371ac4c38"
+    },
+    {
+      "name": "Interpreting Roman Numerals as Oxidation States",
+      "explanation": "Translate Roman numerals in compound names to integer charges for formula determination (e.g., iron(III) → Fe3+).",
+      "broader_concept": "Numeral Systems",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.86,
+      "id": "07e4c9f9-9653-4e5e-a2a7-86a6ba3fa705"
+    },
+    {
+      "name": "Electronegativity Difference Classification of Bonds",
+      "explanation": "Use numerical thresholds on the absolute electronegativity difference to classify bonds: 0 = pure covalent; (0, 0.4] ≈ nonpolar/slightly polar; (0.4, 1.7) = polar covalent; ≥ 1.7 = ionic.",
+      "broader_concept": "Piecewise Classification Using Inequalities",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.96,
+      "id": "d0b6d270-54e9-4906-ae6b-c481731e53ab"
+    },
+    {
+      "name": "Computing Electronegativity Difference",
+      "explanation": "Calculate the absolute difference between the electronegativity values of two bonded atoms to quantify bond polarity.",
+      "broader_concept": "Absolute Value and Subtraction",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.97,
+      "id": "92ae88b7-3d81-44d4-a3f1-4e542709a4e6"
+    },
+    {
+      "name": "Sum-to-Zero Constraint for Neutral Molecules",
+      "explanation": "Apply the condition that the algebraic sum of partial charges in a neutral molecule equals zero.",
+      "broader_concept": "Conservation Equations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.9,
+      "id": "75a759ed-5971-4246-a197-3fdefc226a6a"
+    },
+    {
+      "name": "Symmetry-Based Vector Sum Cancellation",
+      "explanation": "Use symmetry to infer that equal and opposite bond dipoles can sum to zero, giving no net polarity.",
+      "broader_concept": "Vector Addition",
+      "strand": "Geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.88,
+      "id": "12cb4c95-9565-482a-9870-febaf8dde562"
+    },
+    {
+      "name": "Interpreting Inequalities with Inclusive and Exclusive Bounds",
+      "explanation": "Correctly interpret >, <, ≥, ≤ when applying numeric cutoffs (e.g., 0.4 and 1.7) in classification rules.",
+      "broader_concept": "Inequalities",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.92,
+      "id": "da041b43-62c9-4202-9784-75b7ae0d23da"
+    },
+    {
+      "name": "Trend Analysis from Tabular Data",
+      "explanation": "Identify and explain monotonic trends (e.g., boiling point increases with molecular size/electron count).",
+      "broader_concept": "Data Interpretation",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.9,
+      "id": "9ae4d150-90e6-459f-b3a6-435140a342c6"
+    },
+    {
+      "name": "Interpreting Property vs Atomic Number Graphs",
+      "explanation": "Read and interpret graphs of boiling point versus atomic number to infer and justify trends.",
+      "broader_concept": "Graph Interpretation",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.86,
+      "id": "2937f643-e144-4693-91e3-eec67da8bfd1"
+    },
+    {
+      "name": "Ratio and Percentage Comparison of Magnitudes",
+      "explanation": "Compare strengths using ratios and percentages (e.g., hydrogen bonds ~10% of covalent; dispersion ~0.1% of covalent).",
+      "broader_concept": "Percent and Ratio Reasoning",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.89,
+      "id": "8c1cc30d-8597-423b-831f-e91dc94cf214"
+    },
+    {
+      "name": "Reading and Comparing Temperatures on the Kelvin Scale",
+      "explanation": "Order and compare temperatures expressed in Kelvin and reason about differences without conversion.",
+      "broader_concept": "Temperature Measurement",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.78,
+      "id": "e9da6861-38a3-4267-9606-d0db455c21ee"
+    },
+    {
+      "name": "Ranking Elements by Electronegativity Values",
+      "explanation": "Order elements by their electronegativity to infer relative electron-attracting strength.",
+      "broader_concept": "Ordering and Ranking Numbers",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.85,
+      "id": "8e056a41-54e7-4a5a-b6a7-937232f18e0d"
+    },
+    {
+      "name": "Interpreting Line Graphs of Ionisation Energy vs Atomic Number",
+      "explanation": "Reading and explaining trends, peaks, and irregularities in a plotted function of ionisation energy against atomic number.",
+      "broader_concept": "Data Representation and Interpretation",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.9,
+      "id": "fac907c6-a7e2-4c59-a748-64067b29d0b6"
+    },
+    {
+      "name": "Logarithmic Scale for Wide-Range Scientific Data",
+      "explanation": "Using logarithmic transformation to compress large ranges of ionisation energy values for clearer graphing and comparison.",
+      "broader_concept": "Logarithms",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.86,
+      "id": "c3ba87d3-b0ee-4f15-b4d3-c8f0de78dee8"
+    },
+    {
+      "name": "Covalent Radius from Bond Length",
+      "explanation": "Computing atomic (covalent) radius as half the distance between nuclei of bonded identical atoms.",
+      "broader_concept": "Length Measurement",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.92,
+      "id": "4ac4b0cc-b090-4e72-ae5c-a97e6a5df3f5"
+    },
+    {
+      "name": "Effective Nuclear Charge Calculation",
+      "explanation": "Calculating an effective value by subtracting shielding from nuclear charge (Z_eff = Z − S) to model net attraction.",
+      "broader_concept": "Linear Expressions",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.82,
+      "id": "a29bfe3f-7b49-4adf-b5d2-ca7d128e25f1"
+    },
+    {
+      "name": "Identifying Monotonic Trends in Tabular or Graphical Data",
+      "explanation": "Determining where quantities generally increase or decrease across a sequence, such as across periods or down groups.",
+      "broader_concept": "Descriptive Statistics",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.88,
+      "id": "997e26db-4e81-49a3-b871-7b1246f667a1"
+    },
+    {
+      "name": "Change-Point Detection in Successive Ionisation Energy Sequences",
+      "explanation": "Recognizing large jumps in a sequence to infer structural changes, such as electron removal from a new energy level.",
+      "broader_concept": "Data Trends and Anomalies",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.84,
+      "id": "ae2a75d0-e289-4145-8370-1e8c9aa929f8"
+    },
+    {
+      "name": "Comparative Ranking on a Numerical Scale (Electronegativity)",
+      "explanation": "Ordering items by magnitude using a defined scale to compare relative strengths, e.g., ranking elements by electronegativity.",
+      "broader_concept": "Ordering Numbers",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.85,
+      "id": "6221a141-b180-455e-9674-039115fcdc0b"
+    },
+    {
+      "name": "Interpreting Compound Units with Negative Exponents",
+      "explanation": "Understanding and using units like kJ mol^-1 as per-unit measures and interpreting calculations with them.",
+      "broader_concept": "Dimensional Analysis and Units",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.8,
+      "id": "d799937e-9f10-43fa-9b2c-5c9469a27e75"
+    },
+    {
+      "name": "Outlier and Exception Identification in Trend Data",
+      "explanation": "Detecting and explaining points that deviate from a general trend, such as anomalies in ionisation energy across a period.",
+      "broader_concept": "Exploratory Data Analysis",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.83,
+      "id": "9522fd14-3d94-4ff2-af74-9b9e046865ab"
+    },
+    {
+      "name": "Mole–Mass–Molar Mass Relationship (n = m/M)",
+      "explanation": "Relate the amount of substance in moles to mass and molar mass using n = m ÷ M, and rearrange to find any one of the three.",
+      "broader_concept": "Stoichiometric Conversions",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.99,
+      "id": "2aae9a79-12d1-489a-ae21-0ae8ee1dcafd"
+    },
+    {
+      "name": "Converting Moles to Number of Particles Using Avogadro Constant",
+      "explanation": "Multiply the amount in moles by NA = 6.02×10^23 to obtain the number of atoms, molecules, or ions.",
+      "broader_concept": "Use of Avogadro Constant",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.99,
+      "id": "518a5edd-59d1-409e-869f-a13afd1a4d49"
+    },
+    {
+      "name": "Converting Number of Particles to Moles Using Avogadro Constant",
+      "explanation": "Divide the number of entities by NA = 6.02×10^23 to obtain moles.",
+      "broader_concept": "Use of Avogadro Constant",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.99,
+      "id": "c4412bc2-72b4-4c4a-b506-dd720490e9e8"
+    },
+    {
+      "name": "Converting Grams to Moles Using Molar Mass",
+      "explanation": "Compute n = mass ÷ molar mass to convert a given mass of a substance to moles.",
+      "broader_concept": "Stoichiometric Conversions",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.98,
+      "id": "bad02c04-882a-44d8-a347-c8c02dd71ee4"
+    },
+    {
+      "name": "Converting Moles to Grams Using Molar Mass",
+      "explanation": "Compute mass = n × M to find the mass corresponding to a given amount in moles.",
+      "broader_concept": "Stoichiometric Conversions",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.98,
+      "id": "d91ea833-f722-451c-ae36-989cbd3cc6e8"
+    },
+    {
+      "name": "Converting Grams to Number of Particles",
+      "explanation": "Convert mass to moles via M, then multiply by NA to obtain the number of entities: N = (m ÷ M) × NA.",
+      "broader_concept": "Two-Step Stoichiometric Conversions",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.98,
+      "id": "9d7604b8-e845-448e-a3c8-1142ebd0b859"
+    },
+    {
+      "name": "Converting Number of Particles to Grams",
+      "explanation": "Convert entities to moles by dividing by NA, then multiply by M to obtain mass: m = (N ÷ NA) × M.",
+      "broader_concept": "Two-Step Stoichiometric Conversions",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.98,
+      "id": "66d99bfa-034c-405f-963d-1b005feabaf9"
+    },
+    {
+      "name": "Computing Relative Molecular Mass from Formula",
+      "explanation": "Sum the relative atomic masses of all atoms indicated by the chemical formula to obtain Mr.",
+      "broader_concept": "Summation of Atomic Masses",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.99,
+      "id": "29dc52a8-8ae0-408d-8c26-ca9fbd50390e"
+    },
+    {
+      "name": "Molar Mass as Grams per Mole",
+      "explanation": "Interpret and use molar mass M (g mol^-1) as the mass of one mole; recognize relation to dimensionless Mr.",
+      "broader_concept": "Measurement Units and Dimensional Analysis",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.97,
+      "id": "19dee890-990c-4e63-b2fa-03406a0d7d55"
+    },
+    {
+      "name": "Operations with Scientific Notation in Mole Calculations",
+      "explanation": "Multiply and divide numbers expressed in a×10^n form when using Avogadro-scale quantities.",
+      "broader_concept": "Rules of Exponents",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.95,
+      "id": "10c65804-85e9-4d80-84f8-76ccf0937215"
+    },
+    {
+      "name": "Equal Particle Counts from Mass Ratios Using Relative Atomic Mass",
+      "explanation": "Use proportional reasoning: masses taken in the ratios of relative atomic masses contain equal numbers of atoms.",
+      "broader_concept": "Proportional Reasoning",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.93,
+      "id": "fda9818b-0044-426d-ad8a-417d0784bd15"
+    },
+    {
+      "name": "Molar Mass of Hydrated Compounds",
+      "explanation": "Include waters of crystallization by adding n×Mr(H2O) to the anhydrous compound’s Mr to find M.",
+      "broader_concept": "Summation of Atomic Masses",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.96,
+      "id": "856e46ed-1680-4326-a200-5a86dbeb9c1c"
+    },
+    {
+      "name": "Ideal Gas Law Calculations (pV = nRT)",
+      "explanation": "Use the equation pV = nRT to compute any one of pressure, volume, moles, or temperature given the others, ensuring correct SI units.",
+      "broader_concept": "Gas Laws",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.98,
+      "id": "e9363519-9bbf-4324-aa3c-9e94d6eb6b61"
+    },
+    {
+      "name": "Combined Gas Law Applications",
+      "explanation": "Apply (p1 V1) / T1 = (p2 V2) / T2 to relate the state of a fixed amount of gas under two different conditions.",
+      "broader_concept": "Gas Laws",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.98,
+      "id": "3912e24a-cc3c-481d-93ae-1be4b84bff09"
+    },
+    {
+      "name": "Applying Boyle’s Law (pV = constant)",
+      "explanation": "Solve problems using inverse proportionality of pressure and volume at constant temperature for a fixed mass of gas.",
+      "broader_concept": "Proportional Relationships",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.97,
+      "id": "38caa83f-c8d7-4b31-9486-03afa6591c0a"
+    },
+    {
+      "name": "Applying Charles’ Law (V ∝ T in Kelvin)",
+      "explanation": "Use direct proportionality between gas volume and absolute temperature at constant pressure, maintaining temperature in kelvins.",
+      "broader_concept": "Proportional Relationships",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.97,
+      "id": "bbfe2269-d482-4cf7-8769-53cdbc32aab7"
+    },
+    {
+      "name": "Applying Avogadro’s Law (V ∝ n)",
+      "explanation": "Relate gas volume to amount of substance at fixed temperature and pressure using direct proportionality to moles.",
+      "broader_concept": "Gas Laws",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.95,
+      "id": "e95ad9f0-eeb0-4fb5-9ec0-85ca09214833"
+    },
+    {
+      "name": "Gay-Lussac’s Law of Combining Volumes",
+      "explanation": "Use small whole-number volume ratios of reacting and product gases measured at the same temperature and pressure.",
+      "broader_concept": "Stoichiometry of Gases",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.96,
+      "id": "fe9f1931-fbd3-42fa-8328-b532dc0909a9"
+    },
+    {
+      "name": "Celsius–Kelvin Temperature Conversion",
+      "explanation": "Convert temperatures via T(K) = t(°C) + 273 to enable use of absolute temperature in gas law calculations.",
+      "broader_concept": "Unit Conversion",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.99,
+      "id": "5f256356-9e48-43a0-bfee-771b6de03601"
+    },
+    {
+      "name": "Volume Unit Conversion: cm³, L, m³",
+      "explanation": "Convert volumes among cm³, litres, and m³, including 1 L = 10⁻³ m³ and 1 cm³ = 10⁻⁶ m³ for PV=nRT.",
+      "broader_concept": "Unit Conversion",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.99,
+      "id": "f71ad900-88e3-4c17-ac3f-9aad90ec2cc5"
+    },
+    {
+      "name": "Pressure Unit Conversion: Pa, kPa, hPa",
+      "explanation": "Convert pressures among pascals, kilopascals, and hectopascals; e.g., 1 kPa = 1000 Pa; standard pressure ≈ 1.01325×10⁵ Pa.",
+      "broader_concept": "Unit Conversion",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.98,
+      "id": "9424cb1c-8903-4924-9030-edca78d7c0db"
+    },
+    {
+      "name": "Using Molar Volume at STP",
+      "explanation": "Apply that 1 mol of any gas occupies 22.4 L at STP (and 24.0 L at RTP) to relate moles and volume.",
+      "broader_concept": "Stoichiometry of Gases",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.98,
+      "id": "3303a33d-20cb-458f-86ba-559aeac801e1"
+    },
+    {
+      "name": "Calculating Gas Density from Molar Mass at STP",
+      "explanation": "Compute density via ρ = M / 22.4 (g/L) using molar mass M at STP.",
+      "broader_concept": "Density and Proportionality",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.96,
+      "id": "78a4a0d5-758b-40ef-967a-234de7e0b299"
+    },
+    {
+      "name": "Determining Relative Molecular Mass from PV=nRT Data",
+      "explanation": "Find molar mass M by measuring mass m and using n = pV/(RT) then M = m/n from gas P–V–T data.",
+      "broader_concept": "Stoichiometry of Gases",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.97,
+      "id": "e27ae9f0-96c3-4683-a7eb-3f2cc14ecdf2"
+    },
+    {
+      "name": "Determining Relative Molecular Mass from Gas Volume at STP",
+      "explanation": "Use that 22,400 cm³ at STP equals 1 mol to scale a measured mass–volume pair and compute molar mass.",
+      "broader_concept": "Stoichiometry of Gases",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.96,
+      "id": "0faa5667-76ab-43d2-8b07-c29dfc35e682"
+    },
+    {
+      "name": "Graphical Verification of Inverse Proportionality",
+      "explanation": "Test Boyle’s Law by plotting pressure versus 1/volume to obtain a straight line through the origin.",
+      "broader_concept": "Graphing Proportional Relationships",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.94,
+      "id": "e8000756-59ba-4c4c-85ff-95fb6976b156"
+    },
+    {
+      "name": "Verifying Constant Product or Ratio in Gas Laws",
+      "explanation": "Show pV = constant (Boyle) or V/T = constant (Charles) across trials to confirm proportionality.",
+      "broader_concept": "Proportional Relationships",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.94,
+      "id": "1809fbb2-308f-4f84-b486-33f839462e46"
+    },
+    {
+      "name": "Estimating Absolute Zero by Linear Extrapolation",
+      "explanation": "Extrapolate a V versus T(°C) line to intercept at −273 °C to infer absolute zero.",
+      "broader_concept": "Graphing Proportional Relationships",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.9,
+      "id": "f1cfbadf-0716-4e4b-86a5-99b307e7a923"
+    },
+    {
+      "name": "Unit Consistency in Gas Law Equations",
+      "explanation": "Ensure compatible SI units (Pa, m³, K, mol) when substituting into PV=nRT and the Combined Gas Law.",
+      "broader_concept": "Dimensional Analysis",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.97,
+      "id": "878ffbed-44fb-465a-8f3a-cf92c7e46ac9"
+    },
+    {
+      "name": "Solving for a Target Variable in PV=nRT",
+      "explanation": "Algebraically rearrange the ideal gas equation to isolate and compute a specified variable.",
+      "broader_concept": "Equation Manipulation",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.95,
+      "id": "560871c5-b49b-4083-9aff-b2d2d73d5a17"
+    },
+    {
+      "name": "Conservation of Mass Equation in Reactions",
+      "explanation": "Using the equality total mass of reactants = total mass of products to compute unknown masses in a reaction.",
+      "broader_concept": "Conservation of Mass in Chemical Calculations",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.98,
+      "id": "876afe6d-a3c6-4548-afef-35be775f391d"
+    },
+    {
+      "name": "Balancing Chemical Equations by Atom Count",
+      "explanation": "Equating the number of each type of atom on both sides by choosing appropriate integer coefficients.",
+      "broader_concept": "Chemical Equation Balancing",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.98,
+      "id": "a329d579-723e-4ed1-9908-eaae793c08ed"
+    },
+    {
+      "name": "Mole Ratios from Balanced Equations",
+      "explanation": "Interpreting coefficients as ratios of moles to relate amounts of reactants and products.",
+      "broader_concept": "Stoichiometric Relationships",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.97,
+      "id": "d6b8b61c-1c36-4e12-a2b2-95bb2037bc84"
+    },
+    {
+      "name": "Mass–Mole Conversion using Molar Mass",
+      "explanation": "Converting between grams and moles via n = m/Mr for any substance.",
+      "broader_concept": "Mole Concept",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.99,
+      "id": "3d9ffd62-1888-4a51-aeab-86dd4cecd668"
+    },
+    {
+      "name": "Mole–Particle Conversion via Avogadro's Number",
+      "explanation": "Converting between moles and number of particles using NA ≈ 6.02×10^23.",
+      "broader_concept": "Mole Concept",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.97,
+      "id": "bdb9abea-90d4-4102-9a38-b512815430ef"
+    },
+    {
+      "name": "Mole–Volume Conversion at STP (22.4 L per mole)",
+      "explanation": "Using the molar volume of a gas at STP (22.4 L/mol) to convert between moles and volumes.",
+      "broader_concept": "Gas Stoichiometry at STP",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.97,
+      "id": "92aa55e9-ec13-4d19-86b5-ad5c31414765"
+    },
+    {
+      "name": "Mass of Products from Given Reactant Mass",
+      "explanation": "Calculating product mass from a known reactant mass using mole ratios and molar masses.",
+      "broader_concept": "Stoichiometric Calculations from Balanced Equations",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.98,
+      "id": "64a2e665-6cf9-43c9-9115-99d00ca3ef35"
+    },
+    {
+      "name": "Gas Volume from Balanced Equation at STP",
+      "explanation": "Determining volumes of gaseous reactants or products at STP using stoichiometric mole ratios and 22.4 L/mol.",
+      "broader_concept": "Gas Stoichiometry at STP",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.96,
+      "id": "21d618c6-c7b5-40bd-b40d-f3fc59bb5658"
+    },
+    {
+      "name": "Percentage Composition by Mass from Formula",
+      "explanation": "Computing the mass percent of each element in a compound from its formula and relative atomic masses.",
+      "broader_concept": "Compound Composition Calculations",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.99,
+      "id": "a162ed3a-3c3f-40ca-87c2-a7d8bd06211b"
+    },
+    {
+      "name": "Calculating Relative Molecular Mass from Chemical Formula",
+      "explanation": "Summing relative atomic masses according to a chemical formula to obtain Mr.",
+      "broader_concept": "Compound Composition Calculations",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.99,
+      "id": "709d419f-b44c-402b-9e05-b830c2da0009"
+    },
+    {
+      "name": "Empirical Formula from Percentage Composition",
+      "explanation": "Converting element percent data to moles and simplifying to the smallest whole-number ratio.",
+      "broader_concept": "Empirical and Molecular Formulas",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.99,
+      "id": "51e6c8a2-d3de-4484-ae08-bd7ad7b4bece"
+    },
+    {
+      "name": "Simplifying Mole Ratios to Whole Numbers",
+      "explanation": "Dividing by the smallest mole value and scaling to remove fractional subscripts when finding empirical formulas.",
+      "broader_concept": "Empirical and Molecular Formulas",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.96,
+      "id": "57d43ccb-3168-4b93-9fa7-15410b024325"
+    },
+    {
+      "name": "Molecular Formula from Empirical Formula and Molar Mass",
+      "explanation": "Finding n = Mr(actual)/Mr(empirical) and multiplying the empirical formula by n.",
+      "broader_concept": "Empirical and Molecular Formulas",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.99,
+      "id": "dd2d71b2-18d8-4f09-9faf-1a6bf0f3f8d5"
+    },
+    {
+      "name": "Empirical Formula from Mass Changes (Gravimetric Analysis)",
+      "explanation": "Using measured masses of reactants and products to determine elemental moles and the empirical formula.",
+      "broader_concept": "Gravimetric Stoichiometry",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.98,
+      "id": "ccd3d46f-4f1e-42d0-a193-7be5ce5447ae"
+    },
+    {
+      "name": "Degree of Hydration from Mass Loss on Heating",
+      "explanation": "Determining x in salts of the form A·xH2O from masses of hydrated and anhydrous samples.",
+      "broader_concept": "Gravimetric Stoichiometry",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.98,
+      "id": "affae12c-2055-4391-9a85-732b57fcb32e"
+    },
+    {
+      "name": "Unit Analysis (Dimensional Analysis) in Stoichiometry",
+      "explanation": "Tracking and converting units systematically (e.g., g↔mol, mol↔L, kg→g) to ensure correct results.",
+      "broader_concept": "Measurement and Units",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.97,
+      "id": "e8aa9c7d-085b-4b65-a39b-6c131fa3e99d"
+    },
+    {
+      "name": "Converting Between Mass Units (g, kg, tonne)",
+      "explanation": "Applying metric conversions (e.g., 1 kg = 1000 g, 1 tonne = 10^6 g) within stoichiometric problems.",
+      "broader_concept": "Measurement and Units",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.95,
+      "id": "d7e275cc-d137-47d9-a907-9399bd31455f"
+    },
+    {
+      "name": "Identifying Conjugate Acid-Base Pairs in a Reaction",
+      "explanation": "Pairing species that differ by exactly one proton (H+) within a reaction, e.g., CH3COOH/CH3COO− and H3O+/H2O.",
+      "broader_concept": "Proton Transfer",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.95,
+      "id": "f0e68e8b-0da9-437e-8da8-554a8254c059"
+    },
+    {
+      "name": "Generating the Conjugate Base of an Acid",
+      "explanation": "Forming the conjugate base by removing a single proton from the acid and updating the charge accordingly.",
+      "broader_concept": "Proton Transfer Operations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.94,
+      "id": "5f7741f0-1c0b-4f90-a387-b2fa98b2b1ca"
+    },
+    {
+      "name": "Generating the Conjugate Acid of a Base",
+      "explanation": "Forming the conjugate acid by adding a single proton to the base and updating the charge accordingly.",
+      "broader_concept": "Proton Transfer Operations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.94,
+      "id": "48174844-fd27-4adb-a840-f42cc4788e0e"
+    },
+    {
+      "name": "Writing Stepwise Dissociation Equations for Polyprotic Acids",
+      "explanation": "Expressing sequential equilibria for acids that donate more than one proton, e.g., H3PO4 ⇌ H3O+ + H2PO4− followed by H2PO4− ⇌ H3O+ + HPO4^2−.",
+      "broader_concept": "Ionic Equilibria Representation",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.92,
+      "id": "fa747300-4ab6-4c19-afe3-542ee664d15c"
+    },
+    {
+      "name": "Writing Ionic Dissociation Equations for Acids in Water",
+      "explanation": "Representing acid ionization as HA + H2O → H3O+ + A−, emphasizing hydronium formation.",
+      "broader_concept": "Ionic Equations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.93,
+      "id": "dda4b9a8-96ea-450e-9dbe-bf6f3f865b41"
+    },
+    {
+      "name": "Writing Ionic Dissociation Equations for Bases in Water",
+      "explanation": "Expressing base dissociation into ions, e.g., Mg(OH)2 → Mg2+ + 2OH−, with correct stoichiometric coefficients.",
+      "broader_concept": "Ionic Equations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.93,
+      "id": "29f54199-92b7-40af-ae05-7eac2a14f90c"
+    },
+    {
+      "name": "Determining Acid Basicity from Formula",
+      "explanation": "Identifying whether an acid is monoprotic, diprotic, or triprotic by counting ionizable hydrogens and reflecting this in equations.",
+      "broader_concept": "Stoichiometric Counting",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.9,
+      "id": "728d6b13-4b31-4a1e-8f9b-eefa0e318f4d"
+    },
+    {
+      "name": "Constructing Salt Formulas from Ion Charges",
+      "explanation": "Combining cations and anions to form neutral salts by balancing charges (criss-cross method), e.g., Na+ and SO4^2− → Na2SO4.",
+      "broader_concept": "Charge Balance",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.94,
+      "id": "5d8a1f10-bc26-45de-8f5d-7e9fcf107442"
+    },
+    {
+      "name": "Predicting Products of Acid-Base Neutralisation",
+      "explanation": "Using the pattern Acid + Base → Salt + Water to determine products from given reactants.",
+      "broader_concept": "Reaction Pattern Recognition",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.93,
+      "id": "cc5a3438-231e-43fe-ad51-339501cc2b6d"
+    },
+    {
+      "name": "Balancing Chemical Equations for Neutralisation Reactions",
+      "explanation": "Adjusting coefficients to conserve atoms for acid-base reactions, including polyprotic cases (e.g., H2SO4 + 2NaOH → Na2SO4 + 2H2O).",
+      "broader_concept": "Stoichiometric Equations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.95,
+      "id": "2b9f7e22-1c4d-4e97-a8bc-3f7bd0bab65a"
+    },
+    {
+      "name": "Removing Spectator Ions to Write Net Ionic Equations",
+      "explanation": "Deriving the net ionic form by canceling ions common to both sides of an aqueous equation.",
+      "broader_concept": "Ionic Equations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.92,
+      "id": "2cfb114d-28c9-4337-956a-2d5848825955"
+    },
+    {
+      "name": "Canonical Net Ionic Equation for Strong Acid–Strong Base Neutralisation",
+      "explanation": "Recognizing H+ + OH− → H2O as the universal net ionic equation for strong acid–strong base reactions.",
+      "broader_concept": "Ionic Equations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.93,
+      "id": "d1e7cf91-33c9-452c-970f-2f48c82da2b9"
+    },
+    {
+      "name": "Predicting Products of Acid–Carbonate Reactions",
+      "explanation": "Applying the template Acid + Carbonate → Salt + Water + CO2 to determine products.",
+      "broader_concept": "Reaction Pattern Recognition",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.93,
+      "id": "945afe9e-e0db-4eb8-8b8d-affdb36715f1"
+    },
+    {
+      "name": "Balancing Acid–Carbonate Reaction Equations",
+      "explanation": "Balancing equations that evolve CO2 and H2O, ensuring conservation of atoms and correct stoichiometric coefficients.",
+      "broader_concept": "Stoichiometric Equations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.92,
+      "id": "63efa1c8-ef04-43c1-8c48-dc98e67d7acd"
+    },
+    {
+      "name": "Predicting Products of Acid–Metal Reactions",
+      "explanation": "Using the pattern Acid + Metal → Salt + Hydrogen gas to determine products.",
+      "broader_concept": "Reaction Pattern Recognition",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.88,
+      "id": "cc40b7d8-6c23-48b6-bf15-d1784e7347b6"
+    },
+    {
+      "name": "Using Equilibrium Arrow Notation in Reversible Reactions",
+      "explanation": "Representing reversible processes with the double arrow (⇌) in chemical equations.",
+      "broader_concept": "Chemical Equation Notation",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.89,
+      "id": "c1b43268-9f43-48d9-b9bf-cfa2594ed19d"
+    },
+    {
+      "name": "Checking Atom and Charge Conservation in Chemical Equations",
+      "explanation": "Verifying that total atoms of each element and total charge are equal on both sides as a validation step for equations.",
+      "broader_concept": "Stoichiometric Reasoning",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.94,
+      "id": "1f4e9a03-674a-46bc-a8c0-0a9e5eba698d"
+    },
+    {
+      "name": "Titration Stoichiometry: VaMa/na = VbMb/nb",
+      "explanation": "Relate volumes and molarities of acid and base using stoichiometric coefficients from the balanced equation to find an unknown concentration.",
+      "broader_concept": "Stoichiometric Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.96,
+      "id": "e10eee51-c59e-44ff-807f-29e75becbbe1"
+    },
+    {
+      "name": "Computing Moles from Volume and Molarity",
+      "explanation": "Calculate amount of substance using n = M × V (in litres) or n = (V_cm3 × M)/1000.",
+      "broader_concept": "Mole Concept Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.96,
+      "id": "dd381936-59a3-4aab-8100-6f2be020da4c"
+    },
+    {
+      "name": "Dilution Formula M1V1 = M2V2",
+      "explanation": "Use conservation of moles during dilution to find the volume or concentration after adding solvent.",
+      "broader_concept": "Solution Concentration Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.95,
+      "id": "3d1960c3-7f1f-4fc0-b245-7f6672039ace"
+    },
+    {
+      "name": "Converting Molarity to Grams per Litre",
+      "explanation": "Compute mass concentration with g/L = M × Mr, where Mr is relative molecular mass.",
+      "broader_concept": "Mole-Mass Conversions",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.94,
+      "id": "6a71b28f-da6c-4b93-b49f-4ab1e411afe9"
+    },
+    {
+      "name": "Molarity from Solute Mass and Solution Volume",
+      "explanation": "Determine molarity using M = (mass/Mr)/V, with V in litres.",
+      "broader_concept": "Mole-Mass Conversions",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.94,
+      "id": "b03f0d34-7d55-432d-9524-f8c028fc85ad"
+    },
+    {
+      "name": "Percentage Concentration w/v Calculation",
+      "explanation": "Compute % w/v via (mass of solute in g / volume of solution in cm3) × 100.",
+      "broader_concept": "Percentage Concentrations",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.95,
+      "id": "ff4ea7bf-61f6-4fb6-9374-071e4d78fbc0"
+    },
+    {
+      "name": "Percentage Concentration w/w Calculation",
+      "explanation": "Compute % w/w via (mass of solute / total mass of solution) × 100.",
+      "broader_concept": "Percentage Concentrations",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.93,
+      "id": "171799f9-9212-46df-bfae-cb622bb59f73"
+    },
+    {
+      "name": "Percentage Concentration v/v Calculation",
+      "explanation": "Compute % v/v via (volume of solute / total volume of solution) × 100 for liquid–liquid mixtures.",
+      "broader_concept": "Percentage Concentrations",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.92,
+      "id": "ef13b762-d685-44c4-aa6a-a7a66a6a0142"
+    },
+    {
+      "name": "Parts per Million (ppm) Conversion",
+      "explanation": "For aqueous solutions, use 1 ppm = 1 mg/L; convert g/L to ppm by multiplying by 1000.",
+      "broader_concept": "Trace Concentration Measures",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.95,
+      "id": "7c9b33d5-8aa9-4e7d-92d1-cb14a0979dd7"
+    },
+    {
+      "name": "Serial Dilution by Constant Factor",
+      "explanation": "Calculate concentrations across steps using c_k = c_0 × (1/f)^k, e.g., repeated 1:10 dilutions.",
+      "broader_concept": "Dilution Techniques",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.93,
+      "id": "d23e3e74-a1fa-44d6-9a10-2ac7017ca0c3"
+    },
+    {
+      "name": "Mass from Volume and Molarity",
+      "explanation": "Find mass of solute in a given volume using m = n × Mr = (V_cm3 × M/1000) × Mr.",
+      "broader_concept": "Mole-Mass Conversions",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.93,
+      "id": "a81a4b2d-f593-457d-a192-82ea79aca389"
+    },
+    {
+      "name": "Using Balanced Equations for Mole Ratios",
+      "explanation": "Extract stoichiometric coefficients to relate moles of reactants/products in calculations.",
+      "broader_concept": "Stoichiometric Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.94,
+      "id": "499426dc-0d31-4366-888c-12aa0537d93a"
+    },
+    {
+      "name": "Mass of Solid Reacting with a Solution Volume",
+      "explanation": "Given a solution’s volume and molarity, use mole ratios and molar mass to compute the mass of solid that reacts.",
+      "broader_concept": "Stoichiometric Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.9,
+      "id": "fd8c6b06-60ba-401f-85c2-83d7f3837ef3"
+    },
+    {
+      "name": "Volume Unit Conversion: cm3, mL, and L",
+      "explanation": "Convert between 1 cm3 = 1 mL and 1000 cm3 = 1 L for concentration calculations.",
+      "broader_concept": "SI Unit Conversions",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.96,
+      "id": "eff339d9-c9b4-4b82-a783-7bccb5922bef"
+    },
+    {
+      "name": "Averaging Concordant Titre Values",
+      "explanation": "Compute the mean of titration volumes that agree within a set tolerance (e.g., 0.1 cm3) and exclude rough runs.",
+      "broader_concept": "Data Reduction in Experiments",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.89,
+      "id": "9b942fa8-78c6-4cb0-97ff-c5310ff4f0d5"
+    },
+    {
+      "name": "Interpreting Dilution Factors (e.g., 1:10)",
+      "explanation": "Understand that a 1:10 dilution divides concentration by 10; 1 part solution mixed with 9 parts solvent.",
+      "broader_concept": "Dilution Techniques",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.91,
+      "id": "f4a08911-d317-47aa-934c-7c561837237b"
+    },
+    {
+      "name": "Using Titration Equivalence Formula (Va·Ma/na = Vb·Mb/nb)",
+      "explanation": "Solve for an unknown concentration by equating the stoichiometric equivalents of acid and base using measured volumes, known molarities, and mole ratios.",
+      "broader_concept": "Acid–Base Titration Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.98,
+      "id": "eb4552b5-929d-4d9c-a688-a5d20e05498a"
+    },
+    {
+      "name": "Moles from Volume and Molarity (n = V(cm³)·M/1000)",
+      "explanation": "Compute number of moles in a solution sample using its volume in cm³ and molarity, including the 1000 cm³ = 1 L conversion.",
+      "broader_concept": "Solution Stoichiometry",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.99,
+      "id": "b1677607-3ae7-42da-bf5a-8b083e3dde11"
+    },
+    {
+      "name": "Moles from Mass and Molar Mass (n = m/Mr)",
+      "explanation": "Calculate amount of substance from a given mass using the substance’s relative molecular (molar) mass.",
+      "broader_concept": "Mole Concept",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.99,
+      "id": "e1d411f7-be79-42d7-b182-11c74ad15f3e"
+    },
+    {
+      "name": "Calculating Molarity from Solute Mass and Solution Volume",
+      "explanation": "Determine molarity by converting solute mass to moles and dividing by solution volume in litres.",
+      "broader_concept": "Concentration Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.96,
+      "id": "744917a3-77d1-498d-a51d-d7724eac9233"
+    },
+    {
+      "name": "Summing Atomic Masses to Find Relative Molecular Mass",
+      "explanation": "Obtain a compound’s relative molecular mass by summing the relative atomic masses according to its chemical formula.",
+      "broader_concept": "Formula Mass Calculation",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.98,
+      "id": "f8c14b5b-5894-4637-8738-903a1ea1cca9"
+    },
+    {
+      "name": "Converting Grams per Litre to Percent w/v",
+      "explanation": "Express g/L as % w/v by converting to grams per 100 cm³ of solution.",
+      "broader_concept": "Concentration Unit Conversions",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.98,
+      "id": "332fd3e0-916d-4b8b-bf22-56634f3a0ab9"
+    },
+    {
+      "name": "Applying Dilution Relationships (C1V1 = C2V2)",
+      "explanation": "Relate initial and final concentrations and volumes to compute dilution factors and new concentrations.",
+      "broader_concept": "Dilution Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.97,
+      "id": "defe19bc-187d-440d-89b1-df27aac0a47d"
+    },
+    {
+      "name": "Unit Conversion between Cubic Centimetres and Litres",
+      "explanation": "Convert volumes using 1000 cm³ = 1 L, ensuring consistent units in solution calculations.",
+      "broader_concept": "Metric Unit Conversions",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.99,
+      "id": "8d343db4-09b1-4002-a99e-1a772b22bd46"
+    },
+    {
+      "name": "Using Stoichiometric Coefficients as Mole Ratios",
+      "explanation": "Extract mole ratios from a balanced equation to relate reacting species in calculations.",
+      "broader_concept": "Balanced Equation Stoichiometry",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.97,
+      "id": "4e08894f-0715-4d10-a82b-d3761444caf3"
+    },
+    {
+      "name": "Percentage Error in Measurement",
+      "explanation": "Quantify measurement accuracy using |measured − true|/true × 100%.",
+      "broader_concept": "Measurement Error Analysis",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.93,
+      "id": "ffd259b0-e747-4ae9-b489-2cc8929c0c63"
+    },
+    {
+      "name": "Distinguishing Accuracy and Precision",
+      "explanation": "Differentiate closeness to true value (accuracy) from closeness of repeated measurements (precision).",
+      "broader_concept": "Measurement Quality",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.95,
+      "id": "4c3433b3-e046-42a6-ade9-1fd3b0f913d8"
+    },
+    {
+      "name": "Evaluating Precision via Concordant Titration Volumes",
+      "explanation": "Assess repeatability by checking that repeated titre values agree within a small tolerance (e.g., 0.1 cm³).",
+      "broader_concept": "Measurement Precision Criteria",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.9,
+      "id": "5dbe9f95-eeb5-495d-a5b2-806479fbba0e"
+    },
+    {
+      "name": "Using Density = Mass/Volume to Compute Unknowns",
+      "explanation": "Relate mass and volume through density to find an unknown quantity given the other two.",
+      "broader_concept": "Density Calculations",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.92,
+      "id": "86553c50-721e-42f5-bd3f-8e6ca1a71f71"
+    },
+    {
+      "name": "Balancing Redox Equations Using Oxidation Numbers",
+      "explanation": "A stepwise procedure: assign oxidation numbers, determine electrons lost and gained, scale species so electrons lost equal electrons gained, then balance remaining atoms (O and H last) and verify atoms and charge.",
+      "broader_concept": "Stoichiometric Balancing",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.9,
+      "id": "68209fcc-75c2-41f0-a2ce-2675075c9201"
+    },
+    {
+      "name": "Determining Stoichiometric Ratios from Electron Transfer (LCM Method)",
+      "explanation": "Use the least common multiple of electrons lost and gained to scale reacting species so total electrons lost equals total electrons gained.",
+      "broader_concept": "Proportional Reasoning",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.88,
+      "id": "24e74cf7-aceb-4512-a9b6-9c9f0da3f5b4"
+    },
+    {
+      "name": "Electron Bookkeeping in Redox Reactions",
+      "explanation": "Quantify electrons lost by reducing agents and gained by oxidising agents per atom/ion to guide equation balancing.",
+      "broader_concept": "Stoichiometric Balancing",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.86,
+      "id": "dfe1edef-d8f5-4f01-99a5-97b914a42ff2"
+    },
+    {
+      "name": "Identifying Oxidation and Reduction by Oxidation Number Change",
+      "explanation": "Compare oxidation numbers before and after reaction; an increase indicates oxidation and a decrease indicates reduction.",
+      "broader_concept": "Integer Comparison and Change",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.9,
+      "id": "9b6b868d-97fb-45c6-a41f-00dd68963f77"
+    },
+    {
+      "name": "Solving for an Unknown Oxidation Number via Charge-Sum Equation",
+      "explanation": "Let x represent an element’s oxidation number and solve the linear equation formed by the rule that the sum of oxidation numbers equals the ion’s net charge.",
+      "broader_concept": "Linear Equations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.92,
+      "id": "d2f86726-3123-4caa-991f-a6929dd84c85"
+    },
+    {
+      "name": "Using Sum-to-Zero Constraint for Neutral Compounds",
+      "explanation": "Apply that the sum of oxidation numbers in a neutral compound is zero to compute unknown oxidation numbers.",
+      "broader_concept": "Linear Equations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.85,
+      "id": "feb8a466-29b9-4abf-a6d2-b218b4495c87"
+    },
+    {
+      "name": "Charge Balance in Ionic Chemical Equations",
+      "explanation": "Ensure the algebraic sum of ionic charges is equal on both sides of the equation as part of validating a balanced redox equation.",
+      "broader_concept": "Conservation Laws in Equations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.84,
+      "id": "3ef2ec17-a8a7-4874-baed-a2532d74b707"
+    },
+    {
+      "name": "Atom Balance Verification Using Element Count Tables",
+      "explanation": "Tabulate element counts on both sides to check conservation of atoms after balancing.",
+      "broader_concept": "Stoichiometric Balancing",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.83,
+      "id": "4c763d9b-fbe7-419d-8db7-e5331682222c"
+    },
+    {
+      "name": "Assigning Electron Ownership by Electronegativity for Oxidation Numbers",
+      "explanation": "When determining oxidation numbers in covalent compounds, assign bonding electrons to the more electronegative element.",
+      "broader_concept": "Oxidation Number Determination",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.78,
+      "id": "3adf427e-b9e3-4af8-ad1a-f232440b485f"
+    },
+    {
+      "name": "Average Oxidation State Calculation",
+      "explanation": "Compute the average oxidation number of an element in a species when not all atoms of that element have identical environments, allowing fractional values.",
+      "broader_concept": "Averages and Means",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.82,
+      "id": "5a6d0d78-9e8a-4d94-b9a2-6dca3759d18f"
+    },
+    {
+      "name": "Balancing Oxygen and Hydrogen with H2O and H+ in Acidic Redox Reactions",
+      "explanation": "After matching electron transfer, balance O by adding H2O and H by adding H+ for reactions in acidic solution.",
+      "broader_concept": "Stoichiometric Balancing",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.8,
+      "id": "afd7bb4d-1cb8-49f7-a796-8a9390f381b2"
+    },
+    {
+      "name": "Removing Spectator Ions to Simplify Redox Analysis",
+      "explanation": "Eliminate ions that do not change oxidation state to focus on the species undergoing electron transfer.",
+      "broader_concept": "Expression Simplification",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.78,
+      "id": "fc919443-b074-4b6f-8f69-53054eb8fc45"
+    },
+    {
+      "name": "VM/n Equivalence Formula for Redox Titrations",
+      "explanation": "Using the relation (Vo × Mo)/no = (Vr × Mred)/nr to compute an unknown concentration from titration data by incorporating stoichiometric coefficients.",
+      "broader_concept": "Titration Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.98,
+      "id": "8bca3305-9c22-42b0-ab03-ddeb8ae0b40f"
+    },
+    {
+      "name": "Deriving Mole Ratios from Redox Half-Equations",
+      "explanation": "Determining reactant mole ratios by equating electrons gained and lost in half-reactions, e.g., 1 MnO4− reacts with 5 Fe2+.",
+      "broader_concept": "Stoichiometric Ratios",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.96,
+      "id": "402be30e-4f09-47b7-9582-31511fb5a3a8"
+    },
+    {
+      "name": "Converting Between mol/L and g/L via Molar Mass",
+      "explanation": "Multiplying molarity by molar mass to obtain grams per litre, or dividing g/L by molar mass to get mol/L.",
+      "broader_concept": "Unit Conversion in Solution Chemistry",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.98,
+      "id": "a1e8d56e-05ed-4366-b52e-6dd6caf953d3"
+    },
+    {
+      "name": "Scaling Moles with Volume from Molarity",
+      "explanation": "Calculating moles in a given volume using n = M × V (with V in litres), e.g., determining moles in 250 cm3 of solution.",
+      "broader_concept": "Proportional Reasoning with Concentrations",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.97,
+      "id": "9c0dbbc3-3821-4e92-87fc-d1ae7a660c09"
+    },
+    {
+      "name": "Determining Hydration Number from Titration Data",
+      "explanation": "Using titration-derived moles and sample mass to compute molar mass of a hydrate and solve for x in formulas like FeSO4·xH2O.",
+      "broader_concept": "Stoichiometric Analysis of Hydrated Salts",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.95,
+      "id": "7d93237f-26ae-49d4-82ca-23ef041d7d0a"
+    },
+    {
+      "name": "Stoichiometric Equivalence Across Sequential Reactions",
+      "explanation": "Combining linked reactions to form equivalences (e.g., 2 MnO4− ≡ 5 I2 ≡ 10 S2O3^2−) for multistage titration calculations.",
+      "broader_concept": "Reaction Pathway Stoichiometry",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Advanced",
+      "confidence_score": 0.93,
+      "id": "949c6328-ce06-413a-9ec3-e8c14777a299"
+    },
+    {
+      "name": "Balancing Redox Equations by Electron Transfer",
+      "explanation": "Balancing half-reactions and using the least common multiple of electrons to obtain the overall balanced redox equation.",
+      "broader_concept": "Chemical Equation Balancing",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.94,
+      "id": "f53e42ef-3205-4803-9b02-c4b329a61ad7"
+    },
+    {
+      "name": "Determining Mass per Tablet from Solution Analysis",
+      "explanation": "Back-calculating mass per unit (e.g., per tablet) using dilution volume, aliquot size, titre, and the number of units dissolved.",
+      "broader_concept": "Proportional Reasoning in Analytical Chemistry",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.96,
+      "id": "79f5084d-21cd-4a28-b179-8e2ce8cdc896"
+    },
+    {
+      "name": "Averaging Concordant Titres",
+      "explanation": "Selecting titres that agree within a set tolerance (e.g., ±0.1 cm3) and computing their mean to reduce random error.",
+      "broader_concept": "Experimental Data Reduction",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.9,
+      "id": "b8ced4f1-7ccd-46e2-b78e-7ddccf280164"
+    },
+    {
+      "name": "Meniscus Reading for Dark Solutions",
+      "explanation": "Reading the top of the meniscus for deeply colored solutions (e.g., KMnO4) to record accurate burette volumes.",
+      "broader_concept": "Volumetric Measurement Techniques",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.89,
+      "id": "f4aa8059-0583-45c9-9fb4-c192fcbc1eae"
+    },
+    {
+      "name": "Computing Relative Molecular Mass from Atomic Masses",
+      "explanation": "Summing atomic masses to find molar mass of compounds, including hydrates (e.g., Na2S2O3·5H2O = 248.2 g/mol).",
+      "broader_concept": "Molar Mass Calculations",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.98,
+      "id": "437ba7d0-5ab1-4a55-8517-7b46bda3e53c"
+    },
+    {
+      "name": "Converting cm3 to Litres in Concentration Calculations",
+      "explanation": "Applying 1000 cm3 = 1 L to convert measured volumes for use in molarity and mass calculations.",
+      "broader_concept": "Measurement Unit Conversion",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.98,
+      "id": "94f76082-e32f-45f8-b48c-cb4a8d28c30e"
+    },
+    {
+      "name": "Mole Calculation from Mass and Molar Mass",
+      "explanation": "Compute amount of substance using n = m / Mr, where m is mass and Mr is relative molecular mass.",
+      "broader_concept": "Stoichiometric Relationships",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.98,
+      "id": "eb884ea2-6dea-460d-a9ad-b743f2715a94"
+    },
+    {
+      "name": "Mole Calculation from Volume and Molarity (cm3 to L)",
+      "explanation": "Find moles in a solution sample using n = (V in cm3 × M) / 1000.",
+      "broader_concept": "Solution Concentration Calculations",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.98,
+      "id": "72498a4c-e231-4688-bbcc-a96571db7408"
+    },
+    {
+      "name": "Titration Equivalence Relation (Vo·Mo/no = Vr·Mr/nr)",
+      "explanation": "Use the stoichiometric equivalence formula to relate volumes, molarities, and mole ratios to solve for an unknown concentration.",
+      "broader_concept": "Titration Stoichiometry",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.97,
+      "id": "225539e0-3b40-4431-95f9-b46eb6377282"
+    },
+    {
+      "name": "Density Calculation (Mass/Volume)",
+      "explanation": "Compute density or related quantities using ρ = m / V and unit consistency.",
+      "broader_concept": "Ratios and Rates",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.94,
+      "id": "45227867-bfb7-4d09-914c-0bafc064792f"
+    },
+    {
+      "name": "Molar Mass Computation from Chemical Formula",
+      "explanation": "Calculate Mr by summing relative atomic masses weighted by the formula’s subscripts.",
+      "broader_concept": "Weighted Sum Calculations",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.97,
+      "id": "62b83f4b-1db2-4597-9723-592111d3d211"
+    },
+    {
+      "name": "Mole Ratio from Balanced Chemical Equation",
+      "explanation": "Extract stoichiometric coefficients from a balanced equation to form mole ratios between reactants and products.",
+      "broader_concept": "Stoichiometric Relationships",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.97,
+      "id": "11ba2852-30f8-4990-81dd-44fa5ba5f94d"
+    },
+    {
+      "name": "Concentration Conversion: Molarity to Grams per Litre",
+      "explanation": "Convert molarity to g/L by multiplying molar concentration by molar mass.",
+      "broader_concept": "Unit Conversion in Concentrations",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.96,
+      "id": "ddefe298-0a5b-4649-afd4-bb15931efe8c"
+    },
+    {
+      "name": "Metric Volume Conversion between cm3 and L",
+      "explanation": "Convert volumes using 1000 cm3 = 1 L for solution calculations.",
+      "broader_concept": "Metric Unit Conversions",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.96,
+      "id": "677e888e-1c08-4d3f-9b2b-9f949cdeb230"
+    },
+    {
+      "name": "Averaging Concordant Titration Values",
+      "explanation": "Compute the mean of consistent titration trials (e.g., agreeing within 0.1 cm3) to reduce random error.",
+      "broader_concept": "Data Summarisation in Experiments",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.95,
+      "id": "66e513ac-4526-4a54-8ba7-9a62a5f3eb4d"
+    },
+    {
+      "name": "Systematic Error Identification and Impact",
+      "explanation": "Recognise consistent bias that shifts results in one direction and cannot be reduced by repetition.",
+      "broader_concept": "Error Analysis in Measurements",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.95,
+      "id": "5e71b7d6-e702-40c2-85e9-bffe06c35e8d"
+    },
+    {
+      "name": "Random Error Identification and Impact",
+      "explanation": "Recognise unpredictable fluctuations around the true value that can be reduced by repeated trials and averaging.",
+      "broader_concept": "Error Analysis in Measurements",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.95,
+      "id": "7d6d9647-f73b-4cbc-96e0-6c753d1f91f4"
+    },
+    {
+      "name": "Accuracy versus Precision Differentiation",
+      "explanation": "Distinguish closeness to true value (accuracy) from closeness of repeated results (precision) and relate to error types.",
+      "broader_concept": "Error Analysis in Measurements",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.94,
+      "id": "9b0b1a4b-061c-48f9-afef-1e18e72584f6"
+    },
+    {
+      "name": "Parallax Error Avoidance by Meniscus Reading at Eye Level",
+      "explanation": "Read the bottom of the meniscus at eye level to avoid systematic volume reading errors.",
+      "broader_concept": "Measurement Techniques",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.93,
+      "id": "d983027d-cc93-47ac-bc28-f48777ed82fe"
+    },
+    {
+      "name": "Proportional Scaling in Solution Preparation",
+      "explanation": "Scale quantities to a reference volume (e.g., to 1 L) to compute molarity from a mass dissolved in a partial volume.",
+      "broader_concept": "Proportional Reasoning",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.94,
+      "id": "d1db2667-0eb3-49d4-a30d-b0a8b2efc417"
+    },
+    {
+      "name": "Average Rate of Reaction Calculation",
+      "explanation": "Compute the average rate as change in concentration or measurable quantity divided by the time interval, e.g., Δ[reactant]/Δt or volume evolved per unit time.",
+      "broader_concept": "Rates of Change",
+      "strand": "Calculus",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.96,
+      "id": "bde2e53f-a63a-4b8a-ab46-a70d2eea669e"
+    },
+    {
+      "name": "Instantaneous Reaction Rate from Tangent Slope",
+      "explanation": "Estimate the rate at a specific time by drawing a tangent to the quantity–time curve at that point and calculating its slope (rise/run).",
+      "broader_concept": "Derivatives as Rates of Change",
+      "strand": "Calculus",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.95,
+      "id": "04bf6eae-edc7-4411-81d3-ed3740e25cf4"
+    },
+    {
+      "name": "Initial Reaction Rate Estimation",
+      "explanation": "Determine the rate at t=0 using the slope of the tangent at the origin or by computing an average rate over a short initial time interval.",
+      "broader_concept": "Rates of Change",
+      "strand": "Calculus",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.93,
+      "id": "ad7a9351-eece-44b2-9bb1-5f98b00c4ae0"
+    },
+    {
+      "name": "Using Reciprocal Time (1/t) as a Rate Proxy",
+      "explanation": "When a fixed observable endpoint marks equal product formation, use 1/t as proportional to reaction rate and plot 1/t versus concentration.",
+      "broader_concept": "Proportional Reasoning",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.94,
+      "id": "b9c2305a-4acb-49ab-9de5-2569798aaa27"
+    },
+    {
+      "name": "Identifying Direct Proportionality from Rate–Concentration Graphs",
+      "explanation": "Infer rate ∝ concentration when a plot of rate versus concentration yields a straight line through the origin.",
+      "broader_concept": "Linear Relationships",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.94,
+      "id": "55dc425f-bd52-4123-b3bc-9282f4c3b1ff"
+    },
+    {
+      "name": "Interpreting Volume–Time Graphs for Gas Evolution",
+      "explanation": "Plot and analyze volume of gas versus time to compare rates via slope, identify completion from plateaus, and compute average rates.",
+      "broader_concept": "Data Representation and Interpretation",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.92,
+      "id": "21d27551-ccee-4138-aa57-acbc35271916"
+    },
+    {
+      "name": "Calculating Fraction of Reaction Completed from Plateau Data",
+      "explanation": "Use the ratio of product formed at a given time to the final plateau value to compute the fraction or percentage completion.",
+      "broader_concept": "Ratios and Proportions",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.91,
+      "id": "efa71673-4f29-4d53-bde5-7b699be03c74"
+    },
+    {
+      "name": "Interpreting Nonlinear Rate–Temperature Relationships",
+      "explanation": "Analyze rate or 1/t versus temperature plots to recognize increasing but non-proportional trends and compare relative rate changes.",
+      "broader_concept": "Function Behavior Analysis",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.88,
+      "id": "be32f6d2-6eae-4131-b8d1-bde7224c7f59"
+    },
+    {
+      "name": "Reading Activation Energy from Energy Profile Diagrams",
+      "explanation": "Identify activation energy as the vertical energy difference between reactants and the peak (activated complex) on an energy profile.",
+      "broader_concept": "Graphs of Energy Functions",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.93,
+      "id": "553787ab-41c5-4129-a320-c360c5fc0fcc"
+    },
+    {
+      "name": "Determining Heat of Reaction (ΔH) from Energy Profile Diagrams",
+      "explanation": "Determine ΔH as the energy difference between products and reactants; negative for exothermic, positive for endothermic reactions.",
+      "broader_concept": "Graphs of Energy Functions",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.92,
+      "id": "4741269c-c7f0-4668-a708-1702cbfd456d"
+    },
+    {
+      "name": "Comparing Catalyzed and Uncatalyzed Energy Profiles",
+      "explanation": "Compare energy profiles to show how catalysts lower activation energy while leaving ΔH unchanged.",
+      "broader_concept": "Graph Comparison",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.93,
+      "id": "dade4d42-624f-47e3-97f2-2cc33623a785"
+    },
+    {
+      "name": "Interpreting Maxwell–Boltzmann Distributions and Shaded Areas",
+      "explanation": "Read proportions of particles above a threshold energy (Ea) as area under the curve and compare distributions at different temperatures.",
+      "broader_concept": "Continuous Probability Distributions",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.9,
+      "id": "042215a9-7964-408a-ae95-fba9ca6e9727"
+    },
+    {
+      "name": "Recognizing Saturation Effects in Rate–Concentration Relationships",
+      "explanation": "Identify diminishing returns or plateaus in rate as concentration increases due to surface or active-site saturation.",
+      "broader_concept": "Nonlinear Models",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.87,
+      "id": "16846f35-b019-490c-a9e1-1d3d96be0099"
+    },
+    {
+      "name": "Estimating Tangent Slope Using Secant Approximation",
+      "explanation": "Approximate the instantaneous slope by selecting points on either side of the target time and computing rise/run over a small interval.",
+      "broader_concept": "Numerical Estimation of Derivatives",
+      "strand": "Calculus",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.9,
+      "id": "52f95c65-2ed6-441e-a322-03fb2c3882ba"
+    },
+    {
+      "name": "Writing Equilibrium Constant Expression (Kc)",
+      "explanation": "Formulate Kc using the law of mass action: products over reactants with concentrations raised to their stoichiometric coefficients.",
+      "broader_concept": "Law of Chemical Equilibrium",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.98,
+      "id": "484eca1c-fd85-40a5-9155-d49aad956b36"
+    },
+    {
+      "name": "Using ICE Tables to Compute Equilibrium Concentrations",
+      "explanation": "Set up Initial-Change-Equilibrium tables to express concentrations at equilibrium in terms of a variable and solve using Kc.",
+      "broader_concept": "Chemical Equilibrium Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Advanced",
+      "confidence_score": 0.95,
+      "id": "a5ffa667-1c90-41da-b125-df8a10bfe47d"
+    },
+    {
+      "name": "Solving Quadratic Equilibrium Problems and Selecting Physical Root",
+      "explanation": "Solve quadratic equations arising from Kc expressions and reject extraneous roots based on chemical feasibility (nonnegative, not exceeding initial values).",
+      "broader_concept": "Chemical Equilibrium Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Advanced",
+      "confidence_score": 0.94,
+      "id": "1916c398-fcc0-4e83-8c5d-095c3e5e4e5b"
+    },
+    {
+      "name": "Manipulating Equilibrium Constants for Reversed and Scaled Reactions",
+      "explanation": "Apply K' = 1/K for reversed reactions and K' = K^n when stoichiometric coefficients are scaled by n (e.g., halved gives √K).",
+      "broader_concept": "Law of Chemical Equilibrium",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.93,
+      "id": "58c45a00-15f4-41d1-a72a-c37f52b2631b"
+    },
+    {
+      "name": "Determining Units of Kc by Dimensional Analysis",
+      "explanation": "Derive the units of Kc from the overall powers of concentration in numerator and denominator; recognize when Kc is dimensionless.",
+      "broader_concept": "Dimensional Analysis",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.9,
+      "id": "c75c0678-3558-49da-8984-ffbb7d08d00a"
+    },
+    {
+      "name": "Calculating Kc from Equilibrium Concentrations",
+      "explanation": "Substitute measured equilibrium concentrations into the equilibrium expression to compute Kc at a given temperature.",
+      "broader_concept": "Chemical Equilibrium Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.96,
+      "id": "acc29044-2216-42a3-82c9-d91ca8debacc"
+    },
+    {
+      "name": "Converting Percent Dissociation to Equilibrium Concentrations",
+      "explanation": "Use given percentage dissociation to compute equilibrium moles/concentrations of species and evaluate Kc.",
+      "broader_concept": "Chemical Equilibrium Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.92,
+      "id": "8f48278f-2693-4ca1-bce5-6a137bc4165b"
+    },
+    {
+      "name": "Using Stoichiometric Coefficients as Exponents in Kc",
+      "explanation": "Raise each species’ concentration to the power equal to its stoichiometric coefficient in the balanced equation.",
+      "broader_concept": "Law of Chemical Equilibrium",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.95,
+      "id": "95a1b16a-03c5-4051-a882-7456d9945bb1"
+    },
+    {
+      "name": "Converting Mass and Volume to Molarity",
+      "explanation": "Compute molarity by converting mass to moles via relative molecular mass and dividing by solution volume in litres.",
+      "broader_concept": "Stoichiometry",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.97,
+      "id": "99844270-7967-4011-b9c7-cdc96a271c61"
+    },
+    {
+      "name": "Interpreting Concentration–Time Graphs to Identify Equilibrium",
+      "explanation": "Recognize equilibrium when concentrations reach constant plateaus and infer equal forward and reverse rates at that time.",
+      "broader_concept": "Function and Graph Analysis",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.88,
+      "id": "09d523f9-61b7-430a-8cb9-4560cb147139"
+    },
+    {
+      "name": "Definition and Use of pH (pH = -log10[H+])",
+      "explanation": "Calculate pH from hydrogen ion concentration using the base-10 logarithm.",
+      "broader_concept": "Logarithmic Scales",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.99,
+      "id": "9ffb3b73-3b20-4fcd-8b91-30bb7deef2f2"
+    },
+    {
+      "name": "Finding [H+] from pH Using Antilogarithms",
+      "explanation": "Compute [H+] as 10^(−pH) to convert pH values back to concentration.",
+      "broader_concept": "Logarithmic Scales",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.98,
+      "id": "3a9ad133-3198-4316-89f1-9c3b94f74cc9"
+    },
+    {
+      "name": "pOH and the Relation pH + pOH = 14 at 25°C",
+      "explanation": "Use pOH = −log10[OH−] and the relation pH + pOH = 14 (at 25°C) to interconvert pH and pOH.",
+      "broader_concept": "Logarithmic Scales",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.97,
+      "id": "1e57ba13-e364-4560-8eec-03f73c0e8f4e"
+    },
+    {
+      "name": "Calculating pH of Strong Acids with Stoichiometry",
+      "explanation": "Determine [H+] directly from molarity and acid stoichiometry (e.g., H2SO4 provides 2 H+ per formula unit) before applying pH.",
+      "broader_concept": "Acid–Base Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.96,
+      "id": "39d7e83b-b137-45ad-8f48-698b7810a1d1"
+    },
+    {
+      "name": "Calculating pH of Strong Bases via pOH",
+      "explanation": "Compute [OH−] from base molarity and stoichiometry, find pOH, then pH = 14 − pOH at 25°C.",
+      "broader_concept": "Acid–Base Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.96,
+      "id": "a2f25496-22e6-4689-899b-213e83a8445a"
+    },
+    {
+      "name": "pH of Weak Acids Using Square-Root Approximation",
+      "explanation": "For weak acids with small dissociation, use [H+] ≈ √(Ka·M) to estimate pH.",
+      "broader_concept": "Acid–Base Equilibria",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.95,
+      "id": "bc08526a-4eae-44ec-a2ec-41b738a22ab4"
+    },
+    {
+      "name": "pH of Weak Bases Using Square-Root Approximation",
+      "explanation": "For weak bases, use [OH−] ≈ √(Kb·M), then convert to pOH and pH.",
+      "broader_concept": "Acid–Base Equilibria",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.94,
+      "id": "f252fcc4-db28-41a7-abfd-676397dc5282"
+    },
+    {
+      "name": "Using Kw to Relate [H+] and [OH−]",
+      "explanation": "Apply Kw = [H+][OH−] to compute one ion concentration from the other at a given temperature.",
+      "broader_concept": "Acid–Base Equilibria",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.96,
+      "id": "7c5cf418-edbe-4352-8abc-f464075b5377"
+    },
+    {
+      "name": "Computing Neutral pH from Kw at Any Temperature",
+      "explanation": "Determine neutral pH as 0.5·pKw, where pKw = −log10(Kw) varies with temperature.",
+      "broader_concept": "Acid–Base Equilibria",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.9,
+      "id": "0f5de3fa-6319-4e15-9acf-513caf198c48"
+    },
+    {
+      "name": "Indicator Selection Using pH Titration Curves",
+      "explanation": "Choose an indicator whose colour-change range lies within the steep region of the pH titration curve near the equivalence point.",
+      "broader_concept": "Titration Analysis",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.92,
+      "id": "647a899c-d079-40d3-8d99-cb69532510c4"
+    },
+    {
+      "name": "Identifying the Equivalence Point on pH Titration Curves",
+      "explanation": "Locate the point of stoichiometric neutralization on the curve and relate it to the expected pH for strong/weak acid–base combinations.",
+      "broader_concept": "Titration Analysis",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.9,
+      "id": "126bafc1-fc5c-4cca-8ab8-1df4761787c4"
+    },
+    {
+      "name": "Interpreting the Logarithmic Nature of the pH Scale",
+      "explanation": "Recognize that a change of one pH unit corresponds to a tenfold change in [H+].",
+      "broader_concept": "Logarithmic Scales",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.93,
+      "id": "98ed7d59-6045-426e-a74c-2290fc5f439b"
+    },
+    {
+      "name": "Biochemical Oxygen Demand (BOD) Calculation",
+      "explanation": "Compute BOD as the difference between initial and 5-day dissolved oxygen readings, adjusting by any dilution factor; report in mg/L (ppm).",
+      "broader_concept": "Solution Concentration Calculations",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.95,
+      "id": "ef7d500b-4da7-4fb9-9364-aea7626d7a10"
+    },
+    {
+      "name": "Applying Dilution Factors to Concentration Measurements",
+      "explanation": "Use a known dilution factor to scale measured concentrations back to the original sample (e.g., BOD values exceeding solubility limits).",
+      "broader_concept": "Solution Dilution Calculations",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.93,
+      "id": "0b1ff911-dd5c-43d3-8f6e-0899002d58bb"
+    },
+    {
+      "name": "Parts Per Million (ppm) and mg/L Conversion in Aqueous Solutions",
+      "explanation": "Convert between ppm and mg/L in dilute water samples (1 mg/L ≈ 1 ppm), as used for dissolved oxygen, chlorine, and fluoride levels.",
+      "broader_concept": "Unit Conversion",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.96,
+      "id": "33941f19-a091-4f63-8791-b3d94962a484"
+    },
+    {
+      "name": "Calculating CO2-equivalent Emissions using Global Warming Potential",
+      "explanation": "Multiply the mass of a greenhouse gas by its GWP to express emissions in CO2e for comparison and aggregation.",
+      "broader_concept": "Ratio and Proportion",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.9,
+      "id": "95f3418e-7263-40aa-9bc5-f90fd6a9e608"
+    },
+    {
+      "name": "Interpreting Time Series Graphs with Seasonal Variation",
+      "explanation": "Read trends and seasonal cycles (e.g., CO2 Keeling Curve), distinguishing long-term increases from periodic fluctuations.",
+      "broader_concept": "Graph Interpretation",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.9,
+      "id": "9804da7b-a944-4af3-bf8a-7939337742c5"
+    },
+    {
+      "name": "Nested Percentage Calculations in Resource Distribution",
+      "explanation": "Compute accessible portions when percentages are applied within subsets (e.g., 3% freshwater with two-thirds locked, leaving ~1% accessible).",
+      "broader_concept": "Percentage Calculations",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.92,
+      "id": "6de21bd4-8b0d-446d-9e43-47f9176244cd"
+    },
+    {
+      "name": "Metric Unit Conversion: Micrometres to Metres",
+      "explanation": "Convert measurements like 0.1–10 μm to metres using powers of ten for microfiltration pore sizes.",
+      "broader_concept": "Metric System and Scientific Notation",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.94,
+      "id": "6495f841-ad80-4dc5-9427-ab2d1c97fbd8"
+    },
+    {
+      "name": "Interpreting pH Values on a Logarithmic Scale",
+      "explanation": "Compare acidity/alkalinity relative to pH 7, order pH values, and connect ranges to practical implications (e.g., corrosion risk).",
+      "broader_concept": "Logarithmic Scales",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.82,
+      "id": "40310b52-4954-4bd9-a516-4846edb122bb"
+    },
+    {
+      "name": "Interpreting Solubility-Temperature Relationships for Gases in Water",
+      "explanation": "Analyze how dissolved oxygen solubility decreases with temperature and quantify changes using given values.",
+      "broader_concept": "Functional Relationships",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.86,
+      "id": "2f213917-73d7-4739-89b2-7a2a887aa22f"
+    },
+    {
+      "name": "Ranking Greenhouse Gases by Global Warming Potential",
+      "explanation": "Order gases using GWP values and reason about relative impacts per unit mass over a fixed time horizon.",
+      "broader_concept": "Ordering and Comparison of Numbers",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.88,
+      "id": "7c14cbbe-e025-40de-a222-333178da9fc0"
+    },
+    {
+      "name": "Concentration-Dose Calculations for Disinfection Targets",
+      "explanation": "Determine mass or volume of disinfectant needed to reach target residuals (e.g., 0.5 ppm Cl2, 1 ppm fluoride) for a given water volume.",
+      "broader_concept": "Solution Concentration Calculations",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.84,
+      "id": "ef3bdb10-359b-409b-aea0-e451bdf52fda"
+    },
+    {
+      "name": "Estimating Rate of Global Temperature Increase from Data",
+      "explanation": "Compute average rate of change (slope) over intervals in temperature time series to quantify warming trends.",
+      "broader_concept": "Rate of Change",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.8,
+      "id": "134c0225-e561-4a5d-8bf0-52b8e3324a5c"
+    },
+    {
+      "name": "Specific Heat Capacity Calculation (q = m c ΔT)",
+      "explanation": "Compute heat exchanged using mass (in kg), specific heat capacity, and temperature change.",
+      "broader_concept": "Calorimetry Calculations",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.99,
+      "id": "2e3f010d-88be-48e8-8381-fd033228fce4"
+    },
+    {
+      "name": "Hess's Law Equation Manipulation",
+      "explanation": "Add, subtract, reverse, and scale thermochemical equations to determine unknown enthalpy changes.",
+      "broader_concept": "Hess's Law Applications",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.98,
+      "id": "30daa84b-e7f2-4e0e-a42f-87a8c321e6b8"
+    },
+    {
+      "name": "Bond Enthalpy Method for Estimating Reaction Enthalpy",
+      "explanation": "Estimate ΔH using ΔH ≈ Σ(bonds broken) − Σ(bonds formed) with average bond enthalpies.",
+      "broader_concept": "Energetics via Bond Enthalpies",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.98,
+      "id": "6314193f-74cf-4c23-91db-9d6b8136897c"
+    },
+    {
+      "name": "Molar Scaling of Enthalpy in Thermochemical Equations",
+      "explanation": "Recognize that ΔH scales with stoichiometric coefficients and changes sign when reactions are reversed.",
+      "broader_concept": "Thermochemical Equations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.97,
+      "id": "8cccbe9d-2f25-43d9-8f96-65943190c313"
+    },
+    {
+      "name": "Solution Calorimetry for Enthalpy of Neutralisation",
+      "explanation": "Determine enthalpy of neutralisation by measuring temperature rise of a mixed solution and normalizing per mole of H+ neutralized.",
+      "broader_concept": "Calorimetry Calculations",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.97,
+      "id": "3b80b461-2494-4a0d-8f02-4c310a414ae3"
+    },
+    {
+      "name": "Moles from Molarity and Volume (n = cV)",
+      "explanation": "Calculate moles using concentration and volume, with unit consistency (e.g., dm^3 or conversion from cm^3).",
+      "broader_concept": "Stoichiometric Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.98,
+      "id": "753ba317-cd26-48ba-8f25-5c10ff656758"
+    },
+    {
+      "name": "Mass-to-Moles Conversion Using Molar Mass",
+      "explanation": "Convert a substance’s mass to amount in moles via its molar mass.",
+      "broader_concept": "Stoichiometric Calculations",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.99,
+      "id": "cf2af004-de82-4517-8118-9a4755b1940b"
+    },
+    {
+      "name": "Volume-to-Mass Conversion Using Density",
+      "explanation": "Compute mass from volume using density, e.g., water at 1 g cm^-3.",
+      "broader_concept": "Dimensional Analysis",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.98,
+      "id": "c0e35305-2d1d-48aa-8e71-0e66336538e5"
+    },
+    {
+      "name": "Heat Capacity Use (q = C ΔT)",
+      "explanation": "Use overall heat capacity of a system to determine heat change from temperature rise.",
+      "broader_concept": "Calorimetry Calculations",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.95,
+      "id": "7cbbc3c4-1cb3-48af-a76c-bc819980ce98"
+    },
+    {
+      "name": "Balancing Complete Combustion Equations for Hydrocarbons and Alcohols",
+      "explanation": "Balance oxygen, carbon, and hydrogen to yield only CO2 and H2O in complete combustion.",
+      "broader_concept": "Chemical Equation Balancing",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.96,
+      "id": "eb5c5cf3-3a9e-4275-af3c-c618cd44858e"
+    },
+    {
+      "name": "Writing Enthalpy of Formation Equations with Fractional Coefficients",
+      "explanation": "Formulate equations that produce exactly one mole of product from elements in standard states, allowing fractional coefficients.",
+      "broader_concept": "Thermochemical Equations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.96,
+      "id": "8f4ac1c8-65c3-4ef7-967f-28fa83ab54bd"
+    },
+    {
+      "name": "Per Mole Normalization of Heat Quantities",
+      "explanation": "Scale measured heat to kJ mol^-1 by dividing by moles reacted or formed.",
+      "broader_concept": "Thermochemical Equations",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.97,
+      "id": "47eda506-05d7-456c-98ea-3b60998854bf"
+    },
+    {
+      "name": "Unit Conversion Between Joules and Kilojoules",
+      "explanation": "Convert energy units, e.g., 1 kJ = 1000 J, ensuring consistency in calculations.",
+      "broader_concept": "Unit Analysis and Conversion",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.99,
+      "id": "1ab03c53-1b69-4a34-a81f-ce9b7202829f"
+    },
+    {
+      "name": "Sign Conventions for Enthalpy Change",
+      "explanation": "Interpret negative ΔH as exothermic and positive ΔH as endothermic in calculations and reporting.",
+      "broader_concept": "Thermochemical Quantities",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.96,
+      "id": "da7d31d3-9e46-42fb-97c8-9be07bbf3012"
+    },
+    {
+      "name": "Linear Trend Analysis of Enthalpy of Combustion vs Carbon Number",
+      "explanation": "Model and interpret near-linear increases in ΔH with each added CH2 unit across homologous series.",
+      "broader_concept": "Data Modeling and Interpretation",
+      "strand": "Statistics",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.9,
+      "id": "3f5b1cba-2b3c-4e48-bdb8-a38b81160552"
+    },
+    {
+      "name": "Bond Counting for Energy Calculations",
+      "explanation": "Enumerate quantities of each bond type broken and formed to support bond enthalpy summations.",
+      "broader_concept": "Energetics via Bond Enthalpies",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.94,
+      "id": "9cf27340-64bb-425c-89a5-427d54e4b26c"
+    },
+    {
+      "name": "Balancing Redox Equations by Adding Half-Reactions",
+      "explanation": "Write oxidation and reduction half-equations with electrons, scale them to equalize electron transfer, then add to obtain the overall balanced redox equation.",
+      "broader_concept": "Systems of Linear Equations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.9,
+      "id": "dba59432-d731-4401-b4e7-9bd2dc1a2bfa"
+    },
+    {
+      "name": "Standard Electrode Potential Ordering",
+      "explanation": "Arrange elements by their standard electrode potentials relative to the standard hydrogen electrode to compare tendencies to be oxidised or reduced.",
+      "broader_concept": "Ordering Real Numbers",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.85,
+      "id": "eb28e0eb-a242-4ebe-8e40-03cca81622bf"
+    },
+    {
+      "name": "Series Addition of Cell Voltages",
+      "explanation": "For cells connected in series, total voltage equals the arithmetic sum of individual cell voltages (e.g., 4 × 1.5 V = 6 V).",
+      "broader_concept": "Operations with Measurements",
+      "strand": "Measurement",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.95,
+      "id": "6ac7a24e-b28f-4723-9e85-6d7b818db5c8"
+    },
+    {
+      "name": "Calculating Number of Cells for a Target Voltage",
+      "explanation": "Determine the count of identical cells required to reach a desired battery voltage using n = V_total / V_cell, rounding to the nearest whole number as needed.",
+      "broader_concept": "Unit Rate and Proportional Reasoning",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.9,
+      "id": "c12069d2-9a2e-473a-bf8e-4e3a96c79c92"
+    },
+    {
+      "name": "Stoichiometric Gas Volume Ratio in Electrolysis of Water",
+      "explanation": "Use the 2:1 stoichiometric ratio of H2:O2 from water electrolysis to interpret collected gas volumes, applying ratio and proportion.",
+      "broader_concept": "Ratios and Proportions",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 0.85,
+      "id": "10fde5c9-1d4d-4185-8dbe-9d64eabc3d81"
+    },
+    {
+      "name": "Predicting Displacement Reactions Using Electrochemical Series Order",
+      "explanation": "Use the order of metals by standard potentials to decide if one metal will displace another from solution based on relative tendencies to oxidise.",
+      "broader_concept": "Inequalities and Order Relations",
+      "strand": "Number",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.8,
+      "id": "d1fb9c76-f396-4a7d-987a-9b656d29ed27"
+    },
+    {
+      "name": "Electron Bookkeeping in Redox Half-Reactions",
+      "explanation": "Track electrons lost and gained to ensure the same number are transferred in oxidation and reduction halves before combining equations.",
+      "broader_concept": "Balancing Redox Equations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.85,
+      "id": "6093f44f-21a9-4d68-9f71-e9e0e87587aa"
+    }
+  ],
+  "relationships": []
+}

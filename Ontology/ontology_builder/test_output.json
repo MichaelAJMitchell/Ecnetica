@@ -1,0 +1,1031 @@
+{
+  "nodes": [
+    {
+      "id": "e0381fdd-cb70-4d5f-8c01-040c0e673f4e",
+      "label": "Pythagorean Identity",
+      "group": "Trigonometry",
+      "title": "The fundamental trigonometric identity: cos²A + sin²A = 1.",
+      "broader_concept": "Trigonometric Identities",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "ea740de7-c77d-440e-977b-82551c57aaed",
+      "label": "Sine Rule",
+      "group": "Trigonometry",
+      "title": "Relates the sides of a triangle to the sines of its angles: a/sinA = b/sinB = c/sinC.",
+      "broader_concept": "Trigonometric Laws",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "2299cee2-d598-47ab-b176-28ae555a5514",
+      "label": "Cosine Rule",
+      "group": "Trigonometry",
+      "title": "Relates the lengths of the sides of a triangle to the cosine of one of its angles: a² = b² + c² – 2bc cosA.",
+      "broader_concept": "Trigonometric Laws",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "bf24e886-078a-4aa1-bcd1-5145a7755e9c",
+      "label": "Cosine of Sum Formula",
+      "group": "Trigonometry",
+      "title": "Formula for the cosine of the sum of two angles: cos(A+B) = cosA cosB – sinA sinB.",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "1d92d2ca-14db-4de5-88ec-cee846f64cab",
+      "label": "Cosine of Difference Formula",
+      "group": "Trigonometry",
+      "title": "Formula for the cosine of the difference of two angles: cos(A–B) = cosA cosB + sinA sinB.",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "952fce16-9266-46f4-a3d2-a69eef43d824",
+      "label": "Double Angle Formula for Cosine",
+      "group": "Trigonometry",
+      "title": "Formula for the cosine of double an angle: cos2A = cos²A – sin²A.",
+      "broader_concept": "Double Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "88fede97-70aa-46e9-af45-7cd4b802f1a7",
+      "label": "Sine of Sum Formula",
+      "group": "Trigonometry",
+      "title": "Formula for the sine of the sum of two angles: sin(A+B) = sinA cosB + cosA sinB.",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "51641a8d-fb29-4fc4-b1ad-6a3217895908",
+      "label": "Sine of Difference Formula",
+      "group": "Trigonometry",
+      "title": "Formula for the sine of the difference of two angles: sin(A–B) = sinA cosB – cosA sinB.",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "851e99a6-442b-4938-9818-ec86c1b104da",
+      "label": "Tangent of Sum Formula",
+      "group": "Trigonometry",
+      "title": "Formula for the tangent of the sum of two angles: tan(A+B) = (tanA + tanB)/(1 – tanA tanB).",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "11fabd3d-ac30-4022-a554-7b863ba735c2",
+      "label": "Tangent of Difference Formula",
+      "group": "Trigonometry",
+      "title": "Formula for the tangent of the difference of two angles: tan(A–B) = (tanA – tanB)/(1 + tanA tanB).",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "efcf5d86-a72a-4cfe-9b55-021b0a291a92",
+      "label": "Double Angle Formula for Sine",
+      "group": "Trigonometry",
+      "title": "Formula for the sine of double an angle: sin2A = 2 sinA cosA.",
+      "broader_concept": "Double Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "9983168d-533f-4384-8345-010d1c73a33f",
+      "label": "Double Angle Formula for Tangent",
+      "group": "Trigonometry",
+      "title": "Formula for the tangent of double an angle: tan2A = 2 tanA / (1 – tan²A).",
+      "broader_concept": "Double Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "79eead74-c6b8-48a7-a208-5e6caf4f287e",
+      "label": "Alternative Double Angle Formulas",
+      "group": "Trigonometry",
+      "title": "Alternative forms for double angle identities, e.g., sin2A = 2 tanA / (1 + tan²A), cos2A = (1 – tan²A)/(1 + tan²A).",
+      "broader_concept": "Double Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "d7d3b60e-14de-45b2-aa71-eaba596d4e02",
+      "label": "Half Angle Formula for Cosine",
+      "group": "Trigonometry",
+      "title": "Formula expressing cos²A in terms of cos2A: cos²A = ½(1 + cos2A).",
+      "broader_concept": "Half Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "d961255b-d4bd-4af6-82cf-cb8296a10b18",
+      "label": "Half Angle Formula for Sine",
+      "group": "Trigonometry",
+      "title": "Formula expressing sin²A in terms of cos2A: sin²A = ½(1 – cos2A).",
+      "broader_concept": "Half Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "c0695bce-f5b0-4f08-a076-62fb4144675d",
+      "label": "Product-to-Sum Formulas",
+      "group": "Trigonometry",
+      "title": "Formulas expressing products of sines and cosines as sums, e.g., 2 cosA cosB = cos(A+B) + cos(A–B).",
+      "broader_concept": "Trigonometric Identities",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "2dfd1d00-7b73-4257-a3d4-ee2eb3e75ff8",
+      "label": "Sum-to-Product Formulas",
+      "group": "Trigonometry",
+      "title": "Formulas expressing sums or differences of sines or cosines as products, e.g., cosA + cosB = 2 cos[(A+B)/2] cos[(A–B)/2].",
+      "broader_concept": "Trigonometric Identities",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "64c71e88-a4a8-43a6-a076-b48a7d11b905",
+      "label": "Irrational Numbers",
+      "group": "Number Theory",
+      "title": "Numbers that cannot be expressed as a ratio of two integers, with non-repeating, non-terminating decimals.",
+      "broader_concept": "Number Systems",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "f8a0cc2e-6fca-434c-9923-da164e81528f",
+      "label": "Surds",
+      "group": "Number Theory",
+      "title": "Irrational roots that cannot be simplified to remove the radical sign.",
+      "broader_concept": "Irrational Numbers",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "560c3a52-bcfa-4dcd-8628-184d6b5f6224",
+      "label": "Complex Numbers",
+      "group": "Algebra",
+      "title": "Numbers in the form a + bi, where a and b are real numbers and i is the imaginary unit.",
+      "broader_concept": "Number Systems",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "fa324e98-3a7c-4ebb-9ae4-4fdb748e9eeb",
+      "label": "Imaginary Numbers",
+      "group": "Algebra",
+      "title": "Numbers that are multiples of the imaginary unit i, where i^2 = -1.",
+      "broader_concept": "Complex Numbers",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "9cdb3c2a-5a95-43c6-abaf-ecfdf4c22205",
+      "label": "Addition and Subtraction of Complex Numbers",
+      "group": "Algebra",
+      "title": "Combining complex numbers by adding or subtracting their real and imaginary parts separately.",
+      "broader_concept": "Complex Numbers",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "48f9a7ac-ec2b-4c3b-850f-61ab210d3488",
+      "label": "Multiplication of Complex Numbers",
+      "group": "Algebra",
+      "title": "Multiplying complex numbers using distributive property and the rule i^2 = -1.",
+      "broader_concept": "Complex Numbers",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "44507b00-e3b6-47c0-a0bd-63d64f4404fd",
+      "label": "Division of Complex Numbers",
+      "group": "Algebra",
+      "title": "Dividing complex numbers by multiplying numerator and denominator by the conjugate of the denominator.",
+      "broader_concept": "Complex Numbers",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "c9465dcc-eaeb-4b76-b5bb-025c5aec0ed8",
+      "label": "Complex Conjugate",
+      "group": "Algebra",
+      "title": "For a complex number a + bi, the conjugate is a - bi.",
+      "broader_concept": "Complex Numbers",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "5b9b9842-a7d5-4dfd-b352-08fad06a8105",
+      "label": "Equality of Complex Numbers",
+      "group": "Algebra",
+      "title": "Two complex numbers are equal if their real and imaginary parts are respectively equal.",
+      "broader_concept": "Complex Numbers",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "15cda482-a1d0-48ce-8e3a-6a9d0b1ebdae",
+      "label": "Argand Diagram",
+      "group": "Algebra",
+      "title": "A geometric representation of complex numbers in the complex plane.",
+      "broader_concept": "Complex Numbers",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "873db471-0671-42eb-8147-216e2cf47ce9",
+      "label": "Modulus of a Complex Number",
+      "group": "Algebra",
+      "title": "The distance from the origin to the point representing the complex number in the Argand diagram, calculated as sqrt(a^2 + b^2).",
+      "broader_concept": "Complex Numbers",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "e239e1c3-09d3-4b5c-a6e0-07ecf3aa4007",
+      "label": "Transformations of Complex Numbers",
+      "group": "Algebra",
+      "title": "Operations such as stretching, contracting, rotating, and translating complex numbers in the complex plane.",
+      "broader_concept": "Complex Numbers",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "66e36f6d-a151-4d44-9fb6-3fe1af253cce",
+      "label": "Conjugate Roots Theorem",
+      "group": "Algebra",
+      "title": "If a polynomial with real coefficients has a complex root, its conjugate is also a root.",
+      "broader_concept": "Polynomials",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "0812d91b-8450-4003-adc2-b8597fc8382f",
+      "label": "Polar Form of a Complex Number",
+      "group": "Algebra",
+      "title": "Expressing a complex number as r(cos θ + i sin θ), where r is the modulus and θ is the argument.",
+      "broader_concept": "Complex Numbers",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "15bfa1a0-5ac3-4da9-86a1-8bf59235cdb8",
+      "label": "Products and Quotients in Polar Form",
+      "group": "Algebra",
+      "title": "Multiplying or dividing complex numbers in polar form by multiplying/dividing moduli and adding/subtracting arguments.",
+      "broader_concept": "Polar Form of a Complex Number",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "d02fd0a9-9ae5-447b-84a4-c5698fdf9513",
+      "label": "De Moivre's Theorem",
+      "group": "Algebra",
+      "title": "For any real θ and integer n, (cos θ + i sin θ)^n = cos(nθ) + i sin(nθ).",
+      "broader_concept": "Complex Numbers",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "b35ecfce-37e0-4ea1-8e38-719a51eabdc0",
+      "label": "Roots of Complex Numbers",
+      "group": "Algebra",
+      "title": "Finding the nth roots of a complex number using polar form and De Moivre's theorem.",
+      "broader_concept": "Complex Numbers",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "4ea3dbdf-522d-49f1-8f2c-d77b706e2b11",
+      "label": "Enlargements (Geometry)",
+      "group": "Geometry",
+      "title": "Transforming a shape by increasing or decreasing its size from a center of enlargement by a scale factor.",
+      "broader_concept": "Transformations",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "935e0e4b-3bb0-4014-ba84-f7bcafc846cd",
+      "label": "Scale Factor",
+      "group": "Geometry",
+      "title": "The ratio of the lengths of the image to the original figure in an enlargement.",
+      "broader_concept": "Enlargements (Geometry)",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "4b39a047-4ae6-43ea-86a7-6be83723782c",
+      "label": "Area and Volume under Enlargement",
+      "group": "Geometry",
+      "title": "The area of an enlarged figure is k^2 times the original area; the volume is k^3 times the original volume, where k is the scale factor.",
+      "broader_concept": "Enlargements (Geometry)",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "256c3110-5d7a-42fa-8082-176cf7ac251d",
+      "label": "Constructions (Geometry)",
+      "group": "Geometry",
+      "title": "Drawing geometric figures using only a compass, straightedge, and sometimes a protractor.",
+      "broader_concept": "Geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "25fcc82f-4704-418d-adfe-21fbdb290c0f",
+      "label": "Circumcircle and Circumcentre",
+      "group": "Geometry",
+      "title": "The circle passing through all vertices of a triangle and its center.",
+      "broader_concept": "Constructions (Geometry)",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "5054cc4e-fd56-45aa-a795-30501bcbcfaf",
+      "label": "Incircle and Incentre",
+      "group": "Geometry",
+      "title": "The circle inscribed in a triangle touching all sides, and its center.",
+      "broader_concept": "Constructions (Geometry)",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "87f0b28b-8f7a-46cb-8bde-bfd5aa190497",
+      "label": "Centroid of a Triangle",
+      "group": "Geometry",
+      "title": "The point of intersection of the medians of a triangle.",
+      "broader_concept": "Constructions (Geometry)",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "be1e9232-3774-43e6-b000-75f00ddac45c",
+      "label": "Orthocentre of a Triangle",
+      "group": "Geometry",
+      "title": "The point of intersection of the altitudes of a triangle.",
+      "broader_concept": "Constructions (Geometry)",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "41e6e5cb-aeb7-41c4-97db-7a2cf5be7fef",
+      "label": "Antidifferentiation",
+      "group": "Calculus",
+      "title": "The process of finding a function whose derivative is a given function; also called integration.",
+      "broader_concept": "Calculus",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "f92fae4d-9d8c-4574-a9ec-e70aad3b0317",
+      "label": "Integration",
+      "group": "Calculus",
+      "title": "Finding the antiderivative or area under a curve.",
+      "broader_concept": "Calculus",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "4f5334d8-d9db-46c2-8d69-2d0c70e0e82d",
+      "label": "Function as a special type of relationship",
+      "group": "Algebra",
+      "title": "A function assigns a unique output to each input in its domain.",
+      "broader_concept": "Functions",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "cfdac6ff-aaea-4589-9040-6add89effbad",
+      "label": "Graphing linear functions",
+      "group": "Algebra",
+      "title": "Representing functions of the form ax+b graphically, where a and b are rational numbers.",
+      "broader_concept": "Functions",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "61ed5581-5944-4de6-9d01-02daa966d31e",
+      "label": "Composite functions",
+      "group": "Algebra",
+      "title": "Forming new functions by combining two or more functions such that the output of one becomes the input of another.",
+      "broader_concept": "Functions",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "35eb74f6-79e5-4a5c-9dee-905feb662d4f",
+      "label": "Graphing quadratic functions",
+      "group": "Algebra",
+      "title": "Plotting functions of the form ax^2+bx+c where a, b, c are integers or rationals.",
+      "broader_concept": "Functions",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "816f9d69-c575-4745-96f0-04892b918324",
+      "label": "Graphing cubic functions",
+      "group": "Algebra",
+      "title": "Plotting functions of the form ax^3+bx^2+cx+d where a, b, c, d are integers.",
+      "broader_concept": "Functions",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "35208a88-2850-4f49-8fd9-db2e544d4d5d",
+      "label": "Graphing exponential functions",
+      "group": "Algebra",
+      "title": "Plotting functions of the form ab^x where a is a natural number and b and x are real numbers.",
+      "broader_concept": "Functions",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "adff6614-d02d-456f-9233-82b7b7864a91",
+      "label": "Comparing functions graphically",
+      "group": "Algebra",
+      "title": "Interpreting equations of the form f(x) = g(x) as a comparison between two functions.",
+      "broader_concept": "Functions",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "3965f741-1608-40bd-9d84-092ffb28a468",
+      "label": "Solving equations graphically",
+      "group": "Algebra",
+      "title": "Using graphs to find approximate solutions to equations such as f(x) = 0, f(x) = k, and f(x) = g(x).",
+      "broader_concept": "Functions",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "f18f4be9-89bc-4f14-8447-1d7477540ad1",
+      "label": "Limit of a function",
+      "group": "Calculus",
+      "title": "Investigating the concept of the limit, which describes the value a function approaches as the input approaches a certain point.",
+      "broader_concept": "Calculus",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "b9872a87-15c3-4129-9356-8a9fb3f724fd",
+      "label": "Surjective, injective, and bijective functions",
+      "group": "Algebra",
+      "title": "Recognizing and distinguishing between functions that are surjective (onto), injective (one-to-one), and bijective (both).",
+      "broader_concept": "Functions",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "240eead0-335e-402d-9017-ad78f6d92024",
+      "label": "Inverse of a bijective function",
+      "group": "Algebra",
+      "title": "Finding the inverse function for a bijective function and sketching its graph.",
+      "broader_concept": "Functions",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "1114829d-3d6a-4e3e-88f6-4bec0ff76851",
+      "label": "Quadratic functions in complete square form",
+      "group": "Algebra",
+      "title": "Expressing quadratic functions in the form a(x-h)^2+k to facilitate finding roots and turning points.",
+      "broader_concept": "Quadratic Functions",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "a37f2db8-fbd9-483c-ae6c-b4cda7e33d39",
+      "label": "Sketching quadratic functions using complete square form",
+      "group": "Algebra",
+      "title": "Using the complete square form to sketch the graph and identify key features such as roots and turning points.",
+      "broader_concept": "Quadratic Functions",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "0ede4dd3-21e3-431d-a6a8-ba06802801bc",
+      "label": "Graphing logarithmic functions",
+      "group": "Algebra",
+      "title": "Plotting functions involving logarithms.",
+      "broader_concept": "Functions",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "e6962d34-afc4-43d1-bae3-e8dd992e1ce9",
+      "label": "Graphing trigonometric functions",
+      "group": "Algebra",
+      "title": "Plotting functions involving sine, cosine, and other trigonometric expressions.",
+      "broader_concept": "Functions",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "cbee3c2a-0c13-4689-ab48-588133536fbe",
+      "label": "Limits and continuity of functions",
+      "group": "Calculus",
+      "title": "Exploring the informal concepts of limits and continuity in functions.",
+      "broader_concept": "Calculus",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "d9df0797-4f13-431a-b58f-441f2c69cd77",
+      "label": "First and second derivatives",
+      "group": "Calculus",
+      "title": "Finding the first and second derivatives of linear, quadratic, and cubic functions using rules.",
+      "broader_concept": "Differentiation",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "d167c4d7-6685-475a-9bcc-f626edca1a01",
+      "label": "Differentiation from first principles",
+      "group": "Calculus",
+      "title": "Differentiating linear and quadratic functions using the definition of the derivative.",
+      "broader_concept": "Differentiation",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "3dc951df-ba4a-448e-8b93-29462ece556e",
+      "label": "Differentiation of polynomial, exponential, trigonometric, rational power, inverse, and logarithmic functions",
+      "group": "Calculus",
+      "title": "Applying differentiation rules to a variety of function types.",
+      "broader_concept": "Differentiation",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "31079bbd-c314-4b3a-9a79-fa5de392507b",
+      "label": "Product, quotient, and chain rules for differentiation",
+      "group": "Calculus",
+      "title": "Finding derivatives of sums, differences, products, quotients, and compositions of functions.",
+      "broader_concept": "Differentiation",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "86838664-2d53-459e-a43e-8718cbeb569c",
+      "label": "Applications of differentiation",
+      "group": "Calculus",
+      "title": "Using derivatives to solve problems involving rates of change, maxima and minima, and curve sketching.",
+      "broader_concept": "Calculus",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "a82942ea-97b1-4351-a7d0-066c29f9b379",
+      "label": "Slope of a tangent to a circle",
+      "group": "Calculus",
+      "title": "Using differentiation to find the slope of a tangent line to a circle at a given point.",
+      "broader_concept": "Differentiation",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "c12cc7a4-740d-42c8-b02f-8d53c91b6f70",
+      "label": "Integration as the reverse process of differentiation",
+      "group": "Calculus",
+      "title": "Recognizing integration as the inverse operation to differentiation.",
+      "broader_concept": "Integration",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "6ed64a60-7f49-4024-a321-e38871ded217",
+      "label": "Average value of a function over an interval",
+      "group": "Calculus",
+      "title": "Using integration to find the mean value of a function on a given interval.",
+      "broader_concept": "Integration",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "7b5de3ac-8ce3-4db0-87f5-bc60d96567ff",
+      "label": "Integration of sums, differences, and constant multiples",
+      "group": "Calculus",
+      "title": "Integrating combinations of functions such as xa, ax, sin(ax), and cos(ax).",
+      "broader_concept": "Integration",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "e328ec93-bfe8-4b60-98ca-ab2a35c514dc",
+      "label": "Area under curves",
+      "group": "Calculus",
+      "title": "Determining areas of plane regions bounded by polynomial and exponential curves using integration.",
+      "broader_concept": "Integration",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    }
+  ],
+  "edges": [
+    {
+      "from": "e0381fdd-cb70-4d5f-8c01-040c0e673f4e",
+      "to": "952fce16-9266-46f4-a3d2-a69eef43d824",
+      "strength": 1.0
+    },
+    {
+      "from": "e0381fdd-cb70-4d5f-8c01-040c0e673f4e",
+      "to": "efcf5d86-a72a-4cfe-9b55-021b0a291a92",
+      "strength": 1.0
+    },
+    {
+      "from": "e0381fdd-cb70-4d5f-8c01-040c0e673f4e",
+      "to": "d7d3b60e-14de-45b2-aa71-eaba596d4e02",
+      "strength": 1.0
+    },
+    {
+      "from": "e0381fdd-cb70-4d5f-8c01-040c0e673f4e",
+      "to": "d961255b-d4bd-4af6-82cf-cb8296a10b18",
+      "strength": 1.0
+    },
+    {
+      "from": "bf24e886-078a-4aa1-bcd1-5145a7755e9c",
+      "to": "952fce16-9266-46f4-a3d2-a69eef43d824",
+      "strength": 1.0
+    },
+    {
+      "from": "1d92d2ca-14db-4de5-88ec-cee846f64cab",
+      "to": "952fce16-9266-46f4-a3d2-a69eef43d824",
+      "strength": 0.8
+    },
+    {
+      "from": "88fede97-70aa-46e9-af45-7cd4b802f1a7",
+      "to": "efcf5d86-a72a-4cfe-9b55-021b0a291a92",
+      "strength": 1.0
+    },
+    {
+      "from": "51641a8d-fb29-4fc4-b1ad-6a3217895908",
+      "to": "efcf5d86-a72a-4cfe-9b55-021b0a291a92",
+      "strength": 0.8
+    },
+    {
+      "from": "bf24e886-078a-4aa1-bcd1-5145a7755e9c",
+      "to": "1d92d2ca-14db-4de5-88ec-cee846f64cab",
+      "strength": 0.8
+    },
+    {
+      "from": "88fede97-70aa-46e9-af45-7cd4b802f1a7",
+      "to": "51641a8d-fb29-4fc4-b1ad-6a3217895908",
+      "strength": 0.8
+    },
+    {
+      "from": "bf24e886-078a-4aa1-bcd1-5145a7755e9c",
+      "to": "851e99a6-442b-4938-9818-ec86c1b104da",
+      "strength": 0.8
+    },
+    {
+      "from": "88fede97-70aa-46e9-af45-7cd4b802f1a7",
+      "to": "851e99a6-442b-4938-9818-ec86c1b104da",
+      "strength": 0.8
+    },
+    {
+      "from": "1d92d2ca-14db-4de5-88ec-cee846f64cab",
+      "to": "11fabd3d-ac30-4022-a554-7b863ba735c2",
+      "strength": 0.8
+    },
+    {
+      "from": "51641a8d-fb29-4fc4-b1ad-6a3217895908",
+      "to": "11fabd3d-ac30-4022-a554-7b863ba735c2",
+      "strength": 0.8
+    },
+    {
+      "from": "851e99a6-442b-4938-9818-ec86c1b104da",
+      "to": "9983168d-533f-4384-8345-010d1c73a33f",
+      "strength": 1.0
+    },
+    {
+      "from": "efcf5d86-a72a-4cfe-9b55-021b0a291a92",
+      "to": "79eead74-c6b8-48a7-a208-5e6caf4f287e",
+      "strength": 0.8
+    },
+    {
+      "from": "952fce16-9266-46f4-a3d2-a69eef43d824",
+      "to": "79eead74-c6b8-48a7-a208-5e6caf4f287e",
+      "strength": 0.8
+    },
+    {
+      "from": "9983168d-533f-4384-8345-010d1c73a33f",
+      "to": "79eead74-c6b8-48a7-a208-5e6caf4f287e",
+      "strength": 0.8
+    },
+    {
+      "from": "952fce16-9266-46f4-a3d2-a69eef43d824",
+      "to": "d7d3b60e-14de-45b2-aa71-eaba596d4e02",
+      "strength": 1.0
+    },
+    {
+      "from": "952fce16-9266-46f4-a3d2-a69eef43d824",
+      "to": "d961255b-d4bd-4af6-82cf-cb8296a10b18",
+      "strength": 1.0
+    },
+    {
+      "from": "bf24e886-078a-4aa1-bcd1-5145a7755e9c",
+      "to": "c0695bce-f5b0-4f08-a076-62fb4144675d",
+      "strength": 0.8
+    },
+    {
+      "from": "1d92d2ca-14db-4de5-88ec-cee846f64cab",
+      "to": "c0695bce-f5b0-4f08-a076-62fb4144675d",
+      "strength": 0.8
+    },
+    {
+      "from": "88fede97-70aa-46e9-af45-7cd4b802f1a7",
+      "to": "c0695bce-f5b0-4f08-a076-62fb4144675d",
+      "strength": 0.8
+    },
+    {
+      "from": "51641a8d-fb29-4fc4-b1ad-6a3217895908",
+      "to": "c0695bce-f5b0-4f08-a076-62fb4144675d",
+      "strength": 0.8
+    },
+    {
+      "from": "c0695bce-f5b0-4f08-a076-62fb4144675d",
+      "to": "2dfd1d00-7b73-4257-a3d4-ee2eb3e75ff8",
+      "strength": 1.0
+    },
+    {
+      "from": "ea740de7-c77d-440e-977b-82551c57aaed",
+      "to": "2299cee2-d598-47ab-b176-28ae555a5514",
+      "strength": 0.7
+    },
+    {
+      "from": "64c71e88-a4a8-43a6-a076-b48a7d11b905",
+      "to": "f8a0cc2e-6fca-434c-9923-da164e81528f",
+      "strength": 0.9
+    },
+    {
+      "from": "64c71e88-a4a8-43a6-a076-b48a7d11b905",
+      "to": "560c3a52-bcfa-4dcd-8628-184d6b5f6224",
+      "strength": 0.7
+    },
+    {
+      "from": "560c3a52-bcfa-4dcd-8628-184d6b5f6224",
+      "to": "fa324e98-3a7c-4ebb-9ae4-4fdb748e9eeb",
+      "strength": 0.9
+    },
+    {
+      "from": "560c3a52-bcfa-4dcd-8628-184d6b5f6224",
+      "to": "9cdb3c2a-5a95-43c6-abaf-ecfdf4c22205",
+      "strength": 1.0
+    },
+    {
+      "from": "560c3a52-bcfa-4dcd-8628-184d6b5f6224",
+      "to": "48f9a7ac-ec2b-4c3b-850f-61ab210d3488",
+      "strength": 1.0
+    },
+    {
+      "from": "560c3a52-bcfa-4dcd-8628-184d6b5f6224",
+      "to": "44507b00-e3b6-47c0-a0bd-63d64f4404fd",
+      "strength": 1.0
+    },
+    {
+      "from": "560c3a52-bcfa-4dcd-8628-184d6b5f6224",
+      "to": "c9465dcc-eaeb-4b76-b5bb-025c5aec0ed8",
+      "strength": 0.9
+    },
+    {
+      "from": "560c3a52-bcfa-4dcd-8628-184d6b5f6224",
+      "to": "5b9b9842-a7d5-4dfd-b352-08fad06a8105",
+      "strength": 0.9
+    },
+    {
+      "from": "560c3a52-bcfa-4dcd-8628-184d6b5f6224",
+      "to": "15cda482-a1d0-48ce-8e3a-6a9d0b1ebdae",
+      "strength": 0.9
+    },
+    {
+      "from": "560c3a52-bcfa-4dcd-8628-184d6b5f6224",
+      "to": "873db471-0671-42eb-8147-216e2cf47ce9",
+      "strength": 0.9
+    },
+    {
+      "from": "560c3a52-bcfa-4dcd-8628-184d6b5f6224",
+      "to": "e239e1c3-09d3-4b5c-a6e0-07ecf3aa4007",
+      "strength": 0.8
+    },
+    {
+      "from": "560c3a52-bcfa-4dcd-8628-184d6b5f6224",
+      "to": "0812d91b-8450-4003-adc2-b8597fc8382f",
+      "strength": 0.9
+    },
+    {
+      "from": "0812d91b-8450-4003-adc2-b8597fc8382f",
+      "to": "15bfa1a0-5ac3-4da9-86a1-8bf59235cdb8",
+      "strength": 1.0
+    },
+    {
+      "from": "0812d91b-8450-4003-adc2-b8597fc8382f",
+      "to": "d02fd0a9-9ae5-447b-84a4-c5698fdf9513",
+      "strength": 0.9
+    },
+    {
+      "from": "d02fd0a9-9ae5-447b-84a4-c5698fdf9513",
+      "to": "b35ecfce-37e0-4ea1-8e38-719a51eabdc0",
+      "strength": 1.0
+    },
+    {
+      "from": "560c3a52-bcfa-4dcd-8628-184d6b5f6224",
+      "to": "66e36f6d-a151-4d44-9fb6-3fe1af253cce",
+      "strength": 0.8
+    },
+    {
+      "from": "4ea3dbdf-522d-49f1-8f2c-d77b706e2b11",
+      "to": "935e0e4b-3bb0-4014-ba84-f7bcafc846cd",
+      "strength": 1.0
+    },
+    {
+      "from": "935e0e4b-3bb0-4014-ba84-f7bcafc846cd",
+      "to": "4b39a047-4ae6-43ea-86a7-6be83723782c",
+      "strength": 1.0
+    },
+    {
+      "from": "4ea3dbdf-522d-49f1-8f2c-d77b706e2b11",
+      "to": "4b39a047-4ae6-43ea-86a7-6be83723782c",
+      "strength": 0.8
+    },
+    {
+      "from": "256c3110-5d7a-42fa-8082-176cf7ac251d",
+      "to": "25fcc82f-4704-418d-adfe-21fbdb290c0f",
+      "strength": 0.8
+    },
+    {
+      "from": "256c3110-5d7a-42fa-8082-176cf7ac251d",
+      "to": "5054cc4e-fd56-45aa-a795-30501bcbcfaf",
+      "strength": 0.8
+    },
+    {
+      "from": "256c3110-5d7a-42fa-8082-176cf7ac251d",
+      "to": "87f0b28b-8f7a-46cb-8bde-bfd5aa190497",
+      "strength": 0.8
+    },
+    {
+      "from": "256c3110-5d7a-42fa-8082-176cf7ac251d",
+      "to": "be1e9232-3774-43e6-b000-75f00ddac45c",
+      "strength": 0.8
+    },
+    {
+      "from": "41e6e5cb-aeb7-41c4-97db-7a2cf5be7fef",
+      "to": "f92fae4d-9d8c-4574-a9ec-e70aad3b0317",
+      "strength": 1.0
+    },
+    {
+      "from": "4f5334d8-d9db-46c2-8d69-2d0c70e0e82d",
+      "to": "cfdac6ff-aaea-4589-9040-6add89effbad",
+      "strength": 0.9
+    },
+    {
+      "from": "4f5334d8-d9db-46c2-8d69-2d0c70e0e82d",
+      "to": "61ed5581-5944-4de6-9d01-02daa966d31e",
+      "strength": 0.9
+    },
+    {
+      "from": "4f5334d8-d9db-46c2-8d69-2d0c70e0e82d",
+      "to": "b9872a87-15c3-4129-9356-8a9fb3f724fd",
+      "strength": 1.0
+    },
+    {
+      "from": "4f5334d8-d9db-46c2-8d69-2d0c70e0e82d",
+      "to": "240eead0-335e-402d-9017-ad78f6d92024",
+      "strength": 1.0
+    },
+    {
+      "from": "cfdac6ff-aaea-4589-9040-6add89effbad",
+      "to": "35eb74f6-79e5-4a5c-9dee-905feb662d4f",
+      "strength": 0.8
+    },
+    {
+      "from": "35eb74f6-79e5-4a5c-9dee-905feb662d4f",
+      "to": "816f9d69-c575-4745-96f0-04892b918324",
+      "strength": 0.8
+    },
+    {
+      "from": "cfdac6ff-aaea-4589-9040-6add89effbad",
+      "to": "adff6614-d02d-456f-9233-82b7b7864a91",
+      "strength": 0.7
+    },
+    {
+      "from": "35eb74f6-79e5-4a5c-9dee-905feb662d4f",
+      "to": "adff6614-d02d-456f-9233-82b7b7864a91",
+      "strength": 0.7
+    },
+    {
+      "from": "816f9d69-c575-4745-96f0-04892b918324",
+      "to": "adff6614-d02d-456f-9233-82b7b7864a91",
+      "strength": 0.7
+    },
+    {
+      "from": "adff6614-d02d-456f-9233-82b7b7864a91",
+      "to": "3965f741-1608-40bd-9d84-092ffb28a468",
+      "strength": 0.9
+    },
+    {
+      "from": "61ed5581-5944-4de6-9d01-02daa966d31e",
+      "to": "31079bbd-c314-4b3a-9a79-fa5de392507b",
+      "strength": 1.0
+    },
+    {
+      "from": "b9872a87-15c3-4129-9356-8a9fb3f724fd",
+      "to": "240eead0-335e-402d-9017-ad78f6d92024",
+      "strength": 1.0
+    },
+    {
+      "from": "35eb74f6-79e5-4a5c-9dee-905feb662d4f",
+      "to": "1114829d-3d6a-4e3e-88f6-4bec0ff76851",
+      "strength": 0.8
+    },
+    {
+      "from": "1114829d-3d6a-4e3e-88f6-4bec0ff76851",
+      "to": "a37f2db8-fbd9-483c-ae6c-b4cda7e33d39",
+      "strength": 1.0
+    },
+    {
+      "from": "35208a88-2850-4f49-8fd9-db2e544d4d5d",
+      "to": "0ede4dd3-21e3-431d-a6a8-ba06802801bc",
+      "strength": 0.7
+    },
+    {
+      "from": "cfdac6ff-aaea-4589-9040-6add89effbad",
+      "to": "35208a88-2850-4f49-8fd9-db2e544d4d5d",
+      "strength": 0.6
+    },
+    {
+      "from": "cfdac6ff-aaea-4589-9040-6add89effbad",
+      "to": "e6962d34-afc4-43d1-bae3-e8dd992e1ce9",
+      "strength": 0.6
+    },
+    {
+      "from": "4f5334d8-d9db-46c2-8d69-2d0c70e0e82d",
+      "to": "f18f4be9-89bc-4f14-8447-1d7477540ad1",
+      "strength": 0.8
+    },
+    {
+      "from": "f18f4be9-89bc-4f14-8447-1d7477540ad1",
+      "to": "cbee3c2a-0c13-4689-ab48-588133536fbe",
+      "strength": 1.0
+    },
+    {
+      "from": "cbee3c2a-0c13-4689-ab48-588133536fbe",
+      "to": "d9df0797-4f13-431a-b58f-441f2c69cd77",
+      "strength": 1.0
+    },
+    {
+      "from": "d9df0797-4f13-431a-b58f-441f2c69cd77",
+      "to": "d167c4d7-6685-475a-9bcc-f626edca1a01",
+      "strength": 0.7
+    },
+    {
+      "from": "d9df0797-4f13-431a-b58f-441f2c69cd77",
+      "to": "3dc951df-ba4a-448e-8b93-29462ece556e",
+      "strength": 1.0
+    },
+    {
+      "from": "3dc951df-ba4a-448e-8b93-29462ece556e",
+      "to": "31079bbd-c314-4b3a-9a79-fa5de392507b",
+      "strength": 1.0
+    },
+    {
+      "from": "31079bbd-c314-4b3a-9a79-fa5de392507b",
+      "to": "86838664-2d53-459e-a43e-8718cbeb569c",
+      "strength": 1.0
+    },
+    {
+      "from": "d9df0797-4f13-431a-b58f-441f2c69cd77",
+      "to": "a82942ea-97b1-4351-a7d0-066c29f9b379",
+      "strength": 0.8
+    },
+    {
+      "from": "d9df0797-4f13-431a-b58f-441f2c69cd77",
+      "to": "c12cc7a4-740d-42c8-b02f-8d53c91b6f70",
+      "strength": 0.8
+    },
+    {
+      "from": "c12cc7a4-740d-42c8-b02f-8d53c91b6f70",
+      "to": "6ed64a60-7f49-4024-a321-e38871ded217",
+      "strength": 0.8
+    },
+    {
+      "from": "c12cc7a4-740d-42c8-b02f-8d53c91b6f70",
+      "to": "7b5de3ac-8ce3-4db0-87f5-bc60d96567ff",
+      "strength": 1.0
+    },
+    {
+      "from": "7b5de3ac-8ce3-4db0-87f5-bc60d96567ff",
+      "to": "e328ec93-bfe8-4b60-98ca-ab2a35c514dc",
+      "strength": 1.0
+    }
+  ]
+}

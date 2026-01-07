@@ -1,0 +1,165 @@
+{
+  "nodes": [
+    {
+      "id": "18ab40dd-de60-4247-80ae-8ae910fecedb",
+      "label": "Pythagorean Identity",
+      "group": "Trigonometry",
+      "title": "The fundamental trigonometric identity: cos²A + sin²A = 1.",
+      "broader_concept": "Trigonometric Identities",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "caa3bce6-c547-4438-a1ae-cadc6f22fb16",
+      "label": "Sine Rule",
+      "group": "Trigonometry",
+      "title": "Relates the sides and angles in any triangle: a/sinA = b/sinB = c/sinC.",
+      "broader_concept": "Trigonometric Laws",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "66779e6d-6d69-4d79-acc5-65a2220cadf9",
+      "label": "Cosine Rule",
+      "group": "Trigonometry",
+      "title": "Relates the lengths of sides of a triangle to the cosine of one of its angles: a² = b² + c² – 2bc cosA.",
+      "broader_concept": "Trigonometric Laws",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "9c502bff-f6ca-4f6e-a8b7-8cf19a124efa",
+      "label": "Cosine of Sum and Difference",
+      "group": "Trigonometry",
+      "title": "Formulas for cos(A+B) and cos(A–B): cos(A+B) = cosA cosB – sinA sinB; cos(A–B) = cosA cosB + sinA sinB.",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "7d829fcc-5a6b-491f-ac30-6095b230b71d",
+      "label": "Sine of Sum and Difference",
+      "group": "Trigonometry",
+      "title": "Formulas for sin(A+B) and sin(A–B): sin(A+B) = sinA cosB + cosA sinB; sin(A–B) = sinA cosB – cosA sinB.",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "fe0d688c-c7c8-4316-9a85-3859d14c59b3",
+      "label": "Double Angle Formulas",
+      "group": "Trigonometry",
+      "title": "Formulas for trigonometric functions of double angles, e.g., sin2A = 2sinA cosA, cos2A = cos²A – sin²A.",
+      "broader_concept": "Trigonometric Identities",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "3ea375df-408a-4da6-a271-57d0ee98b136",
+      "label": "Tangent of Sum and Difference",
+      "group": "Trigonometry",
+      "title": "Formulas for tan(A+B) and tan(A–B): tan(A+B) = (tanA + tanB)/(1 – tanA tanB), tan(A–B) = (tanA – tanB)/(1 + tanA tanB).",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "847efd40-b606-409a-9ef8-014f35be96f0",
+      "label": "Double Angle Formula for Tangent",
+      "group": "Trigonometry",
+      "title": "Formula for tan2A: tan2A = 2tanA / (1 – tan²A).",
+      "broader_concept": "Double Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "541dd796-f80b-4e02-bc01-1257573b1ef0",
+      "label": "Power Reduction Formulas",
+      "group": "Trigonometry",
+      "title": "Formulas expressing sin²A and cos²A in terms of cos2A: sin²A = ½(1 – cos2A), cos²A = ½(1 + cos2A).",
+      "broader_concept": "Trigonometric Identities",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "eacbb26e-2293-4e51-af2d-7c83553c0f71",
+      "label": "Product-to-Sum Formulas",
+      "group": "Trigonometry",
+      "title": "Formulas converting products of sines and cosines into sums, e.g., 2cosA cosB = cos(A+B) + cos(A–B).",
+      "broader_concept": "Trigonometric Identities",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "408541fd-7937-49f5-8c4b-a219c0b507f9",
+      "label": "Sum-to-Product Formulas",
+      "group": "Trigonometry",
+      "title": "Formulas converting sums or differences of sines and cosines into products, e.g., cosA + cosB = 2cos[(A+B)/2]cos[(A–B)/2].",
+      "broader_concept": "Trigonometric Identities",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    }
+  ],
+  "edges": [
+    {
+      "from": "18ab40dd-de60-4247-80ae-8ae910fecedb",
+      "to": "fe0d688c-c7c8-4316-9a85-3859d14c59b3",
+      "strength": 0.9
+    },
+    {
+      "from": "18ab40dd-de60-4247-80ae-8ae910fecedb",
+      "to": "541dd796-f80b-4e02-bc01-1257573b1ef0",
+      "strength": 0.9
+    },
+    {
+      "from": "9c502bff-f6ca-4f6e-a8b7-8cf19a124efa",
+      "to": "fe0d688c-c7c8-4316-9a85-3859d14c59b3",
+      "strength": 0.9
+    },
+    {
+      "from": "7d829fcc-5a6b-491f-ac30-6095b230b71d",
+      "to": "fe0d688c-c7c8-4316-9a85-3859d14c59b3",
+      "strength": 0.9
+    },
+    {
+      "from": "fe0d688c-c7c8-4316-9a85-3859d14c59b3",
+      "to": "847efd40-b606-409a-9ef8-014f35be96f0",
+      "strength": 1.0
+    },
+    {
+      "from": "fe0d688c-c7c8-4316-9a85-3859d14c59b3",
+      "to": "541dd796-f80b-4e02-bc01-1257573b1ef0",
+      "strength": 0.8
+    },
+    {
+      "from": "9c502bff-f6ca-4f6e-a8b7-8cf19a124efa",
+      "to": "eacbb26e-2293-4e51-af2d-7c83553c0f71",
+      "strength": 0.8
+    },
+    {
+      "from": "7d829fcc-5a6b-491f-ac30-6095b230b71d",
+      "to": "eacbb26e-2293-4e51-af2d-7c83553c0f71",
+      "strength": 0.8
+    },
+    {
+      "from": "eacbb26e-2293-4e51-af2d-7c83553c0f71",
+      "to": "408541fd-7937-49f5-8c4b-a219c0b507f9",
+      "strength": 0.8
+    },
+    {
+      "from": "9c502bff-f6ca-4f6e-a8b7-8cf19a124efa",
+      "to": "3ea375df-408a-4da6-a271-57d0ee98b136",
+      "strength": 0.7
+    },
+    {
+      "from": "7d829fcc-5a6b-491f-ac30-6095b230b71d",
+      "to": "3ea375df-408a-4da6-a271-57d0ee98b136",
+      "strength": 0.7
+    },
+    {
+      "from": "caa3bce6-c547-4438-a1ae-cadc6f22fb16",
+      "to": "66779e6d-6d69-4d79-acc5-65a2220cadf9",
+      "strength": 0.6
+    }
+  ]
+}

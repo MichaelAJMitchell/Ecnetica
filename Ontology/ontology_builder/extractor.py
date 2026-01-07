@@ -1,0 +1,233 @@
+"""
+Concept Extractor - Handles LLM-based concept and relationship extraction
+
+This is the main orchestrator class that coordinates the entire extraction process.
+It manages the workflow: file processing → text chunking → LLM extraction → data management.
+This class acts as the central hub connecting all other components.
+"""
+
+import os
+from processor import FileProcessor
+from data_manager import DataManager
+from llm_client import LLMClient
+from chunker import TextChunker
+
+# Default config import (used if no config is passed)
+import config_physics as default_config
+
+class ConceptExtractor:
+    """
+    Main extraction engine that coordinates all components of the ontology building process.
+    
+    This class orchestrates:
+    1. File processing (converting various formats to text)
+    2. Text chunking (breaking large documents into manageable pieces)
+    3. LLM extraction (using AI to identify concepts and relationships)
+    4. Data management (storing and organizing extracted information)
+    """
+    
+    def __init__(self, chapters_per_chunk: int = 1, rows_per_chunk: int = 1, strands: list = None, config=None):
+        """Initialize extractor with configurable chunking parameters and config module."""
+        # Use provided config or fall back to default
+        self.config = config if config is not None else default_config
+        
+        self.file_processor = FileProcessor()
+        self.data_manager = DataManager()
+        self.llm_client = LLMClient()
+        # Use provided strands or fall back to config strands
+        self.chunker = TextChunker(chapters_per_chunk, rows_per_chunk, strands or self.config.STRANDS)
+    
+    def process_file(self, file_path: str, output_file: str):
+        """Process a single file."""
+
+        
+        print(f"Processing file: {file_path}")
+        
+        # Extract content and file type
+        content, file_type = self.file_processor.process_file(file_path)
+        print(f"Extracted content from {file_type} file")
+        
+        # Create chunks based on file type
+        chunks = self.chunker.create_chunks(content, file_type)
+        print(f"Split into {len(chunks)} chunks for processing")
+        
+        # Get existing data for context
+        existing_concepts = self.data_manager.get_concepts()
+        existing_relationships = self.data_manager.get_relationships()
+        
+        # Process each chunk
+        for i, chunk in enumerate(chunks):
+            print(f"Processing chunk {i+1}/{len(chunks)}")
+            
+            # Step 1: Extract concepts
+            new_concepts = self._extract_concepts(
+                chunk, existing_concepts, existing_relationships, file_path, i, len(chunks)
+            )
+            
+            # Step 2: Add concepts FIRST so they get IDs
+            if new_concepts:
+                self.data_manager.add_concepts(new_concepts)
+                existing_concepts = self.data_manager.get_concepts()  # Now includes concepts with IDs
+            # Step 3: Extract relationships AFTER concepts have IDs
+            new_relationships = self._extract_relationships(
+                chunk, new_concepts, existing_concepts, existing_relationships, file_path, i, len(chunks)
+            )
+            
+            # Add relationships (concepts already added above)
+            if new_relationships:
+                self.data_manager.add_relationships(new_relationships)
+                existing_relationships = self.data_manager.get_relationships()  # Update for next iteration
+        # Save incremental progress after each file
+        self.data_manager.save_to_json(output_file)
+        print(f"Processing complete for {file_path}")
+    
+    def process_directory(self, directory_path: str, output_file: str):
+        """Process all supported files in a directory."""
+        if not os.path.exists(directory_path):
+            raise FileNotFoundError(f"Directory not found: {directory_path}")
+        
+        # Archive existing data before starting new extraction
+        self.data_manager.archive_previous_data(output_file)
+        
+        supported_files = []
+        for root, dirs, files in os.walk(directory_path):
+            for file in files:
+                file_path = os.path.join(root, file)
+                if self.file_processor.is_supported(file_path):
+                    supported_files.append(file_path)
+        
+        print(f"Found {len(supported_files)} supported files to process")
+        
+        supported_files.sort()
+
+        for file_path in supported_files:
+            try:
+                # Load existing data from disk for context (first file loads empty or archived data, subsequent files load from previous saves)
+                self.data_manager.load_from_disk(output_file)
+                
+                # Process the file
+                self.process_file(file_path, output_file)
+                
+                # Clear memory after saving to prevent accumulation across files
+                self.data_manager.clear_memory()
+            except Exception as e:
+                print(f"Error processing {file_path}: {str(e)}")
+                continue
+        
+        print(f"All files processed. Final results in {output_file}")
+    
+    def _extract_concepts(self, chunk: str, existing_concepts: list, existing_relationships: list, 
+                         source: str, chunk_index: int, total_chunks: int) -> list:
+        """
+        Extract mathematical concepts from a text chunk.
+        
+        Args:
+            chunk: Text content to analyze
+            existing_concepts: Previously extracted concepts for context
+            existing_relationships: Previously extracted relationships for context
+            source: Source file name
+            chunk_index: Current chunk position
+            total_chunks: Total number of chunks
+            
+        Returns:
+            list: New concepts extracted from the chunk
+        """
+        # Build context for concept extraction
+        context = {
+            'existing_concepts': existing_concepts,           # Key - for deduplication
+            'existing_relationships': existing_relationships, # Key - for context
+            'source_file': source,                           # Key - for tracking
+            'chunk_position': f"{chunk_index + 1} of {total_chunks}",  # Key - for awareness
+            'existing_concepts_count': len(existing_concepts),
+            'existing_relationships_count': len(existing_relationships)
+        }
+        
+        return self.llm_client.extract_concepts(chunk, context, self.config.CONCEPT_EXTRACTION_PROMPT)
+    
+    def _extract_relationships(self, chunk: str, new_concepts: list, existing_concepts: list, 
+                             existing_relationships: list, source: str, chunk_index: int, 
+                             total_chunks: int) -> list:
+        """
+        Extract relationships between mathematical concepts.
+        
+        Args:
+            chunk: Text content to analyze
+            new_concepts: Concepts just extracted from this chunk
+            existing_concepts: All previously extracted concepts
+            existing_relationships: Previously extracted relationships
+            source: Source file name
+            chunk_index: Current chunk position
+            total_chunks: Total number of chunks
+            
+        Returns:
+            list: New relationships extracted from the chunk
+        """
+        # Build context for relationship extraction
+        # Only use existing concepts for ID mapping since new concepts don't have IDs yet
+        context = {
+            'new_concepts': new_concepts,                    # Key - for relationship building
+            'existing_concepts': existing_concepts,          # Key - for context
+            'existing_relationships': existing_relationships, # Key - for patterns
+            'source_file': source,                           # Key - for tracking
+            'chunk_position': f"{chunk_index + 1} of {total_chunks}", # Key - for awareness
+            'concept_hierarchy_hints': self._get_concept_hierarchy_hints(existing_concepts),
+            'prerequisite_patterns': self._get_prerequisite_patterns(existing_relationships),
+            'concept_ids': {concept['name']: concept['id'] for concept in existing_concepts + new_concepts if 'id' in concept},  # Include both existing and new concepts
+            'existing_concepts_count': len(existing_concepts),
+            'new_concepts_count': len(new_concepts),
+            'existing_relationships_count': len(existing_relationships)
+        }
+        
+        return self.llm_client.extract_relationships(chunk, new_concepts, context, self.config.RELATIONSHIP_EXTRACTION_PROMPT)
+    
+    def _verify_extraction(self, chunk: str, new_concepts: list, new_relationships: list,
+                          source: str, chunk_index: int, total_chunks: int) -> dict:
+        """
+        Verify the quality of extracted concepts and relationships.
+        
+        Args:
+            chunk: Original text content
+            new_concepts: Concepts to verify
+            new_relationships: Relationships to verify
+            source: Source file name
+            chunk_index: Current chunk position
+            total_chunks: Total number of chunks
+            
+        Returns:
+            dict: Verification results with validity flags
+        """
+        context = {
+            'new_concepts': new_concepts,                    # Key - for verification
+            'new_relationships': new_relationships,           # Key - for verification
+            'source_file': source,                           # Key - for tracking
+            'chunk_position': f"{chunk_index + 1} of {total_chunks}",  # Key - for awareness
+            'new_concepts_count': len(new_concepts),
+            'new_relationships_count': len(new_relationships)
+        }
+        
+        return self.llm_client.verify_extraction(context, self.config.VERIFICATION_PROMPT)
+    
+    def _get_concept_hierarchy_hints(self, concepts: list) -> dict:
+        """Extract hierarchy hints from existing concepts."""
+        hierarchy = {}
+        for concept in concepts:
+            strand = concept.get('strand', 'Unknown')
+            broader = concept.get('broader_concept', 'Unknown')
+            if strand not in hierarchy:
+                hierarchy[strand] = []
+            hierarchy[strand].append({
+                'name': concept['name'],
+                'broader_concept': broader
+            })
+        return hierarchy
+    
+    def _get_prerequisite_patterns(self, relationships: list) -> list:
+        """Extract common prerequisite patterns from existing relationships."""
+        patterns = []
+        for rel in relationships:
+            patterns.append({
+                'prerequisite': rel.get('prerequisite_concept_id', ''),
+                'dependent': rel.get('dependent_concept_id', ''),
+                'type': rel.get('relationship_type', 'prerequisite')
+            })
+        return patterns 

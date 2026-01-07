@@ -1,0 +1,282 @@
+Broader_Concept,Algebra,Calculus,Combinatorics,Differential Calculus,Financial Mathematics,Geometry,Mathematical Reasoning,Measurement,Number,Number Theory,Number and Operations,Probability,Probability and Statistics,Ratios and Proportional Relationships,Statistics,Statistics and Probability,Trigonometry
+Absolute Value,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Algebraic Evaluation,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Algebraic Expansion,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Algebraic Expressions,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Algebraic Factorization,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Algebraic Formulas,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Algebraic Identities,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Algebraic Manipulations,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Algebraic Modeling,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Algebraic Notation and Structure,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Algebraic Simplification,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Algebraic Techniques,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Amortization,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Angle Measurement,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Annuities,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0
+Antiderivatives,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Antiderivatives of Elementary Functions,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Antiderivatives of Trigonometric Functions,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Antidifferentiation,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Applications of Definite Integrals,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Applications of Integration,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Applications of Trigonometry,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Approximation and Error,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0
+Area Measurement,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0
+Arithmetic,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+Arithmetic Operations,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Arithmetic Procedures,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Arithmetic Properties,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Arithmetic Sequences,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Arithmetic Series,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Axiomatic Systems,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+Binomial Coefficients,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Bivariate Data Analysis,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0
+Calculus,0,0,0,10,0,0,0,0,0,0,0,0,0,0,0,0,0
+Categorical Data,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0
+Circle Geometry,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0
+Circle Measure,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+Combinations,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Combinatorics in Probability,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+Commercial Arithmetic,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,0
+Complex Equations,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Complex Number Representations,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Complex Numbers,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Complex Numbers (Polar Form),2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Computation Strategies,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0
+Conditional Probability,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0
+Coordinate Geometry,0,0,0,0,0,19,0,0,0,0,0,0,0,0,0,0,0
+Coordinate Graphing,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Correlation and Regression,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,0,0
+Counting Principles,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0
+Data Analysis,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0
+Data Collection,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0
+Data Interpretation,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Data Literacy,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+Data Management,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+Data Quality Assessment,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0
+Data Representation,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0
+Data Types,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+Data Visualization,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0
+Decision Theory,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+Depreciation Methods,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Depreciation Models,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Derivatives of Elementary Functions,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Derivatives of Trigonometric Functions,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Descriptive Statistics,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,0,0
+Differential Calculus,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Differential Calculus Applications,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Differentiation Rules,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Discrete Probability Distributions,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0
+Divisibility,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0
+Division Models,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+Enlargement (Dilation),0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0
+Equation Solving Strategies,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Equations,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Equations of Functions,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Estimation,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+Estimation and Approximation,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0
+Estimation and Measurement,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
+Estimation and Reasonableness,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0
+Exact Trigonometric Values,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Experimental Design,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0
+Experimental Probability,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+Exploratory Data Analysis,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0,0
+Exponential Functions,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Exponential Growth,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Exponential and Logarithmic Functions,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Exponentiation,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Exponents and Indices,0,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0
+Exponents and Powers,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Financial Mathematics,0,0,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0
+Frequentist Probability,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+Function Families,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Function Graphs,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Function Properties,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Function Representation,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Function Transformations,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Functional Relationships,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Functions,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Functions and Graphs,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Functions and Relations,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Fundamental Algebraic Concepts,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Geometric Constructions,0,0,0,0,0,12,0,0,0,0,0,0,0,0,0,0,0
+Geometric Enlargement (Dilation),0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0
+Geometric Nets,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0
+Geometric Sequences,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Geometric Series,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Geometric Series Applications,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Geometric Transformations,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0
+Graph Analysis,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Graph Interpretation,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Graphical Data Representation,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0,0
+Graphical Solution Methods,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Graphing Functions,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Graphing Linear Functions,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Higher-Order Derivatives,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Hypothesis Testing,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0
+Implicit Differentiation,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Implicit and Inverse Function Differentiation,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Inequalities in One Variable,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Inequality Notation,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Inequality Representation,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Integer Arithmetic,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0
+Integer Concepts,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0
+Integral Applications,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Integral Calculus,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Interest Rates,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Interest and Growth,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Introductory Probability Reasoning,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+Inverse Functions,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Irrational Numbers,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+Laws of Exponents,14,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Laws of Logarithms,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Limits,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Limits and Continuity,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Limits and Derivatives,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Linear Equations,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Linear Expressions,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Linear Functions,23,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Linear Inequalities in One Variable,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Linear Modeling,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Linear Relationships,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Logarithmic Functions,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Manipulation of Algebraic Equations,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Mathematical Modeling,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Mathematical Modeling with Inequalities,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Mathematical Modelling,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Mathematical Proof,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0
+Mathematical Reasoning,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Measurement Concepts,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+Measurement Conversions,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
+Measurement in Geometry,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0
+Measures of Central Tendency,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0
+Measures of Variability,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0
+Mensuration,0,0,0,0,0,27,0,0,0,0,0,0,0,0,0,0,0
+Mental Mathematics,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Modeling and Reasoning,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Modular Arithmetic,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+Multiple Representations of Functions,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Multiplication Models,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+Multiplication and Division Models,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+Nets of 3D Solids,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0
+Normal Distribution,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0
+Number Representation,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0
+Number Systems,0,0,0,0,0,0,0,0,1,0,3,0,0,0,0,0,0
+Number Theory,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+Numerical Approximation,0,0,0,0,0,1,0,0,2,0,0,0,0,0,0,0,0
+Numerical Communication,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+Numerical Data,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0
+Numerical Representations,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0
+Operation Relationships,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0
+Operations with Rational Numbers,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+Optimization,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Pattern Generalization,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Pattern Recognition,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Pattern Representation,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Patterns and Sequences,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Percentages,0,0,0,0,0,0,0,0,3,0,0,0,0,1,0,0,0
+Perimeter Measurement,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0
+Permutations,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Personal Finance Arithmetic,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0
+Polynomial Algebra,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Polynomial Division,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Polynomial Equations,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Polynomial Expansion,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Polynomial Expressions,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Polynomial Factorisation,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Polynomial Functions,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Polynomial Multiplication,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Polynomial Operations,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Prime and Composite Numbers,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+Probability,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+Probability Concepts,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0
+Probability Foundations,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0
+Probability Models,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0
+Probability Representations,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+Probability Rules,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0
+Probability in Games,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+Problem-Solving Strategies,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+Problem-Solving Strategies for Inequalities,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Problem-Solving Strategies in Algebra,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Proof Techniques,2,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+Proof and Reasoning,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0
+Properties of Inequalities,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Proportional Reasoning,0,0,0,0,0,0,0,0,1,0,0,0,0,2,0,0,0
+Proportional Relationships,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Propositional Logic,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0
+Pythagorean Theorem,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+Quadratic Equations,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Quadratic Expressions,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Quadratic Factorization,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Quadratic Functions,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Radical Expressions,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Random Variables,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+Random Variation,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+Rates and Proportional Relationships,0,0,0,0,0,0,0,1,2,0,0,0,0,0,0,0,0
+Rates and Proportionality,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Rational Expressions,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Rational Expressions Simplification,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Rational Functions,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Rational Number Applications,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+Rational Number Concepts,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0
+Rational Number Operations,0,0,0,0,0,0,0,0,1,0,2,0,0,0,0,0,0
+Rational Number Representation,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+Rational Numbers,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+Ratios,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+Real Number System,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0
+Recursive Sequences,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Research Ethics,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+Right Triangle Geometry,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+Right Triangle Trigonometry,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4
+Sample Space,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0
+Sample Space Representation,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+Sample Space and Events,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+Sample Spaces,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+Sample Spaces and Events,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+Sampling,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,0,0
+Sampling Distributions,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0
+Sampling Methods,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0
+Sampling Models,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0
+Sampling Principles,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+Sampling Variability,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+Sampling and Surveys,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0
+Sequence Limits,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Sequences,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Sequences and Patterns,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Sequences and Series,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Set Theory in Probability,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0
+Similarity,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+Similarity Transformations,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+Similarity and Scale,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0
+Solving Equations Numerically,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Solving Equations by Graphing,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Spatial Trigonometry,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Statistical Bias,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+Statistical Communication,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+Statistical Inference,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0
+Statistical Investigation,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0
+Statistical Literacy,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0
+Statistical Reasoning,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0
+Statistical Study Types,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0
+Strategic Competence in Algebra,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Study Evaluation,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+Surface Area of Solids,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0
+Symmetry,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+Systems of Linear Equations,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Systems of Nonlinear Equations,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Theoretical Probability,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,1,0
+Time Calculations,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0
+Time Value of Money,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0
+Transformation Geometry,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+Transformations,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+Triangle Trigonometry,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Trigonometric Applications,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Trigonometric Equations,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Trigonometric Functions,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3
+Trigonometric Identities,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Trigonometric Laws,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+Trigonometry,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5
+Types of Data,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0
+Units and Conversions,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0
+Volume of Solids,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0

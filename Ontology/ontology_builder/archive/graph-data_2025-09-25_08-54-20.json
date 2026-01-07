@@ -1,0 +1,522 @@
+{
+  "nodes": [
+    {
+      "id": "aaf66cfc-3d9c-4de1-ae67-28cb45097bcf",
+      "label": "Pythagorean Identity",
+      "group": "Trigonometry",
+      "title": "The fundamental trigonometric identity: cos²A + sin²A = 1.",
+      "broader_concept": "Trigonometric Identities",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "2dca1ee9-6064-4efb-8f39-61ecd2769743",
+      "label": "Sine Rule",
+      "group": "Trigonometry",
+      "title": "A formula relating the sides and angles of a triangle: a/sin A = b/sin B = c/sin C.",
+      "broader_concept": "Trigonometric Laws",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "e839c2a1-0a5a-45dd-b8f6-0f012cc0c549",
+      "label": "Cosine Rule",
+      "group": "Trigonometry",
+      "title": "A formula relating the sides and angles of a triangle: a² = b² + c² – 2bc cos A.",
+      "broader_concept": "Trigonometric Laws",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "03b8e91e-a954-48a0-a5f6-76641d6de37d",
+      "label": "Cosine of Difference Formula",
+      "group": "Trigonometry",
+      "title": "Formula for cos(A–B): cos(A–B) = cos A cos B + sin A sin B.",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "b8bb633b-8046-4d11-bbdb-9690e4743fac",
+      "label": "Cosine of Sum Formula",
+      "group": "Trigonometry",
+      "title": "Formula for cos(A+B): cos(A+B) = cos A cos B – sin A sin B.",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "8934be1c-51b1-42f5-b02e-bd0f2faea149",
+      "label": "Double Angle Formula for Cosine",
+      "group": "Trigonometry",
+      "title": "Formula for cos 2A: cos 2A = cos²A – sin²A.",
+      "broader_concept": "Double Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "edd382c3-abe1-4f6c-bfba-e4c7e1bb895d",
+      "label": "Sine of Sum Formula",
+      "group": "Trigonometry",
+      "title": "Formula for sin(A+B): sin(A+B) = sin A cos B + cos A sin B.",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "a45cc3be-5862-4f72-bf25-e580a5c5fdb8",
+      "label": "Sine of Difference Formula",
+      "group": "Trigonometry",
+      "title": "Formula for sin(A–B): sin(A–B) = sin A cos B – cos A sin B.",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "7842b965-da0c-4405-b5e5-fad40b202d9a",
+      "label": "Tangent of Sum Formula",
+      "group": "Trigonometry",
+      "title": "Formula for tan(A+B): tan(A+B) = (tan A + tan B) / (1 – tan A tan B).",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "28dd163e-9bad-4ebd-a0f9-08ff0ade65bc",
+      "label": "Tangent of Difference Formula",
+      "group": "Trigonometry",
+      "title": "Formula for tan(A–B): tan(A–B) = (tan A – tan B) / (1 + tan A tan B).",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "39355404-003e-4bd4-95e8-5b91d1c64445",
+      "label": "Double Angle Formula for Sine",
+      "group": "Trigonometry",
+      "title": "Formula for sin 2A: sin 2A = 2 sin A cos A.",
+      "broader_concept": "Double Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "2e2a8438-27d2-4c68-84f5-1b90af494e6a",
+      "label": "Alternative Double Angle Formulas",
+      "group": "Trigonometry",
+      "title": "Alternative forms for sin 2A and cos 2A in terms of tan A.",
+      "broader_concept": "Double Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "a49f2011-6401-4580-a577-992db42288e8",
+      "label": "Double Angle Formula for Tangent",
+      "group": "Trigonometry",
+      "title": "Formula for tan 2A: tan 2A = 2 tan A / (1 – tan²A).",
+      "broader_concept": "Double Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "9aa1915e-8a33-4dc3-bf64-a51241bbe422",
+      "label": "Power-Reducing Formula for Cosine",
+      "group": "Trigonometry",
+      "title": "cos²A = ½ (1 + cos 2A), used to reduce powers of cosine.",
+      "broader_concept": "Power-Reducing Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "51a60e71-8422-45e4-9e7c-328a397e71dd",
+      "label": "Power-Reducing Formula for Sine",
+      "group": "Trigonometry",
+      "title": "sin²A = ½ (1 – cos 2A), used to reduce powers of sine.",
+      "broader_concept": "Power-Reducing Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "8ed4db1b-90ef-4fe4-a152-b6e928fd0602",
+      "label": "Product-to-Sum Formulas",
+      "group": "Trigonometry",
+      "title": "Formulas expressing products of sines and cosines as sums: e.g., 2 cos A cos B = cos(A+B) + cos(A–B).",
+      "broader_concept": "Product-to-Sum and Sum-to-Product Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "d9c1afcc-a00f-4719-8cd4-33b8323b3393",
+      "label": "Sum-to-Product Formulas",
+      "group": "Trigonometry",
+      "title": "Formulas expressing sums or differences of sines and cosines as products: e.g., cos A + cos B = 2 cos[(A+B)/2] cos[(A–B)/2].",
+      "broader_concept": "Product-to-Sum and Sum-to-Product Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "33ff0abe-86dd-4f8d-8b3c-d71c827c3635",
+      "label": "Trigonometric Formula Derivation Procedure",
+      "group": "Trigonometry",
+      "title": "The process of deriving trigonometric formulas using previously established identities.",
+      "broader_concept": "Mathematical Proof and Reasoning",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "1274a33b-8b79-4e08-afc1-ab4ccdc8661e",
+      "label": "Geometric Constructions",
+      "group": "Geometry",
+      "title": "The process of drawing geometric shapes, angles, and figures using only specific tools such as a straightedge and compass.",
+      "broader_concept": "Synthetic Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "4b50a7c9-dd41-4d99-a33d-09479dbf5030",
+      "label": "Dynamic Geometry Software",
+      "group": "Geometry",
+      "title": "Computer programs that allow users to construct and manipulate geometric figures dynamically.",
+      "broader_concept": "Synthetic Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "69040a13-9741-4fff-b65b-a6b6ff08e00e",
+      "label": "Precision Instruments in Geometry",
+      "group": "Geometry",
+      "title": "Use of tools such as straight edge, compass, ruler, protractor, and set square for accurate geometric constructions.",
+      "broader_concept": "Geometric Tools",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "105f08c7-188e-469d-8e00-e021558939fb",
+      "label": "Circle Construction",
+      "group": "Geometry",
+      "title": "Drawing a circle with a given radius using appropriate geometric tools.",
+      "broader_concept": "Geometric Constructions",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "179e772d-56b6-4f70-b917-e62f4c242b55",
+      "label": "Co-ordinate Plane",
+      "group": "Geometry",
+      "title": "A two-dimensional surface on which points are plotted using pairs of numbers (coordinates).",
+      "broader_concept": "Co-ordinate Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "d1772776-8271-42a3-8822-0c3643bcedd3",
+      "label": "Linear Relationships",
+      "group": "Algebra",
+      "title": "Relationships between two variables that form a straight line when graphed; includes understanding slope and y-intercept.",
+      "broader_concept": "Co-ordinate Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "0b6c1f49-f773-460d-8a1a-a58bbdb281ba",
+      "label": "Slope",
+      "group": "Algebra",
+      "title": "A measure of the steepness of a line, equivalent to the rate of change in a linear relationship.",
+      "broader_concept": "Linear Relationships",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "5166251f-6f1e-40a6-ade8-7fda9d6b7adf",
+      "label": "Point of Intersection",
+      "group": "Geometry",
+      "title": "The point where two lines or curves meet on a graph.",
+      "broader_concept": "Co-ordinate Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "25853659-11cb-473e-8331-d344019edb1f",
+      "label": "Right-Angled Triangles",
+      "group": "Geometry",
+      "title": "Triangles with one angle measuring 90 degrees, fundamental for trigonometry and Pythagoras' theorem.",
+      "broader_concept": "Triangles",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "2230f043-e2fa-44e8-ad42-e02115906ed2",
+      "label": "Trigonometric Ratios",
+      "group": "Trigonometry",
+      "title": "Ratios of the sides of a right-angled triangle: sine, cosine, and tangent.",
+      "broader_concept": "Trigonometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1cccf6b0-8f5c-44b0-a3b4-140ffb948801",
+      "label": "Theorem of Pythagoras",
+      "group": "Geometry",
+      "title": "A theorem stating that in a right-angled triangle, the square of the hypotenuse equals the sum of the squares of the other two sides.",
+      "broader_concept": "Right-Angled Triangles",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "4b30f2cf-8edf-4e77-92f1-95295a2df61b",
+      "label": "Translations",
+      "group": "Geometry",
+      "title": "A type of geometric transformation that slides a figure from one position to another without turning it.",
+      "broader_concept": "Transformation Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "e149d5b5-a0bd-4b5f-901e-2262e95a8b2a",
+      "label": "Central Symmetry",
+      "group": "Geometry",
+      "title": "A transformation where each point of a figure is mapped to another point directly opposite to a central point.",
+      "broader_concept": "Transformation Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "39648a46-8158-4b17-9593-599195c7217f",
+      "label": "Axial Symmetry",
+      "group": "Geometry",
+      "title": "A transformation producing a mirror image of a figure across a line (axis of symmetry).",
+      "broader_concept": "Transformation Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "670e0c8a-50c8-403c-ad10-6cb5502da20e",
+      "label": "Rotations",
+      "group": "Geometry",
+      "title": "A transformation that turns a figure about a fixed point through a specified angle and direction.",
+      "broader_concept": "Transformation Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "f78aa8f3-d112-4d53-aa7a-f53f7415ad80",
+      "label": "Enlargements",
+      "group": "Geometry",
+      "title": "A transformation that increases or decreases the size of a figure by a scale factor from a center of enlargement.",
+      "broader_concept": "Transformation Geometry",
+      "grade_level": "Middle_High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "d143eee8-9506-4697-aee9-dfcf7c233922",
+      "label": "Scale Factor",
+      "group": "Geometry",
+      "title": "A number which scales, or multiplies, some quantity; in geometry, used in enlargements and reductions.",
+      "broader_concept": "Enlargements",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "6d1d7981-f82a-4526-b28d-43a385ff03eb",
+      "label": "Logic and Deductive Reasoning in Geometry",
+      "group": "Geometry",
+      "title": "Use of logical terms and reasoning such as theorem, proof, axiom, corollary, converse, and proof by contradiction in geometric contexts.",
+      "broader_concept": "Mathematical Reasoning",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "a7612b9a-8d90-40d9-964e-4ecc492bdf31",
+      "label": "Geometric Theorems and Proofs",
+      "group": "Geometry",
+      "title": "Formal statements in geometry that are proven based on axioms and previously established theorems.",
+      "broader_concept": "Logic and Deductive Reasoning in Geometry",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "36cefec7-b547-4702-aed8-0b5481435e73",
+      "label": "Equation of a Line",
+      "group": "Algebra",
+      "title": "The general form ax + by + c = 0 representing a straight line in the coordinate plane.",
+      "broader_concept": "Co-ordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "2ab5f180-dc0c-4724-b6fe-1dac471d4fb5",
+      "label": "Parallel and Perpendicular Lines",
+      "group": "Geometry",
+      "title": "Lines in the plane that are either always the same distance apart (parallel) or intersect at a right angle (perpendicular), often determined by their slopes.",
+      "broader_concept": "Co-ordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "1387fcee-fa27-4b92-9993-9e797982cb0b",
+      "label": "Area of a Triangle (Coordinate Geometry)",
+      "group": "Geometry",
+      "title": "Calculating the area of a triangle using coordinates of its vertices.",
+      "broader_concept": "Co-ordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "4a8acee1-2853-47b1-9db0-fc02ea155836",
+      "label": "Equation of a Circle",
+      "group": "Geometry",
+      "title": "The standard form (x-h)^2 + (y-k)^2 = r^2 and general form x^2 + y^2 + 2gx + 2fy + c = 0 representing a circle in the coordinate plane.",
+      "broader_concept": "Co-ordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "6ffa032e-3f08-42b7-924e-8b59c680bca3",
+      "label": "Distance from a Point to a Line",
+      "group": "Geometry",
+      "title": "The shortest (perpendicular) distance from a given point to a given line in the coordinate plane.",
+      "broader_concept": "Co-ordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "238f4b14-fec4-40f8-916b-bdee26399569",
+      "label": "Angle Between Two Lines",
+      "group": "Geometry",
+      "title": "The measure of the angle formed where two lines intersect, calculated using their slopes.",
+      "broader_concept": "Co-ordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "49e7cd89-0b2f-4662-8f53-769da93c585c",
+      "label": "Internal Division of a Line Segment",
+      "group": "Geometry",
+      "title": "Dividing a line segment internally in a given ratio m:n using coordinates.",
+      "broader_concept": "Co-ordinate Geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    }
+  ],
+  "edges": [
+    {
+      "from": "69040a13-9741-4fff-b65b-a6b6ff08e00e",
+      "to": "1274a33b-8b79-4e08-afc1-ab4ccdc8661e",
+      "strength": 0.9
+    },
+    {
+      "from": "1274a33b-8b79-4e08-afc1-ab4ccdc8661e",
+      "to": "105f08c7-188e-469d-8e00-e021558939fb",
+      "strength": 0.9
+    },
+    {
+      "from": "1274a33b-8b79-4e08-afc1-ab4ccdc8661e",
+      "to": "4b50a7c9-dd41-4d99-a33d-09479dbf5030",
+      "strength": 0.7
+    },
+    {
+      "from": "4b50a7c9-dd41-4d99-a33d-09479dbf5030",
+      "to": "1274a33b-8b79-4e08-afc1-ab4ccdc8661e",
+      "strength": 0.6
+    },
+    {
+      "from": "1274a33b-8b79-4e08-afc1-ab4ccdc8661e",
+      "to": "6d1d7981-f82a-4526-b28d-43a385ff03eb",
+      "strength": 0.7
+    },
+    {
+      "from": "6d1d7981-f82a-4526-b28d-43a385ff03eb",
+      "to": "a7612b9a-8d90-40d9-964e-4ecc492bdf31",
+      "strength": 1.0
+    },
+    {
+      "from": "a7612b9a-8d90-40d9-964e-4ecc492bdf31",
+      "to": "1cccf6b0-8f5c-44b0-a3b4-140ffb948801",
+      "strength": 0.9
+    },
+    {
+      "from": "25853659-11cb-473e-8331-d344019edb1f",
+      "to": "1cccf6b0-8f5c-44b0-a3b4-140ffb948801",
+      "strength": 1.0
+    },
+    {
+      "from": "1cccf6b0-8f5c-44b0-a3b4-140ffb948801",
+      "to": "2230f043-e2fa-44e8-ad42-e02115906ed2",
+      "strength": 0.8
+    },
+    {
+      "from": "179e772d-56b6-4f70-b917-e62f4c242b55",
+      "to": "36cefec7-b547-4702-aed8-0b5481435e73",
+      "strength": 0.9
+    },
+    {
+      "from": "36cefec7-b547-4702-aed8-0b5481435e73",
+      "to": "2ab5f180-dc0c-4724-b6fe-1dac471d4fb5",
+      "strength": 0.8
+    },
+    {
+      "from": "36cefec7-b547-4702-aed8-0b5481435e73",
+      "to": "0b6c1f49-f773-460d-8a1a-a58bbdb281ba",
+      "strength": 0.8
+    },
+    {
+      "from": "0b6c1f49-f773-460d-8a1a-a58bbdb281ba",
+      "to": "2ab5f180-dc0c-4724-b6fe-1dac471d4fb5",
+      "strength": 0.9
+    },
+    {
+      "from": "36cefec7-b547-4702-aed8-0b5481435e73",
+      "to": "5166251f-6f1e-40a6-ade8-7fda9d6b7adf",
+      "strength": 0.8
+    },
+    {
+      "from": "36cefec7-b547-4702-aed8-0b5481435e73",
+      "to": "6ffa032e-3f08-42b7-924e-8b59c680bca3",
+      "strength": 0.8
+    },
+    {
+      "from": "36cefec7-b547-4702-aed8-0b5481435e73",
+      "to": "238f4b14-fec4-40f8-916b-bdee26399569",
+      "strength": 0.8
+    },
+    {
+      "from": "179e772d-56b6-4f70-b917-e62f4c242b55",
+      "to": "4a8acee1-2853-47b1-9db0-fc02ea155836",
+      "strength": 0.8
+    },
+    {
+      "from": "4a8acee1-2853-47b1-9db0-fc02ea155836",
+      "to": "1387fcee-fa27-4b92-9993-9e797982cb0b",
+      "strength": 0.6
+    },
+    {
+      "from": "36cefec7-b547-4702-aed8-0b5481435e73",
+      "to": "49e7cd89-0b2f-4662-8f53-769da93c585c",
+      "strength": 0.7
+    },
+    {
+      "from": "4b30f2cf-8edf-4e77-92f1-95295a2df61b",
+      "to": "e149d5b5-a0bd-4b5f-901e-2262e95a8b2a",
+      "strength": 0.6
+    },
+    {
+      "from": "4b30f2cf-8edf-4e77-92f1-95295a2df61b",
+      "to": "39648a46-8158-4b17-9593-599195c7217f",
+      "strength": 0.6
+    },
+    {
+      "from": "4b30f2cf-8edf-4e77-92f1-95295a2df61b",
+      "to": "670e0c8a-50c8-403c-ad10-6cb5502da20e",
+      "strength": 0.6
+    },
+    {
+      "from": "4b30f2cf-8edf-4e77-92f1-95295a2df61b",
+      "to": "f78aa8f3-d112-4d53-aa7a-f53f7415ad80",
+      "strength": 0.6
+    },
+    {
+      "from": "f78aa8f3-d112-4d53-aa7a-f53f7415ad80",
+      "to": "d143eee8-9506-4697-aee9-dfcf7c233922",
+      "strength": 0.9
+    }
+  ]
+}

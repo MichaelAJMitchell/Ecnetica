@@ -1,0 +1,167 @@
+{
+  "nodes": [
+    {
+      "id": "aaf66cfc-3d9c-4de1-ae67-28cb45097bcf",
+      "label": "Pythagorean Identity",
+      "group": "Trigonometry",
+      "title": "The fundamental trigonometric identity: cos²A + sin²A = 1.",
+      "broader_concept": "Trigonometric Identities",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "2dca1ee9-6064-4efb-8f39-61ecd2769743",
+      "label": "Sine Rule",
+      "group": "Trigonometry",
+      "title": "A formula relating the sides and angles of a triangle: a/sin A = b/sin B = c/sin C.",
+      "broader_concept": "Trigonometric Laws",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "e839c2a1-0a5a-45dd-b8f6-0f012cc0c549",
+      "label": "Cosine Rule",
+      "group": "Trigonometry",
+      "title": "A formula relating the sides and angles of a triangle: a² = b² + c² – 2bc cos A.",
+      "broader_concept": "Trigonometric Laws",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "03b8e91e-a954-48a0-a5f6-76641d6de37d",
+      "label": "Cosine of Difference Formula",
+      "group": "Trigonometry",
+      "title": "Formula for cos(A–B): cos(A–B) = cos A cos B + sin A sin B.",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "b8bb633b-8046-4d11-bbdb-9690e4743fac",
+      "label": "Cosine of Sum Formula",
+      "group": "Trigonometry",
+      "title": "Formula for cos(A+B): cos(A+B) = cos A cos B – sin A sin B.",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "8934be1c-51b1-42f5-b02e-bd0f2faea149",
+      "label": "Double Angle Formula for Cosine",
+      "group": "Trigonometry",
+      "title": "Formula for cos 2A: cos 2A = cos²A – sin²A.",
+      "broader_concept": "Double Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "edd382c3-abe1-4f6c-bfba-e4c7e1bb895d",
+      "label": "Sine of Sum Formula",
+      "group": "Trigonometry",
+      "title": "Formula for sin(A+B): sin(A+B) = sin A cos B + cos A sin B.",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "a45cc3be-5862-4f72-bf25-e580a5c5fdb8",
+      "label": "Sine of Difference Formula",
+      "group": "Trigonometry",
+      "title": "Formula for sin(A–B): sin(A–B) = sin A cos B – cos A sin B.",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "7842b965-da0c-4405-b5e5-fad40b202d9a",
+      "label": "Tangent of Sum Formula",
+      "group": "Trigonometry",
+      "title": "Formula for tan(A+B): tan(A+B) = (tan A + tan B) / (1 – tan A tan B).",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "28dd163e-9bad-4ebd-a0f9-08ff0ade65bc",
+      "label": "Tangent of Difference Formula",
+      "group": "Trigonometry",
+      "title": "Formula for tan(A–B): tan(A–B) = (tan A – tan B) / (1 + tan A tan B).",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "39355404-003e-4bd4-95e8-5b91d1c64445",
+      "label": "Double Angle Formula for Sine",
+      "group": "Trigonometry",
+      "title": "Formula for sin 2A: sin 2A = 2 sin A cos A.",
+      "broader_concept": "Double Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "2e2a8438-27d2-4c68-84f5-1b90af494e6a",
+      "label": "Alternative Double Angle Formulas",
+      "group": "Trigonometry",
+      "title": "Alternative forms for sin 2A and cos 2A in terms of tan A.",
+      "broader_concept": "Double Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "a49f2011-6401-4580-a577-992db42288e8",
+      "label": "Double Angle Formula for Tangent",
+      "group": "Trigonometry",
+      "title": "Formula for tan 2A: tan 2A = 2 tan A / (1 – tan²A).",
+      "broader_concept": "Double Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "9aa1915e-8a33-4dc3-bf64-a51241bbe422",
+      "label": "Power-Reducing Formula for Cosine",
+      "group": "Trigonometry",
+      "title": "cos²A = ½ (1 + cos 2A), used to reduce powers of cosine.",
+      "broader_concept": "Power-Reducing Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "51a60e71-8422-45e4-9e7c-328a397e71dd",
+      "label": "Power-Reducing Formula for Sine",
+      "group": "Trigonometry",
+      "title": "sin²A = ½ (1 – cos 2A), used to reduce powers of sine.",
+      "broader_concept": "Power-Reducing Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "8ed4db1b-90ef-4fe4-a152-b6e928fd0602",
+      "label": "Product-to-Sum Formulas",
+      "group": "Trigonometry",
+      "title": "Formulas expressing products of sines and cosines as sums: e.g., 2 cos A cos B = cos(A+B) + cos(A–B).",
+      "broader_concept": "Product-to-Sum and Sum-to-Product Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "d9c1afcc-a00f-4719-8cd4-33b8323b3393",
+      "label": "Sum-to-Product Formulas",
+      "group": "Trigonometry",
+      "title": "Formulas expressing sums or differences of sines and cosines as products: e.g., cos A + cos B = 2 cos[(A+B)/2] cos[(A–B)/2].",
+      "broader_concept": "Product-to-Sum and Sum-to-Product Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "33ff0abe-86dd-4f8d-8b3c-d71c827c3635",
+      "label": "Trigonometric Formula Derivation Procedure",
+      "group": "Trigonometry",
+      "title": "The process of deriving trigonometric formulas using previously established identities.",
+      "broader_concept": "Mathematical Proof and Reasoning",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    }
+  ],
+  "edges": []
+}

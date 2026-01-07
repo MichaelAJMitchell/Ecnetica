@@ -1,0 +1,1094 @@
+{
+  "nodes": [
+    {
+      "id": "f2a4a1e9-c62a-4978-94c8-00433782ba89",
+      "label": "Geometric constructions",
+      "group": "Geometry",
+      "title": "Creating exact geometric figures using formal procedures with compass and straightedge.",
+      "broader_concept": "Synthetic geometry",
+      "grade_level": "Middle/High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "a6aca275-e404-4dc8-855e-cb5224619fca",
+      "label": "Applying geometric constructions to real-life contexts",
+      "group": "Geometry",
+      "title": "Using constructions to solve practical layout, design, and measurement problems (e.g., bisecting spaces, setting right angles, laying out circles).",
+      "broader_concept": "Geometric constructions",
+      "grade_level": "Middle/High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "75070581-4238-4b83-93e7-9f7ffe1ddbe7",
+      "label": "Drawing a circle of given radius",
+      "group": "Geometry",
+      "title": "Using a compass set to a specified length to draw a circle centered at a point.",
+      "broader_concept": "Geometric constructions",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "5a2c8b79-8b7b-4136-88aa-8d142dc3a0a9",
+      "label": "Use of a straightedge (unmarked ruler)",
+      "group": "Geometry",
+      "title": "Drawing straight lines and extending segments without measurement.",
+      "broader_concept": "Geometric instruments and measurement",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "e7a204f7-8fc1-45bb-92a6-d6284a66d8a4",
+      "label": "Use of a compass",
+      "group": "Geometry",
+      "title": "Transferring lengths and drawing arcs/circles for constructions.",
+      "broader_concept": "Geometric instruments and measurement",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "dd7d02d3-a595-4617-8935-5860270db712",
+      "label": "Use of a ruler (measuring length)",
+      "group": "Geometry",
+      "title": "Measuring and marking lengths accurately on diagrams.",
+      "broader_concept": "Geometric instruments and measurement",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "7757300b-8c45-4d59-bd6c-1e8b04fa3a84",
+      "label": "Use of a protractor (measuring angles)",
+      "group": "Geometry",
+      "title": "Measuring and marking angles to a required degree measure.",
+      "broader_concept": "Geometric instruments and measurement",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "36fdb921-8304-442c-bde8-599ee8e33491",
+      "label": "Use of a set square",
+      "group": "Geometry",
+      "title": "Drawing perpendicular and specific-angle lines (e.g., 30°, 45°, 60°, 90°) accurately.",
+      "broader_concept": "Geometric instruments and measurement",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "508544fa-c466-47b1-981b-472c93afc7ad",
+      "label": "Perpendicular bisector construction",
+      "group": "Geometry",
+      "title": "Constructing the line that is perpendicular to a segment and passes through its midpoint using a compass and straightedge.",
+      "broader_concept": "Geometric constructions",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "ad03a6b3-973b-49f2-847a-8f1002164418",
+      "label": "Angle bisector construction",
+      "group": "Geometry",
+      "title": "Constructing a ray that divides a given angle into two equal angles with compass and straightedge.",
+      "broader_concept": "Geometric constructions",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "3442d1d1-407f-40cf-bcdd-6259676e0581",
+      "label": "Constructing a perpendicular line through a given point",
+      "group": "Geometry",
+      "title": "Creating a line perpendicular to a given line either through a point on the line or a point not on the line.",
+      "broader_concept": "Geometric constructions",
+      "grade_level": "Middle/High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "ecfcbfd3-4041-44e3-9361-e9d457b7fd49",
+      "label": "Constructing a parallel line through a given point",
+      "group": "Geometry",
+      "title": "Using compass-and-straightedge methods (e.g., corresponding angles) to draw a line parallel to a given line through a specified point.",
+      "broader_concept": "Geometric constructions",
+      "grade_level": "Middle/High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "3e620e70-fd1e-4162-98cf-67b536de4574",
+      "label": "Dynamic geometry software for constructions",
+      "group": "Geometry",
+      "title": "Using digital tools (e.g., GeoGebra) to create, explore, and verify geometric constructions dynamically.",
+      "broader_concept": "Technology in geometry",
+      "grade_level": "Middle/High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "45eea489-a53d-43d3-bf92-f420a1ca421c",
+      "label": "Precision and accuracy in geometric drawings",
+      "group": "Geometry",
+      "title": "Applying correct instrument techniques to reduce error and produce exact constructions.",
+      "broader_concept": "Geometric constructions",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "cc8baa7d-8f67-49b1-b993-4db71b4faced",
+      "label": "Cartesian coordinate plane",
+      "group": "Geometry",
+      "title": "The two-dimensional plane defined by perpendicular x- and y-axes used to locate points with ordered pairs.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "d7721bde-9db2-4df5-931e-391e8bc14a74",
+      "label": "Ordered pairs (x, y)",
+      "group": "Geometry",
+      "title": "A pair of numbers that uniquely identifies a point on the coordinate plane.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "7a92b721-1e71-4acd-820e-1b60eac74998",
+      "label": "Plotting points on the coordinate plane",
+      "group": "Geometry",
+      "title": "Placing points at given coordinates relative to the axes and origin.",
+      "broader_concept": "Coordinate Geometry",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "79ac5e53-6a83-416c-8615-a081abdfe751",
+      "label": "Linear relationships in real-world contexts",
+      "group": "Algebra",
+      "title": "Modeling real-life situations where one quantity changes at a constant rate with respect to another.",
+      "broader_concept": "Mathematical Modeling",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "cda1edbb-beaf-4445-b012-41a47917b59f",
+      "label": "Tabular representation of linear relationships",
+      "group": "Algebra",
+      "title": "Using value tables (x and corresponding y) to represent and analyze linear patterns.",
+      "broader_concept": "Linear Functions",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "7814a5f3-fa2c-4527-9d45-717c958fc617",
+      "label": "Graphical representation of linear relationships",
+      "group": "Algebra",
+      "title": "Plotting points and drawing straight lines to model linear functions on the coordinate plane.",
+      "broader_concept": "Linear Functions",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "e799386f-8299-4bb3-9514-1d66e11a143c",
+      "label": "Slope of a line",
+      "group": "Algebra",
+      "title": "A measure of steepness of a line, often computed as rise over run (Δy/Δx).",
+      "broader_concept": "Linear Functions",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "5d1dc506-b6f8-4da5-90e4-fa47c606476e",
+      "label": "Rate of change",
+      "group": "Algebra",
+      "title": "Change in the dependent variable per unit change in the independent variable; constant for linear relationships.",
+      "broader_concept": "Functions",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "1de47b1e-d3c9-4666-b46b-13763ef9ac67",
+      "label": "Equivalence of slope and rate of change",
+      "group": "Algebra",
+      "title": "Recognizing that the slope of a linear graph equals the contextual rate at which one quantity changes relative to another.",
+      "broader_concept": "Linear Functions",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "5f959f6f-3df0-43b6-8577-a7b86afe42fa",
+      "label": "Y-intercept (start value)",
+      "group": "Algebra",
+      "title": "The value of the dependent variable when the independent variable is zero; the initial value in context.",
+      "broader_concept": "Linear Functions",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "87adc4f8-d79d-4e9d-9b45-4f62711ee6c4",
+      "label": "Interpreting intercepts in context",
+      "group": "Algebra",
+      "title": "Explaining the meaning of the start value and other intercepts with respect to a real-world situation.",
+      "broader_concept": "Mathematical Modeling",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "c89784ee-9e00-4c36-9709-7ea962e051f7",
+      "label": "Comparing linear relationships",
+      "group": "Algebra",
+      "title": "Analyzing and contrasting lines using slope (rate of change) and intercepts (start values).",
+      "broader_concept": "Linear Functions",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "da21b5c0-4223-4a58-a18b-f649bc9c312a",
+      "label": "Independent and dependent variables in linear models",
+      "group": "Algebra",
+      "title": "Identifying which quantity is controlled (x) and which responds (y) in a linear relationship.",
+      "broader_concept": "Functions",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "19ce6dbe-28cb-433e-84b3-3e81ea682935",
+      "label": "Point of intersection of two lines",
+      "group": "Algebra",
+      "title": "The coordinate pair that satisfies both linear relationships simultaneously.",
+      "broader_concept": "Systems of Linear Equations",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "3134dae9-f3bb-41f2-9e33-95b31d17a576",
+      "label": "Interpreting intersection in context (break-even point)",
+      "group": "Algebra",
+      "title": "Understanding the practical significance of where two linear models yield the same value.",
+      "broader_concept": "Mathematical Modeling",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "e79388b9-253b-4d9c-8d9d-71ff0eb0a89b",
+      "label": "Solving systems of linear equations by graphing",
+      "group": "Algebra",
+      "title": "Finding the solution to two linear relationships by locating their point of intersection on a graph.",
+      "broader_concept": "Systems of Linear Equations",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "e9e12583-2762-46c1-98d0-4e65cc5c9b10",
+      "label": "Graphical strategies for solving linear problems",
+      "group": "Algebra",
+      "title": "Using graphs to estimate or determine solutions to linear equations and systems from context.",
+      "broader_concept": "Problem-Solving Strategies",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "0ecc06de-c9cb-4ca0-9ab3-f5089cd193b4",
+      "label": "Numeric (tabular) strategies for solving linear problems",
+      "group": "Algebra",
+      "title": "Using tables of values to compute, compare, and find solutions to linear relationships.",
+      "broader_concept": "Problem-Solving Strategies",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "9a89ff9b-3e38-4f01-9c74-6d723eca91f0",
+      "label": "Mental strategies and estimation for linear problems",
+      "group": "Algebra",
+      "title": "Estimating slopes, intercepts, and intersections to check reasonableness of solutions in context.",
+      "broader_concept": "Problem-Solving Strategies",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "68003940-1d34-40fe-bc15-749eac13fcba",
+      "label": "Right-angled triangles",
+      "group": "Geometry & Trigonometry",
+      "title": "Triangles with one 90° angle; sides include two legs and the hypotenuse.",
+      "broader_concept": "Triangles",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "ac2bf445-3c73-4978-9559-7db5753bc14e",
+      "label": "Hypotenuse in a right triangle",
+      "group": "Geometry & Trigonometry",
+      "title": "The side opposite the right angle; the longest side of a right triangle.",
+      "broader_concept": "Right-angled triangles",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "6d3392cb-53ae-4d94-b967-469f7d1e5461",
+      "label": "Opposite and adjacent sides relative to an angle",
+      "group": "Geometry & Trigonometry",
+      "title": "Naming the leg opposite or adjacent to a given acute angle in a right triangle.",
+      "broader_concept": "Right-angled triangles",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "430679e9-d7e6-4491-9e66-26ca90816080",
+      "label": "Pythagorean Theorem",
+      "group": "Geometry & Trigonometry",
+      "title": "In a right triangle, a^2 + b^2 = c^2, relating legs to the hypotenuse.",
+      "broader_concept": "Right-angled triangles",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "19d827d1-1157-461a-be61-1e5dd9f24dca",
+      "label": "Applying the Pythagorean Theorem to heights and distances",
+      "group": "Geometry & Trigonometry",
+      "title": "Solving contextual right-triangle problems (e.g., ladders, buildings, line-of-sight) using a^2 + b^2 = c^2.",
+      "broader_concept": "Right triangle applications",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "78abccc6-6b8b-400b-b6b2-6a4e309314fb",
+      "label": "Trigonometric ratios in right triangles",
+      "group": "Geometry & Trigonometry",
+      "title": "Definition of sine, cosine, and tangent as ratios of side lengths in a right triangle.",
+      "broader_concept": "Trigonometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "16b16418-bfa7-491d-9e07-277b89c4b982",
+      "label": "SOH-CAH-TOA mnemonic",
+      "group": "Geometry & Trigonometry",
+      "title": "Mnemonic for remembering sin = opposite/hypotenuse, cos = adjacent/hypotenuse, tan = opposite/adjacent.",
+      "broader_concept": "Trigonometric ratios in right triangles",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "8f9179f2-f4c0-472c-9543-6ca434ad2956",
+      "label": "Selecting appropriate trigonometric ratio",
+      "group": "Geometry & Trigonometry",
+      "title": "Choosing sine, cosine, or tangent based on which sides are known and which are unknown.",
+      "broader_concept": "Right triangle problem solving",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "787b78b1-40e7-45d3-8f56-110679b324a8",
+      "label": "Finding unknown side lengths using trigonometric ratios",
+      "group": "Geometry & Trigonometry",
+      "title": "Computing a missing leg or hypotenuse from an angle and a side using sine, cosine, or tangent.",
+      "broader_concept": "Trigonometric ratios in right triangles",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "d42c8a8a-6285-492c-b81c-0f892f11c283",
+      "label": "Finding unknown angles using inverse trigonometric functions",
+      "group": "Geometry & Trigonometry",
+      "title": "Using arcsin, arccos, or arctan to determine an angle from side-length ratios.",
+      "broader_concept": "Trigonometric ratios in right triangles",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "207e9052-1336-44f9-964f-32530cfc8eb0",
+      "label": "Angles of elevation and depression",
+      "group": "Geometry & Trigonometry",
+      "title": "Angles measured above or below a horizontal line used in real-world right-triangle models.",
+      "broader_concept": "Applications of trigonometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "508de5dd-0bb5-40ff-a3b4-16c6b6cc30b7",
+      "label": "Modeling real-world situations with right triangles",
+      "group": "Geometry & Trigonometry",
+      "title": "Translating contextual scenarios (heights, distances, ramps, sightlines) into right-triangle diagrams.",
+      "broader_concept": "Mathematical modeling",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "2bad09f4-0119-46eb-b5e5-209bd39a98f8",
+      "label": "Solving right triangles",
+      "group": "Geometry & Trigonometry",
+      "title": "Determining all unknown sides and angles using Pythagoras, trigonometric ratios, and inverse trig functions.",
+      "broader_concept": "Right triangle trigonometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "247c8396-fab2-4ec5-983f-0a6c51779b47",
+      "label": "Transformation geometry",
+      "group": "Geometry",
+      "title": "Study of geometric transformations and their properties in the plane.",
+      "broader_concept": "Geometry",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "bfc7b758-b388-45b4-b67e-9398b9fc2e41",
+      "label": "Translation (geometric transformation)",
+      "group": "Geometry",
+      "title": "Shifts every point of a figure by the same vector, preserving distances and orientation.",
+      "broader_concept": "Rigid motions (isometries)",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "16f889bb-971b-436f-8f21-ad4a845e0f6d",
+      "label": "Rotation (geometric transformation)",
+      "group": "Geometry",
+      "title": "Turns a figure about a fixed center by a given angle, preserving distances and angles.",
+      "broader_concept": "Rigid motions (isometries)",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "3b892499-9486-4e14-baea-9ee397fe788a",
+      "label": "Axial symmetry (line reflection)",
+      "group": "Geometry",
+      "title": "Reflection of a figure across a line (axis), producing a mirror image.",
+      "broader_concept": "Rigid motions (isometries)",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "4702869d-f61f-47b1-aef7-a1cc853d58f6",
+      "label": "Central symmetry (point reflection)",
+      "group": "Geometry",
+      "title": "A half-turn (180-degree rotation) about a point that maps each point to its opposite relative to the center.",
+      "broader_concept": "Rigid motions (isometries)",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "4278f57b-222b-4da1-b285-a04418b1bd8f",
+      "label": "Locating axes of symmetry in simple shapes",
+      "group": "Geometry",
+      "title": "Identifying lines that divide a shape into two mirror-image halves.",
+      "broader_concept": "Symmetry in plane figures",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "b490d195-b0ac-42c1-8bd7-91f0c85c94a3",
+      "label": "Image under a transformation",
+      "group": "Geometry",
+      "title": "The resulting point or figure after applying a specified geometric transformation.",
+      "broader_concept": "Geometric mappings",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "59607969-9a36-4a9d-8966-1f04782ac005",
+      "label": "Enlargement (dilation)",
+      "group": "Geometry",
+      "title": "A similarity transformation that scales a figure from a center by a scale factor k > 0.",
+      "broader_concept": "Similarity transformations",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "5e3bb17c-9b66-4d14-a330-2b32f771d0d5",
+      "label": "Centre of enlargement",
+      "group": "Geometry",
+      "title": "The fixed point from which distances are scaled along rays during an enlargement.",
+      "broader_concept": "Enlargement (dilation)",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "8898323a-2e89-427e-ba1e-6bd5d447cc67",
+      "label": "Scale factor of enlargement",
+      "group": "Geometry",
+      "title": "The multiplicative factor k that scales all distances from the center in an enlargement.",
+      "broader_concept": "Enlargement (dilation)",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "3467339c-8dba-4d20-a3ad-983797a71698",
+      "label": "Reduction (0 < k < 1)",
+      "group": "Geometry",
+      "title": "An enlargement with scale factor between 0 and 1 that produces a smaller similar image.",
+      "broader_concept": "Scale factor of enlargement",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "4b204349-f373-4fb9-98e0-1a1a8bf2e05d",
+      "label": "Magnification (k > 1)",
+      "group": "Geometry",
+      "title": "An enlargement with scale factor greater than 1 that produces a larger similar image.",
+      "broader_concept": "Scale factor of enlargement",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "7ff3fbf8-373a-415d-90ad-f3c0fcc321b4",
+      "label": "Rational scale factor (k ∈ Q)",
+      "group": "Geometry",
+      "title": "Using rational numbers as scale factors in enlargements, including fractional scaling.",
+      "broader_concept": "Scale factor of enlargement",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "256cf10f-8bd4-4f7b-8d20-82146eee2bc8",
+      "label": "Area scaling under enlargement",
+      "group": "Geometry",
+      "title": "Under an enlargement with scale factor k, the area of a figure scales by k^2.",
+      "broader_concept": "Measurement of area",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "a79c5a1a-2108-45bd-87d4-01b93cd76a9d",
+      "label": "Recognising images under transformations",
+      "group": "Geometry",
+      "title": "Identifying the result of applying translations, rotations, axial symmetry, or central symmetry to points and shapes.",
+      "broader_concept": "Geometric transformations",
+      "grade_level": "Middle",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "af9e8268-92a8-4354-959e-9e9d064b6514",
+      "label": "Solving problems involving enlargements",
+      "group": "Geometry",
+      "title": "Applying center and scale factor to find images/preimages, lengths, and areas in enlargement contexts.",
+      "broader_concept": "Problem solving in geometry",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "a3093879-b6fd-442a-ace1-dd3e4e4826af",
+      "label": "Rigid motions (isometries)",
+      "group": "Geometry",
+      "title": "Transformations that preserve distances and angles, including translations, rotations, and reflections.",
+      "broader_concept": "Geometric transformations",
+      "grade_level": "Middle",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "304517a3-e0b4-4ba9-852c-b493e50adbc3",
+      "label": "Synthetic geometry",
+      "group": "Geometry",
+      "title": "Study of geometry using axioms, theorems, and constructions without coordinates or algebra.",
+      "broader_concept": "Euclidean geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "852d62c6-165e-4145-b8cd-fea940944e85",
+      "label": "Compass-and-straightedge constructions (16–21)",
+      "group": "Geometry",
+      "title": "Perform a specified set of classical geometric constructions labeled 16–21 in the syllabus.",
+      "broader_concept": "Geometric constructions",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "74b36ad7-5307-48c6-8a5b-e5349d50512b",
+      "label": "Compass-and-straightedge construction 22",
+      "group": "Geometry",
+      "title": "Execute the syllabus' construction number 22 using a compass and straightedge.",
+      "broader_concept": "Geometric constructions",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "d270675d-be84-49ea-95db-8b2a3afe2773",
+      "label": "Theorem (geometric)",
+      "group": "Logic/Proof",
+      "title": "A mathematical statement that can be proven from axioms and previously established results.",
+      "broader_concept": "Logic and proof",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "0ab81685-b382-42c0-9ad7-174624274f84",
+      "label": "Proof",
+      "group": "Logic/Proof",
+      "title": "A logically coherent argument establishing the truth of a theorem.",
+      "broader_concept": "Logic and proof",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "6cc70deb-d647-4bbe-9882-4897b4db276c",
+      "label": "Axiom",
+      "group": "Logic/Proof",
+      "title": "A foundational assumption accepted without proof, used to derive theorems.",
+      "broader_concept": "Logic and proof",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "590adf19-e4ca-4cc8-81df-ff10d70fb99f",
+      "label": "Corollary",
+      "group": "Logic/Proof",
+      "title": "A proposition that follows readily from a theorem with little or no additional proof.",
+      "broader_concept": "Logic and proof",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "8ba719ab-3e99-498d-9d4b-aa7958dccbf4",
+      "label": "Converse of a statement",
+      "group": "Logic/Proof",
+      "title": "The statement formed by reversing the hypothesis and conclusion of an implication.",
+      "broader_concept": "Logical statements",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "7d3d37dc-f93b-4b6d-9838-192b8052d8e3",
+      "label": "Logical implication (implies)",
+      "group": "Logic/Proof",
+      "title": "A relationship A → B meaning if A is true, then B must also be true.",
+      "broader_concept": "Propositional logic",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "ecd561e0-fcd5-4369-ba8c-fda8339ef29a",
+      "label": "Logical equivalence",
+      "group": "Logic/Proof",
+      "title": "Two statements that always have the same truth value; each implies the other.",
+      "broader_concept": "Propositional logic",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "0ef18445-7cfc-46e6-bd4c-f3b7ed6c0c49",
+      "label": "Biconditional (if and only if)",
+      "group": "Logic/Proof",
+      "title": "The statement A iff B, asserting both A → B and B → A.",
+      "broader_concept": "Propositional logic",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "459b892e-279e-45b7-b5c7-f0382112b0bc",
+      "label": "Proof by contradiction",
+      "group": "Logic/Proof",
+      "title": "An indirect proof technique that assumes the negation of the desired result and derives a contradiction.",
+      "broader_concept": "Proof techniques",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "354dab63-8506-4575-aa31-55721d591de8",
+      "label": "Investigating geometric theorems through problem solving",
+      "group": "Geometry",
+      "title": "Exploring, testing, and applying named theorems (e.g., 7, 8, 11–13, 16–18, 20–21) to solve geometric problems.",
+      "broader_concept": "Mathematical problem solving",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "880cb71f-8fcc-4ee2-98e7-4e6282466d7a",
+      "label": "Corollary 6 (application in synthetic geometry)",
+      "group": "Geometry",
+      "title": "Use of a specified corollary labeled 6 in the syllabus to deduce further results and solve problems.",
+      "broader_concept": "Corollary",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "58b71a85-0b08-4237-86f9-16a05030a84d",
+      "label": "Theorem 11 (ratios in synthetic geometry)",
+      "group": "Geometry",
+      "title": "A syllabus theorem concerning ratios in geometric figures, supporting later results.",
+      "broader_concept": "Geometric ratios and proportionality",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "695ae71a-4bcd-480b-93b7-f1d2cb034bde",
+      "label": "Theorem 12 (ratios in synthetic geometry)",
+      "group": "Geometry",
+      "title": "A syllabus theorem on ratios in geometry, forming part of the foundation for subsequent proofs.",
+      "broader_concept": "Geometric ratios and proportionality",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "38f4e397-a2a9-4f06-a449-84de224c7943",
+      "label": "Theorem 13 (ratios in synthetic geometry)",
+      "group": "Geometry",
+      "title": "A syllabus theorem dealing with ratios in geometric contexts that underpins further results.",
+      "broader_concept": "Geometric ratios and proportionality",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "81acff43-3dc9-4fa6-8f8c-4eee00626692",
+      "label": "Geometric ratios and proportionality",
+      "group": "Geometry",
+      "title": "Reasoning with ratios in geometric figures (e.g., segment lengths) to derive relationships and proofs.",
+      "broader_concept": "Proportional reasoning",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "eca3b158-0fb2-40db-860a-52ff6fd67f61",
+      "label": "Foundation for the Pythagorean theorem",
+      "group": "Geometry",
+      "title": "Results and ratio arguments that prepare for the formal proof of the Pythagorean theorem.",
+      "broader_concept": "Right triangle geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "71c9a594-c365-46bd-bfa7-b758767ae0af",
+      "label": "Deductive reasoning in geometry",
+      "group": "Logic/Proof",
+      "title": "Deriving conclusions from axioms and theorems using logically valid steps.",
+      "broader_concept": "Mathematical reasoning",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "9d19200b-88e9-46ed-8a53-e2aac5227c75",
+      "label": "Parallel lines criterion via slopes",
+      "group": "Geometry",
+      "title": "Two non-vertical lines are parallel if and only if their slopes are equal.",
+      "broader_concept": "Lines in the coordinate plane",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "dd881e89-35fc-4b46-b08a-9394d41217ba",
+      "label": "Perpendicular lines criterion via slopes",
+      "group": "Geometry",
+      "title": "Two non-vertical lines are perpendicular if and only if their slopes are negative reciprocals (m1 · m2 = -1).",
+      "broader_concept": "Lines in the coordinate plane",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "61a3a938-0a65-408e-8c47-3fbaa4caeaaa",
+      "label": "Linear equation in general form (ax + by + c = 0)",
+      "group": "Geometry",
+      "title": "Represents a straight line in the plane; coefficients determine slope and intercepts.",
+      "broader_concept": "Lines in the coordinate plane",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "db47bb2f-a105-42b2-bd0d-a3fe40d778ba",
+      "label": "Angle between two lines using slopes",
+      "group": "Geometry",
+      "title": "For slopes m1 and m2, tan(θ) = |(m1 − m2)/(1 + m1·m2)| gives the acute angle between lines.",
+      "broader_concept": "Lines in the coordinate plane",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "1e750643-6ad9-426e-8ad3-dc0a590c611e",
+      "label": "Perpendicular distance from a point to a line",
+      "group": "Geometry",
+      "title": "Distance from (x0, y0) to Ax + By + C = 0 is |Ax0 + By0 + C| / √(A2 + B2).",
+      "broader_concept": "Lines in the coordinate plane",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "a92b5d69-b193-4670-b267-1e31068d55e1",
+      "label": "Internal division of a line segment (section formula)",
+      "group": "Geometry",
+      "title": "Point dividing segment A(x1,y1) and B(x2,y2) internally in ratio m:n has coordinates ((mx2 + nx1)/(m+n), (my2 + ny1)/(m+n)).",
+      "broader_concept": "Segments in the coordinate plane",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "1867fc4c-bdc6-4648-8388-07c8f49665d7",
+      "label": "Area of a triangle in the coordinate plane",
+      "group": "Geometry",
+      "title": "Area with vertices (x1,y1),(x2,y2),(x3,y3) is 1/2 |x1(y2−y3) + x2(y3−y1) + x3(y1−y2)| (shoelace method).",
+      "broader_concept": "Polygons in the coordinate plane",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "b428bac8-41dd-43c0-acb3-4a1bed5e0be9",
+      "label": "Center-radius form of a circle equation",
+      "group": "Geometry",
+      "title": "(x − h)2 + (y − k)2 = r2 represents all points at distance r from center (h, k).",
+      "broader_concept": "Circles in the coordinate plane",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "8176d0cb-0551-4575-b127-7a5b5de3ce7c",
+      "label": "General form of a circle equation",
+      "group": "Geometry",
+      "title": "x2 + y2 + 2gx + 2fy + c = 0 represents a circle with center (−g, −f) and radius r = √(g2 + f2 − c).",
+      "broader_concept": "Circles in the coordinate plane",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "ad808778-bf6b-4f66-b7be-8c7efdf8480b",
+      "label": "Equation of a circle centered at the origin",
+      "group": "Geometry",
+      "title": "x2 + y2 = r2 describes a circle with center (0, 0) and radius r.",
+      "broader_concept": "Circles in the coordinate plane",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "387aead0-6d99-48b6-b789-286ca028dd88",
+      "label": "Line–circle intersection (center at origin)",
+      "group": "Geometry",
+      "title": "Solving a line with x2 + y2 = r2 to find intersection points; includes cases of secant, tangent, or no intersection.",
+      "broader_concept": "Intersections in coordinate geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "48be0b25-e8b2-44cf-b8a4-c7537b4ea820",
+      "label": "Line–circle intersection (general)",
+      "group": "Geometry",
+      "title": "Solving simultaneous equations of a line and a circle to determine intersection points and tangency conditions.",
+      "broader_concept": "Intersections in coordinate geometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "201d96a3-9fb6-45e8-b56a-7be247c48740",
+      "label": "Pythagorean theorem (2D)",
+      "group": "Geometry",
+      "title": "In a right triangle, the sum of the squares of the legs equals the square of the hypotenuse (a^2 + b^2 = c^2); used to solve planar problems.",
+      "broader_concept": "Right triangle geometry",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "12b7b43e-ae09-4c38-8338-513d0d86b85f",
+      "label": "Area of a triangle using trigonometry",
+      "group": "Trigonometry",
+      "title": "Compute area with A = (1/2)ab sin C when two sides and the included angle are known.",
+      "broader_concept": "Triangle measurement",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "c07a48ac-d468-49fe-81b4-89609c0c9a89",
+      "label": "Sine rule (Law of sines)",
+      "group": "Trigonometry",
+      "title": "Relates sides and angles in any triangle: a/sin A = b/sin B = c/sin C; used to find unknown sides/angles.",
+      "broader_concept": "Non-right triangle trigonometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "85a91615-758b-4ced-a1b6-a3d807ab1f84",
+      "label": "Cosine rule (Law of cosines)",
+      "group": "Trigonometry",
+      "title": "Generalizes Pythagoras: c^2 = a^2 + b^2 − 2ab cos C (and cyclic forms) to find sides/angles in any triangle.",
+      "broader_concept": "Non-right triangle trigonometry",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "95cf2c93-6eea-43fb-ad55-dbbe76daabe5",
+      "label": "Definition of sin θ for all real θ",
+      "group": "Trigonometry",
+      "title": "Extends sine to all real angles (e.g., via the unit circle), allowing positive/negative values and periodicity.",
+      "broader_concept": "Trigonometric functions",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "bdb25b39-4254-446b-9013-9bcb7ef69891",
+      "label": "Definition of cos θ for all real θ",
+      "group": "Trigonometry",
+      "title": "Extends cosine to all real angles (e.g., via the unit circle) with even symmetry and period 2π.",
+      "broader_concept": "Trigonometric functions",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "2cfd4d53-045f-431f-9348-817b567273f4",
+      "label": "Definition of tan θ",
+      "group": "Trigonometry",
+      "title": "Defines tangent as tan θ = sin θ / cos θ with undefined values where cos θ = 0; period π.",
+      "broader_concept": "Trigonometric functions",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "09c1d8f8-8dd7-4052-87dd-aa48334e845a",
+      "label": "Area of a sector of a circle",
+      "group": "Geometry",
+      "title": "Area given by A = (1/2) r^2 θ (radians) or A = (θ/360) π r^2 (degrees).",
+      "broader_concept": "Circle measurement",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "980c83b1-2ae2-47c5-98d0-dc50a091cd80",
+      "label": "Arc length of a circle",
+      "group": "Geometry",
+      "title": "Arc length given by s = r θ (radians) or s = (θ/360) 2π r (degrees).",
+      "broader_concept": "Circle measurement",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "4aef7841-7a96-410b-a13f-21849ac825a0",
+      "label": "Trigonometric ratios in surd form",
+      "group": "Trigonometry",
+      "title": "Use exact radical values for sin, cos, tan of special angles (e.g., 30°, 45°, 60°) instead of decimals.",
+      "broader_concept": "Exact trigonometric values",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "0b51143e-315b-468a-a7a0-0c329f1a40d6",
+      "label": "3D trigonometry problem solving",
+      "group": "Trigonometry",
+      "title": "Apply trigonometric methods to three-dimensional contexts to find lengths, angles, and distances.",
+      "broader_concept": "Spatial reasoning with trigonometry",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "4334586f-715c-4c82-9a07-e34a92fbb1f1",
+      "label": "Graph of y = sin θ",
+      "group": "Trigonometry",
+      "title": "Sine function graph with amplitude 1, period 2π, and key intercepts/maximum/minimum points.",
+      "broader_concept": "Trigonometric graphs",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "b8bc54ac-629b-4530-a163-7c4e948232a3",
+      "label": "Graph of y = cos θ",
+      "group": "Trigonometry",
+      "title": "Cosine function graph with amplitude 1, period 2π, starting at maximum when θ = 0.",
+      "broader_concept": "Trigonometric graphs",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "8b3f1817-3870-4cb7-970c-f8a4babe3755",
+      "label": "Graph of y = tan θ",
+      "group": "Trigonometry",
+      "title": "Tangent function graph with period π and vertical asymptotes at odd multiples of π/2.",
+      "broader_concept": "Trigonometric graphs",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "72d9667c-268c-488b-aedc-a7d0a5166dfb",
+      "label": "Graphing transformed sine functions a + b sin(cθ)",
+      "group": "Trigonometry",
+      "title": "Plot sinusoidal graphs with vertical shift a, amplitude |b|, and period 2π/|c|.",
+      "broader_concept": "Function transformations",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "f989586e-674d-480d-9724-c23c85d652e7",
+      "label": "Graphing transformed cosine functions a + b cos(cθ)",
+      "group": "Trigonometry",
+      "title": "Plot cosine graphs with vertical shift a, amplitude |b|, and period 2π/|c|.",
+      "broader_concept": "Function transformations",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "52b498a8-f6c1-47e3-accb-2d7d4be400aa",
+      "label": "General solutions of trigonometric equations",
+      "group": "Trigonometry",
+      "title": "Find all solutions using periodicity, e.g., sin(nθ) = 0 implies θ = kπ/n for integers k.",
+      "broader_concept": "Trigonometric equations",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "79807dbe-6347-41b9-8ddd-86b71bb3a1cc",
+      "label": "Solving equations like cos(nθ) = 1/2",
+      "group": "Trigonometry",
+      "title": "Determine principal solutions and express the infinite family of solutions using k ∈ Z.",
+      "broader_concept": "Trigonometric equations",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "05c3085b-0302-4ffd-842e-ca33c0082c2c",
+      "label": "Radian measure of angles",
+      "group": "Trigonometry",
+      "title": "Measure angles via arc length: θ = s/r; convert between degrees and radians and use radians in formulas.",
+      "broader_concept": "Angle measurement",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "17553bf8-0143-4008-b3c7-4d8509aa08d3",
+      "label": "Derivation of core trigonometric identities",
+      "group": "Trigonometry",
+      "title": "Prove identities such as Pythagorean, angle addition/subtraction, and double-angle formulas.",
+      "broader_concept": "Trigonometric identities",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "6facba6c-2ab3-4dd2-934d-535dcda70e47",
+      "label": "Application of trigonometric identities",
+      "group": "Trigonometry",
+      "title": "Use identities to simplify expressions, transform formulas, and solve trigonometric equations.",
+      "broader_concept": "Trigonometric identities",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "ea46c450-8d3d-4771-ba8c-a9e3c5208f89",
+      "label": "Reduction (0<k<1)",
+      "group": "Geometry",
+      "title": "An enlargement with scale factor 0<k<1 that produces a smaller, similar image; all linear dimensions are multiplied by k.",
+      "broader_concept": "Scale factor of enlargement",
+      "grade_level": "Middle School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "48253557-0ab3-4ed8-b81a-bb8ba79ecde5",
+      "label": "Magnification (k>1)",
+      "group": "Geometry",
+      "title": "An enlargement with scale factor k>1 that produces a larger, similar image; all linear dimensions are multiplied by k.",
+      "broader_concept": "Scale factor of enlargement",
+      "grade_level": "Middle School",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "23b0a1ba-1617-49d2-97b9-797785119f09",
+      "label": "Constructing an enlargement with given center and scale factor",
+      "group": "Geometry",
+      "title": "A procedure using rays from the center through object points and proportional distances to draw the image at scale factor k.",
+      "broader_concept": "Enlargement (Dilation)",
+      "grade_level": "Middle School",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "7ebf16b6-3ca6-4972-ab11-ba69d07ca275",
+      "label": "Finding the centre of enlargement from object and image",
+      "group": "Geometry",
+      "title": "A method to locate the center by joining pairs of corresponding points and intersecting the lines through them.",
+      "broader_concept": "Enlargement (Dilation)",
+      "grade_level": "Middle School",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "7c0b235a-3ec1-4d98-8934-4692e39ce3a4",
+      "label": "Relating linear and area scale factors",
+      "group": "Geometry",
+      "title": "Understanding that linear measures scale by k while areas scale by k^2 in an enlargement.",
+      "broader_concept": "Area scaling under enlargement",
+      "grade_level": "Middle School",
+      "difficulty": "Intermediate"
+    }
+  ],
+  "edges": []
+}

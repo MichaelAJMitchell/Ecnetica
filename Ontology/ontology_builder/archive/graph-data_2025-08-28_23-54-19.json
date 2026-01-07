@@ -1,0 +1,318 @@
+{
+  "nodes": [
+    {
+      "id": "dd8a1153-06d4-4de7-8e62-bb583a20a8ef",
+      "label": "Pythagorean Identity",
+      "group": "Trigonometry",
+      "title": "The fundamental trigonometric identity: cos^2(A) + sin^2(A) = 1.",
+      "broader_concept": "Trigonometric Identities",
+      "grade_level": "High",
+      "difficulty": "Basic"
+    },
+    {
+      "id": "e48b4381-ad4e-4b7e-ae6a-df18a664e0bf",
+      "label": "Sine Rule",
+      "group": "Trigonometry",
+      "title": "Relates the sides of a triangle to the sines of its angles: a/sin A = b/sin B = c/sin C.",
+      "broader_concept": "Trigonometric Laws",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "8a5e4fb9-cc0a-489c-91d7-2bf5fe8a4edf",
+      "label": "Cosine Rule",
+      "group": "Trigonometry",
+      "title": "Relates the lengths of sides of a triangle to the cosine of one of its angles: a^2 = b^2 + c^2 – 2bc cos A.",
+      "broader_concept": "Trigonometric Laws",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "0a823d77-999e-4bf3-83b8-24344dc74778",
+      "label": "Cosine of Angle Difference Formula",
+      "group": "Trigonometry",
+      "title": "Formula for cos(A–B): cos(A–B) = cos A cos B + sin A sin B.",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "becf0450-b5f3-4b57-9027-625837a07064",
+      "label": "Cosine of Angle Sum Formula",
+      "group": "Trigonometry",
+      "title": "Formula for cos(A+B): cos(A+B) = cos A cos B – sin A sin B.",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "6f27803f-4b5a-40ea-aa92-3a6078d40eb3",
+      "label": "Double Angle Formula for Cosine",
+      "group": "Trigonometry",
+      "title": "Formula for cos(2A): cos 2A = cos^2 A – sin^2 A.",
+      "broader_concept": "Double Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "7257132b-f2e3-4c23-9c45-071f525f54ed",
+      "label": "Sine of Angle Sum Formula",
+      "group": "Trigonometry",
+      "title": "Formula for sin(A+B): sin(A+B) = sin A cos B + cos A sin B.",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "a8eb478b-0693-4f3e-ba06-7ee1b6933272",
+      "label": "Sine of Angle Difference Formula",
+      "group": "Trigonometry",
+      "title": "Formula for sin(A–B): sin(A–B) = sin A cos B – cos A sin B.",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "fec90432-733b-419f-b862-ec6e9e889843",
+      "label": "Tangent of Angle Sum Formula",
+      "group": "Trigonometry",
+      "title": "Formula for tan(A+B): tan(A+B) = (tan A + tan B) / (1 – tan A tan B).",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "af94bece-2458-4bb6-9a25-da84109a8f29",
+      "label": "Tangent of Angle Difference Formula",
+      "group": "Trigonometry",
+      "title": "Formula for tan(A–B): tan(A–B) = (tan A – tan B) / (1 + tan A tan B).",
+      "broader_concept": "Angle Addition and Subtraction Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "9b94798a-8007-4a1f-a324-8710ddb3001d",
+      "label": "Double Angle Formula for Sine",
+      "group": "Trigonometry",
+      "title": "Formula for sin(2A): sin 2A = 2 sin A cos A.",
+      "broader_concept": "Double Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "77536e50-2487-4da2-a2dd-f2d5514f74f0",
+      "label": "Double Angle Formula for Tangent",
+      "group": "Trigonometry",
+      "title": "Formula for tan(2A): tan 2A = (2 tan A) / (1 – tan^2 A).",
+      "broader_concept": "Double Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "7440907b-6487-4cd8-b6ff-dac930b973b2",
+      "label": "Alternative Double Angle Formula for Sine",
+      "group": "Trigonometry",
+      "title": "Alternative forms for sin(2A), such as sin 2A = 2 tan A / (1 + tan^2 A).",
+      "broader_concept": "Double Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "20122a21-9610-4a86-b68d-732dfcbd749e",
+      "label": "Alternative Double Angle Formula for Cosine",
+      "group": "Trigonometry",
+      "title": "Alternative forms for cos(2A), such as cos 2A = 1 – 2 sin^2 A or cos 2A = 2 cos^2 A – 1.",
+      "broader_concept": "Double Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "640159ad-cfbc-4771-b954-2ace495c2d5d",
+      "label": "Half Angle Formula for Cosine",
+      "group": "Trigonometry",
+      "title": "Formula for cos^2 A in terms of cos 2A: cos^2 A = ½ (1 + cos 2A).",
+      "broader_concept": "Half Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "02932e06-92a7-459a-a40c-5f6d8d192131",
+      "label": "Half Angle Formula for Sine",
+      "group": "Trigonometry",
+      "title": "Formula for sin^2 A in terms of cos 2A: sin^2 A = ½ (1 – cos 2A).",
+      "broader_concept": "Half Angle Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "0c80cd97-69cf-48b6-8efc-e8ae1263b064",
+      "label": "Product-to-Sum Formula for Cosine",
+      "group": "Trigonometry",
+      "title": "Formula: 2 cos A cos B = cos(A+B) + cos(A–B).",
+      "broader_concept": "Product-to-Sum Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "29695f2d-1f04-406d-9ff6-314cc8122553",
+      "label": "Product-to-Sum Formula for Sine and Cosine",
+      "group": "Trigonometry",
+      "title": "Formula: 2 sin A cos B = sin(A+B) + sin(A–B).",
+      "broader_concept": "Product-to-Sum Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "eaa4302a-8f22-41a2-9346-25ce9aba9cb6",
+      "label": "Product-to-Sum Formula for Sine",
+      "group": "Trigonometry",
+      "title": "Formula: 2 sin A sin B = cos(A–B) – cos(A+B).",
+      "broader_concept": "Product-to-Sum Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "a489c66d-c4a9-4535-a284-97c3577a7677",
+      "label": "Product-to-Sum Formula for Cosine and Sine",
+      "group": "Trigonometry",
+      "title": "Formula: 2 cos A sin B = sin(A+B) – sin(A–B).",
+      "broader_concept": "Product-to-Sum Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "f78b6d3b-2cc9-469e-b817-c58bf1f0c9e3",
+      "label": "Sum-to-Product Formula for Cosine",
+      "group": "Trigonometry",
+      "title": "Formula: cos A + cos B = 2 cos((A+B)/2) cos((A–B)/2).",
+      "broader_concept": "Sum-to-Product Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "876e78ae-75bc-4877-a020-6579ddc31c06",
+      "label": "Difference-to-Product Formula for Cosine",
+      "group": "Trigonometry",
+      "title": "Formula: cos A – cos B = –2 sin((A+B)/2) sin((A–B)/2).",
+      "broader_concept": "Sum-to-Product Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "51216520-0281-4846-b759-90dd5da81e80",
+      "label": "Sum-to-Product Formula for Sine",
+      "group": "Trigonometry",
+      "title": "Formula: sin A + sin B = 2 sin((A+B)/2) cos((A–B)/2).",
+      "broader_concept": "Sum-to-Product Formulas",
+      "grade_level": "High",
+      "difficulty": "Advanced"
+    }
+  ],
+  "edges": [
+    {
+      "from": "dd8a1153-06d4-4de7-8e62-bb583a20a8ef",
+      "to": "6f27803f-4b5a-40ea-aa92-3a6078d40eb3",
+      "strength": 1.0
+    },
+    {
+      "from": "dd8a1153-06d4-4de7-8e62-bb583a20a8ef",
+      "to": "20122a21-9610-4a86-b68d-732dfcbd749e",
+      "strength": 1.0
+    },
+    {
+      "from": "dd8a1153-06d4-4de7-8e62-bb583a20a8ef",
+      "to": "640159ad-cfbc-4771-b954-2ace495c2d5d",
+      "strength": 1.0
+    },
+    {
+      "from": "dd8a1153-06d4-4de7-8e62-bb583a20a8ef",
+      "to": "02932e06-92a7-459a-a40c-5f6d8d192131",
+      "strength": 1.0
+    },
+    {
+      "from": "7257132b-f2e3-4c23-9c45-071f525f54ed",
+      "to": "9b94798a-8007-4a1f-a324-8710ddb3001d",
+      "strength": 0.9
+    },
+    {
+      "from": "7257132b-f2e3-4c23-9c45-071f525f54ed",
+      "to": "7440907b-6487-4cd8-b6ff-dac930b973b2",
+      "strength": 0.8
+    },
+    {
+      "from": "9b94798a-8007-4a1f-a324-8710ddb3001d",
+      "to": "7440907b-6487-4cd8-b6ff-dac930b973b2",
+      "strength": 0.8
+    },
+    {
+      "from": "6f27803f-4b5a-40ea-aa92-3a6078d40eb3",
+      "to": "20122a21-9610-4a86-b68d-732dfcbd749e",
+      "strength": 0.9
+    },
+    {
+      "from": "6f27803f-4b5a-40ea-aa92-3a6078d40eb3",
+      "to": "640159ad-cfbc-4771-b954-2ace495c2d5d",
+      "strength": 0.9
+    },
+    {
+      "from": "6f27803f-4b5a-40ea-aa92-3a6078d40eb3",
+      "to": "02932e06-92a7-459a-a40c-5f6d8d192131",
+      "strength": 0.9
+    },
+    {
+      "from": "becf0450-b5f3-4b57-9027-625837a07064",
+      "to": "6f27803f-4b5a-40ea-aa92-3a6078d40eb3",
+      "strength": 0.8
+    },
+    {
+      "from": "0a823d77-999e-4bf3-83b8-24344dc74778",
+      "to": "6f27803f-4b5a-40ea-aa92-3a6078d40eb3",
+      "strength": 0.8
+    },
+    {
+      "from": "7257132b-f2e3-4c23-9c45-071f525f54ed",
+      "to": "29695f2d-1f04-406d-9ff6-314cc8122553",
+      "strength": 0.8
+    },
+    {
+      "from": "a8eb478b-0693-4f3e-ba06-7ee1b6933272",
+      "to": "29695f2d-1f04-406d-9ff6-314cc8122553",
+      "strength": 0.8
+    },
+    {
+      "from": "0a823d77-999e-4bf3-83b8-24344dc74778",
+      "to": "0c80cd97-69cf-48b6-8efc-e8ae1263b064",
+      "strength": 0.8
+    },
+    {
+      "from": "becf0450-b5f3-4b57-9027-625837a07064",
+      "to": "0c80cd97-69cf-48b6-8efc-e8ae1263b064",
+      "strength": 0.8
+    },
+    {
+      "from": "7257132b-f2e3-4c23-9c45-071f525f54ed",
+      "to": "eaa4302a-8f22-41a2-9346-25ce9aba9cb6",
+      "strength": 0.7
+    },
+    {
+      "from": "a8eb478b-0693-4f3e-ba06-7ee1b6933272",
+      "to": "eaa4302a-8f22-41a2-9346-25ce9aba9cb6",
+      "strength": 0.7
+    },
+    {
+      "from": "7257132b-f2e3-4c23-9c45-071f525f54ed",
+      "to": "a489c66d-c4a9-4535-a284-97c3577a7677",
+      "strength": 0.7
+    },
+    {
+      "from": "a8eb478b-0693-4f3e-ba06-7ee1b6933272",
+      "to": "a489c66d-c4a9-4535-a284-97c3577a7677",
+      "strength": 0.7
+    },
+    {
+      "from": "f78b6d3b-2cc9-469e-b817-c58bf1f0c9e3",
+      "to": "876e78ae-75bc-4877-a020-6579ddc31c06",
+      "strength": 0.8
+    }
+  ]
+}

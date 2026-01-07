@@ -1,0 +1,205 @@
+{
+  "concepts": [
+    {
+      "name": "Chemical Equation Balancing Using Oxidation Numbers",
+      "explanation": "A systematic method to balance redox chemical equations by assigning oxidation numbers to elements and ensuring atoms and charges are balanced.",
+      "broader_concept": "Balancing Chemical Equations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Advanced",
+      "confidence_score": 1,
+      "id": "4f99a84c-a395-47cf-81b1-323d963753f8"
+    },
+    {
+      "name": "Calculation of Equilibrium Constant Expressions",
+      "explanation": "Formulating and calculating the equilibrium constant (Kc) for a chemical reaction using equilibrium concentrations of reactants and products.",
+      "broader_concept": "Chemical Equilibrium Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Advanced",
+      "confidence_score": 1,
+      "id": "6eb069b4-bc67-40be-8ba9-22af17c4148a"
+    },
+    {
+      "name": "Application of Le Chatelier’s Principle",
+      "explanation": "Predicting shifts in chemical equilibrium position due to changes in concentration, pressure, or temperature based on Le Chatelier’s Principle.",
+      "broader_concept": "Chemical Equilibrium",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 1,
+      "id": "7d993a23-3b99-4a48-a113-114dddf5e2f3"
+    },
+    {
+      "name": "Calculation of pH of Strong Acids and Bases",
+      "explanation": "Using molar concentration and full dissociation assumption to calculate pH of strong acid and pOH then pH of strong base solutions.",
+      "broader_concept": "Acid-Base Equilibrium",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 1,
+      "id": "7b028fb0-0d9f-4ee5-a257-c0335ca59062"
+    },
+    {
+      "name": "Calculation of pH of Weak Acids and Bases Using Ka and Kb",
+      "explanation": "Calculating concentration of hydrogen or hydroxide ions and pH using acid or base dissociation constants and molar concentration with simplifying assumptions.",
+      "broader_concept": "Acid-Base Equilibrium",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Advanced",
+      "confidence_score": 1,
+      "id": "bd453d21-d7f8-4bfa-adfb-cfb4f5b85739"
+    },
+    {
+      "name": "Molarity and Number of Moles Relation in Solutions",
+      "explanation": "Formula relating number of moles, concentration in molarity (mol/L), and volume of solution in cm³ for solution calculations.",
+      "broader_concept": "Solution Concentration Calculations",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Basic",
+      "confidence_score": 1,
+      "id": "39ec3393-4b91-4fec-8a8d-46395ee24944"
+    },
+    {
+      "name": "Using Stoichiometric Ratios in Volumetric Analysis Calculations",
+      "explanation": "Using mole ratios from balanced chemical equations and volumes and concentrations of solutions to calculate unknown concentrations or volumes.",
+      "broader_concept": "Stoichiometry",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 1,
+      "id": "120f6abe-4eb7-4440-8253-b28cf7dedf0e"
+    },
+    {
+      "name": "Hess's Law for Enthalpy Calculation",
+      "explanation": "Calculating enthalpy changes for chemical reactions by summing enthalpy changes of multiple reaction steps or using heats of formation.",
+      "broader_concept": "Energy Changes in Reactions",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Advanced",
+      "confidence_score": 1,
+      "id": "654a6391-a813-4fc3-83dd-8bddfccbdd16"
+    },
+    {
+      "name": "Bond Enthalpy Calculations for Reaction Enthalpies",
+      "explanation": "Using average bond enthalpy values to calculate total energy required for bond breaking and energy released from bond formation to find reaction enthalpy.",
+      "broader_concept": "Energy Changes in Reactions",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Advanced",
+      "confidence_score": 1,
+      "id": "e01b9b7b-eed3-4277-9e2b-3742d191130e"
+    },
+    {
+      "name": "Defining Rate of Reaction and Instantaneous Rate",
+      "explanation": "Defining rate of reaction as change in concentration per unit time and measuring instantaneous rate as slope of tangent at a particular time on concentration-time graph.",
+      "broader_concept": "Reaction Kinetics",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 1,
+      "id": "36ccf33d-5dea-4338-a1ce-88131371608e"
+    },
+    {
+      "name": "Factors Affecting Rate of Reaction",
+      "explanation": "Understanding and applying effects of nature of reactants, surface area, concentration, temperature, catalysts, and pressure on reaction rates.",
+      "broader_concept": "Reaction Kinetics",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 0.95,
+      "id": "0aed59a9-90b2-42b1-b47e-738dc82be5ee"
+    },
+    {
+      "name": "Concept of Activation Energy and Collision Theory",
+      "explanation": "Activation energy is minimum collision energy needed for reaction; collision theory explains rate of reaction depends on frequency of effective collisions exceeding this energy.",
+      "broader_concept": "Reaction Kinetics",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Advanced",
+      "confidence_score": 1,
+      "id": "c39af8a2-25e0-4dc1-b338-2fa29dcad8de"
+    },
+    {
+      "name": "Calculation of Enthalpy of Neutralisation",
+      "explanation": "Calculating heat change when one mole of hydrogen ions reacts with hydroxide ions, using temperature change, heat capacity, volume and mole calculations.",
+      "broader_concept": "Energy Changes in Reactions",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 1,
+      "id": "01729d5e-6f79-46ad-8b09-c1c62f0745f2"
+    },
+    {
+      "name": "Calculation of Heat of Combustion",
+      "explanation": "Measuring energy released when one mole of a fuel burns completely in oxygen, using temperature change of water, specific heat capacity and mass of fuel burned.",
+      "broader_concept": "Energy Changes in Reactions",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 1,
+      "id": "4479654d-d12a-46a8-91e0-8252a0c882f0"
+    },
+    {
+      "name": "Standard Electrode Potential and Electrochemical Series",
+      "explanation": "Standard electrode potential is the voltage of a metal half-cell compared to the hydrogen half-cell; the electrochemical series orders metals by their tendency to be oxidized.",
+      "broader_concept": "Electrochemistry",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 1,
+      "id": "b14ece1d-74e4-4987-b133-f67553207a99"
+    },
+    {
+      "name": "Operation and Reactions in Lithium-Ion Cells",
+      "explanation": "Understanding oxidation at carbonaceous anode, reduction at cobalt oxide cathode, lithium ion movement through electrolyte, and the overall redox process in lithium-ion batteries.",
+      "broader_concept": "Electrochemistry",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Advanced",
+      "confidence_score": 1,
+      "id": "636ea189-fe94-4e40-ad6b-e64346265e64"
+    },
+    {
+      "name": "Voltage and Electron Flow in Galvanic Cells",
+      "explanation": "Generation of electrical energy via redox reactions in two half-cells, with electron flow from anode (oxidation) to cathode (reduction) through external circuit.",
+      "broader_concept": "Electrochemistry",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 1,
+      "id": "c1575ae5-bd3c-40bd-8bcd-68462aad5bb0"
+    },
+    {
+      "name": "Electrolysis of Water and Electrolytic Cells",
+      "explanation": "Using electric current to drive non-spontaneous chemical reactions in electrolytic cells; water electrolysis produces hydrogen and oxygen gases at cathode and anode.",
+      "broader_concept": "Electrochemistry",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 1,
+      "id": "1b4f9a8f-3984-453b-9401-ae7459b8d311"
+    },
+    {
+      "name": "Calculation of Number of Moles from Mass and Relative Molecular Mass",
+      "explanation": "Converting mass of a substance to number of moles using the formula: moles = mass / relative molecular mass.",
+      "broader_concept": "Stoichiometry",
+      "strand": "Algebra",
+      "grade_level": "Middle_High",
+      "difficulty": "Basic",
+      "confidence_score": 1,
+      "id": "657162d4-dae2-41a2-909a-55730bdcca93"
+    },
+    {
+      "name": "Calculation of Ionic Product of Water and pH",
+      "explanation": "Using Kw = [H+][OH-] to calculate pH and understand the relationship between hydrogen ion concentration, hydroxide ion concentration, and neutral pH.",
+      "broader_concept": "Acid-Base Equilibrium",
+      "strand": "Algebra",
+      "grade_level": "High",
+      "difficulty": "Intermediate",
+      "confidence_score": 1,
+      "id": "a14caf8e-ae83-40ab-bb59-a57fcc1facfe"
+    }
+  ],
+  "relationships": []
+}

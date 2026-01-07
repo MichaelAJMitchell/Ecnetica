@@ -14,11 +14,32 @@ Welcome to our comprehensive mathematics course! This page serves as your main n
 
 ```{raw} html
 <script>
+// BASE_PATH is provided by theme.js which loads before this script
+// If theme.js hasn't loaded for some reason, compute it here
+var _basePath = (typeof BASE_PATH !== 'undefined') ? BASE_PATH : (function() {
+    const htmlElement = document.documentElement;
+    const contentRoot = htmlElement.getAttribute('data-content_root');
+    
+    if (contentRoot) {
+        const currentPath = window.location.pathname;
+        const pathParts = currentPath.split('/').filter(p => p);
+        const upLevels = (contentRoot.match(/\.\.\//g) || []).length;
+        const baseParts = pathParts.slice(0, pathParts.length - upLevels - 1);
+        return '/' + baseParts.join('/') + (baseParts.length > 0 ? '/' : '');
+    }
+    
+    if (window.location.pathname.startsWith('/Ecnetica/')) {
+        return '/Ecnetica/';
+    }
+    
+    return '/';
+})();
+
 // Function to load and display course structure
 async function loadCourseStructure() {
   try {
-    // Load the course structure JSON file
-    const response = await fetch('/Ecnetica/_static/course_structure.json');
+    // Load the course structure JSON file using dynamic base path
+    const response = await fetch(_basePath + '_static/course_structure.json');
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -66,6 +87,11 @@ function generateCourseHTML(structure) {
   return html;
 }
 
+// Helper to build full URL with base path
+function buildUrl(path) {
+  return path.startsWith('/') ? path : _basePath + path;
+}
+
 // Function to generate HTML for section content (recursive)
 function generateSectionHTML(content) {
   let html = '';
@@ -74,7 +100,7 @@ function generateSectionHTML(content) {
     // This is a direct link
     const pageName = content.split('/').pop().replace('.html', '').replace(/_/g, ' ');
     html += `<div class="course-content-item">
-      <a href="${content}" class="course-content-link">${pageName}</a>
+      <a href="${buildUrl(content)}" class="course-content-link">${pageName}</a>
     </div>`;
   } else if (typeof content === 'object') {
     // This is a nested structure
@@ -82,7 +108,7 @@ function generateSectionHTML(content) {
       if (typeof value === 'string') {
         // Direct link
         html += `<div class="course-content-item">
-          <a href="${value}" class="course-content-link">${key}</a>
+          <a href="${buildUrl(value)}" class="course-content-link">${key}</a>
         </div>`;
       } else {
         // Nested subsection

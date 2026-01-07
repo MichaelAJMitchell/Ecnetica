@@ -1,3 +1,35 @@
+// Utility function to get the base path for the site
+// Works both locally (/) and on GitHub Pages (/Ecnetica/)
+function getBasePath() {
+    // Try to get from Sphinx's content_root data attribute
+    const htmlElement = document.documentElement;
+    const contentRoot = htmlElement.getAttribute('data-content_root');
+    
+    if (contentRoot) {
+        // contentRoot is relative (e.g., "../" or "../../"), convert to absolute
+        const currentPath = window.location.pathname;
+        const pathParts = currentPath.split('/').filter(p => p);
+        
+        // Count how many levels up we need to go
+        const upLevels = (contentRoot.match(/\.\.\//g) || []).length;
+        
+        // Build the base path
+        const baseParts = pathParts.slice(0, pathParts.length - upLevels - 1);
+        return '/' + baseParts.join('/') + (baseParts.length > 0 ? '/' : '');
+    }
+    
+    // Fallback: detect from URL - check if we're under /Ecnetica/
+    if (window.location.pathname.startsWith('/Ecnetica/')) {
+        return '/Ecnetica/';
+    }
+    
+    // Default to root
+    return '/';
+}
+
+// Get the base path once for use throughout the script
+const BASE_PATH = getBasePath();
+
 // Ensure the DOM is fully loaded before running scripts
 document.addEventListener('DOMContentLoaded', function() {
     createEnhancedThemeToggle();
@@ -85,8 +117,8 @@ function createEnhancedThemeToggle() {
 
 async function createCourseNavigator() {
     try {
-        // Load course structure from JSON file
-        const response = await fetch('/Ecnetica/_static/course_structure.json');
+        // Load course structure from JSON file using dynamic base path
+        const response = await fetch(BASE_PATH + '_static/course_structure.json');
         if (!response.ok) {
             throw new Error(`Failed to load course structure: ${response.status}`);
         }
@@ -104,11 +136,11 @@ async function createCourseNavigator() {
         console.log('Falling back to hardcoded course structure');
         const fallbackStructure = {
             'Introduction': {
-                'Course Overview': '/Ecnetica/content/introduction/course_overview.html',
-                'Knowledge Graph': '/Ecnetica/content/knowledge-graph.html'
+                'Course Overview': BASE_PATH + 'content/introduction/course_overview.html',
+                'Knowledge Graph': BASE_PATH + 'content/knowledge-graph.html'
             },
             'Interactive Tools': {
-                'Comprehensive MCQS Demo': '/Ecnetica/content/interactive/full_mcqs_demo.html',
+                'Comprehensive MCQS Demo': BASE_PATH + 'content/interactive/full_mcqs_demo.html',
             }
         };
         
@@ -213,14 +245,15 @@ function buildNavigationTree(structure, level = 0) {
         item.style.marginLeft = `${level * 15}px`;
 
         if (typeof value === 'string') {
-            // It's a link
+            // It's a link - prepend BASE_PATH for portability
             const link = document.createElement('a');
-            link.href = value;
+            // Handle both absolute paths (starting with /) and relative paths
+            link.href = value.startsWith('/') ? value : BASE_PATH + value;
             link.textContent = key;
             link.className = 'nav-item-link';
 
             // Highlight current page
-            if (window.location.pathname.includes(value)) {
+            if (window.location.pathname.includes(value.replace(/^\//, ''))) {
                 link.classList.add('current-page');
             }
 
@@ -400,24 +433,25 @@ function closeNavigator() {
 
 function createInteractiveToolsFinder() {
     // Interactive tools structure - simplified since there are only a few tools
+    // Uses dynamic BASE_PATH for portability between local and deployed environments
     const interactiveTools = {
         'BKT Simple Demo': {
-            url: '/Ecnetica/content/interactive/BKT_Simple_Demo.html',
+            url: BASE_PATH + 'content/interactive/BKT_Simple_Demo.html',
             description: 'Bayesian Knowledge Tracing demonstration',
             icon: '🧠'
         },
         'BKT FSRS Demo': {
-            url: '/Ecnetica/content/interactive/BKT_FSRS_Demo.html',
+            url: BASE_PATH + 'content/interactive/BKT_FSRS_Demo.html',
             description: 'FSRS-based spaced repetition demo',
             icon: '⏳'
         },
         'MCQ Breakdown Demo': {
-            url: '/Ecnetica/content/interactive/MCQ_Breakdown_Demo.html',
+            url: BASE_PATH + 'content/interactive/MCQ_Breakdown_Demo.html',
             description: 'Multiple Choice Question breakdown tool',
             icon: '❓'
         },
         'Comprehensive MCQS Demo': {
-            url: '/Ecnetica/content/interactive/full_mcqs_demo.html',
+            url: BASE_PATH + 'content/interactive/full_mcqs_demo.html',
             description: 'Revision Area showing statstics updates',
             icon: '📚'
         },

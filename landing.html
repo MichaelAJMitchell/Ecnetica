@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecnetica - Leaving Certificate Study Hub</title>
+    <link rel="icon" type="image/png" href="maths/_static/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0f1a;
+            --bg-secondary: #111827;
+            --bg-card: #1a2332;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent-maths: #60a5fa;
+            --accent-physics: #a78bfa;
+            --accent-chemistry: #34d399;
+            --accent-maths-glow: rgba(96, 165, 250, 0.3);
+            --accent-physics-glow: rgba(167, 139, 250, 0.3);
+            --accent-chemistry-glow: rgba(52, 211, 153, 0.3);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-pattern::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 20% 80%, var(--accent-maths-glow) 0%, transparent 40%),
+                radial-gradient(circle at 80% 20%, var(--accent-physics-glow) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, var(--accent-chemistry-glow) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(2%, 2%) rotate(2deg); }
+            50% { transform: translate(-1%, 3%) rotate(-1deg); }
+            75% { transform: translate(-2%, -1%) rotate(1deg); }
+        }
+
+        /* Grid pattern overlay */
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 20px rgba(96, 165, 250, 0.3));
+        }
+
+        .brand-name {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 1.35rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 1rem;
+            line-height: 1.6;
+        }
+
+        .subtitle {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+
+        /* Subject Grid */
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .subject-card {
+            position: relative;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 2.5rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .subject-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            border-radius: 24px 24px 0 0;
+            transition: height 0.4s ease;
+        }
+
+        .subject-card.maths::before {
+            background: linear-gradient(90deg, var(--accent-maths), #3b82f6);
+        }
+
+        .subject-card.physics::before {
+            background: linear-gradient(90deg, var(--accent-physics), #8b5cf6);
+        }
+
+        .subject-card.chemistry::before {
+            background: linear-gradient(90deg, var(--accent-chemistry), #10b981);
+        }
+
+        .subject-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
+        }
+
+        .subject-card:hover::before {
+            height: 6px;
+        }
+
+        .subject-card.maths:hover {
+            box-shadow: 0 25px 60px -15px var(--accent-maths-glow);
+        }
+
+        .subject-card.physics:hover {
+            box-shadow: 0 25px 60px -15px var(--accent-physics-glow);
+        }
+
+        .subject-card.chemistry:hover {
+            box-shadow: 0 25px 60px -15px var(--accent-chemistry-glow);
+        }
+
+        .subject-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .maths .subject-icon {
+            background: linear-gradient(135deg, var(--accent-maths), #3b82f6);
+        }
+
+        .physics .subject-icon {
+            background: linear-gradient(135deg, var(--accent-physics), #8b5cf6);
+        }
+
+        .chemistry .subject-icon {
+            background: linear-gradient(135deg, var(--accent-chemistry), #10b981);
+        }
+
+        .subject-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .maths .subject-title { color: var(--accent-maths); }
+        .physics .subject-title { color: var(--accent-physics); }
+        .chemistry .subject-title { color: var(--accent-chemistry); }
+
+        .subject-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .subject-stats {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stat-icon {
+            opacity: 0.7;
+        }
+
+        .subject-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .badge-available {
+            background: rgba(52, 211, 153, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(52, 211, 153, 0.3);
+        }
+
+        .badge-coming-soon {
+            background: rgba(251, 191, 36, 0.15);
+            color: #fbbf24;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+        }
+
+        .subject-card.coming-soon {
+            opacity: 0.7;
+            cursor: default;
+        }
+
+        .subject-card.coming-soon:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 12px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .maths .cta-button {
+            background: rgba(96, 165, 250, 0.15);
+            color: var(--accent-maths);
+            border: 1px solid rgba(96, 165, 250, 0.3);
+        }
+
+        .maths .cta-button:hover {
+            background: var(--accent-maths);
+            color: var(--bg-primary);
+        }
+
+        .physics .cta-button, .chemistry .cta-button {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+        }
+
+        .arrow-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .subject-card:hover .arrow-icon {
+            transform: translateX(4px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--text-primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .subjects-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .brand-name {
+                font-size: 2.5rem;
+            }
+
+            .logo {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .brand-name {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            .subject-card {
+                padding: 1.5rem;
+            }
+
+            .subject-stats {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .logo-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="grid-overlay"></div>
+    
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <img src="maths/_static/logo.png" alt="Ecnetica Logo" class="logo">
+                <h1 class="brand-name">Ecnetica</h1>
+            </div>
+            <p class="tagline">Premium Leaving Certificate study resources, completely free. Master Higher Level subjects with expert-crafted content, interactive tools, and personalised learning.</p>
+            <p class="subtitle">By The Problem Solving Association</p>
+        </header>
+
+        <main>
+            <div class="subjects-grid">
+                <!-- Mathematics -->
+                <a href="maths/content/index.html" class="subject-card maths">
+                    <span class="subject-badge badge-available">Available Now</span>
+                    <div class="subject-icon">∑</div>
+                    <h2 class="subject-title">Mathematics</h2>
+                    <p class="subject-description">
+                        Comprehensive coverage of the entire Higher Level Maths curriculum. From algebra to calculus, with interactive visualizations and worked examples.
+                    </p>
+                    <div class="subject-stats">
+                        <span class="stat">
+                            <span class="stat-icon">📚</span>
+                            18 Topics
+                        </span>
+                        <span class="stat">
+                            <span class="stat-icon">📝</span>
+                            215+ Pages
+                        </span>
+                        <span class="stat">
+                            <span class="stat-icon">🎯</span>
+                            3000+ Microconcepts
+                        </span>
+                    </div>
+                    <div style="margin-top: 1.5rem;">
+                        <span class="cta-button">
+                            Start Learning
+                            <span class="arrow-icon">→</span>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Physics -->
+                <div class="subject-card physics coming-soon">
+                    <span class="subject-badge badge-coming-soon">Coming Soon</span>
+                    <div class="subject-icon">⚛</div>
+                    <h2 class="subject-title">Physics</h2>
+                    <p class="subject-description">
+                        Master the fundamentals of motion, electricity, waves, and modern physics. Visual simulations bring abstract concepts to life.
+                    </p>
+                    <div class="subject-stats">
+                        <span class="stat">
+                            <span class="stat-icon">📚</span>
+                            12 Topics
+                        </span>
+                        <span class="stat">
+                            <span class="stat-icon">🔬</span>
+                            Lab Experiments
+                        </span>
+                        <span class="stat">
+                            <span class="stat-icon">📊</span>
+                            Interactive Sims
+                        </span>
+                    </div>
+                    <div style="margin-top: 1.5rem;">
+                        <span class="cta-button">
+                            Notify Me
+                            <span class="arrow-icon">→</span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Chemistry -->
+                <div class="subject-card chemistry coming-soon">
+                    <span class="subject-badge badge-coming-soon">Coming Soon</span>
+                    <div class="subject-icon">⚗</div>
+                    <h2 class="subject-title">Chemistry</h2>
+                    <p class="subject-description">
+                        Explore atomic structure, chemical bonding, organic chemistry, and more. Interactive molecular visualizations aid understanding.
+                    </p>
+                    <div class="subject-stats">
+                        <span class="stat">
+                            <span class="stat-icon">📚</span>
+                            10 Topics
+                        </span>
+                        <span class="stat">
+                            <span class="stat-icon">🧪</span>
+                            Experiments
+                        </span>
+                        <span class="stat">
+                            <span class="stat-icon">🔬</span>
+                            3D Molecules
+                        </span>
+                    </div>
+                    <div style="margin-top: 1.5rem;">
+                        <span class="cta-button">
+                            Notify Me
+                            <span class="arrow-icon">→</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p class="footer-text">Democratizing education, one subject at a time.</p>
+            <div class="footer-links">
+                <a href="https://github.com/MichaelAJMitchell/Ecnetica" class="footer-link" target="_blank">GitHub</a>
+                <a href="mailto:contact@tpsa.ie" class="footer-link">Contact</a>
+                <a href="maths/index.html" class="footer-link">About Ecnetica</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+

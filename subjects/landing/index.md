@@ -16,9 +16,9 @@ Same Ecnetica experience across subjects — organised, interactive, and free.
     </div>
   </a>
 
-  <div class="subject-card coming-soon">
+  <a class="subject-card available" href="physics/content/index.html">
     <div class="card-header">
-      <span class="badge soon">Coming soon</span>
+      <span class="badge live">Available</span>
     </div>
     <h2 class="subject-title">Physics</h2>
     <p class="subject-desc">Foundations of motion, electricity, waves, and modern physics with visual simulations.</p>
@@ -26,11 +26,11 @@ Same Ecnetica experience across subjects — organised, interactive, and free.
       <span>🔬 Labs</span>
       <span>📊 Sims</span>
     </div>
-  </div>
+  </a>
 
-  <div class="subject-card coming-soon">
+  <a class="subject-card available" href="chemistry/content/index.html">
     <div class="card-header">
-      <span class="badge soon">Coming soon</span>
+      <span class="badge live">Available</span>
     </div>
     <h2 class="subject-title">Chemistry</h2>
     <p class="subject-desc">Atomic structure, bonding, and organic chemistry with molecular visualisations.</p>
@@ -38,7 +38,7 @@ Same Ecnetica experience across subjects — organised, interactive, and free.
       <span>⚗ Labs</span>
       <span>🧪 3D models</span>
     </div>
-  </div>
+  </a>
 </div>
 ```
 

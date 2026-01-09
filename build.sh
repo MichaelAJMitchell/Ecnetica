@@ -54,7 +54,7 @@ fi
 # Build Landing page
 echo ""
 echo "🏠 Building landing page..."
-cd subjects/landing
+cd shared/landing
 jupyter-book build . --path-output ../../_build/landing
 cd ../..
 # Copy just the index.html and its assets from landing build
@@ -76,7 +76,7 @@ echo "   ├── chemistry/"
 echo "   └── physics/"
 echo ""
 echo "To view locally:"
-echo "   cd _build/html && python -m http.server 8000"
+echo "   cd _build/html && python3 -m http.server 8000"
 echo "   Then open: http://localhost:8000"
 echo ""
 

@@ -1,5 +1,5 @@
-// Utility function to get the base path for the site
-// Works both locally (/) and on GitHub Pages (/Ecnetica/)
+// Utility function to get the base path for the subject
+// Works locally (/maths/) and on GitHub Pages (/Ecnetica/maths/)
 function getBasePath() {
     // Try to get from Sphinx's content_root data attribute
     const htmlElement = document.documentElement;
@@ -18,8 +18,21 @@ function getBasePath() {
         return '/' + baseParts.join('/') + (baseParts.length > 0 ? '/' : '');
     }
     
-    // Fallback: detect from URL - check if we're under /Ecnetica/
-    if (window.location.pathname.startsWith('/Ecnetica/')) {
+    // Fallback: detect from URL for multi-subject structure
+    const pathname = window.location.pathname;
+    
+    // Check for GitHub Pages deployment: /Ecnetica/maths/
+    if (pathname.startsWith('/Ecnetica/maths/')) {
+        return '/Ecnetica/maths/';
+    }
+    
+    // Check for local multi-subject: /maths/
+    if (pathname.startsWith('/maths/')) {
+        return '/maths/';
+    }
+    
+    // Legacy fallback for old structure
+    if (pathname.startsWith('/Ecnetica/')) {
         return '/Ecnetica/';
     }
     

@@ -23,6 +23,20 @@ mkdir -p _build/html/maths
 # jupyter-book creates _build/maths/_build/html/ structure
 cp -r _build/maths/_build/html/* _build/html/maths/
 
+# Build MAths test (if content exists)
+if [ -f "subjects/maths_copy/content/index.md" ]; then
+    echo ""
+    echo "⚗️ Building Test..."
+    cd subjects/maths_copy
+    jupyter-book build . --path-output ../../_build/maths_copy
+    cd ../..
+    mkdir -p _build/html/maths_copy
+    cp -r _build/chemistry/_build/html/* _build/html/maths_copy/
+else
+    echo ""
+    echo "⚗️ Skipping TEST (no content yet)"
+fi
+
 # Build Chemistry (if content exists)
 if [ -f "subjects/chemistry/content/index.md" ]; then
     echo ""

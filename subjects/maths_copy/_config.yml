@@ -1,0 +1,97 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+title: Higher Level Mathematics - Ecnetica
+author: The Problem Solving Association C.L.G.
+logo: logo.png
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: force
+  hide_input: true
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
+
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - references.bib
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/MichaelAJMitchell/Ecnetica  # Online location of your book
+  path_to_book: ./  # Optional path to your book, relative to the repository root
+  branch: jb  # Which branch of the repository should be used when creating links (optional)
+
+# Disable launch buttons (including thebe) to prevent duplicate THEBE_JS_URL declarations
+launch_buttons:
+  thebe: false
+  notebook_interface: false
+  binderhub_url: ""
+  colab_url: ""
+
+# HTML settings - NO GitHub buttons
+html:
+ # baseurl: /Ecnetica/
+  extra_footer: "Copyright-info"
+  extra_css:
+    - "_static/style.css"
+    - "_static/jsxgraph.css"
+    - "_static/math_visualiser.css"
+  extra_js:
+    - "_static/theme.js"
+    - "_static/math_visualiser.js"
+    - "_static/jsxgraph-module.js"
+    - "_static/math.min.js"
+    - "_static/IdentityQuestions.js"
+
+sphinx:
+  config:
+    html_theme: pydata_sphinx_theme
+    html_theme_options:
+      navbar_start: ["navbar-logo"]
+      navbar_center: []
+      navbar_end: ["search-button"]
+      navbar_persistent: []
+
+      # Navigation settings
+      navigation_depth: 3
+      collapse_navigation: true
+      show_toc_level: 2
+      
+      # Logo and branding - appears in navbar AND sidebar
+      logo:
+        image_light: "logo.png"
+        image_dark: "logo.png"
+        text: "Ecnetica"
+      
+      # Sidebar configuration
+      primary_sidebar_end: []
+      secondary_sidebar_items: ["page-toc"]
+      
+      # Search
+      search_bar_text: "Search the docs..."
+      
+      # Navigation
+      show_prev_next: true
+      
+      # Source options disabled
+      use_edit_page_button: false
+      show_version_warning_banner: false
+      
+parse:
+  myst_enable_extensions:
+    - amsmath
+    - colon_fence
+    - deflist
+    - dollarmath
+    - html_admonition
+    - html_image
+    - linkify
+    - replacements
+    - smartquotes
+    - substitution
+    - tasklist
+  myst_url_schemes: [mailto, http, https]

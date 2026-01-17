@@ -8,13 +8,10 @@ This interactive visualization shows the relationships between chemistry concept
   <label for="strand-filter">Filter by Strand: </label>
   <select id="strand-filter">
     <option value="">All Strands</option>
-    <option value="Test">Algebra</option>
   </select>
   
   <button id="reset-view" style="margin-left: 10px;">Reset View</button>
   <button id="toggle-physics" style="margin-left: 10px;">Toggle Physics</button>
-  <button id="load-simplified" style="margin-left: 10px;">Load Small Dense Graph</button>
-  <button id="load-full" style="margin-left: 10px;">Load Full</button>
 </div>
 
 <div id="node-info" style="margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-radius: 4px; display: none;">
@@ -33,26 +30,21 @@ This interactive visualization shows the relationships between chemistry concept
 let network;
 let currentData = {nodes: [], edges: []};
 
-// Group color mapping
+// Group color mapping for chemistry strands
 function getGroupColor(group) {
     const colors = {
-        'Algebra': '#ff7675',
-        'Geometry': '#74b9ff',
-        'Trigonometry': '#55a3ff',
-        'Calculus': '#fd79a8',
-        'Number': '#00b894',
-        'Statistics': '#fdcb6e',
-        'Probability': '#e17055',
-        'Coordinate Geometry': '#a29bfe',
-        'Functions': '#fd79a8',
-        'Sequences and Series': '#00cec9',
-        'Complex Numbers': '#6c5ce7',
-        'Measurement': '#fdcb6e',
-        'Synthetic geometry': '#74b9ff',
-        'Transformation geometry': '#55a3ff',
-        'Differential Calculus': '#fd79a8',
-        'Integral Calculus': '#e84393',
-        'Counting and Probability': '#e17055'
+        'Periodic Table and Atomic Structure': '#ff7675',
+        'Chemical Bonding': '#74b9ff',
+        'Stoichiometry, Formulas and Equations': '#00b894',
+        'Organic Chemistry': '#fdcb6e',
+        'Rates of Reaction': '#e17055',
+        'Chemical Equilibrium': '#a29bfe',
+        'Acids and Bases': '#fd79a8',
+        'Oxidation and Reduction': '#00cec9',
+        'Electrochemistry': '#6c5ce7',
+        'Environmental Chemistry': '#55a3ff',
+        'Industrial Chemistry': '#e84393',
+        'Fuels and Thermochemistry': '#f39c12'
     };
     return colors[group] || '#636e72';
 }
@@ -111,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const node = currentData.nodes.find(n => n.id === nodeId);
             if (node) {
                 document.getElementById('node-title').textContent = node.label;
-                document.getElementById('node-description').textContent = node.label || 'No description available';
+                document.getElementById('node-description').textContent = node.title || 'No description available';
                 document.getElementById('node-strand').textContent = node.group || 'Unknown';
                 document.getElementById('node-info').style.display = 'block';
             }
@@ -164,59 +156,38 @@ document.addEventListener('DOMContentLoaded', function() {
         this.textContent = physicsEnabled ? 'Disable Physics' : 'Enable Physics';
     });
 
-    // Load simplified data
-    document.getElementById('load-simplified').addEventListener('click', function() {
-        loadGraphData('../../_static/graph-data-chem.json');
-    });
-
-    // Load full data
-    document.getElementById('load-full').addEventListener('click', function() {
-        loadGraphData('/_static/graph-data-chem.json');
-    });
-
-    // Load full data by default
-    loadGraphData('../../_static/graph-data-chem.json');
+    // Load graph data - path is relative from content/ to _static/
+    loadGraphData('../_static/graph-data-chem.json');
 });
 
 function loadGraphData(filename) {
     fetch(filename)
         .then(response => response.json())
-        .then(data => {
-            // Add initial positioning based on groups
-            const groupPositions = {
-                'Algebra': {x: -400, y: -200},
-                'Geometry': {x: 400, y: -200},
-                'Trigonometry': {x: 0, y: -400},
-                'Calculus': {x: 0, y: 400},
-                'Number': {x: -400, y: 200},
-                'Statistics': {x: 400, y: 200},
-                'Probability': {x: 400, y: 0},
-                'Coordinate Geometry': {x: 200, y: -300},
-                'Functions': {x: -200, y: 300},
-                'Sequences and Series': {x: -200, y: -300},
-                'Complex Numbers': {x: -300, y: 0},
-                'Measurement': {x: 300, y: -100},
-                'Synthetic geometry': {x: 300, y: -300},
-                'Transformation geometry': {x: 200, y: 300},
-                'Differential Calculus': {x: -100, y: 300},
-                'Integral Calculus': {x: 100, y: 300},
-                'Counting and Probability': {x: 300, y: 100}
-            };
+        .then(rawData => {
+            // Transform the data from concepts/relationships format to nodes/edges format
+            const nodes = (rawData.concepts || []).map(concept => ({
+                id: concept.id,
+                label: concept.name,
+                group: concept.strand,
+                title: concept.explanation || concept.name
+            }));
+            
+            const edges = (rawData.relationships || []).map(rel => ({
+                from: rel.prerequisite_concept_id,
+                to: rel.dependent_concept_id,
+                title: rel.relationship_type || ''
+            }));
+            
+            const data = { nodes, edges };
             
             // Apply group-based positioning and colors
             data.nodes.forEach(node => {
                 // Add color based on group
                 node.color = getGroupColor(node.group);
                 
-                // Add initial positioning with some randomness
-                if (groupPositions[node.group]) {
-                    node.x = groupPositions[node.group].x + (Math.random() - 0.5) * 150;
-                    node.y = groupPositions[node.group].y + (Math.random() - 0.5) * 150;
-                } else {
-                    // Random positioning for unknown groups
-                    node.x = (Math.random() - 0.5) * 800;
-                    node.y = (Math.random() - 0.5) * 800;
-                }
+                // Random positioning for groups
+                node.x = (Math.random() - 0.5) * 800;
+                node.y = (Math.random() - 0.5) * 800;
             });
             
             currentData = data;
@@ -246,26 +217,22 @@ function loadSimplifiedFallback() {
     // Fallback data if JSON files can't be loaded
     const fallbackData = {
         nodes: [
-            {id: '1', label: 'Natural Numbers', group: 'Number', title: 'Counting numbers starting from 1'},
-            {id: '2', label: 'Integers', group: 'Number', title: 'Whole numbers including negatives'},
-            {id: '3', label: 'Rational Numbers', group: 'Number', title: 'Numbers expressible as fractions'},
-            {id: '4', label: 'Complex Numbers', group: 'Number', title: 'Numbers with real and imaginary parts'},
-            {id: '5', label: 'Linear Equations', group: 'Algebra', title: 'First-degree equations'},
-            {id: '6', label: 'Quadratic Equations', group: 'Algebra', title: 'Second-degree equations'},
-            {id: '7', label: 'Trigonometric Functions', group: 'Trigonometry', title: 'Sine, cosine, tangent functions'},
-            {id: '8', label: 'Derivatives', group: 'Calculus', title: 'Rate of change of functions'},
-            {id: '9', label: 'Integration', group: 'Calculus', title: 'Antiderivatives and areas'},
-            {id: '10', label: 'Probability', group: 'Probability', title: 'Likelihood of events'}
+            {id: '1', label: 'Atomic Structure', group: 'Periodic Table and Atomic Structure', title: 'Structure of atoms including protons, neutrons, electrons'},
+            {id: '2', label: 'Electron Configuration', group: 'Periodic Table and Atomic Structure', title: 'Arrangement of electrons in atomic orbitals'},
+            {id: '3', label: 'Periodic Trends', group: 'Periodic Table and Atomic Structure', title: 'Patterns in properties across the periodic table'},
+            {id: '4', label: 'Chemical Bonding', group: 'Chemical Bonding', title: 'How atoms combine to form compounds'},
+            {id: '5', label: 'The Mole', group: 'Stoichiometry, Formulas and Equations', title: 'Avogadro\'s number and molar calculations'},
+            {id: '6', label: 'Balancing Equations', group: 'Stoichiometry, Formulas and Equations', title: 'Conservation of mass in chemical equations'},
+            {id: '7', label: 'Organic Chemistry', group: 'Organic Chemistry', title: 'Chemistry of carbon compounds'},
+            {id: '8', label: 'Rates of Reaction', group: 'Rates of Reaction', title: 'Factors affecting reaction speed'}
         ],
         edges: [
-            {from: '1', to: '2', title: 'Natural numbers extend to integers'},
-            {from: '2', to: '3', title: 'Integers extend to rational numbers'},
-            {from: '3', to: '4', title: 'Rational numbers extend to complex numbers'},
-            {from: '5', to: '6', title: 'Linear equations are prerequisite for quadratics'},
-            {from: '6', to: '8', title: 'Quadratic functions can be differentiated'},
-            {from: '8', to: '9', title: 'Integration is the reverse of differentiation'},
-            {from: '7', to: '8', title: 'Trigonometric functions can be differentiated'},
-            {from: '7', to: '9', title: 'Trigonometric functions can be integrated'}
+            {from: '1', to: '2', title: 'Atomic structure determines electron configuration'},
+            {from: '2', to: '3', title: 'Electron configuration explains periodic trends'},
+            {from: '2', to: '4', title: 'Electron configuration determines bonding'},
+            {from: '1', to: '5', title: 'Atomic mass relates to molar calculations'},
+            {from: '5', to: '6', title: 'Mole concept needed for balancing equations'},
+            {from: '4', to: '7', title: 'Bonding principles apply to organic compounds'}
         ]
     };
     

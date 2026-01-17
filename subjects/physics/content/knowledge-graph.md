@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const node = currentData.nodes.find(n => n.id === nodeId);
             if (node) {
                 document.getElementById('node-title').textContent = node.label;
-                document.getElementById('node-description').textContent = node.label || 'No description available';
+                document.getElementById('node-description').textContent = node.title || 'No description available';
                 document.getElementById('node-strand').textContent = node.group || 'Unknown';
                 document.getElementById('node-info').style.display = 'block';
             }
@@ -155,42 +155,38 @@ document.addEventListener('DOMContentLoaded', function() {
         this.textContent = physicsEnabled ? 'Disable Physics' : 'Enable Physics';
     });
 
-    // Load graph data
-    loadGraphData('../../_static/graph-data-physics.json');
+    // Load graph data - path is relative from content/ to _static/
+    loadGraphData('../_static/graph-data-physics.json');
 });
 
 function loadGraphData(filename) {
     fetch(filename)
         .then(response => response.json())
-        .then(data => {
-            // Add initial positioning based on groups
-            const groupPositions = {
-                'Mechanics': {x: -400, y: -200},
-                'Heat': {x: 400, y: -200},
-                'Waves': {x: 0, y: -400},
-                'Electricity': {x: -400, y: 200},
-                'Magnetism': {x: 400, y: 200},
-                'Modern Physics': {x: 0, y: 400},
-                'Atomic Physics': {x: -200, y: 300},
-                'Nuclear Physics': {x: 200, y: 300},
-                'Light': {x: 200, y: -300},
-                'Sound': {x: -200, y: -300}
-            };
+        .then(rawData => {
+            // Transform the data from concepts/relationships format to nodes/edges format
+            const nodes = (rawData.concepts || []).map(concept => ({
+                id: concept.id,
+                label: concept.name,
+                group: concept.strand,
+                title: concept.explanation || concept.name
+            }));
+            
+            const edges = (rawData.relationships || []).map(rel => ({
+                from: rel.prerequisite_concept_id,
+                to: rel.dependent_concept_id,
+                title: rel.relationship_type || ''
+            }));
+            
+            const data = { nodes, edges };
             
             // Apply group-based positioning and colors
             data.nodes.forEach(node => {
                 // Add color based on group
                 node.color = getGroupColor(node.group);
                 
-                // Add initial positioning with some randomness
-                if (groupPositions[node.group]) {
-                    node.x = groupPositions[node.group].x + (Math.random() - 0.5) * 150;
-                    node.y = groupPositions[node.group].y + (Math.random() - 0.5) * 150;
-                } else {
-                    // Random positioning for unknown groups
-                    node.x = (Math.random() - 0.5) * 800;
-                    node.y = (Math.random() - 0.5) * 800;
-                }
+                // Random positioning for groups
+                node.x = (Math.random() - 0.5) * 800;
+                node.y = (Math.random() - 0.5) * 800;
             });
             
             currentData = data;

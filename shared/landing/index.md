@@ -28,14 +28,6 @@ Same Ecnetica experience across subjects — organised, interactive, and free.
     </div>
   </a>
 
-  <a class="subject-card available" href="maths_copy/content/index.html">
-    <div class="card-header">
-      <span class="badge live">Available</span>
-    </div>
-    <h2 class="subject-title">Test</h2>
-    <p class="subject-desc">Test.</p>
-  </a>
-
   <a class="subject-card available" href="chemistry/content/index.html">
     <div class="card-header">
       <span class="badge live">Available</span>

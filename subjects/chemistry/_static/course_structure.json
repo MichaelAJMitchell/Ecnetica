@@ -1,5 +1,6 @@
 {
   "Introduction": {
+    "Course Overview": "content/introduction/course_overview.html",
     "Knowledge Graph": "content/knowledge-graph.html"
   }
 }

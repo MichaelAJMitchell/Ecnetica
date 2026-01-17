@@ -3,5 +3,5 @@ root: content/index
 parts:
   - caption: Introduction
     chapters:
-    - file: content/introduction/overview
-
+    - file: content/introduction/course_overview
+    - file: content/knowledge-graph

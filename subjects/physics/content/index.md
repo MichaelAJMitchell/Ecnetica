@@ -235,32 +235,11 @@ document.addEventListener('DOMContentLoaded', loadCourseStructure);
 function generateToolsBar(courseStructure) {
   const quickAccessTools = [
     {
-      title: 'Interactive Tools',
-      icon: '🔧',
-      items: [
-        { name: 'Comprehensive MCQ Demo', url: 'interactive/full_mcqs_demo.html', icon: '🧠' },
-        { name: 'BKT FSRS Demo', url: 'interactive/BKT_FSRS_Demo.html', icon: '⏳' },
-        { name: 'MCQ Breakdown Demo', url: 'interactive/MCQ_Breakdown_Demo.html', icon: '❓' }
-      ]
-    },
-    {
-      title: 'Core Subjects',
-      icon: '📚',
-      items: [
-        { name: 'Algebra', url: '#Algebra', icon: '🔢', isSection: true },
-        { name: 'Functions', url: '#Functions', icon: '📈', isSection: true },
-        { name: 'Calculus', url: '#Differential Calculus', icon: '∫', isSection: true },
-        { name: 'Statistics', url: '#Statistics', icon: '📊', isSection: true }
-      ]
-    },
-    {
       title: 'Study Tools',
       icon: '📖',
       items: [
-        { name: 'Course Overview', url: '/content/introduction/course_overview.html', icon: '📋' },
-        { name: 'Knowledge Graph', url: '/content/knowledge-graph.html', icon: '🕸️' },
-        { name: 'Practice Papers', url: '/content/exam_prep/practice_papers.html', icon: '📝' },
-        { name: 'Study Strategies', url: '/content/exam_prep/study_strategies.html', icon: '💡' }
+        { name: 'Course Overview', url: 'introduction/course_overview.html', icon: '📋' },
+        { name: 'Knowledge Graph', url: 'knowledge-graph.html', icon: '🕸️' }
       ]
     }
   ];

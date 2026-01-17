@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Load full data
     document.getElementById('load-full').addEventListener('click', function() {
-        loadGraphData('/_static/graph-data.json');
+        loadGraphData('../_static/graph-data.json');
     });
 
     // Load full data by default
